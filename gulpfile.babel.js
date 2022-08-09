@@ -71,7 +71,14 @@ const font = () => {
     return gulp
         .src([path.input("resources/fonts/*.{eot,otf,svg,ttf,woff,woff2}")], { allowEmpty: true })
         .pipe(gulp.dest(path.output("font")))
-}
+};
+
+const images = () => {
+    return gulp
+        .src([path.input("resources/images/*.{png,jpg,svg}")], { allowEmpty: true })
+        .pipe(gulp.dest(path.output("image")))
+
+};
 
 // const _guideHtml = () => {
 //     return gulp
@@ -97,7 +104,7 @@ const watch = () => {
     gulp.watch(path.input(`resources/js/**/**`), js);
 };
 
-const start = gulp.series([clean, js, css, html, font]);
+const start = gulp.series([clean, js, css, html, font, images]);
 
 export const dev = gulp.series([start, watch]); // package.json의 scripts에 작성한 "gulp dev" task
 export const build = gulp.series([start]);

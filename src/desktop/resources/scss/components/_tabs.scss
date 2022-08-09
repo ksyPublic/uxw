@@ -5,7 +5,12 @@ $root: tabs;
         display: flex;
         align-items: center;
 
-        >.button {}
+        >.button {
+            &[aria-selected="true"] {
+                background-color: color(blue, 300);
+                color: $white;
+            }
+        }
     }
 
     &__content {

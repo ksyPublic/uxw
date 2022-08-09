@@ -70,6 +70,9 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center; }
+  .tabs__list > .button[aria-selected="true"] {
+    background-color: #83b2e5;
+    color: #fff; }
 
 .tabs__content {
   display: none; }
@@ -79,7 +82,8 @@ button {
   width: 120px;
   height: 40px;
   border: 0;
-  font-size: 14px; }
+  font-size: 14px;
+  font-weight: 500; }
 
 .head {
   position: fixed;
