@@ -1,3 +1,3 @@
-import { plus } from "./components/utils";
-
-export { plus };
+document.addEventListener('DOMContentLoaded', function () {
+    console.log('start')
+})

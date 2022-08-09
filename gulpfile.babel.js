@@ -1,7 +1,8 @@
 import gulp from "gulp";
+import gulpInclude from "gulp-html-tag-include";
 import gulpSass from "gulp-sass";
 import gulpSourcemaps from "gulp-sourcemaps";
-import prettyHtml from "gulp-format-html";
+import { deleteAsync } from "del";
 import browserSync from "browser-sync";
 import nodeSass from "node-sass";
 import autoprefixer from "gulp-autoprefixer"; //scss to css
@@ -25,6 +26,10 @@ if (process.env.NODE_ENV !== "development") {
         })
     );
 }
+
+const clean = () => {
+    return deleteAsync([`development/**`, `production/**`]);
+};
 
 const js = () => {
     return gulp
@@ -53,26 +58,34 @@ const html = () => {
                 since: gulp.lastRun(html),
             }
         )
+        .pipe(gulpInclude())
         .pipe(gulp.dest(path.output("html") + "/pages/"))
         .pipe(devServer.stream());
 };
+
+// const _guideHtml = () => {
+//     return gulp
+//         .src(path.input(`_guide/${process.env.BUILD_TYPE === 'desktop' ? '_guide' : 'psg_portal'}/resources/**`), { allowEmpty: true })
+//         .pipe(gulp.dest(path.output(`html`) + `/_guide/${process.env.BUILD_TYPE === 'desktop' ? '_guide' : 'psg_portal'}/resources`));
+// };
 
 const watch = () => {
     devServer.init({
         open: true,
         port: 5500,
-        browser: `http://localhost:5500/pages/${process.env.BUILD_TYPE === "desktop" ? "index" : "guide_index"}.html`,
+        browser: `http://localhost:5500/pages/${process.env.BUILD_TYPE === "desktop" ? "index" : "guide_index"}.html`, //현재 guide_index.html은 설정하지않음
         server: {
             baseDir: destDir,
             directory: true,
         },
     });
-
-    gulp.watch(path.input("resources/pages/**/*.html"), gulp.series(html));
+    //변경감지를 위한 소스를 앞쪽에, 뒤에는 실행할 파일
+    gulp.watch(path.input("pages/**/*.html"), gulp.series([html]));
     gulp.watch(path.input(`resources/scss/*`), css);
     gulp.watch(path.input(`resources/js/**/**`), js);
 };
-
-const start = gulp.series([js, css, html]);
+// _guideHtml
+const start = gulp.series([clean, js, css, html]);
 
 export const dev = gulp.series([start, watch]); // package.json의 scripts에 작성한 "gulp dev" task
+export const build = gulp.series([start]);
