@@ -15,7 +15,23 @@
 <body>
     <div class="wrap">
         <header class="head">header</header>
-        <div class="main">main</div>
+        <div class="ly-container">
+            <!-- tabs -->
+            <div class="tabs" data-ui-tabs>
+                <div class="tabs__list">
+                    <button type="button" id="tab1" class="button" aria-controls="panel1" aria-selected="true" tabindex="0">탭1</button>
+                    <button type="button" id="tab2" class="button" aria-controls="panel2" aria-selected="false" tabindex="-1">탭2</button>
+                    <button type="button" id="tab3" class="button" aria-controls="panel3" aria-selected="false" tabindex="-1">탭3</button>
+                </div>
+
+                <div class="tabs__contents">
+                    <div id="panel1" class="tabs__content" aria-labelledby="tab1">test</div>
+                    <div id="panel2" class="tabs__content" aria-labelledby="tab2">test2</div>
+                    <div id="panel3" class="tabs__content" aria-labelledby="tab3">test3</div>
+                </div>
+            </div>
+            <!-- //tabs -->
+        </div>
         <footer class="foot">footer</footer>
     </div>
     <script type="module" src="../resources/js/uxw.ui.js" defer></script>

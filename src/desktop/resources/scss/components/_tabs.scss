@@ -1,0 +1,14 @@
+$root: tabs;
+
+.#{$root} {
+    &__list {
+        display: flex;
+        align-items: center;
+
+        >.button {}
+    }
+
+    &__content {
+        display: none;
+    }
+}

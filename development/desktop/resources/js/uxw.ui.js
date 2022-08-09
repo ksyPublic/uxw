@@ -9,8 +9,9 @@
 /***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
+// import { tabs } from 'panel/tabs.js';
 document.addEventListener('DOMContentLoaded', function () {
-  console.log('start');
+  console.log('????');
 });
 
 /***/ })
@@ -62,8 +63,7 @@ var __webpack_exports__ = {};
   \********************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _common_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./common.js */ "./src/desktop/resources/js/common.js");
-// import tabs from './components/panel/tabs.js';
- // export default tabs;
+
 }();
 /******/ })()
 ;

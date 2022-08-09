@@ -67,6 +67,12 @@ const html = () => {
         .pipe(devServer.stream());
 };
 
+const font = () => {
+    return gulp
+        .src([path.input("resources/fonts/*.{eot,otf,svg,ttf,woff,woff2}")], { allowEmpty: true })
+        .pipe(gulp.dest(path.output("font")))
+}
+
 // const _guideHtml = () => {
 //     return gulp
 //         .src(path.input(`_guide/${process.env.BUILD_TYPE === 'desktop' ? '_guide' : 'psg_portal'}/resources/**`), { allowEmpty: true })
@@ -76,20 +82,22 @@ const html = () => {
 const watch = () => {
     devServer.init({
         open: true,
-        port: 5500,
-        browser: `http://localhost:5500/pages/${process.env.BUILD_TYPE === "desktop" ? "index" : "guide_index"}.html`, //현재 guide_index.html은 설정하지않음
+        port: 5501,
+        browser: `http://localhost:5501/pages/${process.env.BUILD_TYPE === "desktop" ? "index" : "guide_index"}.html`, //현재 guide_index.html은 설정하지않음
         server: {
             baseDir: destDir,
             directory: true,
         },
     });
+
     //변경감지를 위한 소스를 앞쪽에, 뒤에는 실행할 파일
     gulp.watch(path.input("pages/**/*.html"), gulp.series([html]));
-    gulp.watch(path.input(`resources/scss/*`), css);
+    gulp.watch(path.input(`resources/fonts/*`), font);
+    gulp.watch(path.input(`resources/scss/**/*.scss`), css);
     gulp.watch(path.input(`resources/js/**/**`), js);
 };
 
-const start = gulp.series([clean, js, css, html]);
+const start = gulp.series([clean, js, css, html, font]);
 
 export const dev = gulp.series([start, watch]); // package.json의 scripts에 작성한 "gulp dev" task
 export const build = gulp.series([start]);

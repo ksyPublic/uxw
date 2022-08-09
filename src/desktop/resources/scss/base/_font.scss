@@ -1,0 +1,57 @@
+@charset "utf-8";
+
+/* font */
+@font-face {
+    font-family: 'noto'; // 볼드체 700
+    font-weight: 900;
+    font-display: fallback;
+    src: url('../fonts/NotoSansKR-Black.eot');
+    src: local('NotoSansKR-Black'),
+        url('../fonts/NotoSansKR-Black.woff2') format('woff2'),
+        url('../fonts/NotoSansKR-Black.woff') format('woff'),
+        url('../fonts/NotoSansKR-Black.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'noto'; // 미디엄체 500
+    font-weight: 500;
+    font-display: fallback;
+    src: url('../fonts/NotoSansKR-Medium.eot');
+    src: local('NotoSansKR-Medium'),
+        url('../fonts/NotoSansKR-Medium.woff2') format('woff2'),
+        url('../fonts/NotoSansKR-Medium.woff') format('woff'),
+        url('../fonts/NotoSansKR-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'noto'; // 레귤러체 400
+    font-weight: 400;
+    font-display: fallback;
+    src: url('../fonts/NotoSansKR-Regular.eot');
+    src: local('NotoSansKR-Regular'),
+        url('../fonts/NotoSansKR-Regular.woff2') format('woff2'),
+        url('../fonts/NotoSansKR-Regular.woff') format('woff'),
+        url('../fonts/NotoSansKR-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'noto'; // 라이트체 300
+    font-weight: 300;
+    font-display: fallback;
+    src: url('../fonts/NotoSansKR-Light.eot');
+    src: local('NotoSansKR-Light'),
+        url('../fonts/NotoSansKR-Light.woff2') format('woff2'),
+        url('../fonts/NotoSansKR-Light.woff') format('woff'),
+        url('../fonts/NotoSansKR-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'noto'; // 씬체 300
+    font-weight: 100;
+    font-display: fallback;
+    src: url('../fonts/NotoSansKR-Thin.eot');
+    src: local('NotoSansKR-Thin'),
+        url('../fonts/NotoSansKR-Thin.woff2') format('woff2'),
+        url('../fonts/NotoSansKR-Thin.woff') format('woff'),
+        url('../fonts/NotoSansKR-Thin.ttf') format('truetype');
+}

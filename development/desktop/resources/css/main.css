@@ -8,4 +8,109 @@
   border: 0;
   clip: rect(0, 0, 0, 0); }
 
+/* font */
+@font-face {
+  font-family: 'noto';
+  font-weight: 900;
+  font-display: fallback;
+  src: url("../fonts/NotoSansKR-Black.eot");
+  src: local("NotoSansKR-Black"), url("../fonts/NotoSansKR-Black.woff2") format("woff2"), url("../fonts/NotoSansKR-Black.woff") format("woff"), url("../fonts/NotoSansKR-Black.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'noto';
+  font-weight: 500;
+  font-display: fallback;
+  src: url("../fonts/NotoSansKR-Medium.eot");
+  src: local("NotoSansKR-Medium"), url("../fonts/NotoSansKR-Medium.woff2") format("woff2"), url("../fonts/NotoSansKR-Medium.woff") format("woff"), url("../fonts/NotoSansKR-Medium.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'noto';
+  font-weight: 400;
+  font-display: fallback;
+  src: url("../fonts/NotoSansKR-Regular.eot");
+  src: local("NotoSansKR-Regular"), url("../fonts/NotoSansKR-Regular.woff2") format("woff2"), url("../fonts/NotoSansKR-Regular.woff") format("woff"), url("../fonts/NotoSansKR-Regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'noto';
+  font-weight: 300;
+  font-display: fallback;
+  src: url("../fonts/NotoSansKR-Light.eot");
+  src: local("NotoSansKR-Light"), url("../fonts/NotoSansKR-Light.woff2") format("woff2"), url("../fonts/NotoSansKR-Light.woff") format("woff"), url("../fonts/NotoSansKR-Light.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'noto';
+  font-weight: 100;
+  font-display: fallback;
+  src: url("../fonts/NotoSansKR-Thin.eot");
+  src: local("NotoSansKR-Thin"), url("../fonts/NotoSansKR-Thin.woff2") format("woff2"), url("../fonts/NotoSansKR-Thin.woff") format("woff"), url("../fonts/NotoSansKR-Thin.ttf") format("truetype"); }
+
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+html,
+body {
+  margin: 0;
+  padding: 0; }
+
+body {
+  font-size: 16px;
+  font-family: 'noto', sans-serif;
+  font-weight: 400; }
+
+button {
+  cursor: pointer; }
+
+.tabs__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+.tabs__content {
+  display: none; }
+
+.button {
+  border-radius: 0;
+  width: 120px;
+  height: 40px;
+  border: 0;
+  font-size: 14px; }
+
+.head {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 80px;
+  background-color: #eee; }
+
+.ly-container {
+  margin-top: 80px; }
+
+.foot {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 80px;
+  background-color: #eee; }
+
 /*# sourceMappingURL=main.css.map */
