@@ -88,8 +88,10 @@ const watch = () => {
     gulp.watch(path.input(`resources/scss/*`), css);
     gulp.watch(path.input(`resources/js/**/**`), js);
 };
-// _guideHtml
+
 const start = gulp.series([clean, js, css, html]);
 
 export const dev = gulp.series([start, watch]); // package.json의 scripts에 작성한 "gulp dev" task
 export const build = gulp.series([start]);
+export const buildjs = gulp.series([clean, js]);
+export const buildcss = gulp.series([clean, css]);
