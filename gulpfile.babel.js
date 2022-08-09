@@ -77,8 +77,14 @@ const images = () => {
     return gulp
         .src([path.input("resources/images/*.{png,jpg,svg}")], { allowEmpty: true })
         .pipe(gulp.dest(path.output("image")))
-
 };
+
+//가이드 내부 resource 복사
+const _guideResourceCopy = () => {
+    //
+}
+
+
 
 // const _guideHtml = () => {
 //     return gulp
@@ -100,6 +106,7 @@ const watch = () => {
     //변경감지를 위한 소스를 앞쪽에, 뒤에는 실행할 파일
     gulp.watch(path.input("pages/**/*.html"), gulp.series([html]));
     gulp.watch(path.input(`resources/fonts/*`), font);
+    gulp.watch(path.input(`resources/images/*`), images);
     gulp.watch(path.input(`resources/scss/**/*.scss`), css);
     gulp.watch(path.input(`resources/js/**/**`), js);
 };
