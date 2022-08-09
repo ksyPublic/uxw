@@ -2,6 +2,7 @@ import gulp from "gulp";
 import gulpInclude from "gulp-html-tag-include";
 import gulpSass from "gulp-sass";
 import gulpSourcemaps from "gulp-sourcemaps";
+import formatHtml from "gulp-format-html";
 import { deleteAsync } from "del";
 import browserSync from "browser-sync";
 import nodeSass from "node-sass";
@@ -59,6 +60,9 @@ const html = () => {
             }
         )
         .pipe(gulpInclude())
+        .pipe(formatHtml({
+            "indent_size": 4,
+        }))
         .pipe(gulp.dest(path.output("html") + "/pages/"))
         .pipe(devServer.stream());
 };
