@@ -10,8 +10,7 @@
 
 __webpack_require__.r(__webpack_exports__);
 // import { tabs } from 'panel/tabs.js';
-document.addEventListener('DOMContentLoaded', function () {
-  console.log('????');
+document.addEventListener('DOMContentLoaded', function () {// console.log('????');
 });
 
 /***/ })

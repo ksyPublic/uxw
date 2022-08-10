@@ -1,4 +1,23 @@
-<include src="./_includes/header.html"></include>
-<include src="./_includes/main.html"></include>
-<include src="./_includes/footer.html"></include>
-    
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    @@include('./_includes/meta.html');
+
+    <title>UXW</title>
+
+</head>
+
+<body>
+    <div class="wrap">
+        @@include('./_includes/header.html')
+        @@include('./_includes/main.html')
+        @@include('./_includes/footer.html')
+    </div>
+    @@include('./_includes/scripts.html')
+
+</body>
+
+</html>
