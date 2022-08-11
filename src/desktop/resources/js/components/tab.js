@@ -1,6 +1,6 @@
-import UI from '../base/base-ui';
-import EventHandler from '../../vendor/EventHandler';
-import { dataSetToObject, getIndex } from '../../utils/dom-util';
+import UI from './base/base-ui';
+import EventHandler from '../vendor/EventHandler';
+import { dataSetToObject, getIndex } from '../utils/dom-util';
 
 // eslint-disable-next-line no-unused-vars
 const VERSION = '0.0.1';

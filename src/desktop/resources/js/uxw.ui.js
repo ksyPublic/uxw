@@ -1,6 +1,7 @@
 import 'element-closest-polyfill';
 import EventHandler from './vendor/EventHandler';
-import Tab from './components/panel/tab';
+import Tab from './components/tab';
+import Accordion from './components/accordion';
 import commonInit from './common';
 /**
  * UI 초기화 처리
@@ -22,9 +23,14 @@ Tab.GLOBAL_CONFIG = {
     activeClass: 'is-active',
 };
 
+Accordion.GLOBAL_CONFIG = {
+    activeClass: 'is-active',
+}
+
 const initialize = () => {
     // 탭
     UIInitializer('[data-ui-tab]', Tab);
+    UIInitializer('[data-ui-accordion]', Accordion);
     commonInit.initialize();
     return 'initialized';
 }
@@ -113,6 +119,7 @@ if (window.UXW) {
 const ui = {
     initialize,
     Tab,
+    Accordion,
     a11yChecker
 }
 

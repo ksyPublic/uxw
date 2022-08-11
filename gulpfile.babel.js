@@ -120,11 +120,12 @@ const _guideHtmlCopy = () => {
         .pipe(devServer.stream());
 }
 
+//가이드 제작 우선으로 SERVER임시 GUIDE로 오픈
 const watch = () => {
     devServer.init({
         open: true,
         port: 5501,
-        browser: `http://localhost:5501/pages/${process.env.BUILD_TYPE === "desktop" ? "index" : "guide_index"}.html`, //현재 guide_index.html은 설정하지않음
+        browser: `http://localhost:5501/${process.env.DEV_SERVER === "GUIDE" ? "/_guide/pages/index" : "/pages/index"}.html`, //현재 guide_index.html은 설정하지않음
         server: {
             baseDir: destDir,
             directory: true,

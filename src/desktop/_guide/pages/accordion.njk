@@ -1,0 +1,99 @@
+{% set title = "가이드 UXW 아코디언"%}
+{% extends "../templates/layout.njk" %}
+{% block content %}
+    <div class="guide-wrap">
+        <h2 class="ex-name">Accordion</h2>
+        <p>기존의 아코디언 사용이 아닌 단순링크, ajax통신을 통해 하나의 컨테이너만 사용하는 경우는 아래 링크를 참고해주세요.</p>
+        <div class="ex-content">
+            <div class="ex-title">
+                <h3>아코디언 구성 주의사항(웹 접근성 관련)</h3>
+                <p class="ex-desc" style="color: #ff0000"> 아래 예시는 마크업 구성 시 반드시 포함되어야 하는 속성을 설명하는 구조입니다. 실제 아코디언 구성 시에는 css style 구조에 맞는 마크업이 필요합니다.</p>
+                <p class="ex-desc">* 아코디언 헤더의 [aria-controls] => 아코디언 컨텐츠의 [id]와 매칭
+                <br>* 아코디언 헤더의 [id] => 아코디언 컨텐츠의 [aria-labelledby]와 매칭
+            </p>
+            </div>
+
+            <div class="ex-body">
+                <div class="ex-preview">
+                    <!-- accordion -->
+                    <div class="accordion" data-ui-accordion>
+                        <div class="accordion__list" role="accordionlist">
+                            <button type="button" role="accordion" id="accordion1" class="btn__accordion" aria-controls="acc-content1" aria-expanded="false">아코디언1</button>
+                            <div id="acc-content1" class="accordion__content" role="accordioncontent" aria-hidden="true" tabindex="-1"></div>
+                        </div>
+                        <div class="accordion__list" role="accordionlist">
+                            <button type="button" role="accordion" id="accordion2" class="btn__accordion" aria-controls="acc-content2" aria-expanded="false">아코디언2</button>
+                            <div id="acc-content1" class="accordion__content" role="accordioncontent" aria-hidden="true" tabindex="-1"></div>
+                        </div>
+                        <div class="accordion__list" role="accordionlist">
+                            <button type="button" role="accordion" id="accordion3" class="btn__accordion" aria-controls="acc-content3" aria-expanded="false">아코디언3</button>
+                            <div id="acc-content1" class="accordion__content" role="accordioncontent" aria-hidden="true" tabindex="-1"></div>
+                        </div>
+                        <!-- //accordion -->
+                    </div>
+
+                    <div class="html-view">
+                        <pre>
+                    <code class="ex-code-block render-html">
+                    <div class="tabs">
+                        <div class="tabs__list" role="tablist">
+                            <button type="button" id="{tab_header_id}" class="button" aria-controls="{tab_panel_id}" aria-selected="true">아코디언1</button>
+                            <button type="button" id="{tab_header_id}" class="button" aria-controls="{tab_panel_id}" aria-selected="false">아코디언2</button>
+                            <button type="button" id="{tab_header_id}" class="button" aria-controls="{tab_panel_id}" aria-selected="false">아코디언3</button>
+                        </div>
+                        <div class="tabs__contents" role="tabcontent">
+                            <div id="{tab_panel_id}" role="tabpanel" class="tabs__content" aria-labelledby="{tab_header_id}" tabindex="-1">
+                                아코디언 컨텐츠1
+                            </div>
+                            <div id="{tab_panel_id}" role="tabpanel" class="tabs__content" aria-labelledby="{tab_header_id}" tabindex="-1">
+                                아코디언 컨텐츠2
+                            </div>
+                            <div id="{tab_panel_id}" role="tabpanel" class="tabs__content" aria-labelledby="{tab_header_id}" tabindex="-1">
+                                아코디언 컨텐츠3
+                            </div>
+                        </div>
+                    </div>
+                    </code>
+                </pre>
+                    </div>
+                </div>
+            </div>
+            <div class="ex-content">
+                <div class="ex-title">
+                    <h3>public method</h3>
+                </div>
+                <div class="ex-body">
+                    <div class="js-view">
+                        <pre>
+                    <code class="ex-code-block render-js">// get component instance
+                    var instance = KTM.Tab.getInstance(document.querySelector('컴포넌트엘리먼트'));
+        
+                    //아코디언 활성화
+                    instance.active(0); // tab header index
+                    instance.active(".tab-header1"); // tab header selector string
+                    instance.active(document.querySelector('.tab-header1')); // tab header element
+                    </code>
+                </pre>
+                    </div>
+                </div>
+            </div>
+            <div class="ex-content">
+                <div class="ex-title">
+                    <h3>events</h3>
+                </div>
+                <div class="ex-body">
+                    <div class="js-view">
+                        <pre>
+                    <code class="ex-code-block render-js">var tabEl = document.querySelector('컴포넌트엘리먼트');
+                    // 아코디언 변경될 때
+                    tabEl.addEventListener(KTM.Tab.EVENT.CHANGE, function(event) {
+                    var currentTab = event.current;
+                    var beforeTab = event.before;
+                    })
+                    </code>
+                </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
