@@ -1,0 +1,17 @@
+{% extends "../templates/layout.njk" %}
+{% block content %}
+	<!-- tabs -->
+        <div class="tabs" data-ui-tabs>
+            <div class="tabs__list" role="tablist">
+                <button type="button" id="tab1" class="button" aria-controls="panel1" aria-selected="true" tabindex="-1">tabs1</button>
+                <button type="button" id="tab2" class="button" aria-controls="panel2" aria-selected="false" tabindex="-1">tabs2</button>
+                <button type="button" id="tab3" class="button" aria-controls="panel3" aria-selected="false" tabindex="-1">tabs3</button>
+            </div>
+            <div class="tabs__contents" role="tabcontent">
+                <div id="panel1" role="tabpanel" class="tabs__content" aria-labelledby="tab1" tabindex="-1">test</div>
+                <div id="panel2" role="tabpanel" class="tabs__content" aria-labelledby="tab2" tabindex="-1">test2</div>
+                <div id="panel3" role="tabpanel" class="tabs__content" aria-labelledby="tab3" tabindex="-1">test3</div>
+            </div>
+        </div>
+        <!-- //tabs -->
+{% endblock %}

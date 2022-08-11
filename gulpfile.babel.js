@@ -1,5 +1,5 @@
 import gulp from "gulp";
-import gulpInclude from "gulp-file-include";
+import gulpRender from "gulp-nunjucks-render";
 import gulpSass from "gulp-sass";
 import gulpSourcemaps from "gulp-sourcemaps";
 import formatHtml from "gulp-format-html";
@@ -52,16 +52,13 @@ const css = () =>
 const html = () => {
     return gulp
         .src(
-            [filesPath.input("pages/**/*.html"), `!${filesPath.input("pages/_includes/*")}`],
+            [filesPath.input("pages/**/*.njk"), `!${filesPath.input("pages/templates/**")}`],
             { allowEmpty: true },
             {
                 since: gulp.lastRun(html),
             }
         )
-        .pipe(gulpInclude({
-            prefix: '@@',
-            basepath: '@file'
-        }))
+        .pipe(gulpRender({ path: [filesPath.input("pages/templates")] }))
         .pipe(formatHtml({
             "indent_size": 4,
         }))
@@ -110,15 +107,14 @@ const _guideResourceJsCopy = () => {
 
 const _guideHtmlCopy = () => {
     return gulp
-        .src([filesPath.input(`_guide/**/*.html`), `!${filesPath.input("_guide/pages/**")}`])
-        .pipe(gulpInclude({
-            prefix: '@@',
-            basepath: '@file'
+        .src([filesPath.input(`_guide/**/*.njk`), `!${filesPath.input("_guide/pages/templates/**")}`])
+        .pipe(gulpRender({
+            path: [filesPath.input(`_guide/pages/templates`)]
         }))
         .pipe(formatHtml({
             "indent_size": 4,
         }))
-        .pipe(gulp.dest(filesPath.output(`html`) + `/_guide`))
+        .pipe(gulp.dest(filesPath.output(`html`) + `/_guide/`))
         .pipe(devServer.stream());
 }
 
@@ -134,14 +130,14 @@ const watch = () => {
     });
 
     //변경감지를 위한 소스를 앞쪽에, 뒤에는 실행할 파일
-    gulp.watch(filesPath.input("pages/**/*.html"), gulp.series([html]));
+    gulp.watch(filesPath.input("pages/**/*"), gulp.series([html]));
     gulp.watch(filesPath.input(`resources/fonts/*`), font);
     gulp.watch(filesPath.input(`resources/images/*`), images);
     gulp.watch(filesPath.input(`resources/scss/**/*.scss`), css);
     gulp.watch(filesPath.input(`resources/js/**/**`), js);
 
     //가이드페이지 작성할때만 watch 가이드 작성완료 이후 제거 예정
-    gulp.watch(filesPath.input(`_guide/**/*.html`), _guideHtmlCopy);
+    gulp.watch(filesPath.input(`_guide/**/*`), _guideHtmlCopy);
     gulp.watch(filesPath.input(`_guide/resources/*.js`), _guideResourceJsCopy);
     gulp.watch(filesPath.input(`_guide/resources/*.scss`), _guideResourceScssCopy);
 
