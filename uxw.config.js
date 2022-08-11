@@ -35,6 +35,9 @@ const webpackConfig = {
                 test: /\.m?js$/,
                 exclude: /node_modules/,
                 loader: "babel-loader",
+                resolve: {
+                    fullySpecified: false,
+                },
             },
         ],
     },

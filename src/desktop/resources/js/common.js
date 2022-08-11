@@ -1,6 +1,14 @@
-// import { tabs } from 'panel/tabs.js';
+const initFunc = () => {
+    //
+}
+
+const initialize = () => {
+    //
+}
+const commonInit = {
+    initFunc,
+    initialize
+};
 
 
-document.addEventListener('DOMContentLoaded', function () {
-    // console.log('????');
-})
+export default commonInit;

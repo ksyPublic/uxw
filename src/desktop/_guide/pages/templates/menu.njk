@@ -1,0 +1,53 @@
+{% set navigation = [
+    {
+        'id': 'nav1',
+        'name': 'Layout',
+        'children': [
+            {
+                'name': 'Header',
+                'url': 'index.html',
+                'alt': '헤더 바로가기'
+            }
+        ]
+    }, {
+        'id': 'nav2',
+        'name': 'Components',
+        'children': [
+            {
+                'name': 'Tabs',
+                'url': './tabs.html',
+                'alt': '탭 바로가기'
+            }, {
+                'name': 'Accordion',
+                'url': './Accordion.html',
+                'alt': '아코디언 바로가기'
+            }
+        ]
+    }
+] %}
+
+{% block content %}
+    <div class="guide__menu" data-ui-guide-menu>
+        <nav class="guide__menu__nav">
+            <ul>
+                {% for item in navigation %}
+                    <li>
+                        {% if item.children %}
+                            <button type="button" class="button" aria-expanded="true" aria-controls="{{child.id}}">{{item.name}}</button>
+                            <ul id="{{child.id}}">
+                                {% for child in item.children %}
+                                    <li>
+                                        <a href="{{child.url}}" alt="{{child.alt}}">{{child.name}}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <a href="{{item.url}}" alt="{{item.alt}}">{{item.name}}</a>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </div>
+
+{% endblock %}

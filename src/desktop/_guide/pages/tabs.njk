@@ -1,48 +1,74 @@
 {% set title = "가이드 UXW 탭"%}
 {% extends "../templates/layout.njk" %}
 {% block content %}
-<div class="guide-wrap">
-    <h2 class="ex-name">Tab</h2>
-    <p>기존의 탭 사용이 아닌 단순링크, ajax통신을 통해 하나의 컨테이너만 사용하는 경우는 아래 링크를 참고해주세요.</p>
-    <p>
-        <a href="tab_a11y.html" target="_blank" style="text-decoration: underline; font-size: 20px; margin-top: 20px; display: inline-block; color: #ff0000">
-            <b>tab 웹 접근성 처리 방법</b>
-        </a>
-    </p>
-    <div class="ex-content">
-        <div class="ex-title">
-            <h3>탭 구성 주의사항(웹 접근성 관련)</h3>
-            <p class="ex-desc" style="color: #ff0000"> 아래 예시는 마크업 구성 시 반드시 포함되어야 하는 속성을 설명하는 구조입니다. 실제 탭 구성 시에는 css style 구조에 맞는 마크업이 필요합니다.</p>
-            <p class="ex-desc">* 탭 헤더의 [aria-controls] => 탭 컨텐츠의 [id]와 매칭
+    <div class="guide-wrap">
+        <h2 class="ex-name">Tab</h2>
+        <p>기존의 탭 사용이 아닌 단순링크, ajax통신을 통해 하나의 컨테이너만 사용하는 경우는 아래 링크를 참고해주세요.</p>
+        <p>
+            <a href="tab_a11y.html" target="_blank" style="text-decoration: underline; font-size: 20px; margin-top: 20px; display: inline-block; color: #ff0000">
+                <b>tab 웹 접근성 처리 방법</b>
+            </a>
+        </p>
+        <div class="ex-content">
+            <div class="ex-title">
+                <h3>탭 구성 주의사항(웹 접근성 관련)</h3>
+                <p class="ex-desc" style="color: #ff0000"> 아래 예시는 마크업 구성 시 반드시 포함되어야 하는 속성을 설명하는 구조입니다. 실제 탭 구성 시에는 css style 구조에 맞는 마크업이 필요합니다.</p>
+                <p class="ex-desc">* 탭 헤더의 [aria-controls] => 탭 컨텐츠의 [id]와 매칭
                 <br>* 탭 헤더의 [id] => 탭 컨텐츠의 [aria-labelledby]와 매칭
             </p>
-        </div>
-        <div class="ex-body">
-            <div class="html-view">
-                <pre>
+            </div>
+
+            <div class="ex-body">
+                <div class="ex-preview">
+                    <!-- tabs -->
+                    <div class="tabs" data-ui-tab>
+                        <div class="tabs__list" role="tablist">
+                            <button type="button" role="tab" id="tab1" class="button" aria-controls="panel1" aria-selected="false">tabs1</button>
+                            <button type="button" role="tab" id="tab2" class="button" aria-controls="panel2" aria-selected="false">tabs2</button>
+                            <button type="button" role="tab" id="tab3" class="button" aria-controls="panel3" aria-selected="false">tabs3</button>
+                        </div>
+                        <div class="tabs__contents" role="tabcontent">
+                            <div id="panel1" role="tabpanel" class="tabs__content" aria-labelledby="tab1" tabindex="-1">test</div>
+                            <div id="panel2" role="tabpanel" class="tabs__content" aria-labelledby="tab2" tabindex="-1">test2</div>
+                            <div id="panel3" role="tabpanel" class="tabs__content" aria-labelledby="tab3" tabindex="-1">test3</div>
+                        </div>
+                    </div>
+                    <!-- //tabs -->
+                </div>
+
+                <div class="html-view">
+                    <pre>
                     <code class="ex-code-block render-html">
-                    <div role="tablist">
-                        <button id="{{tab_header_id}}" role="tab" aria-controls="{{tab_panel_id}}" aria-selected="true">탭 헤더 버튼 1</button>
-                        <button id="{{tab_header_id}}" role="tab" aria-controls="{{tab_panel_id}}" aria-selected="false">탭 헤더 버튼 2</button>
-                    </div>
-                    <div id="{{tab_panel_id}}" role="tabpanel" aria-labelledby="{{tab_header_id}}" tabindex="-1">
-                        탭 컨텐츠1
-                    </div>
-                    <div id="{{tab_panel_id}}" role="tabpanel" aria-labelledby="{{tab_header_id}}" tabindex="-1">
-                        탭 컨텐츠2
+                    <div class="tabs">
+                        <div class="tabs__list" role="tablist">
+                            <button type="button" id="{tab_header_id}" class="button" aria-controls="{tab_panel_id}" aria-selected="true">탭1</button>
+                            <button type="button" id="{tab_header_id}" class="button" aria-controls="{tab_panel_id}" aria-selected="false">탭2</button>
+                            <button type="button" id="{tab_header_id}" class="button" aria-controls="{tab_panel_id}" aria-selected="false">탭3</button>
+                        </div>
+                        <div class="tabs__contents" role="tabcontent">
+                            <div id="{tab_panel_id}" role="tabpanel" class="tabs__content" aria-labelledby="{tab_header_id}" tabindex="-1">
+                                탭 컨텐츠1
+                            </div>
+                            <div id="{tab_panel_id}" role="tabpanel" class="tabs__content" aria-labelledby="{tab_header_id}" tabindex="-1">
+                                탭 컨텐츠2
+                            </div>
+                            <div id="{tab_panel_id}" role="tabpanel" class="tabs__content" aria-labelledby="{tab_header_id}" tabindex="-1">
+                                탭 컨텐츠3
+                            </div>
+                        </div>
                     </div>
                     </code>
                 </pre>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="ex-content">
-        <div class="ex-title">
-            <h3>public method</h3>
-        </div>
-        <div class="ex-body">
-            <div class="js-view">
-                <pre>
+        <div class="ex-content">
+            <div class="ex-title">
+                <h3>public method</h3>
+            </div>
+            <div class="ex-body">
+                <div class="js-view">
+                    <pre>
                     <code class="ex-code-block render-js">// get component instance
                     var instance = KTM.Tab.getInstance(document.querySelector('컴포넌트엘리먼트'));
         
@@ -52,16 +78,16 @@
                     instance.active(document.querySelector('.tab-header1')); // tab header element
                     </code>
                 </pre>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="ex-content">
-        <div class="ex-title">
-            <h3>events</h3>
-        </div>
-        <div class="ex-body">
-            <div class="js-view">
-                <pre>
+        <div class="ex-content">
+            <div class="ex-title">
+                <h3>events</h3>
+            </div>
+            <div class="ex-body">
+                <div class="js-view">
+                    <pre>
                     <code class="ex-code-block render-js">var tabEl = document.querySelector('컴포넌트엘리먼트');
                     // 탭 변경될 때
                     tabEl.addEventListener(KTM.Tab.EVENT.CHANGE, function(event) {
@@ -70,8 +96,8 @@
                     })
                     </code>
                 </pre>
+                </div>
             </div>
         </div>
     </div>
-</div>
 {% endblock %}

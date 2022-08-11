@@ -1,22 +1,19 @@
 {
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "es6": true,
+        "node": true
+    },
     "extends": [
         "google",
         "plugin:prettier/recommended"
     ],
     "parser": "@babel/eslint-parser",
     "parserOptions": {
-        "sourceType": "module",
-        "ecmaVersion": 2018
+        "ecmaVersion": "latest",
+        "sourceType": "module"
     },
-    "env": {
-        "browser": true,
-        "commonjs": true,
-        "es6": true,
-        "node": true
-    },
-    "plugins": [
-        "import"
-    ],
     "rules": {
         // "off" or 0 - turn the rule off
         // "warn" or 1 - turn the rule on as a warning (doesn’t affect exit code)

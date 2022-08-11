@@ -3,59 +3,36 @@
 <!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="">
-    <title>{{ title }}</title>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <title>{{ title }}</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../../resources/css/main.css" />
-    <link rel="stylesheet" href="../vendor/prism.css">
-    <link rel="stylesheet" href="../resources/guideStyle.css">
-</head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../../resources/css/main.css"/>
+        <link rel="stylesheet" href="../vendor/prism.css">
+        <link rel="stylesheet" href="../resources/guideStyle.css">
+    </head>
 
-<body>
-    <div class="guide">
-        <header class="guide__head">
-            <h1><a href="/" alt="홈 바로가기">샘플 가이드 테스트중</a></h1>
-        </header>
-        <div class="guide__wrap">
-            <div class="guide__menu" data-ui-guide-menu>
-                <nav class="guide__menu__nav">
-                    <ul>
-                        <li>
-                            <button type="button" class="button" aria-expanded="true" aria-controls="nav1">Layout</button>
-                            <ul id="nav1">
-                                <li>
-                                    <a href="./index.html" alt="헤더 바로가기">Header</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <button type="button" class="button" aria-expanded="false" aria-controls="nav2">Components</button>
-                            <ul id="nav2">
-                                <li>
-                                    <a href="./tabs.html" alt="탭 바로가기">Tab</a>
-                                </li>
-                                <li>
-                                    <a href="#none" alt="아코디언 바로가기">Accordion</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="guide__content">
-                {% block content %}
-                {% endblock %}
+    <body>
+        <div class="guide">
+            <header class="guide__head">
+                <h1>
+                    <a href="/" alt="홈 바로가기">샘플 가이드 테스트중</a>
+                </h1>
+            </header>
+            <div class="guide__wrap">
+                {% include "../templates/menu.njk" %}
+                <div class="guide__content">
+                    {% block content %}{% endblock %}
+                </div>
             </div>
         </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.0/beautify.min.js"></script>
-    <script type="module" src="../../resources/js/uxw.ui.js" defer></script>
-    <script src="../vendor/prism.js"></script>
-    <script src="../resources/guideCommon.js"></script>
-</body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.0/beautify.min.js"></script>
+        <script src="../../resources/js/uxw.ui.js"></script>
+        <script src="../vendor/prism.js"></script>
+        <script src="../resources/guideCommon.js"></script>
+    </body>
 
 </html>

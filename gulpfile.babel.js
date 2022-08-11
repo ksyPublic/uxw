@@ -2,7 +2,7 @@ import gulp from "gulp";
 import gulpRender from "gulp-nunjucks-render";
 import gulpSass from "gulp-sass";
 import gulpSourcemaps from "gulp-sourcemaps";
-import formatHtml from "gulp-format-html";
+import formatHtml from "gulp-beautify";
 import { deleteAsync } from "del";
 import browserSync from "browser-sync";
 import nodeSass from "node-sass";
@@ -59,8 +59,9 @@ const html = () => {
             }
         )
         .pipe(gulpRender({ path: [filesPath.input("pages/templates")] }))
-        .pipe(formatHtml({
-            "indent_size": 4,
+        .pipe(formatHtml.html({
+            indent_size: 4,
+            preserve_newlines: false
         }))
         .pipe(gulp.dest(filesPath.output("html") + "/pages/"))
         .pipe(devServer.stream());
@@ -111,8 +112,9 @@ const _guideHtmlCopy = () => {
         .pipe(gulpRender({
             path: [filesPath.input(`_guide/pages/templates`)]
         }))
-        .pipe(formatHtml({
-            "indent_size": 4,
+        .pipe(formatHtml.html({
+            indent_size: 4,
+            preserve_newlines: false
         }))
         .pipe(gulp.dest(filesPath.output(`html`) + `/_guide/`))
         .pipe(devServer.stream());

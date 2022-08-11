@@ -8,6 +8,11 @@
         "build:css": "cross-env BUILD_TYPE=desktop NODE_ENV=production gulp buildcss",
         "build:js": "cross-env BUILD_TYPE=desktop NODE_ENV=production gulp buildjs"
     },
+    "lint-staged": {
+        "src/**/*.js": [
+            "eslint"
+        ]
+    },
     "browserslist": [
         "last 2 versions",
         "ie 11"
@@ -25,13 +30,18 @@
         "cross-env": "^7.0.3",
         "del": "^7.0.0",
         "eslint": "^8.21.0",
+        "eslint-config-google": "^0.14.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-import": "^2.26.0",
+        "eslint-plugin-prettier": "^4.2.1",
         "gulp": "^4.0.2",
         "gulp-autoprefixer": "^8.0.0",
-        "gulp-format-html": "^1.2.5",
+        "gulp-beautify": "^3.0.0",
         "gulp-nunjucks-render": "^2.2.3",
         "gulp-sass": "^5.1.0",
         "gulp-sourcemaps": "^3.0.0",
         "gulp-watch": "^5.0.1",
+        "lint-staged": "^13.0.3",
         "node-sass": "^7.0.1",
         "prettier": "^2.7.1",
         "prettier-eslint": "^15.0.1",
@@ -39,5 +49,8 @@
         "webpack-bundle-analyzer": "^4.5.0",
         "webpack-stream": "^7.0.0"
     },
-    "type": "module"
+    "type": "module",
+    "dependencies": {
+        "element-closest-polyfill": "^1.0.5"
+    }
 }
