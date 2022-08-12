@@ -1,3 +1,4 @@
+/* eslint-disable new-cap */
 import 'element-closest-polyfill';
 import EventHandler from './vendor/EventHandler';
 import Tab from './components/tab';
@@ -25,7 +26,7 @@ Tab.GLOBAL_CONFIG = {
 
 Accordion.GLOBAL_CONFIG = {
     activeClass: 'is-active',
-}
+};
 
 const initialize = () => {
     // 탭
@@ -33,7 +34,7 @@ const initialize = () => {
     UIInitializer('[data-ui-accordion]', Accordion);
     commonInit.initialize();
     return 'initialized';
-}
+};
 
 const a11yChecker = () => {
     const tabChecker = () => {
@@ -120,7 +121,7 @@ const ui = {
     initialize,
     Tab,
     Accordion,
-    a11yChecker
-}
+    a11yChecker,
+};
 
-window.UXW = { ...ui }
+window.UXW = { ...ui };

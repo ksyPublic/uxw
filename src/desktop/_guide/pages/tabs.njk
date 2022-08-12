@@ -5,7 +5,7 @@
         <h2 class="ex-name">Tab</h2>
         <p>기존의 탭 사용이 아닌 단순링크, ajax통신을 통해 하나의 컨테이너만 사용하는 경우는 아래 링크를 참고해주세요.</p>
         <p>
-            <a href="tab_a11y.html" target="_blank" style="text-decoration: underline; font-size: 20px; margin-top: 20px; display: inline-block; color: #ff0000">
+            <a href="./tabs_a11y.html" target="_blank" style="text-decoration: underline; font-size: 20px; margin-top: 20px; display: inline-block; color: #ff0000">
                 <b>tab 웹 접근성 처리 방법</b>
             </a>
         </p>
@@ -23,9 +23,9 @@
                     <!-- tabs -->
                     <div class="tabs" data-ui-tab>
                         <div class="tabs__list" role="tablist">
-                            <button type="button" role="tab" id="tab1" class="button" aria-controls="panel1" aria-selected="false">tabs1</button>
-                            <button type="button" role="tab" id="tab2" class="button" aria-controls="panel2" aria-selected="false">tabs2</button>
-                            <button type="button" role="tab" id="tab3" class="button" aria-controls="panel3" aria-selected="false">tabs3</button>
+                            <button type="button" role="tab" id="tab1" class="button__tab" aria-controls="panel1" aria-selected="false">tabs1</button>
+                            <button type="button" role="tab" id="tab2" class="button__tab" aria-controls="panel2" aria-selected="false">tabs2</button>
+                            <button type="button" role="tab" id="tab3" class="button__tab" aria-controls="panel3" aria-selected="false">tabs3</button>
                         </div>
                         <div class="tabs__contents" role="tabcontent">
                             <div id="panel1" role="tabpanel" class="tabs__content" aria-labelledby="tab1" tabindex="-1">test</div>
@@ -41,7 +41,7 @@
                     <code class="ex-code-block render-html">
                     <div class="tabs">
                         <div class="tabs__list" role="tablist">
-                            <button type="button" id="{tab_header_id}" class="button" aria-controls="{tab_panel_id}" aria-selected="true">탭1</button>
+                            <button type="button" id="{tab_header_id}" class="button" aria-controls="{tab_panel_id}" aria-selected="false">탭1</button>
                             <button type="button" id="{tab_header_id}" class="button" aria-controls="{tab_panel_id}" aria-selected="false">탭2</button>
                             <button type="button" id="{tab_header_id}" class="button" aria-controls="{tab_panel_id}" aria-selected="false">탭3</button>
                         </div>
@@ -70,7 +70,7 @@
                 <div class="js-view">
                     <pre>
                     <code class="ex-code-block render-js">// get component instance
-                    var instance = KTM.Tab.getInstance(document.querySelector('컴포넌트엘리먼트'));
+                    var instance = UXW.Tab.getInstance(document.querySelector('컴포넌트엘리먼트'));
         
                     //탭 활성화
                     instance.active(0); // tab header index
@@ -90,7 +90,7 @@
                     <pre>
                     <code class="ex-code-block render-js">var tabEl = document.querySelector('컴포넌트엘리먼트');
                     // 탭 변경될 때
-                    tabEl.addEventListener(KTM.Tab.EVENT.CHANGE, function(event) {
+                    tabEl.addEventListener(UXW.Tab.EVENT.CHANGE, function(event) {
                     var currentTab = event.current;
                     var beforeTab = event.before;
                     })

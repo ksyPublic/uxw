@@ -1,0 +1,36 @@
+$root : accordion;
+
+.#{$root} {
+    &__box {
+        //
+    }
+
+    &__head {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: 1px solid color(gray, 200);
+        border-bottom: 0;
+        padding: 0 20px;
+
+        strong {
+            font-size: 20px;
+        }
+    }
+
+    &__item {
+        //
+    }
+
+    &__panel {
+        display: none;
+        min-height: 150px;
+        border: 1px solid color(gray, 200);
+        border-bottom: 0;
+
+        &.is-active {
+            display: block;
+        }
+    }
+}

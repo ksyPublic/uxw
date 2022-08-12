@@ -6,7 +6,7 @@ class UI {
             this._throwError('option.wrapper is required.');
         }
         this._id = '';
-        this._element = element.jquery ? element[0] : element;
+        this._element = element;
         this._genID(config.id);
         Data.set(this._element, this.constructor.NAME, this);
     }
