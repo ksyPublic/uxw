@@ -1,5 +1,38 @@
 .ic {
-    &_arrow {
-        background: url("../../images/ic_acc_arrow.png") no-repeat;
+    &-arrow {
+        background: url("../images/ic-acc-arrow.png") no-repeat;
+    }
+
+    &-my {
+        width: 24px;
+        height: 24px;
+        background: url("../images/ic-my.png") no-repeat;
+    }
+
+    &-qa {
+        width: 24px;
+        height: 24px;
+        background: url("../images/ic-qa.png") no-repeat;
+    }
+
+    &-menu {
+        width: 24px;
+        height: 24px;
+        background: url("../images/ic-menu.png") no-repeat;
+    }
+
+    &-writing {
+        width: 24px;
+        height: 24px;
+        background: url("../images/ic-writing.png") no-repeat;
+    }
+}
+
+i {
+    &.ic {
+        display: inline-block;
+        position: relative;
+        vertical-align: middle;
+        background-size: cover !important;
     }
 }

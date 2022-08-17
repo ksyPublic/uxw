@@ -23,7 +23,7 @@ $root: tabs;
         }
 
         &[aria-selected="true"] {
-            background-color: color(blue, 600);
+            background-color: color(blue, 800);
             color: $white;
         }
     }

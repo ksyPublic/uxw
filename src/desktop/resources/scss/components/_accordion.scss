@@ -20,8 +20,7 @@ $root : acc;
             line-height: 24px;
             font-weight: 500;
             z-index: 2;
-            color: $white;
-
+            color: $black;
         }
     }
 
@@ -32,6 +31,7 @@ $root : acc;
             padding: 0 20px;
             height: 48px;
             line-height: 46px;
+            background-color: $white;
             color: $black;
             border-bottom: 1px solid color(gray, 200);
         }
@@ -44,7 +44,7 @@ $root : acc;
         left: 0;
         top: 0;
         z-index: 1;
-        background-color: color(blue, 800);
+        background-color: color(gray, 50);
 
         &:focus {
             outline: 2px solid color(gray, 900);
