@@ -15,37 +15,43 @@
             <div class="ex-body">
                 <div class="ex-preview">
                     <!-- accordion -->
-                    <div class="accordion" data-ui-accordion>
-                        <ul class="accordion__box">
-                            <li class="accordion__item">
-                                <div class="accordion__head">
+                    <div class="acc" data-ui-accordion>
+                        <ul class="acc__box">
+                            <li class="acc__item">
+                                <div class="acc__head">
                                     <strong>타이틀</strong>
-                                    <button type="button" role="accordion" id="acc_header1" class="button__accordion--arrow" aria-controls="acc_content1" aria-expanded="false" aria-label="아코디언 버튼">
-                                        <span aria-label=""></span>
-                                        <span aria-label=""></span>
-                                    </button>
+                                    <button type="button" role="accordion" id="acc_header1" class="acc__button" aria-controls="acc_content1" aria-expanded="false" aria-label="버튼"></button>
                                 </div>
-                                <div class="accordion__panel" id="acc_content1" role="accordionpanel" aria-labelledby="acc_header1"></div>
+                                <div class="acc__panel expand" id="acc_content1" role="accordionpanel" aria-labelledby="acc_header1">
+                                    컨텐츠
+                                    컨텐츠
+                                    컨텐츠
+                                    컨텐츠
+                                </div>
                             </li>
-                            <li class="accordion__item">
-                                <div class="accordion__head">
+                            <li class="acc__item">
+                                <div class="acc__head">
                                     <strong>타이틀</strong>
-                                    <button type="button" role="accordion" id="acc_header2" class="button__accordion--arrow" aria-controls="acc_content2" aria-expanded="false" aria-label="아코디언 버튼">
-                                        <span aria-label=""></span>
-                                        <span aria-label=""></span>
-                                    </button>
+                                    <button type="button" role="accordion" id="acc_header2" class="acc__button" aria-controls="acc_content2" aria-expanded="false" aria-label="버튼"></button>
                                 </div>
-                                <div class="accordion__panel" id="acc_content2" role="accordionpanel" aria-labelledby="acc_header2"></div>
+                                <div class="acc__panel expand" id="acc_content2" role="accordionpanel" aria-labelledby="acc_header2">
+                                    컨텐츠2
+                                    컨텐츠2
+                                    컨텐츠2
+                                    컨텐츠2
+                                </div>
                             </li>
-                            <li class="accordion__item">
-                                <div class="accordion__head">
+                            <li class="acc__item">
+                                <div class="acc__head">
                                     <strong>타이틀</strong>
-                                    <button type="button" role="accordion" id="acc_header3" class="button__accordion--arrow" aria-controls="acc_content3" aria-expanded="false" aria-label="아코디언 버튼">
-                                        <span aria-label=""></span>
-                                        <span aria-label=""></span>
-                                    </button>
+                                    <button type="button" role="accordion" id="acc_header3" class="acc__button" aria-controls="acc_content3" aria-expanded="false" aria-label="버튼"></button>
                                 </div>
-                                <div class="accordion__panel" id="acc_content3" role="accordionpanel" aria-labelledby="acc_header3"></div>
+                                <div class="acc__panel expand" id="acc_content3" role="accordionpanel" aria-labelledby="acc_header3">
+                                    컨텐츠3
+                                    컨텐츠3
+                                    컨텐츠3
+                                    컨텐츠3
+                                </div>
                             </li>
                         </ul>
                         <!-- //accordion -->
@@ -55,31 +61,28 @@
                         <pre>
                     <code class="ex-code-block render-html">
                     <!-- accordion -->
-                    <div class="accordion" data-ui-accordion>
-                        <ul class="accordion__box">
-                            <li class="accordion__item">
-                                <div class="accordion__head">
+                    <div class="acc" data-ui-accordion>
+                        <ul class="acc__box">
+                            <li class="acc__item">
+                                <div class="acc__head">
                                     <strong>타이틀</strong>
-                                    <button type="button" role="accordion" id="{acc_header}" class="button__accordion--arrow" aria-controls="{acc_content}" aria-expanded="false" aria-label="">
-                                        <span aria-label=""></span>
-                                        <span aria-label=""></span>
-                                    </button>
+                                    <button type="button" role="accordion" id="{acc_header}" class="acc__button" aria-controls="{acc_content}" aria-expanded="false" aria-label=""></button>
                                 </div>
-                                <div class="accordion__panel" id="{acc_content}" role="accordionpanel" aria-labelledby="{acc_header}"></div>
+                                <div class="acc__panel" id="{acc_content}" role="accordionpanel" aria-labelledby="{acc_header}"></div>
                             </li>
-                            <li class="accordion__item">
-                                <div class="accordion__head">
+                            <li class="acc__item">
+                                <div class="acc__head">
                                     <strong>타이틀</strong>
-                                    <button type="button" role="accordion" id="{acc_header}" class="button__accordion--arrow" aria-controls="{acc_content}" aria-expanded="false">아코디언1</button>
+                                    <button type="button" role="accordion" id="{acc_header}" class="acc__button" aria-controls="{acc_content}" aria-expanded="false">아코디언1</button>
                                 </div>
-                                <div class="accordion__panel" id="{acc_content}" role="accordionpanel" aria-labelledby="{acc_header}"></div>
+                                <div class="acc__panel" id="{acc_content}" role="accordionpanel" aria-labelledby="{acc_header}"></div>
                             </li>
-                            <li class="accordion__item">
-                                <div class="accordion__head">
+                            <li class="acc__item">
+                                <div class="acc__head">
                                     <strong>타이틀</strong>
-                                    <button type="button" role="accordion" id="{acc_header}" class="button__accordion--arrow" aria-controls="{acc_content}" aria-expanded="false">아코디언1</button>
+                                    <button type="button" role="accordion" id="{acc_header}" class="acc__button" aria-controls="{acc_content}" aria-expanded="false">아코디언1</button>
                                 </div>
-                                <div class="accordion__panel" id="{acc_content}" role="accordionpanel" aria-labelledby="{acc_header}"></div>
+                                <div class="acc__panel" id="{acc_content}" role="accordionpanel" aria-labelledby="{acc_header}"></div>
                             </li>
                         </ul>
                         <!-- //accordion -->
@@ -90,4 +93,69 @@
                 </div>
             </div>
         </div>
-    {% endblock %}
+        <div class="ex-content">
+            <div class="ex-title">
+                <h3>페이지 로드 시 특정 아코디언을 펼쳐진 상태로 보기</h3>
+                <p class="ex-desc">특정 아코디언 콘텐츠를 기본적으로 활성화시키는 방법입니다.</p>
+                <h4 style="margin-top: 20px">데이터 속성을 이용하여 활성화 시키는 방법</h4>
+                <p class="ex-desc" style="color: #ff0000">아코디언이 하나만 열려있는 경우는(단수) | data-ui-accordion 이 선언된 엘리먼트에 data-accordion-default="0"</p>
+                <p class="ex-desc" style="color: #ff0000">아코디언이 여러개 열려있는 경우는(복수) | data-ui-accordion 이 선언된 엘리먼트에 data-accordion-defaults="0,2"</p>
+                <h4 style="margin-top: 20px">각 아코디언 헤더에 클래스를 부여하여 활성화 시키는 방법</h4>
+                <p class="ex-desc" style="color: #ff0000">아코디언 헤드에(aria-expanded 속성이 선언되어 있는 곳) is-active 클래스 추가</p>
+            </div>
+        </div>
+        <div class="ex-body">
+            <div class="ex-preview">
+                <!-- accordion -->
+                <div class="acc" data-ui-accordion>
+                    <ul class="acc__box">
+                        <li class="acc__item">
+                            <div class="acc__head">
+                                <strong>타이틀</strong>
+                                <button type="button" role="accordion" id="acc_header4" class="acc__button is-active" aria-controls="acc_content4" aria-expanded="false" aria-label="버튼"></button>
+                            </div>
+                            <div class="acc__panel expand" id="acc_content4" role="accordionpanel" aria-labelledby="acc_header4">
+                                컨텐츠
+                                컨텐츠
+                                컨텐츠
+                                컨텐츠
+                            </div>
+                        </li>
+                        <li class="acc__item">
+                            <div class="acc__head">
+                                <strong>타이틀</strong>
+                                <button type="button" role="accordion" id="acc_header5" class="acc__button" aria-controls="acc_content5" aria-expanded="false" aria-label="버튼"></button>
+                            </div>
+                            <div class="acc__panel expand" id="acc_content5" role="accordionpanel" aria-labelledby="acc_header5">
+                                컨텐츠2
+                                컨텐츠2
+                                컨텐츠2
+                                컨텐츠2
+                            </div>
+                        </li>
+                        <li class="acc__item">
+                            <div class="acc__head">
+                                <strong>타이틀</strong>
+                                <button type="button" role="accordion" id="acc_header6" class="acc__button" aria-controls="acc_content6" aria-expanded="false" aria-label="버튼"></button>
+                            </div>
+                            <div class="acc__panel expand" id="acc_content6" role="accordionpanel" aria-labelledby="acc_header6">
+                                컨텐츠3
+                                컨텐츠3
+                                컨텐츠3
+                                컨텐츠3
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- //accordion -->
+            </div>
+            <div class="html-view">
+                <pre>
+                    <code class="ex-code-block render-html">
+                        <div class="acc" data-ui-accordion data-accordion-defaults="0,1"></div>
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </div>
+{% endblock %}

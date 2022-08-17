@@ -1,0 +1,29 @@
+{% set title = "가이드 UXW 버튼"%}
+{% extends "../templates/layout.njk" %}
+{% block content %}
+    <div class="guide-wrap">
+        <h2 class="ex-name">Button</h2>
+        <div class="ex-content">
+            <div class="ex-title">
+                <h3>기본</h3>
+                <p class="ex-desc">기본버튼 입니다.</p>
+            </div>
+        </div>
+
+        <div class="ex-body">
+            <div class="ex-preview">
+                <button type="button" class="button">버튼</button>
+                <a class="button" href="#">버튼</a>
+                <div class="html-view">
+                    <pre>
+                        <code class="ex-code-block render-html">
+                            <button type="button" class="button">버튼</button>
+                            <a class="button" href="#">버튼</a>
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

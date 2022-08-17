@@ -1,4 +1,7 @@
+$accordionMargin : 20px;
+
 button {
+    cursor: pointer;
     outline: 0;
     border: 0;
     padding: 0;
@@ -11,67 +14,4 @@ button {
     border: 0;
     font-size: 14px;
     font-weight: 500;
-
-    &__accordion {
-        &--arrow {
-            background-color: transparent;
-            width: 25px;
-            height: 25px;
-            display: inline-block;
-            position: relative;
-            margin: 0 4px;
-
-            span {
-                top: 12px;
-                width: 15px;
-                height: 2px;
-                position: absolute;
-                display: inline-block;
-                transition: all 0.2s ease;
-                background-color: #555;
-
-                &:first-of-type {
-                    left: 0;
-                    transform: rotate(45deg);
-                }
-
-                &:last-of-type {
-                    right: 0;
-                    transform: rotate(-45deg);
-                }
-            }
-
-            &.is-active {
-                span {
-                    &:first-of-type {
-                        left: 0;
-                        transform: rotate(-45deg);
-                    }
-
-                    &:last-of-type {
-                        right: 0;
-                        transform: rotate(45deg);
-                    }
-                }
-            }
-        }
-    }
-
-    &__tab {
-        width: 140px;
-        height: 60px;
-        border: 1px solid #e3e3e3;
-        border-right: 0;
-        font-size: 20px;
-        font-weight: 400;
-
-        &:last-child {
-            border-right: 1px solid #e3e3e3;
-        }
-
-        &[aria-selected="true"] {
-            background-color: color(blue, 600);
-            color: $white;
-        }
-    }
 }

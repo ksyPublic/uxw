@@ -9,4 +9,22 @@ $root: tabs;
     &__content {
         display: none;
     }
+
+    &__button {
+        width: 140px;
+        height: 60px;
+        border: 1px solid #e3e3e3;
+        border-right: 0;
+        font-size: 20px;
+        font-weight: 400;
+
+        &:last-child {
+            border-right: 1px solid #e3e3e3;
+        }
+
+        &[aria-selected="true"] {
+            background-color: color(blue, 600);
+            color: $white;
+        }
+    }
 }

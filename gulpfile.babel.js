@@ -125,7 +125,7 @@ const watch = () => {
     devServer.init({
         open: true,
         port: 5501,
-        browser: `http://localhost:5501/${process.env.DEV_SERVER === "GUIDE" ? "/_guide/pages/index" : "/pages/index"}.html`, //현재 guide_index.html은 설정하지않음
+        browser: `http://localhost:5501/${process.env.DEV_SERVER === "GUIDE" ? "_guide/pages/index" : "/pages/index"}.html`, //현재 guide_index.html은 설정하지않음
         server: {
             baseDir: destDir,
             directory: true,
