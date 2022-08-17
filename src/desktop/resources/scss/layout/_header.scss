@@ -3,10 +3,31 @@ $root : head;
 .#{$root} {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
     height: 80px;
-    background-color: color(gray, 200);
+    background-color: color(grey, 50);
+    border-bottom: 1px solid color(gray, 200);
+    padding: 0 40px;
+    z-index: 100;
+
+    &__logo {
+        text-align: left;
+        font-size: 18px;
+        font-weight: bold;
+        height: 100%;
+
+        a {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            color: $header-color;
+
+            span {
+                margin-left: 10px;
+            }
+        }
+    }
 }

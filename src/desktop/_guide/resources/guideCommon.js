@@ -1,61 +1,3 @@
-function guideMenu() {
-    const guideMenu = document.querySelectorAll('[data-ui-guide-menu]');
-
-    const defaultMenuOpend = function (props) {
-        const ariaExpanded = props.getAttribute('aria-expanded');
-        ariaExpanded === "true" ? [
-            (
-                props.setAttribute('aria-expanded', true),
-                props.classList.add('is-active')
-            )
-        ] : [
-            (
-                props.setAttribute('aria-expanded', false),
-                props.classList.remove('is-active')
-            )
-        ];
-    }
-
-    const resultGuideUi = function (props) {
-        const ariaExpanded = props.getAttribute('aria-expanded');
-        ariaExpanded === "false" ? [
-            (
-                props.setAttribute('aria-expanded', true),
-                props.classList.add('is-active')
-            )
-        ] : [
-            (
-                props.setAttribute('aria-expanded', false),
-                props.classList.remove('is-active')
-            )
-        ];
-    }
-
-    const guideMenuClickable = function (ctr) {
-        defaultMenuOpend(ctr);
-        return function (e) {
-            e.preventDefault();
-            resultGuideUi(this);
-        }
-    };
-
-    const guideMenuKeyUp = function (e) {
-        var keyCode = e.which || e.keyCode;
-        if (keyCode === 9) {
-            resultGuideUi(this);
-        }
-    };
-
-    [].forEach.call(guideMenu, function (item) {
-        const menuItem = item.querySelectorAll("[aria-controls]");
-        [].forEach.call(menuItem, function (ctr) {
-            ctr.addEventListener('click', guideMenuClickable(ctr));
-            ctr.addEventListener('keyup', guideMenuKeyUp);
-        })
-    })
-}
-
-
 function prismInit() {
     Prism.plugins.NormalizeWhitespace.setDefaults({
         'remove-trailing': true,
@@ -118,6 +60,4 @@ function prismInit() {
 
 document.addEventListener('DOMContentLoaded', function () {
     prismInit();
-    guideMenu();
-
 });

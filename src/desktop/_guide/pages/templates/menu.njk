@@ -1,6 +1,7 @@
 {% set navigation = [
     {
-        'id': 'nav1',
+        'id': 'acc__content1',
+        'header': 'acc__header1',
         'name': 'Layout',
         'children': [
             {
@@ -10,61 +11,76 @@
             }
         ]
     }, {
-        'id': 'nav2',
+        'id': 'acc__content2',
+        'header': 'acc__header2',
         'name': 'Components',
         'children': [
             {
                 'name': 'Tabs',
                 'url': './tabs.html',
-                'alt': '탭 바로가기'
+                'alt': '탭 바로가기',
+                'id': 'acc__content2',
+                'header': 'acc__header2'
             }, {
                 'name': 'Accordion',
                 'url': './Accordion.html',
-                'alt': '아코디언 바로가기'
+                'alt': '아코디언 바로가기',
+                'id': 'acc__content3',
+                'header': 'acc__header3'
             }
         ]
     }, {
-        'id': 'nav3',
+        'id': 'acc__content3',
+        'header': 'acc__header3',
         'name': 'Elements',
         'children': [
             {
                 'name': 'Button',
                 'url': './button.html',
-                'alt': '버튼 바로가기'
+                'alt': '버튼 바로가기',
+                'id': 'acc__content4',
+                'header': 'acc__header4'
             }, {
                 'name': 'Text',
                 'url': './text.html',
-                'alt': '텍스트 바로가기'
+                'alt': '텍스트 바로가기',
+                'id': 'acc__content5',
+                'header': 'acc__header5'
             }, {
                 'name': 'Form',
                 'url': './form.html',
-                'alt': '폼 바로가기'
+                'alt': '폼 바로가기',
+                'id': 'acc__content6',
+                'header': 'acc__header6'
             }
         ]
     }
 ] %}
 
 {% block content %}
-    <div class="guide__menu" data-ui-guide-menu>
+    <div class="guide__menu">
         <nav class="guide__menu__nav">
-            <ul>
-                {% for item in navigation %}
-                    <li>
-                        {% if item.children %}
-                            <button type="button" class="button" aria-expanded="true" aria-controls="{{child.id}}">{{item.name}}</button>
-                            <ul id="{{child.id}}">
-                                {% for child in item.children %}
-                                    <li>
-                                        <a href="{{child.url}}" alt="{{child.alt}}">{{child.name}}</a>
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        {% else %}
-                            <a href="{{item.url}}" alt="{{item.alt}}">{{item.name}}</a>
-                        {% endif %}
-                    </li>
-                {% endfor %}
-            </ul>
+            <div class="acc" data-ui-accordion>
+                <ul class="acc__box">
+                    {% for item in navigation %}
+                        <li class="acc__item">
+                            {% if item.children %}
+                                <div class="acc__head">
+                                    <strong>{{item.name}}</strong>
+                                    <button type="button" role="accordion" id="{{item.header}}" class="acc__button" aria-controls="{{item.id}}" aria-expanded="false" aria-label="{{item.name}}"></button>
+                                </div>
+                                <div class="acc__panel expand" id="{{item.id}}" role="accordionpanel" aria-labelledby="{{item.header}}">
+                                    {% for child in item.children %}
+                                        <a class="button" href="{{child.url}}" alt="{{child.alt}}">{{child.name}}</a>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                <a class="button" href="{{item.url}}" alt="{{item.alt}}">{{item.name}}</a>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
         </nav>
     </div>
 

@@ -11,35 +11,29 @@ $root : acc;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        border: 1px solid color(gray, 200);
         border-bottom: 0;
         padding: 0 20px;
 
         strong {
-            font-size: 20px;
+            pointer-events: none;
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 500;
             z-index: 2;
+            color: $white;
+
         }
     }
 
     &__panel {
-        border: 1px solid color(gray, 200);
-        border-bottom: 0;
-
-        &.expanding {
-            height: 0;
-            overflow: hidden;
-            transition: height 0.35s cubic-bezier(0.33, 1, 0.68, 1);
-        }
-
-        &.expanded {
+        >.button {
+            width: 100%;
             display: block;
-        }
-
-
-        &.expand {
-            &:not(.expanded) {
-                display: none;
-            }
+            padding: 0 20px;
+            height: 48px;
+            line-height: 46px;
+            color: $black;
+            border-bottom: 1px solid color(gray, 200);
         }
     }
 
@@ -50,47 +44,10 @@ $root : acc;
         left: 0;
         top: 0;
         z-index: 1;
-        background-color: $white;
+        background-color: color(blue, 800);
 
         &:focus {
             outline: 2px solid color(gray, 900);
-        }
-
-        &.is-active {
-
-            &:after {
-                right: $accordionMargin;
-                transform: rotate(-45deg);
-            }
-
-            &:before {
-                right: $accordionMargin + 10;
-                transform: rotate(45deg);
-            }
-        }
-
-
-        &:after,
-        &:before {
-            top: calc(50% - 2px);
-            width: 15px;
-            height: 2px;
-            position: absolute;
-            display: inline-block;
-            transition: all 0.2s ease;
-            background-color: #555;
-        }
-
-        &:after {
-            content: "";
-            right: $accordionMargin;
-            transform: rotate(45deg);
-        }
-
-        &:before {
-            content: "";
-            right: $accordionMargin + 10;
-            transform: rotate(-45deg);
         }
     }
 }

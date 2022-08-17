@@ -2,37 +2,34 @@
 
 /* font */
 @font-face {
-    font-family: 'oneshinhan'; // 볼드체 700
-    font-weight: 700;
+    font-family: 'Shinhan'; // 볼드체 700
+    font-weight: bold;
     font-display: fallback;
-    font-style: normal;
-    src: url('../fonts/OneShinhanBold.eot');
-    src: local('OneShinhanBold'),
-        url('../fonts/OneShinhanBold.woff2') format('woff2'),
-        url('../fonts/OneShinhanBold.woff') format('woff'),
-        url('../fonts/OneShinhanBold.ttf') format('truetype');
+    src: url('../fonts/OneShinhan-Bold.eot');
+    src: local('OneShinhan-Bold'),
+        url('../fonts/OneShinhan-Bold.woff2') format('woff2'),
+        url('../fonts/OneShinhan-Bold.woff') format('woff'),
+        url('../fonts/OneShinhan-Bold.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: 'oneshinhan'; // 미디엄 500
+    font-family: 'Shinhan'; // 미디엄 500
     font-weight: 500;
     font-display: fallback;
-    font-style: normal;
-    src: url('../fonts/OneShinhanMedium.eot');
-    src: local('OneShinhanMedium'),
-        url('../fonts/OneShinhanMedium.woff2') format('woff2'),
-        url('../fonts/OneShinhanMedium.woff') format('woff'),
-        url('../fonts/OneShinhanMedium.ttf') format('truetype');
+    src: url('../fonts/OneShinhan-Medium.eot');
+    src: local('OneShinhan-Medium'),
+        url('../fonts/OneShinhan-Medium.woff2') format('woff2'),
+        url('../fonts/OneShinhan-Medium.woff') format('woff'),
+        url('../fonts/OneShinhan-Medium.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: 'oneshinhan'; // 라이트 300
+    font-family: 'Shinhan'; // 라이트 300
     font-weight: 300;
     font-display: fallback;
-    font-style: normal;
-    src: url('../fonts/OneShinhanLight.eot');
-    src: local('OneShinhanLight'),
-        url('../fonts/OneShinhanLight.woff2') format('woff2'),
-        url('../fonts/OneShinhanLight.woff') format('woff'),
-        url('../fonts/OneShinhanLight.ttf') format('truetype');
+    src: url('../fonts/OneShinhan-Light.eot');
+    src: local('OneShinhan-Light'),
+        url('../fonts/OneShinhan-Light.woff2') format('woff2'),
+        url('../fonts/OneShinhan-Light.woff') format('woff'),
+        url('../fonts/OneShinhan-Light.ttf') format('truetype');
 }

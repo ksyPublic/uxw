@@ -1,0 +1,16 @@
+.expanding {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.35s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.expanded {
+    display: block;
+}
+
+
+.expand {
+    &:not(.expanded) {
+        display: none;
+    }
+}

@@ -1,12 +1,14 @@
 @charset 'utf-8';
 
 //base
-@import "./base/functions";
 @import "./base/variobles";
+@import "./base/functions";
 @import "./base/mixin";
 @import "./base/helper";
 @import "./base/colors";
 @import "./base/font";
+@import "./base/icon";
+@import "./base/animation";
 @import "./base/reset";
 
 //components
