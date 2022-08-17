@@ -2,3 +2,4 @@ node_modules/**/*.js
 **/resources/*
 **/_guide/
 **/gulpfile.babel.js
+**/uxw.config.js
