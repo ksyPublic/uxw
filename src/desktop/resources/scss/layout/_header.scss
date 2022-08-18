@@ -57,7 +57,7 @@ $root : head;
         box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
         margin-right: 24px;
 
-        &--blue {
+        &.is-active {
             background-color: color(blue, 800);
         }
     }
