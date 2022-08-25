@@ -1,0 +1,64 @@
+{% if user === "login" %}
+    <!-- header 영역 -->
+    <header class="head">
+        <h1 class="head__logo">
+            <a href="#none" alt="홈 바로가기">
+                <img src="/res/images/logo.png" alt="신한 UXW 시스템"/>
+                <span>신한 UXW라이팅 시스템</span>
+            </a>
+        </h1>
+        <!-- 로그아웃 일때 -->
+        <div class="head__nav">
+            <ul>
+                <li>
+                    <button type="button" class="ic-button-head" aria-controls="nav_content" aria-label="메뉴">
+                        <i class="ic ic-menu" aria-hidden="true"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <!-- //로그아웃 일때 -->
+    </header>
+    <!-- header 영역 -->
+{% elif user === "logout" %}
+    <!-- header 영역 -->
+    <header class="head">
+        <h1 class="head__logo">
+            <a href="#none" alt="홈 바로가기">
+                <img src="../images/logo.png" alt="신한 UXW 시스템"/>
+                <span>신한 UXW라이팅 시스템</span>
+            </a>
+        </h1>
+        <!-- 로그인 일때 -->
+        <div class="head__nav">
+            <ul>
+                <li>
+                    <button type="button" class="ic-button-head is-active" aria-selected="false" aria-label="글쓰기">
+                        <i class="ic ic-writing" aria-hidden="true"></i>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="ic-button-head" aria-selected="false" aria-label="마이페이지">
+                        <i class="ic ic-my" aria-hidden="true"></i>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="ic-button-head" aria-selected="false" aria-label="Q&A">
+                        <i class="ic ic-qa" aria-hidden="true"></i>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="ic-button-head" aria-selected="false" aria-controls="nav_content" aria-label="메뉴">
+                        <i class="ic ic-menu" aria-hidden="true"></i>
+                    </button>
+                </li>
+            </ul>
+            <div class="head__log">
+                <a class="text-link" href="#none" alt="로그아웃">로그아웃<i class="ic ic-text-arrow" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+        <!-- //로그인 일때 -->
+    </header>
+    <!-- header 영역 -->
+{% endif %}

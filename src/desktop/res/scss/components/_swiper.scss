@@ -1,0 +1,110 @@
+body {
+    .swiper-horizontal > .swiper-pagination-bullets,
+    .swiper-pagination-bullets.swiper-pagination-horizontal,
+    .swiper-pagination-custom,
+    .swiper-pagination-fraction {
+        bottom: 0px;
+        width: auto;
+    }
+    .swiper {
+        &--autoheight {
+            .swiper-wrapper {
+                align-items: flex-start;
+                transition: transform 0.4s ease-out, height 0.1s ease;
+            }
+        }
+        &-slide {
+            overflow: hidden;
+        }
+
+        &-button-group {
+            display: flex;
+            align-items: center;
+        }
+
+        &-button-next,
+        &-button-prev {
+            width: 24px;
+            height: 24px;
+            position: relative;
+            justify-content: end;
+            right: 0;
+            left: 0;
+            top: 0;
+            margin-top: 0;
+            background: url('../images/swiper-arrow.png') no-repeat;
+            &[aria-disabled='true'] {
+                cursor: no-drop !important;
+            }
+            &:after {
+                display: none;
+            }
+
+            &.swiper-button-disabled {
+                opacity: 1;
+                background: url('../images/swiper-arrow-off.png') no-repeat;
+            }
+        }
+
+        &-button-next {
+            transform: rotate(-180deg);
+
+            &.swiper-button-disabled {
+                transform: rotate(-180deg);
+            }
+        }
+
+        &-indicator {
+            position: relative;
+            height: 56px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            &.center {
+                justify-content: center;
+
+                .swiper-button {
+                    &-next,
+                    &-prev {
+                        position: relative;
+                    }
+
+                    &-next {
+                        margin-left: 8px;
+                    }
+
+                    &-prev {
+                        margin-right: 8px;
+                    }
+                }
+            }
+        }
+
+        &-pagination {
+            position: relative;
+
+            &-bullet {
+                width: 6px;
+                height: 6px;
+                margin-left: 6px;
+                border: 1px solid color(grey, 300);
+                background-color: $white;
+                opacity: 1;
+                vertical-align: top;
+                top: 8px;
+                position: relative;
+
+                &:first-child {
+                    margin-left: 0;
+                }
+
+                &-active {
+                    background-color: color(grey, 600);
+                    border: 1px solid color(grey, 600);
+                }
+            }
+        }
+    }
+}

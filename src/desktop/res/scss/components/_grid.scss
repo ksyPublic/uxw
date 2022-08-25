@@ -1,0 +1,36 @@
+$root: grid;
+
+.#{$root} {
+    display: flex;
+    margin-right: -8px;
+
+    &.col3 {
+        .#{$root} {
+            &__box {
+                width: calc(33.33% - 8px);
+            }
+        }
+    }
+
+    &__box {
+        background-color: $white;
+        border-radius: 4px;
+        border: 1px solid color(grey, 200);
+        padding: 20px 16px;
+        margin-right: 8px;
+        height: 150px;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 20px;
+        color: color(grey, 600);
+    }
+
+    .text-link {
+        height: 80px;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        align-items: flex-start;
+    }
+}

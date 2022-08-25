@@ -1,0 +1,66 @@
+$root: tooltip;
+
+.#{$root} {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    align-items: center;
+    padding: 6px 12px;
+    line-height: 20px;
+    border-radius: 6px;
+    visibility: hidden;
+    opacity: 0;
+    max-width: 240px;
+
+    background-color: color(grey, 700);
+    color: $white;
+
+    &__box {
+        opacity: 1;
+        transition: 1s cubic-bezier(0.33, 1, 0.68, 1);
+        transition-delay: 0.5s;
+    }
+
+    &.is-active {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    &[data-placement='bottom'] {
+        &:before {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            top: auto;
+            left: calc(50% - 4px);
+            width: 8px;
+            height: 12px;
+            background: url('../images/ic-polygon-arrow.png') no-repeat;
+            transform: rotate(-90deg);
+        }
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        left: -6px;
+        width: 12px;
+        top: calc(50% - 6px);
+        height: 100%;
+        background: url('../images/ic-polygon-arrow.png') no-repeat;
+    }
+
+    &__list {
+        position: relative;
+    }
+
+    &__button {
+        //
+    }
+
+    &__title {
+        font-size: 12px;
+        font-weight: 300;
+    }
+}

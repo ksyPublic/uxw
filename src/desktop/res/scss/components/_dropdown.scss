@@ -1,0 +1,16 @@
+$root : dropdown;
+
+.#{$root} {
+    position: relative;
+    [role="button"] {
+        cursor: pointer;
+    }
+    &-menu {
+        width:135px;
+        position: absolute;
+        padding:8px 0;
+        background-color:$white;
+        box-shadow: 0px 2px 6px rgba(22, 37, 66, 0.1);
+        border-radius: 2px;
+    }
+}

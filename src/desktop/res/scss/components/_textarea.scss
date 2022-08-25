@@ -1,0 +1,74 @@
+$root: textarea;
+
+.#{$root} {
+    width: 100%;
+    resize: none;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 28px;
+    font-family: $font-family-base;
+    background-color: $body-base-color;
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px solid color(grey, 200);
+    box-sizing: border-box;
+
+    &--base {
+        min-height: 500px;
+    }
+
+    &::placeholder {
+        color: color(grey, 400);
+    }
+
+    &:focus {
+        border: 1px solid color(blue, 800) !important;
+        outline: 0 !important;
+    }
+
+    &.error {
+        &:focus {
+            border: 1px solid color(red, 700) !important;
+        }
+    }
+
+    &__lengths {
+        display: block;
+        font-size: 14px;
+        font-weight: 300;
+
+        @include clearFix;
+
+        &__box {
+            float: right;
+        }
+
+        label.error {
+            float: left;
+        }
+
+        &.error {
+            .#{$root} {
+                &__lengths--current {
+                    color: color(red, 700);
+                }
+            }
+        }
+
+        &--current {
+            position: relative;
+            margin-right: 4px;
+            color: color(blue, 800);
+        }
+
+        &--total {
+            color: #666;
+
+            &:after {
+                content: '자';
+                display: inline-block;
+                vertical-align: top;
+            }
+        }
+    }
+}

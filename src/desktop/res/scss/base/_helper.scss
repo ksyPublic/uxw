@@ -1,10 +1,67 @@
-.sr-only {
-    position: absolute;
-    overflow: hidden;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    border: 0;
-    clip: rect(0, 0, 0, 0);
+.light {
+    font-weight: 300 !important;
+}
+
+.medium {
+    font-weight: 500 !important;
+}
+
+.bold {
+    font-weight: bold !important;
+}
+
+.ft28 {
+    font-size: 28px !important;
+}
+
+.ft18 {
+    font-size: 18px !important;
+}
+
+.ft20 {
+    font-size: 20px !important;
+}
+
+.ft14 {
+    font-size: 14px !important;
+}
+
+.dpb {
+    display: block !important;
+}
+
+.mgb6 {
+    margin-bottom: 6px;
+}
+
+.mgt6 {
+    margin-top: 6px;
+}
+
+.mgt20 {
+    margin-top: 20px;
+}
+
+.pw100 {
+    width: 100% !important;
+}
+
+.blue100-bg {
+    background-color: color(blue, 100) !important;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.pxh170 {
+    height: 170px;
+}
+
+.is-focused {
+    border: 1px solid color(blue, 800) !important;
 }

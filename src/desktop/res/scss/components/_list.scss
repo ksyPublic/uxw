@@ -1,0 +1,29 @@
+$root: list;
+
+.#{$root} {
+    &__item {
+        margin-bottom: 10px;
+        display: flex;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 24px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        .label {
+            min-width: 56px;
+            max-width: 56px;
+            color: color(grey, 500);
+
+            + .text {
+                margin-left: 20px;
+            }
+        }
+
+        .text {
+            display: flex;
+            align-items: flex-start;
+            color: color(grey, 600);
+        }
+    }
+}

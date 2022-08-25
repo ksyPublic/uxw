@@ -1,0 +1,79 @@
+.text {
+    &-link {
+        &[role='button'] {
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        font-weight: 500;
+        color: color(grey, 600);
+
+        &.bollet:before {
+            content: '';
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 4px;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+        }
+
+        &.purple {
+            color: color(purple, 800);
+
+            &.bollet:before {
+                background-color: color(purple, 800);
+            }
+        }
+
+        &.orange {
+            color: color(orange, 800);
+            &.bollet:before {
+                background-color: color(orange, 800);
+            }
+        }
+
+        &:hover {
+            color: color(blue, 800);
+            text-decoration: underline;
+
+            .ic-text-arrow {
+                background: url('../images/ic-text-arrow-hover.png') no-repeat;
+            }
+        }
+
+        &:focus {
+            color: color(grey, 600);
+            outline: 1px solid color(blue, 800) !important;
+            .ic-text-arrow {
+                background: url('../images/ic-text-arrow-foucs.png') no-repeat;
+            }
+        }
+
+        &:active {
+            color: color(blue, 900);
+            .ic-text-arrow {
+                background: url('../images/ic-text-arrow-foucs.png') no-repeat;
+            }
+        }
+
+        &:disabled {
+            color: color(grey, 400);
+            .ic-text-arrow {
+                background: url('../images/ic-text-arrow-disabled.png') no-repeat;
+            }
+        }
+    }
+
+    &-blue {
+        color: color(blue, 800);
+    }
+
+    &-date {
+        display: block;
+        margin-top: 8px;
+    }
+}

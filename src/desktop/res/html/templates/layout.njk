@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 
 <html>
-
     <head>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="description" content=""/>
         <title>UXW</title>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <link rel="stylesheet" href="/res/css/main.css"/>
+        <link rel="stylesheet" href="/res/css/styles.css"/>
     </head>
 
     <body>
         <div class="wrap">
-            <header class="head">header</header>
+            {% include "../templates/header.njk" %}
             <div class="ly-container">
                 {% block content %}{% endblock %}
             </div>
-            <footer class="foot">footer</footer>
         </div>
+
+        <script src="/res/js/lib/swiper.min.js"></script>
         <script src="/res/js/uxw.ui.js"></script>
+        {% block scripts %}{% endblock %}
     </body>
 
 </html>

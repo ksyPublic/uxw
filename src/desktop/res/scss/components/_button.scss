@@ -1,21 +1,146 @@
 button {
     cursor: pointer;
-    outline: 0;
-    border: 0;
     padding: 0;
-    background-color: inherit;
+    background-color: transparent;
+    font-family: $font-family-base;
+    letter-spacing: $font-letter-base;
 }
 
 .button {
     border-radius: 0;
-    width: 120px;
-    height: 40px;
-    border: 0;
-    font-size: 14px;
-    font-weight: 500;
+    height: 56px;
+    font-size: 18px;
+    font-weight: 300;
+    padding: 0 14px;
+    border-radius: 6px;
+    background-color: color(blue, 800);
+    color: $white;
+    padding: 0 26px;
+    border: 1px solid transparent;
 
-    &--text {
+    &[aria-hidden='true'] {
+        display: none;
+    }
+
+    &--medium {
+        padding: 0 8px;
+        height: 32px;
         font-size: 14px;
-        font-weight: 300;
+    }
+
+    &:focus {
+        outline: 0 !important;
+        background-color: color(blue, 700);
+    }
+
+    &:active {
+        background-color: color(blue, 900);
+    }
+
+    &:hover {
+        background-color: color(blue, 900);
+    }
+
+    &:disabled {
+        cursor: no-drop;
+        background-color: color(grey, 200);
+        color: color(grey, 400);
+        border: 1px solid transparent;
+    }
+
+    &--type2 {
+        background-color: transparent;
+        border: 1px solid color(blue, 700);
+        color: color(blue, 800);
+
+        &:hover {
+            background-color: color(grey, 50);
+        }
+
+        &:focus {
+            background-color: transparent;
+        }
+
+        &:active {
+            background-color: color(blue, 200);
+        }
+
+        &:disabled {
+            border: 1px solid transparent;
+            background-color: color(grey, 100);
+        }
+    }
+
+    &--type3 {
+        background-color: color(blue, 100);
+        border: 1px solid transparent;
+        color: color(blue, 800);
+
+        &:hover {
+            background-color: color(blue, 200);
+        }
+
+        &:focus {
+            background-color: color(blue, 100);
+            border: 1px solid color(blue, 600);
+        }
+
+        &:active {
+            background-color: color(blue, 200);
+            color: color(blue, 900);
+        }
+
+        &:disabled {
+            background-color: color(grey, 100);
+        }
+    }
+
+    &--type4 {
+        background-color: transparent;
+        border: 1px solid color(grey, 300);
+        color: color(grey, 900);
+
+        &:hover {
+            background-color: color(grey, 50);
+            border: 1px solid color(grey, 400);
+        }
+
+        &:focus {
+            background-color: transparent;
+            border: 1px solid color(blue, 600);
+        }
+
+        &:active {
+            background-color: color(grey, 300);
+            border: 1px solid color(grey, 400);
+        }
+
+        &:disabled {
+            background-color: color(grey, 100);
+        }
+    }
+
+    &-group {
+        display: flex;
+        align-items: center;
+
+        &--between {
+            justify-content: space-between;
+        }
+
+        > div {
+            margin-left: 24px;
+
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+
+        button {
+            margin-left: 8px;
+            &:first-child {
+                margin-left: 0;
+            }
+        }
     }
 }

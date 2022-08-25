@@ -10,48 +10,14 @@
         <title>{{ title }}</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../../resources/css/main.css"/>
-        <link rel="stylesheet" href="../vendor/prism.css">
-        <link rel="stylesheet" href="../resources/guideStyle.css">
+        <link rel="stylesheet" href="/res/css/styles.css"/>
+        <link rel="stylesheet" href="../../vendor/prism.css">
+        <link rel="stylesheet" href="../guideStyle.css">
     </head>
 
     <body>
-        <div class="guide">
-            <div class="head">
-                <h1 class="head__logo">
-                    <a href="#none" alt="홈 바로가기">
-                        <img src="../../resources/images/logo.png" alt="신한 UXW 시스템"/>
-                        <span>신한 UXW 시스템</span>
-                    </a>
-                </h1>
-                <nav class="head__nav">
-                    <ul>
-                        <li>
-                            <button type="button" class="head__btn is-active" aria-selected="false" aria-label="글쓰기">
-                                <i class="ic ic-writing" aria-hidden="true"></i>
-                            </button>
-                        </li>
-                        <li>
-                            <button type="button" class="head__btn" aria-selected="false" aria-label="마이페이지">
-                                <i class="ic ic-my" aria-hidden="true"></i>
-                            </button>
-                        </li>
-                        <li>
-                            <button type="button" class="head__btn" aria-selected="false" aria-label="Q&A">
-                                <i class="ic ic-qa" aria-hidden="true"></i>
-                            </button>
-                        </li>
-                        <li>
-                            <button type="button" class="head__btn" aria-selected="false" aria-controls="nav_content" aria-label="메뉴">
-                                <i class="ic ic-menu" aria-hidden="true"></i>
-                            </button>
-                        </li>
-                    </ul>
-                    <div class="head__log">
-                        <a class="button--text" href="/" alt="로그인">로그인</a>
-                    </div>
-                </nav>
-            </div>
+        <div class="wrap">
+            {% include "../templates/header.njk" %}
             <div class="guide__wrap">
                 {% include "../templates/menu.njk" %}
                 <div class="guide__content">
@@ -60,9 +26,9 @@
             </div>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.0/beautify.min.js"></script>
-        <script src="../../resources/js/uxw.ui.js"></script>
-        <script src="../vendor/prism.js"></script>
-        <script src="../resources/guideCommon.js"></script>
+        <script src="/res/js/uxw.ui.js"></script>
+        <script src="../../vendor/prism.js"></script>
+        <script src="../guideCommon.js"></script>
     </body>
 
 </html>

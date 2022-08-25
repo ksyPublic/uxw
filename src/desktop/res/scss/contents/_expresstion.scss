@@ -1,0 +1,47 @@
+$root: expresstion;
+
+.#{$root} {
+    margin-top: 40px;
+
+    &-group {
+        color: $white;
+    }
+
+    &-list {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        min-height: 64px;
+        border-bottom: 1px dashed color(grey, 400);
+        padding: 7.5px 0;
+
+        &:first-child {
+            padding-top: 0;
+        }
+
+        &:last-child {
+            padding-bottom: 0;
+            border-bottom: 0;
+        }
+
+        &:before {
+            content: '';
+            display: inline-block;
+            vertical-align: top;
+            width: 4px;
+            min-width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: $white;
+            margin-right: 24px;
+        }
+
+        > span {
+            width: 126px;
+            line-height: 24px;
+            font-size: 16px;
+            font-weight: 500;
+            display: flex;
+        }
+    }
+}

@@ -1,0 +1,59 @@
+$root: input;
+
+input[type='text'],
+input[type='password'] {
+    font-family: $font-family-base;
+    letter-spacing: $font-letter-base;
+
+    &::placeholder {
+        color: color(grey, 400);
+    }
+
+    &:focus {
+        outline: none !important;
+    }
+}
+
+.#{$root} {
+    width: 100%;
+    height: 56px;
+    box-sizing: border-box;
+    font-weight: 300;
+    font-size: 14px;
+    padding: 0 48px 0 16px;
+    border: 1px solid color(grey, 300);
+    border-radius: 6px;
+    color: color(grey, 900);
+
+    &:focus {
+        border: 1px solid color(blue, 800);
+    }
+
+    &:read-only {
+        color: color(grey, 600);
+    }
+
+    &:disabled {
+        background-color: color(grey, 50);
+        border: 1px solid color(grey, 300);
+    }
+
+    &-box {
+        position: relative;
+        &.error {
+            .input {
+                border: 1px solid color(red, 700);
+            }
+        }
+
+        &__wrap {
+            position: relative;
+            height: 56px;
+        }
+
+        .ic-button-clear.is-active {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+}

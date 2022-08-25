@@ -1,4 +1,4 @@
-$root : head;
+$root: head;
 
 .#{$root} {
     position: fixed;
@@ -12,13 +12,14 @@ $root : head;
     background-color: color(grey, 50);
     border-bottom: 1px solid color(gray, 200);
     padding: 0 40px;
-    z-index: 100;
+    z-index: 101;
 
     &__logo {
         font-size: 18px;
         font-weight: bold;
         height: 100%;
         min-width: 184px;
+        white-space: nowrap;
 
         a {
             display: flex;
@@ -44,23 +45,16 @@ $root : head;
             li {
                 display: inline-block;
                 vertical-align: top;
+                margin-right: 24px;
+
+                &:only-child {
+                    margin-right: 0;
+                }
             }
         }
     }
 
 
-    &__btn {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background-color: $white;
-        box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
-        margin-right: 24px;
-
-        &.is-active {
-            background-color: color(blue, 800);
-        }
-    }
 
     &__log {
         display: inline-block;

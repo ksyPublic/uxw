@@ -1,30 +1,70 @@
-$root: tabs;
+$root: tab;
 
 .#{$root} {
     &__list {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
     }
 
-    &__content {
+    &__panel {
         display: none;
+
+        &:focus {
+            outline: 0 !important;
+        }
+
+        &.is-active {
+            display: block;
+        }
     }
 
     &__button {
-        width: 140px;
-        height: 60px;
-        border: 1px solid #e3e3e3;
-        border-right: 0;
+        width: 196px;
         font-size: 20px;
-        font-weight: 300;
+        font-weight: 500;
+        padding: 7px 0 25px 0;
+        position: relative;
+        height: 64px;
+        transition: all 0.4s ease-out;
 
-        &:last-child {
-            border-right: 1px solid #e3e3e3;
+        &:focus {
+            background-color: color(blue, 100);
+            outline: 0 !important;
         }
 
-        &[aria-selected="true"] {
-            background-color: color(blue, 800);
-            color: $white;
+        &:active {
+            background-color: color(grey, 200);
         }
+
+        &:hover {
+            background-color: color(grey, 50);
+        }
+
+        &.is-active {
+            color: color(blue, 800);
+
+            &:hover {
+                background-color: color(grey, 50);
+            }
+
+            &:after {
+                content: '';
+                z-index: 1;
+                height: 2px;
+                width: 100%;
+                background-color: color(blue, 800);
+                position: absolute;
+                bottom: 0px;
+                left: 0;
+            }
+        }
+    }
+
+    &__inner {
+        padding: 40px 0;
+    }
+
+    &__scroll {
+        overflow-y: auto;
     }
 }
