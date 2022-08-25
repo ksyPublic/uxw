@@ -25,7 +25,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: development/desktop
+      url: development/desktop/res/html
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
