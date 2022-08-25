@@ -29,7 +29,7 @@ const navigation = function (UI) {
 
     const _addEvent = function () {
         _config.target.forEach(item => {
-            item.addEventListener('click', navClickable);
+            EventHandler.on('click', item, navClickable);
         });
     };
 
