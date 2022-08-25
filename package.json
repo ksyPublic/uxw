@@ -1,4 +1,5 @@
 {
+    "homepage": "https://ksyPublic.github.io/uxw",
     "name": "pro",
     "version": "1.0.0",
     "description": "",
@@ -7,7 +8,9 @@
         "dev": "cross-env BUILD_TYPE=desktop NODE_ENV=development gulp dev",
         "build": "cross-env BUILD_TYPE=desktop NODE_ENV=production gulp build",
         "build:css": "cross-env BUILD_TYPE=desktop NODE_ENV=production gulp buildcss",
-        "build:js": "cross-env BUILD_TYPE=desktop NODE_ENV=production gulp buildjs"
+        "build:js": "cross-env BUILD_TYPE=desktop NODE_ENV=production gulp buildjs",
+        "predeploy": "cross-env BUILD_TYPE=livesever NODE_ENV=production gulp build",
+        "deploy": "gh-pages -d build"
     },
     "lint-staged": {
         "src/**/*.js": [
@@ -35,6 +38,7 @@
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-import": "^2.26.0",
         "eslint-plugin-prettier": "^4.2.1",
+        "gh-pages": "^4.0.0",
         "gulp": "^4.0.2",
         "gulp-autoprefixer": "^8.0.0",
         "gulp-beautify": "^3.0.0",
