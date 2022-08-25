@@ -1,4 +1,4 @@
-{% set user = login %}
+{% set user = "login" %}
 {% extends "../templates/layout.njk" %}
 {% block content %}
     <!-- floting 네비게이션 영역 -->
@@ -42,14 +42,14 @@
                 <div class="login__form" role="form">
                     <div class="input-box">
                         <input name="id" class="input" type="text" placeholder="사번을 입력하세요."/>
-                        <button type="button" class="ic-button-clear" aria-label="클리어버튼" aria-pressed="false" data-visible onclick="Input.ClearButton(this)">
+                        <button type="button" class="ic-button-clear" aria-label="클리어버튼" aria-pressed="false" data-visible onclick="window.UXW.Input.ClearButton(this)">
                             <i class="ic ic-clear"></i>
                         </button>
                     </div>
                     <label class="error" aria-hidden="true">에러시 메시지 출력</label>
                     <div class="input-box expand">
                         <input name="password" class="input" type="password" placeholder="비밀번호를 입력하세요."/>
-                        <button type="button" class="ic-button-clear" aria-label="클리어버튼" aria-pressed="false" data-visible onclick="Input.ClearButton(this)">
+                        <button type="button" class="ic-button-clear" aria-label="클리어버튼" aria-pressed="false" data-visible onclick="window.UXW.Input.ClearButton(this)">
                             <i class="ic ic-clear"></i>
                         </button>
                     </div>
@@ -165,7 +165,7 @@
                         .remove('expanded');
                     passwordParent.style.height = passwordParent.scrollHeight + 'px';
                     passwordParent.style.marginTop = 6 + 'px';
-                    Input.Clear(loginID);
+
                 } else {
                     passwordParent.style.height = '';
                     passwordParent.style.margin = '';

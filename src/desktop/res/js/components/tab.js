@@ -291,3 +291,110 @@ class Tab extends UI {
 }
 
 export default Tab;
+// const Tab = function (element) {
+//     let defaultProps = {
+//         eventHandler: 'aria-controls',
+//         tabName: '[role="tab"]',
+//         tablistName: '[role="tablist"]',
+//         tabpanelName: '[role="tabpanel"]',
+//         tabpanel: null,
+//         tablist: null,
+//         tab: null,
+//         element: element,
+//         beforeActive: 0,
+//         activeIndex: 0,
+//         beforeSelection: {
+//             tab: null,
+//             tabpanel: null,
+//         },
+//         classes: {
+//             active: 'is-active',
+//         },
+//     };
+
+//     this.defaultProps = defaultProps;
+// };
+
+// Tab.prototype.addEvent = function () {
+//     const _this = this;
+//     const props = this.defaultProps;
+
+//     props.tablist.addEventListener('click', function (event) {
+//         if (!event.target.tagName.match(/^A$|AREA|INPUT|TEXTAREA|SELECT|BUTTON|LABEL/gim)) {
+//             event.preventDefault();
+//         }
+//         const target = event.target.closest(props.tabName);
+//         if (target) {
+//             props.tab = target;
+//             props.tabpanel = _this._getContent(target);
+//             _this._active();
+//         }
+//     });
+// };
+
+// Tab.prototype.active = function (target) {
+//     const props = this.defaultProps;
+//     if (!isNaN(target)) {
+//         const tablist = props.element.querySelector(props.tablistName);
+//         const tabs = tablist.querySelectorAll(props.tabName);
+//         props.tab = tabs[target];
+//         props.tabpanel = this._getContent(tabs[target]);
+//     }
+
+//     this._active();
+// };
+
+// Tab.prototype._getContent = function (target) {
+//     const props = this.defaultProps;
+//     const getID = target.getAttribute(props.eventHandler);
+//     const content = document.querySelector('#' + getID);
+//     return content;
+// };
+
+// Tab.prototype._active = function () {
+//     const props = this.defaultProps;
+//     this._deactive();
+//     props.tab.classList.add(props.classes.active);
+//     props.tabpanel.classList.add(props.classes.active);
+
+//     props.activeIndex = getIndex(props.tab);
+
+//     props.beforeSelection.tab = props.tab;
+//     props.beforeSelection.tabpanel = props.tabpanel;
+//     //웹접근성
+//     this._aria(props.tab, props.tabpanel, true);
+// };
+
+// Tab.prototype._deactive = function () {
+//     const props = this.defaultProps;
+//     const before = props.beforeSelection;
+//     if (before.tab) {
+//         before.tab.classList.remove(props.classes.active);
+//         before.tabpanel.classList.remove(props.classes.active);
+//     }
+//     this._aria(before.tab, before.tabpanel, false);
+// };
+
+// Tab.prototype._aria = function (tab, content, isActive) {
+//     if (!tab || !content) {
+//         return;
+//     }
+//     const isSelected = isActive ? true : false;
+//     const isHidden = isActive ? false : true;
+//     const tabIndex = isActive ? 0 : -1;
+//     tab.setAttribute('tabIndex', tabIndex);
+//     tab.setAttribute('aria-selected', isSelected);
+//     content.setAttribute('aria-hidden', isHidden);
+// };
+
+// Tab.prototype.varioblesUpdate = function () {
+//     const props = this.defaultProps;
+//     const _tablistName = props.element.querySelector(props.tablistName);
+//     props.tablist = _tablistName;
+// };
+
+// Tab.prototype.init = function () {
+//     this.varioblesUpdate();
+//     this.addEvent();
+//     this.active(this.defaultProps.beforeActive);
+// };
