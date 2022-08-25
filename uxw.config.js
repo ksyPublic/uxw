@@ -15,15 +15,6 @@ const filesPath = {
                 guideCss: `${env}/${buildType}/_guide`,
             },
 
-            build: {
-                image: `${buildType}/build/res/images`,
-                html: `${buildType}/build`,
-                css: `${buildType}/build/res/css`,
-                js: `${buildType}/build/res/js`,
-                font: `${buildType}/build/res/fonts`,
-                guideCss: `${buildType}/build/_guide`,
-            },
-
             admin: {
                 image: `${env}/${buildType}/res/images`,
                 html: `${env}/${buildType}`,
