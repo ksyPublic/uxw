@@ -4,27 +4,27 @@ const buildType = process.env.BUILD_TYPE;
 const env = process.env.NODE_ENV;
 // 빌드타입, 환경에따른 아웃풋 경로 반환
 const filesPath = {
-    output: (dir) => {
+    output: dir => {
         const pathInfo = {
             desktop: {
-                image: `${env}/${buildType}/resources/images`,
+                image: `${env}/${buildType}/res/images`,
                 html: `${env}/${buildType}`,
-                css: `${env}/${buildType}/resources/css`,
-                js: `${env}/${buildType}/resources/js`,
-                font: `${env}/${buildType}/resources/fonts`,
+                css: `${env}/${buildType}/res/css`,
+                js: `${env}/${buildType}/res/js`,
+                font: `${env}/${buildType}/res/fonts`,
                 guideCss: `${env}/${buildType}/_guide`,
             },
         };
         return pathInfo[buildType][dir];
     },
-    input: (filesPath) => {
+    input: filesPath => {
         return `./src/${buildType}/${filesPath}`;
     },
 };
 
 const webpackConfig = {
     mode: process.env.NODE_ENV,
-    devtool: "source-map", // process.env.NODE_ENV === 'development' ? 'eval-source-map' : 'production',
+    devtool: 'source-map', // process.env.NODE_ENV === 'development' ? 'eval-source-map' : 'production',
     output: {
         filename: `uxw.ui.js`,
     },
@@ -34,7 +34,7 @@ const webpackConfig = {
             {
                 test: /\.m?js$/,
                 exclude: /node_modules/,
-                loader: "babel-loader",
+                loader: 'babel-loader',
                 resolve: {
                     fullySpecified: false,
                 },
