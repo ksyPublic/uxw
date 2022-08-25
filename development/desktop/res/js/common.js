@@ -1,86 +1,16 @@
+import EventHandler from './vendor/EventHandler';
+
 /* eslint-disable prettier/prettier */
-const Input = {
-    // 에러
-    Error: function (props) {
-        const ARIA_HIDDEN = 'aria-hidden';
-        const input = props.parentElement;
-        const label = input.nextElementSibling.classList.contains('error');
-        input.classList.add('error');
-        if (!label) {
-            return;
+const getObjectElements = function (elements) {
+    let arr = [];
+    for (let key in elements) {
+        if (Object.prototype.hasOwnProperty.call(elements, key)) {
+            const attrvalue = elements[key];
+            arr[key] = attrvalue;
         }
-
-        const get = input.nextElementSibling.getAttribute(ARIA_HIDDEN);
-        if (get === 'true') {
-            input.nextElementSibling.setAttribute(ARIA_HIDDEN, false);
-        }
-    },
-
-    // 에러 클리어
-    Clear: function (props) {
-        const ARIA_HIDDEN = 'aria-hidden';
-        const input = props.parentElement;
-        const label = input.nextElementSibling.classList.contains('error');
-        input.classList.remove('error');
-        if (!label) {
-            return;
-        }
-
-        const get = input.nextElementSibling.getAttribute(ARIA_HIDDEN);
-        if (get === 'false') {
-            input.nextElementSibling.setAttribute(ARIA_HIDDEN, true);
-        }
-    },
-
-    // value 삭제버튼
-    ClearButton: function (param) {
-        if (!param.previousElementSibling) {
-            return;
-        }
-
-        if (param.previousElementSibling.tagName === 'INPUT') {
-            param.previousElementSibling.value = '';
-            param.classList.remove('is-active');
-
-            if (param.previousElementSibling.getAttribute('name') === 'id') {
-                const target = document.querySelector('[name="password"]');
-                const passwordParent = target.closest('.input-box');
-                passwordParent.style.height = '';
-                passwordParent.style.marginTop = '0';
-
-                passwordParent.classList.add('expanding');
-                passwordParent.classList.remove('expand');
-                passwordParent.classList.remove('expanded');
-            }
-        }
-    },
-
-    // InputBox value Checker
-    check: function () {
-        const elements = document.querySelectorAll('.input-box');
-
-        const onInput = function (event) {
-            const value = event.target.value;
-            const length = value.length;
-            const nextEl = event.target.nextElementSibling;
-            if (!nextEl) {
-                return;
-            }
-            if (length > 0) {
-                nextEl.classList.add('is-active');
-            } else {
-                nextEl.classList.remove('is-active');
-            }
-        };
-        [].forEach.call(elements, item => {
-            const target = item.querySelector('.input');
-            target.addEventListener('keyup', onInput);
-            target.addEventListener('keydown', onInput);
-            target.addEventListener('change', onInput);
-        });
-    },
+    }
+    return arr;
 };
-
 const navigation = function (UI) {
     const NAV_BOX = 'aria-expanded';
     const elements = document.querySelectorAll(UI);
@@ -137,7 +67,6 @@ const navigation = function (UI) {
 
 const initFunc = () => {
     navigation('[role="navigation"]');
-    Input.check();
 };
 
 const initialize = () => {};
@@ -145,7 +74,6 @@ const initialize = () => {};
 const commonInit = {
     initFunc,
     initialize,
-    Input,
 };
 
 export default commonInit;

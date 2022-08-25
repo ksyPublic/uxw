@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>신한 UXW 시스템 : 교정하기</title>
-    <link rel="stylesheet" href="../css/styles.css" />
-    <link rel="stylesheet" href="../js/lib/swiper.css" />
+    <meta name="description" content="" />
+    <title>UXW</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/res/css/styles.css" />
+    <link rel="stylesheet" href="/res/js/lib/swiper.css" />
 </head>
 
 <body>
@@ -45,13 +46,13 @@
                     </li>
                 </ul>
                 <div class="head__log">
-                    <a class="text-link" href="#none" alt="로그아웃">로그아웃<i class="ic ic-text-arrow" aria-hidden="true"></i></a>
+                    <a class="text-link" href="#none" alt="로그아웃">로그아웃<i class="ic ic-text-arrow" aria-hidden="true"></i>
+                    </a>
                 </div>
             </div>
             <!-- //로그인 일때 -->
         </header>
         <!-- header 영역 -->
-        <!-- 컨텐츠 영역 -->
         <div class="ly-container">
             <!-- floting 네비게이션 영역 -->
             <div class="floating-menu-wrap">
@@ -116,7 +117,9 @@
                                             <textarea data-bytes-check class="textarea textarea--base" maxlength="5000" placeholder="내용을 입력해주세요. 한글 2,500자(5,000 Byte)"></textarea>
                                             <div class="textarea__lengths">
                                                 <label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 글자수를 조정해주세요.</label>
-                                                <div class="textarea__lengths__box"><span class="textarea__lengths--current">0</span>/ <span class="textarea__lengths--total">5,000</span></div>
+                                                <div class="textarea__lengths__box">
+                                                    <span class="textarea__lengths--current">0</span>/ <span class="textarea__lengths--total">5,000</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -366,7 +369,8 @@
                         <div class="box mgt20 blue100-bg">
                             <div class="title--type2">
                                 <h4 class="text ft18 medium">내 콘텐츠</h4>
-                                <a href="#none" class="text-link">전체보기<i class="ic ic-text-arrow" aria-hidden="true"></i></a>
+                                <a href="#none" class="text-link">전체보기<i class="ic ic-text-arrow" aria-hidden="true"></i>
+                                </a>
                             </div>
                             <!-- 데이터가 없을시 오픈 -->
                             <div class="none-data pxh170" data-none>
@@ -433,7 +437,8 @@
                                     </div>
                                     <div class="accordion__panel" id="acc_content1" aria-labelledby="acc_header1">
                                         <div class="accordion__inner">
-                                            <a class="text-link bollet purple" href="#none" alt="일본식 한자어 순화 가이드보기" role="button">일본식 한자어 순화<i class="ic ic-text-arrow--type2" aria-hidden="true"></i></a>
+                                            <a class="text-link bollet purple" href="#none" alt="일본식 한자어 순화 가이드보기" role="button">일본식 한자어 순화<i class="ic ic-text-arrow--type2" aria-hidden="true"></i>
+                                            </a>
                                             <div class="list" role="list">
                                                 <div class="list__item" role="listitem">
                                                     <label class="label">허용 표현</label>
@@ -466,7 +471,8 @@
                                     </div>
                                     <div class="accordion__panel" id="acc_content2" aria-labelledby="acc_header2">
                                         <div class="accordion__inner">
-                                            <a class="text-link bollet orange" href="#none" alt="한자어 순화 가이드보기" role="button">한자어 순화<i class="ic ic-text-arrow--type2" aria-hidden="true"></i></a>
+                                            <a class="text-link bollet orange" href="#none" alt="한자어 순화 가이드보기" role="button">한자어 순화<i class="ic ic-text-arrow--type2" aria-hidden="true"></i>
+                                            </a>
                                             <div class="list" role="list">
                                                 <div class="list__item" role="listitem">
                                                     <label class="label">허용 표현</label>
@@ -499,7 +505,8 @@
                                     </div>
                                     <div class="accordion__panel" id="acc_content3" aria-labelledby="acc_header3">
                                         <div class="accordion__inner">
-                                            <a class="text-link bollet orange" href="#none" alt="한자어 순화 가이드보기" role="button">한자어 순화<i class="ic ic-text-arrow--type2" aria-hidden="true"></i></a>
+                                            <a class="text-link bollet orange" href="#none" alt="한자어 순화 가이드보기" role="button">한자어 순화<i class="ic ic-text-arrow--type2" aria-hidden="true"></i>
+                                            </a>
                                             <div class="list" role="list">
                                                 <div class="list__item" role="listitem">
                                                     <label class="label">허용 표현</label>
@@ -524,17 +531,16 @@
             </div>
             <!-- //사이드 영역 -->
         </div>
-        <!-- //컨텐츠 영역 -->
     </div>
-    <script src="../js/common.js"></script>
-    <script src="../js/lib/swiper.min.js"></script>
+    <script src="/res/js/lib/swiper.min.js"></script>
+    <script src="/res/js/uxw.ui.js"></script>
     <script>
         const swiper = new Swiper('.swiper', {
             observer: true,
             observeParents: true,
             autoplay: {
                 delay: 3000,
-                disableOnInteraction: false,
+                disableOnInteraction: false
             },
             grapCursor: true,
             loop: true,
@@ -544,24 +550,24 @@
             mousewheelControl: true,
             keyboard: {
                 enabled: true,
-                onlyInViewport: false,
+                onlyInViewport: false
             },
             spaceBetween: 40,
             pagination: {
                 el: '.swiper-pagination',
-                clickable: true,
+                clickable: true
             },
             navigation: {
                 nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
+                prevEl: '.swiper-button-prev'
             },
             autoHeight: true,
             a11y: {
                 nextSlideMessage: '다음 슬라이드',
                 prevSlideMessage: '이전 슬라이드',
                 firstSlideMessage: '첫번째 슬라이드',
-                lastSlideMessage: '마지막 슬라이드',
-            },
+                lastSlideMessage: '마지막 슬라이드'
+            }
         });
         swiper.el.addEventListener('mouseenter', function() {
             swiper.autoplay.stop();
@@ -595,7 +601,7 @@
                 } else {
                     currectEvent.OPEN(param);
                 }
-            },
+            }
         };
         //바이트수 체크
         function bytesCheck() {

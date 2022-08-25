@@ -6180,7 +6180,7 @@ var navigation = function navigation(UI) {
 
   var _addEvent = function _addEvent() {
     _config.target.forEach(function (item) {
-      item.addEventListener('click', navClickable);
+      _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_4__["default"].on('click', item, navClickable);
     });
   };
 
