@@ -1,58 +1,159 @@
 import UI from './base/base-ui';
 import EventHandler from '../vendor/EventHandler';
+import { dataSetToObject } from '../utils/dom-util';
+
+/**
+ * tooltip verstion 0.0.1
+ */
+
+const NAME = 'ui.tooltip';
+
+const ARIA_DESCRIBEDBY = 'aria-describedby';
+
+const dataAttrConfig = {
+    activeClass: 'active',
+    active: 0,
+    time: 1000,
+    offset: [8, 8],
+};
+
+const defaultConfig = {
+    ...dataAttrConfig,
+};
+
+/**
+ * 타겟이 되는 툴팁
+ * <div class="nav__item tooltip-button">
+        <button type="button" class="ic-button-nav" aria-describedby="tooltip2" aria-label="UXW라이팅 가이드">
+            <i class="ic ic-guidebook" aria-hidden="true"></i>
+        </button>
+        <a class="text" href="#none" alt="용어사전검색 바로가기">UXW라이팅 가이드</a>
+    </div>
+ * 
+ * 
+ * 열리는 툴팁 박스
+    <div class="tooltip__box">
+        <div id="tooltip2" role="tooltip" class="tooltip" data-visible data-placement="right">
+            <span class="tooltip__title">UXW라이팅 가이드</span>
+        </div>
+    </div>
+ */
 
 class Tooltip extends UI {
     constructor(element, config) {
         super(element, config);
-        (this._element = element),
-            (this._tooltiplist = null),
-            (this._tooltip = null),
-            (this._container = null),
-            (this._timer = null),
-            (this._element = element),
-            (this._offset = [8, 8]),
-            (this._position = 'xr yc'),
-            (this.elementPosition = null),
-            (this._classes = {
-                active: 'is-active',
-            });
+        this._setupConfog(config);
+        this._tooltip = null;
+        this._current = {
+            tooltip: null,
+            content: null,
+        };
+        this._position = 'xr yc';
+        this._timer = null;
+        this._container = null;
+        this._elementPosition = null;
     }
 
-    addEvent() {
-        const { _tooltip } = this;
-        EventHandler.on(_tooltip, 'mouseenter', this.SHOW(this));
-        EventHandler.on(_tooltip, 'mouseleave', this.CLOSE(this));
+    static GLOBAL_CONFIG = {};
+
+    static get EVENT() {
+        return {
+            SHOW: `${NAME}.show`,
+            HIDE: `${NAME}.hide`,
+        };
     }
 
-    removeEvent() {
-        const { _tooltip } = this;
-        EventHandler.off(_tooltip, 'mouseenter', this.SHOW(this));
-        EventHandler.off(_tooltip, 'mouseleave', this.CLOSE(this));
+    static get NAME() {
+        return NAME;
+    }
+
+    _setupConfog(config) {
+        this._config = {
+            ...defaultConfig,
+            ...Tooltip.GLOBAL_CONFIG,
+            ...config,
+            ...dataSetToObject(this._element, dataAttrConfig, 'tooltip'),
+        };
+    }
+
+    _addEvent() {
+        EventHandler.on(this._tooltip, super._eventName('mouseenter'), event => {
+            if (!event.target.tagName.match(/^A$|AREA|INPUT|TEXTAREA|SELECT|BUTTON|LABEL/gim)) {
+                event.preventDefault();
+            }
+
+            const target = event.target.closest(`[${ARIA_DESCRIBEDBY}]`);
+            if (target) {
+                this._current = {
+                    tooltip: target,
+                    content: this._getContent(target),
+                };
+                this._show();
+            }
+
+            const { content } = this._current;
+            const position = content.getAttribute('data-placement');
+            this._elementPosition = position;
+            if (position) {
+                switch (position) {
+                    case 'bottom':
+                        this._position = 'xc yt';
+                        break;
+                    case 'left':
+                        this._position = 'xc yc';
+                        break;
+                    case 'top':
+                        this._position = 'xc yb';
+                        break;
+                    case 'right':
+                        this._position = 'xr yc';
+                        break;
+
+                    default:
+                        'right';
+                }
+            }
+        });
+
+        EventHandler.on(this._tooltip, super._eventName('mouseleave'), event => {
+            const { tooltip, content } = this._current;
+            this._hide(tooltip, content);
+        });
+    }
+
+    _getContent(target) {
+        const attr = target.getAttribute(`${ARIA_DESCRIBEDBY}`);
+        const content = document.querySelector(`#${attr}`);
+        return content;
+    }
+
+    _removeEvent() {
+        EventHandler.off(this._tooltip, super._eventName('mouseenter'));
+        EventHandler.off(this._tooltip, super._eventName('mouseleave'));
     }
 
     _destroy() {
-        this.removeEvent();
+        this._removeEvent();
     }
 
-    SHOW(proto) {
-        return function () {
-            proto._timer = setTimeout(function () {
-                proto._updatePosition();
-            }, 1000);
-        };
+    _show() {
+        const { time } = this._config;
+
+        this._timer = setTimeout(() => {
+            this._updatePosition();
+        }, time);
     }
 
-    CLOSE(proto) {
-        return function () {
-            clearTimeout(this._timer);
-            proto._timer = 0;
-            proto._tooltiplist.classList.remove(proto._classes.active);
-        };
+    _hide() {
+        const { activeClass } = this._config;
+        const { content } = this._current;
+        clearTimeout(this._timer);
+        content.classList.remove(activeClass);
     }
 
     _updatePosition() {
-        const props = this.defaultProps;
-
+        const { activeClass, offset } = this._config;
+        const { content } = this._current;
         /**
          * 툴팁 포지션 업데이트
          */
@@ -63,20 +164,27 @@ class Tooltip extends UI {
         const resultY = this._getPosition(positionY.toUpperCase());
 
         if (this._elementPosition === 'bottom' || this._elementPosition === 'top') {
-            this._tooltiplist.style.left = resultX + 'px';
-            this._tooltiplist.style.top = resultY - this._offset[1] + 'px';
+            Object.assign(content.style, {
+                left: `${resultX}px`,
+                top: `${resultY - offset[1]}px`,
+            });
         } else if (this._elementPosition === 'left' || this._elementPosition === 'right') {
-            this._tooltiplist.style.left = resultX + this._offset[0] + 'px';
-            this._tooltiplist.style.top = resultY + 'px';
+            Object.assign(content.style, {
+                left: `${resultX + offset[0]}px`,
+                top: `${resultY}px`,
+            });
         } else {
-            this._tooltiplist.style.left = resultX + 'px';
-            this._tooltiplist.style.top = resultY + 'px';
+            Object.assign(content.style, {
+                left: `${resultX}px`,
+                top: `${resultY}px`,
+            });
         }
 
-        this._tooltiplist.classList.add(this._classes.active);
+        content.classList.add(activeClass);
     }
 
     _getPosition(positionName) {
+        const { content } = this._current;
         /**
          * X 축, Y축 검사하며
          * 툴팁이 짤리는 경우를 검사하여
@@ -90,8 +198,8 @@ class Tooltip extends UI {
          */
         const opennerRect = this._element.getBoundingClientRect();
         const stage = this._getCurrentStageInfo();
-        const tw = this._tooltiplist.offsetWidth;
-        const th = this._tooltiplist.offsetHeight;
+        const tw = content.offsetWidth;
+        const th = content.offsetHeight;
         const screenLeft = stage.scrollLeft;
         const screenRight = stage.width + stage.scrollLeft;
         const screenTop = stage.scrollTop;
@@ -163,33 +271,8 @@ class Tooltip extends UI {
         return info;
     }
 
-    varioblesUpdate() {
-        let _tooltipTarget = 'aria-describedby';
-        this._tooltip = this._element.querySelectorAll('[' + _tooltipTarget + ']')[0];
-
-        const get = this._tooltip.getAttribute(_tooltipTarget);
-        this._tooltiplist = document.querySelector('#' + get);
-        const position = this._tooltiplist.getAttribute('data-placement');
-        this._elementPosition = position;
-        if (position) {
-            switch (position) {
-                case 'bottom':
-                    this._position = 'xc yt';
-                    break;
-                case 'left':
-                    this._position = 'xc yc';
-                    break;
-                case 'top':
-                    this._position = 'xc yb';
-                    break;
-                case 'right':
-                    this._position = 'xr yc';
-                    break;
-
-                default:
-                    'right';
-            }
-        }
+    _varioblesUpdate() {
+        this._tooltip = this._element.querySelector('[' + ARIA_DESCRIBEDBY + ']');
 
         let appendContainer = this._container === null ? window : this._container;
         if (typeof appendContainer === 'string') {
@@ -199,8 +282,8 @@ class Tooltip extends UI {
     }
 
     init() {
-        this.varioblesUpdate();
-        this.addEvent();
+        this._varioblesUpdate();
+        this._addEvent();
     }
 }
 

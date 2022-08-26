@@ -4,6 +4,7 @@ import EventHandler from './vendor/EventHandler';
 import Tab from './components/tab';
 import Tooltip from './components/tooltip';
 import Accordion from './components/accordion';
+import Dropdown from './components/dropdown';
 import commonInit from './common';
 /**
  * UI 초기화 처리
@@ -26,6 +27,14 @@ Tab.GLOBAL_CONFIG = {
 };
 
 Accordion.GLOBAL_CONFIG = {
+    activeClass: 'is-active',
+};
+
+Tooltip.GLOBAL_CONFIG = {
+    activeClass: 'is-active',
+};
+
+Dropdown.GLOBAL_CONFIG = {
     activeClass: 'is-active',
 };
 
@@ -153,12 +162,19 @@ const Input = {
 };
 
 const initialize = () => {
+    //INPUT defult
     Input.Check();
+    // 툴팁
+    UIInitializer('.tooltip-button', Tooltip);
 
     // 탭
-    UIInitializer('[data-ui-tooltip]', Tooltip);
     UIInitializer('[data-ui-tab]', Tab);
-    // UIInitializer('[data-ui-dropdown]', Dropdown);
+
+    // 드롭다운 셀렉트
+    UIInitializer('[data-ui-dropdown]', Dropdown);
+
+    // 아코디언
+    UIInitializer('[data-ui-tooltip]', Accordion);
     commonInit.initialize();
     return 'initialized';
 };
@@ -252,6 +268,7 @@ const ui = {
     SwiperA11y,
     a11yChecker,
     Input,
+    Dropdown,
 };
 
 window.UXW = { ...ui };

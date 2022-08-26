@@ -1,4 +1,5 @@
 {% set user = "logout" %}
+{% set title = "신한 UX라이팅 시스템 | 교정하기" %}
 {% extends "../templates/layout.njk" %}
 {% block content %}
     <!-- floting 네비게이션 영역 -->
@@ -6,7 +7,7 @@
         <nav class="nav" role="navigation">
             <ul class="nav__box" aria-expanded="false">
                 <li class="nav__list">
-                    <div class="nav__item" data-ui-tooltip>
+                    <div class="nav__item tooltip-button">
                         <button type="button" class="ic-button-nav" aria-describedby="tooltip1" aria-label="용어/표현 검색">
                             <i class="ic ic-search" aria-hidden="true"></i>
                         </button>
@@ -14,7 +15,7 @@
                     </div>
                 </li>
                 <li class="nav__list">
-                    <div class="nav__item" data-ui-tooltip>
+                    <div class="nav__item tooltip-button">
                         <button type="button" class="ic-button-nav" aria-describedby="tooltip2" aria-label="UXW라이팅 가이드">
                             <i class="ic ic-guidebook" aria-hidden="true"></i>
                         </button>
@@ -22,7 +23,7 @@
                     </div>
                 </li>
                 <li class="nav__list">
-                    <div class="nav__item" data-ui-tooltip>
+                    <div class="nav__item tooltip-button">
                         <button type="button" class="ic-button-nav" aria-describedby="tooltip3" aria-label="교정된 콘텐츠">
                             <i class="ic ic-edition" aria-hidden="true"></i>
                         </button>
@@ -81,23 +82,23 @@
 
             <div class="ly-bottom-group">
                 <div class="button-group">
-                    <div class="tooltip__list" data-ui-tooltip>
+                    <div class="tooltip__list tooltip-button">
                         <input id="btnupload" type="file" role="button" aria-label="File Upload" tabindex="-1" accept=".docx, .txt"/>
                         <label class="ic-button-edit" tabindex="0" for="btnupload" role="button" aria-label="업로드" aria-describedby="tooltip4">
                             <i class="ic ic-upload" aria-hidden="true"></i>
                         </label>
                     </div>
-                    <div class="tooltip__list" data-ui-tooltip>
+                    <div class="tooltip__list tooltip-button">
                         <button id="btncopy" type="button" class="ic-button-edit" aria-label="복사" aria-describedby="tooltip5">
                             <i class="ic ic-copy" aria-hidden="true"></i>
                         </button>
                     </div>
-                    <div class="tooltip__list" data-ui-tooltip>
+                    <div class="tooltip__list tooltip-button">
                         <button id="btndownload" type="button" class="ic-button-edit" aria-label="다운로드" aria-describedby="tooltip6">
                             <i class="ic ic-download" aria-hidden="true"></i>
                         </button>
                     </div>
-                    <div class="tooltip__list" data-ui-tooltip>
+                    <div class="tooltip__list tooltip-button">
                         <button id="btndelete" type="button" class="ic-button-edit hide" aria-label="삭제" aria-describedby="tooltip7">
                             <i class="ic ic-delete" aria-hidden="true"></i>
                         </button>
