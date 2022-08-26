@@ -16,6 +16,7 @@ $root: accordion;
         }
 
         &[data-card='true'] {
+            overflow: hidden;
             background-color: color(blue, 800);
             .ic-button-refresh {
                 display: block;

@@ -8,8 +8,7 @@
         "dev": "cross-env BUILD_TYPE=desktop NODE_ENV=development gulp dev",
         "build": "cross-env BUILD_TYPE=desktop NODE_ENV=production gulp build",
         "build:css": "cross-env BUILD_TYPE=desktop NODE_ENV=production gulp buildcss",
-        "build:js": "cross-env BUILD_TYPE=desktop NODE_ENV=production gulp buildjs",
-        "deploy": "gh-pages -d build"
+        "build:js": "cross-env BUILD_TYPE=desktop NODE_ENV=production gulp buildjs"
     },
     "lint-staged": {
         "src/**/*.js": [

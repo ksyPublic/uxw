@@ -164,9 +164,9 @@ const watch = () => {
     gulp.watch(filesPath.input(`_guide/res/*.scss`), _guideResourceScssCopy);
 };
 
-const start = gulp.series([clean, js, css, html, font, images, _guideVendorCopy, _guideHtmlCopy, _guideResourceScssCopy, _guideResourceJsCopy, resourceCopy, resourceCSS]);
+const start = gulp.series([clean, js, css, html, font, images, _guideVendorCopy, _guideHtmlCopy, _guideResourceScssCopy, _guideResourceJsCopy, resourceCopy]);
 
 export const dev = gulp.series([start, watch]); // package.json의 scripts에 작성한 "gulp dev" task
 export const build = gulp.series([start]);
 export const buildjs = gulp.series([clean, js, resourceCopy]);
-export const buildcss = gulp.series([clean, css, resourceCSS]);
+export const buildcss = gulp.series([clean, css]);

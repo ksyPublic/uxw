@@ -581,219 +581,218 @@
             </div>
         </div>
     </div>
-</div>
-<!-- //사이드 영역 -->
+    <!-- //사이드 영역 -->
 
 {% endblock %}
 
 {% block scripts %}
-<script>
-    const sideSwiper = UXW.SwiperA11y('.swiper', {
-        observer: true,
-        observeParents: true,
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false
-        },
-        grapCursor: true,
-        loop: true,
-        speed: 600,
+    <script>
+        const sideSwiper = UXW.SwiperA11y('.swiper', {
+            observer: true,
+            observeParents: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false
+            },
+            grapCursor: true,
+            loop: true,
+            speed: 600,
 
-        mousewheelControl: true,
-        keyboard: {
-            enabled: true,
-            onlyInViewport: false
-        },
-        spaceBetween: 40,
+            mousewheelControl: true,
+            keyboard: {
+                enabled: true,
+                onlyInViewport: false
+            },
+            spaceBetween: 40,
 
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true
-        },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true
+            },
 
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev'
-        },
-        autoHeight: true
-    });
-
-    sideSwiper
-        .el
-        .addEventListener('mouseenter', function () {
-            sideSwiper
-                .autoplay
-                .stop();
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev'
+            },
+            autoHeight: true
         });
 
-    sideSwiper
-        .el
-        .addEventListener('mouseleave', function () {
-            sideSwiper
-                .autoplay
-                .start();
-        });
-
-    //사이드 OPEN & CLOSE
-    const currectEvent = {
-        OPEN: function (param) {
-            const target = document.querySelector('#' + param.dataset.target);
-            target
-                .classList
-                .add('is-active');
-            target
-                .classList
-                .remove('is-deactive');
-            target
-                .previousElementSibling
-                .classList
-                .add('is-deactive');
-            target
-                .previousElementSibling
-                .classList
-                .remove('is-active');
-            btnupload.disabled = true;
-            btnsave.setAttribute('aria-hidden', false);
-            btndelete
-                .classList
-                .remove('hide');
-        },
-
-        CLOSE: function (param) {
-            const target = document.querySelector('#' + param.dataset.target);
-            target
-                .classList
-                .add('is-deactive');
-            target
-                .classList
-                .remove('is-active');
-            target
-                .previousElementSibling
-                .classList
-                .add('is-active');
-            target
-                .previousElementSibling
-                .classList
-                .remove('is-deactive');
-        },
-
-        BEFORE: function (param) {
-            const ARIA_EXPENDED = param.getAttribute('aria-expanded');
-
-            if (ARIA_EXPENDED === 'false') {
-                currectEvent.CLOSE(param);
-            } else {
-                currectEvent.OPEN(param);
-            }
-        }
-    };
-
-    //바이트수 체크
-    function bytesCheck() {
-        const bytesCheck = document.querySelectorAll('[data-bytes-check]');
-        const ARIA_HIDDEN = 'aria-hidden';
-
-        Array
-            .prototype
-            .forEach
-            .call(bytesCheck, function (el) {
-                // 한글 And 특수문자 2byte, 그 외 1byte
-                function getByteCheck(str) {
-                    let len = 0;
-                    for (var i = 0; i < str.length; i++) {
-                        if (escape(str.charAt(i)).length === 6) {
-                            len++;
-                        }
-                        len++;
-                    }
-                    return len;
-                }
-
-                // 초기값 세팅
-                var bytes = el.getAttribute('maxLength') * 2;
-
-                // 키 입력 시 바이트 계산
-                ['keydown', 'keyup', 'change'].forEach(function (type) {
-                    el.addEventListener(type, function () {
-                        let leng = this.value.length;
-                        const textEl = this.nextElementSibling;
-                        const lableError = textEl.querySelector('label');
-                        const textCurrent = textEl.querySelector('.textarea__lengths--current');
-
-                        const labelData = lableError.getAttribute(ARIA_HIDDEN);
-
-                        this
-                            .classList
-                            .remove('error');
-                        textEl
-                            .classList
-                            .remove('error');
-                        lableError.setAttribute(ARIA_HIDDEN, true);
-
-                        if (getByteCheck(this.value) > bytes) {
-                            this
-                                .classList
-                                .add('error');
-                            textEl
-                                .classList
-                                .add('error');
-                            if (labelData) {
-                                lableError.setAttribute(ARIA_HIDDEN, false);
-                            }
-
-                            leng--;
-                            this.value = this
-                                .value
-                                .substr(0, leng);
-
-                            alert('최대 5,000자까지 입력할 수 있어요. 본문내용을 확인 해주세요.');
-                        }
-
-                        if (leng > 0) {
-                            btncurrect.disabled = false;
-                            currectEvent.OPEN(btncurrect);
-                        } else {
-                            btncurrect.disabled = true;
-                            btnupload.disabled = false;
-                            btnsave.setAttribute('aria-hidden', true);
-                            btndelete
-                                .classList
-                                .add('hide');
-                            currectEvent.CLOSE(btncurrect);
-                        }
-
-                        if (textEl.classList.contains('error')) {
-                            textCurrent.innerText = leng + 1;
-                        } else {
-                            textCurrent.innerText = leng;
-                        }
-                    });
-                });
+        sideSwiper
+            .el
+            .addEventListener('mouseenter', function () {
+                sideSwiper
+                    .autoplay
+                    .stop();
             });
-    }
 
-    function changeLangauge() {
-        const card = 'data-card';
-        const cardChecked = document.querySelectorAll('[' + card + ']');
+        sideSwiper
+            .el
+            .addEventListener('mouseleave', function () {
+                sideSwiper
+                    .autoplay
+                    .start();
+            });
 
-        if (cardChecked.length === 0) {
-            return;
+        //사이드 OPEN & CLOSE
+        const currectEvent = {
+            OPEN: function (param) {
+                const target = document.querySelector('#' + param.dataset.target);
+                target
+                    .classList
+                    .add('is-active');
+                target
+                    .classList
+                    .remove('is-deactive');
+                target
+                    .previousElementSibling
+                    .classList
+                    .add('is-deactive');
+                target
+                    .previousElementSibling
+                    .classList
+                    .remove('is-active');
+                btnupload.disabled = true;
+                btnsave.setAttribute('aria-hidden', false);
+                btndelete
+                    .classList
+                    .remove('hide');
+            },
+
+            CLOSE: function (param) {
+                const target = document.querySelector('#' + param.dataset.target);
+                target
+                    .classList
+                    .add('is-deactive');
+                target
+                    .classList
+                    .remove('is-active');
+                target
+                    .previousElementSibling
+                    .classList
+                    .add('is-active');
+                target
+                    .previousElementSibling
+                    .classList
+                    .remove('is-deactive');
+            },
+
+            BEFORE: function (param) {
+                const ARIA_EXPENDED = param.getAttribute('aria-expanded');
+
+                if (ARIA_EXPENDED === 'false') {
+                    currectEvent.CLOSE(param);
+                } else {
+                    currectEvent.OPEN(param);
+                }
+            }
         };
 
-        []
-            .forEach
-            .call(cardChecked, function (x) {
-                const checkEl = x.querySelector('.accordion__check input[type="checkbox"]:checked');
-                if (checkEl) {
-                    x.setAttribute(card, true);
-                }
+        //바이트수 체크
+        function bytesCheck() {
+            const bytesCheck = document.querySelectorAll('[data-bytes-check]');
+            const ARIA_HIDDEN = 'aria-hidden';
 
-            })
-    }
+            Array
+                .prototype
+                .forEach
+                .call(bytesCheck, function (el) {
+                    // 한글 And 특수문자 2byte, 그 외 1byte
+                    function getByteCheck(str) {
+                        let len = 0;
+                        for (var i = 0; i < str.length; i++) {
+                            if (escape(str.charAt(i)).length === 6) {
+                                len++;
+                            }
+                            len++;
+                        }
+                        return len;
+                    }
 
-    document.addEventListener('DOMContentLoaded', function () {
-        bytesCheck();
-        currectEvent.BEFORE(btncurrect);
-    });
-</script>
+                    // 초기값 세팅
+                    var bytes = el.getAttribute('maxLength') * 2;
+
+                    // 키 입력 시 바이트 계산
+                    ['keydown', 'keyup', 'change'].forEach(function (type) {
+                        el.addEventListener(type, function () {
+                            let leng = this.value.length;
+                            const textEl = this.nextElementSibling;
+                            const lableError = textEl.querySelector('label');
+                            const textCurrent = textEl.querySelector('.textarea__lengths--current');
+
+                            const labelData = lableError.getAttribute(ARIA_HIDDEN);
+
+                            this
+                                .classList
+                                .remove('error');
+                            textEl
+                                .classList
+                                .remove('error');
+                            lableError.setAttribute(ARIA_HIDDEN, true);
+
+                            if (getByteCheck(this.value) > bytes) {
+                                this
+                                    .classList
+                                    .add('error');
+                                textEl
+                                    .classList
+                                    .add('error');
+                                if (labelData) {
+                                    lableError.setAttribute(ARIA_HIDDEN, false);
+                                }
+
+                                leng--;
+                                this.value = this
+                                    .value
+                                    .substr(0, leng);
+
+                                alert('최대 5,000자까지 입력할 수 있어요. 본문내용을 확인 해주세요.');
+                            }
+
+                            if (leng > 0) {
+                                btncurrect.disabled = false;
+                                currectEvent.OPEN(btncurrect);
+                            } else {
+                                btncurrect.disabled = true;
+                                btnupload.disabled = false;
+                                btnsave.setAttribute('aria-hidden', true);
+                                btndelete
+                                    .classList
+                                    .add('hide');
+                                currectEvent.CLOSE(btncurrect);
+                            }
+
+                            if (textEl.classList.contains('error')) {
+                                textCurrent.innerText = leng + 1;
+                            } else {
+                                textCurrent.innerText = leng;
+                            }
+                        });
+                    });
+                });
+        }
+
+        function changeLangauge() {
+            const card = 'data-card';
+            const cardChecked = document.querySelectorAll('[' + card + ']');
+
+            if (cardChecked.length === 0) {
+                return;
+            };
+
+            []
+                .forEach
+                .call(cardChecked, function (x) {
+                    const checkEl = x.querySelector('.accordion__check input[type="checkbox"]:checked');
+                    if (checkEl) {
+                        x.setAttribute(card, true);
+                    }
+
+                })
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            bytesCheck();
+            currectEvent.BEFORE(btncurrect);
+        });
+    </script>
 {% endblock %}
