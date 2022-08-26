@@ -2,7 +2,9 @@ import UI from './base/base-ui';
 import EventHandler from '../vendor/EventHandler';
 import { dataSetToObject } from '../utils/dom-util';
 
-const VERSION = '0.0.1';
+/**
+ * versiton 0.0.1
+ */
 const NAME = 'ui.accordion';
 
 const ARIA_CONTROLS = 'aria-controls';
@@ -11,7 +13,7 @@ const dataAttrConfig = {
     default: -1,
     defaults: -1,
     toggle: true,
-    activeClass: 'active',
+    activeClass: 'is-active',
 };
 
 const defaultConfig = {
@@ -20,7 +22,7 @@ const defaultConfig = {
         expand: 'expand',
         expanding: 'expanding',
         expanded: 'expanded',
-    }
+    },
 };
 
 class Accordion extends UI {
@@ -62,11 +64,11 @@ class Accordion extends UI {
     }
 
     init() {
-        this._initEvents();
+        this._addEvent();
         this._current = null;
         this._before = null;
         this._defaultActive();
-    };
+    }
 
     _defaultActive() {
         if (this._config.default !== -1) {
@@ -77,7 +79,6 @@ class Accordion extends UI {
             const headerIndexList = this._config.defaults.split(',');
             [...headerIndexList].forEach(n => {
                 this.open(n);
-                this._animating = false;
             });
             return;
         }
@@ -86,13 +87,12 @@ class Accordion extends UI {
         headers.forEach(el => {
             if (el.classList.contains(this._config.activeClass)) {
                 this.open(el);
-                this._animating = false;
             }
         });
     }
 
-    _initEvents() {
-        EventHandler.on(this._element, super._eventName('click'), (event) => {
+    _addEvent() {
+        EventHandler.on(this._element, super._eventName('click'), event => {
             if (!event.target.tagName.match(/^A$|AREA|INPUT|TEXTAREA|SELECT|BUTTON|LABEL/gim)) {
                 event.preventDefault();
             }
@@ -108,13 +108,13 @@ class Accordion extends UI {
                     if (this._current.header.classList.contains(activeClass)) {
                         this._close(this._current);
                     } else {
-                        this._open()
+                        this._open();
                     }
                 } else {
                     this._open();
                 }
             }
-        })
+        });
     }
 
     _removeEvents() {
@@ -211,7 +211,7 @@ class Accordion extends UI {
 
     _getContent(target) {
         if (!target) super._throwError(`[${target}] not found!`);
-        const get = target.getAttribute(`${ARIA_CONTROLS}`)
+        const get = target.getAttribute(`${ARIA_CONTROLS}`);
         const content = document.querySelector(`#${get}`);
         if (!content) {
             super._throwError(`[${contentName}] does not match any content element! `);
@@ -221,10 +221,10 @@ class Accordion extends UI {
     }
 
     /**
-    * 웹 접근성 aria 속성 및 tabindex 설정
-    * @param {*} target
-    * @param {*} isActive
-    */
+     * 웹 접근성 aria 속성 및 tabindex 설정
+     * @param {*} target
+     * @param {*} isActive
+     */
     _aria(target, isActive = true) {
         const { toggle } = this._config;
         const { header, content } = target;
@@ -248,7 +248,6 @@ class Accordion extends UI {
     _dispatch(event, params) {
         EventHandler.trigger(this._element, event, params);
     }
-
 }
 
 export default Accordion;

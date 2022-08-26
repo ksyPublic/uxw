@@ -40,7 +40,7 @@ const defaultConfig = {
  */
 
 class Tooltip extends UI {
-    constructor(element, config) {
+    constructor(element, config = {}) {
         super(element, config);
         this._setupConfog(config);
         this._tooltip = null;
@@ -282,6 +282,7 @@ class Tooltip extends UI {
     }
 
     init() {
+        this._current = null;
         this._varioblesUpdate();
         this._addEvent();
     }

@@ -42,7 +42,7 @@ const js = () => {
 //기존프로젝트 소스 유지
 const resourceCopy = () => {
     return gulp
-        .src([filesPath.input('res/js/**/*.{js,css}'), `!${filesPath.input('res/js/uxw.ui.js')}`, `!${filesPath.input('res/js/utils/**')}`, `!${filesPath.input('res/js/components/**')}`])
+        .src([filesPath.input('res/js/**/*.{js,css}'), `!${filesPath.input('res/js/uxw.ui.js')}`, `!${filesPath.input('res/js/utils/**')}`, `!${filesPath.input('res/js/vendor/**')}`, `!${filesPath.input('res/js/components/**')}`])
         .pipe(gulp.dest(filesPath.output('js')))
         .pipe(devServer.stream());
 };
@@ -54,6 +54,13 @@ const css = () =>
         .pipe(scss.sync().on('error', scss.logError)) //Error체크를 하지않으면 watch에서 오류발생
         .pipe(autoprefixer())
         .pipe(gulpSourcemaps.write('.', { sourceRoot: 'css-source' })) //컴파일후 작성
+        .pipe(gulp.dest(filesPath.output('css')))
+        .pipe(devServer.stream());
+
+const resourceCSS = () =>
+    gulp
+        .src(filesPath.input(`res/scss/**/*.css`), { allowEmpty: true })
+        .pipe(autoprefixer())
         .pipe(gulp.dest(filesPath.output('css')))
         .pipe(devServer.stream());
 
@@ -157,9 +164,9 @@ const watch = () => {
     gulp.watch(filesPath.input(`_guide/res/*.scss`), _guideResourceScssCopy);
 };
 
-const start = gulp.series([clean, js, css, html, font, images, _guideVendorCopy, _guideHtmlCopy, _guideResourceScssCopy, _guideResourceJsCopy, resourceCopy]);
+const start = gulp.series([clean, js, css, html, font, images, _guideVendorCopy, _guideHtmlCopy, _guideResourceScssCopy, _guideResourceJsCopy, resourceCopy, resourceCSS]);
 
 export const dev = gulp.series([start, watch]); // package.json의 scripts에 작성한 "gulp dev" task
 export const build = gulp.series([start]);
-export const buildjs = gulp.series([clean, js]);
-export const buildcss = gulp.series([clean, css]);
+export const buildjs = gulp.series([clean, js, resourceCopy]);
+export const buildcss = gulp.series([clean, css, resourceCSS]);

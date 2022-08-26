@@ -1,0 +1,77 @@
+.guide-wrap {
+  padding: 60px 330px;
+}
+
+.guide-wrap .guide-lnb {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 85px 30px;
+  width: 300px;
+}
+
+.guide-wrap .guide-lnb ul li a {
+  display: block;
+  font-size: 32px;
+  border-bottom: 2px solid #000;
+}
+
+.guide-wrap .guide-lnb ul li a.active {
+  color: #5367ff;
+  border-color: #5367ff;
+}
+
+.guide-wrap .guide-lnb ul li + li {
+  margin-top: 24px;
+}
+
+.guide-wrap .guide h1 {
+  font-size: 48px;
+  color: #5367ff;
+  margin-bottom: 36px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #333;
+}
+
+.guide-wrap .guide article {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.guide-wrap .guide article h2 {
+  font-size: 24px;
+  margin-bottom: 24px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #999;
+}
+
+.guide-wrap .guide article h2 em {
+  position: relative;
+  font-style: normal;
+  font-size: 16px;
+  margin-left: 10px;
+  color: #666;
+}
+
+.guide-wrap .guide article h2 em:before {
+  content: "(";
+}
+
+.guide-wrap .guide article h2 em:after {
+  content: ")";
+}
+
+.guide-wrap .guide article > div p.desc {
+  background: #ffdee3;
+  font-size: 12px;
+  color: #666;
+  border: 1px solid #fdc867;
+  border-radius: 6px;
+  padding: 6px;
+  margin: 12px 0;
+}
+
+.guide-wrap .guide article + article {
+  margin-top: 24px;
+}

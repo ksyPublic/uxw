@@ -1,6 +1,8 @@
+import 'element-closest-polyfill';
 import EventHandler from './vendor/EventHandler';
 
 /* eslint-disable prettier/prettier */
+
 const getObjectElements = function (elements) {
     let arr = [];
     for (let key in elements) {
@@ -11,6 +13,35 @@ const getObjectElements = function (elements) {
     }
     return arr;
 };
+
+const cardRefresh = () => {
+    const card = 'data-card';
+    const ARIA_PRESSED = 'aria-pressed';
+    const elements = document.querySelectorAll('[' + card + ']');
+
+    if (elements.legnth === 0) {
+        return;
+    }
+
+    elements.forEach(item => {
+        const isCard = item.getAttribute(card);
+        const refresh = item.querySelector('.ic-button-refresh');
+
+        EventHandler.on(refresh, 'click', event => {
+            if (isCard) {
+                event.currentTarget.setAttribute(ARIA_PRESSED, false);
+                _before(item);
+            } else {
+                return;
+            }
+        });
+    });
+
+    const _before = target => {
+        target.setAttribute(card, false);
+    };
+};
+
 const navigation = function (UI) {
     const NAV_BOX = 'aria-expanded';
     const elements = document.querySelectorAll(UI);
@@ -29,7 +60,7 @@ const navigation = function (UI) {
 
     const _addEvent = function () {
         _config.target.forEach(item => {
-            EventHandler.on('click', item, navClickable);
+            EventHandler.on(item, 'click', navClickable);
         });
     };
 
@@ -67,6 +98,7 @@ const navigation = function (UI) {
 
 const initFunc = () => {
     navigation('[role="navigation"]');
+    cardRefresh();
 };
 
 const initialize = () => {};

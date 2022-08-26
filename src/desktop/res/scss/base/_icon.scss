@@ -115,6 +115,12 @@ i {
         background: url('../images/ic-clear.png') no-repeat;
     }
 
+    &-refresh {
+        width: 24px;
+        height: 24px;
+        background: url('../images/ic-refresh.png') no-repeat;
+    }
+
     &-button-nav {
         background-color: transparent;
         width: 0px;
@@ -125,10 +131,17 @@ i {
             + .text {
                 color: color(blue, 800);
             }
-
             .ic {
                 &-guidebook {
                     background: url('../images/ic-guidebook-active.png') no-repeat;
+                }
+
+                &-search {
+                    background: url('../images/ic-search-active.png') no-repeat;
+                }
+
+                &-edition {
+                    background: url('../images/ic-edition-active.png') no-repeat;
                 }
             }
         }

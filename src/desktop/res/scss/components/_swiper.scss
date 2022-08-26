@@ -12,6 +12,10 @@ body {
                 align-items: flex-start;
                 transition: transform 0.4s ease-out, height 0.1s ease;
             }
+
+            .swiper-slide {
+                height: auto !important;
+            }
         }
         &-slide {
             overflow: hidden;
@@ -93,7 +97,7 @@ body {
                 background-color: $white;
                 opacity: 1;
                 vertical-align: top;
-                top: 8px;
+                top: 5px;
                 position: relative;
 
                 &:first-child {

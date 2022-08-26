@@ -1,39 +1,15 @@
 .text {
     &-link {
-        &[role='button'] {
-            display: inline-flex;
-            align-items: center;
-            cursor: pointer;
-        }
         display: flex;
         align-items: center;
         font-size: 14px;
         font-weight: 500;
         color: color(grey, 600);
 
-        &.bollet:before {
-            content: '';
-            display: inline-block;
-            vertical-align: top;
-            margin-right: 4px;
-            width: 4px;
-            height: 4px;
-            border-radius: 50%;
-        }
-
-        &.purple {
-            color: color(purple, 800);
-
-            &.bollet:before {
-                background-color: color(purple, 800);
-            }
-        }
-
-        &.orange {
-            color: color(orange, 800);
-            &.bollet:before {
-                background-color: color(orange, 800);
-            }
+        &[role='button'] {
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
         }
 
         &:hover {
@@ -64,6 +40,52 @@
             color: color(grey, 400);
             .ic-text-arrow {
                 background: url('../images/ic-text-arrow-disabled.png') no-repeat;
+            }
+        }
+
+        &--bollet {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 500;
+            color: color(grey, 600);
+
+            &:hover {
+                text-decoration: underline;
+            }
+
+            &:focus {
+                outline: 1px solid color(blue, 800) !important;
+            }
+
+            &[role='button'] {
+                display: inline-flex;
+                align-items: center;
+                cursor: pointer;
+            }
+
+            &:before {
+                content: '';
+                display: inline-block;
+                vertical-align: top;
+                margin-right: 4px;
+                width: 4px;
+                height: 4px;
+                border-radius: 50%;
+            }
+
+            &.purple {
+                color: color(purple, 800);
+                &.text-link--bollet:before {
+                    background-color: color(purple, 800);
+                }
+            }
+
+            &.orange {
+                color: color(orange, 800);
+                &.text-link--bollet:before {
+                    background-color: color(orange, 800);
+                }
             }
         }
     }

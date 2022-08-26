@@ -6,6 +6,7 @@ import Tooltip from './components/tooltip';
 import Accordion from './components/accordion';
 import Dropdown from './components/dropdown';
 import commonInit from './common';
+
 /**
  * UI 초기화 처리
  * @param {*} target
@@ -167,14 +168,14 @@ const initialize = () => {
     // 툴팁
     UIInitializer('.tooltip-button', Tooltip);
 
+    // 드롭다운 셀렉트
+    UIInitializer('.dropdown', Dropdown);
+
     // 탭
     UIInitializer('[data-ui-tab]', Tab);
 
-    // 드롭다운 셀렉트
-    UIInitializer('[data-ui-dropdown]', Dropdown);
-
     // 아코디언
-    UIInitializer('[data-ui-tooltip]', Accordion);
+    UIInitializer('[data-ui-accordion]', Accordion);
     commonInit.initialize();
     return 'initialized';
 };

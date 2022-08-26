@@ -33,10 +33,12 @@ $root: textarea;
     }
 
     &__lengths {
+        margin-top: 4px;
         display: block;
         font-size: 14px;
         font-weight: 300;
-
+        height: 20px;
+        padding: 0 8px 0 0;
         @include clearFix;
 
         &__box {
@@ -45,9 +47,11 @@ $root: textarea;
 
         label.error {
             float: left;
+            margin-top: 0;
         }
 
         &.error {
+            font-size: 14px;
             .#{$root} {
                 &__lengths--current {
                     color: color(red, 700);
@@ -63,12 +67,6 @@ $root: textarea;
 
         &--total {
             color: #666;
-
-            &:after {
-                content: '자';
-                display: inline-block;
-                vertical-align: top;
-            }
         }
     }
 }

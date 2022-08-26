@@ -5,13 +5,15 @@ $root: expresstion;
 
     &-group {
         color: $white;
+        .#{$root}-list {
+            min-height: 64px;
+        }
     }
 
     &-list {
         display: flex;
         align-items: center;
         width: 100%;
-        min-height: 64px;
         border-bottom: 1px dashed color(grey, 400);
         padding: 7.5px 0;
 
