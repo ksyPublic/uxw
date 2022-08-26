@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <title>가이드 UXW 아코디언</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../resources/css/main.css" />
+    <link rel="stylesheet" href="../vendor/prism.css">
+    <link rel="stylesheet" href="../resources/guideStyle.css">
+</head>
+
+<body>
+    <div class="guide">
+        <div class="head">
+            <h1 class="head__logo">
+                <a href="#none" alt="홈 바로가기">
+                    <img src="../../resources/images/logo.png" alt="신한 UXW 시스템" />
+                    <span>신한 UXW 시스템</span>
+                </a>
+            </h1>
+            <nav class="head__nav">
+                <ul>
+                    <li>
+                        <button type="button" class="head__btn is-active" aria-selected="false" aria-label="글쓰기">
+                            <i class="ic ic-writing" aria-hidden="true"></i>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" class="head__btn" aria-selected="false" aria-label="마이페이지">
+                            <i class="ic ic-my" aria-hidden="true"></i>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" class="head__btn" aria-selected="false" aria-label="Q&A">
+                            <i class="ic ic-qa" aria-hidden="true"></i>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" class="head__btn" aria-selected="false" aria-controls="nav_content" aria-label="메뉴">
+                            <i class="ic ic-menu" aria-hidden="true"></i>
+                        </button>
+                    </li>
+                </ul>
+                <div class="head__log">
+                    <a class="button--text" href="/" alt="로그인">로그인</a>
+                </div>
+            </nav>
+        </div>
+        <div class="guide__wrap">
+            <div class="guide__menu">
+                <nav class="guide__menu__nav">
+                    <div class="acc" data-ui-accordion>
+                        <ul class="acc__box">
+                            <li class="acc__item">
+                                <div class="acc__head">
+                                    <strong>Layout</strong>
+                                    <button type="button" role="accordion" id="acc__header1" class="acc__button" aria-controls="acc__content1" aria-expanded="false" aria-label="Layout"></button>
+                                </div>
+                                <div class="acc__panel expand" id="acc__content1" role="accordionpanel" aria-labelledby="acc__header1">
+                                    <a class="button" href="index.html" alt="헤더 바로가기">Header</a>
+                                </div>
+                            </li>
+                            <li class="acc__item">
+                                <div class="acc__head">
+                                    <strong>Components</strong>
+                                    <button type="button" role="accordion" id="acc__header2" class="acc__button" aria-controls="acc__content2" aria-expanded="false" aria-label="Components"></button>
+                                </div>
+                                <div class="acc__panel expand" id="acc__content2" role="accordionpanel" aria-labelledby="acc__header2">
+                                    <a class="button" href="./tabs.html" alt="탭 바로가기">Tabs</a>
+                                    <a class="button" href="./Accordion.html" alt="아코디언 바로가기">Accordion</a>
+                                </div>
+                            </li>
+                            <li class="acc__item">
+                                <div class="acc__head">
+                                    <strong>Elements</strong>
+                                    <button type="button" role="accordion" id="acc__header3" class="acc__button" aria-controls="acc__content3" aria-expanded="false" aria-label="Elements"></button>
+                                </div>
+                                <div class="acc__panel expand" id="acc__content3" role="accordionpanel" aria-labelledby="acc__header3">
+                                    <a class="button" href="./button.html" alt="버튼 바로가기">Button</a>
+                                    <a class="button" href="./text.html" alt="텍스트 바로가기">Text</a>
+                                    <a class="button" href="./form.html" alt="폼 바로가기">Form</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="guide__content">
+                <div class="guide-wrap">
+                    <h2 class="ex-name">Accordion</h2>
+                    <div class="ex-content">
+                        <div class="ex-title">
+                            <h3>아코디언 구성 주의사항(웹 접근성 관련)</h3>
+                            <p class="ex-desc" style="color: #ff0000"> 아래 예시는 마크업 구성 시 반드시 포함되어야 하는 속성을 설명하는 구조입니다. 실제 아코디언 구성 시에는 css style 구조에 맞는 마크업이 필요합니다.</p>
+                            <p class="ex-desc">* 아코디언 헤더의 [aria-controls] => 아코디언 컨텐츠의 [id]와 매칭 <br>* 아코디언 헤더의 [id] => 아코디언 컨텐츠의 [aria-labelledby]와 매칭 </p>
+                        </div>
+                        <div class="ex-body">
+                            <div class="ex-preview">
+                                <!-- accordion -->
+                                <div class="acc" data-ui-accordion>
+                                    <ul class="acc__box">
+                                        <li class="acc__item">
+                                            <div class="acc__head">
+                                                <strong>타이틀</strong>
+                                                <button type="button" role="accordion" id="acc_header1" class="acc__button" aria-controls="acc_content1" aria-expanded="false" aria-label="버튼"></button>
+                                            </div>
+                                            <div class="acc__panel expand" id="acc_content1" role="accordionpanel" aria-labelledby="acc_header1"> 컨텐츠 컨텐츠 컨텐츠 컨텐츠 </div>
+                                        </li>
+                                        <li class="acc__item">
+                                            <div class="acc__head">
+                                                <strong>타이틀</strong>
+                                                <button type="button" role="accordion" id="acc_header2" class="acc__button" aria-controls="acc_content2" aria-expanded="false" aria-label="버튼"></button>
+                                            </div>
+                                            <div class="acc__panel expand" id="acc_content2" role="accordionpanel" aria-labelledby="acc_header2"> 컨텐츠2 컨텐츠2 컨텐츠2 컨텐츠2 </div>
+                                        </li>
+                                        <li class="acc__item">
+                                            <div class="acc__head">
+                                                <strong>타이틀</strong>
+                                                <button type="button" role="accordion" id="acc_header3" class="acc__button" aria-controls="acc_content3" aria-expanded="false" aria-label="버튼"></button>
+                                            </div>
+                                            <div class="acc__panel expand" id="acc_content3" role="accordionpanel" aria-labelledby="acc_header3"> 컨텐츠3 컨텐츠3 컨텐츠3 컨텐츠3 </div>
+                                        </li>
+                                    </ul>
+                                    <!-- //accordion -->
+                                </div>
+                                <div class="html-view">
+                                    <pre>
+                    <code class="ex-code-block render-html">
+                    <!-- accordion -->
+                    <div class="acc" data-ui-accordion>
+                        <ul class="acc__box">
+                            <li class="acc__item">
+                                <div class="acc__head">
+                                    <strong>타이틀</strong>
+                                    <button type="button" role="accordion" id="{acc_header}" class="acc__button" aria-controls="{acc_content}" aria-expanded="false" aria-label=""></button>
+                                </div>
+                                <div class="acc__panel" id="{acc_content}" role="accordionpanel" aria-labelledby="{acc_header}"></div>
+                            </li>
+                            <li class="acc__item">
+                                <div class="acc__head">
+                                    <strong>타이틀</strong>
+                                    <button type="button" role="accordion" id="{acc_header}" class="acc__button" aria-controls="{acc_content}" aria-expanded="false">아코디언1</button>
+                                </div>
+                                <div class="acc__panel" id="{acc_content}" role="accordionpanel" aria-labelledby="{acc_header}"></div>
+                            </li>
+                            <li class="acc__item">
+                                <div class="acc__head">
+                                    <strong>타이틀</strong>
+                                    <button type="button" role="accordion" id="{acc_header}" class="acc__button" aria-controls="{acc_content}" aria-expanded="false">아코디언1</button>
+                                </div>
+                                <div class="acc__panel" id="{acc_content}" role="accordionpanel" aria-labelledby="{acc_header}"></div>
+                            </li>
+                        </ul>
+                        <!-- //accordion -->
+                    </div>
+                    </code>
+                </pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ex-content">
+                        <div class="ex-title">
+                            <h3>페이지 로드 시 특정 아코디언을 펼쳐진 상태로 보기</h3>
+                            <p class="ex-desc">특정 아코디언 콘텐츠를 기본적으로 활성화시키는 방법입니다.</p>
+                            <h4 style="margin-top: 20px">데이터 속성을 이용하여 활성화 시키는 방법</h4>
+                            <p class="ex-desc" style="color: #ff0000">아코디언이 하나만 열려있는 경우는(단수) | data-ui-accordion 이 선언된 엘리먼트에 data-accordion-default="0"</p>
+                            <p class="ex-desc" style="color: #ff0000">아코디언이 여러개 열려있는 경우는(복수) | data-ui-accordion 이 선언된 엘리먼트에 data-accordion-defaults="0,2"</p>
+                            <h4 style="margin-top: 20px">각 아코디언 헤더에 클래스를 부여하여 활성화 시키는 방법</h4>
+                            <p class="ex-desc" style="color: #ff0000">아코디언 헤드에(aria-expanded 속성이 선언되어 있는 곳) is-active 클래스 추가</p>
+                        </div>
+                    </div>
+                    <div class="ex-body">
+                        <div class="ex-preview">
+                            <!-- accordion -->
+                            <div class="acc" data-ui-accordion>
+                                <ul class="acc__box">
+                                    <li class="acc__item">
+                                        <div class="acc__head">
+                                            <strong>타이틀</strong>
+                                            <button type="button" role="accordion" id="acc_header4" class="acc__button is-active" aria-controls="acc_content4" aria-expanded="false" aria-label="버튼"></button>
+                                        </div>
+                                        <div class="acc__panel expand" id="acc_content4" role="accordionpanel" aria-labelledby="acc_header4"> 컨텐츠 컨텐츠 컨텐츠 컨텐츠 </div>
+                                    </li>
+                                    <li class="acc__item">
+                                        <div class="acc__head">
+                                            <strong>타이틀</strong>
+                                            <button type="button" role="accordion" id="acc_header5" class="acc__button" aria-controls="acc_content5" aria-expanded="false" aria-label="버튼"></button>
+                                        </div>
+                                        <div class="acc__panel expand" id="acc_content5" role="accordionpanel" aria-labelledby="acc_header5"> 컨텐츠2 컨텐츠2 컨텐츠2 컨텐츠2 </div>
+                                    </li>
+                                    <li class="acc__item">
+                                        <div class="acc__head">
+                                            <strong>타이틀</strong>
+                                            <button type="button" role="accordion" id="acc_header6" class="acc__button" aria-controls="acc_content6" aria-expanded="false" aria-label="버튼"></button>
+                                        </div>
+                                        <div class="acc__panel expand" id="acc_content6" role="accordionpanel" aria-labelledby="acc_header6"> 컨텐츠3 컨텐츠3 컨텐츠3 컨텐츠3 </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- //accordion -->
+                        </div>
+                        <div class="html-view">
+                            <pre>
+                    <code class="ex-code-block render-html">
+                        <div class="acc" data-ui-accordion data-accordion-defaults="0,1"></div>
+                    </code>
+                </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.0/beautify.min.js"></script>
+    <script src="../../resources/js/uxw.ui.js"></script>
+    <script src="../vendor/prism.js"></script>
+    <script src="../resources/guideCommon.js"></script>
+</body>
+
+</html>
