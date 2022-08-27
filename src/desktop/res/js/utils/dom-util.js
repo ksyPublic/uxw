@@ -1,4 +1,15 @@
 /**
+ * HTML스트링을 HTML형태로 반환
+ * @param {String} htmlString
+ * @return {Element}} 엘리먼트
+ */
+export const toHTML = htmlString => {
+    const div = document.createElement('div');
+    div.innerHTML = htmlString.trim();
+    return div.firstChild;
+};
+
+/**
  * 엘리먼트에 선언되어있는 data attribute를 오브젝트 형태로 반환
  * UI 컴포넌트에서 data attribute로 속성 값 전달할 떄 사용
  * @param {*} element
@@ -33,4 +44,18 @@ export const getIndex = element => {
         currentElement = currentElement.previousElementSibling;
     }
     return index;
+};
+
+/**
+ * target으로 받은 엘리먼트를 알아서 반환한다.
+ * select, string 판단하여 적절하게..
+ * @param {*} target
+ */
+export const getElement = target => {
+    if (typeof target === 'string') {
+        return document.querySelector(target);
+    }
+    if (typeof target === 'object') {
+        return target;
+    }
 };

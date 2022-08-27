@@ -1,15 +1,14 @@
-$font-family-base : 'Shinhan',
-Apple SD Gothic Neo,
-Nanum Barun Gothic,
-Nanum Gothic,
-'돋움',
-Dotum,
-Verdana,
-Arial,
-sans-serif !default;
+$font-family-base: 'Shinhan', Apple SD Gothic Neo, Nanum Barun Gothic, Nanum Gothic, '돋움', Dotum, Verdana, Arial, sans-serif !default;
 
-$font-size-base : 16px !default;
-$font-weight-base : 500 !default;
-$font-letter-base : -0.5px;
-$header-color: #121619;
-$body-base-color : #FBFBFD !default;
+$font-size-base: 16px !default;
+$font-weight-base: 500 !default;
+$font-letter-base: -0.5px !default;
+$header-color: #121619 !default;
+$body-base-color: #fbfbfd !default;
+
+$zindex-modal: 201 !default;
+$zindex-header: 200 !default;
+$zindex-sidebar-active: 101 !default;
+$zindex-sidebar-deactive: 99 !default;
+$zIndex-foot-bottom: 100 !default;
+$zindex-fab: 102 !default;

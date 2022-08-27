@@ -1,0 +1,19 @@
+.message {
+    display: flex;
+    align-items: center;
+    display: none;
+
+    &.is-active {
+        display: flex;
+        animation-duration: 0.4s;
+        animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+        animation-name: messageIn;
+    }
+
+    &.is-deactive {
+        display: flex;
+        animation-duration: 0.4s;
+        animation-timing-function: cubic-bezier(0.36, 0, 0.66, -0.56);
+        animation-name: messageOut;
+    }
+}

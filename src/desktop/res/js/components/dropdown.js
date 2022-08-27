@@ -14,8 +14,8 @@ const ARIA_LABELLEBY = 'aria-labelledby';
 
 const dataAttrConfig = {
     activeClass: 'is-active',
-    deactiveClass: 'hide',
-    time: 1000,
+    activedClass: 'is-shown',
+    time: 300,
 };
 
 const defaultConfig = {
@@ -67,60 +67,63 @@ class Dropdown extends UI {
             if (target) {
                 this._current = {
                     target: target,
-                    content: this._getContent(),
+                    content: this._getContent(target),
                 };
 
                 this._show();
             }
         });
 
-        EventHandler.on(this._element, super._eventName('mouseleave'), event => {
+        EventHandler.on(this._element.closest('.dropdown'), super._eventName('mouseleave'), event => {
             if (!event.target.tagName.match(/^A$|AREA|INPUT|TEXTAREA|SELECT|BUTTON|LABEL/gim)) {
                 event.preventDefault();
             }
+
             const { content } = this._current;
             this._hide(content);
         });
     }
 
-    _defaultActive() {
-        const listBox = this._element.nextElementSibling;
-        listBox.classList.add('hide');
+    _destroy() {
+        this._removeEvent();
+    }
+
+    _removeEvent() {
+        EventHandler.off(this._element, super._eventName('mouseenter'));
+        EventHandler.off(this._element, super._eventName('mouseleave'));
     }
 
     _show() {
-        const { activeClass, deactiveClass, time } = this._config;
+        const { activeClass, activedClass, time } = this._config;
         const { content } = this._current;
-
+        this._dropdown = content.closest('.dropdown');
         this._timer = setTimeout(() => {
-            this._setPosition();
-            content.classList.remove(deactiveClass);
             content.classList.add(activeClass);
+            this._dropdown.classList.add(activedClass);
         }, time);
     }
 
     _hide(content) {
-        const { activeClass, deactiveClass } = this._config;
-
-        clearTimeout(this._timer);
-
-        content.classList.remove(activeClass);
-        content.classList.add(deactiveClass);
+        if (!content) {
+            return;
+        }
+        this._completeHide(content);
     }
 
-    _setPosition() {
-        //
+    _completeHide(content) {
+        const { activeClass } = this._config;
+
+        clearTimeout(this._timer);
+        content.classList.remove(activeClass);
     }
 
     _getContent() {
         const content = this._element.nextElementSibling;
-
         return content;
     }
 
     _variolbesUpdate() {
         this._element = this._element.querySelector(`[${ARIA_HANPOPUP}]`);
-        this._defaultActive();
     }
 
     init() {

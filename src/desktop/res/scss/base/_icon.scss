@@ -121,6 +121,18 @@ i {
         background: url('../images/ic-refresh.png') no-repeat;
     }
 
+    &-exclamation {
+        width: 24px;
+        height: 24px;
+        background: url('../images/ic-exclamation_off.png') no-repeat;
+    }
+
+    &-close {
+        width: 24px;
+        height: 24px;
+        background: url('../images/ic-close.png') no-repeat;
+    }
+
     &-button-nav {
         background-color: transparent;
         width: 0px;

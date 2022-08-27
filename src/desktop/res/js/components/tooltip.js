@@ -48,6 +48,7 @@ class Tooltip extends UI {
             tooltip: null,
             content: null,
         };
+        this._getTime = null;
         this._position = 'xr yc';
         this._timer = null;
         this._container = null;
@@ -83,11 +84,14 @@ class Tooltip extends UI {
             }
 
             const target = event.target.closest(`[${ARIA_DESCRIBEDBY}]`);
+            const getTime = this._tooltip.parentElement.getAttribute('data-tooltip-time');
             if (target) {
                 this._current = {
                     tooltip: target,
                     content: this._getContent(target),
                 };
+
+                this._getTime = getTime * 1000;
                 this._show();
             }
 
@@ -139,9 +143,12 @@ class Tooltip extends UI {
     _show() {
         const { time } = this._config;
 
-        this._timer = setTimeout(() => {
-            this._updatePosition();
-        }, time);
+        this._timer = setTimeout(
+            () => {
+                this._updatePosition();
+            },
+            this._getTime ? this._getTime : time,
+        );
     }
 
     _hide() {

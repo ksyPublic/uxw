@@ -12,7 +12,7 @@ $root: head;
     background-color: color(grey, 50);
     border-bottom: 1px solid color(gray, 200);
     padding: 0 40px;
-    z-index: 101;
+    z-index: $zindex-header;
 
     &__logo {
         font-size: 18px;
@@ -53,8 +53,6 @@ $root: head;
             }
         }
     }
-
-
 
     &__log {
         display: inline-block;

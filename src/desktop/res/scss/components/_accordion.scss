@@ -149,6 +149,7 @@ $root: accordion;
 
     .expresstion-list {
         .ic-expresstion-arrow--type2 {
+            pointer-events: none;
             margin: 0 8px;
         }
         > span,

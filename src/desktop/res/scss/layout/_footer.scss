@@ -1,4 +1,4 @@
-$root : foot;
+$root: foot;
 
 .#{$root} {
     display: flex;
@@ -6,4 +6,5 @@ $root : foot;
     justify-content: center;
     height: 80px;
     background-color: color(gray, 100);
+    z-index: $zIndex-foot-bottom;
 }

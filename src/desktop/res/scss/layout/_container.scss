@@ -17,23 +17,17 @@ $root: ly;
 
     &-content {
         height: 100%;
-        margin: 0 460px 0 360px;
+        margin: 0 461px 0 360px;
         min-width: 996px;
-        max-width: 996px;
+        width: 100%;
 
         @media all and(min-width:1921px) {
-            padding-right: 100px;
             width: 100%;
             max-width: 100%;
         }
 
-        // @media all and(max-width:1900px) {
-        //     padding-right: 100px;
-        //     margin-left: 300px;
-        //     max-width: 100%;
-        //     width: 100%;
-        // }
         &-box {
+            height: 100%;
             &:before {
                 content: '';
                 height: 40px;
@@ -62,13 +56,6 @@ $root: ly;
             padding-right: 100px;
             max-width: 100%;
         }
-
-        // @media all and(max-width:1900px) {
-        //     padding-right: 100px;
-        //     margin-left: 200px;
-        //     max-width: calc(100% - 660px);
-        //     width: 100%;
-        // }
 
         &:before,
         &:after {

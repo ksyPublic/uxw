@@ -1,6 +1,75 @@
 $root: tab;
 
 .#{$root} {
+    .#{$root} {
+        padding: 40px 0;
+    }
+    &--type2 {
+        &.#{$root}--scroll {
+            .#{$root}__list {
+                padding-right: 100px;
+            }
+        }
+        .#{$root}__list {
+            width: 100%;
+            margin-right: -2px;
+        }
+
+        .#{$root}__button {
+            width: 100%;
+            padding: 0;
+            background-color: color(grey, 100);
+            color: color(grey, 600);
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 24px;
+            height: 44px;
+            border-radius: 2px;
+            margin-left: 2px;
+            &:focus {
+                background-color: color(blue, 700);
+                outline: 0 !important;
+            }
+
+            &:active {
+                background-color: color(blue, 900);
+            }
+
+            &:hover {
+                background-color: color(blue, 900);
+                color: $white;
+            }
+
+            &.is-active {
+                font-weight: 500;
+                background-color: color(blue, 800);
+                color: $white;
+
+                &:hover {
+                    background-color: color(blue, 900);
+                }
+            }
+            &:after {
+                display: none;
+            }
+        }
+    }
+    &--scroll {
+        height: 100%;
+
+        > .title {
+            margin-right: 100px;
+        }
+        .#{$root}__inner {
+            overflow: auto;
+            height: calc(100% - 221px);
+            padding-right: 100px;
+        }
+
+        .#{$root}__panel {
+            height: 100%;
+        }
+    }
     &__list {
         display: flex;
         align-items: flex-start;

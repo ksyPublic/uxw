@@ -27,11 +27,15 @@
 @import './components/checkbox';
 @import './components/accordion';
 @import './components/dropdown';
+@import './components/spinner';
+@import './components/message';
+@import './components/modal';
 
 //content
 @import './contents/main';
 @import './contents/title';
 @import './contents/expresstion';
+@import './contents/etc';
 
 //layout
 @import './layout/container';

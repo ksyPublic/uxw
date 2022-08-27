@@ -4,7 +4,7 @@ $root: nav;
     position: fixed;
     left: 40px;
     top: 50%;
-    z-index: 102;
+    z-index: $zindex-fab;
     transform: translateY(-50%);
 
     &__box {
@@ -19,6 +19,7 @@ $root: nav;
         box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.08);
         border-radius: 36px;
         text-align: center;
+        background-color: $white;
         transition: all 0.6s cubic-bezier(0.33, 1, 0.68, 1);
         overflow: hidden;
 

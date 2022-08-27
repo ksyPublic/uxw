@@ -15,6 +15,28 @@ $root: textarea;
 
     &--base {
         min-height: 500px;
+        line-height: 40px;
+    }
+
+    &--tiny {
+        min-height: 208px;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    &--max {
+        line-height: 24px;
+
+        &.mxh68 {
+            min-height: 68px !important;
+            max-height: 68px !important;
+        }
+
+        &.mxh180 {
+            min-height: 180px !important;
+            max-height: 180px !important;
+        }
     }
 
     &::placeholder {
