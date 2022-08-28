@@ -7,8 +7,10 @@ import Accordion from './components/accordion';
 import Dropdown from './components/dropdown';
 import Spinner from './components/loading-spinner';
 import Message from './components/message';
+import ConfirmMessage from './components/confirm';
 import Dialog from './components/dialog';
 import commonInit from './common';
+import { getRandomID } from './utils/random';
 
 /**
  * UI 초기화 처리
@@ -45,6 +47,45 @@ Dropdown.GLOBAL_CONFIG = {
 Dialog.GLOBAL_CONFIG = {
     openClass: 'is-active',
     closeClass: 'is-deactive',
+};
+
+const Confirm = (message, confirmCallback = null) => {
+    const dialog = new ConfirmMessage({
+        layout: `
+  
+    <div class="modal modal--confirm" role="alertdialog" aria-modal="true">
+      <div class="modal__dialog">
+        <div class="modal__content">
+          <div class="modal__body">
+            {{message}}
+          </div>
+          <div class="modal__footer">
+              <button class="button button--type4 pw100" data-dialog-close>아니요</button>
+              <button class="button pw100" data-dialog-confirm>예</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+      `,
+        replacer: {
+            '{{a11y}}': getRandomID(),
+            '{{message}}': message,
+        },
+    });
+
+    EventHandler.one(dialog.getElement(), Dialog.EVENT.OPEN, event => {
+        const confirm = dialog.getElement().querySelector('[data-dialog-confirm]');
+        if (confirm) {
+            EventHandler.one(confirm, 'click', () => {
+                if (confirmCallback) {
+                    confirmCallback.apply(event.component);
+                }
+            });
+        }
+    });
+
+    dialog._open();
 };
 
 const SwiperA11y = (el, options = {}) => {
@@ -213,6 +254,7 @@ const ui = {
     Spinner,
     Message,
     Dialog,
+    Confirm,
 };
 
 window.UXW = { ...ui };

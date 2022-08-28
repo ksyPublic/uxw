@@ -1740,6 +1740,20 @@ input[type='checkbox'] {
   overflow-y: auto; }
   .modal .textarea {
     background-color: #fff; }
+  .modal--confirm .modal__content {
+    width: 335px;
+    border-radius: 8px;
+    overflow: hidden; }
+  .modal--confirm .modal__body {
+    padding: 32px 20px;
+    text-align: center;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    color: #121619; }
+  .modal--confirm .button--type4 {
+    border: 0;
+    background-color: #ebeff5; }
   .modal--medium .modal__content {
     width: 560px; }
   .modal__dialog {
@@ -1794,8 +1808,15 @@ input[type='checkbox'] {
     background-color: #fff; }
   .modal__body {
     padding: 24px 20px; }
-  .modal__footer button {
-    border-radius: 0; }
+  .modal__footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    .modal__footer button {
+      border-radius: 0; }
   .modal.is-active {
     display: block;
     -webkit-animation-duration: 0.4s;

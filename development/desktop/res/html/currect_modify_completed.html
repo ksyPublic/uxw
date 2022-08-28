@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="" />
-    <title>신한 UX라이팅 시스템 | 교정하기 | 앱푸시</title>
+    <title>신한 UX라이팅 시스템 | 수정후</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="/res/css/styles.css" />
     <link rel="stylesheet" href="/res/js/lib/swiper.css" />
@@ -99,7 +99,7 @@
             <!-- //floting 네비게이션 영역 -->
             <div class="ly-content">
                 <div class="ly-content-box">
-                    <div class="tab tab--scroll" id="mainTab" data-ui-tab data-tab-active="1">
+                    <div class="tab tab--scroll" data-ui-tab id="mainTab">
                         <div class="title">
                             <h2 class="text ft24 bold">교정하기</h2>
                             <div class="tab__list" role="tablist">
@@ -114,7 +114,10 @@
                                     <div class="fields">
                                         <div class="field">
                                             <label class="dpb medium ft14">내용</label>
-                                            <textarea data-bytes-check class="textarea textarea--base" maxlength="5000" placeholder="내용을 입력해주세요. 한글 2,500자(5,000 Byte)"></textarea>
+                                            <textarea data-bytes-check class="textarea textarea--base" maxlength="5000" placeholder="내용을 입력해주세요. 한글 2,500자(5,000 Byte)">
+신한은행과 BNP파리바카디프생명이 합작품인'(무)더세이프 대출안심보험'을 28일 런칭했다. BNP파리바 카디프생명은 글로벌 종합 금융그룹 BNP파리바의 보험 자회사이자 신용보험 글로벌 리더인 BNP파리바카디프 산하의 한국 생명보험법인이다.
+이날 신한은행 에서 발간한 '보통사람 금융생활 보고서 2022'을 개관해 보면 지난 4년 동안 부채 보유 세대의 총 대출평균잔액은 꾸준히 증가했다. 작년 소득 대비 부채 규모는 20배로 증대할 것으로 나타났다. 연소득 증가 속도보다 부채 잔액이 점점 늘어나는 속도가 매년 빨라지면서 가구의 DTI가 낮아질 것으로 예상돼 대출 미상환 위험 대비의 필요성이 한층 가중되고 있다. '(무)더세이프 대출안심보험'의 부보조건은 대출 고객이 대출 기간 중 사망 또는 80% 이상의 고도장해, 암·뇌출혈·급성심근경색증 진단 등으로 대출금 상환이 어려울 경우 보험사가 고객 대신 남은 대출금을 대납해 주는 상품이다. '(무)더세이프 대출안심보험'은 대출기간과 유형에 따라 갱신형(1년만기, 최대 5년 보장), 비갱신형(6년~30년만기) 중 선택하시어 가입 가능합니다.
+                                    </textarea>
                                             <div class="textarea__lengths">
                                                 <label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 글자수를 조정해주세요.</label>
                                                 <div class="textarea__lengths__box">
@@ -305,12 +308,12 @@
                                 </label>
                             </div>
                             <div class="tooltip__list tooltip-button" data-tooltip-time="2">
-                                <button id="btncopy" type="button" class="ic-button-edit" aria-label="복사" aria-describedby="tooltip5" disabled onclick="UXW.Message.show('텍스트를 복사를하였습니다.')">
+                                <button id="btncopy" type="button" class="ic-button-edit" aria-label="복사" aria-describedby="tooltip5" onclick="UXW.Message.show('텍스트를 복사를하였습니다.')">
                                     <i class="ic ic-copy" aria-hidden="true"></i>
                                 </button>
                             </div>
                             <div class="tooltip__list tooltip-button" data-tooltip-time="2">
-                                <button id="btndownload" type="button" class="ic-button-edit" aria-label="다운로드" aria-describedby="tooltip6" disabled onclick="UXW.Message.show('텍스트를 다운로드하였습니다.')">
+                                <button id="btndownload" type="button" class="ic-button-edit" aria-label="다운로드" aria-describedby="tooltip6" onclick="UXW.Message.show('텍스트를 다운로드하였습니다.')">
                                     <i class="ic ic-download" aria-hidden="true"></i>
                                 </button>
                             </div>
@@ -977,10 +980,10 @@
         }
         document.addEventListener('DOMContentLoaded', function() {
             bytesCheck();
-            btncopy.classList.add('hide')
-            btndownload.classList.add('hide')
-            btndelete.classList.add('hide')
-            btnupload.disabled = true;
+            btncurrect.disabled = false;
+            btncopy.disabled = false;
+            btndownload.disabled = false;
+            currectEvent.BEFORE(btncurrect);
         });
         //삭제버튼 클릭시
         document.addEventListener('UILoaded', function() {
@@ -1006,10 +1009,10 @@
             } else if (currentTab.content.id === 'tabpanel1') {
                 btncopy.classList.remove('hide')
                 btndownload.classList.remove('hide')
-                btndelete.classList.add('add')
-                btncopy.disabled = true;
-                btnupload.disabled = false;
-                btndownload.disabled = true;
+                btndelete.classList.remove('hide')
+                btncopy.disabled = false;
+                btnupload.disabled = true;
+                btndownload.disabled = false;
             }
         });
     </script>

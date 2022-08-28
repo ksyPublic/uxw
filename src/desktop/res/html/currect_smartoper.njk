@@ -1,5 +1,5 @@
 {% set user = "logout" %}
-{% set title = "신한 UX라이팅 시스템 | 교정전" %}
+{% set title = "신한 UX라이팅 시스템 | 교정하기 | 스마트오퍼" %}
 {% extends "../templates/layout.njk" %}
 {% block content %}
     <!-- floting 네비게이션 영역 -->
@@ -50,7 +50,7 @@
 
     <div class="ly-content">
         <div class="ly-content-box">
-            <div class="tab tab--scroll" data-ui-tab id="mainTab">
+            <div class="tab tab--scroll" id="mainTab" data-ui-tab data-tab-active="2">
                 <div class="title">
                     <h2 class="text ft24 bold">교정하기</h2>
                     <div class="tab__list" role="tablist">
@@ -1080,6 +1080,16 @@
 
         document.addEventListener('DOMContentLoaded', function () {
             bytesCheck();
+            btncopy
+                .classList
+                .add('hide')
+            btndownload
+                .classList
+                .add('hide')
+            btndelete
+                .classList
+                .add('hide')
+            btnupload.disabled = true;
         });
 
         //삭제버튼 클릭시

@@ -5403,6 +5403,88 @@ fixRegExpWellKnownSymbolLogic('match', function (MATCH, nativeMatch, maybeCallNa
 
 /***/ }),
 
+/***/ "./node_modules/core-js/modules/es.string.replace-all.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/core-js/modules/es.string.replace-all.js ***!
+  \***************************************************************/
+/***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
+
+"use strict";
+
+var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js/internals/export.js");
+var call = __webpack_require__(/*! ../internals/function-call */ "./node_modules/core-js/internals/function-call.js");
+var uncurryThis = __webpack_require__(/*! ../internals/function-uncurry-this */ "./node_modules/core-js/internals/function-uncurry-this.js");
+var requireObjectCoercible = __webpack_require__(/*! ../internals/require-object-coercible */ "./node_modules/core-js/internals/require-object-coercible.js");
+var isCallable = __webpack_require__(/*! ../internals/is-callable */ "./node_modules/core-js/internals/is-callable.js");
+var isNullOrUndefined = __webpack_require__(/*! ../internals/is-null-or-undefined */ "./node_modules/core-js/internals/is-null-or-undefined.js");
+var isRegExp = __webpack_require__(/*! ../internals/is-regexp */ "./node_modules/core-js/internals/is-regexp.js");
+var toString = __webpack_require__(/*! ../internals/to-string */ "./node_modules/core-js/internals/to-string.js");
+var getMethod = __webpack_require__(/*! ../internals/get-method */ "./node_modules/core-js/internals/get-method.js");
+var getRegExpFlags = __webpack_require__(/*! ../internals/regexp-get-flags */ "./node_modules/core-js/internals/regexp-get-flags.js");
+var getSubstitution = __webpack_require__(/*! ../internals/get-substitution */ "./node_modules/core-js/internals/get-substitution.js");
+var wellKnownSymbol = __webpack_require__(/*! ../internals/well-known-symbol */ "./node_modules/core-js/internals/well-known-symbol.js");
+var IS_PURE = __webpack_require__(/*! ../internals/is-pure */ "./node_modules/core-js/internals/is-pure.js");
+
+var REPLACE = wellKnownSymbol('replace');
+var $TypeError = TypeError;
+var indexOf = uncurryThis(''.indexOf);
+var replace = uncurryThis(''.replace);
+var stringSlice = uncurryThis(''.slice);
+var max = Math.max;
+
+var stringIndexOf = function (string, searchValue, fromIndex) {
+  if (fromIndex > string.length) return -1;
+  if (searchValue === '') return fromIndex;
+  return indexOf(string, searchValue, fromIndex);
+};
+
+// `String.prototype.replaceAll` method
+// https://tc39.es/ecma262/#sec-string.prototype.replaceall
+$({ target: 'String', proto: true }, {
+  replaceAll: function replaceAll(searchValue, replaceValue) {
+    var O = requireObjectCoercible(this);
+    var IS_REG_EXP, flags, replacer, string, searchString, functionalReplace, searchLength, advanceBy, replacement;
+    var position = 0;
+    var endOfLastMatch = 0;
+    var result = '';
+    if (!isNullOrUndefined(searchValue)) {
+      IS_REG_EXP = isRegExp(searchValue);
+      if (IS_REG_EXP) {
+        flags = toString(requireObjectCoercible(getRegExpFlags(searchValue)));
+        if (!~indexOf(flags, 'g')) throw $TypeError('`.replaceAll` does not allow non-global regexes');
+      }
+      replacer = getMethod(searchValue, REPLACE);
+      if (replacer) {
+        return call(replacer, searchValue, O, replaceValue);
+      } else if (IS_PURE && IS_REG_EXP) {
+        return replace(toString(O), searchValue, replaceValue);
+      }
+    }
+    string = toString(O);
+    searchString = toString(searchValue);
+    functionalReplace = isCallable(replaceValue);
+    if (!functionalReplace) replaceValue = toString(replaceValue);
+    searchLength = searchString.length;
+    advanceBy = max(1, searchLength);
+    position = stringIndexOf(string, searchString, 0);
+    while (position !== -1) {
+      replacement = functionalReplace
+        ? toString(replaceValue(searchString, position, string))
+        : getSubstitution(searchString, string, position, [], undefined, replaceValue);
+      result += stringSlice(string, endOfLastMatch, position) + replacement;
+      endOfLastMatch = position + searchLength;
+      position = stringIndexOf(string, searchString, position + advanceBy);
+    }
+    if (endOfLastMatch < string.length) {
+      result += stringSlice(string, endOfLastMatch);
+    }
+    return result;
+  }
+});
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/modules/es.string.replace.js":
 /*!***********************************************************!*\
   !*** ./node_modules/core-js/modules/es.string.replace.js ***!
@@ -6212,6 +6294,18 @@ $({ target: 'Symbol', stat: true, forced: !NATIVE_SYMBOL_REGISTRY }, {
 
 /***/ }),
 
+/***/ "./node_modules/core-js/modules/esnext.string.replace-all.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/core-js/modules/esnext.string.replace-all.js ***!
+  \*******************************************************************/
+/***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
+
+// TODO: Remove from `core-js@4`
+__webpack_require__(/*! ../modules/es.string.replace-all */ "./node_modules/core-js/modules/es.string.replace-all.js");
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/modules/web.dom-collections.for-each.js":
 /*!**********************************************************************!*\
   !*** ./node_modules/core-js/modules/web.dom-collections.for-each.js ***!
@@ -7011,6 +7105,90 @@ var UI = /*#__PURE__*/function () {
 
 /***/ }),
 
+/***/ "./src/desktop/res/js/components/confirm.js":
+/*!**************************************************!*\
+  !*** ./src/desktop/res/js/components/confirm.js ***!
+  \**************************************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_es_regexp_exec_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.regexp.exec.js */ "./node_modules/core-js/modules/es.regexp.exec.js");
+/* harmony import */ var core_js_modules_es_string_replace_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.string.replace.js */ "./node_modules/core-js/modules/es.string.replace.js");
+/* harmony import */ var core_js_modules_esnext_string_replace_all_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/esnext.string.replace-all.js */ "./node_modules/core-js/modules/esnext.string.replace-all.js");
+/* harmony import */ var _utils_dom_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/dom-util */ "./src/desktop/res/js/utils/dom-util.js");
+/* harmony import */ var _dialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dialog */ "./src/desktop/res/js/components/dialog.js");
+
+
+
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+
+
+
+var ConfirmMessage = /*#__PURE__*/function () {
+  function ConfirmMessage() {
+    var config = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
+      layout: "",
+      replacer: {}
+    };
+
+    _classCallCheck(this, ConfirmMessage);
+
+    this._instance = null;
+    this._element = this._createElement(config);
+    document.body.appendChild(this._element); // 다이나믹한 컨텐츠는 바로 삭제
+
+    this._instance = new _dialog__WEBPACK_IMPORTED_MODULE_4__["default"](this._element, {
+      destroy: true
+    });
+    return this._instance;
+  }
+
+  _createClass(ConfirmMessage, [{
+    key: "open",
+    value: function open() {
+      this._instance.open();
+    }
+  }, {
+    key: "close",
+    value: function close() {
+      this._instance.close();
+    }
+  }, {
+    key: "getElement",
+    value: function getElement() {
+      return this._element;
+    }
+  }, {
+    key: "_createElement",
+    value: function _createElement(config) {
+      var layout = config.layout,
+          replacer = config.replacer;
+      var source = layout;
+
+      for (var key in replacer) {
+        if (Object.prototype.hasOwnProperty.call(replacer, key)) {
+          source = source.replaceAll(key, replacer[key]);
+        }
+      }
+
+      return (0,_utils_dom_util__WEBPACK_IMPORTED_MODULE_3__.toHTML)(source);
+    }
+  }]);
+
+  return ConfirmMessage;
+}();
+
+/* harmony default export */ __webpack_exports__["default"] = (ConfirmMessage);
+
+/***/ }),
+
 /***/ "./src/desktop/res/js/components/dialog.js":
 /*!*************************************************!*\
   !*** ./src/desktop/res/js/components/dialog.js ***!
@@ -7160,6 +7338,11 @@ var Dialog = /*#__PURE__*/function (_UI) {
 
         this._bg.classList.add('fadeIn');
       }
+    }
+  }, {
+    key: "getElement",
+    value: function getElement() {
+      return this._element;
     }
   }, {
     key: "_showDialog",
@@ -8750,6 +8933,27 @@ var getElement = function getElement(target) {
 
 /***/ }),
 
+/***/ "./src/desktop/res/js/utils/random.js":
+/*!********************************************!*\
+  !*** ./src/desktop/res/js/utils/random.js ***!
+  \********************************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getRandomID": function() { return /* binding */ getRandomID; }
+/* harmony export */ });
+/* harmony import */ var core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.object.to-string.js */ "./node_modules/core-js/modules/es.object.to-string.js");
+/* harmony import */ var core_js_modules_es_regexp_to_string_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.regexp.to-string.js */ "./node_modules/core-js/modules/es.regexp.to-string.js");
+
+
+var getRandomID = function getRandomID() {
+  return "id_".concat(Math.random().toString(36).substr(2, 9));
+};
+
+/***/ }),
+
 /***/ "./src/desktop/res/js/vendor/EventHandler.js":
 /*!***************************************************!*\
   !*** ./src/desktop/res/js/vendor/EventHandler.js ***!
@@ -9298,8 +9502,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_dropdown__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/dropdown */ "./src/desktop/res/js/components/dropdown.js");
 /* harmony import */ var _components_loading_spinner__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/loading-spinner */ "./src/desktop/res/js/components/loading-spinner.js");
 /* harmony import */ var _components_message__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/message */ "./src/desktop/res/js/components/message.js");
-/* harmony import */ var _components_dialog__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/dialog */ "./src/desktop/res/js/components/dialog.js");
-/* harmony import */ var _common__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./common */ "./src/desktop/res/js/common.js");
+/* harmony import */ var _components_confirm__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/confirm */ "./src/desktop/res/js/components/confirm.js");
+/* harmony import */ var _components_dialog__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/dialog */ "./src/desktop/res/js/components/dialog.js");
+/* harmony import */ var _common__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./common */ "./src/desktop/res/js/common.js");
+/* harmony import */ var _utils_random__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./utils/random */ "./src/desktop/res/js/utils/random.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -9315,6 +9521,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 /* eslint-disable new-cap */
+
+
 
 
 
@@ -9356,9 +9564,33 @@ _components_tooltip__WEBPACK_IMPORTED_MODULE_10__["default"].GLOBAL_CONFIG = {
 _components_dropdown__WEBPACK_IMPORTED_MODULE_12__["default"].GLOBAL_CONFIG = {
   activeClass: 'is-active'
 };
-_components_dialog__WEBPACK_IMPORTED_MODULE_15__["default"].GLOBAL_CONFIG = {
+_components_dialog__WEBPACK_IMPORTED_MODULE_16__["default"].GLOBAL_CONFIG = {
   openClass: 'is-active',
   closeClass: 'is-deactive'
+};
+
+var Confirm = function Confirm(message) {
+  var confirmCallback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+  var dialog = new _components_confirm__WEBPACK_IMPORTED_MODULE_15__["default"]({
+    layout: "\n  \n    <div class=\"modal modal--confirm\" role=\"alertdialog\" aria-modal=\"true\">\n      <div class=\"modal__dialog\">\n        <div class=\"modal__content\">\n          <div class=\"modal__body\">\n            {{message}}\n          </div>\n          <div class=\"modal__footer\">\n              <button class=\"button button--type4 pw100\" data-dialog-close>\uC544\uB2C8\uC694</button>\n              <button class=\"button pw100\" data-dialog-confirm>\uC608</button>\n          </div>\n        </div>\n      </div>\n    </div>\n  \n      ",
+    replacer: {
+      '{{a11y}}': (0,_utils_random__WEBPACK_IMPORTED_MODULE_18__.getRandomID)(),
+      '{{message}}': message
+    }
+  });
+  _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_8__["default"].one(dialog.getElement(), _components_dialog__WEBPACK_IMPORTED_MODULE_16__["default"].EVENT.OPEN, function (event) {
+    var confirm = dialog.getElement().querySelector('[data-dialog-confirm]');
+
+    if (confirm) {
+      _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_8__["default"].one(confirm, 'click', function () {
+        if (confirmCallback) {
+          confirmCallback.apply(event.component);
+        }
+      });
+    }
+  });
+
+  dialog._open();
 };
 
 var SwiperA11y = function SwiperA11y(el) {
@@ -9497,7 +9729,7 @@ var initialize = function initialize() {
   UIInitializer('[data-ui-tab]', _components_tab__WEBPACK_IMPORTED_MODULE_9__["default"]); // 아코디언
 
   UIInitializer('[data-ui-accordion]', _components_accordion__WEBPACK_IMPORTED_MODULE_11__["default"]);
-  _common__WEBPACK_IMPORTED_MODULE_16__["default"].initialize();
+  _common__WEBPACK_IMPORTED_MODULE_17__["default"].initialize();
   return 'initialized';
 };
 
@@ -9509,7 +9741,7 @@ if (window.UXW) {
 } else {
   document.addEventListener('DOMContentLoaded', function () {
     initialize();
-    _common__WEBPACK_IMPORTED_MODULE_16__["default"].initFunc();
+    _common__WEBPACK_IMPORTED_MODULE_17__["default"].initFunc();
     _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_8__["default"].trigger(document, 'UILoaded');
     console.log('UI Initialized!');
   });
@@ -9525,7 +9757,8 @@ var ui = {
   Dropdown: _components_dropdown__WEBPACK_IMPORTED_MODULE_12__["default"],
   Spinner: _components_loading_spinner__WEBPACK_IMPORTED_MODULE_13__["default"],
   Message: _components_message__WEBPACK_IMPORTED_MODULE_14__["default"],
-  Dialog: _components_dialog__WEBPACK_IMPORTED_MODULE_15__["default"]
+  Dialog: _components_dialog__WEBPACK_IMPORTED_MODULE_16__["default"],
+  Confirm: Confirm
 };
 window.UXW = _objectSpread({}, ui);
 }();

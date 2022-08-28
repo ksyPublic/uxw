@@ -79,6 +79,10 @@ class Dialog extends UI {
         }
     }
 
+    getElement() {
+        return this._element;
+    }
+
     _showDialog() {
         this._element.classList.add(this._config.openClass);
     }
