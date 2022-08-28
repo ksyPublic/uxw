@@ -1,5 +1,6 @@
 /* eslint-disable new-cap */
 import 'element-closest-polyfill';
+import iePolyfill from './utils/iePolyfill';
 import EventHandler from './vendor/EventHandler';
 import Tab from './components/tab';
 import Tooltip from './components/tooltip';
@@ -11,7 +12,6 @@ import ConfirmMessage from './components/confirm';
 import Dialog from './components/dialog';
 import commonInit from './common';
 import { getRandomID } from './utils/random';
-
 /**
  * UI 초기화 처리
  * @param {*} target

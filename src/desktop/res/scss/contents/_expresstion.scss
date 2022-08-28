@@ -6,7 +6,13 @@ $root: expresstion;
     &-group {
         color: $white;
         .#{$root}-list {
-            min-height: 64px;
+            min-height: 48px;
+
+            span {
+                &:first-child {
+                    color: color(blue, 300);
+                }
+            }
         }
     }
 
@@ -14,8 +20,8 @@ $root: expresstion;
         display: flex;
         align-items: center;
         width: 100%;
-        border-bottom: 1px dashed color(grey, 400);
-        padding: 7.5px 0;
+        border-bottom: 1px dashed color(blue, 300);
+        padding: 12px 0;
 
         &:first-child {
             padding-top: 0;
@@ -40,8 +46,8 @@ $root: expresstion;
 
         > span {
             width: 126px;
-            line-height: 24px;
-            font-size: 16px;
+            line-height: 20px;
+            font-size: 14px;
             font-weight: 500;
             display: flex;
         }

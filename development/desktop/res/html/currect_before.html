@@ -970,7 +970,7 @@
             /* options : noop 무한정 펼쳐짐 옵션없을때 자동제거 */
             UXW.Spinner.show();
             UXW.Message.show('저장 중', 'noop')
-            setTimeout(() => {
+            setTimeout(function() {
                 UXW.Spinner.hide();
                 UXW.Message.hide()
             }, 3000)

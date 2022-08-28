@@ -1934,7 +1934,9 @@ input[type='checkbox'] {
   .expresstion-group {
     color: #fff; }
     .expresstion-group .expresstion-list {
-      min-height: 64px; }
+      min-height: 48px; }
+      .expresstion-group .expresstion-list span:first-child {
+        color: #c3ddfa; }
   .expresstion-list {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1943,8 +1945,8 @@ input[type='checkbox'] {
         -ms-flex-align: center;
             align-items: center;
     width: 100%;
-    border-bottom: 1px dashed #b9c1c9;
-    padding: 7.5px 0; }
+    border-bottom: 1px dashed #c3ddfa;
+    padding: 12px 0; }
     .expresstion-list:first-child {
       padding-top: 0; }
     .expresstion-list:last-child {
@@ -1962,8 +1964,8 @@ input[type='checkbox'] {
       margin-right: 24px; }
     .expresstion-list > span {
       width: 126px;
-      line-height: 24px;
-      font-size: 16px;
+      line-height: 20px;
+      font-size: 14px;
       font-weight: 500;
       display: -webkit-box;
       display: -ms-flexbox;
