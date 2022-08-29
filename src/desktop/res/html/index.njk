@@ -1,5 +1,95 @@
 {% set user = "login" %}
 {% set title = "신한 UX라이팅 시스템 | 화면목록" %}
+<!--
+    type:[1,2,3,4]
+    1 : '완료',
+    2 : '진행중',
+    3 : '수정중',
+    4 : '검수중',
+-->
+{% set LIST_VIEW = [
+    {
+        'type':'4',
+        'id': 'login',
+        'category':'PAGE',
+        'username': '김세영',
+        'viewname':'로그인',
+        'date': '22-08-29',
+        'memo':'',
+        'url':'./login.html',
+        'note':''
+    }, {
+        'type':'4',
+        'id': 'logout',
+        'category':'PAGE',
+        'username': '김세영',
+        'viewname':'로그아웃',
+        'date': '22-08-29',
+        'memo':'',
+        'url':'./logout.html',
+        'note':''
+    }, {
+        'type':'4',
+        'id': 'currect-before',
+        'category':'PAGE/TAB',
+        'username': '김세영',
+        'viewname':'교정하기(메인) 교정전',
+        'date': '22-08-29',
+        'memo':'',
+        'url':'./currect_before.html',
+        'note':''
+    }, {
+        'type':'4',
+        'id': 'currect-after',
+        'category':'PAGE/TAB',
+        'username': '김세영',
+        'viewname':'교정하기(메인) 교정후',
+        'date': '22-08-29',
+        'memo':'',
+        'url':'./currect_after.html',
+        'note':''
+    }, {
+        'type':'4',
+        'id': 'currect_modify_completed',
+        'category':'PAGE/TAB',
+        'username': '김세영',
+        'viewname':'교정하기(메인) 수정후',
+        'date': '22-08-29',
+        'memo':'',
+        'url':'./currect_modify_completed.html',
+        'note':''
+    }, {
+        'type':'4',
+        'id': 'currect_app',
+        'category':'PAGE/TAB',
+        'username': '김세영',
+        'viewname':'교정하기(메인) 앱푸시',
+        'date': '22-08-29',
+        'memo':'',
+        'url':'./currect_app.html',
+        'note':''
+    }, {
+        'type':'4',
+        'id': 'currect_smartoper',
+        'category':'PAGE/TAB',
+        'username': '김세영',
+        'viewname':'교정하기(메인) 스마트오퍼',
+        'date': '22-08-29',
+        'memo':'',
+        'url':'./currect_smartoper.html',
+        'note':''
+    }, {
+        'type':'4',
+        'id': 'currect_popup01',
+        'category':'POPUP',
+        'username': '김세영',
+        'viewname':'교정하기(메인) 콘텐츠 완료하기 팝업',
+        'date': '22-08-29',
+        'memo':'',
+        'url':'./currect_popup01.html',
+        'note':''
+    }
+]%}
 {% extends "../templates/layout.njk" %}
 {% block content %}
     <!-- 컨텐츠 영역 -->
@@ -38,17 +128,6 @@
             <div class="title">
                 <h2 class="text ft24 bold">화면목록</h2>
             </div>
-
-            <!---
-
-                        ‘공란’은 미작업 상태를 의미.
-
-                        ‘진행중’은 작업중 의미.
-
-                        ‘검수중’은
-
-                        ‘완료’는
-                        -->
             <div id="viewlist" class="table-row fixed">
                 <table class="table">
                     <thead>
@@ -59,371 +138,44 @@
                             <th>담당자</th>
                             <th>메모</th>
                             <th>상태</th>
+                            <th>날짜</th>
                             <th>비고</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>
-                                <a class="text-blue" href="./login.html">로그인</a>
-                            </td>
-                            <td>PAGE</td>
-                            <td>김세영</td>
-                            <td></td>
-                            <td>검수중</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>
-                                <a class="text-blue" href="./logout.html">로그아웃</a>
-                            </td>
-                            <td>PAGE</td>
-                            <td>김세영</td>
-                            <td></td>
-                            <td>검수중</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>
-                                <a class="text-blue" href="./currect_before.html">교정하기(메인) 교정전</a>
-                            </td>
-                            <td>PAGE/TAB</td>
-                            <td>김세영</td>
-                            <td></td>
-                            <td>검수대기</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>
-                                <a class="text-blue" href="./currect_after.html">교정하기(메인) 교정후</a>
-                            </td>
-                            <td>PAGE/TAB</td>
-                            <td>김세영</td>
-                            <td></td>
-                            <td>검수대기</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>
-                                <a class="text-blue" href="./currect_modify_completed.html">교정하기(메인) 수정후</a>
-                            </td>
-                            <td>PAGE/TAB</td>
-                            <td>김세영</td>
-                            <td></td>
-                            <td>검수대기</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>
-                                <a class="text-blue" href="./currect_app.html">교정하기(메인) 앱푸시</a>
-                            </td>
-                            <td>PAGE/TAB</td>
-                            <td>김세영</td>
-                            <td></td>
-                            <td>검수대기</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>
-                                <a class="text-blue" href="./currect_smartoper.html">교정하기(메인) 스마트오퍼</a>
-                            </td>
-                            <td>PAGE/TAB</td>
-                            <td>김세영</td>
-                            <td></td>
-                            <td>검수대기</td>
-                            <td></td>
-                        </tr>
+                        {% for item in LIST_VIEW %}
+                            <tr>
+                                <td>{{ loop.index }}</td>
+                                <td id="{{item.id}}">
+                                    <a class="text-blue" href="{{item.url}}">{{item.viewname}}</a>
+                                </td>
+                                <td>{{item.category}}</td>
+                                <td>{{item.username}}</td>
+                                <td>{{item.memo}}</td>
+                                <td>
+                                    {% if item.type === "1" %}
+                                    완료
+                                    {% elif item.type === "2" %}
+                                    진행중
+                                    {% elif item.type === "3" %}
+                                    수정중
+                                    {% else %}
+                                    검수중
+                                    {% endif %}
+                                </td>
+                                <td>{{item.date}}</td>
+                                <td>{{item.note}}</td>
+                            </tr>
+                        {% endfor %}
+
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 
-    <!-- 사이드 영역 -->
-    <!-- 사이드 영역 -->
-    <div class="side">
-        <div class="side__wrap is-active">
-            <h3 class="sr-only">교정 가이드</h3>
-            <div class="side__inner">
-                <!-- html이 들어갈 영역 -->
-                <div class="side__frame__html">
-                    <div class="swiper swiper--autoheight">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="side__frame__wrap">
-                                    <h4 class="ft18 medium">김픽스님, 이런 표현들을 조심하세요!</h4>
-                                    <div class="expresstion">
-                                        <ul class="expresstion-group">
-                                            <li class="expresstion-list">
-                                                <span>네비게이션</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>내비게이션</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>개인종합자산관리계좌 (ISA)</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>ISA (개인종합자산관리계좌)</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>라이센스</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>라이선스</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>휴대폰 인증서 서비스(UBIKey)</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>휴대폰 인증서 서비스(유비키)</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>텍스트가 길어질때 테스트중입니다텍스트가 길어질때 테스트중입니다텍스트가 길어질때 테스트중입니다</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>텍스트가 길어질때 테스트중입니다텍스트가 길어질때 테스트중입니다텍스트가 길어질때 테스트중입니다</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="side__frame__wrap">
-                                    <h4 class="ft18 medium">김픽스님, 이런 표현들을 조심하세요!</h4>
-                                    <div class="expresstion">
-                                        <ul class="expresstion-group">
-                                            <li class="expresstion-list">
-                                                <span>네비게이션</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>내비게이션</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>개인종합자산관리계좌 (ISA)</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>ISA (개인종합자산관리계좌)</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>라이센스</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>라이선스</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>휴대폰 인증서 서비스(UBIKey)</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>휴대폰 인증서 서비스(유비키)</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>추산</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>어림잡다</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="side__frame__wrap">
-                                    <h4 class="ft18 medium">김픽스님, 이런 표현들을 조심하세요!</h4>
-                                    <div class="expresstion">
-                                        <ul class="expresstion-group">
-                                            <li class="expresstion-list">
-                                                <span>네비게이션</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>내비게이션</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>개인종합자산관리계좌 (ISA)</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>ISA (개인종합자산관리계좌)</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>라이센스</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>라이선스</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>휴대폰 인증서 서비스(UBIKey)</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>휴대폰 인증서 서비스(유비키)</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>추산</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>어림잡다</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="side__frame__wrap">
-                                    <h4 class="ft18 medium">김픽스님, 이런 표현들을 조심하세요!</h4>
-                                    <div class="expresstion">
-                                        <ul class="expresstion-group">
-                                            <li class="expresstion-list">
-                                                <span>네비게이션</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>내비게이션</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>개인종합자산관리계좌 (ISA)</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>ISA (개인종합자산관리계좌)</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>라이센스</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>라이선스</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>휴대폰 인증서 서비스(UBIKey)</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>휴대폰 인증서 서비스(유비키)</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>추산</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>어림잡다</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="side__frame__wrap">
-                                    <h4 class="ft18 medium">김픽스님, 이런 표현들을 조심하세요!</h4>
-                                    <div class="expresstion">
-                                        <ul class="expresstion-group">
-                                            <li class="expresstion-list">
-                                                <span>네비게이션</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>내비게이션</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>개인종합자산관리계좌 (ISA)</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>ISA (개인종합자산관리계좌)</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>라이센스</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>라이선스</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>휴대폰 인증서 서비스(UBIKey)</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>휴대폰 인증서 서비스(유비키)</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>추산</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>어림잡다</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-indicator center">
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-pagination"></div>
-                            <div class="swiper-button-next"></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- html이 들어갈 영역 -->
-
-                <!-- 목록 -->
-                <div class="box mgt20 blue100-bg">
-                    <div class="title--type2">
-                        <h4 class="text ft18 medium">내 콘텐츠</h4>
-                        <a href="#none" class="text-link">전체보기<i class="ic ic-text-arrow" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                    <!-- 데이터가 없을시 오픈 -->
-                    <div class="none-data pxh170" data-none>
-                        <p>콘텐츠 목록이 비어있어요.<br/>새로운 콘텐츠를 입력해주세요.</p>
-                    </div>
-                    <!-- //데이터가 없을시 오픈 -->
-
-                    <!-- 목록 리스트 : 데이터가 없을시 제거  -->
-                    <div class="grid col3">
-                        <div class="grid__box">
-                            <a href="#none" class="text-link light" title="신한은행과BNP파리바카디프생명협약 관련안내">신한은행과BNP파리바카디프생명협약 관련안내</a>
-                            <span class="text-date">22.7.25</span>
-                        </div>
-                        <div class="grid__box">
-                            <a href="#none" class="text-link light" title="신한은행과BNP파리바카디프생명협약 관련안내 입니다">신한은행과BNP파리바카디프생명협약 관련안내 입니다</a>
-                            <span class="text-date">22.7.25</span>
-                        </div>
-                        <div class="grid__box">
-                            <a href="#none" class="text-link light" title="신한은행과BNP파리바카디프생명협약 관련안내">신한은행과BNP파리바카디프생명협약 관련안</a>
-                            <span class="text-date">22.7.25</span>
-                        </div>
-                    </div>
-                    <!-- //목록 리스트 -->
-                </div>
-                <!-- //목록 -->
-            </div>
-        </div>
-
-        <div class="side__wrap is-deactive" id="currect" aria-labelledby="currect"></div>
-    </div>
-    <!-- //사이드 영역 -->
-    <!-- //사이드 영역 -->
     <!-- //컨텐츠 영역 -->
 
 {% endblock %}
 
-{% block scripts %}
-    <script>
-        const sideSwiper = UXW.SwiperA11y('.swiper', {
-            observer: true,
-            observeParents: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false
-            },
-            grapCursor: true,
-            loop: true,
-            speed: 600,
-
-            mousewheelControl: true,
-            keyboard: {
-                enabled: true,
-                onlyInViewport: false
-            },
-            spaceBetween: 40,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true
-            },
-
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev'
-            },
-            autoHeight: true
-        });
-
-        sideSwiper
-            .el
-            .addEventListener('mouseenter', function () {
-                sideSwiper
-                    .autoplay
-                    .stop();
-            });
-
-        sideSwiper
-            .el
-            .addEventListener('mouseleave', function () {
-                sideSwiper
-                    .autoplay
-                    .start();
-            });
-    </script>
-
-{% endblock %}
+{% block scripts %}{% endblock %}

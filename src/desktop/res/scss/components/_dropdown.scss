@@ -1,18 +1,38 @@
 $root: dropdown;
 
 .#{$root} {
-    position: relative;
-
+    display: flex;
+    align-items: center;
+    width: 136px;
+    label {
+        width: 120px;
+        font-size: 16px;
+        line-height: 24px;
+        color: color(blue, 800);
+    }
     &__button {
         color: color(blue, 800);
+        position: absolute;
+
+        right: 12px;
+        top: calc(50% - 12px);
         cursor: pointer;
-        line-height: 24px;
-        display: inline-block;
-        vertical-align: top;
-        text-align: left;
+        width: 24px;
+        height: 24px;
+        transform: rotate(90deg);
+        transition: transform 0.6s cubic-bezier(0.22, 0.86, 0.62, 1.06);
+
+        &.is-active {
+            &:after {
+                transform: rotate(0);
+                transition: transform 0.6s cubic-bezier(0.22, 0.86, 0.62, 1.06);
+            }
+        }
     }
 
     &__menu {
+        top: 70px;
+        right: 20px;
         width: 135px;
         position: absolute;
         z-index: 100;

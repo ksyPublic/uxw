@@ -41,9 +41,14 @@ $root: accordion;
 
                         .dropdown {
                             width: calc(100% - 64px);
+                            label {
+                                width: 100%;
+                                color: $white;
+                            }
                             &__button {
                                 pointer-events: none;
                                 color: $white;
+                                display: none;
                             }
                         }
                     }
@@ -123,28 +128,9 @@ $root: accordion;
         position: absolute;
         left: 0;
         top: 0;
-        width: 100%;
+        z-index: 1;
+        width: calc(100% - 48px);
         height: 100%;
-
-        &:after {
-            content: '';
-            pointer-events: none;
-            position: absolute;
-            right: 20px;
-            width: 24px;
-            top: calc(50% - 12px);
-            height: 24px;
-            background: url('../images/ic-arrow-down.png') no-repeat;
-            transform: rotate(-180deg);
-            transition: transform 0.6s cubic-bezier(0.22, 0.86, 0.62, 1.06);
-        }
-
-        &.is-active {
-            &:after {
-                transform: rotate(0);
-                transition: transform 0.6s cubic-bezier(0.22, 0.86, 0.62, 1.06);
-            }
-        }
     }
 
     .expresstion-list {
@@ -152,14 +138,14 @@ $root: accordion;
             pointer-events: none;
             margin: 0 8px;
         }
-        > span,
-        .dropdown {
-            width: 120px;
 
-            [role='button'] {
-                color: color(blue, 800);
-            }
+        > span {
+            width: 120px;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24px;
         }
+
         margin-left: 8px;
         &:before {
             display: none;

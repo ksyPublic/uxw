@@ -11,7 +11,6 @@ class ConfirmMessage {
         this._instance = null;
         this._element = this._createElement(config);
         document.body.appendChild(this._element);
-        // 다이나믹한 컨텐츠는 바로 삭제
         this._instance = new Dialog(this._element, {
             destroy: true,
         });

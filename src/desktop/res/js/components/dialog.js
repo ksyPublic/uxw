@@ -60,6 +60,14 @@ class Dialog extends UI {
         return NAME;
     }
 
+    open() {
+        this._open();
+    }
+
+    close() {
+        this._close();
+    }
+
     _open() {
         if (this._isOpen === true) return;
         this._varioblesUpdate();
@@ -155,9 +163,9 @@ EventHandler.on(document, `click.DIALOG_TRIGGER`, event => {
         if (dialogElement) {
             const dialog = Dialog.getInstance(dialogElement);
             if (dialog) {
-                dialog._open();
+                dialog.open();
             } else {
-                new Dialog(dialogElement)._open();
+                new Dialog(dialogElement).open();
             }
         }
     }

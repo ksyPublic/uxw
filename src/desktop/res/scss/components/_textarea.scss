@@ -28,14 +28,13 @@ $root: textarea;
     &--max {
         line-height: 24px;
 
-        &.mxh68 {
-            min-height: 68px !important;
-            max-height: 68px !important;
-        }
-
-        &.mxh180 {
-            min-height: 180px !important;
-            max-height: 180px !important;
+        @for $i from 1 through 200 {
+            @if ($i % 2 == 0) {
+                &.mxh#{$i} {
+                    min-height: $i + px !important;
+                    max-height: $i + px !important;
+                }
+            }
         }
     }
 

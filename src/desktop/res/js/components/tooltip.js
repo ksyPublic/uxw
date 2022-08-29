@@ -120,8 +120,10 @@ class Tooltip extends UI {
         });
 
         EventHandler.on(this._tooltip, super._eventName('mouseleave'), event => {
-            const { tooltip, content } = this._current;
-            this._hide(tooltip, content);
+            if (event) {
+                const { tooltip, content } = this._current;
+                this._hide(tooltip, content);
+            }
         });
     }
 
