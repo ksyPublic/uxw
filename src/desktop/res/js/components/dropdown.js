@@ -18,9 +18,9 @@ const DATA_BUTTON_VALUE = 'data-button-value';
 const dataAttrConfig = {
     activeClass: 'is-active',
     activedClass: 'is-shown',
-    time: 100,
+    time: 0,
     toggle: true,
-    copyed: null,
+    offset: 8,
 };
 
 const defaultConfig = {
@@ -190,9 +190,11 @@ class Dropdown extends UI {
     }
 
     _show() {
-        const { activeClass, activedClass, time } = this._config;
+        const { activeClass, activedClass, time, offset } = this._config;
         const { content, target } = this._current;
-
+        Object.assign(content.style, {
+            top: this._offsetPos.height + offset + 'px',
+        });
         target.classList.add(activeClass);
 
         this._timer = setTimeout(() => {
