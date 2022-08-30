@@ -14,6 +14,7 @@ const dataAttrConfig = {
     defaults: -1,
     toggle: true,
     activeClass: 'is-active',
+    focusClass: 'is-focused',
 };
 
 const defaultConfig = {
@@ -127,9 +128,15 @@ class Accordion extends UI {
     }
 
     _open() {
-        const { activeClass, stateClass } = this._config;
+        const { activeClass, stateClass, focusClass } = this._config;
         const { header, content } = this._current;
+
         header.classList.add(activeClass);
+
+        this._removeFocused();
+        const items = header.closest('.accordion__item');
+        items.classList.add(focusClass);
+
         this._dispatch(Accordion.EVENT.OPEN, {
             current: this._current,
         });
@@ -149,14 +156,24 @@ class Accordion extends UI {
         this._aria(this._current, true);
     }
 
+    _removeFocused() {
+        const { focusClass } = this._config;
+        const headers = this._element.querySelectorAll(`[${ARIA_CONTROLS}]`);
+        headers.forEach(item => {
+            const parentBox = item.closest('.accordion__item');
+            parentBox.classList.remove(focusClass);
+        });
+    }
+
     close() {
         this._selectCurrent(target);
         this._close();
     }
 
     _close(target) {
-        const { activeClass, stateClass } = this._config;
+        const { activeClass, stateClass, focusClass } = this._config;
         const { header, content } = target;
+
         this._aria(target, false);
         content.style.height = `${content.getBoundingClientRect().height}px`;
         content.heightCache = content.offsetHeight;
@@ -175,6 +192,9 @@ class Accordion extends UI {
             current: target,
         });
         header.classList.remove(activeClass);
+        this._removeFocused();
+        const items = header.closest('.accordion__item');
+        items.classList.add(focusClass);
     }
 
     destroy() {

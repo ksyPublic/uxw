@@ -848,7 +848,6 @@
             }
         })
 
-        //탭전환시 사이드 변경 예시입니다
         const tabEl = document.querySelector('#mainTab')
         tabEl.addEventListener(UXW.Tab.EVENT.CHANGE, function (event) {
             var currentTab = event.current;
@@ -857,29 +856,33 @@
             if (currentTab.content.id === 'tabpanel2' || currentTab.content.id === 'tabpanel3') {
                 currectEvent.CLOSE(btncurrect);
                 btncopy
+                    .parentElement
                     .classList
                     .add('hide')
-                btndownload
+                btnupload
+                    .parentElement
                     .classList
                     .add('hide')
                 btndelete
+                    .parentElement
                     .classList
                     .add('hide')
-                btnupload.disabled = true;
                 btndownload.disabled = true;
 
             } else if (currentTab.content.id === 'tabpanel1') {
                 btncopy
+                    .parentElement
                     .classList
                     .remove('hide')
-                btndownload
+                btnupload
+                    .parentElement
                     .classList
                     .remove('hide')
                 btndelete
+                    .parentElement
                     .classList
                     .remove('hide')
                 btncopy.disabled = false;
-                btnupload.disabled = true;
                 btndownload.disabled = false;
 
             }

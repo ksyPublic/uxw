@@ -46,6 +46,77 @@ $root: accordion;
             .ic-button-refresh {
                 display: none;
             }
+
+            &.is-focused {
+                border: 1px solid color(blue, 800) !important;
+            }
+
+            &[data-card='true'] {
+                overflow: hidden;
+                background-color: color(blue, 800);
+                .ic-button-refresh {
+                    display: block;
+                    position: absolute;
+                    right: 24px;
+                    top: calc(50% - 12px);
+                }
+                .#{$root} {
+                    &__head__inner {
+                        background-color: color(blue, 800);
+
+                        .expresstion-list {
+                            margin-left: 0;
+                            > span {
+                                display: none;
+                            }
+
+                            .ic-expresstion-arrow--type2 {
+                                margin-left: 0;
+                                background: url('../images/ic-expression-arrow.png') no-repeat;
+                            }
+
+                            .dropdown {
+                                width: calc(100% - 64px);
+                                label {
+                                    width: 100%;
+                                    color: $white;
+                                }
+                                &__button {
+                                    pointer-events: none;
+                                    color: $white;
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+
+                    &__fixed {
+                        min-height: 0;
+                        height: 0;
+                        padding: 0;
+                    }
+
+                    &__button {
+                        pointer-events: none;
+                        &:after {
+                            display: none;
+                        }
+                    }
+
+                    &__refresh {
+                        transform: rotate(-180deg);
+                    }
+
+                    &__check {
+                        display: none;
+                        pointer-events: none;
+                    }
+
+                    &__panel {
+                        height: 0;
+                    }
+                }
+            }
         }
         .#{$root}__fixed {
             min-height: 64px;
@@ -68,73 +139,6 @@ $root: accordion;
 
         .#{$root}__button {
             width: calc(100% - 48px);
-        }
-
-        &[data-card='true'] {
-            overflow: hidden;
-            background-color: color(blue, 800);
-            .ic-button-refresh {
-                display: block;
-                position: absolute;
-                right: 24px;
-                top: calc(50% - 12px);
-            }
-            .#{$root} {
-                &__head__inner {
-                    background-color: color(blue, 800);
-
-                    .expresstion-list {
-                        margin-left: 0;
-                        > span {
-                            display: none;
-                        }
-
-                        .ic-expresstion-arrow--type2 {
-                            margin-left: 0;
-                            background: url('../images/ic-expression-arrow.png') no-repeat;
-                        }
-
-                        .dropdown {
-                            width: calc(100% - 64px);
-                            label {
-                                width: 100%;
-                                color: $white;
-                            }
-                            &__button {
-                                pointer-events: none;
-                                color: $white;
-                                display: none;
-                            }
-                        }
-                    }
-                }
-
-                &__fixed {
-                    min-height: 0;
-                    height: 0;
-                    padding: 0;
-                }
-
-                &__button {
-                    pointer-events: none;
-                    &:after {
-                        display: none;
-                    }
-                }
-
-                &__refresh {
-                    transform: rotate(-180deg);
-                }
-
-                &__check {
-                    display: none;
-                    pointer-events: none;
-                }
-
-                &__panel {
-                    height: 0;
-                }
-            }
         }
 
         .expresstion-list {
