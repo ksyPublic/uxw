@@ -72,180 +72,172 @@
   src: url("../fonts/OneShinhan-Light.eot");
   src: local("OneShinhan-Light"), url("../fonts/OneShinhan-Light.woff2") format("woff2"), url("../fonts/OneShinhan-Light.woff") format("woff"), url("../fonts/OneShinhan-Light.ttf") format("truetype"); }
 
-i.ic {
+.ic {
   display: inline-block;
   position: relative;
   vertical-align: middle;
   background-size: cover !important; }
-
-.ic-arrow {
-  background: url("../images/ic-acc-arrow.png") no-repeat; }
-
-.ic-my {
-  width: 24px;
-  height: 24px;
-  background: url("../images/ic-my.png") no-repeat; }
-
-.ic-qa {
-  width: 24px;
-  height: 24px;
-  background: url("../images/ic-qa.png") no-repeat; }
-
-.ic-menu {
-  width: 24px;
-  height: 24px;
-  background: url("../images/ic-menu.png") no-repeat; }
-
-.ic-writing {
-  width: 24px;
-  height: 24px;
-  background: url("../images/ic-writing.png") no-repeat; }
-
-.ic-text-arrow {
-  width: 24px;
-  height: 24px;
-  background: url("../images/ic-text-arrow.png") no-repeat; }
-
-.ic-text-arrow--type2 {
-  position: relative;
-  width: 24px;
-  height: 24px;
-  background: url("../images/ic-arrow-down.png") no-repeat;
-  -webkit-transform: rotate(-90deg);
-          transform: rotate(-90deg); }
-
-.ic-guidebook {
-  width: 32px;
-  height: 32px;
-  background: url("../images/ic-guidebook.png") no-repeat; }
-
-.ic-edition {
-  width: 32px;
-  height: 32px;
-  background: url("../images/ic-edition.png") no-repeat; }
-
-.ic-search {
-  width: 32px;
-  height: 32px;
-  background: url("../images/ic-search.png") no-repeat; }
-
-.ic-download {
-  width: 24px;
-  height: 24px;
-  background: url("../images/ic-download-on.png") no-repeat; }
-
-.ic-upload {
-  cursor: pointer;
-  width: 24px;
-  height: 24px;
-  background: url("../images/ic-upload-on.png") no-repeat; }
-
-.ic-delete {
-  width: 24px;
-  height: 24px;
-  background: url("../images/ic-delete-on.png") no-repeat; }
-
-.ic-copy {
-  width: 24px;
-  height: 24px;
-  background: url("../images/ic-copy-on.png") no-repeat; }
-
-.ic-expresstion-arrow {
-  width: 24px;
-  height: 24px;
-  background: url("../images/ic-expression-arrow.png") no-repeat;
-  margin: 0 16px;
-  min-width: 24px; }
-
-.ic-expresstion-arrow--type2 {
-  width: 24px;
-  height: 24px;
-  background: url("../images/ic-expression-arrow-type2.png") no-repeat;
-  margin: 0 16px;
-  min-width: 24px; }
-
-.ic-clear {
-  width: 24px;
-  height: 24px;
-  background: url("../images/ic-clear.png") no-repeat; }
-
-.ic-refresh {
-  width: 24px;
-  height: 24px;
-  background: url("../images/ic-refresh.png") no-repeat; }
-
-.ic-exclamation {
-  width: 24px;
-  height: 24px;
-  background: url("../images/ic-exclamation_off.png") no-repeat; }
-
-.ic-close {
-  width: 24px;
-  height: 24px;
-  background: url("../images/ic-close.png") no-repeat; }
-
-.ic-button-nav {
-  background-color: transparent;
-  width: 0px;
-  height: 32px;
-  min-width: 32px;
-  margin-left: 19px; }
-  .ic-button-nav.is-active + .text {
-    color: #0471e9; }
-  .ic-button-nav.is-active .ic-guidebook {
-    background: url("../images/ic-guidebook-active.png") no-repeat; }
-  .ic-button-nav.is-active .ic-search {
-    background: url("../images/ic-search-active.png") no-repeat; }
-  .ic-button-nav.is-active .ic-edition {
-    background: url("../images/ic-edition-active.png") no-repeat; }
-
-.ic-button-edit:disabled {
-  cursor: no-drop; }
-  .ic-button-edit:disabled .ic-download {
+  .ic-arrow {
+    background: url("../images/ic-acc-arrow.png") no-repeat; }
+  .ic-my {
     width: 24px;
     height: 24px;
-    background: url("../images/ic-download.png") no-repeat; }
-  .ic-button-edit:disabled .ic-copy {
+    background: url("../images/ic-my.png") no-repeat; }
+  .ic-qa {
     width: 24px;
     height: 24px;
-    background: url("../images/ic-copy.png") no-repeat; }
-  .ic-button-edit:disabled .ic-delete {
+    background: url("../images/ic-qa.png") no-repeat; }
+  .ic-menu {
     width: 24px;
     height: 24px;
-    background: url("../images/ic-delete.png") no-repeat; }
-
-.ic-button-head {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #fff;
-  -webkit-box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1); }
-  .ic-button-head.is-active {
-    background-color: #0471e9; }
-    .ic-button-head.is-active .ic-my {
+    background: url("../images/ic-menu.png") no-repeat; }
+  .ic-writing {
+    width: 24px;
+    height: 24px;
+    background: url("../images/ic-writing.png") no-repeat; }
+  .ic-text-arrow {
+    width: 24px;
+    height: 24px;
+    background: url("../images/ic-text-arrow.png") no-repeat; }
+  .ic-text-arrow--type2 {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    background: url("../images/ic-arrow-down.png") no-repeat;
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg); }
+  .ic-guidebook {
+    width: 32px;
+    height: 32px;
+    background: url("../images/ic-guidebook.png") no-repeat; }
+  .ic-edition {
+    width: 32px;
+    height: 32px;
+    background: url("../images/ic-edition.png") no-repeat; }
+  .ic-search {
+    width: 32px;
+    height: 32px;
+    background: url("../images/ic-search.png") no-repeat; }
+  .ic-download {
+    width: 24px;
+    height: 24px;
+    background: url("../images/ic-download-on.png") no-repeat; }
+  .ic-upload {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    background: url("../images/ic-upload-on.png") no-repeat; }
+  .ic-delete {
+    width: 24px;
+    height: 24px;
+    background: url("../images/ic-delete-on.png") no-repeat; }
+  .ic-copy {
+    width: 24px;
+    height: 24px;
+    background: url("../images/ic-copy-on.png") no-repeat; }
+  .ic-expresstion-arrow {
+    width: 24px;
+    height: 24px;
+    background: url("../images/ic-expression-arrow.png") no-repeat;
+    margin: 0 16px;
+    min-width: 24px; }
+  .ic-expresstion-arrow--type2 {
+    width: 24px;
+    height: 24px;
+    background: url("../images/ic-expression-arrow-type2.png") no-repeat;
+    margin: 0 16px;
+    min-width: 24px; }
+  .ic-clear {
+    width: 24px;
+    height: 24px;
+    background: url("../images/ic-clear.png") no-repeat; }
+  .ic-refresh {
+    width: 24px;
+    height: 24px;
+    background: url("../images/ic-refresh.png") no-repeat; }
+  .ic-exclamation {
+    width: 24px;
+    height: 24px;
+    background: url("../images/ic-exclamation_off.png") no-repeat; }
+  .ic-close {
+    width: 24px;
+    height: 24px;
+    background: url("../images/ic-close.png") no-repeat; }
+  .ic-search--small {
+    width: 24px;
+    height: 24px;
+    background: url("../images/ic-search-small.png") no-repeat; }
+  .ic-button-nav {
+    background-color: transparent;
+    width: 0px;
+    height: 32px;
+    min-width: 32px;
+    margin-left: 19px; }
+    .ic-button-nav.is-active + .text {
+      color: #0471e9; }
+    .ic-button-nav.is-active .ic-guidebook {
+      background: url("../images/ic-guidebook-active.png") no-repeat; }
+    .ic-button-nav.is-active .ic-search {
+      background: url("../images/ic-search-active.png") no-repeat; }
+    .ic-button-nav.is-active .ic-edition {
+      background: url("../images/ic-edition-active.png") no-repeat; }
+  .ic-button-edit:disabled {
+    cursor: no-drop; }
+    .ic-button-edit:disabled .ic-download {
       width: 24px;
       height: 24px;
-      background: url("../images/ic-my-active.png") no-repeat; }
-    .ic-button-head.is-active .ic-qa {
+      background: url("../images/ic-download.png") no-repeat; }
+    .ic-button-edit:disabled .ic-copy {
       width: 24px;
       height: 24px;
-      background: url("../images/ic-qa-active.png") no-repeat; }
-    .ic-button-head.is-active .ic-menu {
+      background: url("../images/ic-copy.png") no-repeat; }
+    .ic-button-edit:disabled .ic-delete {
       width: 24px;
       height: 24px;
-      background: url("../images/ic-menu-active.png") no-repeat; }
-    .ic-button-head.is-active .ic-writing {
-      width: 24px;
-      height: 24px;
-      background: url("../images/ic-writing-active.png") no-repeat; }
-
-.ic-button-clear {
-  opacity: 0;
-  visibility: hidden;
-  position: absolute;
-  right: 16px;
-  top: calc(50% - 12px); }
+      background: url("../images/ic-delete.png") no-repeat; }
+  .ic-button-head {
+    width: 40px;
+    height: 40px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    border-radius: 50%;
+    background-color: #fff;
+    -webkit-box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1); }
+    .ic-button-head.is-active {
+      background-color: #0471e9; }
+      .ic-button-head.is-active .ic-my {
+        width: 24px;
+        height: 24px;
+        background: url("../images/ic-my-active.png") no-repeat; }
+      .ic-button-head.is-active .ic-qa {
+        width: 24px;
+        height: 24px;
+        background: url("../images/ic-qa-active.png") no-repeat; }
+      .ic-button-head.is-active .ic-menu {
+        width: 24px;
+        height: 24px;
+        background: url("../images/ic-menu-active.png") no-repeat; }
+      .ic-button-head.is-active .ic-writing {
+        width: 24px;
+        height: 24px;
+        background: url("../images/ic-writing-active.png") no-repeat; }
+  .ic-button-clear {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    right: 16px;
+    top: calc(50% - 12px); }
+    .ic-button-clear.is-active {
+      visibility: visible;
+      opacity: 1; }
 
 input[type='file']:disabled + label {
   cursor: no-drop;
@@ -700,11 +692,10 @@ button {
   height: 56px;
   font-size: 18px;
   font-weight: 300;
-  padding: 0 14px;
+  padding: 0 26px;
   border-radius: 6px;
   background-color: #0471e9;
   color: #fff;
-  padding: 0 26px;
   border: 1px solid transparent; }
   .button[aria-hidden='true'] {
     display: none; }
@@ -713,7 +704,6 @@ button {
     height: 32px;
     font-size: 14px; }
   .button:focus {
-    outline: 0 !important;
     background-color: #368ded; }
   .button:active {
     background-color: #1150c5; }
@@ -722,8 +712,7 @@ button {
   .button:disabled {
     cursor: no-drop;
     background-color: #ebeff5;
-    color: #b9c1c9;
-    border: 1px solid transparent; }
+    color: #b9c1c9; }
   .button--type2 {
     background-color: transparent;
     border: 1px solid #368ded;
@@ -817,7 +806,8 @@ input[type='password'] {
   padding: 0 48px 0 16px;
   border: 1px solid #d6dbe1;
   border-radius: 6px;
-  color: #121619; }
+  color: #121619;
+  background-color: #fff; }
   .input:focus {
     border: 1px solid #0471e9; }
   .input:-moz-read-only {
@@ -834,9 +824,6 @@ input[type='password'] {
     .input-box__wrap {
       position: relative;
       height: 56px; }
-    .input-box .ic-button-clear.is-active {
-      visibility: visible;
-      opacity: 1; }
 
 .tab .tab {
   padding: 40px 0; }
@@ -878,12 +865,9 @@ input[type='password'] {
 
 .tab--scroll {
   height: 100%; }
-  .tab--scroll > .title {
-    margin-right: 100px; }
   .tab--scroll .tab__inner {
     overflow: auto;
-    height: calc(100% - 221px);
-    padding-right: 100px; }
+    height: calc(100% - 221px); }
   .tab--scroll .tab__panel {
     height: 100%; }
 
@@ -2158,6 +2142,23 @@ input[type='checkbox'] {
   -webkit-animation-name: fadeOut;
           animation-name: fadeOut; }
 
+.search-box {
+  max-width: 588px;
+  margin: 20px auto; }
+  .search-box .input-box,
+  .search-box input {
+    height: 58px;
+    position: relative; }
+  .search-box input {
+    padding: 0 90px 0 16px; }
+  .search-box .ic-button-clear {
+    right: 56px;
+    top: calc(50% - 14px); }
+  .search-box .ic-button-search {
+    position: absolute;
+    right: 18px;
+    top: calc(50% - 14px); }
+
 .main {
   position: relative;
   width: 100%;
@@ -2330,7 +2331,8 @@ input[type='checkbox'] {
   height: 100%;
   margin: 0 461px 0 360px;
   min-width: 996px;
-  width: 100%; }
+  width: 100%;
+  padding-right: 100px; }
   @media all and (min-width: 1921px) {
     .ly-content {
       width: 100%;

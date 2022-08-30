@@ -1,6 +1,6 @@
-$root: grid;
+.grid {
+    $root: grid;
 
-.#{$root} {
     display: flex;
     margin-right: -8px;
 

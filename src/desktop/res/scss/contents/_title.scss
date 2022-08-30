@@ -1,6 +1,5 @@
-$root: title;
-
-.#{$root} {
+.title {
+    $root: title;
     height: 65px;
     display: flex;
     align-items: flex-start;

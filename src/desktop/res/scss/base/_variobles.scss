@@ -6,9 +6,47 @@ $font-letter-base: -0.5px !default;
 $header-color: #121619 !default;
 $body-base-color: #fbfbfd !default;
 
+//z-index
 $zindex-modal: 201 !default;
 $zindex-header: 200 !default;
 $zindex-sidebar-active: 101 !default;
 $zindex-sidebar-deactive: 99 !default;
 $zIndex-foot-bottom: 100 !default;
 $zindex-fab: 102 !default;
+
+//button
+$button-base-height: 56px !default;
+$button-base-fontSize: 18px !default;
+$button-base-fontWeight: 300 !default;
+$button-base-padding: 0 26px !default;
+$button-base-bgColor: color(blue, 800) !default;
+$button-base-color: $white !default;
+$button-base-border: 1px solid transparent !default;
+
+$button-base-foucs-bgColor: color(blue, 700) !default;
+$button-base-active-bgColor: color(blue, 900) !default;
+$button-base-hover-bgColor: color(blue, 900) !default;
+$button-base-disabled-bgColor: color(grey, 200) !default;
+$button-base-disabled-color: color(grey, 400) !default;
+
+//input base
+$input-base-height: 56px !default;
+$input-base-fontSize: 14px !default;
+$input-base-fontWeight: 300 !default;
+$input-base-padding: 0 48px 0 16px !default;
+$input-base-bgColor: $white !default;
+$input-base-disabled-bgColor: color(grey, 50) !default;
+
+$input-base-border: 1px solid color(grey, 300) !default;
+$input-base-focus-border: 1px solid color(blue, 800) !default;
+$input-base-disabled-border: 1px solid color(grey, 300) !default;
+
+$input-base-color: color(grey, 900) !default;
+$input-base-readOnly-color: color(grey, 600) !default;
+
+//input search
+$input-search-height: 58px;
+$input-search-padding: 0 90px 0 16px;
+$input-search-clear-button-padding: 56px;
+$input-search-button-padding: 18px;
+$input-search-button-offsetTop: 14px;

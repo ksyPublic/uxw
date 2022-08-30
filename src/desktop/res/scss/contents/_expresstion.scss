@@ -1,7 +1,12 @@
-$root: expresstion;
-
-.#{$root} {
+.expresstion {
+    $root: expresstion;
     margin-top: 40px;
+
+    &-wrap {
+        .#{$root} {
+            //
+        }
+    }
 
     &-group {
         color: $white;

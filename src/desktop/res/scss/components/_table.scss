@@ -10,9 +10,9 @@ td {
     padding: 0;
 }
 
-$root :table;
+.table {
+    $root: table;
 
-.#{$root} {
     width: 100%;
     position: relative;
     text-align: center;
@@ -24,7 +24,6 @@ $root :table;
     }
 
     tr {
-
         th,
         td {
             font-size: 14px;
@@ -34,7 +33,6 @@ $root :table;
             border: 1px solid color(grey, 200);
         }
     }
-
 
     thead {
         th {

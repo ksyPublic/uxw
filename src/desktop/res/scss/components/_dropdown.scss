@@ -1,6 +1,6 @@
-$root: dropdown;
+.dropdown {
+    $root: dropdown;
 
-.#{$root} {
     pointer-events: none;
     position: relative;
     display: flex;

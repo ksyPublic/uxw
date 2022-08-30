@@ -1,6 +1,6 @@
-$root: list;
+.list {
+    $root: list;
 
-.#{$root} {
     &__item {
         margin-bottom: 10px;
         display: flex;

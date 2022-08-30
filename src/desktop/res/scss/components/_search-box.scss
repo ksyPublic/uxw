@@ -1,0 +1,26 @@
+.search-box {
+    $root: search-box;
+
+    max-width: 588px;
+    margin: 20px auto;
+
+    .input-box,
+    input {
+        height: $input-search-height;
+        position: relative;
+    }
+
+    input {
+        padding: $input-search-padding;
+    }
+
+    .ic-button-clear {
+        right: $input-search-clear-button-padding;
+        top: calc(50% - #{$input-search-button-offsetTop});
+    }
+    .ic-button-search {
+        position: absolute;
+        right: $input-search-button-padding;
+        top: calc(50% - #{$input-search-button-offsetTop});
+    }
+}

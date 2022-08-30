@@ -1,10 +1,10 @@
 @charset 'utf-8';
 
 //base
+@import './base/colors';
 @import './base/variobles';
 @import './base/functions';
 @import './base/mixin';
-@import './base/colors';
 @import './base/helper';
 @import './base/font';
 @import './base/icon';
@@ -30,6 +30,7 @@
 @import './components/spinner';
 @import './components/message';
 @import './components/modal';
+@import './components/search-box';
 
 //content
 @import './contents/main';

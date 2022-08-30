@@ -1,10 +1,9 @@
-$root: checkbox;
-
 input[type='checkbox'] {
     display: none;
 }
 
-.#{$root} {
+.checkbox {
+    $root: checkbox;
     &.hidden + label {
         padding-left: 24px;
     }

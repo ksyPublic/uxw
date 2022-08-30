@@ -1,6 +1,6 @@
-$root: textarea;
+.textarea {
+    $root: textarea;
 
-.#{$root} {
     width: 100%;
     resize: none;
     font-weight: 300;

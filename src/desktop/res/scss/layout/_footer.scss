@@ -1,6 +1,6 @@
-$root: foot;
+.foot {
+    $root: foot;
 
-.#{$root} {
     display: flex;
     align-items: center;
     justify-content: center;

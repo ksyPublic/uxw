@@ -1,6 +1,6 @@
-$root: tab;
+.tab {
+    $root: tab;
 
-.#{$root} {
     .#{$root} {
         padding: 40px 0;
     }
@@ -57,13 +57,9 @@ $root: tab;
     &--scroll {
         height: 100%;
 
-        > .title {
-            margin-right: 100px;
-        }
         .#{$root}__inner {
             overflow: auto;
             height: calc(100% - 221px);
-            padding-right: 100px;
         }
 
         .#{$root}__panel {

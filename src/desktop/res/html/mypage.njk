@@ -1,7 +1,232 @@
 {% set user = "logout" %}
-{% set title = "신한 UX라이팅 시스템 | 로그아웃" %}
+{% set title = "신한 UX라이팅 시스템 | 마이페이지" %}
 {% extends "../templates/layout.njk" %}
+{% set activePage = "mypage" %}
 {% block content %}
     {{super()}}
-{% endblock %}
-{% block scripts %}{% endblock %}
+    <div class="ly-content">
+        <div class="ly-content-box">
+            <div class="tab tab--scroll" id="mainTab" data-ui-tab data-tab-active="0">
+                <div class="title">
+                    <h2 class="text ft24 bold">마이페이지</h2>
+                    <div class="tab__list" role="tablist">
+                        <button type="button" role="tab" id="tablist1" class="tab__button" aria-controls="tabpanel1" aria-selected="false">내 콘텐츠</button>
+                        <button type="button" role="tab" id="tablist2" class="tab__button" aria-controls="tabpanel2" aria-selected="false">북마크</button>
+                    </div>
+                </div>
+                <div id="tabpanel1" class="tab__panel" role="tabpanel" aria-labelledby="tablist1" tabindex="-1">
+                    <div class="search-box">
+                        <div class="search-box__wrap">
+                            <div class="input-box">
+                                <input name="search" type="text" class="input" placeholder="검색어을 입력해주세요."/>
+                                <button type="button" class="ic-button-clear" data-visible aria-label="클리어버튼" aria-pressed="false" onclick="Input.ClearButton(this)">
+                                    <i class="ic ic-clear" aria-hidden="true"></i>
+                                </button>
+                                <button type="button" class="ic-button-search" aria-label="검색버튼">
+                                    <i class="ic ic-search--small" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tabpanel2" class="tab__panel" role="tabpanel" aria-labelledby="tablist2" tabindex="-1">
+                        <div class="tab__inner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 사이드 영역 -->
+        <div class="side">
+            <div class="side__wrap is-active">
+                <h3 class="sr-only">교정 가이드</h3>
+                <div class="side__inner">
+                    <div class="expresstion-wrap">
+                        <h4 class="ft18 medium">김픽스님, 이런 표현들을 조심하세요!</h4>
+                        <div class="expresstion">
+                            <ul class="expresstion-group">
+                                <li class="expresstion-list">
+                                    <span>네비게이션</span>
+                                    <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
+                                    <span>내비게이션</span>
+                                </li>
+                                <li class="expresstion-list">
+                                    <span>개인종합자산관리계좌 (ISA)</span>
+                                    <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
+                                    <span>ISA (개인종합자산관리계좌)</span>
+                                </li>
+                                <li class="expresstion-list">
+                                    <span>라이센스</span>
+                                    <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
+                                    <span>라이선스</span>
+                                </li>
+                                <li class="expresstion-list">
+                                    <span>휴대폰 인증서 서비스(UBIKey)</span>
+                                    <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
+                                    <span>휴대폰 인증서 서비스(유비키)</span>
+                                </li>
+                                <li class="expresstion-list">
+                                    <span>추산</span>
+                                    <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
+                                    <span>어림잡다</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 목록 -->
+                    <div class="box mgt20 blue100-bg">
+                        <div class="title--type2">
+                            <h4 class="text ft18 medium">내 콘텐츠</h4>
+                            <a href="#none" class="text-link">전체보기<i class="ic ic-text-arrow" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <!-- 데이터가 없을시 오픈 -->
+                        <div class="none-data pxh170" data-none>
+                            <p>콘텐츠 목록이 비어있어요.<br/>새로운 콘텐츠를 입력해주세요.</p>
+                        </div>
+                        <!-- //데이터가 없을시 오픈 -->
+
+                        <!-- 목록 리스트 : 데이터가 없을시 제거  -->
+                        <div class="grid col3">
+                            <div class="grid__box">
+                                <a href="#none" class="text-link light" title="신한은행과BNP파리바카디프생명협약 관련안내">신한은행과BNP파리바카디프생명협약 관련안내</a>
+                                <span class="text-date">22.7.25</span>
+                            </div>
+                            <div class="grid__box">
+                                <a href="#none" class="text-link light" title="신한은행과BNP파리바카디프생명협약 관련안내 입니다">신한은행과BNP파리바카디프생명협약 관련안내 입니다</a>
+                                <span class="text-date">22.7.25</span>
+                            </div>
+                            <div class="grid__box">
+                                <a href="#none" class="text-link light" title="신한은행과BNP파리바카디프생명협약 관련안내">신한은행과BNP파리바카디프생명협약 관련안</a>
+                                <span class="text-date">22.7.25</span>
+                            </div>
+                        </div>
+                        <!-- //목록 리스트 -->
+                    </div>
+                    <!-- //목록 -->
+                </div>
+            </div>
+        </div>
+        <!-- //사이드 영역 -->
+    {% endblock %}
+    {% block scripts %}
+        <script>
+            const Input = {
+                // 에러
+                Error: function (props) {
+                    const ARIA_HIDDEN = 'aria-hidden';
+                    const input = props.parentElement;
+                    const label = input
+                        .nextElementSibling
+                        .classList
+                        .contains('error');
+                    input
+                        .classList
+                        .add('error');
+                    if (!label) {
+                        return;
+                    }
+
+                    const get = input
+                        .nextElementSibling
+                        .getAttribute(ARIA_HIDDEN);
+                    if (get === 'true') {
+                        input
+                            .nextElementSibling
+                            .setAttribute(ARIA_HIDDEN, false);
+                    }
+                },
+
+                // 에러 클리어
+                Clear: function (props) {
+                    const ARIA_HIDDEN = 'aria-hidden';
+                    const input = props.parentElement;
+                    const label = input
+                        .nextElementSibling
+                        .classList
+                        .contains('error');
+                    input
+                        .classList
+                        .remove('error');
+                    if (!label) {
+                        return;
+                    }
+
+                    const get = input
+                        .nextElementSibling
+                        .getAttribute(ARIA_HIDDEN);
+                    if (get === 'false') {
+                        input
+                            .nextElementSibling
+                            .setAttribute(ARIA_HIDDEN, true);
+                    }
+                },
+
+                // value 삭제버튼
+                ClearButton: function (param) {
+                    if (!param.previousElementSibling) {
+                        return;
+                    }
+
+                    if (param.previousElementSibling.tagName === 'INPUT') {
+                        param.previousElementSibling.value = '';
+                        param
+                            .classList
+                            .remove('is-active');
+
+                        if (param.previousElementSibling.getAttribute('name') === 'id') {
+                            const target = document.querySelector('[name="password"]');
+                            const passwordParent = target.closest('.input-box');
+                            passwordParent.style.height = '';
+                            passwordParent.style.marginTop = '0';
+
+                            passwordParent
+                                .classList
+                                .add('expanding');
+                            passwordParent
+                                .classList
+                                .remove('expand');
+                            passwordParent
+                                .classList
+                                .remove('expanded');
+                        }
+                    }
+                },
+
+                // InputBox value Checker
+                Check: function () {
+                    const elements = document.querySelectorAll('.input-box');
+
+                    const onInput = function (event) {
+                        const value = event.target.value;
+                        const length = value.length;
+                        const nextEl = event.target.nextElementSibling;
+                        if (!nextEl) {
+                            return;
+                        }
+                        if (length > 0) {
+                            nextEl
+                                .classList
+                                .add('is-active');
+                        } else {
+                            nextEl
+                                .classList
+                                .remove('is-active');
+                        }
+                    };
+                    []
+                        .forEach
+                        .call(elements, item => {
+                            const target = item.querySelector('.input');
+                            target.addEventListener('keyup', onInput);
+                            target.addEventListener('keydown', onInput);
+                            target.addEventListener('change', onInput);
+                        });
+                }
+            };
+
+            document.addEventListener('DOMContentLoaded', function () {
+                Input.Check();
+            })
+        </script>
+    {% endblock %}

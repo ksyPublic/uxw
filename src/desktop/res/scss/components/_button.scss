@@ -8,20 +8,17 @@ button {
 
 .button {
     border-radius: 0;
-    height: 56px;
-    font-size: 18px;
-    font-weight: 300;
-    padding: 0 14px;
+    height: $button-base-height;
+    font-size: $button-base-fontSize;
+    font-weight: $button-base-fontWeight;
+    padding: $button-base-padding;
     border-radius: 6px;
-    background-color: color(blue, 800);
-    color: $white;
-    padding: 0 26px;
-    border: 1px solid transparent;
-
+    background-color: $button-base-bgColor;
+    color: $button-base-color;
+    border: $button-base-border;
     &[aria-hidden='true'] {
         display: none;
     }
-
     &--medium {
         padding: 0 8px;
         height: 32px;
@@ -29,23 +26,21 @@ button {
     }
 
     &:focus {
-        outline: 0 !important;
-        background-color: color(blue, 700);
+        background-color: $button-base-foucs-bgColor;
     }
 
     &:active {
-        background-color: color(blue, 900);
+        background-color: $button-base-active-bgColor;
     }
 
     &:hover {
-        background-color: color(blue, 900);
+        background-color: $button-base-hover-bgColor;
     }
 
     &:disabled {
         cursor: no-drop;
-        background-color: color(grey, 200);
-        color: color(grey, 400);
-        border: 1px solid transparent;
+        background-color: $button-base-disabled-bgColor;
+        color: $button-base-disabled-color;
     }
 
     &--type2 {
@@ -120,6 +115,7 @@ button {
         }
     }
 
+    //button-group
     &-group {
         display: flex;
         align-items: center;

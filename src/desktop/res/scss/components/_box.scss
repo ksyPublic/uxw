@@ -1,6 +1,6 @@
-$root: box;
+.box {
+    $root: box;
 
-.#{$root} {
     .title {
         border-bottom: 0;
     }

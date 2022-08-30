@@ -1,6 +1,6 @@
-$root: form;
+.form {
+    $root: form;
 
-.#{$root} {
     .fields {
         ~ .fields {
             margin-top: 20px;

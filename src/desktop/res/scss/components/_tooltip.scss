@@ -1,6 +1,6 @@
-$root: tooltip;
+.tooltip {
+    $root: tooltip;
 
-.#{$root} {
     display: flex;
     flex-direction: row;
     align-items: center;
