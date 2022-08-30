@@ -66,6 +66,7 @@
             <div class="floating-menu-wrap">
                 <nav class="nav" role="navigation">
                     <ul class="nav__box" aria-expanded="false">
+                        <!-- 로그인 일때 -->
                         <li class="nav__list">
                             <div class="nav__item tooltip-button">
                                 <button type="button" class="ic-button-nav" aria-describedby="tooltip1" aria-label="용어/표현 검색">
@@ -90,21 +91,22 @@
                                 <a class="text" href="#none" alt="용어사전검색 바로가기">교정된 콘텐츠</a>
                             </div>
                         </li>
+                        <!--// 로그인 일때 -->
                     </ul>
                 </nav>
+                <div class="tooltip__box">
+                    <div id="tooltip1" role="tooltip" class="tooltip" data-visible data-placement="right">
+                        <span class="tooltip__title">용어/표현 검색</span>
+                    </div>
+                    <div id="tooltip2" role="tooltip" class="tooltip" data-visible data-placement="right">
+                        <span class="tooltip__title">UXW라이팅 가이드</span>
+                    </div>
+                    <div id="tooltip3" role="tooltip" class="tooltip" data-visible data-placement="right">
+                        <span class="tooltip__title">교정된 콘텐츠</span>
+                    </div>
+                </div>
             </div>
-            <div class="tooltip__box">
-                <div id="tooltip1" role="tooltip" class="tooltip" data-visible data-placement="right">
-                    <span class="tooltip__title">용어/표현 검색</span>
-                </div>
-                <div id="tooltip2" role="tooltip" class="tooltip" data-visible data-placement="right">
-                    <span class="tooltip__title">UXW라이팅 가이드</span>
-                </div>
-                <div id="tooltip3" role="tooltip" class="tooltip" data-visible data-placement="right">
-                    <span class="tooltip__title">교정된 콘텐츠</span>
-                </div>
-            </div>
-            <!-- //floting 네비게이션 영역 -->
+            <!-- floting 네비게이션 영역 -->
             <div class="ly-content">
                 <div class="ly-content-box">
                     <div class="tab tab--scroll" id="mainTab" data-ui-tab data-tab-active="1">
@@ -806,6 +808,7 @@
                 </div>
             </div>
             <!-- //사이드 영역 -->
+            <!-- 완료하기 팝업 -->
             <div class="modal modal--medium" id="modal1" role="dialog" aria-labelledby="#modal1Title">
                 <div class="modal__dialog" role="document">
                     <div class="modal__content">
@@ -841,6 +844,7 @@
                     </div>
                 </div>
             </div>
+            <!-- //완료하기 팝업 -->
         </div>
     </div>
     <script src="/res/js/lib/swiper.min.js"></script>
@@ -888,7 +892,10 @@
                 target.previousElementSibling.classList.remove('is-active');
                 btnupload.disabled = true;
                 btnsave.setAttribute('aria-hidden', false);
-                btndelete.classList.remove('hide');
+                btncopy.parentElement.classList.remove('hide')
+                btnupload.parentElement.classList.remove('hide')
+                btndelete.parentElement.classList.remove('hide')
+                btndownload.parentElement.classList.remove('hide')
             },
             CLOSE: function(param) {
                 const target = document.querySelector('#' + param.dataset.target);
@@ -955,7 +962,6 @@
                             btncopy.disabled = true;
                             btndownload.disabled = true;
                             btnsave.setAttribute('aria-hidden', true);
-                            btndelete.classList.add('hide');
                         }
                         const resultFormat = function(num) {
                             return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
@@ -999,9 +1005,7 @@
             btncurrect.onclick = function() {
                 currectEvent.OPEN(btncurrect);
             }
-            btncopy.classList.add('hide')
-            btndownload.classList.add('hide')
-            btndelete.classList.add('hide')
+            btndelete.parentElement.classList.add('hide')
             btnupload.disabled = true;
         });
         //삭제버튼 클릭시
@@ -1022,11 +1026,13 @@
                 btncopy.parentElement.classList.add('hide')
                 btnupload.parentElement.classList.add('hide')
                 btndelete.parentElement.classList.add('hide')
+                btndownload.parentElement.classList.remove('hide')
                 btndownload.disabled = true;
             } else if (currentTab.content.id === 'tabpanel1') {
-                btncopy.parentElement.classList.remove('hide')
+                btncopy.parentElement.classList.add('hide')
                 btnupload.parentElement.classList.remove('hide')
-                btndelete.parentElement.classList.remove('hide')
+                btndelete.parentElement.classList.add('hide')
+                btndownload.parentElement.classList.add('hide')
                 btncopy.disabled = false;
                 btndownload.disabled = false;
             }

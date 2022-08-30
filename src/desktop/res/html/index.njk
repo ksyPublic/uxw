@@ -9,7 +9,7 @@
 -->
 {% set LIST_VIEW = [
     {
-        'type':'4',
+        'type':'1',
         'id': 'login',
         'category':'PAGE',
         'username': '김세영',
@@ -19,7 +19,7 @@
         'url':'./login.html',
         'note':''
     }, {
-        'type':'4',
+        'type':'1',
         'id': 'logout',
         'category':'PAGE',
         'username': '김세영',
@@ -29,7 +29,7 @@
         'url':'./logout.html',
         'note':''
     }, {
-        'type':'4',
+        'type':'1',
         'id': 'currect-before',
         'category':'PAGE/TAB',
         'username': '김세영',
@@ -39,7 +39,7 @@
         'url':'./currect_before.html',
         'note':''
     }, {
-        'type':'4',
+        'type':'1',
         'id': 'currect-after',
         'category':'PAGE/TAB',
         'username': '김세영',
@@ -49,7 +49,7 @@
         'url':'./currect_after.html',
         'note':''
     }, {
-        'type':'4',
+        'type':'1',
         'id': 'currect_modify_completed',
         'category':'PAGE/TAB',
         'username': '김세영',
@@ -59,7 +59,7 @@
         'url':'./currect_modify_completed.html',
         'note':''
     }, {
-        'type':'4',
+        'type':'1',
         'id': 'currect_app',
         'category':'PAGE/TAB',
         'username': '김세영',
@@ -69,7 +69,7 @@
         'url':'./currect_app.html',
         'note':''
     }, {
-        'type':'4',
+        'type':'1',
         'id': 'currect_smartoper',
         'category':'PAGE/TAB',
         'username': '김세영',
@@ -79,7 +79,7 @@
         'url':'./currect_smartoper.html',
         'note':''
     }, {
-        'type':'4',
+        'type':'1',
         'id': 'currect_popup01',
         'category':'POPUP',
         'username': '김세영',
@@ -88,41 +88,22 @@
         'memo':'',
         'url':'./currect_popup01.html',
         'note':''
+    }, {
+        'type':'2',
+        'id': 'currect_popup01',
+        'category':'POPUP',
+        'username': '김세영',
+        'viewname':'마이페이지',
+        'date': '22-08-30',
+        'memo':'',
+        'url':'./mypage.html',
+        'note':''
     }
 ]%}
 {% extends "../templates/layout.njk" %}
 {% block content %}
+    {{ super() }}
     <!-- 컨텐츠 영역 -->
-    <!-- floting 네비게이션 영역 -->
-    <div class="floating-menu-wrap">
-        <nav class="nav" role="navigation">
-            <ul class="nav__box" aria-expanded="false">
-                <li class="nav__list">
-                    <div class="nav__item" data-ui-tooltip>
-                        <button type="button" class="ic-button-nav" aria-describedby="tooltip2" aria-label="UXW라이팅 가이드">
-                            <i class="ic ic-guidebook" aria-hidden="true"></i>
-                        </button>
-                        <a class="text" href="#none" alt="용어사전검색 바로가기">UXW라이팅 가이드</a>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
-    <div class="tooltip__box">
-        <div id="tooltip1" role="tooltip" class="tooltip" data-visible data-placement="right">
-            <span class="tooltip__title">용어/표현 검색</span>
-        </div>
-        <div id="tooltip2" role="tooltip" class="tooltip" data-visible data-placement="right">
-            <span class="tooltip__title">UXW라이팅 가이드</span>
-        </div>
-        <div id="tooltip3" role="tooltip" class="tooltip" data-visible data-placement="right">
-            <span class="tooltip__title">교정된 콘텐츠</span>
-        </div>
-    </div>
-
-    <!-- //floting 네비게이션 영역 -->
-
     <div class="ly-content">
         <div class="ly-content-box">
             <div class="title">
@@ -167,13 +148,11 @@
                                 <td>{{item.note}}</td>
                             </tr>
                         {% endfor %}
-
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-
     <!-- //컨텐츠 영역 -->
 
 {% endblock %}

@@ -1,55 +1,8 @@
 {% set user = "logout" %}
 {% set title = "신한 UX라이팅 시스템 | 로그아웃" %}
 {% extends "../templates/layout.njk" %}
-
 {% block content %}
-    <!-- floting 네비게이션 영역 -->
-    <div class="floating-menu-wrap">
-        <nav class="nav" role="navigation">
-            <ul class="nav__box" aria-expanded="false">
-                <!-- 로그인 일때 -->
-                <li class="nav__list">
-                    <div class="nav__item tooltip-button">
-                        <button type="button" class="ic-button-nav" aria-describedby="tooltip1" aria-label="용어/표현 검색">
-                            <i class="ic ic-search" aria-hidden="true"></i>
-                        </button>
-                        <a class="text" href="#none" alt="용어사전검색 바로가기">용어/표현 검색</a>
-                    </div>
-                </li>
-                <li class="nav__list">
-                    <div class="nav__item tooltip-button">
-                        <button type="button" class="ic-button-nav" aria-describedby="tooltip2" aria-label="UXW라이팅 가이드">
-                            <i class="ic ic-guidebook" aria-hidden="true"></i>
-                        </button>
-                        <a class="text" href="#none" alt="용어사전검색 바로가기">UXW라이팅 가이드</a>
-                    </div>
-                </li>
-                <li class="nav__list">
-                    <div class="nav__item tooltip-button">
-                        <button type="button" class="ic-button-nav" aria-describedby="tooltip3" aria-label="교정된 콘텐츠">
-                            <i class="ic ic-edition" aria-hidden="true"></i>
-                        </button>
-                        <a class="text" href="#none" alt="용어사전검색 바로가기">교정된 콘텐츠</a>
-                    </div>
-                </li>
-                <!--// 로그인 일때 -->
-            </ul>
-        </nav>
-
-        <div class="tooltip__box">
-            <div id="tooltip1" role="tooltip" class="tooltip" data-visible data-placement="right">
-                <span class="tooltip__title">용어/표현 검색</span>
-            </div>
-            <div id="tooltip2" role="tooltip" class="tooltip" data-visible data-placement="right">
-                <span class="tooltip__title">UXW라이팅 가이드</span>
-            </div>
-            <div id="tooltip3" role="tooltip" class="tooltip" data-visible data-placement="right">
-                <span class="tooltip__title">교정된 콘텐츠</span>
-            </div>
-        </div>
-    </div>
-    <!-- floting 네비게이션 영역 -->
-
+    {{ super() }}
     <!--메인영역-->
     <div class="main">
         <div class="main-wrap">

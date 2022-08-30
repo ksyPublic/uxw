@@ -2,52 +2,7 @@
 {% set title = "신한 UX라이팅 시스템 | 교정하기 | 스마트오퍼" %}
 {% extends "../templates/layout.njk" %}
 {% block content %}
-    <!-- floting 네비게이션 영역 -->
-    <div class="floating-menu-wrap">
-        <nav class="nav" role="navigation">
-            <ul class="nav__box" aria-expanded="false">
-                <li class="nav__list">
-                    <div class="nav__item tooltip-button">
-                        <button type="button" class="ic-button-nav" aria-describedby="tooltip1" aria-label="용어/표현 검색">
-                            <i class="ic ic-search" aria-hidden="true"></i>
-                        </button>
-                        <a class="text" href="#none" alt="용어사전검색 바로가기">용어/표현 검색</a>
-                    </div>
-                </li>
-                <li class="nav__list">
-                    <div class="nav__item tooltip-button">
-                        <button type="button" class="ic-button-nav" aria-describedby="tooltip2" aria-label="UXW라이팅 가이드">
-                            <i class="ic ic-guidebook" aria-hidden="true"></i>
-                        </button>
-                        <a class="text" href="#none" alt="용어사전검색 바로가기">UXW라이팅 가이드</a>
-                    </div>
-                </li>
-                <li class="nav__list">
-                    <div class="nav__item tooltip-button">
-                        <button type="button" class="ic-button-nav" aria-describedby="tooltip3" aria-label="교정된 콘텐츠">
-                            <i class="ic ic-edition" aria-hidden="true"></i>
-                        </button>
-                        <a class="text" href="#none" alt="용어사전검색 바로가기">교정된 콘텐츠</a>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
-    <div class="tooltip__box">
-        <div id="tooltip1" role="tooltip" class="tooltip" data-visible data-placement="right">
-            <span class="tooltip__title">용어/표현 검색</span>
-        </div>
-        <div id="tooltip2" role="tooltip" class="tooltip" data-visible data-placement="right">
-            <span class="tooltip__title">UXW라이팅 가이드</span>
-        </div>
-        <div id="tooltip3" role="tooltip" class="tooltip" data-visible data-placement="right">
-            <span class="tooltip__title">교정된 콘텐츠</span>
-        </div>
-    </div>
-
-    <!-- //floting 네비게이션 영역 -->
-
+    {{super()}}
     <div class="ly-content">
         <div class="ly-content-box">
             <div class="tab tab--scroll" id="mainTab" data-ui-tab data-tab-active="2">
@@ -310,7 +265,7 @@
                         </button>
                     </div>
                     <div class="tooltip__list tooltip-button"  >
-                        <button id="btndelete" type="button" class="ic-button-edit hide" aria-label="삭제" aria-describedby="tooltip7">
+                        <button id="btndelete" type="button" class="ic-button-edit" aria-label="삭제" aria-describedby="tooltip7">
                             <i class="ic ic-delete" aria-hidden="true"></i>
                         </button>
                     </div>
@@ -583,47 +538,15 @@
 
             <div class="side__inner">
                 <h3 class="sr-only">교정결과 영역</h3>
-                {% include "../templates/contents/accordion.njk" %}
+                {% include "../templates/contents/side_accordion_card.njk" %}
             </div>
         </div>
     </div>
     <!-- //사이드 영역 -->
 
-    <div class="modal modal--medium" id="modal1" role="dialog" aria-labelledby="#modal1Title">
-        <div class="modal__dialog" role="document">
-            <div class="modal__content">
-                <div class="modal__header">
-                    <div class="modal__title" id="modal1Title">콘텐츠 완료하기</div>
-                    <button type="button" class="ic-button" data-dialog-close aria-label="팝업닫기">
-                        <i class="ic ic-close" aria-hidden="true"></i>
-                    </button>
-                </div>
-                <div class="modal__body">
-                    <div class="form">
-                        <div class="fields">
-                            <div class="field">
-                                <label class="dpb medium ft14">제목</label>
-                                <textarea class="textarea textarea--tiny" maxlength="50" placeholder="콘텐츠의 원하시는 제목을 입력해주세요. 입력하지 않아도 오늘 날짜로 저장돼요."></textarea>
-                                <div class="textarea__lengths">
-                                    <label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 글자수를 조정해주세요.</label>
-                                    <div class="textarea__lengths__box">
-                                        <span class="textarea__lengths--current">0</span>/ <span class="textarea__lengths--total">50</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="info">
-                        <i class="ic ic-exclamation" aria-hidden="true"></i>
-                        <p class="text">작성하신 콘텐츠는 마이페이지에서 확인하실 수 있어요.</p>
-                    </div>
-                </div>
-                <div class="modal__footer">
-                    <button type="button" class="button pw100">완료하기</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- 완료하기 팝업 -->
+    {% include "../templates/popup/contents_success_popup01.njk" %}
+    <!-- //완료하기 팝업 -->
 
 {% endblock %}
 
@@ -695,9 +618,22 @@
                     .remove('is-active');
                 btnupload.disabled = true;
                 btnsave.setAttribute('aria-hidden', false);
-                btndelete
+                btncopy
+                    .parentElement
                     .classList
-                    .remove('hide');
+                    .remove('hide')
+                btnupload
+                    .parentElement
+                    .classList
+                    .remove('hide')
+                btndelete
+                    .parentElement
+                    .classList
+                    .remove('hide')
+                btndownload
+                    .parentElement
+                    .classList
+                    .remove('hide')
             },
 
             CLOSE: function (param) {
@@ -800,9 +736,7 @@
                                 btncopy.disabled = true;
                                 btndownload.disabled = true;
                                 btnsave.setAttribute('aria-hidden', true);
-                                btndelete
-                                    .classList
-                                    .add('hide');
+
                             }
 
                             const resultFormat = function (num) {
@@ -862,13 +796,9 @@
             btncurrect.onclick = function () {
                 currectEvent.OPEN(btncurrect);
             }
-            btncopy
-                .classList
-                .add('hide')
-            btndownload
-                .classList
-                .add('hide')
+
             btndelete
+                .parentElement
                 .classList
                 .add('hide')
             btnupload.disabled = true;
@@ -902,13 +832,17 @@
                     .parentElement
                     .classList
                     .add('hide')
+                btndownload
+                    .parentElement
+                    .classList
+                    .remove('hide')
                 btndownload.disabled = true;
 
             } else if (currentTab.content.id === 'tabpanel1') {
                 btncopy
                     .parentElement
                     .classList
-                    .remove('hide')
+                    .add('hide')
                 btnupload
                     .parentElement
                     .classList
@@ -916,7 +850,11 @@
                 btndelete
                     .parentElement
                     .classList
-                    .remove('hide')
+                    .add('hide')
+                btndownload
+                    .parentElement
+                    .classList
+                    .add('hide')
                 btncopy.disabled = false;
                 btndownload.disabled = false;
 
