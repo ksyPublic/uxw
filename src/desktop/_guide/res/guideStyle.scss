@@ -6,6 +6,8 @@
         padding-top: 80px;
         position: relative;
         display: flex;
+        height: 100%;
+        overflow: auto;
     }
 
     &__menu {
@@ -16,7 +18,7 @@
         height: calc(100vh - 80px);
         left: 0;
         top: 80px;
-        background-color: #F8F9FC;
+        background-color: #f8f9fc;
         z-index: 100;
 
         button {
@@ -28,16 +30,16 @@
             background-color: color(blue, 800);
 
             &.is-active {
-                +ul {
+                + ul {
                     display: block;
                 }
             }
 
-            +ul {
+            + ul {
                 display: none;
 
-                >li {
-                    >a {
+                > li {
+                    > a {
                         line-height: 38px;
                         display: block;
                         height: 40px;
@@ -60,7 +62,7 @@
 .guide-wrap {
     position: relative;
     padding: 20px;
-    background-color: #FBFBFD;
+    background-color: #fbfbfd;
 }
 
 .ex-name {
@@ -90,7 +92,7 @@
     border-bottom: 1px solid #bbcdd9;
 }
 
-.ex-title>h3 {
+.ex-title > h3 {
     font-size: 20px;
     font-weight: bold;
 }

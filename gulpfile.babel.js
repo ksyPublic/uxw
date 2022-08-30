@@ -42,7 +42,7 @@ const js = () => {
 //기존프로젝트 소스 유지
 const resourceCopy = () => {
     return gulp
-        .src([filesPath.input('res/js/**/*.{js,css}'), `!${filesPath.input('res/js/uxw.ui.js')}`, `!${filesPath.input('res/js/utils/**')}`, `!${filesPath.input('res/js/vendor/**')}`, `!${filesPath.input('res/js/components/**')}`])
+        .src([filesPath.input('res/js/**/*.{js,css}'), `!${filesPath.input('res/js/uxw.ui.js')}`, `!${filesPath.input('res/js/common.js')}`, `!${filesPath.input('res/js/utils/**')}`, `!${filesPath.input('res/js/vendor/**')}`, `!${filesPath.input('res/js/components/**')}`])
         .pipe(gulp.dest(filesPath.output('js')))
         .pipe(devServer.stream());
 };

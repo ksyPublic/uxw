@@ -138,7 +138,7 @@ class Tooltip extends UI {
         EventHandler.off(this._tooltip, super._eventName('mouseleave'));
     }
 
-    _destroy() {
+    destroy() {
         this._removeEvent();
     }
 

@@ -119,7 +119,7 @@ class Dropdown extends UI {
         });
     }
 
-    _destroy() {
+    destroy() {
         this._removeEvent();
     }
 

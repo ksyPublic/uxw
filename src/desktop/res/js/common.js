@@ -47,6 +47,10 @@ const navigation = function (UI) {
     const elements = document.querySelectorAll(UI);
     const navEl = getObjectElements(elements);
 
+    if (!elements) {
+        return;
+    }
+
     let _config = {
         target: null,
     };
@@ -59,6 +63,9 @@ const navigation = function (UI) {
     });
 
     const _addEvent = function () {
+        if (!_config.target) {
+            return;
+        }
         _config.target.forEach(item => {
             EventHandler.on(item, 'click', navClickable);
         });
@@ -87,9 +94,9 @@ const navigation = function (UI) {
         const _nav = document.querySelector('[' + NAV_BOX + ']');
         const _get = _nav.getAttribute(NAV_BOX);
         if (_get === 'true') {
-            window.UXW.Tooltip._destroy;
+            UXW.Tooltip.destroy;
         } else {
-            window.UXW.Tooltip.addEvent;
+            UXW.Tooltip.addEvent;
         }
     }
 
