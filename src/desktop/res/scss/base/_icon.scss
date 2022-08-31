@@ -3,6 +3,11 @@
     position: relative;
     vertical-align: middle;
     background-size: cover !important;
+    &-bookmark {
+        width: 24px;
+        height: 24px;
+        background: url('../images/ic-bookmark.png') no-repeat;
+    }
     &-arrow {
         background: url('../images/ic-acc-arrow.png') no-repeat;
     }
@@ -132,6 +137,92 @@
         width: 24px;
         height: 24px;
         background: url('../images/ic-search-small.png') no-repeat;
+    }
+
+    &-bookmark-active {
+        width: 24px;
+        height: 24px;
+        background: url('../images/ic-bookmark-active-w.png') no-repeat;
+    }
+    &-bookmark {
+        width: 24px;
+        height: 24px;
+        background: url('../images/ic-bookmark.png') no-repeat;
+    }
+    &-bookmark-y {
+        width: 24px;
+        height: 24px;
+        background: url('../images/ic-bookmark-y.png') no-repeat;
+    }
+    &-delete-w {
+        width: 24px;
+        height: 24px;
+        background: url('../images/ic-delete-w.png') no-repeat;
+    }
+    &-move-w {
+        width: 24px;
+        height: 24px;
+        background: url('../images/ic-move-w.png') no-repeat;
+    }
+    &-writing-w {
+        width: 24px;
+        height: 24px;
+        background: url('../images/ic-writing-w.png') no-repeat;
+    }
+
+    &-button {
+        &[data-toggle='true'] {
+            .ic-bookmark {
+                background: url('../images/ic-bookmark-active-w.png') no-repeat;
+            }
+        }
+
+        &[data-toggle='false'] {
+            .ic-bookmark {
+                background: url('../images/ic-bookmark.png') no-repeat;
+            }
+        }
+
+        &:disabled {
+            .ic-prev-arrow--first {
+                background: url('../images/ic-page-arrow-end-disabled.png') no-repeat;
+                transform: rotate(0deg);
+            }
+            .ic-next-arrow--last {
+                background: url('../images/ic-page-arrow-end-disabled.png') no-repeat;
+            }
+
+            .ic-prev-arrow {
+                background: url('../images/ic-page-arrow-disabled.png') no-repeat;
+                transform: rotate(0deg);
+            }
+            .ic-next-arrow {
+                background: url('../images/ic-page-arrow-disabled.png') no-repeat;
+            }
+        }
+    }
+
+    &-prev-arrow--first {
+        width: 24px;
+        height: 24px;
+        background: url('../images/ic-page-arrow-end.png') no-repeat;
+        transform: rotate(-180deg);
+    }
+    &-next-arrow--last {
+        width: 24px;
+        height: 24px;
+        background: url('../images/ic-page-arrow-end.png') no-repeat;
+    }
+    &-prev-arrow {
+        width: 24px;
+        height: 24px;
+        background: url('../images/ic-page-arrow.png') no-repeat;
+        transform: rotate(-180deg);
+    }
+    &-next-arrow {
+        width: 24px;
+        height: 24px;
+        background: url('../images/ic-page-arrow.png') no-repeat;
     }
 
     &-button-nav {

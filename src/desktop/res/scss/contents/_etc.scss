@@ -33,3 +33,84 @@
         line-height: 28px;
     }
 }
+
+.user-personal {
+    padding: 0 24px;
+}
+
+.cumulative {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: color(blue, 800);
+    border-radius: 8px;
+    padding: 33px 24px;
+    justify-content: space-between;
+    &__list {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 28px;
+        color: $white;
+    }
+    &__date {
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 20px;
+        color: color(blue, 500);
+    }
+
+    + .user-personal {
+        margin-top: 30px;
+    }
+}
+
+.total {
+    font-weight: 500;
+    font-size: 14px;
+    color: color(grey, 600);
+    &__count {
+        color: color(blue, 800);
+    }
+}
+
+.thumnail {
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(17, 80, 197, 0.9);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+
+    &__content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+
+        .ic-button {
+            margin-left: 12px;
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+.data-none {
+    &--qa {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 208px;
+
+        p {
+            text-align: center;
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 24px;
+            color: color(grey, 900);
+        }
+    }
+}

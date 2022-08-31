@@ -13,6 +13,12 @@
     border: 1px solid color(grey, 200);
     box-sizing: border-box;
 
+    &--type2 {
+        background-color: color(grey, 50) !important;
+        color: color(grey, 600);
+        border: 1px solid color(grey, 300);
+    }
+
     &--base {
         min-height: 500px;
         line-height: 40px;
@@ -27,15 +33,6 @@
 
     &--max {
         line-height: 24px;
-
-        @for $i from 1 through 200 {
-            @if ($i % 2 == 0) {
-                &.mxh#{$i} {
-                    min-height: $i + px !important;
-                    max-height: $i + px !important;
-                }
-            }
-        }
     }
 
     &::placeholder {
@@ -87,7 +84,7 @@
         }
 
         &--total {
-            color: #666;
+            color: color(grey, 600);
         }
     }
 }

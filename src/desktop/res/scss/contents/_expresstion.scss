@@ -1,12 +1,31 @@
 .expresstion {
     $root: expresstion;
-    margin-top: 40px;
 
-    &-wrap {
-        .#{$root} {
-            //
+    &--type2 {
+        margin-top: 20px;
+        .#{$root}-group {
+            .#{$root}-list {
+                span:first-child {
+                    color: color(grey, 600);
+                }
+
+                span:last-child {
+                    color: color(blue, 800);
+                }
+            }
+        }
+
+        .#{$root}-list {
+            &:before {
+                width: 2px;
+                min-width: 2px;
+                height: 2px;
+                background-color: $black;
+            }
+            border-bottom: 1px dashed color(grey, 400);
         }
     }
+    margin-top: 40px;
 
     &-group {
         color: $white;

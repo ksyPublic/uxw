@@ -63,6 +63,15 @@
         justify-content: space-between;
         padding: 0 20px;
         border-bottom: 1px solid color(grey, 200);
+
+        &__inner {
+            display: flex;
+            align-items: center;
+
+            .label-ct {
+                margin-left: 10px;
+            }
+        }
     }
 
     &__title {

@@ -1,8 +1,12 @@
 .search-box {
     $root: search-box;
-
-    max-width: 588px;
+    padding-bottom: 20px;
     margin: 20px auto;
+    border-bottom: 1px solid color(grey, 200);
+    &__wrap {
+        max-width: 588px;
+        margin: 0 auto;
+    }
 
     .input-box,
     input {

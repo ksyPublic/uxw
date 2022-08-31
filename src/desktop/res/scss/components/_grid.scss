@@ -4,6 +4,70 @@
     display: flex;
     margin-right: -8px;
 
+    &--type2 {
+        margin: 0 -24px 0px 0;
+        @include clearFix;
+        + .pagination {
+            margin-top: 6px;
+        }
+        .title--type2 {
+            height: 24px;
+        }
+        .grid__ct {
+            color: #ff6c6c;
+            font-weight: 700;
+            font-size: 12px;
+            display: block;
+
+            &--grey {
+                font-size: 12px;
+                display: block;
+                font-weight: 700;
+                color: color(grey, 600);
+            }
+        }
+        h4 {
+            display: block;
+            margin-top: 18px;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 24px;
+            color: color(grey, 600);
+        }
+        .#{$root}__box {
+            margin-bottom: 24px;
+            overflow: hidden;
+            position: relative;
+            float: left;
+            margin-right: 24px;
+            padding: 32px 24px 24px;
+            height: 240px;
+            border-radius: 8px;
+
+            &:hover {
+                .thumnail {
+                    visibility: visible;
+                    opacity: 1;
+                }
+            }
+        }
+
+        .#{$root}__content {
+            margin-top: 16px;
+            .text {
+                color: color(grey, 500);
+            }
+        }
+
+        &.col4 {
+            .#{$root} {
+                &__box {
+                    width: calc(25% - 24px);
+                }
+            }
+        }
+    }
+
     &.col3 {
         .#{$root} {
             &__box {

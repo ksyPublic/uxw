@@ -91,7 +91,7 @@ button {
     }
 
     &--type4 {
-        background-color: transparent;
+        background-color: $white;
         border: 1px solid color(grey, 300);
         color: color(grey, 900);
 
@@ -101,7 +101,7 @@ button {
         }
 
         &:focus {
-            background-color: transparent;
+            background-color: $white;
             border: 1px solid color(blue, 600);
         }
 

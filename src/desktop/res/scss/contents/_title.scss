@@ -11,5 +11,23 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+
+        + .grid--type2 {
+            margin-top: 20px;
+        }
+    }
+
+    &--qa {
+        height: 20px;
+        margin-bottom: 8px;
+        strong {
+            color: color(blue, 800);
+        }
+
+        .text {
+            font-weight: 300;
+            font-size: 14px;
+            color: color(grey, 500);
+        }
     }
 }

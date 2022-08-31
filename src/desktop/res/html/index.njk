@@ -89,14 +89,54 @@
         'url':'./currect_popup01.html',
         'note':''
     }, {
-        'type':'2',
-        'id': 'currect_popup01',
-        'category':'POPUP',
+        'type':'4',
+        'id': 'mypage',
+        'category':'PAGE',
         'username': '김세영',
         'viewname':'마이페이지',
-        'date': '22-08-30',
+        'date': '22-08-31',
         'memo':'',
         'url':'./mypage.html',
+        'note':''
+    }, {
+        'type':'4',
+        'id': 'mypage_popup01',
+        'category':'POPUP',
+        'username': '김세영',
+        'viewname':'마이페이지 문의하기 팝업',
+        'date': '22-08-31',
+        'memo':'',
+        'url':'./mypage_popup01.html',
+        'note':''
+    }, {
+        'type':'4',
+        'id': 'mypage_popup02',
+        'category':'POPUP',
+        'username': '김세영',
+        'viewname':'마이페이지 답변완료 팝업',
+        'date': '22-08-31',
+        'memo':'',
+        'url':'./mypage_popup02.html',
+        'note':''
+    }, {
+        'type':'4',
+        'id': 'mypage_popup03',
+        'category':'POPUP',
+        'username': '김세영',
+        'viewname':'마이페이지 답변대기 팝업',
+        'date': '22-08-31',
+        'memo':'',
+        'url':'./mypage_popup03.html',
+        'note':''
+    }, {
+        'type':'4',
+        'id': 'mypage_popup04',
+        'category':'POPUP',
+        'username': '김세영',
+        'viewname':'마이페이지 용어문의 팝업',
+        'date': '22-08-31',
+        'memo':'',
+        'url':'./mypage_popup04.html',
         'note':''
     }
 ]%}
@@ -127,8 +167,8 @@
                         {% for item in LIST_VIEW %}
                             <tr>
                                 <td>{{ loop.index }}</td>
-                                <td id="{{item.id}}">
-                                    <a class="text-blue" href="{{item.url}}">{{item.viewname}}</a>
+                                <td id="{{item.id}}" class="left">
+                                    <a class="text-link text-blue" href="{{item.url}}">{{item.viewname}}</a>
                                 </td>
                                 <td>{{item.category}}</td>
                                 <td>{{item.username}}</td>

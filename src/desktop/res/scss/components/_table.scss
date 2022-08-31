@@ -29,8 +29,13 @@ td {
             font-size: 14px;
             font-weight: 500;
             height: 46px;
+            padding: 0 16px;
             color: color(grey, 500);
             border: 1px solid color(grey, 200);
+
+            &.left {
+                text-align: left;
+            }
         }
     }
 

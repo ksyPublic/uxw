@@ -33,6 +33,7 @@
                     </h1>
                     <!-- 로그아웃 일때 -->
                     <div class="head__nav">
+                        <!-- 220831 헤더수정 button => a -->
                         <ul>
                             <li>
                                 <a href="#none" type="button" class="ic-button-head" aria-controls="nav_content" aria-label="메뉴">
@@ -40,6 +41,7 @@
                                 </a>
                             </li>
                         </li>
+                        <!-- //220831 헤더수정 button => a -->
                     </ul>
                 </div>
                 <!-- //로그아웃 일때 -->
@@ -56,10 +58,12 @@
                 </h1>
                 <!-- 로그인 일때 -->
                 <div class="head__nav">
+                    <!-- 220831 헤더수정 button => a -->
                     <ul>
                         {% import 'macros/header-macro.njk' as nav %}
                         {{ nav.active(activePage) }}
                     </ul>
+                    <!-- //220831 헤더수정 button => a -->
                     <div class="head__log">
                         <a class="text-link" href="#none" alt="로그아웃">로그아웃<i class="ic ic-text-arrow" aria-hidden="true"></i>
                         </a>

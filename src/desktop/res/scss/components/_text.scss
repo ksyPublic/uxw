@@ -14,23 +14,22 @@
         }
 
         &:hover {
-            color: color(blue, 800);
+            color: color(blue, 800) !important;
             text-decoration: underline;
-
             .ic-text-arrow {
                 background: url('../images/ic-text-arrow-hover.png') no-repeat;
             }
         }
 
         &:active {
-            color: color(blue, 900);
+            color: color(blue, 900) !important;
             .ic-text-arrow {
                 background: url('../images/ic-text-arrow-foucs.png') no-repeat;
             }
         }
 
         &:disabled {
-            color: color(grey, 400);
+            color: color(grey, 400) !important;
             .ic-text-arrow {
                 background: url('../images/ic-text-arrow-disabled.png') no-repeat;
             }
