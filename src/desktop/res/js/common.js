@@ -71,23 +71,28 @@ const navigation = function (UI) {
         return;
     }
 
-    let _config = {
+    let config = {
         target: null,
+        nextTarget: null,
     };
 
     [].forEach.call(navEl, x => {
-        const item = x.querySelectorAll('.nav__list .ic-button-nav');
-        _config = {
-            target: item,
+        const target = x.querySelectorAll('.nav__list .ic-button-nav');
+        const toTarget = x.querySelectorAll('.nav__item a');
+
+        config = {
+            target: target,
+            nextTarget: toTarget,
         };
     });
 
-    const _addEvent = function () {
-        if (!_config.target) {
+    const addEvent = function () {
+        if (!config.target) {
             return;
         }
-        _config.target.forEach(item => {
+        config.target.forEach((item, index) => {
             EventHandler.on(item, 'click', navClickable);
+            EventHandler.on(config.nextTarget[index], 'click', navClickable);
         });
     };
 
@@ -98,19 +103,24 @@ const navigation = function (UI) {
         const parentTarget = event.currentTarget.closest('[' + NAV_BOX + ']');
         const attr = parentTarget.getAttribute(NAV_BOX);
         let check = attr;
-        // check === "true" ? [parentTarget.setAttribute(NAV_BOX, "false")] : [parentTarget.setAttribute(NAV_BOX, "true")];
+        check === 'false' ? [parentTarget.setAttribute(NAV_BOX, 'true')] : null;
+        // [parentTarget.setAttribute(NAV_BOX, 'false')]
         beforeSelection();
-        event.currentTarget.classList.add('is-active');
+        if (event.target.tagName === 'A') {
+            const prevTarget = event.target.closest('.nav__item').querySelector('.ic-button-nav');
+            prevTarget.classList.add('is-active');
+        } else {
+            event.currentTarget.classList.add('is-active');
+        }
     };
 
     const beforeSelection = function () {
-        [].forEach.call(_config.target, item => {
+        [].forEach.call(config.target, item => {
             item.classList.remove('is-active');
         });
     };
 
-    function _init() {
-        _addEvent();
+    const defaultSelection = function () {
         const _nav = document.querySelector('[' + NAV_BOX + ']');
         const _get = _nav.getAttribute(NAV_BOX);
         if (_get === 'true') {
@@ -118,6 +128,11 @@ const navigation = function (UI) {
         } else {
             UXW.Tooltip.addEvent;
         }
+    };
+
+    function _init() {
+        addEvent();
+        defaultSelection();
     }
 
     _init();

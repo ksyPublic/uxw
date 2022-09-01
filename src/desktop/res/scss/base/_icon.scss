@@ -170,6 +170,12 @@
         background: url('../images/ic-writing-w.png') no-repeat;
     }
 
+    &-pind {
+        width: 24px;
+        height: 24px;
+        background: url('../images/ic-pind.png') no-repeat;
+    }
+
     &-button {
         &[data-toggle='true'] {
             .ic-bookmark {

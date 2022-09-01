@@ -13,6 +13,7 @@ const dataAttrConfig = {
     default: -1,
     defaults: -1,
     toggle: true,
+    onlyOne: false,
     activeClass: 'is-active',
     focusClass: 'is-focused',
 };
@@ -128,18 +129,17 @@ class Accordion extends UI {
     }
 
     _open() {
-        const { activeClass, stateClass, focusClass } = this._config;
+        const { activeClass, stateClass, focusClass, onlyOne } = this._config;
         const { header, content } = this._current;
 
         header.classList.add(activeClass);
-
         this._removeFocused();
         const items = header.closest('.accordion__item');
         items.classList.add(focusClass);
-
         this._dispatch(Accordion.EVENT.OPEN, {
             current: this._current,
         });
+
         content.classList.add(stateClass.expanding);
         content.classList.remove(stateClass.expand);
         content.style.height = `${content.scrollHeight}px`;
@@ -152,6 +152,16 @@ class Accordion extends UI {
                 current: this._current,
             });
         });
+
+        if (onlyOne === true) {
+            content.classList.add(stateClass.expanded);
+            content.classList.add(stateClass.expand);
+            header.classList.add(activeClass);
+            if (this._before && this._before.header !== this._current.header) {
+                this._close();
+            }
+        }
+
         this._before = { header, content };
         this._aria(this._current, true);
     }
@@ -171,10 +181,16 @@ class Accordion extends UI {
     }
 
     _close(target) {
-        const { activeClass, stateClass, focusClass } = this._config;
-        const { header, content } = target;
+        const { activeClass, stateClass, focusClass, onlyOne } = this._config;
+        const closeTarget = !!target ? target : this._before;
+        if (!closeTarget.header) return;
+        const { header, content } = closeTarget;
+        header.classList.remove(activeClass);
+        this._dispatch(Accordion.EVENT.CLOSE, {
+            current: closeTarget,
+        });
+        this._aria(closeTarget, false);
 
-        this._aria(target, false);
         content.style.height = `${content.getBoundingClientRect().height}px`;
         content.heightCache = content.offsetHeight;
         content.style.height = ``;
@@ -185,13 +201,17 @@ class Accordion extends UI {
             content.classList.remove(stateClass.expanding);
             content.classList.add(stateClass.expand);
             this._dispatch(Accordion.EVENT.CLOSED, {
-                current: target,
+                current: closeTarget,
             });
         });
-        this._dispatch(Accordion.EVENT.CLOSE, {
-            current: target,
-        });
-        header.classList.remove(activeClass);
+
+        if (onlyOne === true) {
+            EventHandler.one(content, 'transitionend', () => {
+                content.classList.remove(stateClass.expanding);
+                content.classList.add(stateClass.expand);
+            });
+        }
+
         this._removeFocused();
         const items = header.closest('.accordion__item');
         items.classList.add(focusClass);

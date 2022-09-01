@@ -1,5 +1,6 @@
 .list {
     $root: list;
+
     &-view {
         overflow: auto;
         .#{$root}__item {
@@ -43,6 +44,29 @@
             display: flex;
             align-items: flex-start;
             color: color(grey, 600);
+        }
+    }
+
+    &--type2 {
+        .#{$root}__item {
+            margin-bottom: 0;
+            .label {
+                text-align: center;
+                width: 56px;
+                flex-shrink: 0;
+                color: color(grey, 600);
+
+                + .text {
+                    margin-left: 10px;
+                }
+            }
+        }
+
+        .text {
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 24px;
+            color: color(grey, 700);
         }
     }
 }

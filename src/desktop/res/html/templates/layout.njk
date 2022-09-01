@@ -20,7 +20,6 @@
     </head>
 
     <body>
-
         <div class="wrap">
             {% if user === "login" %}
                 <!-- header 영역 -->
@@ -35,11 +34,13 @@
                     <div class="head__nav">
                         <!-- 220831 헤더수정 button => a -->
                         <ul>
+                            <!-- 220901 label 명칭 수정 aria-controls 제거 -->
                             <li>
-                                <a href="#none" type="button" class="ic-button-head" aria-controls="nav_content" aria-label="메뉴">
+                                <a href="#none" type="button" class="ic-button-head" aria-label="공지사항">
                                     <i class="ic ic-menu" aria-hidden="true"></i>
                                 </a>
                             </li>
+                            <!-- //220901 label 명칭 수정 aria-controls 제거 -->
                         </li>
                         <!-- //220831 헤더수정 button => a -->
                     </ul>

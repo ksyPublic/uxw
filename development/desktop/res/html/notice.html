@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <title>신한 UX라이팅 시스템 | 공지사항</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/res/css/styles.css" />
+    <link rel="stylesheet" href="/res/js/lib/swiper.css" />
+    <!--
+            기존 css : main.css, default.css, guide.css 개발측에서 필요없을시 제거 예정
+            기존 js : common.js => _common.js로 변경 필요없을시 제거예정 
+            ※ styles.css, uxw.ui.js와 필요한 vendor만 import해서 사용 uxw.ui.js의 원본파일 필요시 제공예정 
+            ※ 추후 가이드페이지 제작하여 제공예정 모든 등록된 이벤트들은 console.log('UXW', : UXW);로 확인가능합니다.
+            ※ 하단 스크립트 들은 모두 예시이며 개발시 변경해야합니다. UXW로 시작된 모든이벤트들은 사용가능합니다.
+            ※ UXW 메소드 필요시 제작예정 기획상에 변경사항 없으면 유지
+            ※ styles.css는 현재 진행중이므로 수정X : 개발측 CSS 필요시 따로 정리해서 관리,
+        -->
+</head>
+
+<body>
+    <div class="wrap">
+        <!-- header 영역 -->
+        <header class="head">
+            <h1 class="head__logo">
+                <a href="#none" alt="홈 바로가기">
+                    <img src="/res/images/logo.png" alt="신한 UX라이팅 시스템" />
+                    <span>신한 UX라이팅 시스템</span>
+                </a>
+            </h1>
+            <!-- 로그인 일때 -->
+            <div class="head__nav">
+                <!-- 220831 헤더수정 button => a -->
+                <ul>
+                    <li>
+                        <a href="#none" type="button" class="ic-button-head " href="/res/html/currect_before.html" aria-label="글쓰기">
+                            <i class="ic ic-writing" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#none" type="button" class="ic-button-head " href="/res/html/mypage.html" aria-label="마이페이지">
+                            <i class="ic ic-my" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#none" type="button" class="ic-button-head " href="/res/html/faq.html" aria-label="Q&A">
+                            <i class="ic ic-qa" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <!-- 220901 label 명칭 수정 aria-controls 제거 -->
+                    <li>
+                        <a href="#none" type="button" class="ic-button-head is-active" href="/res/html/notice.html" aria-label="공지사항">
+                            <i class="ic ic-menu" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <!-- //220901 label 명칭 수정 aria-controls 제거 -->
+                </ul>
+                <!-- //220831 헤더수정 button => a -->
+                <div class="head__log">
+                    <a class="text-link" href="#none" alt="로그아웃">로그아웃<i class="ic ic-text-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+            <!-- //로그인 일때 -->
+        </header>
+        <!-- header 영역 -->
+        <div class="ly-container">
+            <!-- floting 네비게이션 영역 -->
+            <div class="floating-menu-wrap">
+                <nav class="nav" role="navigation">
+                    <ul class="nav__box" aria-expanded="false">
+                        <!-- 로그인 일때 -->
+                        <li class="nav__list">
+                            <div class="nav__item tooltip-button">
+                                <button type="button" class="ic-button-nav" aria-describedby="tooltip1" aria-label="용어/표현 검색">
+                                    <i class="ic ic-search" aria-hidden="true"></i>
+                                </button>
+                                <a class="text" href="#none" alt="용어사전검색 바로가기">용어/표현 검색</a>
+                            </div>
+                        </li>
+                        <li class="nav__list">
+                            <div class="nav__item tooltip-button">
+                                <button type="button" class="ic-button-nav" aria-describedby="tooltip2" aria-label="UXW라이팅 가이드">
+                                    <i class="ic ic-guidebook" aria-hidden="true"></i>
+                                </button>
+                                <a class="text" href="#none" alt="용어사전검색 바로가기">UXW라이팅 가이드</a>
+                            </div>
+                        </li>
+                        <li class="nav__list">
+                            <div class="nav__item tooltip-button">
+                                <button type="button" class="ic-button-nav" aria-describedby="tooltip3" aria-label="교정된 콘텐츠">
+                                    <i class="ic ic-edition" aria-hidden="true"></i>
+                                </button>
+                                <a class="text" href="#none" alt="용어사전검색 바로가기">교정된 콘텐츠</a>
+                            </div>
+                        </li>
+                        <!--// 로그인 일때 -->
+                    </ul>
+                </nav>
+                <div class="tooltip__box">
+                    <div id="tooltip1" role="tooltip" class="tooltip" data-visible data-placement="right">
+                        <span class="tooltip__title">용어/표현 검색</span>
+                    </div>
+                    <div id="tooltip2" role="tooltip" class="tooltip" data-visible data-placement="right">
+                        <span class="tooltip__title">UXW라이팅 가이드</span>
+                    </div>
+                    <div id="tooltip3" role="tooltip" class="tooltip" data-visible data-placement="right">
+                        <span class="tooltip__title">교정된 콘텐츠</span>
+                    </div>
+                </div>
+            </div>
+            <!-- floting 네비게이션 영역 -->
+            <div class="ly-content">
+                <div class="ly-content-box">
+                    <div class="title">
+                        <h2 class="text ft24 bold">공지사항</h2>
+                    </div>
+                    <div class="ly-content__inner">
+                        <div class="accordion" data-ui-accordion>
+                            <div class="accordion__box">
+                                <div class="accordion__item">
+                                    <div class="accordion__head">
+                                        <button class="accordion__button" id="acc_header1" type="button" aria-expanded="false" aria-controls="acc_content1" aria-label="버튼"></button>
+                                        <div class="table-list fixed" role="table" aria-label="공지사항" aria-describedby="공지사항" aria-rowcount="1">
+                                            <div class="table-list__group" role="rowgroup">
+                                                <div class="table-list__row" role="row">
+                                                    <span class="miw56" role="columnheader" aria-sort="none">
+                                                        <i class="ic ic-pind" aria-hidden="true"></i>
+                                                    </span>
+                                                    <span class="pw100 left" role="columnheader" aria-sort="none">
+                                                        <b>기업의 ‘대고객 언어’가 달라진다.</b>
+                                                    </span>
+                                                    <span class="miw24" role="columnheader" aria-sort="none">
+                                                        <button type="button" class="ic-button" aria-label="다운로드">
+                                                            <i class="ic ic-download" aria-hidden="true"></i>
+                                                        </button>
+                                                    </span>
+                                                    <span class="miw120" role="columnheader" aria-sort="none">2022.08.12</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion__panel expand" id="acc_content1" aria-labelledby="acc_header1">
+                                        <div class="accordion__inner">
+                                            <div class="list list--type2">
+                                                <div class="list__item">
+                                                    <label class="label">A</label>
+                                                    <p class="text">기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion__item">
+                                    <div class="accordion__head">
+                                        <button class="accordion__button" id="acc_header2" type="button" aria-expanded="false" aria-controls="acc_content2" aria-label="버튼"></button>
+                                        <div class="table-list fixed" role="table" aria-label="공지사항" aria-describedby="공지사항" aria-rowcount="2">
+                                            <div class="table-list__group" role="rowgroup">
+                                                <div class="table-list__row" role="row">
+                                                    <span class="miw56" role="columnheader" aria-sort="none">66</span>
+                                                    <span class="pw100 left" role="columnheader" aria-sort="none">기업의 ‘대고객 언어’가 달라진다.</span>
+                                                    <span class="miw24" role="columnheader" aria-sort="none">
+                                                        <button type="button" class="ic-button" aria-label="다운로드">
+                                                            <i class="ic ic-download" aria-hidden="true"></i>
+                                                        </button>
+                                                    </span>
+                                                    <span class="miw120" role="columnheader" aria-sort="none">2022.08.12</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion__panel expand" id="acc_content2" aria-labelledby="acc_header2">
+                                        <div class="accordion__inner">
+                                            <div class="list list--type2">
+                                                <div class="list__item">
+                                                    <label class="label">A</label>
+                                                    <p class="text">기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion__item">
+                                    <div class="accordion__head">
+                                        <button class="accordion__button" id="acc_header3" type="button" aria-expanded="false" aria-controls="acc_content3" aria-label="버튼"></button>
+                                        <div class="table-list fixed" role="table" aria-label="공지사항" aria-describedby="공지사항" aria-rowcount="2">
+                                            <div class="table-list__group" role="rowgroup">
+                                                <div class="table-list__row" role="row">
+                                                    <span class="miw56" role="columnheader" aria-sort="none">66</span>
+                                                    <span class="pw100 left" role="columnheader" aria-sort="none">기업의 ‘대고객 언어’가 달라진다.</span>
+                                                    <span class="miw24" role="columnheader" aria-sort="none" aria-hidden="true"></span>
+                                                    <span class="miw120" role="columnheader" aria-sort="none">2022.08.12</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion__panel expand" id="acc_content3" aria-labelledby="acc_header3">
+                                        <div class="accordion__inner">
+                                            <div class="list list--type2">
+                                                <div class="list__item">
+                                                    <label class="label">A</label>
+                                                    <p class="text">기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/res/js/lib/swiper.min.js"></script>
+    <script src="/res/js/uxw.ui.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var accordion = null;
+            var acc = document.querySelectorAll('.accordion');
+            [].forEach.call(acc, function(el) {
+                console.log(acc, el);
+                accordion = new window.UXW.Accordion(el, {
+                    onlyOne: true,
+                    activeClass: 'active',
+                    stateClass: {
+                        expanding: 'expanding',
+                        expand: 'expand',
+                        expanded: 'expanded'
+                    }
+                });
+                accordion.init();
+            });
+        })
+    </script>
+</body>
+
+</html>

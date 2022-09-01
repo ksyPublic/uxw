@@ -6477,23 +6477,27 @@ var navigation = function navigation(UI) {
     return;
   }
 
-  var _config = {
-    target: null
+  var config = {
+    target: null,
+    nextTarget: null
   };
   [].forEach.call(navEl, function (x) {
-    var item = x.querySelectorAll('.nav__list .ic-button-nav');
-    _config = {
-      target: item
+    var target = x.querySelectorAll('.nav__list .ic-button-nav');
+    var toTarget = x.querySelectorAll('.nav__item a');
+    config = {
+      target: target,
+      nextTarget: toTarget
     };
   });
 
-  var _addEvent = function _addEvent() {
-    if (!_config.target) {
+  var addEvent = function addEvent() {
+    if (!config.target) {
       return;
     }
 
-    _config.target.forEach(function (item) {
+    config.target.forEach(function (item, index) {
       _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_6__["default"].on(item, 'click', navClickable);
+      _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_6__["default"].on(config.nextTarget[index], 'click', navClickable);
     });
   };
 
@@ -6504,21 +6508,26 @@ var navigation = function navigation(UI) {
 
     var parentTarget = event.currentTarget.closest('[' + NAV_BOX + ']');
     var attr = parentTarget.getAttribute(NAV_BOX);
-    var check = attr; // check === "true" ? [parentTarget.setAttribute(NAV_BOX, "false")] : [parentTarget.setAttribute(NAV_BOX, "true")];
+    var check = attr;
+    check === 'false' ? [parentTarget.setAttribute(NAV_BOX, 'true')] : null; // [parentTarget.setAttribute(NAV_BOX, 'false')]
 
     beforeSelection();
-    event.currentTarget.classList.add('is-active');
+
+    if (event.target.tagName === 'A') {
+      var prevTarget = event.target.closest('.nav__item').querySelector('.ic-button-nav');
+      prevTarget.classList.add('is-active');
+    } else {
+      event.currentTarget.classList.add('is-active');
+    }
   };
 
   var beforeSelection = function beforeSelection() {
-    [].forEach.call(_config.target, function (item) {
+    [].forEach.call(config.target, function (item) {
       item.classList.remove('is-active');
     });
   };
 
-  function _init() {
-    _addEvent();
-
+  var defaultSelection = function defaultSelection() {
     var _nav = document.querySelector('[' + NAV_BOX + ']');
 
     var _get = _nav.getAttribute(NAV_BOX);
@@ -6528,6 +6537,11 @@ var navigation = function navigation(UI) {
     } else {
       UXW.Tooltip.addEvent;
     }
+  };
+
+  function _init() {
+    addEvent();
+    defaultSelection();
   }
 
   _init();
@@ -6660,6 +6674,7 @@ var dataAttrConfig = {
   default: -1,
   defaults: -1,
   toggle: true,
+  onlyOne: false,
   activeClass: 'is-active',
   focusClass: 'is-focused'
 };
@@ -6792,7 +6807,8 @@ var Accordion = /*#__PURE__*/function (_UI) {
       var _this$_config = this._config,
           activeClass = _this$_config.activeClass,
           stateClass = _this$_config.stateClass,
-          focusClass = _this$_config.focusClass;
+          focusClass = _this$_config.focusClass,
+          onlyOne = _this$_config.onlyOne;
       var _this$_current = this._current,
           header = _this$_current.header,
           content = _this$_current.content;
@@ -6820,6 +6836,17 @@ var Accordion = /*#__PURE__*/function (_UI) {
           current: _this4._current
         });
       });
+
+      if (onlyOne === true) {
+        content.classList.add(stateClass.expanded);
+        content.classList.add(stateClass.expand);
+        header.classList.add(activeClass);
+
+        if (this._before && this._before.header !== this._current.header) {
+          this._close();
+        }
+      }
+
       this._before = {
         header: header,
         content: content
@@ -6854,11 +6881,19 @@ var Accordion = /*#__PURE__*/function (_UI) {
       var _this$_config2 = this._config,
           activeClass = _this$_config2.activeClass,
           stateClass = _this$_config2.stateClass,
-          focusClass = _this$_config2.focusClass;
-      var header = target.header,
-          content = target.content;
+          focusClass = _this$_config2.focusClass,
+          onlyOne = _this$_config2.onlyOne;
+      var closeTarget = !!target ? target : this._before;
+      if (!closeTarget.header) return;
+      var header = closeTarget.header,
+          content = closeTarget.content;
+      header.classList.remove(activeClass);
 
-      this._aria(target, false);
+      this._dispatch(Accordion.EVENT.CLOSE, {
+        current: closeTarget
+      });
+
+      this._aria(closeTarget, false);
 
       content.style.height = "".concat(content.getBoundingClientRect().height, "px");
       content.heightCache = content.offsetHeight;
@@ -6871,15 +6906,16 @@ var Accordion = /*#__PURE__*/function (_UI) {
         content.classList.add(stateClass.expand);
 
         _this5._dispatch(Accordion.EVENT.CLOSED, {
-          current: target
+          current: closeTarget
         });
       });
 
-      this._dispatch(Accordion.EVENT.CLOSE, {
-        current: target
-      });
-
-      header.classList.remove(activeClass);
+      if (onlyOne === true) {
+        _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_22__["default"].one(content, 'transitionend', function () {
+          content.classList.remove(stateClass.expanding);
+          content.classList.add(stateClass.expand);
+        });
+      }
 
       this._removeFocused();
 

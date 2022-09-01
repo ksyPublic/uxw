@@ -1,0 +1,15 @@
+{% set user = "logout" %}
+{% set title = "신한 UX라이팅 시스템 | 공지사항" %}
+{% extends "../templates/layout.njk" %}
+{% set activePage = "faq" %}
+{% block content %}
+    {{super()}}
+    <div class="ly-content">
+        <div class="ly-content-box">
+            <div class="title">
+                <h2 class="text ft24 bold">FAQ</h2>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}{% endblock %}

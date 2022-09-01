@@ -17,9 +17,49 @@ td {
     position: relative;
     text-align: center;
 
-    &-row {
+    &-row,
+    .#{$root}__list {
         &.fixed {
             table-layout: fixed;
+        }
+    }
+
+    &-list {
+        display: table;
+        text-indent: initial;
+        padding: 0 104px 0 20px;
+        background-color: $white;
+        text-align: center;
+        .ic-button {
+            position: relative;
+            z-index: 101;
+        }
+
+        &__group {
+            display: table-header-group;
+            vertical-align: middle;
+        }
+
+        &__row {
+            display: table-row;
+            vertical-align: inherit;
+            flex-shrink: 1;
+            b {
+                color: color(grey, 900);
+            }
+
+            span {
+                display: table-cell;
+                vertical-align: inherit;
+                height: 62px;
+                font-weight: 500;
+                font-size: 14px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                padding: 0 10px;
+                color: color(grey, 600);
+            }
         }
     }
 
@@ -32,10 +72,6 @@ td {
             padding: 0 16px;
             color: color(grey, 500);
             border: 1px solid color(grey, 200);
-
-            &.left {
-                text-align: left;
-            }
         }
     }
 
@@ -45,4 +81,16 @@ td {
             color: $black;
         }
     }
+}
+
+.left {
+    text-align: left !important;
+}
+
+.center {
+    text-align: left !important;
+}
+
+.right {
+    text-align: left !important;
 }

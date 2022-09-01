@@ -10,13 +10,15 @@
         </a>
     </li>
     <li>
-        <a href="#none" type="button" class="ic-button-head {%if activePage == 'qa' %}is-active{% endif %}" href="#noen" aria-label="Q&A">
+        <a href="#none" type="button" class="ic-button-head {%if activePage == 'qa' %}is-active{% endif %}" href="/res/html/faq.html" aria-label="Q&A">
             <i class="ic ic-qa" aria-hidden="true"></i>
         </a>
     </li>
+    <!-- 220901 label 명칭 수정 aria-controls 제거 -->
     <li>
-        <a href="#none" type="button" class="ic-button-head {%if activePage == 'menu' %}is-active{% endif %}" href="#noen" aria-controls="nav_content" aria-label="메뉴">
+        <a href="#none" type="button" class="ic-button-head {%if activePage == 'notice' %}is-active{% endif %}" href="/res/html/notice.html"  aria-label="공지사항">
             <i class="ic ic-menu" aria-hidden="true"></i>
         </a>
     </li>
+    <!-- //220901 label 명칭 수정 aria-controls 제거 -->
 {% endmacro %}

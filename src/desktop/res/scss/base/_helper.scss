@@ -116,3 +116,11 @@
         }
     }
 }
+
+@for $i from 1 through 200 {
+    @if ($i % 2 == 0) {
+        &.miw#{$i} {
+            min-width: $i + px !important;
+        }
+    }
+}
