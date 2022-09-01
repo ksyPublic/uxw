@@ -2,6 +2,8 @@
 {% set title = "신한 UX라이팅 시스템 | 마이페이지" %}
 {% extends "../templates/layout.njk" %}
 {% set activePage = "mypage" %}
+{% set datanone = "true" %}
+{% set all_data_none = "false" %}
 {% block content %}
     {{super()}}
     <div class="ly-content">
@@ -18,7 +20,7 @@
                 <div class="side__inner">
                     <div class="cumulative">
                         <p class="cumulative__list">김신한님은<br/>
-                        총 <span class="cumulative__count">292</span>건 콘텐츠를<br/>
+                        총 <span class="cumulative__count">0</span>건 콘텐츠를<br/>
                         교정했어요.
                         </p>
                         <span class="cumulative__date">2022년 기준</span>
@@ -27,7 +29,7 @@
                         <h4 class="ft18 medium">김신한님을 위한 추천 표현</h4>
                         <div class="expresstion expresstion--type2">
                             <!-- 데이터가 없을시 오픈 -->
-                            <div class="none-data pxh260" data-none>
+                            <div class="none-data none-data--beinfo pxh260" data-none>
                                 <p>새로운 글을 교정하고<br/>
                                 추천표현을 확인해보세요.
                                 </p>
@@ -102,10 +104,21 @@
         </div>
         <!-- //사이드 영역 -->
 
+        <!-- 문의하기 팝업 -->
+        {% include "../templates/popup/inquiry_popup01.njk" %}
+        <!-- //문의하기 팝업 -->
+
         <!-- 답변완료 팝업 -->
         {% include "../templates/popup/inquiry_popup02.njk" %}
         <!-- //답변완료 팝업 -->
 
+        <!-- 답변대기 팝업 -->
+        {% include "../templates/popup/inquiry_popup03.njk" %}
+        <!-- //답변대기 팝업 -->
+
+        <!-- 용어문의 팝업 -->
+        {% include "../templates/popup/inquiry_popup04.njk" %}
+        <!-- //용어문의 팝업 -->
     {% endblock %}
     {% block scripts %}
         <script>
@@ -238,12 +251,6 @@
                         });
                 }
             };
-
-            //오픈
-            document.addEventListener('UILoaded', function () {
-                var modal = new UXW.Dialog(modal3);
-                modal.open();
-            })
 
             document.addEventListener('DOMContentLoaded', function () {
                 Input.Check();

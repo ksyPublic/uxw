@@ -59,6 +59,12 @@
 .pxh260 {
   height: 260px !important; }
 
+.pxh600 {
+  height: 600px !important; }
+
+.pxh550 {
+  height: 550px !important; }
+
 .ellipsis {
   text-overflow: ellipsis;
   overflow: hidden;
@@ -1052,10 +1058,10 @@ body {
   overflow: hidden;
   margin: 0;
   padding: 0;
-  font-size: 1rem;
+  font-size: 14px;
   letter-spacing: -0.5px;
   background-color: #fbfbfd;
-  line-height: 1; }
+  line-height: 1.25; }
 
 input {
   -webkit-appearance: none;
@@ -1251,6 +1257,22 @@ button {
       border: 1px solid #b9c1c9; }
     .button--type4:disabled {
       background-color: #f3f6fb; }
+  .button--type5 {
+    background-color: #ebeff5;
+    border: 1px solid transparent;
+    color: #121619; }
+    .button--type5:hover {
+      background-color: #f3f6fb;
+      border: 1px solid transparent; }
+    .button--type5:focus {
+      background-color: #ebeff5;
+      border: 1px solid #59a1f1; }
+    .button--type5:active {
+      background-color: #d6dbe1;
+      border: 1px solid transparent; }
+    .button--type5:disabled {
+      background-color: #f3f6fb;
+      color: #b9c1c9; }
   .button-group {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1765,22 +1787,6 @@ label.error {
   color: #c7192b; }
   label.error[aria-hidden='true'] {
     display: none; }
-
-.none-data {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center; }
-  .none-data p {
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 24px;
-    text-align: center; }
 
 .box {
   background-color: #fbfbfd;
@@ -2452,12 +2458,9 @@ input[type='checkbox'] {
           animation-name: fadeOut; }
 
 .search-box {
-  padding-bottom: 20px;
-  margin: 20px auto;
-  border-bottom: 1px solid #ebeff5; }
+  margin: 20px auto 0; }
   .search-box__wrap {
-    max-width: 588px;
-    margin: 0 auto; }
+    max-width: 588px; }
   .search-box .input-box,
   .search-box input {
     height: 58px;
@@ -2703,6 +2706,8 @@ input[type='checkbox'] {
 
 .user-personal {
   padding: 0 24px; }
+  .user-personal h4 {
+    line-height: 28px; }
 
 .cumulative {
   display: -webkit-box;
@@ -2766,7 +2771,15 @@ input[type='checkbox'] {
       .thumnail__content .ic-button:first-child {
         margin-left: 0; }
 
-.data-none--qa {
+.divider {
+  position: relative;
+  width: 100%;
+  margin: 20px 0;
+  height: 1px;
+  background-color: #ebeff5; }
+
+.none-data {
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2776,13 +2789,63 @@ input[type='checkbox'] {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  min-height: 208px; }
-  .data-none--qa p {
-    text-align: center;
+  text-align: center; }
+  .none-data--view p {
     font-weight: 300;
     font-size: 14px;
-    line-height: 24px;
-    color: #121619; }
+    line-height: 24px; }
+  .none-data--info {
+    padding: 0 20px; }
+    .none-data--info p {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 28px;
+      color: #121619; }
+      .none-data--info p:before {
+        content: '';
+        width: 72px;
+        height: 72px;
+        margin: 0 auto;
+        display: block;
+        background: url("../images/ic-exclamation_large_off.png") no-repeat; }
+    .none-data--info__type2 {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-flow: column;
+              flex-flow: column; }
+      .none-data--info__type2 p {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 28px;
+        color: #565c63; }
+      .none-data--info__type2 span {
+        display: block;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 24px;
+        margin-top: 16px; }
+        .none-data--info__type2 span + .button-group {
+          margin-top: 26px; }
+      .none-data--info__type2 p:before {
+        content: '';
+        width: 72px;
+        height: 72px;
+        margin: 0px auto 8px;
+        display: block;
+        background: url("../images/ic-exclamation_large_disabled.png") no-repeat; }
+  .none-data--beinfo p {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 24px; }
+    .none-data--beinfo p:before {
+      display: none; }
+  .none-data--qa {
+    min-height: 208px; }
+    .none-data--qa p {
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 24px;
+      color: #121619; }
 
 .wrap {
   position: relative;
@@ -2989,21 +3052,6 @@ input[type='checkbox'] {
     -webkit-transition: all 0.55s cubic-bezier(0.33, 1, 0.68, 1);
     transition: all 0.55s cubic-bezier(0.33, 1, 0.68, 1); }
 
-.side .none-data {
-  height: 100%; }
-  .side .none-data p {
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 28px;
-    color: #121619; }
-    .side .none-data p:before {
-      content: '';
-      width: 72px;
-      height: 72px;
-      margin: 0 auto;
-      display: block;
-      background: url("../images/ic-exclamation_large_off.png") no-repeat; }
-
 .side__head {
   padding: 40px 40px 0; }
   .side__head + .side__inner {
@@ -3061,5 +3109,7 @@ input[type='checkbox'] {
   border-radius: 8px;
   padding: 40px 24px;
   color: #fff; }
+  .side__frame__wrap h4 {
+    line-height: 28px; }
 
 /*# sourceMappingURL=styles.css.map */

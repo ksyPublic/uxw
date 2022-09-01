@@ -1,0 +1,600 @@
+{# { 데이터가 없는 경우 } #}
+{% if datanone === "true" and all_data_none === "true" %}
+    <div class="tab tab--scroll" id="mainTab" data-ui-tab data-tab-active="0">
+        <div class="title">
+            <h2 class="text ft24 bold">마이페이지</h2>
+            <div class="tab__list" role="tablist">
+                <button type="button" role="tab" id="tablist1" class="tab__button" aria-controls="tabpanel1" aria-selected="false">내 콘텐츠</button>
+                <button type="button" role="tab" id="tablist2" class="tab__button" aria-controls="tabpanel2" aria-selected="false">북마크</button>
+            </div>
+        </div>
+        <div id="tabpanel1" class="tab__panel" role="tabpanel" aria-labelledby="tablist1" tabindex="-1">
+            <!-- 검색박스 영역 -->
+            <div class="search-box">
+                <div class="search-box__wrap">
+                    <div class="input-box">
+                        <input name="search" type="text" class="input" placeholder="검색어을 입력해주세요."/>
+                        <button type="button" class="ic-button-clear" data-visible aria-label="클리어버튼" aria-pressed="false" onclick="Input.ClearButton(this)">
+                            <i class="ic ic-clear" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="ic-button-search" aria-label="검색버튼">
+                            <i class="ic ic-search--small" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- //검색박스 영역 -->
+            <!-- 데이터가 없을시 오픈 -->
+            <div class="none-data none-data--info__type2 pxh600">
+                <p>작성한 글이 없습니다.</p>
+                <span>고객친화적인 글쓰기를 시작해보세요.</span>
+                <div class="button-group">
+                    <button class="button button--type5 button--medium" type="button">작성하기</button>
+                </div>
+            </div>
+            <!-- //데이터가 없을시 오픈 -->
+        </div>
+        <div id="tabpanel2" class="tab__panel" role="tabpanel" aria-labelledby="tablist2" tabindex="-1">
+            <!-- 검색박스 영역 -->
+            <div class="search-box">
+                <div class="search-box__wrap">
+                    <div class="input-box">
+                        <input name="search" type="text" class="input" placeholder="검색어을 입력해주세요."/>
+                        <button type="button" class="ic-button-clear" data-visible aria-label="클리어버튼" aria-pressed="false" onclick="Input.ClearButton(this)">
+                            <i class="ic ic-clear" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="ic-button-search" aria-label="검색버튼">
+                            <i class="ic ic-search--small" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- //검색박스 영역 -->
+            <!-- 데이터가 없을시 오픈 -->
+            <div class="none-data none-data--info__type2 pxh600">
+                <p>작성한 글이 없습니다.</p>
+                <span>고객친화적인 글쓰기를 시작해보세요.</span>
+                <div class="button-group">
+                    <button class="button button--type5 button--medium" type="button">작성하기</button>
+                </div>
+            </div>
+            <!-- //데이터가 없을시 오픈 -->
+        </div>
+    </div>
+    {# { 교정중인 데이터가 없는 경우 } #}
+{% elif datanone === "true" and all_data_none === "false" %}
+    <div class="tab tab--scroll" id="mainTab" data-ui-tab data-tab-active="0">
+        <div class="title">
+            <h2 class="text ft24 bold">마이페이지</h2>
+            <div class="tab__list" role="tablist">
+                <button type="button" role="tab" id="tablist1" class="tab__button" aria-controls="tabpanel1" aria-selected="false">내 콘텐츠</button>
+                <button type="button" role="tab" id="tablist2" class="tab__button" aria-controls="tabpanel2" aria-selected="false">북마크</button>
+            </div>
+        </div>
+        <div id="tabpanel1" class="tab__panel" role="tabpanel" aria-labelledby="tablist1" tabindex="-1">
+            <!-- 검색박스 영역 -->
+            <div class="search-box">
+                <div class="search-box__wrap">
+                    <div class="input-box">
+                        <input name="search" type="text" class="input" placeholder="검색어을 입력해주세요."/>
+                        <button type="button" class="ic-button-clear" data-visible aria-label="클리어버튼" aria-pressed="false" onclick="Input.ClearButton(this)">
+                            <i class="ic ic-clear" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="ic-button-search" aria-label="검색버튼">
+                            <i class="ic ic-search--small" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- //검색박스 영역 -->
+            <div class="divider" aria-hidden="true"></div>
+
+            <div class="title--type2">
+                <div class="total">
+                            총 <span class="total__count">0</span>건
+                        </div>
+                <div class="checkbox-column">
+                    <input type="checkbox" class="checkbox" id="chkd01" name="chkd01" checked/>
+                    <label for="chkd01">교정중 만 보기</label>
+                </div>
+            </div>
+
+            <!-- 내콘텐츠 교정중 데이터가 없을시 오픈 -->
+            <div class="none-data none-data--info__type2 pxh550">
+                <p>교정중인 글이 없습니다.</p>
+                <span>고객친화적인 글쓰기를 시작해 보세요.</span>
+                <div class="button-group">
+                    <button class="button button--type5 button--medium" type="button">작성하기</button>
+                </div>
+            </div>
+            <!-- //내콘텐츠 교정중 데이터가 없을시 오픈 -->
+        </div>
+        <div id="tabpanel2" class="tab__panel" role="tabpanel" aria-labelledby="tablist2" tabindex="-1">
+            <!-- 검색박스 영역 -->
+            <div class="search-box">
+                <div class="search-box__wrap">
+                    <div class="input-box">
+                        <input name="search" type="text" class="input" placeholder="검색어을 입력해주세요."/>
+                        <button type="button" class="ic-button-clear" data-visible aria-label="클리어버튼" aria-pressed="false" onclick="Input.ClearButton(this)">
+                            <i class="ic ic-clear" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="ic-button-search" aria-label="검색버튼">
+                            <i class="ic ic-search--small" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- //검색박스 영역 -->
+            <div class="divider" aria-hidden="true"></div>
+
+            <div class="title--type2">
+                <div class="total">
+                            총 <span class="total__count">0</span>건
+                        </div>
+                <div class="checkbox-column">
+                    <input type="checkbox" class="checkbox" id="chkd02" name="chkd02"/>
+                    <label for="chkd02">교정중 만 보기</label>
+                </div>
+            </div>
+
+            <!-- 북마크 교정중인 글이 없을시 -->
+            <div class="none-data none-data--info__type2 pxh550">
+                <p>북마크한 글이 없습니다.</p>
+                <span>다른 사람이 작성한 글을 북마크 해두고 참고해보세요.</span>
+                <div class="button-group">
+                    <button class="button button--type5 button--medium" type="button">북마크 둘러보기</button>
+                </div>
+            </div>
+            <!-- //북마크 교정중인 글이 없을시 -->
+        </div>
+    </div>
+
+{% else %}
+    {# { 데이터가 있는 경우 } #}
+    <div class="tab tab--scroll" id="mainTab" data-ui-tab data-tab-active="0">
+        <div class="title">
+            <h2 class="text ft24 bold">마이페이지</h2>
+            <div class="tab__list" role="tablist">
+                <button type="button" role="tab" id="tablist1" class="tab__button" aria-controls="tabpanel1" aria-selected="false">내 콘텐츠</button>
+                <button type="button" role="tab" id="tablist2" class="tab__button" aria-controls="tabpanel2" aria-selected="false">북마크</button>
+            </div>
+        </div>
+        <div id="tabpanel1" class="tab__panel" role="tabpanel" aria-labelledby="tablist1" tabindex="-1">
+            <!-- 검색박스 영역 -->
+            <div class="search-box">
+                <div class="search-box__wrap">
+                    <div class="input-box">
+                        <input name="search" type="text" class="input" placeholder="검색어을 입력해주세요."/>
+                        <button type="button" class="ic-button-clear" data-visible aria-label="클리어버튼" aria-pressed="false" onclick="Input.ClearButton(this)">
+                            <i class="ic ic-clear" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="ic-button-search" aria-label="검색버튼">
+                            <i class="ic ic-search--small" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- //검색박스 영역 -->
+            <div class="divider" aria-hidden="true"></div>
+            <div class="title--type2">
+                <div class="total">
+                            총 <span class="total__count">34</span>건
+                        </div>
+                <div class="checkbox-column">
+                    <input type="checkbox" class="checkbox" id="chkd01" name="chkd01"/>
+                    <label for="chkd01">교정중 만 보기</label>
+                </div>
+            </div>
+
+            <!-- 그리드 목록 -->
+            <div class="grid--type2 col4">
+                <div class="grid__box">
+                    <div class="title--type2 flex-end">
+                        <i class="ic-bookmark-y" aria-hidden="true"></i>
+                    </div>
+                    <h4 class="ellipsis">신한은행과 BNP파리</h4>
+                    <div class="grid__content">
+                        <p class="text ellipsis--type5">
+                                    신한은행과 BNP파리바카디프생명이 합작품인 '(무)더세이프대출안심보험' 을 28일 대납하는 대출상품으로 새롭게 고객들에 선보이는 이벤트로 참여자 전원
+                                </p>
+                    </div>
+                    <div class="thumnail" data-visible>
+                        <div class="thumnail__content">
+                            <a href="#none" type="button" class="ic-button" aria-label="상세보기">
+                                <i class="ic ic-move-w" aria-hidden="true"></i>
+                            </a>
+                            <button type="button" class="ic-button" aria-label="북마크" data-toggle="true" onclick="bookAdd(this)">
+                                <i class="ic ic-bookmark" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="ic-button" aria-label="삭제">
+                                <i class="ic ic-delete-w" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid__box">
+                    <div class="title--type2">
+                        <span class="grid__ct">교정중</span>
+                    </div>
+                    <h4 class="ellipsis">미상환 위험 대비의 필요성</h4>
+                    <div class="grid__content">
+                        <p class="text ellipsis--type5">
+                                    신가구의 DTI가 낮아질 것으로 예상돼 대출 미상환 위험 대비의 필요성이 한층 가중되고 있다. 더 세이프 대출안심대출에 신규 투자..
+                                </p>
+                    </div>
+                    <div class="thumnail" data-visible>
+                        <div class="thumnail__content">
+                            <a href="#none" type="button" class="ic-button" aria-label="교정하기">
+                                <i class="ic ic-writing-w" aria-hidden="true"></i>
+                            </a>
+                            <button type="button" class="ic-button" aria-label="삭제">
+                                <i class="ic ic-delete-w" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid__box">
+                    <div class="title--type2 flex-end">
+                        <i class="ic-bookmark-y" aria-hidden="true"></i>
+                    </div>
+                    <h4 class="ellipsis">신한은행과 BNP파리</h4>
+                    <div class="grid__content">
+                        <p class="text ellipsis--type5">
+                                    신한은행과 BNP파리바카디프생명이 합작품인 '(무)더세이프대출안심보험' 을 28일 대납하는 대출상품으로 새롭게 고객들에 선보이는 이벤트로 참여자 전원
+                                </p>
+                    </div>
+                    <div class="thumnail" data-visible>
+                        <div class="thumnail__content">
+                            <a href="#none" type="button" class="ic-button" aria-label="상세보기">
+                                <i class="ic ic-move-w" aria-hidden="true"></i>
+                            </a>
+                            <button type="button" class="ic-button" aria-label="북마크" data-toggle="false" onclick="bookAdd(this)">
+                                <i class="ic ic-bookmark" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="ic-button" aria-label="삭제">
+                                <i class="ic ic-delete-w" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid__box">
+                    <div class="title--type2">
+                        <span class="grid__ct">교정중</span>
+                    </div>
+                    <h4 class="ellipsis">미상환 위험 대비의 필요성</h4>
+                    <div class="grid__content">
+                        <p class="text ellipsis--type5">
+                                    신가구의 DTI가 낮아질 것으로 예상돼 대출 미상환 위험 대비의 필요성이 한층 가중되고 있다. 더 세이프 대출안심대출에 신규 투자..
+                                </p>
+                    </div>
+                    <div class="thumnail" data-visible>
+                        <div class="thumnail__content">
+                            <a href="#none" type="button" class="ic-button" aria-label="교정하기">
+                                <i class="ic ic-writing-w" aria-hidden="true"></i>
+                            </a>
+                            <button type="button" class="ic-button" aria-label="삭제">
+                                <i class="ic ic-delete-w" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid__box">
+                    <div class="title--type2 flex-end">
+                        <i class="ic-bookmark-y" aria-hidden="true"></i>
+                    </div>
+                    <h4 class="ellipsis">신한은행과 BNP파리</h4>
+                    <div class="grid__content">
+                        <p class="text ellipsis--type5">
+                                    신한은행과 BNP파리바카디프생명이 합작품인 '(무)더세이프대출안심보험' 을 28일 대납하는 대출상품으로 새롭게 고객들에 선보이는 이벤트로 참여자 전원
+                                </p>
+                    </div>
+                    <div class="thumnail" data-visible>
+                        <div class="thumnail__content">
+                            <a href="#none" type="button" class="ic-button" aria-label="상세보기">
+                                <i class="ic ic-move-w" aria-hidden="true"></i>
+                            </a>
+                            <button type="button" class="ic-button" aria-label="북마크" data-toggle="true" onclick="bookAdd(this)">
+                                <i class="ic ic-bookmark" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="ic-button" aria-label="삭제">
+                                <i class="ic ic-delete-w" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid__box">
+                    <div class="title--type2">
+                        <span class="grid__ct">교정중</span>
+                    </div>
+                    <h4 class="ellipsis">미상환 위험 대비의 필요성</h4>
+                    <div class="grid__content">
+                        <p class="text ellipsis--type5">
+                                    신가구의 DTI가 낮아질 것으로 예상돼 대출 미상환 위험 대비의 필요성이 한층 가중되고 있다. 더 세이프 대출안심대출에 신규 투자..
+                                </p>
+                    </div>
+                    <div class="thumnail" data-visible>
+                        <div class="thumnail__content">
+                            <a href="#none" type="button" class="ic-button" aria-label="교정하기">
+                                <i class="ic ic-writing-w" aria-hidden="true"></i>
+                            </a>
+                            <button type="button" class="ic-button" aria-label="삭제">
+                                <i class="ic ic-delete-w" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid__box">
+                    <div class="title--type2 flex-end">
+                        <i class="ic-bookmark-y" aria-hidden="true"></i>
+                    </div>
+                    <h4 class="ellipsis">신한은행과 BNP파리</h4>
+                    <div class="grid__content">
+                        <p class="text ellipsis--type5">
+                                    신한은행과 BNP파리바카디프생명이 합작품인 '(무)더세이프대출안심보험' 을 28일 대납하는 대출상품으로 새롭게 고객들에 선보이는 이벤트로 참여자 전원
+                                </p>
+                    </div>
+                    <div class="thumnail" data-visible>
+                        <div class="thumnail__content">
+                            <a href="#none" type="button" class="ic-button" aria-label="상세보기">
+                                <i class="ic ic-move-w" aria-hidden="true"></i>
+                            </a>
+                            <button type="button" class="ic-button" aria-label="북마크" data-toggle="false" onclick="bookAdd(this)">
+                                <i class="ic ic-bookmark" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="ic-button" aria-label="삭제">
+                                <i class="ic ic-delete-w" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid__box">
+                    <div class="title--type2">
+                        <span class="grid__ct">교정중</span>
+                    </div>
+                    <h4 class="ellipsis">미상환 위험 대비의 필요성</h4>
+                    <div class="grid__content">
+                        <p class="text ellipsis--type5">
+                                    신가구의 DTI가 낮아질 것으로 예상돼 대출 미상환 위험 대비의 필요성이 한층 가중되고 있다. 더 세이프 대출안심대출에 신규 투자..
+                                </p>
+                    </div>
+                    <div class="thumnail" data-visible>
+                        <div class="thumnail__content">
+                            <a href="#none" type="button" class="ic-button" aria-label="교정하기">
+                                <i class="ic ic-writing-w" aria-hidden="true"></i>
+                            </a>
+                            <button type="button" class="ic-button" aria-label="삭제">
+                                <i class="ic ic-delete-w" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- //그리드 목록 -->
+
+            <!-- 페이지네이션 -->
+            {% include "../base/pagination.njk" %}
+            <!-- //페이지네이션 -->
+        </div>
+
+        <div id="tabpanel2" class="tab__panel" role="tabpanel" aria-labelledby="tablist2" tabindex="-1">
+            <!-- 검색박스 영역 -->
+            <div class="search-box">
+                <div class="search-box__wrap">
+                    <div class="input-box">
+                        <input name="search" type="text" class="input" placeholder="검색어을 입력해주세요."/>
+                        <button type="button" class="ic-button-clear" data-visible aria-label="클리어버튼" aria-pressed="false" onclick="Input.ClearButton(this)">
+                            <i class="ic ic-clear" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="ic-button-search" aria-label="검색버튼">
+                            <i class="ic ic-search--small" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- //검색박스 영역 -->
+            <div class="divider" aria-hidden="true"></div>
+            <div class="title--type2">
+                <div class="total">
+                            총 <span class="total__count">34</span>건
+                        </div>
+                <div class="checkbox-column">
+                    <input type="checkbox" class="checkbox" id="chkd02" name="chkd02"/>
+                    <label for="chkd02">교정중 만 보기</label>
+                </div>
+            </div>
+
+            <!-- 그리드 목록 -->
+            <div class="grid--type2 col4">
+                <div class="grid__box">
+                    <div class="title--type2">
+                        <span class="grid__ct--grey">내부서</span>
+                        <i class="ic-bookmark-y" aria-hidden="true"></i>
+                    </div>
+                    <h4 class="ellipsis">신한은행과 BNP파리</h4>
+                    <div class="grid__content">
+                        <p class="text ellipsis--type5">
+                                    신한은행과 BNP파리바카디프생명이 합작품인 '(무)더세이프대출안심보험' 을 28일 대납하는 대출상품으로 새롭게 고객들에 선보이는 이벤트로 참여자 전원
+                                </p>
+                    </div>
+                    <div class="thumnail" data-visible>
+                        <div class="thumnail__content">
+                            <a href="#none" type="button" class="ic-button" aria-label="상세보기">
+                                <i class="ic ic-move-w" aria-hidden="true"></i>
+                            </a>
+                            <button type="button" class="ic-button" aria-label="북마크" data-toggle="true" onclick="bookRemove(this)">
+                                <i class="ic ic-bookmark" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="ic-button" aria-label="삭제">
+                                <i class="ic ic-delete-w" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid__box">
+                    <div class="title--type2 flex-end">
+                        <i class="ic-bookmark-y" aria-hidden="true"></i>
+                    </div>
+                    <h4 class="ellipsis">미상환 위험 대비의 필요성</h4>
+                    <div class="grid__content">
+                        <p class="text ellipsis--type5">
+                                    신가구의 DTI가 낮아질 것으로 예상돼 대출 미상환 위험 대비의 필요성이 한층 가중되고 있다. 더 세이프 대출안심대출에 신규 투자..
+                                </p>
+                    </div>
+                    <div class="thumnail" data-visible>
+                        <div class="thumnail__content">
+                            <a href="#none" type="button" class="ic-button" aria-label="상세보기">
+                                <i class="ic ic-move-w" aria-hidden="true"></i>
+                            </a>
+                            <button type="button" class="ic-button" aria-label="삭제">
+                                <i class="ic ic-delete-w" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid__box">
+                    <div class="title--type2">
+                        <span class="grid__ct--grey">내부서</span>
+                        <i class="ic-bookmark-y" aria-hidden="true"></i>
+                    </div>
+                    <h4 class="ellipsis">신한은행과 BNP파리</h4>
+                    <div class="grid__content">
+                        <p class="text ellipsis--type5">
+                                    신한은행과 BNP파리바카디프생명이 합작품인 '(무)더세이프대출안심보험' 을 28일 대납하는 대출상품으로 새롭게 고객들에 선보이는 이벤트로 참여자 전원
+                                </p>
+                    </div>
+                    <div class="thumnail" data-visible>
+                        <div class="thumnail__content">
+                            <a href="#none" type="button" class="ic-button" aria-label="상세보기">
+                                <i class="ic ic-move-w" aria-hidden="true"></i>
+                            </a>
+                            <button type="button" class="ic-button" aria-label="북마크" data-toggle="true" onclick="bookRemove(this)">
+                                <i class="ic ic-bookmark" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="ic-button" aria-label="삭제">
+                                <i class="ic ic-delete-w" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid__box">
+                    <div class="title--type2 flex-end">
+                        <i class="ic-bookmark-y" aria-hidden="true"></i>
+                    </div>
+                    <h4 class="ellipsis">미상환 위험 대비의 필요성</h4>
+                    <div class="grid__content">
+                        <p class="text ellipsis--type5">
+                                    신가구의 DTI가 낮아질 것으로 예상돼 대출 미상환 위험 대비의 필요성이 한층 가중되고 있다. 더 세이프 대출안심대출에 신규 투자..
+                                </p>
+                    </div>
+                    <div class="thumnail" data-visible>
+                        <div class="thumnail__content">
+                            <a href="#none" type="button" class="ic-button" aria-label="상세보기">
+                                <i class="ic ic-move-w" aria-hidden="true"></i>
+                            </a>
+                            <button type="button" class="ic-button" aria-label="삭제">
+                                <i class="ic ic-delete-w" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid__box">
+                    <div class="title--type2">
+                        <span class="grid__ct--grey">내부서</span>
+                        <i class="ic-bookmark-y" aria-hidden="true"></i>
+                    </div>
+                    <h4 class="ellipsis">신한은행과 BNP파리</h4>
+                    <div class="grid__content">
+                        <p class="text ellipsis--type5">
+                                    신한은행과 BNP파리바카디프생명이 합작품인 '(무)더세이프대출안심보험' 을 28일 대납하는 대출상품으로 새롭게 고객들에 선보이는 이벤트로 참여자 전원
+                                </p>
+                    </div>
+                    <div class="thumnail" data-visible>
+                        <div class="thumnail__content">
+                            <a href="#none" type="button" class="ic-button" aria-label="상세보기">
+                                <i class="ic ic-move-w" aria-hidden="true"></i>
+                            </a>
+                            <button type="button" class="ic-button" aria-label="북마크" data-toggle="true" onclick="bookRemove(this)">
+                                <i class="ic ic-bookmark" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="ic-button" aria-label="삭제">
+                                <i class="ic ic-delete-w" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid__box">
+                    <div class="title--type2 flex-end">
+                        <i class="ic-bookmark-y" aria-hidden="true"></i>
+                    </div>
+                    <h4 class="ellipsis">미상환 위험 대비의 필요성</h4>
+                    <div class="grid__content">
+                        <p class="text ellipsis--type5">
+                                    신가구의 DTI가 낮아질 것으로 예상돼 대출 미상환 위험 대비의 필요성이 한층 가중되고 있다. 더 세이프 대출안심대출에 신규 투자..
+                                </p>
+                    </div>
+                    <div class="thumnail" data-visible>
+                        <div class="thumnail__content">
+                            <a href="#none" type="button" class="ic-button" aria-label="상세보기">
+                                <i class="ic ic-move-w" aria-hidden="true"></i>
+                            </a>
+                            <button type="button" class="ic-button" aria-label="삭제">
+                                <i class="ic ic-delete-w" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid__box">
+                    <div class="title--type2">
+                        <span class="grid__ct--grey">내부서</span>
+                        <i class="ic-bookmark-y" aria-hidden="true"></i>
+                    </div>
+                    <h4 class="ellipsis">신한은행과 BNP파리</h4>
+                    <div class="grid__content">
+                        <p class="text ellipsis--type5">
+                                    신한은행과 BNP파리바카디프생명이 합작품인 '(무)더세이프대출안심보험' 을 28일 대납하는 대출상품으로 새롭게 고객들에 선보이는 이벤트로 참여자 전원
+                                </p>
+                    </div>
+                    <div class="thumnail" data-visible>
+                        <div class="thumnail__content">
+                            <a href="#none" type="button" class="ic-button" aria-label="상세보기">
+                                <i class="ic ic-move-w" aria-hidden="true"></i>
+                            </a>
+                            <button type="button" class="ic-button" aria-label="북마크" data-toggle="true" onclick="bookRemove(this)">
+                                <i class="ic ic-bookmark" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="ic-button" aria-label="삭제">
+                                <i class="ic ic-delete-w" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid__box">
+                    <div class="title--type2 flex-end">
+                        <i class="ic-bookmark-y" aria-hidden="true"></i>
+                    </div>
+                    <h4 class="ellipsis">미상환 위험 대비의 필요성</h4>
+                    <div class="grid__content">
+                        <p class="text ellipsis--type5">
+                                    신가구의 DTI가 낮아질 것으로 예상돼 대출 미상환 위험 대비의 필요성이 한층 가중되고 있다. 더 세이프 대출안심대출에 신규 투자..
+                                </p>
+                    </div>
+                    <div class="thumnail" data-visible>
+                        <div class="thumnail__content">
+                            <a href="#none" type="button" class="ic-button" aria-label="상세보기">
+                                <i class="ic ic-move-w" aria-hidden="true"></i>
+                            </a>
+                            <button type="button" class="ic-button" aria-label="삭제">
+                                <i class="ic ic-delete-w" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- //그리드 목록 -->
+
+            <!-- 페이지네이션 -->
+            {% include "../base/pagination.njk" %}
+            <!-- //페이지네이션 -->
+        </div>
+    </div>
+{% endif %}

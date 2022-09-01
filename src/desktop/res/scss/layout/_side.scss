@@ -1,22 +1,4 @@
 .side {
-    .none-data {
-        height: 100%;
-        p {
-            font-weight: 500;
-            font-size: 18px;
-            line-height: 28px;
-            color: color(grey, 900);
-
-            &:before {
-                content: '';
-                width: 72px;
-                height: 72px;
-                margin: 0 auto;
-                display: block;
-                background: url('../images/ic-exclamation_large_off.png') no-repeat;
-            }
-        }
-    }
     &__head {
         padding: 40px 40px 0;
 
@@ -81,5 +63,9 @@
 
         padding: 40px 24px;
         color: $white;
+
+        h4 {
+            line-height: 28px;
+        }
     }
 }

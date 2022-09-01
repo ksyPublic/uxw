@@ -14,6 +14,26 @@ const getObjectElements = function (elements) {
     return arr;
 };
 
+const autoScrollContent = () => {
+    const lyContentBox = document.querySelector('.ly-content-box');
+    if (!lyContentBox) {
+        return;
+    }
+    const tabs = lyContentBox.querySelectorAll('.tab');
+
+    if (tabs.length > 0) {
+        Object.assign(lyContentBox.style, {
+            height: '100%',
+            overflow: 'hidden',
+        });
+    } else {
+        Object.assign(lyContentBox.style, {
+            height: '100%',
+            overflow: 'auto',
+        });
+    }
+};
+
 const cardRefresh = () => {
     const card = 'data-card';
     const ARIA_PRESSED = 'aria-pressed';
@@ -106,6 +126,7 @@ const navigation = function (UI) {
 const initFunc = () => {
     navigation('[role="navigation"]');
     cardRefresh();
+    autoScrollContent();
 };
 
 const initialize = () => {};

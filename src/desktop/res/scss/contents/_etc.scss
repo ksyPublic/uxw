@@ -35,6 +35,9 @@
 }
 
 .user-personal {
+    h4 {
+        line-height: 28px;
+    }
     padding: 0 24px;
 }
 
@@ -98,15 +101,92 @@
     }
 }
 
-.data-none {
+.divider {
+    position: relative;
+    width: 100%;
+    margin: 20px 0;
+    height: 1px;
+    background-color: color(grey, 200);
+}
+
+.none-data {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    &--view {
+        p {
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 24px;
+        }
+    }
+
+    &--info {
+        padding: 0 20px;
+        p {
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 28px;
+            color: color(grey, 900);
+
+            &:before {
+                content: '';
+                width: 72px;
+                height: 72px;
+                margin: 0 auto;
+                display: block;
+                background: url('../images/ic-exclamation_large_off.png') no-repeat;
+            }
+        }
+
+        &__type2 {
+            flex-flow: column;
+            p {
+                font-weight: 500;
+                font-size: 18px;
+                line-height: 28px;
+                color: color(grey, 600);
+            }
+
+            span {
+                display: block;
+                font-weight: 300;
+                font-size: 14px;
+                line-height: 24px;
+                margin-top: 16px;
+
+                + .button-group {
+                    margin-top: 26px;
+                }
+            }
+            p:before {
+                content: '';
+                width: 72px;
+                height: 72px;
+                margin: 0px auto 8px;
+                display: block;
+                background: url('../images/ic-exclamation_large_disabled.png') no-repeat;
+            }
+        }
+    }
+
+    &--beinfo {
+        p {
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 24px;
+            &:before {
+                display: none;
+            }
+        }
+    }
+
     &--qa {
-        display: flex;
-        align-items: center;
-        justify-content: center;
         min-height: 208px;
 
         p {
-            text-align: center;
             font-weight: 300;
             font-size: 14px;
             line-height: 24px;

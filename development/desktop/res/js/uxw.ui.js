@@ -6389,12 +6389,14 @@ if (typeof Element !== "undefined") {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.object.to-string.js */ "./node_modules/core-js/modules/es.object.to-string.js");
-/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each.js */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
-/* harmony import */ var core_js_modules_es_regexp_exec_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.regexp.exec.js */ "./node_modules/core-js/modules/es.regexp.exec.js");
-/* harmony import */ var core_js_modules_es_string_match_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es.string.match.js */ "./node_modules/core-js/modules/es.string.match.js");
-/* harmony import */ var element_closest_polyfill__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! element-closest-polyfill */ "./node_modules/element-closest-polyfill/index.js");
-/* harmony import */ var _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./vendor/EventHandler */ "./src/desktop/res/js/vendor/EventHandler.js");
+/* harmony import */ var core_js_modules_es_object_assign_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.object.assign.js */ "./node_modules/core-js/modules/es.object.assign.js");
+/* harmony import */ var core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.object.to-string.js */ "./node_modules/core-js/modules/es.object.to-string.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each.js */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_es_regexp_exec_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es.regexp.exec.js */ "./node_modules/core-js/modules/es.regexp.exec.js");
+/* harmony import */ var core_js_modules_es_string_match_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! core-js/modules/es.string.match.js */ "./node_modules/core-js/modules/es.string.match.js");
+/* harmony import */ var element_closest_polyfill__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! element-closest-polyfill */ "./node_modules/element-closest-polyfill/index.js");
+/* harmony import */ var _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./vendor/EventHandler */ "./src/desktop/res/js/vendor/EventHandler.js");
+
 
 
 
@@ -6416,6 +6418,28 @@ var getObjectElements = function getObjectElements(elements) {
   return arr;
 };
 
+var autoScrollContent = function autoScrollContent() {
+  var lyContentBox = document.querySelector('.ly-content-box');
+
+  if (!lyContentBox) {
+    return;
+  }
+
+  var tabs = lyContentBox.querySelectorAll('.tab');
+
+  if (tabs.length > 0) {
+    Object.assign(lyContentBox.style, {
+      height: '100%',
+      overflow: 'hidden'
+    });
+  } else {
+    Object.assign(lyContentBox.style, {
+      height: '100%',
+      overflow: 'auto'
+    });
+  }
+};
+
 var cardRefresh = function cardRefresh() {
   var card = 'data-card';
   var ARIA_PRESSED = 'aria-pressed';
@@ -6428,7 +6452,7 @@ var cardRefresh = function cardRefresh() {
   elements.forEach(function (item) {
     var isCard = item.getAttribute(card);
     var refresh = item.querySelector('.ic-button-refresh');
-    _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_5__["default"].on(refresh, 'click', function (event) {
+    _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_6__["default"].on(refresh, 'click', function (event) {
       if (isCard) {
         event.currentTarget.setAttribute(ARIA_PRESSED, false);
 
@@ -6469,7 +6493,7 @@ var navigation = function navigation(UI) {
     }
 
     _config.target.forEach(function (item) {
-      _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_5__["default"].on(item, 'click', navClickable);
+      _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_6__["default"].on(item, 'click', navClickable);
     });
   };
 
@@ -6512,6 +6536,7 @@ var navigation = function navigation(UI) {
 var initFunc = function initFunc() {
   navigation('[role="navigation"]');
   cardRefresh();
+  autoScrollContent();
 };
 
 var initialize = function initialize() {};
