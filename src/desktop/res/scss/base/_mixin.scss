@@ -1,103 +1,172 @@
 @mixin clearFix {
-    &:after {
-        content: '';
-        display: block;
-        clear: both;
-    }
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
 }
 
 @mixin nav__for--aria-expanded($root) {
-    &[aria-expanded='true'] {
-        background-color: transparent;
-        border: 1px solid transparent;
-        max-width: 100%;
-        box-shadow: none;
+  &[aria-expanded='true'] {
+    background-color: transparent;
+    border: 1px solid transparent;
+    max-width: 100%;
+    box-shadow: none;
 
-        .text {
-            opacity: 1;
-            visibility: visible;
-            transition: all 0.6s cubic-bezier(0.33, 1, 0.68, 1);
-        }
-
-        + .#{$root} {
-            &__tooltip {
-                opacity: 0;
-                transition: all 0.6s cubic-bezier(0.33, 1, 0.68, 1);
-            }
-        }
-
-        .nav__item {
-            max-width: 100%;
-        }
+    .text {
+      opacity: 1;
+      visibility: visible;
+      transition: all 0.6s cubic-bezier(0.33, 1, 0.68, 1);
     }
+
+    + .#{$root} {
+      &__tooltip {
+        opacity: 0;
+        transition: all 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+      }
+    }
+
+    .nav__item {
+      max-width: 100%;
+    }
+  }
 }
 
 @mixin card__for--interation($root) {
-    &[data-card='true'] {
-        overflow: hidden;
-        background-color: color(blue, 800);
-        .ic-button-refresh {
-            display: block;
-            position: absolute;
-            right: 24px;
-            top: calc(50% - 12px);
-        }
-
-        .#{$root} {
-            &__head__inner {
-                background-color: color(blue, 800);
-
-                .expresstion-list {
-                    margin-left: 0;
-                    > span {
-                        display: none;
-                    }
-
-                    .ic-expresstion-arrow--type2 {
-                        margin-left: 0;
-                        background: url('../images/ic-expression-arrow.png') no-repeat;
-                    }
-
-                    .dropdown {
-                        width: calc(100% - 64px);
-                        label {
-                            width: 100%;
-                            color: $white;
-                        }
-                        &__button {
-                            pointer-events: none;
-                            color: $white;
-                            display: none;
-                        }
-                    }
-                }
-            }
-
-            &__fixed {
-                min-height: 0;
-                height: 0;
-                padding: 0;
-            }
-
-            &__button {
-                pointer-events: none;
-                &:after {
-                    display: none;
-                }
-            }
-
-            &__refresh {
-                transform: rotate(-180deg);
-            }
-
-            &__check {
-                display: none;
-                pointer-events: none;
-            }
-
-            &__panel {
-                height: 0;
-            }
-        }
+  &[data-card='true'] {
+    overflow: hidden;
+    background-color: color(blue, 800);
+    .ic-button-refresh {
+      display: block;
+      position: absolute;
+      right: 24px;
+      top: calc(50% - 12px);
     }
+
+    .#{$root} {
+      &__head__inner {
+        background-color: color(blue, 800);
+
+        .expresstion-list {
+          margin-left: 0;
+          > span {
+            display: none;
+          }
+
+          .ic-expresstion-arrow--type2 {
+            margin-left: 0;
+            background: url('../images/ic-expression-arrow.png') no-repeat;
+          }
+
+          .dropdown {
+            width: calc(100% - 64px);
+            label {
+              width: 100%;
+              color: $white;
+            }
+            &__button {
+              pointer-events: none;
+              color: $white;
+              display: none;
+            }
+          }
+        }
+      }
+
+      &__fixed {
+        min-height: 0;
+        height: 0;
+        padding: 0;
+      }
+
+      &__button {
+        pointer-events: none;
+        &:after {
+          display: none;
+        }
+      }
+
+      &__refresh {
+        transform: rotate(-180deg);
+      }
+
+      &__check {
+        display: none;
+        pointer-events: none;
+      }
+
+      &__panel {
+        height: 0;
+      }
+    }
+  }
+}
+
+@mixin list--type3__aria {
+  &:focus,
+  &:active,
+  &:hover {
+    transition: all 0.3s ease;
+  }
+
+  &:disabled {
+    pointer-events: none;
+
+    + .list--type3 {
+      $root: list;
+
+      .#{$root}__row {
+        .#{$root}__item span,
+        .#{$root}__item b {
+          color: color(grey, 400);
+        }
+      }
+
+      .ic-download {
+        cursor: no-drop;
+        background: url('../images/ic-download.png') no-repeat;
+      }
+    }
+  }
+
+  &:focus {
+    + .list--type3 {
+      $root: list;
+
+      .#{$root}__row {
+        .#{$root}__item:nth-child(2) span,
+        .#{$root}__item:nth-child(2) b {
+          border: 1px solid color(blue, 800);
+        }
+      }
+    }
+  }
+
+  &:active {
+    background-color: color(grey, 200);
+    + .list--type3 {
+      $root: list;
+
+      .#{$root}__row {
+        .#{$root}__item span,
+        .#{$root}__item b {
+          position: relative;
+          z-index: 1;
+        }
+      }
+    }
+  }
+
+  &:hover {
+    + .list--type3 {
+      $root: list;
+
+      .#{$root}__row {
+        .#{$root}__item:nth-child(2) {
+          font-weight: 700;
+          color: color(grey, 700);
+        }
+      }
+    }
+  }
 }

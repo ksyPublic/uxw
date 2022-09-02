@@ -1,90 +1,118 @@
 .textarea {
-    $root: textarea;
+  $root: textarea;
 
-    width: 100%;
-    resize: none;
-    font-weight: 300;
-    font-size: 18px;
-    line-height: 28px;
-    font-family: $font-family-base;
-    background-color: $body-base-color;
-    padding: 20px;
+  width: 100%;
+  resize: none;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 28px;
+  font-family: $font-family-base;
+  background-color: $body-base-color;
+  padding: 20px;
+  border-radius: 6px;
+  border: 1px solid color(grey, 200);
+  box-sizing: border-box;
+
+  &--type2 {
+    background-color: color(grey, 50) !important;
+    color: color(grey, 600);
+    border: 1px solid color(grey, 300);
+  }
+
+  &-box {
     border-radius: 6px;
     border: 1px solid color(grey, 200);
-    box-sizing: border-box;
-
-    &--type2 {
-        background-color: color(grey, 50) !important;
-        color: color(grey, 600);
-        border: 1px solid color(grey, 300);
+    background-color: $body-base-color;
+    .divider {
+      width: auto;
+      margin: 0 20px;
+      padding: 0 20px;
+    }
+    .textarea {
+      border-radius: 0;
+      border: 0;
     }
 
-    &--base {
-        min-height: 500px;
-        line-height: 40px;
+    .text-date {
+      margin: 8px 0 10px 0;
+      padding: 0 20px;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 20px;
+      color: color(grey, 400);
     }
+  }
 
-    &--tiny {
-        min-height: 208px;
-        font-weight: 300;
-        font-size: 14px;
-        line-height: 24px;
-    }
+  &--base {
+    min-height: 500px;
+    line-height: 40px;
+  }
 
-    &--max {
-        line-height: 24px;
-    }
+  &--tiny {
+    min-height: 208px;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 24px;
+  }
 
-    &::placeholder {
-        color: color(grey, 400);
-    }
+  &--max {
+    line-height: 24px;
+  }
 
+  &::placeholder {
+    color: color(grey, 400);
+  }
+
+  &:focus {
+    border: 1px solid color(blue, 800) !important;
+    outline: 0 !important;
+  }
+
+  &:read-only {
+    border: 1px solid transparent !important;
+  }
+
+  &.error {
     &:focus {
-        border: 1px solid color(blue, 800) !important;
-        outline: 0 !important;
+      border: 1px solid color(red, 700) !important;
+    }
+  }
+
+  &__lengths {
+    margin-top: 4px;
+    display: block;
+    font-size: 14px;
+    font-weight: 300;
+    height: 20px;
+    padding: 0 8px 0 0;
+    @include clearFix;
+
+    &__box {
+      float: right;
+    }
+
+    label.error {
+      float: left;
+      margin-top: 0;
     }
 
     &.error {
-        &:focus {
-            border: 1px solid color(red, 700) !important;
+      font-size: 14px;
+      .#{$root} {
+        &__lengths--current {
+          color: color(red, 700);
         }
+      }
     }
 
-    &__lengths {
-        margin-top: 4px;
-        display: block;
-        font-size: 14px;
-        font-weight: 300;
-        height: 20px;
-        padding: 0 8px 0 0;
-        @include clearFix;
-
-        &__box {
-            float: right;
-        }
-
-        label.error {
-            float: left;
-            margin-top: 0;
-        }
-
-        &.error {
-            font-size: 14px;
-            .#{$root} {
-                &__lengths--current {
-                    color: color(red, 700);
-                }
-            }
-        }
-
-        &--current {
-            position: relative;
-            margin-right: 4px;
-            color: color(blue, 800);
-        }
-
-        &--total {
-            color: color(grey, 600);
-        }
+    &--current {
+      position: relative;
+      margin-right: 4px;
+      color: color(blue, 800);
     }
+
+    &--total {
+      color: color(grey, 600);
+    }
+  }
 }

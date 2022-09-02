@@ -190,7 +190,7 @@ if (window.UXW) {
         initialize();
         commonInit.initFunc();
         EventHandler.trigger(document, 'UILoaded');
-        console.log('UI Initialized!');
+        console.log('UI Load');
     });
 }
 

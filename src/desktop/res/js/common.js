@@ -15,22 +15,26 @@ const getObjectElements = function (elements) {
 };
 
 const autoScrollContent = () => {
-    const lyContentBox = document.querySelector('.ly-content-box');
-    if (!lyContentBox) {
-        return;
-    }
-    const tabs = lyContentBox.querySelectorAll('.tab');
+    const lyContainer = document.querySelector('.ly-container');
+    const tabs = lyContainer.querySelectorAll('.tab');
+    const side = document.querySelector('.side');
 
-    if (tabs.length > 0) {
-        Object.assign(lyContentBox.style, {
-            height: '100%',
-            overflow: 'hidden',
-        });
+    if (!tabs) {
+        return;
     } else {
-        Object.assign(lyContentBox.style, {
-            height: '100%',
-            overflow: 'auto',
-        });
+        if (tabs.length > 0 && side) {
+            document.body.classList.remove('is-beside');
+            Object.assign(lyContainer.style, {
+                height: '100%',
+                overflow: 'hidden',
+            });
+        } else {
+            document.body.classList.add('is-beside');
+            Object.assign(lyContainer.style, {
+                height: '100%',
+                overflow: 'auto',
+            });
+        }
     }
 };
 

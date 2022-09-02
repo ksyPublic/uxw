@@ -1,0 +1,54 @@
+{% macro item(pind = 'false', text, headerId, panelId, panelText, count, columnDate, btndownload = 'false', option) %}
+  <div class="accordion__item">
+    <div class="accordion__head">
+      {% if option === "true"%}
+        <button class="accordion__button" id="{{headerId}}" type="button" aria-expanded="false" aria-controls="{{panelId}}" aria-label="버튼" disabled></button>
+      {% else %}
+        <button class="accordion__button" id="{{headerId}}" type="button" aria-expanded="false" aria-controls="{{panelId}}" aria-label="버튼"></button>
+      {% endif %}
+      <div class="list list--type3">
+        <div class="list__group">
+          <div class="list__row">
+            {% if pind === 'true' %}
+              <div class="list__item">
+                <span aria-hidden="true">
+                  <i class="ic ic-pind" aria-hidden="true"></i>
+                </span>
+              </div>
+            {% else %}
+              <div class="list__item">
+                <span>66</span>
+              </div>
+            {% endif %}
+            <div class="list__item left">
+              {% if pind === 'true'%}
+                <b aria-hidden="true">{{text}}</b>
+              {% else %}
+                <span aria-hidden="true">{{text}}</span>
+              {% endif %}
+            </div>
+            <div class="list__item">
+              {% if btndownload === 'true'%}
+                <button type="button" class="ic-button" aria-label="다운로드">
+                  <i class="ic ic-download" aria-hidden="true"></i>
+                </button>
+              {% endif %}
+            </div>
+            <div class="list__item">
+              <span aria-hidden="true">{{columnDate}}</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="accordion__panel expand" id="{{panelId}}" aria-labelledby="{{headerId}}">
+      <div class="accordion__inner">
+        <div class="list list--type2">
+          <div class="list__item">
+            <label class="label" aria-hidden="true"></label>
+            <p class="text">{{panelText}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endmacro %}

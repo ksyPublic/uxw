@@ -1,128 +1,134 @@
 .modal {
-    $root: modal;
+  $root: modal;
 
-    position: fixed;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $zindex-modal;
+  display: none;
+  outline: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  .textarea {
+    background-color: $white;
+  }
+
+  &--confirm {
+    .#{$root}__content {
+      width: 335px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .#{$root}__body {
+      padding: 32px 20px;
+      text-align: center;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 24px;
+      color: color(grey, 900);
+    }
+    .button--type4 {
+      border: 0;
+      background-color: color(grey, 200);
+    }
+  }
+
+  &--medium {
+    .#{$root}__content {
+      width: 560px;
+    }
+  }
+
+  &__dialog {
+    position: absolute;
     top: 0;
-    right: 0;
-    bottom: 0;
     left: 0;
-    z-index: $zindex-modal;
-    display: none;
-    outline: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    &--type2 {
+      .#{$root}__body {
+        padding: 10px 20px 30px;
+      }
+    }
+  }
+
+  &__header {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 56px;
+    justify-content: space-between;
+    padding: 0 20px;
+    border-bottom: 1px solid color(grey, 200);
+
+    &__inner {
+      display: flex;
+      align-items: center;
+
+      .label-ct {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  &__title {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  &__content {
+    position: relative;
+    max-height: 90vh;
     overflow-x: hidden;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: $white;
+  }
 
-    .textarea {
-        background-color: $white;
+  &__body {
+    padding: 24px 20px;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    button {
+      border-radius: 0;
     }
+  }
 
-    &--confirm {
-        .#{$root}__content {
-            width: 335px;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        .#{$root}__body {
-            padding: 32px 20px;
-            text-align: center;
-            font-weight: 300;
-            font-size: 16px;
-            line-height: 24px;
-            color: color(grey, 900);
-        }
-        .button--type4 {
-            border: 0;
-            background-color: color(grey, 200);
-        }
-    }
+  &.is-active {
+    display: block;
+    animation-duration: 0.4s;
+    animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation-name: defaultIn;
+  }
 
-    &--medium {
-        .#{$root}__content {
-            width: 560px;
-        }
-    }
-
-    &__dialog {
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-
-    &__header {
-        position: relative;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        height: 56px;
-        justify-content: space-between;
-        padding: 0 20px;
-        border-bottom: 1px solid color(grey, 200);
-
-        &__inner {
-            display: flex;
-            align-items: center;
-
-            .label-ct {
-                margin-left: 10px;
-            }
-        }
-    }
-
-    &__title {
-        font-size: 16px;
-        font-weight: 500;
-    }
-
-    &__content {
-        position: relative;
-        max-height: 90vh;
-        overflow-x: hidden;
-        overflow-y: auto;
-        display: flex;
-        flex-direction: column;
-        background-color: $white;
-    }
-
-    &__body {
-        padding: 24px 20px;
-    }
-
-    &__footer {
-        display: flex;
-        align-items: center;
-        button {
-            border-radius: 0;
-        }
-    }
-
-    &.is-active {
-        display: block;
-        animation-duration: 0.4s;
-        animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
-        animation-name: defaultIn;
-    }
-
-    &.is-deactive {
-        display: block;
-        animation-duration: 0.4s;
-        animation-timing-function: cubic-bezier(0.36, 0, 0.66, -0.56);
-        animation-name: defaultOut;
-    }
+  &.is-deactive {
+    display: block;
+    animation-duration: 0.4s;
+    animation-timing-function: cubic-bezier(0.36, 0, 0.66, -0.56);
+    animation-name: defaultOut;
+  }
 }
 
 .fadeIn {
-    animation-duration: 0.4s;
-    animation-timing-function: cubic-bezier(0.5, 1, 0.89, 1);
-    animation-name: fadeIn;
+  animation-duration: 0.4s;
+  animation-timing-function: cubic-bezier(0.5, 1, 0.89, 1);
+  animation-name: fadeIn;
 }
 .fadeOut {
-    animation-duration: 0.4s;
-    animation-timing-function: cubic-bezier(0.5, 1, 0.89, 1);
-    animation-name: fadeOut;
+  animation-duration: 0.4s;
+  animation-timing-function: cubic-bezier(0.5, 1, 0.89, 1);
+  animation-name: fadeOut;
 }

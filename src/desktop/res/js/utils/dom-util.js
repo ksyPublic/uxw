@@ -29,6 +29,14 @@ export const dataSetToObject = (element, dataAttrConfig, prefix = '') => {
 };
 
 /**
+ * element visible check
+ * @param element
+ */
+export const isVisible = element => {
+    return element.clientWidth !== 0 && element.clientHeight !== 0 && element.style.opacity !== '0' && element.style.visibility !== 'hidden';
+};
+
+/**
  *
  * @param {*} element
  * @returns

@@ -1,96 +1,62 @@
 table {
-    padding: 0;
-    border: 0;
-    border-spacing: 0px;
-    border-collapse: collapse;
+  padding: 0;
+  border: 0;
+  border-spacing: 0px;
+  border-collapse: collapse;
 }
 
 th,
 td {
-    padding: 0;
+  padding: 0;
+}
+
+.viewer {
+  &:after {
+    content: '';
+    height: 40px;
+    display: block;
+  }
 }
 
 .table {
-    $root: table;
+  $root: table;
 
-    width: 100%;
-    position: relative;
-    text-align: center;
+  width: 100%;
+  position: relative;
+  text-align: center;
 
-    &-row,
-    .#{$root}__list {
-        &.fixed {
-            table-layout: fixed;
-        }
+  &-row {
+    table-layout: fixed;
+  }
+
+  tr {
+    th,
+    td {
+      font-size: 14px;
+      font-weight: 500;
+      height: 46px;
+      padding: 0 16px;
+      color: color(grey, 500);
+      border: 1px solid color(grey, 200);
     }
+  }
 
-    &-list {
-        display: table;
-        text-indent: initial;
-        padding: 0 104px 0 20px;
-        background-color: $white;
-        text-align: center;
-        .ic-button {
-            position: relative;
-            z-index: 101;
-        }
-
-        &__group {
-            display: table-header-group;
-            vertical-align: middle;
-        }
-
-        &__row {
-            display: table-row;
-            vertical-align: inherit;
-            flex-shrink: 1;
-            b {
-                color: color(grey, 900);
-            }
-
-            span {
-                display: table-cell;
-                vertical-align: inherit;
-                height: 62px;
-                font-weight: 500;
-                font-size: 14px;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                padding: 0 10px;
-                color: color(grey, 600);
-            }
-        }
+  thead {
+    th {
+      background-color: $white;
+      color: $black;
     }
-
-    tr {
-        th,
-        td {
-            font-size: 14px;
-            font-weight: 500;
-            height: 46px;
-            padding: 0 16px;
-            color: color(grey, 500);
-            border: 1px solid color(grey, 200);
-        }
-    }
-
-    thead {
-        th {
-            background-color: $white;
-            color: $black;
-        }
-    }
+  }
 }
 
 .left {
-    text-align: left !important;
+  text-align: left !important;
 }
 
 .center {
-    text-align: left !important;
+  text-align: left !important;
 }
 
 .right {
-    text-align: left !important;
+  text-align: left !important;
 }

@@ -6419,24 +6419,26 @@ var getObjectElements = function getObjectElements(elements) {
 };
 
 var autoScrollContent = function autoScrollContent() {
-  var lyContentBox = document.querySelector('.ly-content-box');
+  var lyContainer = document.querySelector('.ly-container');
+  var tabs = lyContainer.querySelectorAll('.tab');
+  var side = document.querySelector('.side');
 
-  if (!lyContentBox) {
+  if (!tabs) {
     return;
-  }
-
-  var tabs = lyContentBox.querySelectorAll('.tab');
-
-  if (tabs.length > 0) {
-    Object.assign(lyContentBox.style, {
-      height: '100%',
-      overflow: 'hidden'
-    });
   } else {
-    Object.assign(lyContentBox.style, {
-      height: '100%',
-      overflow: 'auto'
-    });
+    if (tabs.length > 0 && side) {
+      document.body.classList.remove('is-beside');
+      Object.assign(lyContainer.style, {
+        height: '100%',
+        overflow: 'hidden'
+      });
+    } else {
+      document.body.classList.add('is-beside');
+      Object.assign(lyContainer.style, {
+        height: '100%',
+        overflow: 'auto'
+      });
+    }
   }
 };
 
@@ -6670,13 +6672,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var NAME = 'ui.accordion';
 var ARIA_CONTROLS = 'aria-controls';
+var ONLY_ONE = 'data-accordion-onlyone';
 var dataAttrConfig = {
   default: -1,
   defaults: -1,
   toggle: true,
   onlyOne: false,
   activeClass: 'is-active',
-  focusClass: 'is-focused'
+  focusClass: 'is-focused',
+  animation: true
 };
 
 var defaultConfig = _objectSpread(_objectSpread({}, dataAttrConfig), {}, {
@@ -6713,6 +6717,9 @@ var Accordion = /*#__PURE__*/function (_UI) {
       header: null,
       content: null
     };
+    _this._options = {
+      single: null
+    };
     return _this;
   }
 
@@ -6725,6 +6732,22 @@ var Accordion = /*#__PURE__*/function (_UI) {
       this._before = null;
 
       this._defaultActive();
+
+      this._defaultSettings();
+    }
+    /**
+     * accordion 에 onlyone 옵션이 있을때 true : false 반환하여 동작
+     * onlyone이 있을경우 아코디언이 한개만 펼쳐짐 default 값은 false
+     */
+
+  }, {
+    key: "_defaultSettings",
+    value: function _defaultSettings() {
+      var onlyOne = this._config.onlyOne;
+
+      var _onlyone = this._element.getAttribute("".concat(ONLY_ONE));
+
+      !_onlyone ? this._options.single = onlyOne : this._options.single = _onlyone;
     }
   }, {
     key: "_defaultActive",
@@ -6807,42 +6830,50 @@ var Accordion = /*#__PURE__*/function (_UI) {
       var _this$_config = this._config,
           activeClass = _this$_config.activeClass,
           stateClass = _this$_config.stateClass,
-          focusClass = _this$_config.focusClass,
-          onlyOne = _this$_config.onlyOne;
+          animation = _this$_config.animation,
+          focusClass = _this$_config.focusClass;
+      var possibleAnimation = (0,_utils_dom_util__WEBPACK_IMPORTED_MODULE_23__.isVisible)(this._element);
+      if (this._animating === true && animation === true) return;
       var _this$_current = this._current,
           header = _this$_current.header,
           content = _this$_current.content;
-      header.classList.add(activeClass);
 
       this._removeFocused();
 
       var items = header.closest('.accordion__item');
       items.classList.add(focusClass);
+      header.classList.add(activeClass);
 
       this._dispatch(Accordion.EVENT.OPEN, {
         current: this._current
       });
 
-      content.classList.add(stateClass.expanding);
-      content.classList.remove(stateClass.expand);
-      content.style.height = "".concat(content.scrollHeight, "px");
-      _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_22__["default"].one(content, 'transitionend', function () {
-        content.classList.remove(stateClass.expanding);
-        content.classList.add(stateClass.expand);
-        content.classList.add(stateClass.expanded);
-        content.style.height = '';
+      if (animation && possibleAnimation) {
+        this._animating = true;
+        content.classList.add(stateClass.expanding);
+        content.classList.remove(stateClass.expand);
+        content.style.height = "".concat(content.scrollHeight, "px");
+        _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_22__["default"].one(content, 'transitionend', function () {
+          content.classList.remove(stateClass.expanding);
+          content.classList.add(stateClass.expand);
+          content.classList.add(stateClass.expanded);
+          content.style.height = '';
+          _this4._animating = false;
 
-        _this4._dispatch(Accordion.EVENT.OPEND, {
-          current: _this4._current
+          _this4._dispatch(Accordion.EVENT.OPEND, {
+            current: _this4._current
+          });
         });
-      });
-
-      if (onlyOne === true) {
+      } else {
         content.classList.add(stateClass.expanded);
         content.classList.add(stateClass.expand);
         header.classList.add(activeClass);
+      }
 
+      if (this._options.single === 'true') {
         if (this._before && this._before.header !== this._current.header) {
+          this._animating = false;
+
           this._close();
         }
       }
@@ -6882,7 +6913,8 @@ var Accordion = /*#__PURE__*/function (_UI) {
           activeClass = _this$_config2.activeClass,
           stateClass = _this$_config2.stateClass,
           focusClass = _this$_config2.focusClass,
-          onlyOne = _this$_config2.onlyOne;
+          animation = _this$_config2.animation;
+      if (this._animating === true && animation === true) return;
       var closeTarget = !!target ? target : this._before;
       if (!closeTarget.header) return;
       var header = closeTarget.header,
@@ -6895,26 +6927,27 @@ var Accordion = /*#__PURE__*/function (_UI) {
 
       this._aria(closeTarget, false);
 
-      content.style.height = "".concat(content.getBoundingClientRect().height, "px");
-      content.heightCache = content.offsetHeight;
-      content.style.height = "";
-      content.classList.add(stateClass.expanding);
-      content.classList.remove(stateClass.expand);
-      content.classList.remove(stateClass.expanded);
-      _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_22__["default"].one(content, 'transitionend', function () {
-        content.classList.remove(stateClass.expanding);
-        content.classList.add(stateClass.expand);
-
-        _this5._dispatch(Accordion.EVENT.CLOSED, {
-          current: closeTarget
-        });
-      });
-
-      if (onlyOne === true) {
+      if (animation) {
+        this._animating = true;
+        content.style.height = "".concat(content.getBoundingClientRect().height, "px");
+        content.heightCache = content.offsetHeight;
+        content.style.height = "";
+        content.classList.add(stateClass.expanding);
+        content.classList.remove(stateClass.expand);
+        content.classList.remove(stateClass.expanded);
         _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_22__["default"].one(content, 'transitionend', function () {
           content.classList.remove(stateClass.expanding);
           content.classList.add(stateClass.expand);
+          _this5._animating = false;
+
+          _this5._dispatch(Accordion.EVENT.CLOSED, {
+            current: closeTarget
+          });
         });
+        return;
+      } else {
+        content.classList.remove(stateClass.expanding);
+        content.classList.add(stateClass.expand);
       }
 
       this._removeFocused();
@@ -9051,6 +9084,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "dataSetToObject": function() { return /* binding */ dataSetToObject; },
 /* harmony export */   "getElement": function() { return /* binding */ getElement; },
 /* harmony export */   "getIndex": function() { return /* binding */ getIndex; },
+/* harmony export */   "isVisible": function() { return /* binding */ isVisible; },
 /* harmony export */   "toHTML": function() { return /* binding */ toHTML; }
 /* harmony export */ });
 /* harmony import */ var core_js_modules_es_string_trim_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.string.trim.js */ "./node_modules/core-js/modules/es.string.trim.js");
@@ -9108,6 +9142,14 @@ var dataSetToObject = function dataSetToObject(element, dataAttrConfig) {
   }
 
   return config;
+};
+/**
+ * element visible check
+ * @param element
+ */
+
+var isVisible = function isVisible(element) {
+  return element.clientWidth !== 0 && element.clientHeight !== 0 && element.style.opacity !== '0' && element.style.visibility !== 'hidden';
 };
 /**
  *
@@ -9925,7 +9967,7 @@ if (window.UXW) {
     initialize();
     _common__WEBPACK_IMPORTED_MODULE_18__["default"].initFunc();
     _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_9__["default"].trigger(document, 'UILoaded');
-    console.log('UI Initialized!');
+    console.log('UI Load');
   });
 }
 

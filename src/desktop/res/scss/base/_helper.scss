@@ -1,126 +1,122 @@
 .light {
-    font-weight: 300 !important;
+  font-weight: 300 !important;
 }
 
 .medium {
-    font-weight: 500 !important;
+  font-weight: 500 !important;
 }
 
 .bold {
-    font-weight: bold !important;
+  font-weight: bold !important;
 }
 
 .ft28 {
-    font-size: 28px !important;
+  font-size: 28px !important;
 }
 
 .ft24 {
-    font-size: 24px !important;
+  font-size: 24px !important;
 }
 
 .ft20 {
-    font-size: 20px !important;
+  font-size: 20px !important;
 }
 
 .ft18 {
-    font-size: 18px !important;
+  font-size: 18px !important;
 }
 
 .ft14 {
-    font-size: 14px !important;
+  font-size: 14px !important;
 }
 
 .dpb {
-    display: block !important;
+  display: block !important;
 }
 
 .mgb6 {
-    margin-bottom: 6px;
+  margin-bottom: 6px;
 }
 
 .mgt6 {
-    margin-top: 6px;
+  margin-top: 6px;
 }
 
 .mgt20 {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 .mgt30 {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 .pw100 {
-    width: 100% !important;
+  width: 100% !important;
 }
 
 .blue100-bg {
-    background-color: color(blue, 100) !important;
+  background-color: color(blue, 100) !important;
 }
 
 .grey50-bg {
-    background-color: color(grey, 50) !important;
+  background-color: color(grey, 50) !important;
 }
 
 .hide {
-    display: none;
+  display: none;
 }
 
 .show {
-    display: block;
+  display: block;
 }
 
 .pxh170 {
-    height: 170px !important;
+  height: 170px !important;
 }
 
 .pxh260 {
-    height: 260px !important;
+  height: 260px !important;
 }
 
 .pxh600 {
-    height: 600px !important;
+  height: 600px !important;
 }
 
 .pxh550 {
-    height: 550px !important;
+  height: 550px !important;
 }
 
 .ellipsis {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .ellipsis--type5 {
-    display: -webkit-box !important;
-    word-wrap: break-word;
-    -webkit-line-clamp: 5;
-    -webkit-box-orient: vertical;
-    text-overflow: ellipsis;
-    overflow: hidden;
+  display: -webkit-box !important;
+  word-wrap: break-word;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .flex-end {
-    justify-content: flex-end !important;
+  justify-content: flex-end !important;
 }
 
 .flex-start {
-    justify-content: flex-start !important;
+  justify-content: flex-start !important;
+}
+
+.highlight {
+  color: #21ff7a;
 }
 
 @for $i from 1 through 200 {
-    @if ($i % 2 == 0) {
-        &.mxh#{$i} {
-            min-height: $i + px !important;
-            max-height: $i + px !important;
-        }
+  @if ($i % 2 == 0) {
+    &.mxh#{$i} {
+      min-height: $i + px !important;
+      max-height: $i + px !important;
     }
-}
-
-@for $i from 1 through 200 {
-    @if ($i % 2 == 0) {
-        &.miw#{$i} {
-            min-width: $i + px !important;
-        }
-    }
+  }
 }
