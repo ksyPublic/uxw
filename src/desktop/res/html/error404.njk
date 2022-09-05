@@ -1,0 +1,21 @@
+{% set user = "error" %}
+{% set title = "신한 UX라이팅 시스템 | 에러 404" %}
+{% extends "../templates/layout.njk" %}
+{% set activePage = "" %}
+{% block content %}
+  <!-- 데이터가 없을시 오픈 -->
+  <div class="none-data none-data--beinfo__type2">
+    <p>다시 한번 확인해주세요!</p>
+    <span>
+        지금 입력하신 주소의 페이지는 사라졌거나<br/>
+        다른 페이지로 변경되었습니다.<br/>
+        주소를 다시 확인해주세요.
+    </span>
+    <div class="button-group">
+      <button class="button button--type5 button--medium" type="button">이전 화면으로</button>
+      <button class="button button--type1 button--medium" type="button">첫 화면으로</button>
+    </div>
+  </div>
+  <!-- //데이터가 없을시 오픈 -->
+{% endblock %}
+{% block scripts %}{% endblock %}

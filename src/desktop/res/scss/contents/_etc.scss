@@ -210,6 +210,30 @@
         display: none;
       }
     }
+
+    &__type2 {
+      background-color: color(grey, 50);
+      width: 100%;
+      flex-flow: column;
+      p {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 28px;
+        color: color(grey, 900);
+      }
+
+      > span {
+        display: block;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 24px;
+        margin-top: 16px;
+
+        + .button-group {
+          margin-top: 26px;
+        }
+      }
+    }
   }
 
   &--qa {

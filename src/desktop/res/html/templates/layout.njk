@@ -73,6 +73,18 @@
                 <!-- //로그인 일때 -->
             </header>
             <!-- header 영역 -->
+
+        {% elif user === "error" %}
+            <!-- header 영역 -->
+            <header class="head">
+                <h1 class="head__logo">
+                    <a href="#none" alt="홈 바로가기">
+                        <img src="/res/images/logo.png" alt="신한 UX라이팅 시스템"/>
+                        <span>신한 UX라이팅 시스템</span>
+                    </a>
+                </h1>
+            </header>
+            <!-- header 영역 -->
         {% endif %}
 
         <div class="ly-container">
@@ -149,6 +161,9 @@
                         </div>
                     </div>
                     <!-- floting 네비게이션 영역 -->
+
+                {% elif user === "error" %}
+
                 {% endif %}
             {% endblock %}
         </div>

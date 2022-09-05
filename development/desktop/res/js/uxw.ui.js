@@ -6532,6 +6532,10 @@ var navigation = function navigation(UI) {
   var defaultSelection = function defaultSelection() {
     var _nav = document.querySelector('[' + NAV_BOX + ']');
 
+    if (!_nav) {
+      return;
+    }
+
     var _get = _nav.getAttribute(NAV_BOX);
 
     if (_get === 'true') {
