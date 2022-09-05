@@ -3269,7 +3269,9 @@ input[type='radio'] {
   margin: 0 0px 0 0px;
   padding: 0;
   min-width: auto;
-  max-width: 996px; }
+  max-width: 996px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0; }
 
 .head {
   position: relative;
