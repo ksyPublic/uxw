@@ -177,6 +177,9 @@
         font-size: 18px;
         line-height: 28px;
         color: color(grey, 600);
+        + .button-group {
+          margin-top: 26px;
+        }
       }
 
       > span {
@@ -220,6 +223,9 @@
         font-size: 18px;
         line-height: 28px;
         color: color(grey, 900);
+        + .button-group {
+          margin-top: 26px;
+        }
       }
 
       > span {

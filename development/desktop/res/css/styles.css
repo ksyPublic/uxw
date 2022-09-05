@@ -1480,6 +1480,9 @@ input[type='password'] {
     transition: 1s cubic-bezier(0.33, 1, 0.68, 1);
     -webkit-transition-delay: 0.5s;
             transition-delay: 0.5s; }
+    .tooltip__box.is-beactive {
+      opacity: 0;
+      display: none; }
   .tooltip.is-active {
     visibility: visible;
     opacity: 1; }
@@ -1967,8 +1970,11 @@ label.error {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      margin: 0 10px;
+      margin-left: 10px;
+      margin-bottom: 0;
       color: #565c63; }
+      .list--type3 .list__row .list__item:last-child {
+        margin-right: 0; }
       .list--type3 .list__row .list__item:nth-child(1) {
         width: 56px; }
       .list--type3 .list__row .list__item:nth-child(2) {
@@ -2257,15 +2263,8 @@ input[type='radio'] {
     .accordion__button:disabled + .list--type3 .ic-download {
       cursor: no-drop;
       background: url("../images/ic-download.png") no-repeat; }
-  .accordion__button:focus + .list--type3 .list__row .list__item:nth-child(2) span,
-  .accordion__button:focus + .list--type3 .list__row .list__item:nth-child(2) b {
-    border: 1px solid #0471e9; }
-  .accordion__button:active {
+  .accordion__button:active + .list--type3 {
     background-color: #ebeff5; }
-    .accordion__button:active + .list--type3 .list__row .list__item span,
-    .accordion__button:active + .list--type3 .list__row .list__item b {
-      position: relative;
-      z-index: 1; }
   .accordion__button:hover + .list--type3 .list__row .list__item:nth-child(2) {
     font-weight: 700;
     color: #343a3f; }
@@ -3142,6 +3141,8 @@ input[type='radio'] {
         font-size: 18px;
         line-height: 28px;
         color: #565c63; }
+        .none-data--info__type2 p + .button-group {
+          margin-top: 26px; }
       .none-data--info__type2 > span {
         display: block;
         font-weight: 300;
@@ -3175,6 +3176,8 @@ input[type='radio'] {
       font-size: 18px;
       line-height: 28px;
       color: #121619; }
+      .none-data--beinfo__type2 p + .button-group {
+        margin-top: 26px; }
     .none-data--beinfo__type2 > span {
       display: block;
       font-weight: 300;

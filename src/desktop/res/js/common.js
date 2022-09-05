@@ -104,6 +104,7 @@ const navigation = function (UI) {
     if (!event.target.tagName.match(/^A$|AREA|INPUT|TEXTAREA|SELECT|BUTTON|LABEL/gim)) {
       event.preventDefault();
     }
+
     const parentTarget = event.currentTarget.closest('[' + NAV_BOX + ']');
     const attr = parentTarget.getAttribute(NAV_BOX);
     let check = attr;
@@ -115,6 +116,7 @@ const navigation = function (UI) {
       prevTarget.classList.add('is-active');
     } else {
       event.currentTarget.classList.add('is-active');
+      defaultSelection();
     }
   };
 
@@ -126,20 +128,23 @@ const navigation = function (UI) {
 
   const defaultSelection = function () {
     const _nav = document.querySelector('[' + NAV_BOX + ']');
+    const _tooltipBox = document.querySelector('.tooltip__box');
     if (!_nav) {
       return;
     }
-    const _get = _nav.getAttribute(NAV_BOX);
-    if (_get === 'true') {
-      UXW.Tooltip.destroy;
-    } else {
-      UXW.Tooltip.addEvent;
-    }
+
+    _tooltipBox.classList.add('is-beactive');
+
+    // const _get = _nav.getAttribute(NAV_BOX);
+    // if (_get !== true) {
+    //   // _tooltipBox.classList.add('is-beactive');
+    // } else {
+    // }
   };
 
   function _init() {
     addEvent();
-    defaultSelection();
+    // defaultSelection();
   }
 
   _init();

@@ -19,11 +19,9 @@
       transition: all 0.6s cubic-bezier(0.33, 1, 0.68, 1);
     }
 
-    + .#{$root} {
-      &__tooltip {
-        opacity: 0;
-        transition: all 0.6s cubic-bezier(0.33, 1, 0.68, 1);
-      }
+    + .#{$root}__tooltip {
+      opacity: 0;
+      transition: all 0.6s cubic-bezier(0.33, 1, 0.68, 1);
     }
 
     .nav__item {
@@ -129,31 +127,10 @@
     }
   }
 
-  &:focus {
-    + .list--type3 {
-      $root: list;
-
-      .#{$root}__row {
-        .#{$root}__item:nth-child(2) span,
-        .#{$root}__item:nth-child(2) b {
-          border: 1px solid color(blue, 800);
-        }
-      }
-    }
-  }
-
   &:active {
-    background-color: color(grey, 200);
     + .list--type3 {
+      background-color: color(grey, 200);
       $root: list;
-
-      .#{$root}__row {
-        .#{$root}__item span,
-        .#{$root}__item b {
-          position: relative;
-          z-index: 1;
-        }
-      }
     }
   }
 

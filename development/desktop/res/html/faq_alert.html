@@ -684,7 +684,7 @@
                   <div class="fields">
                     <div class="field">
                       <label class="dpb medium ft14">문의내용</label>
-                      <textarea class="textarea textarea--tiny" maxlength="500" placeholder="서비스 이용 중 궁금하신 점을 말씀해주세요."></textarea>
+                      <textarea id="sampleTextarea" class="textarea textarea--tiny" maxlength="500" placeholder="서비스 이용 중 궁금하신 점을 말씀해주세요."></textarea>
                       <div class="textarea__lengths">
                         <label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
                         <div class="textarea__lengths__box">
@@ -696,7 +696,7 @@
                 </div>
               </div>
               <div class="modal__footer">
-                <button type="button" class="button pw100">문의하기</button>
+                <button id="sample01" type="button" class="button pw100">문의하기</button>
               </div>
             </div>
           </div>
@@ -796,8 +796,44 @@
       };
       //오픈
       document.addEventListener('UILoaded', function() {
-        var modal = new UXW.Dialog(modal2);
+        var modal = UXW.Dialog.getInstance(modal2) ? UXW.Dialog.getInstance(modal2) : new UXW.Dialog(modal2);
         modal.open();
+        let value = 0;
+        sampleTextarea.addEventListener('change', sampleAlert);
+        sampleTextarea.addEventListener('keyup', sampleAlert);
+
+        function clickOpen() {
+          if (value === 0) {
+            UXW.Alert('내용을 입력해주세요.', function() {
+              this.close();
+            });
+          } else {
+            UXW.Alert('전달이 완료되었어요.<br/> 답변은 마이페이지에서 확인할 수 있어요.', {
+              open: function() {
+                console.log('open');
+              },
+              opened: function() {
+                console.log('opened!');
+              },
+              close: function() {
+                console.log('close!');
+              },
+              closed: function() {
+                /* 이미 등록되어있을경우 getInstance로 실행 */
+                UXW.Dialog.getInstance(modal2).close();
+              }
+            });
+          }
+        }
+
+        function sampleAlert(event) {
+          if (event.target.value.length > 0) {
+            value = event.target.value.length;
+          } else {
+            value = event.target.value.length;
+          }
+        };
+        sample01.addEventListener('click', clickOpen);
       })
       document.addEventListener('DOMContentLoaded', function() {
         Input.Check();

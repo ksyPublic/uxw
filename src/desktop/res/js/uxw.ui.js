@@ -71,17 +71,28 @@ const Alert = (message, alertCallback = null) => {
       '{{message}}': message,
     },
   });
-
-  EventHandler.one(dialog.getElement(), Dialog.EVENT.OPEN, event => {
-    const alert = dialog.getElement().querySelector('[data-dialog-alert]');
-    if (alert) {
-      EventHandler.one(alert, 'click', () => {
-        if (alertCallback) {
-          alertCallback.apply(event.component);
-        }
-      });
-    }
-  });
+  if (alertCallback.open) {
+    EventHandler.one(dialog.getElement(), Dialog.EVENT.OPEN, event => {
+      alertCallback.open.apply(event.component, []);
+    });
+  }
+  if (alertCallback.close) {
+    EventHandler.one(dialog.getElement(), Dialog.EVENT.CLOSE, event => {
+      alertCallback.close.apply(event.component, []);
+    });
+  }
+  if (alertCallback.opened) {
+    EventHandler.one(dialog.getElement(), Dialog.EVENT.OPENED, event => {
+      alertCallback.opened.apply(event.component, []);
+    });
+  }
+  if (alertCallback.closed) {
+    EventHandler.one(dialog.getElement(), Dialog.EVENT.CLOSED, event => {
+      setTimeout(() => {
+        alertCallback.closed.apply(event.component, []);
+      }, 0);
+    });
+  }
 
   dialog._open();
 };

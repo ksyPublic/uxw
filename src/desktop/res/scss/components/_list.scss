@@ -104,8 +104,12 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        margin: 0 10px;
+        margin-left: 10px;
+        margin-bottom: 0;
         color: color(grey, 600);
+        &:last-child {
+          margin-right: 0;
+        }
         &:nth-child(1) {
           width: 56px;
         }
