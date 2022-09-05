@@ -3,7 +3,7 @@ import EventHandler from '../vendor/EventHandler';
 import { dataSetToObject, isVisible } from '../utils/dom-util';
 
 /**
- * versiton 0.0.1
+ * versiton 0.0.2
  */
 const NAME = 'ui.accordion';
 

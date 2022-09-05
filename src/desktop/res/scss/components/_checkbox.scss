@@ -1,57 +1,61 @@
 input[type='checkbox'] {
-    display: none;
+  display: none;
 }
 
 .checkbox {
-    $root: checkbox;
-    &.hidden + label {
-        padding-left: 24px;
-    }
+  $root: checkbox;
+  &.hidden + label {
+    padding-left: 24px;
+  }
 
-    &-column {
-        display: inline-block;
-        vertical-align: top;
-    }
+  &-column {
+    display: inline-block;
+    vertical-align: top;
+  }
 
-    &:disabled {
-        + label {
-            cursor: no-drop;
-        }
-        &:checked + label:before {
-            background: url('../images/ic-checkbox-active-disabled.png') no-repeat;
-        }
-
-        + label::before {
-            background: url('../images/ic-checkbox-disabled.png') no-repeat;
-        }
-    }
-
-    &:checked + label::before {
-        background: url('../images/ic-checkbox-active.png') no-repeat;
-    }
-
+  &:disabled {
     + label {
-        position: relative;
-        cursor: pointer;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 24px;
-        height: 24px;
-        color: #666;
-        padding-left: 32px;
-        display: inline-block;
-        vertical-align: top;
-        margin: 0px;
-
-        &:before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background: url('../images/ic-checkbox.png') no-repeat;
-        }
+      cursor: no-drop;
     }
+    &:checked + label:before {
+      background: url('../images/ic-checkbox-active-disabled.png') no-repeat;
+    }
+
+    + label::before {
+      background: url('../images/ic-checkbox-disabled.png') no-repeat;
+    }
+  }
+
+  &:checked + label::before {
+    background: url('../images/ic-checkbox-active.png') no-repeat;
+  }
+
+  + label {
+    position: relative;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    height: 24px;
+    color: #666;
+    padding-left: 32px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: url('../images/ic-checkbox.png') no-repeat;
+    }
+  }
+}
+
+.checkbox--button {
+  //
 }

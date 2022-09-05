@@ -1,50 +1,56 @@
 .pagination {
-    $root: pagination;
-    width: 100%;
-    height: 24px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 1;
+  $root: pagination;
+  width: 100%;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 1;
 
-    &__number {
-        margin: 0 24px;
-        ul {
-            display: flex;
-            align-items: center;
-            flex-shrink: 1;
-            li {
-                margin-left: 10px;
-                &:first-child {
-                    margin-left: 0;
-                }
-            }
-        }
-    }
-
-    &__button {
-        display: inline-flex;
+  &__number {
+    margin: 0 24px;
+    ul {
+      display: flex;
+      align-items: center;
+      flex-shrink: 1;
+      li {
+        margin-left: 10px;
         &:first-child {
-            margin-right: 8px;
+          margin-left: 0;
         }
-
-        &:last-child {
-            margin-left: 8px;
-        }
-        &--num {
-            font-weight: 500;
-            font-size: 14px;
-            width: 24px;
-            height: 24px;
-            display: inline-block;
-            text-align: center;
-            vertical-align: top;
-            line-height: 24px;
-            &.is-active {
-                background-color: $black;
-                border-radius: 50%;
-                color: $white;
-            }
-        }
+      }
     }
+  }
+
+  &__button {
+    display: inline-flex;
+    &:first-child {
+      margin-right: 8px;
+    }
+
+    &:last-child {
+      margin-left: 8px;
+    }
+    &--num {
+      font-weight: 500;
+      font-size: 14px;
+      width: 24px;
+      height: 24px;
+      display: inline-block;
+      text-align: center;
+      vertical-align: top;
+      line-height: 24px;
+      border-radius: 50%;
+      transition: all 0.4s ease;
+      &.is-active {
+        background-color: $black;
+        color: $white;
+      }
+
+      &:hover {
+        color: color(blue, 800);
+        background-color: color(blue, 100);
+      }
+    }
+  }
 }

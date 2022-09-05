@@ -25,12 +25,11 @@
             </div>
             <!-- //검색박스 영역 -->
             <!-- 데이터가 없을시 오픈 -->
-            <div class="none-data none-data--info__type2 pxh600">
+            <div class="none-data none-data--info__type2 pxh500">
                 <p>작성한 글이 없습니다.</p>
                 <span>고객친화적인 글쓰기를 시작해보세요.</span>
                 <div class="button-group">
-                    <button class="button button--type5 button--medium" type="button">이전으로</button>
-                    <button class="button button--type1 button--medium" type="button">첫 화면으로</button>
+                    <button class="button button--type1 button--medium" type="button">작성하기</button>
                 </div>
             </div>
             <!-- //데이터가 없을시 오픈 -->
@@ -52,18 +51,17 @@
             </div>
             <!-- //검색박스 영역 -->
             <!-- 데이터가 없을시 오픈 -->
-            <div class="none-data none-data--info__type2 pxh600">
+            <div class="none-data none-data--info__type2 pxh500">
                 <p>작성한 글이 없습니다.</p>
                 <span>고객친화적인 글쓰기를 시작해보세요.</span>
                 <div class="button-group">
-                    <button class="button button--type5 button--medium" type="button">이전으로</button>
-                    <button class="button button--type1 button--medium" type="button">첫 화면으로</button>
+                    <button class="button button--type1 button--medium" type="button">작성하기</button>
                 </div>
             </div>
             <!-- //데이터가 없을시 오픈 -->
         </div>
     </div>
-    {# { 교정중인 데이터가 없는 경우 } #}
+    {# { 작성중인 데이터가 없는 경우 } #}
 {% elif datanone === "true" and all_data_none === "true" and search_data_none === "true" %}
     <div class="tab tab--scroll" id="mainTab" data-ui-tab data-tab-active="0">
         <div class="title">
@@ -90,7 +88,7 @@
             </div>
             <!-- //검색박스 영역 -->
             <!-- 데이터가 없을시 오픈 -->
-            <div class="none-data none-data--info__type2 pxh600">
+            <div class="none-data none-data--info__type2 pxh500">
                 <p>
                     <span class="text-blue">
                         ‘구ㅏㅡ’
@@ -99,8 +97,7 @@
                     궁금한 사항을 직접 문의해보세요.
                 </span>
                 <div class="button-group">
-                    <button class="button button--type5 button--medium" type="button">이전으로</button>
-                    <button class="button button--type1 button--medium" type="button">첫 화면으로</button>
+                    <button class="button button--type1 button--medium" type="button">내 콘텐츠 목록보기</button>
                 </div>
             </div>
             <!-- //데이터가 없을시 오픈 -->
@@ -122,7 +119,7 @@
             </div>
             <!-- //검색박스 영역 -->
             <!-- 데이터가 없을시 오픈 -->
-            <div class="none-data none-data--info__type2 pxh600">
+            <div class="none-data none-data--info__type2 pxh500">
                 <p>
                     <span class="text-blue">
                         ‘ㅂㅏㅡ’
@@ -132,14 +129,13 @@
                     궁금한 사항을 직접 문의해보세요.
                 </span>
                 <div class="button-group">
-                    <button class="button button--type5 button--medium" type="button">이전으로</button>
-                    <button class="button button--type1 button--medium" type="button">첫 화면으로</button>
+                    <button class="button button--type1 button--medium" type="button">내 콘텐츠 목록보기</button>
                 </div>
             </div>
             <!-- //데이터가 없을시 오픈 -->
         </div>
     </div>
-    {# { 교정중인 데이터가 없는 경우 } #}
+    {# { 작성중인 데이터가 없는 경우 } #}
 
 {% elif datanone === "true" and all_data_none === "false" and search_data_none === "false" %}
     <div class="tab tab--scroll" id="mainTab" data-ui-tab data-tab-active="0">
@@ -166,7 +162,6 @@
                 </div>
             </div>
             <!-- //검색박스 영역 -->
-            <div class="divider" aria-hidden="true"></div>
 
             <div class="title--type2">
                 <div class="total">
@@ -174,20 +169,19 @@
                         </div>
                 <div class="checkbox-column">
                     <input type="checkbox" class="checkbox" id="chkd01" name="chkd01" checked/>
-                    <label for="chkd01">교정중 만 보기</label>
+                    <label for="chkd01">작성중 만 보기</label>
                 </div>
             </div>
 
-            <!-- 내콘텐츠 교정중 데이터가 없을시 오픈 -->
-            <div class="none-data none-data--info__type2 pxh550">
-                <p>교정중인 글이 없습니다.</p>
+            <!-- 내콘텐츠 작성중 데이터가 없을시 오픈 -->
+            <div class="none-data none-data--info__type2 pxh500">
+                <p>작성중인 글이 없습니다.</p>
                 <span>고객친화적인 글쓰기를 시작해 보세요.</span>
                 <div class="button-group">
-                    <button class="button button--type5 button--medium" type="button">이전으로</button>
-                    <button class="button button--type1 button--medium" type="button">첫 화면으로</button>
+                    <button class="button button--type1 button--medium" type="button">작성하기</button>
                 </div>
             </div>
-            <!-- //내콘텐츠 교정중 데이터가 없을시 오픈 -->
+            <!-- //내콘텐츠 작성중 데이터가 없을시 오픈 -->
         </div>
         <div id="tabpanel2" class="tab__panel" role="tabpanel" aria-labelledby="tablist2" tabindex="-1">
             <!-- 검색박스 영역 -->
@@ -205,7 +199,6 @@
                 </div>
             </div>
             <!-- //검색박스 영역 -->
-            <div class="divider" aria-hidden="true"></div>
 
             <div class="title--type2">
                 <div class="total">
@@ -213,20 +206,19 @@
                         </div>
                 <div class="checkbox-column">
                     <input type="checkbox" class="checkbox" id="chkd02" name="chkd02"/>
-                    <label for="chkd02">교정중 만 보기</label>
+                    <label for="chkd02">작성중 만 보기</label>
                 </div>
             </div>
 
-            <!-- 북마크 교정중인 글이 없을시 -->
-            <div class="none-data none-data--info__type2 pxh550">
+            <!-- 북마크 작성중인 글이 없을시 -->
+            <div class="none-data none-data--info__type2 pxh500">
                 <p>북마크한 글이 없습니다.</p>
                 <span>다른 사람이 작성한 글을 북마크 해두고 참고해보세요.</span>
                 <div class="button-group">
-                    <button class="button button--type5 button--medium" type="button">이전으로</button>
-                    <button class="button button--type1 button--medium" type="button">첫 화면으로</button>
+                    <button class="button button--type1 button--medium" type="button">북마크 둘러보기</button>
                 </div>
             </div>
-            <!-- //북마크 교정중인 글이 없을시 -->
+            <!-- //북마크 작성중인 글이 없을시 -->
         </div>
     </div>
 
@@ -256,14 +248,14 @@
                 </div>
             </div>
             <!-- //검색박스 영역 -->
-            <div class="divider" aria-hidden="true"></div>
+
             <div class="title--type2">
                 <div class="total">
                             총 <span class="total__count">34</span>건
                         </div>
                 <div class="checkbox-column">
                     <input type="checkbox" class="checkbox" id="chkd01" name="chkd01"/>
-                    <label for="chkd01">교정중 만 보기</label>
+                    <label for="chkd01">작성중 만 보기</label>
                 </div>
             </div>
 
@@ -295,7 +287,7 @@
                 </div>
                 <div class="grid__box">
                     <div class="title--type2">
-                        <span class="grid__ct">교정중</span>
+                        <span class="grid__ct">작성중</span>
                     </div>
                     <h4 class="ellipsis">미상환 위험 대비의 필요성</h4>
                     <div class="grid__content">
@@ -340,7 +332,7 @@
                 </div>
                 <div class="grid__box">
                     <div class="title--type2">
-                        <span class="grid__ct">교정중</span>
+                        <span class="grid__ct">작성중</span>
                     </div>
                     <h4 class="ellipsis">미상환 위험 대비의 필요성</h4>
                     <div class="grid__content">
@@ -385,7 +377,7 @@
                 </div>
                 <div class="grid__box">
                     <div class="title--type2">
-                        <span class="grid__ct">교정중</span>
+                        <span class="grid__ct">작성중</span>
                     </div>
                     <h4 class="ellipsis">미상환 위험 대비의 필요성</h4>
                     <div class="grid__content">
@@ -430,7 +422,7 @@
                 </div>
                 <div class="grid__box">
                     <div class="title--type2">
-                        <span class="grid__ct">교정중</span>
+                        <span class="grid__ct">작성중</span>
                     </div>
                     <h4 class="ellipsis">미상환 위험 대비의 필요성</h4>
                     <div class="grid__content">
@@ -473,14 +465,14 @@
                 </div>
             </div>
             <!-- //검색박스 영역 -->
-            <div class="divider" aria-hidden="true"></div>
+
             <div class="title--type2">
                 <div class="total">
                             총 <span class="total__count">34</span>건
                         </div>
                 <div class="checkbox-column">
                     <input type="checkbox" class="checkbox" id="chkd02" name="chkd02"/>
-                    <label for="chkd02">교정중 만 보기</label>
+                    <label for="chkd02">작성중 만 보기</label>
                 </div>
             </div>
 
@@ -488,7 +480,7 @@
             <div class="grid--type2 col4">
                 <div class="grid__box">
                     <div class="title--type2">
-                        <span class="grid__ct--blue">내부서</span>
+                        <span class="grid__ct--blue">내 콘텐츠</span>
                         <i class="ic-bookmark-y" aria-hidden="true"></i>
                     </div>
                     <h4 class="ellipsis">신한은행과 BNP파리</h4>
@@ -534,7 +526,7 @@
                 </div>
                 <div class="grid__box">
                     <div class="title--type2">
-                        <span class="grid__ct--blue">내부서</span>
+                        <span class="grid__ct--blue">내 콘텐츠</span>
                         <i class="ic-bookmark-y" aria-hidden="true"></i>
                     </div>
                     <h4 class="ellipsis">신한은행과 BNP파리</h4>
@@ -580,7 +572,7 @@
                 </div>
                 <div class="grid__box">
                     <div class="title--type2">
-                        <span class="grid__ct--blue">내부서</span>
+                        <span class="grid__ct--blue">내 콘텐츠</span>
                         <i class="ic-bookmark-y" aria-hidden="true"></i>
                     </div>
                     <h4 class="ellipsis">신한은행과 BNP파리</h4>
@@ -626,7 +618,7 @@
                 </div>
                 <div class="grid__box">
                     <div class="title--type2">
-                        <span class="grid__ct--blue">내부서</span>
+                        <span class="grid__ct--blue">내 콘텐츠</span>
                         <i class="ic-bookmark-y" aria-hidden="true"></i>
                     </div>
                     <h4 class="ellipsis">신한은행과 BNP파리</h4>

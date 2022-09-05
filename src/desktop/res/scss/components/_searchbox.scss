@@ -1,27 +1,37 @@
 .search-box {
-    $root: search-box;
-    margin: 20px auto 0;
-    &__wrap {
-        max-width: 588px;
-    }
+  $root: search-box;
+  margin: 20px auto 40px;
+  &__wrap {
+    max-width: 588px;
+  }
 
-    .input-box,
-    input {
-        height: $input-search-height;
-        position: relative;
+  &--small {
+    .#{$root}__wrap {
+      max-width: 486px;
     }
+  }
 
-    input {
-        padding: $input-search-padding;
-    }
+  .input-box,
+  input {
+    height: $input-search-height;
+    position: relative;
+  }
 
-    .ic-button-clear {
-        right: $input-search-clear-button-padding;
-        top: calc(50% - #{$input-search-button-offsetTop});
-    }
-    .ic-button-search {
-        position: absolute;
-        right: $input-search-button-padding;
-        top: calc(50% - #{$input-search-button-offsetTop});
-    }
+  input {
+    padding: $input-search-padding;
+  }
+
+  .ic-button-clear {
+    right: $input-search-clear-button-padding;
+    top: calc(50% - #{$input-search-button-offsetTop});
+  }
+  .ic-button-search {
+    position: absolute;
+    right: $input-search-button-padding;
+    top: calc(50% - #{$input-search-button-offsetTop});
+  }
+
+  + .ly-content__inner {
+    padding: 0 0 40px;
+  }
 }

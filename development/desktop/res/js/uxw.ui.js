@@ -6667,7 +6667,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 /**
- * versiton 0.0.1
+ * versiton 0.0.2
  */
 
 var NAME = 'ui.accordion';

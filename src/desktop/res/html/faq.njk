@@ -1,15 +1,275 @@
 {% set user = "logout" %}
-{% set title = "신한 UX라이팅 시스템 | 공지사항" %}
+{% set title = "신한 UX라이팅 시스템 | 문의사항" %}
 {% extends "../templates/layout.njk" %}
-{% set activePage = "faq" %}
+{% set activePage = "notice" %}
+{% set accordionData = [
+    { 
+        'pind':'true', 
+        'text':'[기타] 오류가 생겨요.', 
+        'headerId':'acc_header', 
+        'panelId':'acc_panel',
+        'panelText':'테기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다.
+                    일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.
+                    일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.스트',
+        'date':'2022.08.31',
+        'btndown':'true',
+        'option':'false'
+    },
+    {
+        'pind':'false', 
+        'text':'[기타] 오류가 생겨요.', 
+        'headerId':'acc_header', 
+        'panelId':'acc_panel',
+        'panelText':'기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다.
+                    일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.
+                    일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.',
+        'date':'2022.08.31',
+        'btndown':'false',
+        'option':'false'
+    },
+    {   
+        'pind':'false', 
+        'text':'[기타] 오류가 생겨요.', 
+        'headerId':'acc_header', 
+        'panelId':'acc_panel',
+        'panelText':'기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다.
+                    일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.
+                    일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.',
+        'date':'2022.08.31',
+        'btndown':'false',
+        'option':'false'
+    },
+    {   
+        'pind':'false', 
+        'text':'[기타] 오류가 생겨요.', 
+        'headerId':'acc_header', 
+        'panelId':'acc_panel',
+        'panelText':'기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다.
+                    일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.
+                    일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.',
+        'date':'2022.08.31',
+        'btndown':'true',
+        'option':'false'
+    },
+    {   
+        'pind':'false', 
+        'text':'[기타] 오류가 생겨요.', 
+        'headerId':'acc_header', 
+        'panelId':'acc_panel',
+        'panelText':'기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다.
+                    일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.
+                    일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.',
+        'date':'2022.08.31',
+        'btndown':'false',
+        'option':'false'
+    },
+    {   
+        'pind':'false', 
+        'text':'[기타] 오류가 생겨요.', 
+        'headerId':'acc_header', 
+        'panelId':'acc_panel',
+        'panelText':'기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다.
+                    일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.
+                    일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.',
+        'date':'2022.08.31',
+        'btndown':'false',
+        'option':'false'
+    },
+    {   
+        'pind':'false', 
+        'text':'[기타] 오류가 생겨요.', 
+        'headerId':'acc_header', 
+        'panelId':'acc_panel',
+        'panelText':'기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다.
+                    일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.
+                    일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.',
+        'date':'2022.08.31',
+        'btndown':'true',
+        'option':'true'
+    },
+    {   
+        'pind':'false', 
+        'text':'[기타] 오류가 생겨요.', 
+        'headerId':'acc_header', 
+        'panelId':'acc_panel',
+        'panelText':'기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다.
+                    일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.
+                    일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.',
+        'date':'2022.08.31',
+        'btndown':'false',
+        'option':'false'
+    }
+]%}
 {% block content %}
     {{super()}}
     <div class="ly-content">
         <div class="ly-content-box">
-            <div class="title">
-                <h2 class="text ft24 bold">FAQ</h2>
+            <div class="title title--center">
+                <h2 class="text ft24 bold">문의</h2>
+                <button type="button" class="button button--type4 button--medium">용어 문의 및 제안</button>
+            </div>
+
+            <!-- 검색박스 영역 -->
+            <div class="search-box search-box--small">
+                <div class="search-box__wrap">
+                    <div class="input-box">
+                        <input name="search" type="text" class="input" placeholder="검색어을 입력해주세요."/>
+                        <button type="button" class="ic-button-clear" data-visible aria-label="클리어버튼" aria-pressed="false" onclick="Input.ClearButton(this)">
+                            <i class="ic ic-clear" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="ic-button-search" aria-label="검색버튼">
+                            <i class="ic ic-search--small" aria-hidden="true"></i>
+                        </button>
+                    </div>
+
+                    <div class="swiper"></div>
+                </div>
+            </div>
+            <!-- //검색박스 영역 -->
+            <div class="ly-content__inner">
+                <div class="accordion" data-ui-accordion data-accordion-onlyOne="true">
+                    <div class="accordion__box">
+                        {% import 'macros/notice-accordion-macro.njk' as accordion %}
+                        {% for acc in accordionData %}
+                            {{ accordion.item(
+                                pind=acc.pind,
+                                text=acc.text,
+                                headerId=acc.headerId + loop.index,
+                                panelId=acc.panelId + loop.index,
+                                panelText=acc.panelText,
+                                count=loop.index,
+                                columnDate=acc.date,
+                                btndownload=acc.btndown,
+                                option=acc.option
+                            )}}
+                        {% endfor %}
+                    </div>
+                </div>
+
+                {% include 'base/pagination.njk'%}
             </div>
         </div>
     </div>
 {% endblock %}
-{% block scripts %}{% endblock %}
+
+{% block scripts %}
+    <script>
+        const Input = {
+            // 에러
+            Error: function (props) {
+                const ARIA_HIDDEN = 'aria-hidden';
+                const input = props.parentElement;
+                const label = input
+                    .nextElementSibling
+                    .classList
+                    .contains('error');
+                input
+                    .classList
+                    .add('error');
+                if (!label) {
+                    return;
+                }
+
+                const get = input
+                    .nextElementSibling
+                    .getAttribute(ARIA_HIDDEN);
+                if (get === 'true') {
+                    input
+                        .nextElementSibling
+                        .setAttribute(ARIA_HIDDEN, false);
+                }
+            },
+
+            // 에러 클리어
+            Clear: function (props) {
+                const ARIA_HIDDEN = 'aria-hidden';
+                const input = props.parentElement;
+                const label = input
+                    .nextElementSibling
+                    .classList
+                    .contains('error');
+                input
+                    .classList
+                    .remove('error');
+                if (!label) {
+                    return;
+                }
+
+                const get = input
+                    .nextElementSibling
+                    .getAttribute(ARIA_HIDDEN);
+                if (get === 'false') {
+                    input
+                        .nextElementSibling
+                        .setAttribute(ARIA_HIDDEN, true);
+                }
+            },
+
+            // value 삭제버튼
+            ClearButton: function (param) {
+                if (!param.previousElementSibling) {
+                    return;
+                }
+
+                if (param.previousElementSibling.tagName === 'INPUT') {
+                    param.previousElementSibling.value = '';
+                    param
+                        .classList
+                        .remove('is-active');
+
+                    if (param.previousElementSibling.getAttribute('name') === 'id') {
+                        const target = document.querySelector('[name="password"]');
+                        const passwordParent = target.closest('.input-box');
+                        passwordParent.style.height = '';
+                        passwordParent.style.marginTop = '0';
+
+                        passwordParent
+                            .classList
+                            .add('expanding');
+                        passwordParent
+                            .classList
+                            .remove('expand');
+                        passwordParent
+                            .classList
+                            .remove('expanded');
+                    }
+                }
+            },
+
+            // InputBox value Checker
+            Check: function () {
+                const elements = document.querySelectorAll('.input-box');
+
+                const onInput = function (event) {
+                    const value = event.target.value;
+                    const length = value.length;
+                    const nextEl = event.target.nextElementSibling;
+                    if (!nextEl) {
+                        return;
+                    }
+                    if (length > 0) {
+                        nextEl
+                            .classList
+                            .add('is-active');
+                    } else {
+                        nextEl
+                            .classList
+                            .remove('is-active');
+                    }
+                };
+                []
+                    .forEach
+                    .call(elements, item => {
+                        const target = item.querySelector('.input');
+                        target.addEventListener('keyup', onInput);
+                        target.addEventListener('keydown', onInput);
+                        target.addEventListener('change', onInput);
+                    });
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', function () {
+            Input.Check();
+        })
+    </script>
+{% endblock %}

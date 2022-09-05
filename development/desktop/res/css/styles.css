@@ -35,6 +35,9 @@
 .mgt20 {
   margin-top: 20px; }
 
+.mgt18 {
+  margin-top: 18px; }
+
 .mgt30 {
   margin-top: 30px; }
 
@@ -56,11 +59,14 @@
 .pxh170 {
   height: 170px !important; }
 
+.pxh128 {
+  height: 128px !important; }
+
 .pxh260 {
   height: 260px !important; }
 
-.pxh600 {
-  height: 600px !important; }
+.pxh500 {
+  height: 500px !important; }
 
 .pxh550 {
   height: 550px !important; }
@@ -1808,6 +1814,11 @@ td {
       color: #0471e9; }
     .textarea__lengths--total {
       color: #565c63; }
+      .textarea__lengths--total:after {
+        content: 'Byte';
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 4px; }
 
 .form .fields ~ .fields {
   margin-top: 20px; }
@@ -1831,7 +1842,7 @@ label.error {
 .box {
   background-color: #fbfbfd;
   border-radius: 8px;
-  padding: 40px 24px 34px; }
+  padding: 38px 24px 40px; }
   .box .title {
     border-bottom: 0; }
   .box .grid {
@@ -2670,9 +2681,11 @@ input[type='checkbox'] {
           animation-name: fadeOut; }
 
 .search-box {
-  margin: 20px auto 0; }
+  margin: 20px auto 40px; }
   .search-box__wrap {
     max-width: 588px; }
+  .search-box--small .search-box__wrap {
+    max-width: 486px; }
   .search-box .input-box,
   .search-box input {
     height: 58px;
@@ -2686,6 +2699,8 @@ input[type='checkbox'] {
     position: absolute;
     right: 18px;
     top: calc(50% - 14px); }
+  .search-box + .ly-content__inner {
+    padding: 0 0 40px; }
 
 .pagination {
   width: 100%;
@@ -2732,11 +2747,16 @@ input[type='checkbox'] {
       display: inline-block;
       text-align: center;
       vertical-align: top;
-      line-height: 24px; }
+      line-height: 24px;
+      border-radius: 50%;
+      -webkit-transition: all 0.4s ease;
+      transition: all 0.4s ease; }
       .pagination__button--num.is-active {
         background-color: #121619;
-        border-radius: 50%;
         color: #fff; }
+      .pagination__button--num:hover {
+        color: #0471e9;
+        background-color: #e5f0fc; }
 
 .main {
   position: relative;
@@ -2828,6 +2848,13 @@ input[type='checkbox'] {
       font-weight: 300;
       font-size: 14px;
       color: #808892; }
+  .title--center {
+    height: auto;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    .title--center h2 {
+      height: 64px; }
 
 .expresstion {
   margin-top: 40px; }

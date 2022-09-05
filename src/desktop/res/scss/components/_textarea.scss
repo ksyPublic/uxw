@@ -113,6 +113,12 @@
 
     &--total {
       color: color(grey, 600);
+      &:after {
+        content: 'Byte';
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 4px;
+      }
     }
   }
 }

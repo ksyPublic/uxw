@@ -31,4 +31,12 @@
       color: color(grey, 500);
     }
   }
+
+  &--center {
+    height: auto;
+    align-items: center;
+    h2 {
+      height: 64px;
+    }
+  }
 }
