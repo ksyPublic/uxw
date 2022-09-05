@@ -299,7 +299,7 @@
                 console.log('opened!');
               },
               close: function () {
-                console.log('close!');
+                console.log('close');
               },
               closed: function () {
                 /* 이미 등록되어있을경우 getInstance로 실행 */
@@ -307,6 +307,7 @@
                   .Dialog
                   .getInstance(modal2)
                   .close();
+
               }
             });
           }

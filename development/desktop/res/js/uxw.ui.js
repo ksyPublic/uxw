@@ -7574,6 +7574,19 @@ var Dialog = /*#__PURE__*/function (_UI) {
       });
     }
   }, {
+    key: "_removeEvents",
+    value: function _removeEvents() {
+      var _this3 = this;
+
+      if (this._closeButtons) {
+        this._closeButtons.forEach(function (el) {
+          _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_16__["default"].off(el, _get(_getPrototypeOf(Dialog.prototype), "_eventName", _this3).call(_this3, 'click'));
+        });
+      }
+
+      this._closeButtons = null;
+    }
+  }, {
     key: "_setupConfog",
     value: function _setupConfog(config) {
       this._config = _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, defaultConfig), Dialog.GLOBAL_CONFIG), config), (0,_utils_dom_util__WEBPACK_IMPORTED_MODULE_15__.dataSetToObject)(this._element, dataAttrConfig, 'dialog'));
@@ -7605,23 +7618,40 @@ var Dialog = /*#__PURE__*/function (_UI) {
   }, {
     key: "_hideDialog",
     value: function _hideDialog() {
-      var _this3 = this;
+      var _this4 = this;
 
       this._element.classList.add(this._config.closeClass);
 
       this._element.classList.remove(this._config.openClass);
 
       _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_16__["default"].one(this._element, 'animationend', function () {
-        _this3._element.classList.remove(_this3._config.closeClass);
+        _this4._element.classList.remove(_this4._config.closeClass);
 
-        _this3._hideBackground();
+        _this4._hideBackground();
 
-        _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_16__["default"].trigger(_this3._element, Dialog.EVENT.CLOSED, {
-          component: _this3
+        _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_16__["default"].trigger(_this4._element, Dialog.EVENT.CLOSED, {
+          component: _this4
         });
 
-        _this3.destroy();
+        _this4.destroy();
       });
+    }
+  }, {
+    key: "destroy",
+    value: function destroy() {
+      this._removeEvents();
+
+      this._isOpen = false;
+
+      if (this._config.destroy === true || this._config.destroy === 'true') {
+        this._element.parentNode.removeChild(this._element);
+
+        _get(_getPrototypeOf(Dialog.prototype), "destroy", this).call(this);
+      }
+
+      Dialog.COUNT--; // if (Dialog.COUNT <= 0) {
+      //   EventHandler.trigger(window, Dialog.EVENT.LAST_CLOSE);
+      // }
     }
   }, {
     key: "_init",

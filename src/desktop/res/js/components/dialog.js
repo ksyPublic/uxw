@@ -117,6 +117,15 @@ class Dialog extends UI {
     });
   }
 
+  _removeEvents() {
+    if (this._closeButtons) {
+      this._closeButtons.forEach(el => {
+        EventHandler.off(el, super._eventName('click'));
+      });
+    }
+    this._closeButtons = null;
+  }
+
   _setupConfog(config) {
     this._config = {
       ...defaultConfig,
@@ -157,6 +166,21 @@ class Dialog extends UI {
       });
       this.destroy();
     });
+  }
+
+  destroy() {
+    this._removeEvents();
+    this._isOpen = false;
+    if (this._config.destroy === true || this._config.destroy === 'true') {
+      this._element.parentNode.removeChild(this._element);
+      super.destroy();
+    }
+
+    Dialog.COUNT--;
+
+    // if (Dialog.COUNT <= 0) {
+    //   EventHandler.trigger(window, Dialog.EVENT.LAST_CLOSE);
+    // }
   }
 
   _init() {
