@@ -11,6 +11,19 @@
     }
   }
 
+  &--between {
+    .#{$root}__wrap {
+      width: 100%;
+      max-width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .input-box {
+        min-width: 486px;
+      }
+    }
+  }
+
   .input-box,
   input {
     height: $input-search-height;

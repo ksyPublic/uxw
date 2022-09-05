@@ -1,7 +1,7 @@
 {% set user = "logout" %}
 {% set title = "신한 UX라이팅 시스템 | 문의사항" %}
 {% extends "../templates/layout.njk" %}
-{% set activePage = "notice" %}
+{% set activePage = "faq" %}
 {% set accordionData = [
     { 
         'pind':'true', 
@@ -106,11 +106,11 @@
         <div class="ly-content-box">
             <div class="title title--center">
                 <h2 class="text ft24 bold">문의</h2>
-                <button type="button" class="button button--type4 button--medium">용어 문의 및 제안</button>
+                <button type="button" class="button button--type4 button--medium" data-dialog-trigger="#modal2">직접 문의하기</button>
             </div>
 
             <!-- 검색박스 영역 -->
-            <div class="search-box search-box--small">
+            <div class="search-box search-box--small search-box--between">
                 <div class="search-box__wrap">
                     <div class="input-box">
                         <input name="search" type="text" class="input" placeholder="검색어을 입력해주세요."/>
@@ -122,7 +122,7 @@
                         </button>
                     </div>
 
-                    <div class="swiper"></div>
+                    {% include 'contents/sorting.njk'%}
                 </div>
             </div>
             <!-- //검색박스 영역 -->
@@ -150,6 +150,11 @@
             </div>
         </div>
     </div>
+
+    <!-- 문의하기 팝업 -->
+    {% include "../templates/popup/inquiry_popup01.njk" %}
+    <!-- //문의하기 팝업 -->
+
 {% endblock %}
 
 {% block scripts %}

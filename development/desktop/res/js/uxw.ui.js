@@ -7072,6 +7072,89 @@ var Accordion = /*#__PURE__*/function (_UI) {
 
 /***/ }),
 
+/***/ "./src/desktop/res/js/components/alert.js":
+/*!************************************************!*\
+  !*** ./src/desktop/res/js/components/alert.js ***!
+  \************************************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_es_regexp_exec_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.regexp.exec.js */ "./node_modules/core-js/modules/es.regexp.exec.js");
+/* harmony import */ var core_js_modules_es_string_replace_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.string.replace.js */ "./node_modules/core-js/modules/es.string.replace.js");
+/* harmony import */ var core_js_modules_esnext_string_replace_all_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/esnext.string.replace-all.js */ "./node_modules/core-js/modules/esnext.string.replace-all.js");
+/* harmony import */ var _utils_dom_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/dom-util */ "./src/desktop/res/js/utils/dom-util.js");
+/* harmony import */ var _dialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dialog */ "./src/desktop/res/js/components/dialog.js");
+
+
+
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+
+
+
+var AlertMessage = /*#__PURE__*/function () {
+  function AlertMessage() {
+    var config = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
+      leyout: "",
+      replacer: {}
+    };
+
+    _classCallCheck(this, AlertMessage);
+
+    this._instance = null;
+    this._element = this._createElement(config);
+    document.body.appendChild(this._element);
+    this._instance = new _dialog__WEBPACK_IMPORTED_MODULE_4__["default"](this._element, {
+      destroy: true
+    });
+    return this._instance;
+  }
+
+  _createClass(AlertMessage, [{
+    key: "open",
+    value: function open() {
+      this._instance.open();
+    }
+  }, {
+    key: "close",
+    value: function close() {
+      this._instance.close();
+    }
+  }, {
+    key: "getElement",
+    value: function getElement() {
+      return this._element;
+    }
+  }, {
+    key: "_createElement",
+    value: function _createElement(config) {
+      var layout = config.layout,
+          replacer = config.replacer;
+      var source = layout;
+
+      for (var key in replacer) {
+        if (Object.prototype.hasOwnProperty.call(replacer, key)) {
+          source = source.replaceAll(key, replacer[key]);
+        }
+      }
+
+      return (0,_utils_dom_util__WEBPACK_IMPORTED_MODULE_3__.toHTML)(source);
+    }
+  }]);
+
+  return AlertMessage;
+}();
+
+/* harmony default export */ __webpack_exports__["default"] = (AlertMessage);
+
+/***/ }),
+
 /***/ "./src/desktop/res/js/components/base/base-ui.js":
 /*!*******************************************************!*\
   !*** ./src/desktop/res/js/components/base/base-ui.js ***!
@@ -9789,9 +9872,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_loading_spinner__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/loading-spinner */ "./src/desktop/res/js/components/loading-spinner.js");
 /* harmony import */ var _components_message__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/message */ "./src/desktop/res/js/components/message.js");
 /* harmony import */ var _components_confirm__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/confirm */ "./src/desktop/res/js/components/confirm.js");
-/* harmony import */ var _components_dialog__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/dialog */ "./src/desktop/res/js/components/dialog.js");
-/* harmony import */ var _common__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./common */ "./src/desktop/res/js/common.js");
-/* harmony import */ var _utils_random__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./utils/random */ "./src/desktop/res/js/utils/random.js");
+/* harmony import */ var _components_alert__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/alert */ "./src/desktop/res/js/components/alert.js");
+/* harmony import */ var _components_dialog__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/dialog */ "./src/desktop/res/js/components/dialog.js");
+/* harmony import */ var _common__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./common */ "./src/desktop/res/js/common.js");
+/* harmony import */ var _utils_random__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./utils/random */ "./src/desktop/res/js/utils/random.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -9807,6 +9891,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 /* eslint-disable new-cap */
+
 
 
 
@@ -9851,21 +9936,21 @@ _components_tooltip__WEBPACK_IMPORTED_MODULE_11__["default"].GLOBAL_CONFIG = {
 _components_dropdown__WEBPACK_IMPORTED_MODULE_13__["default"].GLOBAL_CONFIG = {
   activeClass: 'is-active'
 };
-_components_dialog__WEBPACK_IMPORTED_MODULE_17__["default"].GLOBAL_CONFIG = {
+_components_dialog__WEBPACK_IMPORTED_MODULE_18__["default"].GLOBAL_CONFIG = {
   openClass: 'is-active',
   closeClass: 'is-deactive'
 };
 
 var Alert = function Alert(message) {
   var alertCallback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-  var dialog = new Alert({
+  var dialog = new _components_alert__WEBPACK_IMPORTED_MODULE_17__["default"]({
     layout: "\n        <div class=\"modal modal--alert\" role=\"alertdialog\" aria-modal=\"true\">\n            <div class=\"modal__dialog\">\n                <div class=\"modal__content\">\n                <div class=\"modal__body\">\n                    {{message}}\n                </div>\n                <div class=\"modal__footer\">\n                    <button class=\"button pw100\" data-dialog-close>\uD655\uC778</button>\n                </div>\n                </div>\n            </div>\n        </div>\n        ",
     replacer: {
-      '{{a11y}}': (0,_utils_random__WEBPACK_IMPORTED_MODULE_19__.getRandomID)(),
+      '{{a11y}}': (0,_utils_random__WEBPACK_IMPORTED_MODULE_20__.getRandomID)(),
       '{{message}}': message
     }
   });
-  _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_9__["default"].one(dialog.getElement(), _components_dialog__WEBPACK_IMPORTED_MODULE_17__["default"].EVENT.OPEN, function (event) {
+  _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_9__["default"].one(dialog.getElement(), _components_dialog__WEBPACK_IMPORTED_MODULE_18__["default"].EVENT.OPEN, function (event) {
     var alert = dialog.getElement().querySelector('[data-dialog-alert]');
 
     if (alert) {
@@ -9885,11 +9970,11 @@ var Confirm = function Confirm(message) {
   var dialog = new _components_confirm__WEBPACK_IMPORTED_MODULE_16__["default"]({
     layout: "\n  \n    <div class=\"modal modal--confirm\" role=\"alertdialog\" aria-modal=\"true\">\n      <div class=\"modal__dialog\">\n        <div class=\"modal__content\">\n          <div class=\"modal__body\">\n            {{message}}\n          </div>\n          <div class=\"modal__footer\">\n              <button class=\"button button--type4 pw100\" data-dialog-close>\uC544\uB2C8\uC694</button>\n              <button class=\"button pw100\" data-dialog-confirm>\uC608</button>\n          </div>\n        </div>\n      </div>\n    </div>\n  \n      ",
     replacer: {
-      '{{a11y}}': (0,_utils_random__WEBPACK_IMPORTED_MODULE_19__.getRandomID)(),
+      '{{a11y}}': (0,_utils_random__WEBPACK_IMPORTED_MODULE_20__.getRandomID)(),
       '{{message}}': message
     }
   });
-  _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_9__["default"].one(dialog.getElement(), _components_dialog__WEBPACK_IMPORTED_MODULE_17__["default"].EVENT.OPEN, function (event) {
+  _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_9__["default"].one(dialog.getElement(), _components_dialog__WEBPACK_IMPORTED_MODULE_18__["default"].EVENT.OPEN, function (event) {
     var confirm = dialog.getElement().querySelector('[data-dialog-confirm]');
 
     if (confirm) {
@@ -9953,7 +10038,7 @@ var initialize = function initialize() {
   UIInitializer('[data-ui-tab]', _components_tab__WEBPACK_IMPORTED_MODULE_10__["default"]); // 아코디언
 
   UIInitializer('[data-ui-accordion]', _components_accordion__WEBPACK_IMPORTED_MODULE_12__["default"]);
-  _common__WEBPACK_IMPORTED_MODULE_18__["default"].initialize();
+  _common__WEBPACK_IMPORTED_MODULE_19__["default"].initialize();
   return 'initialized';
 };
 
@@ -9965,7 +10050,7 @@ if (window.UXW) {
 } else {
   document.addEventListener('DOMContentLoaded', function () {
     initialize();
-    _common__WEBPACK_IMPORTED_MODULE_18__["default"].initFunc();
+    _common__WEBPACK_IMPORTED_MODULE_19__["default"].initFunc();
     _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_9__["default"].trigger(document, 'UILoaded');
     console.log('UI Load');
   });
@@ -9980,8 +10065,9 @@ var ui = {
   Dropdown: _components_dropdown__WEBPACK_IMPORTED_MODULE_13__["default"],
   Spinner: _components_loading_spinner__WEBPACK_IMPORTED_MODULE_14__["default"],
   Message: _components_message__WEBPACK_IMPORTED_MODULE_15__["default"],
-  Dialog: _components_dialog__WEBPACK_IMPORTED_MODULE_17__["default"],
-  Confirm: Confirm
+  Dialog: _components_dialog__WEBPACK_IMPORTED_MODULE_18__["default"],
+  Confirm: Confirm,
+  Alert: Alert
 };
 window.UXW = _objectSpread({}, ui);
 }();

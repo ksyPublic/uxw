@@ -36,6 +36,26 @@
     }
   }
 
+  &--alert {
+    .#{$root}__content {
+      width: 335px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .#{$root}__body {
+      padding: 32px 20px;
+      text-align: center;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 24px;
+      color: color(grey, 900);
+    }
+    .button--type4 {
+      border: 0;
+      background-color: color(grey, 200);
+    }
+  }
+
   &--medium {
     .#{$root}__content {
       width: 560px;

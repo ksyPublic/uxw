@@ -51,7 +51,7 @@
           </li>
           <!-- 220901 label 명칭 수정 aria-controls 제거 -->
           <li>
-            <a href="#none" type="button" class="ic-button-head is-active" href="/res/html/notice.html" aria-label="공지사항">
+            <a href="#none" type="button" class="ic-button-head " href="/res/html/notice.html" aria-label="공지사항">
               <i class="ic ic-menu" aria-hidden="true"></i>
             </a>
           </li>
@@ -116,10 +116,10 @@
         <div class="ly-content-box">
           <div class="title title--center">
             <h2 class="text ft24 bold">문의</h2>
-            <button type="button" class="button button--type4 button--medium">용어 문의 및 제안</button>
+            <button type="button" class="button button--type4 button--medium" data-dialog-trigger="#modal2">직접 문의하기</button>
           </div>
           <!-- 검색박스 영역 -->
-          <div class="search-box search-box--small">
+          <div class="search-box search-box--small search-box--between">
             <div class="search-box__wrap">
               <div class="input-box">
                 <input name="search" type="text" class="input" placeholder="검색어을 입력해주세요." />
@@ -130,7 +130,18 @@
                   <i class="ic ic-search--small" aria-hidden="true"></i>
                 </button>
               </div>
-              <div class="swiper"></div>
+              <div id="sorting" class="button-group">
+                <input class="radio radio--sort" id="rad01" type="radio" name="radCheck" />
+                <label for="rad01">전체</label>
+                <input class="radio radio--sort" id="rad02" type="radio" name="radCheck" disabled />
+                <label for="rad02">교정하기</label>
+                <input class="radio radio--sort" id="rad03" type="radio" name="radCheck" />
+                <label for="rad03">가이드/용어</label>
+                <input class="radio radio--sort" id="rad04" type="radio" name="radCheck" />
+                <label for="rad04">콘텐츠</label>
+                <input class="radio radio--sort" id="rad05" type="radio" name="radCheck" checked />
+                <label for="rad05">기타</label>
+              </div>
             </div>
           </div>
           <!-- //검색박스 영역 -->
@@ -442,6 +453,39 @@
           </div>
         </div>
       </div>
+      <!-- 문의하기 팝업 -->
+      <div class="modal modal--medium" id="modal2" role="dialog" aria-labelledby="#modal2Title">
+        <div class="modal__dialog" role="document">
+          <div class="modal__content">
+            <div class="modal__header">
+              <div class="modal__title" id="modal2Title">문의하기</div>
+              <button type="button" class="ic-button" data-dialog-close aria-label="팝업닫기">
+                <i class="ic ic-close" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="modal__body">
+              <div class="form">
+                <div class="fields">
+                  <div class="field">
+                    <label class="dpb medium ft14">문의내용</label>
+                    <textarea class="textarea textarea--tiny" maxlength="500" placeholder="서비스 이용 중 궁금하신 점을 말씀해주세요."></textarea>
+                    <div class="textarea__lengths">
+                      <label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
+                      <div class="textarea__lengths__box">
+                        <span class="textarea__lengths--current">0</span>/ <span class="textarea__lengths--total">500</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal__footer">
+              <button type="button" class="button pw100">문의하기</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- //문의하기 팝업 -->
     </div>
   </div>
   <script src="/res/js/lib/swiper.min.js"></script>

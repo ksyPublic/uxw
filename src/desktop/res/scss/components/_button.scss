@@ -1,172 +1,172 @@
 button {
-    cursor: pointer;
-    padding: 0;
-    background-color: transparent;
-    font-family: $font-family-base;
-    letter-spacing: $font-letter-base;
+  cursor: pointer;
+  padding: 0;
+  background-color: transparent;
+  font-family: $font-family-base;
+  letter-spacing: $font-letter-base;
 }
 
 .button {
-    border-radius: 0;
-    height: $button-base-height;
-    font-size: $button-base-fontSize;
-    font-weight: $button-base-fontWeight;
-    padding: $button-base-padding;
-    border-radius: 6px;
-    background-color: $button-base-bgColor;
-    color: $button-base-color;
-    border: $button-base-border;
-    &[aria-hidden='true'] {
-        display: none;
-    }
-    &--medium {
-        padding: 0 8px;
-        height: 32px;
-        font-size: 14px;
+  border-radius: 0;
+  height: $button-base-height;
+  font-size: $button-base-fontSize;
+  font-weight: $button-base-fontWeight;
+  padding: $button-base-padding;
+  border-radius: 6px;
+  background-color: $button-base-bgColor;
+  color: $button-base-color;
+  border: $button-base-border;
+  &[aria-hidden='true'] {
+    display: none;
+  }
+  &--medium {
+    padding: 0 8px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  &:focus {
+    background-color: $button-base-foucs-bgColor;
+  }
+
+  &:active {
+    background-color: $button-base-active-bgColor;
+  }
+
+  &:hover {
+    background-color: $button-base-hover-bgColor;
+  }
+
+  &:disabled {
+    cursor: no-drop;
+    background-color: $button-base-disabled-bgColor;
+    color: $button-base-disabled-color;
+  }
+
+  &--type2 {
+    background-color: transparent;
+    border: 1px solid color(blue, 700);
+    color: color(blue, 800);
+
+    &:hover {
+      background-color: color(grey, 50);
     }
 
     &:focus {
-        background-color: $button-base-foucs-bgColor;
+      background-color: transparent;
     }
 
     &:active {
-        background-color: $button-base-active-bgColor;
-    }
-
-    &:hover {
-        background-color: $button-base-hover-bgColor;
+      background-color: color(blue, 200);
     }
 
     &:disabled {
-        cursor: no-drop;
-        background-color: $button-base-disabled-bgColor;
-        color: $button-base-disabled-color;
+      border: 1px solid transparent;
+      background-color: color(grey, 100);
+    }
+  }
+
+  &--type3 {
+    background-color: color(blue, 100);
+    border: 1px solid transparent;
+    color: color(blue, 800);
+
+    &:hover {
+      background-color: color(blue, 200);
     }
 
-    &--type2 {
-        background-color: transparent;
-        border: 1px solid color(blue, 700);
-        color: color(blue, 800);
-
-        &:hover {
-            background-color: color(grey, 50);
-        }
-
-        &:focus {
-            background-color: transparent;
-        }
-
-        &:active {
-            background-color: color(blue, 200);
-        }
-
-        &:disabled {
-            border: 1px solid transparent;
-            background-color: color(grey, 100);
-        }
+    &:focus {
+      background-color: color(blue, 100);
+      border: 1px solid color(blue, 600);
     }
 
-    &--type3 {
-        background-color: color(blue, 100);
-        border: 1px solid transparent;
-        color: color(blue, 800);
-
-        &:hover {
-            background-color: color(blue, 200);
-        }
-
-        &:focus {
-            background-color: color(blue, 100);
-            border: 1px solid color(blue, 600);
-        }
-
-        &:active {
-            background-color: color(blue, 200);
-            color: color(blue, 900);
-        }
-
-        &:disabled {
-            background-color: color(grey, 100);
-        }
+    &:active {
+      background-color: color(blue, 200);
+      color: color(blue, 900);
     }
 
-    &--type4 {
-        background-color: $white;
-        border: 1px solid color(grey, 300);
-        color: color(grey, 900);
+    &:disabled {
+      background-color: color(grey, 100);
+    }
+  }
 
-        &:hover {
-            background-color: color(grey, 50);
-            border: 1px solid color(grey, 400);
-        }
+  &--type4 {
+    background-color: $white;
+    border: 1px solid color(grey, 300);
+    color: color(grey, 900);
 
-        &:focus {
-            background-color: $white;
-            border: 1px solid color(blue, 600);
-        }
-
-        &:active {
-            background-color: color(grey, 300);
-            border: 1px solid color(grey, 400);
-        }
-
-        &:disabled {
-            background-color: color(grey, 100);
-        }
+    &:hover {
+      background-color: color(grey, 50);
+      border: 1px solid color(grey, 400);
     }
 
-    &--type5 {
-        background-color: color(grey, 200);
-        border: 1px solid transparent;
-        color: color(grey, 900);
-
-        &:hover {
-            background-color: color(grey, 100);
-            border: 1px solid transparent;
-        }
-
-        &:focus {
-            background-color: color(grey, 200);
-            border: 1px solid color(blue, 600);
-        }
-
-        &:active {
-            background-color: color(grey, 300);
-            border: 1px solid transparent;
-        }
-
-        &:disabled {
-            background-color: color(grey, 100);
-            color: color(grey, 400);
-        }
+    &:focus {
+      background-color: $white;
+      border: 1px solid color(blue, 600);
     }
 
-    //button-group
-    &-group {
-        display: flex;
-        align-items: center;
-
-        &--between {
-            justify-content: space-between;
-        }
-
-        > div {
-            margin-left: 24px;
-            &.hide {
-                + div {
-                    margin-left: 0;
-                }
-            }
-            &:first-child {
-                margin-left: 0;
-            }
-        }
-
-        button {
-            margin-left: 8px;
-            &:first-child {
-                margin-left: 0;
-            }
-        }
+    &:active {
+      background-color: color(grey, 300);
+      border: 1px solid color(grey, 400);
     }
+
+    &:disabled {
+      background-color: color(grey, 100);
+    }
+  }
+
+  &--type5 {
+    background-color: color(grey, 200);
+    border: 1px solid transparent;
+    color: color(grey, 900);
+
+    &:hover {
+      background-color: color(grey, 100);
+      border: 1px solid transparent;
+    }
+
+    &:focus {
+      background-color: color(grey, 200);
+      border: 1px solid color(blue, 600);
+    }
+
+    &:active {
+      background-color: color(grey, 300);
+      border: 1px solid transparent;
+    }
+
+    &:disabled {
+      background-color: color(grey, 100);
+      color: color(grey, 400);
+    }
+  }
+
+  //button-group
+  &-group {
+    display: flex;
+    align-items: center;
+
+    &--between {
+      justify-content: space-between;
+    }
+
+    > div {
+      margin-left: 24px;
+      &.hide {
+        + div {
+          margin-left: 0;
+        }
+      }
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+
+    button {
+      margin-left: 8px;
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
 }
