@@ -1,61 +1,61 @@
 .head {
-    $root: head;
+  $root: head;
 
-    position: fixed;
-    top: 0;
-    left: 0;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  background-color: color(grey, 50);
+  border-bottom: 1px solid color(gray, 200);
+  padding: 0 40px;
+  z-index: $zindex-header;
+
+  &__logo {
+    font-size: 18px;
+    font-weight: bold;
+    height: 100%;
+    min-width: 184px;
+    white-space: nowrap;
+
+    a {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      color: $header-color;
+
+      span {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  &__nav {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    height: 80px;
-    background-color: color(grey, 50);
-    border-bottom: 1px solid color(gray, 200);
-    padding: 0 40px;
-    z-index: $zindex-header;
+    justify-content: flex-end;
 
-    &__logo {
-        font-size: 18px;
-        font-weight: bold;
-        height: 100%;
-        min-width: 184px;
-        white-space: nowrap;
+    ul {
+      font-size: 0;
 
-        a {
-            display: flex;
-            align-items: center;
-            height: 100%;
-            color: $header-color;
-
-            span {
-                margin-left: 10px;
-            }
-        }
-    }
-
-    &__nav {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-
-        ul {
-            font-size: 0;
-
-            li {
-                display: inline-block;
-                vertical-align: top;
-                margin-right: 24px;
-
-                &:only-child {
-                    margin-right: 0;
-                }
-            }
-        }
-    }
-
-    &__log {
+      li {
         display: inline-block;
         vertical-align: top;
+        margin-right: 24px;
+
+        &:only-child {
+          margin-right: 0;
+        }
+      }
     }
+  }
+
+  &__log {
+    display: inline-block;
+    vertical-align: top;
+  }
 }

@@ -1,135 +1,130 @@
 .tab {
-    $root: tab;
+  $root: tab;
 
-    .#{$root} {
-        padding: 40px 0;
-    }
-    &--type2 {
-        &.#{$root}--scroll {
-            .#{$root}__list {
-                padding-right: 100px;
-            }
-        }
-        .#{$root}__list {
-            width: 100%;
-            margin-right: -2px;
-        }
-
-        .#{$root}__button {
-            width: 100%;
-            padding: 0;
-            background-color: color(grey, 100);
-            color: color(grey, 600);
-            font-weight: 300;
-            font-size: 16px;
-            line-height: 24px;
-            height: 44px;
-            border-radius: 2px;
-            margin-left: 2px;
-            &:focus {
-                background-color: color(blue, 700);
-                outline: 0 !important;
-            }
-
-            &:active {
-                background-color: color(blue, 900);
-            }
-
-            &:hover {
-                background-color: color(blue, 900);
-                color: $white;
-            }
-
-            &.is-active {
-                font-weight: 500;
-                background-color: color(blue, 800);
-                color: $white;
-
-                &:hover {
-                    background-color: color(blue, 900);
-                }
-            }
-            &:after {
-                display: none;
-            }
-        }
-    }
-    &--scroll {
-        height: 100%;
-
-        .#{$root}__inner {
-            overflow: auto;
-            height: calc(100% - 221px);
-        }
-
-        .#{$root}__panel {
-            height: 100%;
-        }
-    }
-    &__list {
-        display: flex;
-        align-items: flex-start;
+  .#{$root} {
+    padding: 40px 0;
+  }
+  &--type2 {
+    .#{$root}__list {
+      width: 100%;
+      margin-right: -2px;
     }
 
-    &__panel {
-        display: none;
+    .#{$root}__button {
+      width: 100%;
+      padding: 0;
+      background-color: color(grey, 100);
+      color: color(grey, 600);
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 24px;
+      height: 44px;
+      border-radius: 2px;
+      margin-left: 2px;
+      &:focus {
+        background-color: color(blue, 700);
+        outline: 0 !important;
+      }
 
-        &:focus {
-            outline: 0 !important;
-        }
+      &:active {
+        background-color: color(blue, 900);
+      }
 
-        &.is-active {
-            display: block;
-        }
-    }
+      &:hover {
+        background-color: color(blue, 900);
+        color: $white;
+      }
 
-    &__button {
-        width: 196px;
-        font-size: 20px;
+      &.is-active {
         font-weight: 500;
-        padding: 7px 0 25px 0;
-        position: relative;
-        height: 64px;
-        transition: all 0.4s ease-out;
-
-        &:focus {
-            background-color: color(blue, 100);
-            outline: 0 !important;
-        }
-
-        &:active {
-            background-color: color(grey, 200);
-        }
+        background-color: color(blue, 800);
+        color: $white;
 
         &:hover {
-            background-color: color(grey, 50);
+          background-color: color(blue, 900);
         }
+      }
+      &:after {
+        display: none;
+      }
+    }
+  }
+  &--scroll {
+    height: 100%;
 
-        &.is-active {
-            color: color(blue, 800);
-
-            &:hover {
-                background-color: color(grey, 50);
-            }
-
-            &:after {
-                content: '';
-                z-index: 1;
-                height: 2px;
-                width: 100%;
-                background-color: color(blue, 800);
-                position: absolute;
-                bottom: 0px;
-                left: 0;
-            }
-        }
+    .#{$root}__inner {
+      overflow: auto;
+      height: calc(100% - 222px);
     }
 
-    &__inner {
-        padding: 40px 0;
+    .#{$root}__panel {
+      height: 100%;
+    }
+  }
+  &__list {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  &__panel {
+    display: none;
+
+    &:focus {
+      outline: 0 !important;
     }
 
-    &__scroll {
-        overflow-y: auto;
+    &.is-active {
+      display: block;
     }
+  }
+
+  &__button {
+    width: 196px;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 7px 0 25px 0;
+    position: relative;
+    height: 64px;
+    transition: all 0.4s ease-out;
+
+    &:focus {
+      background-color: color(blue, 100);
+      outline: 0 !important;
+    }
+
+    &:active {
+      background-color: color(grey, 200);
+    }
+
+    &:hover {
+      background-color: color(grey, 50);
+    }
+
+    &.is-active {
+      color: color(blue, 800);
+
+      &:hover {
+        background-color: color(grey, 50);
+      }
+
+      &:after {
+        content: '';
+        z-index: 1;
+        height: 2px;
+        width: 100%;
+        background-color: color(blue, 800);
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+      }
+    }
+  }
+
+  &__inner {
+    padding: 40px 0;
+  }
+
+  &__scroll {
+    overflow-y: auto;
+  }
 }

@@ -25,13 +25,11 @@ const autoScrollContent = () => {
     if (tabs.length > 0 && side) {
       document.body.classList.remove('is-beside');
       Object.assign(lyContainer.style, {
-        height: '100%',
         overflow: 'hidden',
       });
     } else {
       document.body.classList.add('is-beside');
       Object.assign(lyContainer.style, {
-        height: '100%',
         overflow: 'auto',
       });
     }

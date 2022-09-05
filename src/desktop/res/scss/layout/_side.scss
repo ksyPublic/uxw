@@ -1,71 +1,75 @@
 .side {
-    &__head {
-        padding: 40px 40px 0;
+  position: relative;
+  width: 462px;
+  flex-shrink: 0;
+  &__head {
+    padding: 40px 40px 0;
 
-        + .side__inner {
-            margin-top: 10px;
-            padding: 0px 40px 0 40px;
-            overflow-y: auto;
-            height: calc(100% - 79px);
-        }
+    + .side__inner {
+      margin-top: 10px;
+      padding: 0px 40px 0 40px;
+      overflow-y: auto;
+      height: calc(100% - 79px);
     }
-    &__inner {
-        padding: 40px 40px 0 40px;
-        height: 100%;
-        overflow-y: auto;
+  }
+  &__inner {
+    padding: 40px 40px 0 40px;
+    height: 100%;
+    overflow-y: auto;
 
-        &:after {
-            content: '';
-            display: block;
-            height: 40px;
-        }
+    &:after {
+      content: '';
+      display: block;
+      height: 40px;
     }
-    &__wrap {
-        position: fixed;
-        top: 80px;
-        right: 0;
-        z-index: 100;
-        height: calc(100% - 79px);
+  }
+  &__wrap {
+    position: absolute;
+    min-height: 100%;
+    top: 0px;
+    right: 0;
+    z-index: 100;
+    height: calc(100% - 79px);
 
-        width: 461px;
-        background-color: $white;
-        border-left: 1px solid color(grey, 200);
+    width: 461px;
+    background-color: $white;
+    border-left: 1px solid color(grey, 200);
 
-        &.is-deactive {
-            transform: translateX(100%);
-            transition: transform 0.6s cubic-bezier(0.22, 0.86, 0.62, 1.06);
-            z-index: $zindex-sidebar-deactive;
-        }
-
-        &.is-active {
-            transform: translateX(0);
-            transition: transform 0.6s cubic-bezier(0.22, 0.86, 0.62, 1.06);
-            transition-delay: 400ms;
-            z-index: $zindex-sidebar-active;
-        }
-
-        .swiper-wrapper {
-            height: auto;
-        }
-
-        .swiper-slide {
-            height: auto;
-        }
+    &.is-deactive {
+      transform: translateX(100%);
+      transition: transform 0.6s cubic-bezier(0.22, 0.86, 0.62, 1.06);
+      z-index: $zindex-sidebar-deactive;
     }
 
-    &__frame__html {
-        overflow: hidden;
+    &.is-active {
+      transform: translateX(0);
+      transition: transform 0.6s cubic-bezier(0.22, 0.86, 0.62, 1.06);
+      transition-delay: 400ms;
+      z-index: $zindex-sidebar-active;
     }
 
-    &__frame__wrap {
-        background-color: color(blue, 800);
-        border-radius: 8px;
-
-        padding: 40px 24px;
-        color: $white;
-
-        h4 {
-            line-height: 28px;
-        }
+    .swiper-wrapper {
+      height: auto;
     }
+
+    .swiper-slide {
+      height: auto;
+    }
+  }
+
+  &__frame__html {
+    overflow: hidden;
+  }
+
+  &__frame__wrap {
+    background-color: color(blue, 800);
+    border-radius: 8px;
+
+    padding: 40px 24px;
+    color: $white;
+
+    h4 {
+      line-height: 28px;
+    }
+  }
 }

@@ -1,66 +1,66 @@
 .main {
-    position: relative;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  // margin: 0 auto;
+  display: flex;
+  align-items: center;
+  height: 100%;
+
+  &-wrap {
     display: flex;
-    align-items: center;
-    height: 100%;
+    align-items: flex-start;
+  }
 
-    &-wrap {
-        display: flex;
-        align-items: flex-start;
-    }
+  &-visual {
+    position: relative;
+    // display: flex;
+    // align-items: center;
+    width: 792px;
+  }
 
-    &-visual {
-        position: relative;
-        // display: flex;
-        // align-items: center;
-        width: 792px;
-    }
+  //main swiper override
+  .swiper-wrapper {
+    height: 480px;
+  }
 
-    //main swiper override
-    .swiper-wrapper {
-        height: 480px;
-    }
-
-    .swiper-indicator {
-        margin-top: 20px;
-        height: 38px;
-    }
+  .swiper-indicator {
+    margin-top: 20px;
+    height: 38px;
+  }
 }
 
 .login {
-    $root: login;
+  $root: login;
 
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    margin-right: 80px;
-    min-width: 328px;
-    max-width: 328px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  margin-right: 80px;
+  min-width: 328px;
+  max-width: 328px;
 
-    &__sub__text {
-        margin: 32px 0 40px 0;
-        line-height: 32px;
+  &__sub__text {
+    margin: 32px 0 40px 0;
+    line-height: 32px;
+  }
+
+  &__title {
+    color: color(grey, 500);
+  }
+
+  &__text {
+    margin-top: 20px;
+    line-height: 40px;
+  }
+
+  &__form {
+    margin-top: 8px;
+  }
+
+  .input-box {
+    + .button--login {
+      margin-top: 6px;
     }
-
-    &__title {
-        color: color(grey, 500);
-    }
-
-    &__text {
-        margin-top: 20px;
-        line-height: 40px;
-    }
-
-    &__form {
-        margin-top: 8px;
-    }
-
-    .input-box {
-        + .button--login {
-            margin-top: 6px;
-        }
-    }
+  }
 }
