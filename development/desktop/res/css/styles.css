@@ -3196,7 +3196,6 @@ input[type='radio'] {
   height: 100vh; }
 
 .floating-menu-wrap {
-  position: relative;
   width: 360px;
   -ms-flex-negative: 0;
       flex-shrink: 0; }
