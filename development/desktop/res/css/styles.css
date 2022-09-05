@@ -3212,9 +3212,8 @@ input[type='radio'] {
       flex-shrink: 1; }
 
 .ly-content {
-  position: relative;
   height: 100%;
-  margin: 0 78px 0 0px;
+  margin: 0 102px 0 0px;
   width: 100%; }
   @media all and (min-width: 1921px) {
     .ly-content {
@@ -3230,6 +3229,7 @@ input[type='radio'] {
     padding: 40px 0; }
 
 .ly-bottom-group {
+  max-width: 996px;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3243,7 +3243,7 @@ input[type='radio'] {
       -ms-flex-pack: justify;
           justify-content: space-between;
   position: absolute;
-  left: 0;
+  left: 360px;
   right: 0;
   bottom: 0px;
   min-height: 56px;

@@ -22,9 +22,9 @@
   }
 
   &-content {
-    position: relative;
+    // position: relative;
     height: 100%;
-    margin: 0 78px 0 0px;
+    margin: 0 102px 0 0px;
     // min-width: 996px;
     // overflow: auto;
     width: 100%;
@@ -52,6 +52,7 @@
   }
 
   &-bottom-group {
+    max-width: 996px;
     position: relative;
     display: flex;
     align-items: center;
@@ -61,7 +62,7 @@
     // margin: 0 460px 0 360px;
     // max-width: 996px;
     // min-width: 996px;
-    left: 0;
+    left: 360px;
     right: 0;
     bottom: 0px;
     min-height: 56px;

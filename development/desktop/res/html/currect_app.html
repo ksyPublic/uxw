@@ -969,7 +969,7 @@
               btnsave.setAttribute('aria-hidden', true);
             }
             const resultFormat = function(num) {
-              return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+              return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             }
             if (textEl.classList.contains('error')) {
               textCurrent.innerText = resultFormat(leng + 1)
