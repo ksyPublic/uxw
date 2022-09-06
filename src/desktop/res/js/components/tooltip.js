@@ -9,6 +9,8 @@ import { dataSetToObject } from '../utils/dom-util';
 const NAME = 'ui.tooltip';
 
 const ARIA_DESCRIBEDBY = 'aria-describedby';
+const TOOLTIP_TIME = 'data-tooltip-time';
+const DATA_PLACEMENT = 'data-placement';
 
 const dataAttrConfig = {
   activeClass: 'active',
@@ -84,7 +86,7 @@ class Tooltip extends UI {
       }
 
       const target = event.target.closest(`[${ARIA_DESCRIBEDBY}]`);
-      const getTime = this._tooltip.parentElement.getAttribute('data-tooltip-time');
+      const getTime = this._tooltip.parentElement.getAttribute(`${TOOLTIP_TIME}`);
       if (target) {
         this._current = {
           tooltip: target,
@@ -92,30 +94,8 @@ class Tooltip extends UI {
         };
 
         this._getTime = getTime * 1000;
+        this._getPosBind();
         this._show();
-      }
-
-      const { content } = this._current;
-      const position = content.getAttribute('data-placement');
-      this._elementPosition = position;
-      if (position) {
-        switch (position) {
-          case 'bottom':
-            this._position = 'xc yt';
-            break;
-          case 'left':
-            this._position = 'xc yc';
-            break;
-          case 'top':
-            this._position = 'xc yb';
-            break;
-          case 'right':
-            this._position = 'xr yc';
-            break;
-
-          default:
-            'right';
-        }
       }
     });
 
@@ -125,6 +105,32 @@ class Tooltip extends UI {
         this._hide(tooltip, content);
       }
     });
+  }
+
+  _getPosBind() {
+    const { content } = this._current;
+
+    const position = content.getAttribute(`${DATA_PLACEMENT}`);
+    this._elementPosition = position;
+    if (position) {
+      switch (position) {
+        case 'bottom':
+          this._position = 'xc yt';
+          break;
+        case 'left':
+          this._position = 'xc yc';
+          break;
+        case 'top':
+          this._position = 'xc yb';
+          break;
+        case 'right':
+          this._position = 'xr yc';
+          break;
+
+        default:
+          'right';
+      }
+    }
   }
 
   _getContent(target) {
@@ -144,18 +150,16 @@ class Tooltip extends UI {
 
   _show() {
     const { time } = this._config;
-
     this._timer = setTimeout(
       () => {
         this._updatePosition();
       },
-      this._getTime ? this._getTime : time,
+      this._getTime === null ? time : this._getTime,
     );
   }
 
-  _hide() {
+  _hide(tooltip, content) {
     const { activeClass } = this._config;
-    const { content } = this._current;
     clearTimeout(this._timer);
     content.classList.remove(activeClass);
   }
@@ -163,14 +167,18 @@ class Tooltip extends UI {
   _updatePosition() {
     const { activeClass, offset } = this._config;
     const { content } = this._current;
+
     /**
      * 툴팁 포지션 업데이트
      */
     const positions = this._position.split(' ');
+
     const positionX = positions[0];
     const positionY = positions[1];
     const resultX = this._getPosition(positionX.toUpperCase());
     const resultY = this._getPosition(positionY.toUpperCase());
+
+    console.log('@@@', resultX, resultY);
 
     if (this._elementPosition === 'bottom' || this._elementPosition === 'top') {
       Object.assign(content.style, {
@@ -194,6 +202,7 @@ class Tooltip extends UI {
 
   _getPosition(positionName) {
     const { content } = this._current;
+
     /**
      * X 축, Y축 검사하며
      * 툴팁이 짤리는 경우를 검사하여
@@ -221,39 +230,43 @@ class Tooltip extends UI {
     const opennerRight = opennerLeft + opennerWidth;
     const opennerXCenter = opennerLeft + opennerWidth / 2;
     const opennerYCenter = opennerTop + opennerHeight / 2;
+
     let calcPositionValue = 0;
     switch (positionName) {
       // x축 - left
       case 'XL':
         calcPositionValue = opennerLeft - tw;
-        if (calcPositionValue < screenLeft) calcPositionValue = this._getPosition('XC');
+        // if (calcPositionValue < screenLeft) calcPositionValue = this._getPosition('XC');
         break;
       // x축 - center
       case 'XC':
         calcPositionValue = opennerXCenter - tw / 2;
-        if (calcPositionValue < screenLeft) calcPositionValue = this._getPosition('XR');
-        if (calcPositionValue + tw > screenRight) calcPositionValue = this._getPosition('XL');
+        // if (calcPositionValue < screenLeft) calcPositionValue = this._getPosition('XR');
+        // if (calcPositionValue + tw > screenRight) calcPositionValue = this._getPosition('XL');
         break;
       // x축 - right
       case 'XR':
         calcPositionValue = opennerRight;
-        if (calcPositionValue + tw > screenRight) calcPositionValue = this._getPosition('XC');
+        // if (calcPositionValue + tw > screenRight) {
+        //   calcPositionValue = this._getPosition('XC');
+        // }
+
         break;
       // y축 - top
       case 'YT':
         calcPositionValue = opennerTop - th;
-        if (calcPositionValue < screenTop) calcPositionValue = this._getPosition('YC');
+        // if (calcPositionValue < screenTop) calcPositionValue = this._getPosition('YC');
         break;
       // y축 - center
       case 'YC':
         calcPositionValue = opennerYCenter - th / 2;
-        if (calcPositionValue < screenTop) calcPositionValue = this._getPosition('YB');
-        if (calcPositionValue + th > screenBottom) calcPositionValue = this._getPosition('YT');
+        // if (calcPositionValue < screenTop) calcPositionValue = this._getPosition('YB');
+        // if (calcPositionValue + th > screenBottom) calcPositionValue = this._getPosition('YT');
         break;
       // y축 - bottom
       case 'YB':
         calcPositionValue = opennerBottom;
-        if (calcPositionValue + th > screenBottom) calcPositionValue = this._getPosition('YC');
+        // if (calcPositionValue + th > screenBottom) calcPositionValue = this._getPosition('YC');
         break;
     }
     return calcPositionValue;
@@ -277,15 +290,18 @@ class Tooltip extends UI {
       info.scrollLeft = this._container.scrollLeft;
       info.scrollTop = this._container.scrollTop;
     }
+
     return info;
   }
 
   _varioblesUpdate() {
     this._tooltip = this._element.querySelector('[' + ARIA_DESCRIBEDBY + ']');
 
-    let appendContainer = this._container === null ? window : this._container;
+    const getContainer = this._tooltip.getAttribute('data-container');
+
+    let appendContainer = getContainer === null ? window : getContainer;
     if (typeof appendContainer === 'string') {
-      appendContainer = document.querySelector(appendContainer);
+      appendContainer = document.querySelector('#' + appendContainer);
     }
     this._container = appendContainer;
   }

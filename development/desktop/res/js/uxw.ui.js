@@ -8862,6 +8862,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var NAME = 'ui.tooltip';
 var ARIA_DESCRIBEDBY = 'aria-describedby';
+var TOOLTIP_TIME = 'data-tooltip-time';
+var DATA_PLACEMENT = 'data-placement';
 var dataAttrConfig = {
   activeClass: 'active',
   active: 0,
@@ -8935,7 +8937,7 @@ var Tooltip = /*#__PURE__*/function (_UI) {
 
         var target = event.target.closest("[".concat(ARIA_DESCRIBEDBY, "]"));
 
-        var getTime = _this2._tooltip.parentElement.getAttribute('data-tooltip-time');
+        var getTime = _this2._tooltip.parentElement.getAttribute("".concat(TOOLTIP_TIME));
 
         if (target) {
           _this2._current = {
@@ -8944,34 +8946,9 @@ var Tooltip = /*#__PURE__*/function (_UI) {
           };
           _this2._getTime = getTime * 1000;
 
+          _this2._getPosBind();
+
           _this2._show();
-        }
-
-        var content = _this2._current.content;
-        var position = content.getAttribute('data-placement');
-        _this2._elementPosition = position;
-
-        if (position) {
-          switch (position) {
-            case 'bottom':
-              _this2._position = 'xc yt';
-              break;
-
-            case 'left':
-              _this2._position = 'xc yc';
-              break;
-
-            case 'top':
-              _this2._position = 'xc yb';
-              break;
-
-            case 'right':
-              _this2._position = 'xr yc';
-              break;
-
-            default:
-              'right';
-          }
         }
       });
       _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_20__["default"].on(this._tooltip, _get(_getPrototypeOf(Tooltip.prototype), "_eventName", this).call(this, 'mouseleave'), function (event) {
@@ -8983,6 +8960,36 @@ var Tooltip = /*#__PURE__*/function (_UI) {
           _this2._hide(tooltip, content);
         }
       });
+    }
+  }, {
+    key: "_getPosBind",
+    value: function _getPosBind() {
+      var content = this._current.content;
+      var position = content.getAttribute("".concat(DATA_PLACEMENT));
+      this._elementPosition = position;
+
+      if (position) {
+        switch (position) {
+          case 'bottom':
+            this._position = 'xc yt';
+            break;
+
+          case 'left':
+            this._position = 'xc yc';
+            break;
+
+          case 'top':
+            this._position = 'xc yb';
+            break;
+
+          case 'right':
+            this._position = 'xr yc';
+            break;
+
+          default:
+            'right';
+        }
+      }
     }
   }, {
     key: "_getContent",
@@ -9010,13 +9017,12 @@ var Tooltip = /*#__PURE__*/function (_UI) {
       var time = this._config.time;
       this._timer = setTimeout(function () {
         _this3._updatePosition();
-      }, this._getTime ? this._getTime : time);
+      }, this._getTime === null ? time : this._getTime);
     }
   }, {
     key: "_hide",
-    value: function _hide() {
+    value: function _hide(tooltip, content) {
       var activeClass = this._config.activeClass;
-      var content = this._current.content;
       clearTimeout(this._timer);
       content.classList.remove(activeClass);
     }
@@ -9039,6 +9045,8 @@ var Tooltip = /*#__PURE__*/function (_UI) {
       var resultX = this._getPosition(positionX.toUpperCase());
 
       var resultY = this._getPosition(positionY.toUpperCase());
+
+      console.log('@@@', resultX, resultY);
 
       if (this._elementPosition === 'bottom' || this._elementPosition === 'top') {
         Object.assign(content.style, {
@@ -9098,40 +9106,42 @@ var Tooltip = /*#__PURE__*/function (_UI) {
       switch (positionName) {
         // x축 - left
         case 'XL':
-          calcPositionValue = opennerLeft - tw;
-          if (calcPositionValue < screenLeft) calcPositionValue = this._getPosition('XC');
+          calcPositionValue = opennerLeft - tw; // if (calcPositionValue < screenLeft) calcPositionValue = this._getPosition('XC');
+
           break;
         // x축 - center
 
         case 'XC':
-          calcPositionValue = opennerXCenter - tw / 2;
-          if (calcPositionValue < screenLeft) calcPositionValue = this._getPosition('XR');
-          if (calcPositionValue + tw > screenRight) calcPositionValue = this._getPosition('XL');
+          calcPositionValue = opennerXCenter - tw / 2; // if (calcPositionValue < screenLeft) calcPositionValue = this._getPosition('XR');
+          // if (calcPositionValue + tw > screenRight) calcPositionValue = this._getPosition('XL');
+
           break;
         // x축 - right
 
         case 'XR':
-          calcPositionValue = opennerRight;
-          if (calcPositionValue + tw > screenRight) calcPositionValue = this._getPosition('XC');
+          calcPositionValue = opennerRight; // if (calcPositionValue + tw > screenRight) {
+          //   calcPositionValue = this._getPosition('XC');
+          // }
+
           break;
         // y축 - top
 
         case 'YT':
-          calcPositionValue = opennerTop - th;
-          if (calcPositionValue < screenTop) calcPositionValue = this._getPosition('YC');
+          calcPositionValue = opennerTop - th; // if (calcPositionValue < screenTop) calcPositionValue = this._getPosition('YC');
+
           break;
         // y축 - center
 
         case 'YC':
-          calcPositionValue = opennerYCenter - th / 2;
-          if (calcPositionValue < screenTop) calcPositionValue = this._getPosition('YB');
-          if (calcPositionValue + th > screenBottom) calcPositionValue = this._getPosition('YT');
+          calcPositionValue = opennerYCenter - th / 2; // if (calcPositionValue < screenTop) calcPositionValue = this._getPosition('YB');
+          // if (calcPositionValue + th > screenBottom) calcPositionValue = this._getPosition('YT');
+
           break;
         // y축 - bottom
 
         case 'YB':
-          calcPositionValue = opennerBottom;
-          if (calcPositionValue + th > screenBottom) calcPositionValue = this._getPosition('YC');
+          calcPositionValue = opennerBottom; // if (calcPositionValue + th > screenBottom) calcPositionValue = this._getPosition('YC');
+
           break;
       }
 
@@ -9165,10 +9175,13 @@ var Tooltip = /*#__PURE__*/function (_UI) {
     key: "_varioblesUpdate",
     value: function _varioblesUpdate() {
       this._tooltip = this._element.querySelector('[' + ARIA_DESCRIBEDBY + ']');
-      var appendContainer = this._container === null ? window : this._container;
+
+      var getContainer = this._tooltip.getAttribute('data-container');
+
+      var appendContainer = getContainer === null ? window : getContainer;
 
       if (typeof appendContainer === 'string') {
-        appendContainer = document.querySelector(appendContainer);
+        appendContainer = document.querySelector('#' + appendContainer);
       }
 
       this._container = appendContainer;
