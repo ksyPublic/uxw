@@ -6,6 +6,10 @@
   z-index: $zindex-fab;
   transform: translateY(-50%);
 
+  &.is-open {
+    z-index: 999;
+  }
+
   &__box {
     display: flex;
     flex-flow: column;

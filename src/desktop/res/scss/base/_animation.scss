@@ -1,18 +1,18 @@
 .expanding {
-    height: 0;
-    margin: 0;
-    overflow: hidden;
-    transition: margin 0.35s cubic-bezier(0.33, 1, 0.68, 1), height 0.35s cubic-bezier(0.33, 1, 0.68, 1);
+  height: 0;
+  margin: 0;
+  overflow: hidden;
+  transition: margin 0.35s cubic-bezier(0.33, 1, 0.68, 1), height 0.35s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
 .expanded {
-    display: block;
+  display: block;
 }
 
 .expand {
-    &:not(.expanded) {
-        display: none;
-    }
+  &:not(.expanded) {
+    display: none;
+  }
 }
 
 // .expanding {
@@ -22,102 +22,124 @@
 //     transition: all 0.25s;
 // }
 @keyframes messageIn {
-    from {
-        transform: translateY(-30%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0%);
-        opacity: 1;
-    }
+  from {
+    transform: translateY(-30%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
 }
 
 @keyframes messageOut {
-    from {
-        transform: translateY(0%);
-        opacity: 1;
-    }
-    to {
-        transform: translateY(-40%);
-        opacity: 0;
-    }
+  from {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-40%);
+    opacity: 0;
+  }
+}
+
+@keyframes modalLayerIn {
+  from {
+    transform: translateX(-5%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes modalLayerOut {
+  from {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-10%);
+    opacity: 0;
+  }
 }
 
 // 다이얼로그(modal, alert, confirm) 기본 인 아웃
 @keyframes defaultIn {
-    from {
-        transform: translateY(-5%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0%);
-        opacity: 1;
-    }
+  from {
+    transform: translateY(-5%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
 }
 
 // 다이얼로그(modal, alert, confirm) 기본 인 아웃
 @keyframes defaultOut {
-    from {
-        transform: translateY(0%);
-        opacity: 1;
-    }
-    to {
-        transform: translateY(-10%);
-        opacity: 0;
-    }
+  from {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-10%);
+    opacity: 0;
+  }
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 @keyframes spinner-hide {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes spinner-show {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 [data-none] {
-    display: none !important;
+  display: none !important;
 }
 
 [data-visible] {
-    transition: visibility 0.35s ease, opacity 0.5s ease;
+  transition: visibility 0.35s ease, opacity 0.5s ease;
 }
 
 * {
-    .button,
-    .text-link {
-        transition: all 0.4s ease-out;
-    }
+  .button,
+  .text-link {
+    transition: all 0.4s ease-out;
+  }
 }
 
 [data-trans] {
-    transition: all 0.35s cubic-bezier(0.33, 1, 0.68, 1);
+  transition: all 0.35s cubic-bezier(0.33, 1, 0.68, 1);
 }

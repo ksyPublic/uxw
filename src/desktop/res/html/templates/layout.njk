@@ -121,7 +121,7 @@
                                 <!-- 로그인 일때 -->
                                 <li class="nav__list">
                                     <div class="nav__item tooltip-button">
-                                        <button type="button" class="ic-button-nav" aria-describedby="tooltip1" aria-label="용어/표현 검색">
+                                        <button type="button" class="ic-button-nav" aria-describedby="tooltip1" aria-label="용어/표현 검색" aria-controls="layerModal1">
                                             <i class="ic ic-search" aria-hidden="true"></i>
                                         </button>
                                         <a class="text" href="#none" alt="용어사전검색 바로가기">용어/표현 검색</a>
@@ -129,7 +129,7 @@
                                 </li>
                                 <li class="nav__list">
                                     <div class="nav__item tooltip-button">
-                                        <button type="button" class="ic-button-nav" aria-describedby="tooltip2" aria-label="UXW라이팅 가이드">
+                                        <button type="button" class="ic-button-nav" aria-describedby="tooltip2" aria-label="UXW라이팅 가이드" aria-controls="layerModal2">
                                             <i class="ic ic-guidebook" aria-hidden="true"></i>
                                         </button>
                                         <a class="text" href="#none" alt="용어사전검색 바로가기">UXW라이팅 가이드</a>
@@ -137,7 +137,7 @@
                                 </li>
                                 <li class="nav__list">
                                     <div class="nav__item tooltip-button">
-                                        <button type="button" class="ic-button-nav" aria-describedby="tooltip3" aria-label="교정된 콘텐츠">
+                                        <button type="button" class="ic-button-nav" aria-describedby="tooltip3" aria-label="교정된 콘텐츠" aria-controls="layerModal3">
                                             <i class="ic ic-edition" aria-hidden="true"></i>
                                         </button>
                                         <a class="text" href="#none" alt="용어사전검색 바로가기">교정된 콘텐츠</a>
@@ -167,6 +167,18 @@
             {% endblock %}
         </div>
     </div>
+
+    <!-- 용어/표현검색 레이어팝업 -->
+    {% include "../templates/layer/symptom_search.njk" %}
+    <!-- //용어/표현검색 레이어팝업 -->
+
+    <!-- 라이팅가이드 레이어팝업 -->
+    {% include "../templates/layer/writing_guide.njk" %}
+    <!-- //라이팅가이드 레이어팝업 -->
+
+    <!-- 교정된 콘텐츠 레이어팝업 -->
+    {% include "../templates/layer/redacted_contents.njk" %}
+    <!-- //교정된 콘텐츠 레이어팝업 -->
 
     <script src="/res/js/lib/swiper.min.js"></script>
     <script src="/res/js/uxw.ui.js"></script>

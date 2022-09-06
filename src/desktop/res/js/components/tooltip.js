@@ -102,6 +102,9 @@ class Tooltip extends UI {
     EventHandler.on(this._tooltip, super._eventName('mouseleave'), event => {
       if (event) {
         const { tooltip, content } = this._current;
+        if (!tooltip) {
+          return;
+        }
         this._hide(tooltip, content);
       }
     });
@@ -154,7 +157,7 @@ class Tooltip extends UI {
       () => {
         this._updatePosition();
       },
-      this._getTime === null ? time : this._getTime,
+      this._getTime ? this._getTime : time,
     );
   }
 
@@ -177,8 +180,6 @@ class Tooltip extends UI {
     const positionY = positions[1];
     const resultX = this._getPosition(positionX.toUpperCase());
     const resultY = this._getPosition(positionY.toUpperCase());
-
-    console.log('@@@', resultX, resultY);
 
     if (this._elementPosition === 'bottom' || this._elementPosition === 'top') {
       Object.assign(content.style, {

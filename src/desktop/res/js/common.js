@@ -1,7 +1,10 @@
 import 'element-closest-polyfill';
 import EventHandler from './vendor/EventHandler';
+import { toHTML, isVisible } from './utils/dom-util';
 
 /* eslint-disable prettier/prettier */
+
+const LAYER_OPEND = 'data-layer-opend';
 
 const getObjectElements = function (elements) {
   let arr = [];
@@ -65,9 +68,11 @@ const cardRefresh = () => {
 };
 
 const navigation = function (UI) {
-  const NAV_BOX = 'aria-expanded';
+  const ARIA_EXPANDED = 'aria-expanded';
+  const ARIA_CONTROLS = 'aria-controls';
   const elements = document.querySelectorAll(UI);
   const navEl = getObjectElements(elements);
+  const layerModal = document.querySelectorAll('.modal--layer');
 
   if (!elements) {
     return;
@@ -98,51 +103,185 @@ const navigation = function (UI) {
     });
   };
 
+  const navAria = function (attr, parentTarget) {
+    attr === 'false' ? [parentTarget.setAttribute(ARIA_EXPANDED, 'true')] : null;
+    return attr;
+  };
+
   const navClickable = function (event) {
     if (!event.target.tagName.match(/^A$|AREA|INPUT|TEXTAREA|SELECT|BUTTON|LABEL/gim)) {
       event.preventDefault();
     }
 
-    const parentTarget = event.currentTarget.closest('[' + NAV_BOX + ']');
-    const attr = parentTarget.getAttribute(NAV_BOX);
-    let check = attr;
-    check === 'false' ? [parentTarget.setAttribute(NAV_BOX, 'true')] : null;
-    // [parentTarget.setAttribute(NAV_BOX, 'false')]
+    const parentTarget = event.currentTarget.closest('[' + ARIA_EXPANDED + ']');
+    const attr = parentTarget.getAttribute(ARIA_EXPANDED);
+
+    navAria(attr, parentTarget);
     beforeSelection();
-    if (event.target.tagName === 'A') {
-      const prevTarget = event.target.closest('.nav__item').querySelector('.ic-button-nav');
-      prevTarget.classList.add('is-active');
-    } else {
-      event.currentTarget.classList.add('is-active');
-      defaultSelection();
-    }
+    parentTarget.parentElement.classList.add('is-open');
+
+    const target = event.target.closest(`[${ARIA_CONTROLS}]`) === null ? event.target.previousElementSibling : event.target.closest(`[${ARIA_CONTROLS}]`);
+    target.classList.add('is-active');
+    defaultSelection();
   };
 
   const beforeSelection = function () {
     [].forEach.call(config.target, item => {
       item.classList.remove('is-active');
     });
+
+    layerModal.forEach(modal => {
+      const possibleAnimation = isVisible(modal);
+      if (modal.getAttribute(`${LAYER_OPEND}`) === 'true' && possibleAnimation) {
+        modal.classList.add('is-deactive');
+        modal.classList.remove('is-active');
+        modal.setAttribute(`${LAYER_OPEND}`, 'false');
+
+        EventHandler.one(modal, 'animationend', () => {
+          modal.classList.remove('is-deactive');
+        });
+      }
+    });
   };
 
   const defaultSelection = function () {
-    const _nav = document.querySelector('[' + NAV_BOX + ']');
     const _tooltipBox = document.querySelector('.tooltip__box');
-    if (!_nav) {
-      return;
-    }
-
     _tooltipBox.classList.add('is-beactive');
-
-    // const _get = _nav.getAttribute(NAV_BOX);
-    // if (_get !== true) {
-    //   // _tooltipBox.classList.add('is-beactive');
-    // } else {
-    // }
   };
 
   function _init() {
     addEvent();
-    // defaultSelection();
+  }
+
+  _init();
+};
+
+const modalLayer = function (UI) {
+  const bgTemplate = `
+  <div style="
+    position: fixed; 
+    width: 100%; 
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index:102;
+    background-color: rgba(0,0,0,0.6);">
+  </div>`;
+
+  const elements = document.querySelectorAll(UI);
+  const navEl = getObjectElements(elements);
+  const tooltipBox = document.querySelector('.tooltip__box');
+  const ARIA_CONTROLS = 'aria-controls';
+  const ARIA_EXPANDED = 'aria-expanded';
+  const LAYER_CLOSE = 'data-layer-close';
+
+  const createHtml = toHTML(bgTemplate);
+
+  if (!elements) {
+    return;
+  }
+
+  let config = {
+    target: null,
+    nextTarget: null,
+    layerContent: null,
+    closeButton: null,
+  };
+
+  const varioblesUpdate = function () {
+    [].forEach.call(navEl, x => {
+      const navButton = x.querySelectorAll('.nav__list .ic-button-nav');
+      const target = navButton;
+      const layerCurrent = navButton;
+      const toTarget = x.querySelectorAll('.nav__item a');
+
+      config = {
+        target: target,
+        nextTarget: toTarget,
+        layerContent: layerCurrent,
+      };
+    });
+  };
+
+  const addEvent = function () {
+    if (!config.target) {
+      return;
+    }
+    config.target.forEach((item, index) => {
+      EventHandler.on(item, 'click', layerClick);
+      EventHandler.on(config.nextTarget[index], 'click', layerClick);
+    });
+  };
+
+  const layerClick = function (event) {
+    if (!event.target.tagName.match(/^A$|AREA|INPUT|TEXTAREA|SELECT|BUTTON|LABEL/gim)) {
+      event.preventDefault();
+    }
+
+    const target = event.target.closest(`[${ARIA_CONTROLS}]`);
+
+    const getAttr = target === null ? event.target.previousElementSibling.getAttribute(`${ARIA_CONTROLS}`) : target.getAttribute(`${ARIA_CONTROLS}`);
+    const layerModal = document.querySelector(`#${getAttr}`);
+    if (!layerModal) {
+      return;
+    }
+
+    config.closeButton = layerModal.querySelector(`[${LAYER_CLOSE}]`);
+    EventHandler.on(config.closeButton, 'click', layerClose);
+    _show(layerModal);
+  };
+
+  const layerClose = function (event) {
+    if (!event.target.tagName.match(/^A$|AREA|INPUT|TEXTAREA|SELECT|BUTTON|LABEL/gim)) {
+      event.preventDefault();
+    }
+    const target = event.currentTarget;
+    _hide(target);
+  };
+
+  const _show = function (layerModal) {
+    if (layerModal.getAttribute(`${LAYER_OPEND}`) === 'false') {
+      createHtml.classList.add('fadeIn');
+      document.body.appendChild(createHtml);
+      layerModal.classList.add('is-active');
+      layerModal.setAttribute(`${LAYER_OPEND}`, 'true');
+
+      EventHandler.one(layerModal, 'animationend', () => {
+        layerModal.classList.remove('is-deactive');
+      });
+    }
+  };
+
+  const _hide = function (target) {
+    const modal = target.closest('.modal');
+
+    if (modal.getAttribute(`${LAYER_OPEND}`) === 'true') {
+      createHtml.classList.remove('fadeOut');
+      document.body.removeChild(createHtml);
+      modal.classList.add('is-deactive');
+      modal.setAttribute(`${LAYER_OPEND}`, 'false');
+
+      EventHandler.one(modal, 'animationend', () => {
+        modal.classList.remove('is-active');
+        modal.classList.remove('is-deactive');
+      });
+    }
+
+    _allClose();
+  };
+
+  const _allClose = function () {
+    elements[0].classList.remove('is-open');
+    elements[0].querySelector(`[${ARIA_EXPANDED}]`).setAttribute(`${ARIA_EXPANDED}`, false);
+    tooltipBox.classList.remove('is-beactive');
+    config.target.forEach(item => {
+      item.classList.remove('is-active');
+    });
+  };
+
+  function _init() {
+    varioblesUpdate();
+    addEvent();
   }
 
   _init();
@@ -150,6 +289,7 @@ const navigation = function (UI) {
 
 const initFunc = () => {
   navigation('[role="navigation"]');
+  modalLayer('[role="navigation"]');
   cardRefresh();
   autoScrollContent();
 };

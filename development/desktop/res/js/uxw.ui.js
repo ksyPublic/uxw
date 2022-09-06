@@ -6396,6 +6396,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es_string_match_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! core-js/modules/es.string.match.js */ "./node_modules/core-js/modules/es.string.match.js");
 /* harmony import */ var element_closest_polyfill__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! element-closest-polyfill */ "./node_modules/element-closest-polyfill/index.js");
 /* harmony import */ var _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./vendor/EventHandler */ "./src/desktop/res/js/vendor/EventHandler.js");
+/* harmony import */ var _utils_dom_util__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./utils/dom-util */ "./src/desktop/res/js/utils/dom-util.js");
+
 
 
 
@@ -6404,6 +6406,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* eslint-disable prettier/prettier */
+
+var LAYER_OPEND = 'data-layer-opend';
 
 var getObjectElements = function getObjectElements(elements) {
   var arr = [];
@@ -6469,9 +6473,11 @@ var cardRefresh = function cardRefresh() {
 };
 
 var navigation = function navigation(UI) {
-  var NAV_BOX = 'aria-expanded';
+  var ARIA_EXPANDED = 'aria-expanded';
+  var ARIA_CONTROLS = 'aria-controls';
   var elements = document.querySelectorAll(UI);
   var navEl = getObjectElements(elements);
+  var layerModal = document.querySelectorAll('.modal--layer');
 
   if (!elements) {
     return;
@@ -6501,52 +6507,173 @@ var navigation = function navigation(UI) {
     });
   };
 
+  var navAria = function navAria(attr, parentTarget) {
+    attr === 'false' ? [parentTarget.setAttribute(ARIA_EXPANDED, 'true')] : null;
+    return attr;
+  };
+
   var navClickable = function navClickable(event) {
     if (!event.target.tagName.match(/^A$|AREA|INPUT|TEXTAREA|SELECT|BUTTON|LABEL/gim)) {
       event.preventDefault();
     }
 
-    var parentTarget = event.currentTarget.closest('[' + NAV_BOX + ']');
-    var attr = parentTarget.getAttribute(NAV_BOX);
-    var check = attr;
-    check === 'false' ? [parentTarget.setAttribute(NAV_BOX, 'true')] : null; // [parentTarget.setAttribute(NAV_BOX, 'false')]
-
+    var parentTarget = event.currentTarget.closest('[' + ARIA_EXPANDED + ']');
+    var attr = parentTarget.getAttribute(ARIA_EXPANDED);
+    navAria(attr, parentTarget);
     beforeSelection();
-
-    if (event.target.tagName === 'A') {
-      var prevTarget = event.target.closest('.nav__item').querySelector('.ic-button-nav');
-      prevTarget.classList.add('is-active');
-    } else {
-      event.currentTarget.classList.add('is-active');
-      defaultSelection();
-    }
+    parentTarget.parentElement.classList.add('is-open');
+    var target = event.target.closest("[".concat(ARIA_CONTROLS, "]")) === null ? event.target.previousElementSibling : event.target.closest("[".concat(ARIA_CONTROLS, "]"));
+    target.classList.add('is-active');
+    defaultSelection();
   };
 
   var beforeSelection = function beforeSelection() {
     [].forEach.call(config.target, function (item) {
       item.classList.remove('is-active');
     });
+    layerModal.forEach(function (modal) {
+      var possibleAnimation = (0,_utils_dom_util__WEBPACK_IMPORTED_MODULE_7__.isVisible)(modal);
+
+      if (modal.getAttribute("".concat(LAYER_OPEND)) === 'true' && possibleAnimation) {
+        modal.classList.add('is-deactive');
+        modal.classList.remove('is-active');
+        modal.setAttribute("".concat(LAYER_OPEND), 'false');
+        _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_6__["default"].one(modal, 'animationend', function () {
+          modal.classList.remove('is-deactive');
+        });
+      }
+    });
   };
 
   var defaultSelection = function defaultSelection() {
-    var _nav = document.querySelector('[' + NAV_BOX + ']');
-
     var _tooltipBox = document.querySelector('.tooltip__box');
 
-    if (!_nav) {
-      return;
-    }
-
-    _tooltipBox.classList.add('is-beactive'); // const _get = _nav.getAttribute(NAV_BOX);
-    // if (_get !== true) {
-    //   // _tooltipBox.classList.add('is-beactive');
-    // } else {
-    // }
-
+    _tooltipBox.classList.add('is-beactive');
   };
 
   function _init() {
-    addEvent(); // defaultSelection();
+    addEvent();
+  }
+
+  _init();
+};
+
+var modalLayer = function modalLayer(UI) {
+  var bgTemplate = "\n  <div style=\"\n    position: fixed; \n    width: 100%; \n    height: 100%;\n    left: 0;\n    top: 0;\n    z-index:102;\n    background-color: rgba(0,0,0,0.6);\">\n  </div>";
+  var elements = document.querySelectorAll(UI);
+  var navEl = getObjectElements(elements);
+  var tooltipBox = document.querySelector('.tooltip__box');
+  var ARIA_CONTROLS = 'aria-controls';
+  var ARIA_EXPANDED = 'aria-expanded';
+  var LAYER_CLOSE = 'data-layer-close';
+  var createHtml = (0,_utils_dom_util__WEBPACK_IMPORTED_MODULE_7__.toHTML)(bgTemplate);
+
+  if (!elements) {
+    return;
+  }
+
+  var config = {
+    target: null,
+    nextTarget: null,
+    layerContent: null,
+    closeButton: null
+  };
+
+  var varioblesUpdate = function varioblesUpdate() {
+    [].forEach.call(navEl, function (x) {
+      var navButton = x.querySelectorAll('.nav__list .ic-button-nav');
+      var target = navButton;
+      var layerCurrent = navButton;
+      var toTarget = x.querySelectorAll('.nav__item a');
+      config = {
+        target: target,
+        nextTarget: toTarget,
+        layerContent: layerCurrent
+      };
+    });
+  };
+
+  var addEvent = function addEvent() {
+    if (!config.target) {
+      return;
+    }
+
+    config.target.forEach(function (item, index) {
+      _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_6__["default"].on(item, 'click', layerClick);
+      _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_6__["default"].on(config.nextTarget[index], 'click', layerClick);
+    });
+  };
+
+  var layerClick = function layerClick(event) {
+    if (!event.target.tagName.match(/^A$|AREA|INPUT|TEXTAREA|SELECT|BUTTON|LABEL/gim)) {
+      event.preventDefault();
+    }
+
+    var target = event.target.closest("[".concat(ARIA_CONTROLS, "]"));
+    var getAttr = target === null ? event.target.previousElementSibling.getAttribute("".concat(ARIA_CONTROLS)) : target.getAttribute("".concat(ARIA_CONTROLS));
+    var layerModal = document.querySelector("#".concat(getAttr));
+
+    if (!layerModal) {
+      return;
+    }
+
+    config.closeButton = layerModal.querySelector("[".concat(LAYER_CLOSE, "]"));
+    _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_6__["default"].on(config.closeButton, 'click', layerClose);
+
+    _show(layerModal);
+  };
+
+  var layerClose = function layerClose(event) {
+    if (!event.target.tagName.match(/^A$|AREA|INPUT|TEXTAREA|SELECT|BUTTON|LABEL/gim)) {
+      event.preventDefault();
+    }
+
+    var target = event.currentTarget;
+
+    _hide(target);
+  };
+
+  var _show = function _show(layerModal) {
+    if (layerModal.getAttribute("".concat(LAYER_OPEND)) === 'false') {
+      createHtml.classList.add('fadeIn');
+      document.body.appendChild(createHtml);
+      layerModal.classList.add('is-active');
+      layerModal.setAttribute("".concat(LAYER_OPEND), 'true');
+      _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_6__["default"].one(layerModal, 'animationend', function () {
+        layerModal.classList.remove('is-deactive');
+      });
+    }
+  };
+
+  var _hide = function _hide(target) {
+    var modal = target.closest('.modal');
+
+    if (modal.getAttribute("".concat(LAYER_OPEND)) === 'true') {
+      createHtml.classList.remove('fadeOut');
+      document.body.removeChild(createHtml);
+      modal.classList.add('is-deactive');
+      modal.setAttribute("".concat(LAYER_OPEND), 'false');
+      _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_6__["default"].one(modal, 'animationend', function () {
+        modal.classList.remove('is-active');
+        modal.classList.remove('is-deactive');
+      });
+    }
+
+    _allClose();
+  };
+
+  var _allClose = function _allClose() {
+    elements[0].classList.remove('is-open');
+    elements[0].querySelector("[".concat(ARIA_EXPANDED, "]")).setAttribute("".concat(ARIA_EXPANDED), false);
+    tooltipBox.classList.remove('is-beactive');
+    config.target.forEach(function (item) {
+      item.classList.remove('is-active');
+    });
+  };
+
+  function _init() {
+    varioblesUpdate();
+    addEvent();
   }
 
   _init();
@@ -6554,6 +6681,7 @@ var navigation = function navigation(UI) {
 
 var initFunc = function initFunc() {
   navigation('[role="navigation"]');
+  modalLayer('[role="navigation"]');
   cardRefresh();
   autoScrollContent();
 };
@@ -8957,6 +9085,10 @@ var Tooltip = /*#__PURE__*/function (_UI) {
               tooltip = _this2$_current.tooltip,
               content = _this2$_current.content;
 
+          if (!tooltip) {
+            return;
+          }
+
           _this2._hide(tooltip, content);
         }
       });
@@ -9017,7 +9149,7 @@ var Tooltip = /*#__PURE__*/function (_UI) {
       var time = this._config.time;
       this._timer = setTimeout(function () {
         _this3._updatePosition();
-      }, this._getTime === null ? time : this._getTime);
+      }, this._getTime ? this._getTime : time);
     }
   }, {
     key: "_hide",
@@ -9045,8 +9177,6 @@ var Tooltip = /*#__PURE__*/function (_UI) {
       var resultX = this._getPosition(positionX.toUpperCase());
 
       var resultY = this._getPosition(positionY.toUpperCase());
-
-      console.log('@@@', resultX, resultY);
 
       if (this._elementPosition === 'bottom' || this._elementPosition === 'top') {
         Object.assign(content.style, {
