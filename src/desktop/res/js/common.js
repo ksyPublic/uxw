@@ -72,7 +72,6 @@ const navigation = function (UI) {
   const ARIA_CONTROLS = 'aria-controls';
   const elements = document.querySelectorAll(UI);
   const navEl = getObjectElements(elements);
-  const layerModal = document.querySelectorAll('.modal--layer');
 
   if (!elements) {
     return;
@@ -130,18 +129,7 @@ const navigation = function (UI) {
       item.classList.remove('is-active');
     });
 
-    layerModal.forEach(modal => {
-      const possibleAnimation = isVisible(modal);
-      if (modal.getAttribute(`${LAYER_OPEND}`) === 'true' && possibleAnimation) {
-        modal.classList.add('is-deactive');
-        modal.classList.remove('is-active');
-        modal.setAttribute(`${LAYER_OPEND}`, 'false');
-
-        EventHandler.one(modal, 'animationend', () => {
-          modal.classList.remove('is-deactive');
-        });
-      }
-    });
+    
   };
 
   const defaultSelection = function () {
@@ -171,9 +159,15 @@ const modalLayer = function (UI) {
   const elements = document.querySelectorAll(UI);
   const navEl = getObjectElements(elements);
   const tooltipBox = document.querySelector('.tooltip__box');
+  const layers = document.querySelectorAll('.modal--layer');
   const ARIA_CONTROLS = 'aria-controls';
   const ARIA_EXPANDED = 'aria-expanded';
   const LAYER_CLOSE = 'data-layer-close';
+  const ZINDEX = {
+    CONTENT: 201,
+    INCREASE: 1,
+    INIT:201,
+  };
 
   const createHtml = toHTML(bgTemplate);
 
@@ -213,6 +207,17 @@ const modalLayer = function (UI) {
     });
   };
 
+  const _removeEvents = function () {
+    config.target.forEach((item, index) => {
+      EventHandler.off(item, 'click');
+      EventHandler.off(config.nextTarget[index], 'click');
+    });
+  };
+
+  const _zIndexOrderIncrease = function(layerModal) {
+    layerModal.style.zIndex = ZINDEX.CONTENT += ZINDEX.INCREASE;
+  }
+
   const layerClick = function (event) {
     if (!event.target.tagName.match(/^A$|AREA|INPUT|TEXTAREA|SELECT|BUTTON|LABEL/gim)) {
       event.preventDefault();
@@ -227,7 +232,7 @@ const modalLayer = function (UI) {
     }
 
     config.closeButton = layerModal.querySelector(`[${LAYER_CLOSE}]`);
-    EventHandler.on(config.closeButton, 'click', layerClose);
+    EventHandler.one(config.closeButton, 'click', layerClose);
     _show(layerModal);
   };
 
@@ -240,6 +245,20 @@ const modalLayer = function (UI) {
   };
 
   const _show = function (layerModal) {
+    layers.forEach(modal => {
+      if(modal === layerModal) {
+        _zIndexOrderIncrease(layerModal);
+      } else {
+        modal.classList.add('is-deactive');
+        modal.classList.remove('is-active');
+        modal.setAttribute(`${LAYER_OPEND}`, 'false');
+        EventHandler.one(modal, 'animationend', () => {
+          modal.classList.remove('is-deactive');
+          modal.style.zIndex = ZINDEX.INIT;
+        });
+      }
+    });
+
     if (layerModal.getAttribute(`${LAYER_OPEND}`) === 'false') {
       createHtml.classList.add('fadeIn');
       document.body.appendChild(createHtml);
@@ -254,7 +273,6 @@ const modalLayer = function (UI) {
 
   const _hide = function (target) {
     const modal = target.closest('.modal');
-
     if (modal.getAttribute(`${LAYER_OPEND}`) === 'true') {
       createHtml.classList.remove('fadeOut');
       document.body.removeChild(createHtml);
@@ -266,7 +284,6 @@ const modalLayer = function (UI) {
         modal.classList.remove('is-deactive');
       });
     }
-
     _allClose();
   };
 
