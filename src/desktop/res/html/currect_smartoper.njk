@@ -297,8 +297,8 @@
         </div>
     </div>
 
-    <!-- 사이드 영역 -->
-    <div class="side">
+    <!-- 사이드 영역 220913 ID추가  -->
+    <div class="side" id="side">
         <div class="side__wrap is-active">
             <h3 class="sr-only">교정 가이드</h3>
             <div class="side__inner">
@@ -556,7 +556,7 @@
 
 {% block scripts %}
     <script>
-        const sideSwiper = UXW.SwiperA11y('.swiper', {
+        const sideSwiper = UXW.SwiperA11y('#side .swiper', {
             observer: true,
             observeParents: true,
             autoplay: {

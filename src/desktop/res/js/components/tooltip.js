@@ -100,11 +100,17 @@ class Tooltip extends UI {
     });
 
     EventHandler.on(this._tooltip, super._eventName('mouseleave'), event => {
-      if (event) {
-        const { tooltip, content } = this._current;
-        if (!tooltip) {
+      if (!event.target.tagName.match(/^A$|AREA|INPUT|TEXTAREA|SELECT|BUTTON|LABEL/gim)) {
+        event.preventDefault();
+      }
+
+      const target = event.target.closest(`[${ARIA_DESCRIBEDBY}]`);
+
+      if (target) {
+        if (!this._current) {
           return;
         }
+        const { tooltip, content } = this._current;
         this._hide(tooltip, content);
       }
     });

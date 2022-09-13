@@ -146,6 +146,17 @@ button {
     display: flex;
     align-items: center;
 
+    .swiper {
+      &-slide {
+        width: auto;
+
+        .radio--sort + label {
+          display: block;
+          margin-left: 0;
+        }
+      }
+    }
+
     &--between {
       justify-content: space-between;
     }

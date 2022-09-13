@@ -34,8 +34,8 @@ const defaultConfig = {
 };
 
 const ZINDEX = {
-  CONTENT: 102,
-  BACKDROP: 101,
+  CONTENT: 204,
+  BACKDROP: 203,
   INCREASE: 1,
 };
 

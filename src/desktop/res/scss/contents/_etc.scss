@@ -122,7 +122,7 @@
     height: 100%;
 
     .ic-button {
-      margin-left: 12px;
+      margin-left: 20px;
       &:first-child {
         margin-left: 0;
       }
@@ -250,6 +250,22 @@
       font-size: 14px;
       line-height: 24px;
       color: color(grey, 900);
+    }
+  }
+}
+
+.label-cate {
+  color: #627aff;
+  display: flex;
+  align-items: center;
+  padding-top: 6px;
+
+  button {
+    margin-left: 16px;
+    &.is-active {
+      .ic-bookmark-y {
+        background: url('../images/ic-bookmark-g.png') no-repeat;
+      }
     }
   }
 }

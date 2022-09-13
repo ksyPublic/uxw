@@ -1,351 +1,368 @@
 .ic {
-    display: inline-block;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  background-size: cover !important;
+
+  &-edit {
+    width: 24px;
+    height: 24px;
+    background: url('../images/ic-edit.png') no-repeat;
+  }
+  &-back {
+    width: 40px;
+    height: 40px;
+    background: url('../images/ic-back.png') no-repeat;
+  }
+  &-bookmark {
+    width: 24px;
+    height: 24px;
+    background: url('../images/ic-bookmark.png') no-repeat;
+  }
+  &-arrow {
+    background: url('../images/ic-acc-arrow.png') no-repeat;
+  }
+
+  &-my {
+    width: 24px;
+    height: 24px;
+    background: url('../images/ic-my.png') no-repeat;
+  }
+
+  &-qa {
+    width: 24px;
+    height: 24px;
+    background: url('../images/ic-qa.png') no-repeat;
+  }
+
+  &-menu {
+    width: 24px;
+    height: 24px;
+    background: url('../images/ic-menu.png') no-repeat;
+  }
+
+  &-writing {
+    width: 24px;
+    height: 24px;
+    background: url('../images/ic-writing.png') no-repeat;
+  }
+
+  &-text-arrow {
+    width: 24px;
+    height: 24px;
+    background: url('../images/ic-text-arrow.png') no-repeat;
+  }
+
+  &-text-arrow--type2 {
     position: relative;
-    vertical-align: middle;
-    background-size: cover !important;
-    &-bookmark {
-        width: 24px;
-        height: 24px;
-        background: url('../images/ic-bookmark.png') no-repeat;
-    }
-    &-arrow {
-        background: url('../images/ic-acc-arrow.png') no-repeat;
-    }
+    width: 24px;
+    height: 24px;
+    background: url('../images/ic-arrow-down.png') no-repeat;
+    transform: rotate(-90deg);
+  }
 
-    &-my {
-        width: 24px;
-        height: 24px;
-        background: url('../images/ic-my.png') no-repeat;
-    }
+  &-guidebook {
+    width: 32px;
+    height: 32px;
+    background: url('../images/ic-guidebook.png') no-repeat;
+  }
 
-    &-qa {
-        width: 24px;
-        height: 24px;
-        background: url('../images/ic-qa.png') no-repeat;
-    }
+  &-edition {
+    width: 32px;
+    height: 32px;
+    background: url('../images/ic-edition.png') no-repeat;
+  }
 
-    &-menu {
-        width: 24px;
-        height: 24px;
-        background: url('../images/ic-menu.png') no-repeat;
-    }
+  &-search {
+    width: 32px;
+    height: 32px;
+    background: url('../images/ic-search.png') no-repeat;
+  }
 
-    &-writing {
-        width: 24px;
-        height: 24px;
-        background: url('../images/ic-writing.png') no-repeat;
-    }
+  &-download {
+    width: 24px;
+    height: 24px;
+    background: url('../images/ic-download-on.png') no-repeat;
+  }
 
-    &-text-arrow {
-        width: 24px;
-        height: 24px;
-        background: url('../images/ic-text-arrow.png') no-repeat;
-    }
+  &-upload {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    background: url('../images/ic-upload-on.png') no-repeat;
+  }
 
-    &-text-arrow--type2 {
-        position: relative;
-        width: 24px;
-        height: 24px;
-        background: url('../images/ic-arrow-down.png') no-repeat;
-        transform: rotate(-90deg);
-    }
+  &-delete {
+    width: 24px;
+    height: 24px;
+    background: url('../images/ic-delete-on.png') no-repeat;
+  }
 
-    &-guidebook {
-        width: 32px;
-        height: 32px;
-        background: url('../images/ic-guidebook.png') no-repeat;
-    }
+  &-copy {
+    width: 24px;
+    height: 24px;
+    background: url('../images/ic-copy-on.png') no-repeat;
+  }
 
-    &-edition {
-        width: 32px;
-        height: 32px;
-        background: url('../images/ic-edition.png') no-repeat;
-    }
+  &-expresstion-arrow {
+    width: 24px;
+    height: 24px;
+    background: url('../images/ic-expression-arrow.png') no-repeat;
+    margin: 0 16px;
+    min-width: 24px;
+  }
 
-    &-search {
-        width: 32px;
-        height: 32px;
-        background: url('../images/ic-search.png') no-repeat;
-    }
+  &-expresstion-arrow--type2 {
+    width: 24px;
+    height: 24px;
+    background: url('../images/ic-expression-arrow-type2.png') no-repeat;
+    margin: 0 16px;
+    min-width: 24px;
+  }
 
-    &-download {
-        width: 24px;
-        height: 24px;
-        background: url('../images/ic-download-on.png') no-repeat;
-    }
+  &-clear {
+    width: 24px;
+    height: 24px;
+    background: url('../images/ic-clear.png') no-repeat;
+  }
 
-    &-upload {
-        cursor: pointer;
-        width: 24px;
-        height: 24px;
-        background: url('../images/ic-upload-on.png') no-repeat;
-    }
+  &-refresh {
+    width: 24px;
+    height: 24px;
+    background: url('../images/ic-refresh.png') no-repeat;
+  }
 
-    &-delete {
-        width: 24px;
-        height: 24px;
-        background: url('../images/ic-delete-on.png') no-repeat;
-    }
+  &-exclamation {
+    width: 24px;
+    height: 24px;
+    background: url('../images/ic-exclamation_off.png') no-repeat;
+  }
 
-    &-copy {
-        width: 24px;
-        height: 24px;
-        background: url('../images/ic-copy-on.png') no-repeat;
-    }
+  &-close {
+    width: 24px;
+    height: 24px;
+    background: url('../images/ic-close.png') no-repeat;
 
-    &-expresstion-arrow {
-        width: 24px;
-        height: 24px;
-        background: url('../images/ic-expression-arrow.png') no-repeat;
-        margin: 0 16px;
-        min-width: 24px;
+    &-large {
+      width: 32px;
+      height: 32px;
+      background: url('../images/ic-close-large.png') no-repeat;
     }
+  }
 
-    &-expresstion-arrow--type2 {
-        width: 24px;
-        height: 24px;
-        background: url('../images/ic-expression-arrow-type2.png') no-repeat;
-        margin: 0 16px;
-        min-width: 24px;
-    }
+  &-search--small {
+    width: 24px;
+    height: 24px;
+    background: url('../images/ic-search-small.png') no-repeat;
+  }
 
-    &-clear {
-        width: 24px;
-        height: 24px;
-        background: url('../images/ic-clear.png') no-repeat;
-    }
+  &-bookmark-active {
+    width: 24px;
+    height: 24px;
+    background: url('../images/ic-bookmark-active-w.png') no-repeat;
+  }
+  &-bookmark {
+    width: 24px;
+    height: 24px;
+    background: url('../images/ic-bookmark.png') no-repeat;
+  }
+  &-bookmark-y {
+    width: 24px;
+    height: 24px;
+    background: url('../images/ic-bookmark-y.png') no-repeat;
+  }
+  &-delete-w {
+    width: 24px;
+    height: 24px;
+    background: url('../images/ic-delete-w.png') no-repeat;
+  }
+  &-move-w {
+    width: 24px;
+    height: 24px;
+    background: url('../images/ic-move-w.png') no-repeat;
+  }
+  &-writing-w {
+    width: 24px;
+    height: 24px;
+    background: url('../images/ic-writing-w.png') no-repeat;
+  }
 
-    &-refresh {
-        width: 24px;
-        height: 24px;
-        background: url('../images/ic-refresh.png') no-repeat;
-    }
+  &-pind {
+    width: 24px;
+    height: 24px;
+    background: url('../images/ic-pind.png') no-repeat;
+  }
 
-    &-exclamation {
-        width: 24px;
-        height: 24px;
-        background: url('../images/ic-exclamation_off.png') no-repeat;
-    }
-
-    &-close {
-        width: 24px;
-        height: 24px;
-        background: url('../images/ic-close.png') no-repeat;
-    }
-
-    &-search--small {
-        width: 24px;
-        height: 24px;
-        background: url('../images/ic-search-small.png') no-repeat;
-    }
-
-    &-bookmark-active {
-        width: 24px;
-        height: 24px;
+  &-button {
+    &[data-toggle='true'] {
+      .ic-bookmark {
         background: url('../images/ic-bookmark-active-w.png') no-repeat;
+      }
     }
-    &-bookmark {
-        width: 24px;
-        height: 24px;
+
+    &[data-toggle='false'] {
+      .ic-bookmark {
         background: url('../images/ic-bookmark.png') no-repeat;
-    }
-    &-bookmark-y {
-        width: 24px;
-        height: 24px;
-        background: url('../images/ic-bookmark-y.png') no-repeat;
-    }
-    &-delete-w {
-        width: 24px;
-        height: 24px;
-        background: url('../images/ic-delete-w.png') no-repeat;
-    }
-    &-move-w {
-        width: 24px;
-        height: 24px;
-        background: url('../images/ic-move-w.png') no-repeat;
-    }
-    &-writing-w {
-        width: 24px;
-        height: 24px;
-        background: url('../images/ic-writing-w.png') no-repeat;
+      }
     }
 
-    &-pind {
-        width: 24px;
-        height: 24px;
-        background: url('../images/ic-pind.png') no-repeat;
-    }
+    &:disabled {
+      .ic-prev-arrow--first {
+        background: url('../images/ic-page-arrow-end-disabled.png') no-repeat;
+        transform: rotate(0deg);
+      }
+      .ic-next-arrow--last {
+        background: url('../images/ic-page-arrow-end-disabled.png') no-repeat;
+      }
 
-    &-button {
-        &[data-toggle='true'] {
-            .ic-bookmark {
-                background: url('../images/ic-bookmark-active-w.png') no-repeat;
-            }
+      .ic-prev-arrow {
+        background: url('../images/ic-page-arrow-disabled.png') no-repeat;
+        transform: rotate(0deg);
+      }
+      .ic-next-arrow {
+        background: url('../images/ic-page-arrow-disabled.png') no-repeat;
+      }
+    }
+  }
+
+  &-prev-arrow--first {
+    width: 24px;
+    height: 24px;
+    background: url('../images/ic-page-arrow-end.png') no-repeat;
+    transform: rotate(-180deg);
+  }
+  &-next-arrow--last {
+    width: 24px;
+    height: 24px;
+    background: url('../images/ic-page-arrow-end.png') no-repeat;
+  }
+  &-prev-arrow {
+    width: 24px;
+    height: 24px;
+    background: url('../images/ic-page-arrow.png') no-repeat;
+    transform: rotate(-180deg);
+  }
+  &-next-arrow {
+    width: 24px;
+    height: 24px;
+    background: url('../images/ic-page-arrow.png') no-repeat;
+  }
+
+  &-button-nav {
+    background-color: transparent;
+    width: 0px;
+    height: 32px;
+    min-width: 32px;
+    margin-left: 19px;
+    &.is-active {
+      + .text {
+        color: color(blue, 800);
+      }
+      .ic {
+        &-guidebook {
+          background: url('../images/ic-guidebook-active.png') no-repeat;
         }
 
-        &[data-toggle='false'] {
-            .ic-bookmark {
-                background: url('../images/ic-bookmark.png') no-repeat;
-            }
+        &-search {
+          background: url('../images/ic-search-active.png') no-repeat;
         }
 
-        &:disabled {
-            .ic-prev-arrow--first {
-                background: url('../images/ic-page-arrow-end-disabled.png') no-repeat;
-                transform: rotate(0deg);
-            }
-            .ic-next-arrow--last {
-                background: url('../images/ic-page-arrow-end-disabled.png') no-repeat;
-            }
-
-            .ic-prev-arrow {
-                background: url('../images/ic-page-arrow-disabled.png') no-repeat;
-                transform: rotate(0deg);
-            }
-            .ic-next-arrow {
-                background: url('../images/ic-page-arrow-disabled.png') no-repeat;
-            }
+        &-edition {
+          background: url('../images/ic-edition-active.png') no-repeat;
         }
+      }
     }
+  }
 
-    &-prev-arrow--first {
-        width: 24px;
-        height: 24px;
-        background: url('../images/ic-page-arrow-end.png') no-repeat;
-        transform: rotate(-180deg);
-    }
-    &-next-arrow--last {
-        width: 24px;
-        height: 24px;
-        background: url('../images/ic-page-arrow-end.png') no-repeat;
-    }
-    &-prev-arrow {
-        width: 24px;
-        height: 24px;
-        background: url('../images/ic-page-arrow.png') no-repeat;
-        transform: rotate(-180deg);
-    }
-    &-next-arrow {
-        width: 24px;
-        height: 24px;
-        background: url('../images/ic-page-arrow.png') no-repeat;
-    }
-
-    &-button-nav {
-        background-color: transparent;
-        width: 0px;
-        height: 32px;
-        min-width: 32px;
-        margin-left: 19px;
-        &.is-active {
-            + .text {
-                color: color(blue, 800);
-            }
-            .ic {
-                &-guidebook {
-                    background: url('../images/ic-guidebook-active.png') no-repeat;
-                }
-
-                &-search {
-                    background: url('../images/ic-search-active.png') no-repeat;
-                }
-
-                &-edition {
-                    background: url('../images/ic-edition-active.png') no-repeat;
-                }
-            }
+  &-button-edit {
+    &:disabled {
+      cursor: no-drop;
+      .ic {
+        &-download {
+          width: 24px;
+          height: 24px;
+          background: url('../images/ic-download.png') no-repeat;
         }
-    }
 
-    &-button-edit {
-        &:disabled {
-            cursor: no-drop;
-            .ic {
-                &-download {
-                    width: 24px;
-                    height: 24px;
-                    background: url('../images/ic-download.png') no-repeat;
-                }
-
-                &-copy {
-                    width: 24px;
-                    height: 24px;
-                    background: url('../images/ic-copy.png') no-repeat;
-                }
-
-                &-delete {
-                    width: 24px;
-                    height: 24px;
-                    background: url('../images/ic-delete.png') no-repeat;
-                }
-            }
+        &-copy {
+          width: 24px;
+          height: 24px;
+          background: url('../images/ic-copy.png') no-repeat;
         }
-    }
 
-    &-button-head {
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        background-color: $white;
-        box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
-
-        &.is-active {
-            background-color: color(blue, 800);
-            .ic {
-                &-my {
-                    width: 24px;
-                    height: 24px;
-                    background: url('../images/ic-my-active.png') no-repeat;
-                }
-
-                &-qa {
-                    width: 24px;
-                    height: 24px;
-                    background: url('../images/ic-qa-active.png') no-repeat;
-                }
-
-                &-menu {
-                    width: 24px;
-                    height: 24px;
-                    background: url('../images/ic-menu-active.png') no-repeat;
-                }
-
-                &-writing {
-                    width: 24px;
-                    height: 24px;
-                    background: url('../images/ic-writing-active.png') no-repeat;
-                }
-            }
+        &-delete {
+          width: 24px;
+          height: 24px;
+          background: url('../images/ic-delete.png') no-repeat;
         }
+      }
     }
+  }
 
-    &-button-clear {
-        opacity: 0;
-        visibility: hidden;
-        position: absolute;
-        right: 16px;
-        top: calc(50% - 12px);
-        &.is-active {
-            visibility: visible;
-            opacity: 1;
+  &-button-head {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: $white;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+
+    &.is-active {
+      background-color: color(blue, 800);
+      .ic {
+        &-my {
+          width: 24px;
+          height: 24px;
+          background: url('../images/ic-my-active.png') no-repeat;
         }
+
+        &-qa {
+          width: 24px;
+          height: 24px;
+          background: url('../images/ic-qa-active.png') no-repeat;
+        }
+
+        &-menu {
+          width: 24px;
+          height: 24px;
+          background: url('../images/ic-menu-active.png') no-repeat;
+        }
+
+        &-writing {
+          width: 24px;
+          height: 24px;
+          background: url('../images/ic-writing-active.png') no-repeat;
+        }
+      }
     }
+  }
+
+  &-button-clear {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    right: 16px;
+    top: calc(50% - 12px);
+    &.is-active {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
 }
 
 input[type='file'] {
-    &:disabled {
-        + label {
-            cursor: no-drop;
-            pointer-events: none;
-        }
-
-        + .ic-button-edit .ic-upload {
-            width: 24px;
-            height: 24px;
-            background: url('../images/ic-upload.png') no-repeat;
-        }
+  &:disabled {
+    + label {
+      cursor: no-drop;
+      pointer-events: none;
     }
+
+    + .ic-button-edit .ic-upload {
+      width: 24px;
+      height: 24px;
+      background: url('../images/ic-upload.png') no-repeat;
+    }
+  }
 }

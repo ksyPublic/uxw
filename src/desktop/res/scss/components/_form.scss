@@ -1,34 +1,79 @@
 .form {
-    $root: form;
+  $root: form;
 
+  .fields {
+    ~ .fields {
+      margin-top: 20px;
+    }
+  }
+
+  @at-root {
+    .modal--layer {
+      .form .fields ~ .fields {
+        margin-top: 40px;
+      }
+    }
+  }
+
+  .field {
+    > label {
+      margin-bottom: 8px;
+
+      + .textarea {
+      }
+    }
+  }
+
+  &-head {
+    margin-top: 28px;
     .fields {
-        ~ .fields {
-            margin-top: 20px;
-        }
+      height: 60px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      border-bottom: 1px solid color(grey, 300);
+      line-height: 28px;
     }
 
     .field {
-        > label {
-            margin-bottom: 8px;
-
-            + .textarea {
-            }
+      display: flex;
+      align-items: center;
+      &:first-child {
+        label {
+          max-width: 656px;
         }
+      }
+
+      label {
+        color: color(grey, 400);
+        margin-bottom: 0;
+      }
     }
+
+    + .form {
+      margin-top: 40px;
+    }
+  }
 }
 
 label {
-    &.error {
-        font-weight: 300;
-        font-size: 14px;
-        line-height: 20px;
-        padding-left: 16px;
-        margin-top: 4px;
-        display: flex;
-        color: color(red, 700);
+  font-size: 18px;
+  font-weight: 500;
+  &.error {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+    padding-left: 16px;
+    margin-top: 4px;
+    display: flex;
+    color: color(red, 700);
 
-        &[aria-hidden='true'] {
-            display: none;
-        }
+    &[aria-hidden='true'] {
+      display: none;
     }
+  }
+
+  + .ic-button {
+    margin-left: 10px;
+  }
 }

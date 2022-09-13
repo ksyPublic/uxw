@@ -1,12 +1,24 @@
 import 'element-closest-polyfill';
 import EventHandler from './vendor/EventHandler';
-import { toHTML, isVisible } from './utils/dom-util';
+import { toHTML } from './utils/dom-util';
 
 /* eslint-disable prettier/prettier */
 
+const bgTemplate = `
+<div style="
+  position: fixed; 
+  width: 100%; 
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index:102;
+  background-color: rgba(0,0,0,0.6);">
+</div>`;
+
+const createHtml = toHTML(bgTemplate);
 const LAYER_OPEND = 'data-layer-opend';
 
-const getObjectElements = function (elements) {
+const getObjectElements = elements => {
   let arr = [];
   for (let key in elements) {
     if (Object.prototype.hasOwnProperty.call(elements, key)) {
@@ -67,9 +79,10 @@ const cardRefresh = () => {
   };
 };
 
-const navigation = function (UI) {
+const navigation = (UI, options) => {
   const ARIA_EXPANDED = 'aria-expanded';
   const ARIA_CONTROLS = 'aria-controls';
+  const DEFAULT_ACTIVE = 'data-navigation-defaultActive';
   const elements = document.querySelectorAll(UI);
   const navEl = getObjectElements(elements);
 
@@ -80,19 +93,21 @@ const navigation = function (UI) {
   let config = {
     target: null,
     nextTarget: null,
+    active: options ? options : null,
   };
 
   [].forEach.call(navEl, x => {
     const target = x.querySelectorAll('.nav__list .ic-button-nav');
     const toTarget = x.querySelectorAll('.nav__item a');
-
+    const defaultActive = x.querySelector(`[${ARIA_EXPANDED}]`).getAttribute(`${DEFAULT_ACTIVE}`);
     config = {
       target: target,
       nextTarget: toTarget,
+      active: options ? options : defaultActive,
     };
   });
 
-  const addEvent = function () {
+  const addEvent = () => {
     if (!config.target) {
       return;
     }
@@ -102,60 +117,63 @@ const navigation = function (UI) {
     });
   };
 
-  const navAria = function (attr, parentTarget) {
-    attr === 'false' ? [parentTarget.setAttribute(ARIA_EXPANDED, 'true')] : null;
-    return attr;
-  };
-
-  const navClickable = function (event) {
+  const navClickable = event => {
     if (!event.target.tagName.match(/^A$|AREA|INPUT|TEXTAREA|SELECT|BUTTON|LABEL/gim)) {
       event.preventDefault();
     }
-
-    const parentTarget = event.currentTarget.closest('[' + ARIA_EXPANDED + ']');
-    const attr = parentTarget.getAttribute(ARIA_EXPANDED);
-
-    navAria(attr, parentTarget);
+    _aria();
     beforeSelection();
-    parentTarget.parentElement.classList.add('is-open');
-
     const target = event.target.closest(`[${ARIA_CONTROLS}]`) === null ? event.target.previousElementSibling : event.target.closest(`[${ARIA_CONTROLS}]`);
     target.classList.add('is-active');
-    defaultSelection();
+    tooltipInit();
   };
 
-  const beforeSelection = function () {
+  const beforeSelection = () => {
     [].forEach.call(config.target, item => {
       item.classList.remove('is-active');
     });
-
-    
   };
 
-  const defaultSelection = function () {
+  const tooltipInit = () => {
     const _tooltipBox = document.querySelector('.tooltip__box');
     _tooltipBox.classList.add('is-beactive');
   };
 
+  const defaultSelection = () => {
+    //DEFAULT_ACTIVE가 있을시 오픈
+    const modals = document.querySelectorAll('.modal--layer');
+    if (modals.length === 0) {
+      return;
+    }
+
+    modals.forEach(m => {
+      if (m.id === config.target[config.active].getAttribute(`${ARIA_CONTROLS}`)) {
+        config.target[config.active].classList.add('is-active');
+        modals[0].classList.add('is-active');
+        modals[0].setAttribute(`${LAYER_OPEND}`, 'true');
+        createHtml.classList.add('fadeIn');
+        document.body.appendChild(createHtml);
+        _aria();
+      }
+    });
+  };
+
+  const _aria = () => {
+    const navExpaned = elements[0].querySelector(`[${ARIA_EXPANDED}]`);
+    const getExpaned = navExpaned.getAttribute(ARIA_EXPANDED);
+    getExpaned === 'false' ? [navExpaned.setAttribute(ARIA_EXPANDED, 'true')] : null;
+    elements[0].classList.add('is-open');
+  };
+
   function _init() {
     addEvent();
+    defaultSelection();
   }
 
   _init();
 };
 
-const modalLayer = function (UI) {
-  const bgTemplate = `
-  <div style="
-    position: fixed; 
-    width: 100%; 
-    height: 100%;
-    left: 0;
-    top: 0;
-    z-index:102;
-    background-color: rgba(0,0,0,0.6);">
-  </div>`;
-
+const modalLayer = UI => {
   const elements = document.querySelectorAll(UI);
   const navEl = getObjectElements(elements);
   const tooltipBox = document.querySelector('.tooltip__box');
@@ -166,10 +184,8 @@ const modalLayer = function (UI) {
   const ZINDEX = {
     CONTENT: 201,
     INCREASE: 1,
-    INIT:201,
+    INIT: 201,
   };
-
-  const createHtml = toHTML(bgTemplate);
 
   if (!elements) {
     return;
@@ -182,22 +198,24 @@ const modalLayer = function (UI) {
     closeButton: null,
   };
 
-  const varioblesUpdate = function () {
+  const varioblesUpdate = () => {
     [].forEach.call(navEl, x => {
       const navButton = x.querySelectorAll('.nav__list .ic-button-nav');
       const target = navButton;
       const layerCurrent = navButton;
       const toTarget = x.querySelectorAll('.nav__item a');
+      const closebtn = document.querySelectorAll(`[${LAYER_CLOSE}]`);
 
       config = {
         target: target,
         nextTarget: toTarget,
         layerContent: layerCurrent,
+        closeButton: closebtn,
       };
     });
   };
 
-  const addEvent = function () {
+  const addEvent = () => {
     if (!config.target) {
       return;
     }
@@ -205,20 +223,24 @@ const modalLayer = function (UI) {
       EventHandler.on(item, 'click', layerClick);
       EventHandler.on(config.nextTarget[index], 'click', layerClick);
     });
+
+    config.closeButton.forEach(item => {
+      EventHandler.on(item, 'click', layerClose);
+    });
   };
 
-  const _removeEvents = function () {
+  const _removeEvents = () => {
     config.target.forEach((item, index) => {
       EventHandler.off(item, 'click');
       EventHandler.off(config.nextTarget[index], 'click');
     });
   };
 
-  const _zIndexOrderIncrease = function(layerModal) {
+  const _zIndexOrderIncrease = layerModal => {
     layerModal.style.zIndex = ZINDEX.CONTENT += ZINDEX.INCREASE;
-  }
+  };
 
-  const layerClick = function (event) {
+  const layerClick = event => {
     if (!event.target.tagName.match(/^A$|AREA|INPUT|TEXTAREA|SELECT|BUTTON|LABEL/gim)) {
       event.preventDefault();
     }
@@ -231,12 +253,10 @@ const modalLayer = function (UI) {
       return;
     }
 
-    config.closeButton = layerModal.querySelector(`[${LAYER_CLOSE}]`);
-    EventHandler.one(config.closeButton, 'click', layerClose);
     _show(layerModal);
   };
 
-  const layerClose = function (event) {
+  const layerClose = event => {
     if (!event.target.tagName.match(/^A$|AREA|INPUT|TEXTAREA|SELECT|BUTTON|LABEL/gim)) {
       event.preventDefault();
     }
@@ -244,9 +264,9 @@ const modalLayer = function (UI) {
     _hide(target);
   };
 
-  const _show = function (layerModal) {
+  const _show = layerModal => {
     layers.forEach(modal => {
-      if(modal === layerModal) {
+      if (modal === layerModal) {
         _zIndexOrderIncrease(layerModal);
       } else {
         modal.classList.add('is-deactive');
@@ -271,7 +291,7 @@ const modalLayer = function (UI) {
     }
   };
 
-  const _hide = function (target) {
+  const _hide = target => {
     const modal = target.closest('.modal');
     if (modal.getAttribute(`${LAYER_OPEND}`) === 'true') {
       createHtml.classList.remove('fadeOut');
@@ -287,7 +307,7 @@ const modalLayer = function (UI) {
     _allClose();
   };
 
-  const _allClose = function () {
+  const _allClose = () => {
     elements[0].classList.remove('is-open');
     elements[0].querySelector(`[${ARIA_EXPANDED}]`).setAttribute(`${ARIA_EXPANDED}`, false);
     tooltipBox.classList.remove('is-beactive');
@@ -296,10 +316,10 @@ const modalLayer = function (UI) {
     });
   };
 
-  function _init() {
+  const _init = () => {
     varioblesUpdate();
     addEvent();
-  }
+  };
 
   _init();
 };

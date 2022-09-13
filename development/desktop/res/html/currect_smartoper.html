@@ -356,8 +356,8 @@
           </div>
         </div>
       </div>
-      <!-- 사이드 영역 -->
-      <div class="side">
+      <!-- 사이드 영역 220913 ID추가  -->
+      <div class="side" id="side">
         <div class="side__wrap is-active">
           <h3 class="sr-only">교정 가이드</h3>
           <div class="side__inner">
@@ -851,64 +851,10 @@
       <!-- //완료하기 팝업 -->
     </div>
   </div>
-  <!-- 용어/표현검색 레이어팝업 -->
-  <div class="modal modal--layer" id="layerModal1" data-layer-opend="false">
-    <div class="modal__dialog">
-      <div class="modal__content">
-        <button type="button" class="ic-button" data-layer-close aria-label="팝업닫기">
-          <i class="ic ic-close" aria-hidden="true"></i>
-        </button>
-        <!-- 페이지 컨텐츠와 동일 element 사용 -->
-        <div class="ly-content-box">
-          <div class="title">
-            <h2 class="text ft24 bold">용어/표현 검색</h2>
-          </div>
-        </div>
-        <!-- 페이지 컨텐츠와 동일 element 사용 -->
-      </div>
-    </div>
-  </div>
-  <!-- //용어/표현검색 레이어팝업 -->
-  <!-- 라이팅가이드 레이어팝업 -->
-  <div class="modal modal--layer" id="layerModal2" data-layer-opend="false">
-    <div class="modal__dialog">
-      <div class="modal__content">
-        <button type="button" class="ic-button" data-layer-close aria-label="팝업닫기">
-          <i class="ic ic-close" aria-hidden="true"></i>
-        </button>
-        <!-- 페이지 컨텐츠와 동일 element 사용 -->
-        <div class="ly-content-box">
-          <div class="title">
-            <h2 class="text ft24 bold">UXW라이팅 가이드</h2>
-          </div>
-        </div>
-        <!-- 페이지 컨텐츠와 동일 element 사용 -->
-      </div>
-    </div>
-  </div>
-  <!-- //라이팅가이드 레이어팝업 -->
-  <!-- 교정된 콘텐츠 레이어팝업 -->
-  <div class="modal modal--layer" id="layerModal3" data-layer-opend="false">
-    <div class="modal__dialog">
-      <div class="modal__content">
-        <button type="button" class="ic-button" data-layer-close aria-label="팝업닫기">
-          <i class="ic ic-close" aria-hidden="true"></i>
-        </button>
-        <!-- 페이지 컨텐츠와 동일 element 사용 -->
-        <div class="ly-content-box">
-          <div class="title">
-            <h2 class="text ft24 bold">교정된 콘텐츠</h2>
-          </div>
-        </div>
-        <!-- 페이지 컨텐츠와 동일 element 사용 -->
-      </div>
-    </div>
-  </div>
-  <!-- //교정된 콘텐츠 레이어팝업 -->
   <script src="/res/js/lib/swiper.min.js"></script>
   <script src="/res/js/uxw.ui.js"></script>
   <script>
-    const sideSwiper = UXW.SwiperA11y('.swiper', {
+    const sideSwiper = UXW.SwiperA11y('#side .swiper', {
       observer: true,
       observeParents: true,
       autoplay: {

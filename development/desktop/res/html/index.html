@@ -55,7 +55,7 @@
             <!-- 로그아웃 일때 -->
             <li class="nav__list">
               <div class="nav__item tooltip-button">
-                <button type="button" class="ic-button-nav" aria-describedby="tooltip2" aria-label="UXW라이팅 가이드" data-container="nav">
+                <button type="button" class="ic-button-nav" aria-describedby="tooltip2" aria-label="UXW라이팅 가이드" aria-controls="layerModal2">
                   <i class="ic ic-guidebook" aria-hidden="true"></i>
                 </button>
                 <a class="text" href="#none" alt="용어사전검색 바로가기">UXW라이팅 가이드</a>
@@ -85,7 +85,6 @@
                   <th>화면명</th>
                   <th>유형</th>
                   <th>담당자</th>
-                  <th>메모</th>
                   <th>상태</th>
                   <th>날짜</th>
                   <th>비고</th>
@@ -94,120 +93,110 @@
               <tbody>
                 <tr>
                   <td>1</td>
+                  <td id="alert" class="left">
+                    <a class="text-link text-blue" href="./alert.html">공통 | alert</a>
+                  </td>
+                  <td>PAGE</td>
+                  <td>김세영</td>
+                  <td> 완료 </td>
+                  <td>22-09-05</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>2</td>
                   <td id="login" class="left">
                     <a class="text-link text-blue" href="./login.html">로그인</a>
                   </td>
                   <td>PAGE</td>
                   <td>김세영</td>
-                  <td></td>
-                  <td> 완료 </td>
-                  <td>22-08-29</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td id="logout" class="left">
-                    <a class="text-link text-blue" href="./logout.html">로그아웃</a>
-                  </td>
-                  <td>PAGE</td>
-                  <td>김세영</td>
-                  <td></td>
                   <td> 완료 </td>
                   <td>22-08-29</td>
                   <td></td>
                 </tr>
                 <tr>
                   <td>3</td>
-                  <td id="currect-before" class="left">
-                    <a class="text-link text-blue" href="./currect_before.html">교정하기(메인) 교정전</a>
+                  <td id="logout" class="left">
+                    <a class="text-link text-blue" href="./logout.html">로그아웃</a>
                   </td>
-                  <td>PAGE/TAB</td>
+                  <td>PAGE</td>
                   <td>김세영</td>
-                  <td></td>
                   <td> 완료 </td>
                   <td>22-08-29</td>
                   <td></td>
                 </tr>
                 <tr>
                   <td>4</td>
-                  <td id="currect-after" class="left">
-                    <a class="text-link text-blue" href="./currect_after.html">교정하기(메인) 교정후</a>
+                  <td id="currect-before" class="left">
+                    <a class="text-link text-blue" href="./currect_before.html">교정하기(메인) | 교정전</a>
                   </td>
                   <td>PAGE/TAB</td>
                   <td>김세영</td>
-                  <td></td>
                   <td> 완료 </td>
                   <td>22-08-29</td>
                   <td></td>
                 </tr>
                 <tr>
                   <td>5</td>
-                  <td id="currect_modify_completed" class="left">
-                    <a class="text-link text-blue" href="./currect_modify_completed.html">교정하기(메인) 수정후</a>
+                  <td id="currect-after" class="left">
+                    <a class="text-link text-blue" href="./currect_after.html">교정하기(메인) | 교정후</a>
                   </td>
                   <td>PAGE/TAB</td>
                   <td>김세영</td>
-                  <td></td>
                   <td> 완료 </td>
                   <td>22-08-29</td>
                   <td></td>
                 </tr>
                 <tr>
                   <td>6</td>
-                  <td id="currect_app" class="left">
-                    <a class="text-link text-blue" href="./currect_app.html">교정하기(메인) 앱푸시</a>
+                  <td id="currect_modify_completed" class="left">
+                    <a class="text-link text-blue" href="./currect_modify_completed.html">교정하기(메인) | 수정후</a>
                   </td>
                   <td>PAGE/TAB</td>
                   <td>김세영</td>
-                  <td></td>
                   <td> 완료 </td>
                   <td>22-08-29</td>
                   <td></td>
                 </tr>
                 <tr>
                   <td>7</td>
-                  <td id="currect_smartoper" class="left">
-                    <a class="text-link text-blue" href="./currect_smartoper.html">교정하기(메인) 스마트오퍼</a>
+                  <td id="currect_app" class="left">
+                    <a class="text-link text-blue" href="./currect_app.html">교정하기(메인) | 앱푸시</a>
                   </td>
                   <td>PAGE/TAB</td>
                   <td>김세영</td>
-                  <td></td>
                   <td> 완료 </td>
                   <td>22-08-29</td>
                   <td></td>
                 </tr>
                 <tr>
                   <td>8</td>
-                  <td id="currect_popup01" class="left">
-                    <a class="text-link text-blue" href="./currect_popup01.html">교정하기(메인) 콘텐츠 완료하기 팝업</a>
+                  <td id="currect_smartoper" class="left">
+                    <a class="text-link text-blue" href="./currect_smartoper.html">교정하기(메인) | 스마트오퍼</a>
                   </td>
-                  <td>POPUP</td>
+                  <td>PAGE/TAB</td>
                   <td>김세영</td>
-                  <td></td>
                   <td> 완료 </td>
                   <td>22-08-29</td>
                   <td></td>
                 </tr>
                 <tr>
                   <td>9</td>
+                  <td id="currect_popup01" class="left">
+                    <a class="text-link text-blue" href="./currect_popup01.html">교정하기(메인) | 콘텐츠 완료하기 팝업</a>
+                  </td>
+                  <td>POPUP</td>
+                  <td>김세영</td>
+                  <td> 완료 </td>
+                  <td>22-08-29</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>10</td>
                   <td id="mypage" class="left">
                     <a class="text-link text-blue" href="./mypage.html">마이페이지</a>
                   </td>
                   <td>PAGE</td>
                   <td>김세영</td>
-                  <td></td>
-                  <td> 완료 </td>
-                  <td>22-09-05</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>10</td>
-                  <td id="mypage_all_datanone" class="left">
-                    <a class="text-link text-blue" href="./mypage_all_datanone.html">마이페이지 내 콘텐츠 &amp; 북마크 글이 없을 경우</a>
-                  </td>
-                  <td>PAGE</td>
-                  <td>김세영</td>
-                  <td></td>
                   <td> 완료 </td>
                   <td>22-09-05</td>
                   <td></td>
@@ -215,131 +204,120 @@
                 <tr>
                   <td>11</td>
                   <td id="mypage_all_datanone" class="left">
-                    <a class="text-link text-blue" href="./mypage_search_datanone.html">마이페이지 내 콘텐츠 &amp; 북마크 검색 결과가 없을경우</a>
+                    <a class="text-link text-blue" href="./mypage_all_datanone.html">마이페이지 | 내 콘텐츠 &amp; 북마크 글이 없을 경우</a>
                   </td>
                   <td>PAGE</td>
                   <td>김세영</td>
-                  <td></td>
                   <td> 완료 </td>
                   <td>22-09-05</td>
                   <td></td>
                 </tr>
                 <tr>
                   <td>12</td>
-                  <td id="mypage_currect_datanone" class="left">
-                    <a class="text-link text-blue" href="./mypage_currect_datanone.html">마이페이지 내 콘텐츠 작성중 &amp; 북마크 내 부서 만 보기 글이 없을 경우</a>
+                  <td id="mypage_all_datanone" class="left">
+                    <a class="text-link text-blue" href="./mypage_search_datanone.html">마이페이지 | 내 콘텐츠 &amp; 북마크 검색 결과가 없을경우</a>
                   </td>
                   <td>PAGE</td>
                   <td>김세영</td>
-                  <td></td>
                   <td> 완료 </td>
                   <td>22-09-05</td>
                   <td></td>
                 </tr>
                 <tr>
                   <td>13</td>
-                  <td id="mypage_popup01" class="left">
-                    <a class="text-link text-blue" href="./mypage_popup01.html">마이페이지 문의하기 팝업</a>
+                  <td id="mypage_currect_datanone" class="left">
+                    <a class="text-link text-blue" href="./mypage_currect_datanone.html">마이페이지 | 내 콘텐츠 작성중 &amp; 북마크 내 부서 만 보기 글이 없을 경우</a>
                   </td>
-                  <td>POPUP</td>
+                  <td>PAGE</td>
                   <td>김세영</td>
-                  <td></td>
                   <td> 완료 </td>
                   <td>22-09-05</td>
                   <td></td>
                 </tr>
                 <tr>
                   <td>14</td>
-                  <td id="mypage_popup02" class="left">
-                    <a class="text-link text-blue" href="./mypage_popup02.html">마이페이지 답변완료 팝업</a>
+                  <td id="mypage_popup01" class="left">
+                    <a class="text-link text-blue" href="./mypage_popup01.html">마이페이지 | 문의하기 팝업</a>
                   </td>
                   <td>POPUP</td>
                   <td>김세영</td>
-                  <td></td>
                   <td> 완료 </td>
                   <td>22-09-05</td>
                   <td></td>
                 </tr>
                 <tr>
                   <td>15</td>
-                  <td id="mypage_popup03" class="left">
-                    <a class="text-link text-blue" href="./mypage_popup03.html">마이페이지 답변대기 팝업</a>
+                  <td id="mypage_popup02" class="left">
+                    <a class="text-link text-blue" href="./mypage_popup02.html">마이페이지 | 답변완료 팝업</a>
                   </td>
                   <td>POPUP</td>
                   <td>김세영</td>
-                  <td></td>
                   <td> 완료 </td>
                   <td>22-09-05</td>
                   <td></td>
                 </tr>
                 <tr>
                   <td>16</td>
-                  <td id="mypage_popup04" class="left">
-                    <a class="text-link text-blue" href="./mypage_popup04.html">마이페이지 용어문의 팝업</a>
+                  <td id="mypage_popup03" class="left">
+                    <a class="text-link text-blue" href="./mypage_popup03.html">마이페이지 | 답변대기 팝업</a>
                   </td>
                   <td>POPUP</td>
                   <td>김세영</td>
-                  <td></td>
                   <td> 완료 </td>
                   <td>22-09-05</td>
                   <td></td>
                 </tr>
                 <tr>
                   <td>17</td>
-                  <td id="notice" class="left">
-                    <a class="text-link text-blue" href="./notice.html">공지사항</a>
+                  <td id="mypage_popup04" class="left">
+                    <a class="text-link text-blue" href="./mypage_popup04.html">마이페이지 | 용어문의 팝업</a>
                   </td>
-                  <td>PAGE</td>
+                  <td>POPUP</td>
                   <td>김세영</td>
-                  <td></td>
                   <td> 완료 </td>
                   <td>22-09-05</td>
                   <td></td>
                 </tr>
                 <tr>
                   <td>18</td>
-                  <td id="faq" class="left">
-                    <a class="text-link text-blue" href="./faq.html">문의</a>
+                  <td id="notice" class="left">
+                    <a class="text-link text-blue" href="./notice.html">공지사항</a>
                   </td>
                   <td>PAGE</td>
                   <td>김세영</td>
-                  <td></td>
                   <td> 완료 </td>
                   <td>22-09-05</td>
                   <td></td>
                 </tr>
                 <tr>
                   <td>19</td>
-                  <td id="faq_datanone" class="left">
-                    <a class="text-link text-blue" href="./faq_datanone.html">문의 검색 데이터가 없을경우</a>
+                  <td id="faq" class="left">
+                    <a class="text-link text-blue" href="./faq.html">문의</a>
                   </td>
                   <td>PAGE</td>
                   <td>김세영</td>
-                  <td></td>
                   <td> 완료 </td>
                   <td>22-09-05</td>
                   <td></td>
                 </tr>
                 <tr>
                   <td>20</td>
-                  <td id="faq_popup_sample" class="left">
-                    <a class="text-link text-blue" href="./faq_alert.html">문의하기 alert</a>
+                  <td id="faq_datanone" class="left">
+                    <a class="text-link text-blue" href="./faq_datanone.html">문의검색 | 데이터가 없을경우</a>
                   </td>
                   <td>PAGE</td>
                   <td>김세영</td>
-                  <td></td>
                   <td> 완료 </td>
                   <td>22-09-05</td>
                   <td></td>
                 </tr>
                 <tr>
                   <td>21</td>
-                  <td id="alert" class="left">
-                    <a class="text-link text-blue" href="./alert.html">Alert 샘플</a>
+                  <td id="faq_popup_sample" class="left">
+                    <a class="text-link text-blue" href="./faq_alert.html">문의하기 | alert</a>
                   </td>
                   <td>PAGE</td>
                   <td>김세영</td>
-                  <td></td>
                   <td> 완료 </td>
                   <td>22-09-05</td>
                   <td></td>
@@ -347,11 +325,10 @@
                 <tr>
                   <td>22</td>
                   <td id="error404" class="left">
-                    <a class="text-link text-blue" href="./error404.html">404 에러 페이지</a>
+                    <a class="text-link text-blue" href="./error404.html">에러페이지 | 404</a>
                   </td>
                   <td>PAGE</td>
                   <td>김세영</td>
-                  <td></td>
                   <td> 완료 </td>
                   <td>22-09-05</td>
                   <td></td>
@@ -359,13 +336,45 @@
                 <tr>
                   <td>23</td>
                   <td id="network_error" class="left">
-                    <a class="text-link text-blue" href="./network_error.html">네트워크 에러 페이지</a>
+                    <a class="text-link text-blue" href="./network_error.html">에러페이지 | 네트워크</a>
                   </td>
                   <td>PAGE</td>
                   <td>김세영</td>
-                  <td></td>
                   <td> 완료 </td>
                   <td>22-09-05</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>24</td>
+                  <td id="layer03" class="left">
+                    <a class="text-link text-blue" href="./layer_modal03.html">교정된 콘텐츠</a>
+                  </td>
+                  <td>LAYER</td>
+                  <td>김세영</td>
+                  <td> 검수중 </td>
+                  <td>22-09-13</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>25</td>
+                  <td id="layer03_01" class="left">
+                    <a class="text-link text-blue" href="./layer_modal03_01.html">교정된 콘텐츠 | 일반</a>
+                  </td>
+                  <td>LAYER</td>
+                  <td>김세영</td>
+                  <td> 검수중 </td>
+                  <td>22-09-13</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>26</td>
+                  <td id="layer03_02" class="left">
+                    <a class="text-link text-blue" href="./layer_modal03_02.html">교정된 콘텐츠 | 스마트오퍼</a>
+                  </td>
+                  <td>LAYER</td>
+                  <td>김세영</td>
+                  <td> 검수중 </td>
+                  <td>22-09-13</td>
                   <td></td>
                 </tr>
               </tbody>
@@ -376,60 +385,6 @@
       <!-- //컨텐츠 영역 -->
     </div>
   </div>
-  <!-- 용어/표현검색 레이어팝업 -->
-  <div class="modal modal--layer" id="layerModal1" data-layer-opend="false">
-    <div class="modal__dialog">
-      <div class="modal__content">
-        <button type="button" class="ic-button" data-layer-close aria-label="팝업닫기">
-          <i class="ic ic-close" aria-hidden="true"></i>
-        </button>
-        <!-- 페이지 컨텐츠와 동일 element 사용 -->
-        <div class="ly-content-box">
-          <div class="title">
-            <h2 class="text ft24 bold">용어/표현 검색</h2>
-          </div>
-        </div>
-        <!-- 페이지 컨텐츠와 동일 element 사용 -->
-      </div>
-    </div>
-  </div>
-  <!-- //용어/표현검색 레이어팝업 -->
-  <!-- 라이팅가이드 레이어팝업 -->
-  <div class="modal modal--layer" id="layerModal2" data-layer-opend="false">
-    <div class="modal__dialog">
-      <div class="modal__content">
-        <button type="button" class="ic-button" data-layer-close aria-label="팝업닫기">
-          <i class="ic ic-close" aria-hidden="true"></i>
-        </button>
-        <!-- 페이지 컨텐츠와 동일 element 사용 -->
-        <div class="ly-content-box">
-          <div class="title">
-            <h2 class="text ft24 bold">UXW라이팅 가이드</h2>
-          </div>
-        </div>
-        <!-- 페이지 컨텐츠와 동일 element 사용 -->
-      </div>
-    </div>
-  </div>
-  <!-- //라이팅가이드 레이어팝업 -->
-  <!-- 교정된 콘텐츠 레이어팝업 -->
-  <div class="modal modal--layer" id="layerModal3" data-layer-opend="false">
-    <div class="modal__dialog">
-      <div class="modal__content">
-        <button type="button" class="ic-button" data-layer-close aria-label="팝업닫기">
-          <i class="ic ic-close" aria-hidden="true"></i>
-        </button>
-        <!-- 페이지 컨텐츠와 동일 element 사용 -->
-        <div class="ly-content-box">
-          <div class="title">
-            <h2 class="text ft24 bold">교정된 콘텐츠</h2>
-          </div>
-        </div>
-        <!-- 페이지 컨텐츠와 동일 element 사용 -->
-      </div>
-    </div>
-  </div>
-  <!-- //교정된 콘텐츠 레이어팝업 -->
   <script src="/res/js/lib/swiper.min.js"></script>
   <script src="/res/js/uxw.ui.js"></script>
 </body>

@@ -1,89 +1,108 @@
 .text {
-    $root: text;
-    &-link {
-        display: flex;
+  $root: text;
+  &-link {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: color(grey, 600);
+
+    &[role='button'] {
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    &:hover {
+      color: color(blue, 800) !important;
+      text-decoration: underline;
+      .ic-text-arrow {
+        background: url('../images/ic-text-arrow-hover.png') no-repeat;
+      }
+    }
+
+    &:active {
+      color: color(blue, 900) !important;
+      .ic-text-arrow {
+        background: url('../images/ic-text-arrow-foucs.png') no-repeat;
+      }
+    }
+
+    &:disabled {
+      color: color(grey, 400) !important;
+      .ic-text-arrow {
+        background: url('../images/ic-text-arrow-disabled.png') no-repeat;
+      }
+    }
+
+    &--bollet {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 500;
+      color: color(grey, 600);
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &[role='button'] {
+        display: inline-flex;
         align-items: center;
-        font-size: 14px;
-        font-weight: 500;
-        color: color(grey, 600);
+        cursor: pointer;
+      }
 
-        &[role='button'] {
-            display: inline-flex;
-            align-items: center;
-            cursor: pointer;
+      &:before {
+        content: '';
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 4px;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+      }
+
+      &.purple {
+        color: color(purple, 800);
+        &.text-link--bollet:before {
+          background-color: color(purple, 800);
         }
+      }
 
-        &:hover {
-            color: color(blue, 800) !important;
-            text-decoration: underline;
-            .ic-text-arrow {
-                background: url('../images/ic-text-arrow-hover.png') no-repeat;
-            }
+      &.orange {
+        color: color(orange, 800);
+        &.text-link--bollet:before {
+          background-color: color(orange, 800);
         }
-
-        &:active {
-            color: color(blue, 900) !important;
-            .ic-text-arrow {
-                background: url('../images/ic-text-arrow-foucs.png') no-repeat;
-            }
-        }
-
-        &:disabled {
-            color: color(grey, 400) !important;
-            .ic-text-arrow {
-                background: url('../images/ic-text-arrow-disabled.png') no-repeat;
-            }
-        }
-
-        &--bollet {
-            display: flex;
-            align-items: center;
-            font-size: 14px;
-            font-weight: 500;
-            color: color(grey, 600);
-
-            &:hover {
-                text-decoration: underline;
-            }
-
-            &[role='button'] {
-                display: inline-flex;
-                align-items: center;
-                cursor: pointer;
-            }
-
-            &:before {
-                content: '';
-                display: inline-block;
-                vertical-align: top;
-                margin-right: 4px;
-                width: 4px;
-                height: 4px;
-                border-radius: 50%;
-            }
-
-            &.purple {
-                color: color(purple, 800);
-                &.text-link--bollet:before {
-                    background-color: color(purple, 800);
-                }
-            }
-
-            &.orange {
-                color: color(orange, 800);
-                &.text-link--bollet:before {
-                    background-color: color(orange, 800);
-                }
-            }
-        }
+      }
     }
+  }
 
-    &-blue {
-        color: color(blue, 800);
-    }
+  &-blue {
+    color: color(blue, 800);
+  }
 
-    &-date {
-        display: block;
-        margin-top: 8px;
+  &-date {
+    display: block;
+    margin-top: 8px;
+  }
+
+  &-sub {
+    font-weight: 500;
+    font-size: 18px;
+    padding-top: 4px;
+    display: inline-block;
+    vertical-align: top;
+    &:before {
+      content: '';
+      height: 20px;
+      width: 2px;
+      background-color: color(grey, 400);
+      display: inline-block;
+      vertical-align: top;
+      position: relative;
+      top: 2px;
+      margin: 0 16px;
     }
+  }
 }

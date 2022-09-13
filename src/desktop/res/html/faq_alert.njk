@@ -3,330 +3,330 @@
 {% extends "../templates/layout.njk" %}
 {% set activePage = "mypage" %}
 {% block content %}
-  {{super()}}
-  <div class="ly-content">
-    <div class="ly-content-box">
-      <!-- 마이페이지 탭 영역 -->
-      {% include "../templates/contents/mypage_tab.njk" %}
-      <!-- //마이페이지 탭 영역 -->
-    </div>
+    {{super()}}
+    <div class="ly-content">
+        <div class="ly-content-box">
+            <!-- 마이페이지 탭 영역 -->
+            {% include "../templates/contents/mypage_tab.njk" %}
+            <!-- //마이페이지 탭 영역 -->
+        </div>
 
-  </div>
-  <!-- 사이드 영역 -->
-  <div class="side">
-    <div class="side__wrap is-active">
-      <h3 class="sr-only">교정 가이드</h3>
-      <div class="side__inner">
-        <div class="cumulative">
-          <p class="cumulative__list">
-            <span class="highlight">김신한</span>님은<br/>
+    </div>
+    <!-- 사이드 영역 220913 ID추가  -->
+    <div class="side" id="side">
+        <div class="side__wrap is-active">
+            <h3 class="sr-only">교정 가이드</h3>
+            <div class="side__inner">
+                <div class="cumulative">
+                    <p class="cumulative__list">
+                        <span class="highlight">김신한</span>님은<br/>
                         총 <span class="cumulative__count">292</span>건 콘텐츠를<br/>
                         교정했어요.
                         </p>
-          <span class="cumulative__date">2022년 기준</span>
-        </div>
-        <div id="personalization" class="user-personal">
-          <h4 class="ft18 medium">김신한님을 위한 추천 표현</h4>
-          <div class="expresstion expresstion--type2">
-            <!-- 데이터가 없을시 오픈 -->
-            <div class="none-data pxh260" data-none>
-              <p>새로운 글을 교정하고<br/>
+                    <span class="cumulative__date">2022년 기준</span>
+                </div>
+                <div id="personalization" class="user-personal">
+                    <h4 class="ft18 medium">김신한님을 위한 추천 표현</h4>
+                    <div class="expresstion expresstion--type2">
+                        <!-- 데이터가 없을시 오픈 -->
+                        <div class="none-data pxh260" data-none>
+                            <p>새로운 글을 교정하고<br/>
                                 추천표현을 확인해보세요.
                                 </p>
-            </div>
-            <!-- //데이터가 없을시 오픈 -->
-            <ul class="expresstion-group">
-              <li class="expresstion-list">
-                <span>네비게이션</span>
-                <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
-                <span>내비게이션</span>
-              </li>
-              <li class="expresstion-list">
-                <span>개인종합자산관리계좌 (ISA)</span>
-                <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
-                <span>ISA (개인종합자산관리계좌)</span>
-              </li>
-              <li class="expresstion-list">
-                <span>라이센스</span>
-                <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
-                <span>라이선스</span>
-              </li>
-              <li class="expresstion-list">
-                <span>휴대폰 인증서 서비스(UBIKey)</span>
-                <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
-                <span>휴대폰 인증서 서비스(유비키)</span>
-              </li>
-              <li class="expresstion-list">
-                <span>추산</span>
-                <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
-                <span>어림잡다</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- 문의내역 -->
-        <div class="box mgt30 grey50-bg">
-          <div class="title--type2">
-            <h4 class="text ft18 medium">내 문의내역</h4>
-            <button class="button button--type4 button--medium" type="button" data-dialog-trigger="#modal2">문의하기</button>
-          </div>
-          <!-- 데이터가 없을시 오픈 -->
-          <div class="none-data none-data--beinfo pxh128" data-none>
-            <p>콘텐츠 목록이 비어있어요.<br/>새로운 콘텐츠를 입력해주세요.</p>
-          </div>
-          <!-- //데이터가 없을시 오픈 -->
-
-          <!-- 문의내역 리스트 : 데이터가 없을시 제거  -->
-          <div class="list list-view mgt18 mxh112">
-            <div class="list__item">
-              <label class="label-ct">답변대기</label>
-              <a class="text-link ellipsis" href="#none" data-dialog-trigger="#modal4">고객언어란 무엇입니까?</a>
-            </div>
-            <div class="list__item">
-              <label class="label-ct label-ct--type3">용어제안</label>
-              <a class="text-link ellipsis" href="#none">교정중인 콘텐츠를 제안합니다 교정중인 콘텐츠를 제안합니다</a>
-            </div>
-            <div class="list__item">
-              <label class="label-ct label-ct--type2">답변완료</label>
-              <a class="text-link ellipsis" href="#none" data-dialog-trigger="#modal3">개인 계정 사용시 어떻게 적용하나요?</a>
-            </div>
-            <div class="list__item">
-              <label class="label-ct label-ct--type3">용어문의</label>
-              <a class="text-link ellipsis" href="#none" data-dialog-trigger="#modal5">문의사항 남깁니다.</a>
-            </div>
-          </div>
-          <!-- //문의내역 리스트 -->
-        </div>
-        <!-- //문의내역 -->
-      </div>
-    </div>
-  </div>
-  <!-- //사이드 영역 -->
-
-  <!-- 문의하기 팝업 -->
-  <div class="modal modal--medium" id="modal2" role="dialog" aria-labelledby="#modal2Title">
-    <div class="modal__dialog" role="document">
-      <div class="modal__content">
-        <div class="modal__header">
-          <div class="modal__title" id="modal2Title">문의하기</div>
-          <button type="button" class="ic-button" data-dialog-close aria-label="팝업닫기">
-            <i class="ic ic-close" aria-hidden="true"></i>
-          </button>
-        </div>
-        <div class="modal__body">
-          <div class="form">
-            <div class="fields">
-              <div class="field">
-                <label class="dpb medium ft14">문의내용</label>
-                <textarea id="sampleTextarea" class="textarea textarea--tiny" maxlength="500" placeholder="서비스 이용 중 궁금하신 점을 말씀해주세요."></textarea>
-                <div class="textarea__lengths">
-                  <label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
-                  <div class="textarea__lengths__box">
-                    <span class="textarea__lengths--current">0</span>/ <span class="textarea__lengths--total">500</span>
-                  </div>
+                        </div>
+                        <!-- //데이터가 없을시 오픈 -->
+                        <ul class="expresstion-group">
+                            <li class="expresstion-list">
+                                <span>네비게이션</span>
+                                <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                                <span>내비게이션</span>
+                            </li>
+                            <li class="expresstion-list">
+                                <span>개인종합자산관리계좌 (ISA)</span>
+                                <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                                <span>ISA (개인종합자산관리계좌)</span>
+                            </li>
+                            <li class="expresstion-list">
+                                <span>라이센스</span>
+                                <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                                <span>라이선스</span>
+                            </li>
+                            <li class="expresstion-list">
+                                <span>휴대폰 인증서 서비스(UBIKey)</span>
+                                <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                                <span>휴대폰 인증서 서비스(유비키)</span>
+                            </li>
+                            <li class="expresstion-list">
+                                <span>추산</span>
+                                <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                                <span>어림잡다</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-              </div>
+
+                <!-- 문의내역 -->
+                <div class="box mgt30 grey50-bg">
+                    <div class="title--type2">
+                        <h4 class="text ft18 medium">내 문의내역</h4>
+                        <button class="button button--type4 button--medium" type="button" data-dialog-trigger="#modal2">문의하기</button>
+                    </div>
+                    <!-- 데이터가 없을시 오픈 -->
+                    <div class="none-data none-data--beinfo pxh128" data-none>
+                        <p>콘텐츠 목록이 비어있어요.<br/>새로운 콘텐츠를 입력해주세요.</p>
+                    </div>
+                    <!-- //데이터가 없을시 오픈 -->
+
+                    <!-- 문의내역 리스트 : 데이터가 없을시 제거  -->
+                    <div class="list list-view mgt18 mxh112">
+                        <div class="list__item">
+                            <label class="label-ct">답변대기</label>
+                            <a class="text-link ellipsis" href="#none" data-dialog-trigger="#modal4">고객언어란 무엇입니까?</a>
+                        </div>
+                        <div class="list__item">
+                            <label class="label-ct label-ct--type3">용어제안</label>
+                            <a class="text-link ellipsis" href="#none">교정중인 콘텐츠를 제안합니다 교정중인 콘텐츠를 제안합니다</a>
+                        </div>
+                        <div class="list__item">
+                            <label class="label-ct label-ct--type2">답변완료</label>
+                            <a class="text-link ellipsis" href="#none" data-dialog-trigger="#modal3">개인 계정 사용시 어떻게 적용하나요?</a>
+                        </div>
+                        <div class="list__item">
+                            <label class="label-ct label-ct--type3">용어문의</label>
+                            <a class="text-link ellipsis" href="#none" data-dialog-trigger="#modal5">문의사항 남깁니다.</a>
+                        </div>
+                    </div>
+                    <!-- //문의내역 리스트 -->
+                </div>
+                <!-- //문의내역 -->
             </div>
-          </div>
         </div>
-        <div class="modal__footer">
-          <button id="sample01" type="button" class="button pw100">문의하기</button>
-        </div>
-      </div>
     </div>
-  </div>
-  <!-- //문의하기 팝업 -->
+    <!-- //사이드 영역 -->
+
+    <!-- 문의하기 팝업 -->
+    <div class="modal modal--medium" id="modal2" role="dialog" aria-labelledby="#modal2Title">
+        <div class="modal__dialog" role="document">
+            <div class="modal__content">
+                <div class="modal__header">
+                    <div class="modal__title" id="modal2Title">문의하기</div>
+                    <button type="button" class="ic-button" data-dialog-close aria-label="팝업닫기">
+                        <i class="ic ic-close" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="modal__body">
+                    <div class="form">
+                        <div class="fields">
+                            <div class="field">
+                                <label class="dpb medium ft14">문의내용</label>
+                                <textarea id="sampleTextarea" class="textarea textarea--tiny" maxlength="500" placeholder="서비스 이용 중 궁금하신 점을 말씀해주세요."></textarea>
+                                <div class="textarea__lengths">
+                                    <label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
+                                    <div class="textarea__lengths__box">
+                                        <span class="textarea__lengths--current">0</span>/ <span class="textarea__lengths--total">500</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal__footer">
+                    <button id="sample01" type="button" class="button pw100">문의하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //문의하기 팝업 -->
 
 {% endblock %}
 {% block scripts %}
-  <script>
-    function bookAdd(param) {
-      //북마크 클릭시 ui 변경
-      const dataChecker = param.getAttribute('data-toggle');
-      if (dataChecker === 'false') {
-        param.setAttribute('data-toggle', 'true')
-      }
-    }
-
-    function bookRemove(param) {
-      //북마크 클릭시 ui 변경
-      const dataChecker = param.getAttribute('data-toggle');
-      if (dataChecker === 'true') {
-        param.setAttribute('data-toggle', 'false')
-      }
-    }
-
-    const Input = {
-      // 에러
-      Error: function (props) {
-        const ARIA_HIDDEN = 'aria-hidden';
-        const input = props.parentElement;
-        const label = input
-          .nextElementSibling
-          .classList
-          .contains('error');
-        input
-          .classList
-          .add('error');
-        if (!label) {
-          return;
+    <script>
+        function bookAdd(param) {
+            //북마크 클릭시 ui 변경
+            const dataChecker = param.getAttribute('data-toggle');
+            if (dataChecker === 'false') {
+                param.setAttribute('data-toggle', 'true')
+            }
         }
 
-        const get = input
-          .nextElementSibling
-          .getAttribute(ARIA_HIDDEN);
-        if (get === 'true') {
-          input
-            .nextElementSibling
-            .setAttribute(ARIA_HIDDEN, false);
-        }
-      },
-
-      // 에러 클리어
-      Clear: function (props) {
-        const ARIA_HIDDEN = 'aria-hidden';
-        const input = props.parentElement;
-        const label = input
-          .nextElementSibling
-          .classList
-          .contains('error');
-        input
-          .classList
-          .remove('error');
-        if (!label) {
-          return;
+        function bookRemove(param) {
+            //북마크 클릭시 ui 변경
+            const dataChecker = param.getAttribute('data-toggle');
+            if (dataChecker === 'true') {
+                param.setAttribute('data-toggle', 'false')
+            }
         }
 
-        const get = input
-          .nextElementSibling
-          .getAttribute(ARIA_HIDDEN);
-        if (get === 'false') {
-          input
-            .nextElementSibling
-            .setAttribute(ARIA_HIDDEN, true);
-        }
-      },
+        const Input = {
+            // 에러
+            Error: function (props) {
+                const ARIA_HIDDEN = 'aria-hidden';
+                const input = props.parentElement;
+                const label = input
+                    .nextElementSibling
+                    .classList
+                    .contains('error');
+                input
+                    .classList
+                    .add('error');
+                if (!label) {
+                    return;
+                }
 
-      // value 삭제버튼
-      ClearButton: function (param) {
-        if (!param.previousElementSibling) {
-          return;
-        }
+                const get = input
+                    .nextElementSibling
+                    .getAttribute(ARIA_HIDDEN);
+                if (get === 'true') {
+                    input
+                        .nextElementSibling
+                        .setAttribute(ARIA_HIDDEN, false);
+                }
+            },
 
-        if (param.previousElementSibling.tagName === 'INPUT') {
-          param.previousElementSibling.value = '';
-          param
-            .classList
-            .remove('is-active');
+            // 에러 클리어
+            Clear: function (props) {
+                const ARIA_HIDDEN = 'aria-hidden';
+                const input = props.parentElement;
+                const label = input
+                    .nextElementSibling
+                    .classList
+                    .contains('error');
+                input
+                    .classList
+                    .remove('error');
+                if (!label) {
+                    return;
+                }
 
-          if (param.previousElementSibling.getAttribute('name') === 'id') {
-            const target = document.querySelector('[name="password"]');
-            const passwordParent = target.closest('.input-box');
-            passwordParent.style.height = '';
-            passwordParent.style.marginTop = '0';
+                const get = input
+                    .nextElementSibling
+                    .getAttribute(ARIA_HIDDEN);
+                if (get === 'false') {
+                    input
+                        .nextElementSibling
+                        .setAttribute(ARIA_HIDDEN, true);
+                }
+            },
 
-            passwordParent
-              .classList
-              .add('expanding');
-            passwordParent
-              .classList
-              .remove('expand');
-            passwordParent
-              .classList
-              .remove('expanded');
-          }
-        }
-      },
+            // value 삭제버튼
+            ClearButton: function (param) {
+                if (!param.previousElementSibling) {
+                    return;
+                }
 
-      // InputBox value Checker
-      Check: function () {
-        const elements = document.querySelectorAll('.input-box');
+                if (param.previousElementSibling.tagName === 'INPUT') {
+                    param.previousElementSibling.value = '';
+                    param
+                        .classList
+                        .remove('is-active');
 
-        const onInput = function (event) {
-          const value = event.target.value;
-          const length = value.length;
-          const nextEl = event.target.nextElementSibling;
-          if (!nextEl) {
-            return;
-          }
-          if (length > 0) {
-            nextEl
-              .classList
-              .add('is-active');
-          } else {
-            nextEl
-              .classList
-              .remove('is-active');
-          }
+                    if (param.previousElementSibling.getAttribute('name') === 'id') {
+                        const target = document.querySelector('[name="password"]');
+                        const passwordParent = target.closest('.input-box');
+                        passwordParent.style.height = '';
+                        passwordParent.style.marginTop = '0';
+
+                        passwordParent
+                            .classList
+                            .add('expanding');
+                        passwordParent
+                            .classList
+                            .remove('expand');
+                        passwordParent
+                            .classList
+                            .remove('expanded');
+                    }
+                }
+            },
+
+            // InputBox value Checker
+            Check: function () {
+                const elements = document.querySelectorAll('.input-box');
+
+                const onInput = function (event) {
+                    const value = event.target.value;
+                    const length = value.length;
+                    const nextEl = event.target.nextElementSibling;
+                    if (!nextEl) {
+                        return;
+                    }
+                    if (length > 0) {
+                        nextEl
+                            .classList
+                            .add('is-active');
+                    } else {
+                        nextEl
+                            .classList
+                            .remove('is-active');
+                    }
+                };
+                []
+                    .forEach
+                    .call(elements, item => {
+                        const target = item.querySelector('.input');
+                        target.addEventListener('keyup', onInput);
+                        target.addEventListener('keydown', onInput);
+                        target.addEventListener('change', onInput);
+                    });
+            }
         };
-        []
-          .forEach
-          .call(elements, item => {
-            const target = item.querySelector('.input');
-            target.addEventListener('keyup', onInput);
-            target.addEventListener('keydown', onInput);
-            target.addEventListener('change', onInput);
-          });
-      }
-    };
 
-    //오픈
-    document.addEventListener('UILoaded', function () {
-      var modal = UXW
-        .Dialog
-        .getInstance(modal2)
-          ? UXW
-            .Dialog
-            .getInstance(modal2)
-          : new UXW.Dialog(modal2);
-      modal.open();
-
-      let value = 0;
-      sampleTextarea.addEventListener('change', sampleAlert);
-      sampleTextarea.addEventListener('keyup', sampleAlert);
-
-      function clickOpen() {
-        if (value === 0) {
-          UXW.Alert('내용을 입력해주세요.', function () {
-            this.close();
-          });
-        } else {
-          UXW.Alert('전달이 완료되었어요.<br/> 답변은 마이페이지에서 확인할 수 있어요.', {
-            open: function () {
-              console.log('open');
-            },
-            opened: function () {
-              console.log('opened!');
-            },
-            close: function () {
-              console.log('close');
-            },
-            closed: function () {
-              /* 이미 등록되어있을경우 getInstance로 실행 */
-              UXW
+        //오픈
+        document.addEventListener('UILoaded', function () {
+            var modal = UXW
                 .Dialog
                 .getInstance(modal2)
-                .close();
+                    ? UXW
+                        .Dialog
+                        .getInstance(modal2)
+                    : new UXW.Dialog(modal2);
+            modal.open();
 
+            let value = 0;
+            sampleTextarea.addEventListener('change', sampleAlert);
+            sampleTextarea.addEventListener('keyup', sampleAlert);
+
+            function clickOpen() {
+                if (value === 0) {
+                    UXW.Alert('내용을 입력해주세요.', function () {
+                        this.close();
+                    });
+                } else {
+                    UXW.Alert('전달이 완료되었어요.<br/> 답변은 마이페이지에서 확인할 수 있어요.', {
+                        open: function () {
+                            console.log('open');
+                        },
+                        opened: function () {
+                            console.log('opened!');
+                        },
+                        close: function () {
+                            console.log('close');
+                        },
+                        closed: function () {
+                            /* 이미 등록되어있을경우 getInstance로 실행 */
+                            UXW
+                                .Dialog
+                                .getInstance(modal2)
+                                .close();
+
+                        }
+                    });
+                }
             }
-          });
-        }
-      }
 
-      function sampleAlert(event) {
-        if (event.target.value.length > 0) {
-          value = event.target.value.length;
-        } else {
-          value = event.target.value.length;
-        }
-      };
+            function sampleAlert(event) {
+                if (event.target.value.length > 0) {
+                    value = event.target.value.length;
+                } else {
+                    value = event.target.value.length;
+                }
+            };
 
-      sample01.addEventListener('click', clickOpen);
-    })
+            sample01.addEventListener('click', clickOpen);
+        })
 
-    document.addEventListener('DOMContentLoaded', function () {
-      Input.Check();
-    })
-  </script>
+        document.addEventListener('DOMContentLoaded', function () {
+            Input.Check();
+        })
+    </script>
 {% endblock %}

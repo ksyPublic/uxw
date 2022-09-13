@@ -160,6 +160,22 @@
       position: absolute;
       right: 20px;
       top: 20px;
+      z-index: 102;
+    }
+
+    .textarea {
+      background-color: color(grey, 50);
+      border: 1px solid color(grey, 300);
+      color: color(grey, 600);
+    }
+
+    .ly-bottom-group {
+      background-color: $white;
+      max-width: 819px;
+      &:before,
+      &:after {
+        background-color: $white;
+      }
     }
 
     .#{$root}__dialog {
@@ -167,14 +183,39 @@
       align-items: flex-start;
     }
     .#{$root}__content {
+      overflow: hidden;
       min-height: calc(100% - 80px);
       margin-top: 80px;
       max-width: 1693px;
+      min-width: 1693px;
       width: 100%;
       padding: 0 133px 0 360px;
     }
-    .#{$root}__body {
-      //
+    &__type2 {
+      .#{$root}__content {
+        display: flex;
+        width: 100%;
+        padding: 0 0 0 360px;
+        justify-content: space-between;
+        flex-direction: row;
+
+        .ly-content-box {
+          width: 100%;
+          padding-right: 56px;
+          overflow-y: auto;
+          height: calc(100% - 116px);
+        }
+
+        .side__inner {
+          &:after {
+            display: none;
+          }
+
+          height: calc(100% - 144px);
+          margin-top: 104px;
+          padding: 0px 40px 0 40px;
+        }
+      }
     }
   }
 }
