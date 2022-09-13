@@ -1,17 +1,13 @@
+{% set user = "logout" %}
 {% set title = "가이드 UXW 탭"%}
 {% extends "../templates/layout.njk" %}
 {% block content %}
     <div class="guide-wrap">
         <h2 class="ex-name">Tab</h2>
         <p>기존의 탭 사용이 아닌 단순링크, ajax통신을 통해 하나의 컨테이너만 사용하는 경우는 아래 링크를 참고해주세요.</p>
-        <p>
-            <a href="./tabs_a11y.html" target="_blank" style="text-decoration: underline; font-size: 20px; margin-top: 20px; display: inline-block; color: #ff0000">
-                <b>tab 웹 접근성 처리 방법</b>
-            </a>
-        </p>
         <div class="ex-content">
             <div class="ex-title">
-                <h3>탭 구성 주의사항(웹 접근성 관련)</h3>
+                <h3>탭 구성 주의사항</h3>
                 <p class="ex-desc" style="color: #ff0000"> 아래 예시는 마크업 구성 시 반드시 포함되어야 하는 속성을 설명하는 구조입니다. 실제 탭 구성 시에는 css style 구조에 맞는 마크업이 필요합니다.</p>
                 <p class="ex-desc">* 탭 헤더의 [aria-controls] => 탭 컨텐츠의 [id]와 매칭
                 <br>* 탭 헤더의 [id] => 탭 컨텐츠의 [aria-labelledby]와 매칭
@@ -21,16 +17,66 @@
             <div class="ex-body">
                 <div class="ex-preview">
                     <!-- tabs -->
-                    <div class="tabs" data-ui-tab>
-                        <div class="tabs__list" role="tablist">
-                            <button type="button" role="tab" id="tab1" class="tabs__button" aria-controls="panel1" aria-selected="false">tabs1</button>
-                            <button type="button" role="tab" id="tab2" class="tabs__button" aria-controls="panel2" aria-selected="false">tabs2</button>
-                            <button type="button" role="tab" id="tab3" class="tabs__button" aria-controls="panel3" aria-selected="false">tabs3</button>
+                    <div class="tab" data-ui-tab>
+                        <div class="tab__list" role="tablist">
+                            <button type="button" role="tab" id="tab1" class="tab__button" aria-controls="panel1" aria-selected="false">tab1</button>
+                            <button type="button" role="tab" id="tab2" class="tab__button" aria-controls="panel2" aria-selected="false">tab2</button>
+                            <button type="button" role="tab" id="tab3" class="tab__button" aria-controls="panel3" aria-selected="false">tab3</button>
                         </div>
-                        <div class="tabs__contents" role="tabcontent">
-                            <div id="panel1" role="tabpanel" class="tabs__content" aria-labelledby="tab1" tabindex="-1">test</div>
-                            <div id="panel2" role="tabpanel" class="tabs__content" aria-labelledby="tab2" tabindex="-1">test2</div>
-                            <div id="panel3" role="tabpanel" class="tabs__content" aria-labelledby="tab3" tabindex="-1">test3</div>
+                        <div id="panel1" role="tabpanel" class="tab__panel" aria-labelledby="tab1" tabindex="-1">test</div>
+                        <div id="panel2" role="tabpanel" class="tab__panel" aria-labelledby="tab2" tabindex="-1">test2</div>
+                        <div id="panel3" role="tabpanel" class="tab__panel" aria-labelledby="tab3" tabindex="-1">test3</div>
+                    </div>
+                    <!-- //tabs -->
+                </div>
+
+                <div class="html-view">
+                    <pre>
+                    <code class="ex-code-block render-html">
+                    <div class="tab">
+                        <div class="tab__list" role="tablist">
+                            <button type="button" id="{tab_header_id}" class="button" aria-controls="{tab_panel_id}" aria-selected="false">탭1</button>
+                            <button type="button" id="{tab_header_id}" class="button" aria-controls="{tab_panel_id}" aria-selected="false">탭2</button>
+                            <button type="button" id="{tab_header_id}" class="button" aria-controls="{tab_panel_id}" aria-selected="false">탭3</button>
+                        </div>
+                        <div id="{tab_panel_id}" role="tabpanel" class="tab__panel" aria-labelledby="{tab_header_id}" tabindex="-1">
+                            탭 컨텐츠1
+                        </div>
+                        <div id="{tab_panel_id}" role="tabpanel" class="tab__panel" aria-labelledby="{tab_header_id}" tabindex="-1">
+                            탭 컨텐츠2
+                        </div>
+                        <div id="{tab_panel_id}" role="tabpanel" class="tab__panel" aria-labelledby="{tab_header_id}" tabindex="-1">
+                            탭 컨텐츠3
+                        </div>
+                    </div>
+                    </code>
+                </pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="ex-content">
+            <div class="ex-title">
+                <h3>타이틀 우측에 탭이 있을경우</h3>
+            </div>
+
+            <div class="ex-body">
+                <div class="ex-preview">
+                    <!-- tabs -->
+                    <div class="tab" data-ui-tab>
+                        <div class="title">
+                            <h2 class="text ft24 bold">교정하기</h2>
+                            <div class="tab__list" role="tablist">
+                                <button type="button" role="tab" id="tab4" class="tab__button" aria-controls="panel4" aria-selected="false">tab1</button>
+                                <button type="button" role="tab" id="tab5" class="tab__button" aria-controls="panel5" aria-selected="false">tab2</button>
+                                <button type="button" role="tab" id="tab6" class="tab__button" aria-controls="panel6" aria-selected="false">tab3</button>
+                            </div>
+                        </div>
+
+                        <div class="tab__contents" role="tabcontent">
+                            <div id="panel4" role="tabpanel" class="tab__panel" aria-labelledby="tab4" tabindex="-1">탭 컨텐츠1</div>
+                            <div id="panel5" role="tabpanel" class="tab__panel" aria-labelledby="tab5" tabindex="-1">탭 컨텐츠2</div>
+                            <div id="panel6" role="tabpanel" class="tab__panel" aria-labelledby="tab6" tabindex="-1">탭 컨텐츠3</div>
                         </div>
                     </div>
                     <!-- //tabs -->
@@ -39,22 +85,23 @@
                 <div class="html-view">
                     <pre>
                     <code class="ex-code-block render-html">
-                    <div class="tabs">
-                        <div class="tabs__list" role="tablist">
-                            <button type="button" id="{tab_header_id}" class="button" aria-controls="{tab_panel_id}" aria-selected="false">탭1</button>
-                            <button type="button" id="{tab_header_id}" class="button" aria-controls="{tab_panel_id}" aria-selected="false">탭2</button>
-                            <button type="button" id="{tab_header_id}" class="button" aria-controls="{tab_panel_id}" aria-selected="false">탭3</button>
+                    <div class="tab">
+                        <div class="title">
+                            <h2 class="text ft24 bold">교정하기</h2>
+                            <div class="tab__list" role="tablist">
+                                <button type="button" id="{tab_header_id}" class="button" aria-controls="{tab_panel_id}" aria-selected="false">탭1</button>
+                                <button type="button" id="{tab_header_id}" class="button" aria-controls="{tab_panel_id}" aria-selected="false">탭2</button>
+                                <button type="button" id="{tab_header_id}" class="button" aria-controls="{tab_panel_id}" aria-selected="false">탭3</button>
+                            </div>
                         </div>
-                        <div class="tabs__contents" role="tabcontent">
-                            <div id="{tab_panel_id}" role="tabpanel" class="tabs__content" aria-labelledby="{tab_header_id}" tabindex="-1">
-                                탭 컨텐츠1
-                            </div>
-                            <div id="{tab_panel_id}" role="tabpanel" class="tabs__content" aria-labelledby="{tab_header_id}" tabindex="-1">
-                                탭 컨텐츠2
-                            </div>
-                            <div id="{tab_panel_id}" role="tabpanel" class="tabs__content" aria-labelledby="{tab_header_id}" tabindex="-1">
-                                탭 컨텐츠3
-                            </div>
+                        <div id="{tab_panel_id}" role="tabpanel" class="tab__panel" aria-labelledby="{tab_header_id}" tabindex="-1">
+                            탭 컨텐츠1
+                        </div>
+                        <div id="{tab_panel_id}" role="tabpanel" class="tab__panel" aria-labelledby="{tab_header_id}" tabindex="-1">
+                            탭 컨텐츠2
+                        </div>
+                        <div id="{tab_panel_id}" role="tabpanel" class="tab__panel" aria-labelledby="{tab_header_id}" tabindex="-1">
+                            탭 컨텐츠3
                         </div>
                     </div>
                     </code>
@@ -62,6 +109,108 @@
                 </div>
             </div>
         </div>
+
+        <div class="ex-content">
+            <div class="ex-title">
+                <h3>탭 내부에 탭이 있을경우</h3>
+                <p class="ex-desc">* 탭 내부에 탭이 있을경우 tab--type2를 사용합니다.</p>
+            </div>
+
+            <div class="ex-body">
+                <div class="ex-preview">
+                    <!-- tabs -->
+                    <div class="tab" data-ui-tab>
+                        <div class="title">
+                            <h2 class="text ft24 bold">교정하기</h2>
+                            <div class="tab__list" role="tablist">
+                                <button type="button" role="tab" id="tab7" class="tab__button" aria-controls="panel7" aria-selected="false">tab1</button>
+                                <button type="button" role="tab" id="tab8" class="tab__button" aria-controls="panel8" aria-selected="false">tab2</button>
+                                <button type="button" role="tab" id="tab9" class="tab__button" aria-controls="panel9" aria-selected="false">tab3</button>
+                            </div>
+                        </div>
+                        <div id="panel7" role="tabpanel" class="tab__panel" aria-labelledby="tab7" tabindex="-1">
+                            <div class="tab tab--type2" data-ui-tab>
+                                <div class="tab__list" role="tablist">
+                                    <button type="button" role="tab" id="tab7-1" class="tab__button" aria-controls="tabpanel7-1" aria-selected="false">tab1-1</button>
+                                    <button type="button" role="tab" id="tab7-2" class="tab__button" aria-controls="tabpanel7-2" aria-selected="false">tab1-2</button>
+                                    <button type="button" role="tab" id="tab7-3" class="tab__button" aria-controls="tabpanel7-3" aria-selected="false">tab1-3</button>
+                                </div>
+                                <div id="tabpanel7-1" class="tab__panel" role="tabpanel" aria-labelledby="tab7-1" tabindex="-1">탭 컨텐츠1-1</div>
+                                <div id="tabpanel7-2" class="tab__panel" role="tabpanel" aria-labelledby="tab7-2" tabindex="-1">탭 컨텐츠1-2</div>
+                                <div id="tabpanel7-3" class="tab__panel" role="tabpanel" aria-labelledby="tab7-3" tabindex="-1">탭 컨텐츠1-3</div>
+                            </div>
+                        </div>
+                        <div id="panel8" role="tabpanel" class="tab__panel" aria-labelledby="tab8" tabindex="-1">
+                            <div class="tab tab--type2" data-ui-tab>
+                                <div class="tab__list" role="tablist">
+                                    <button type="button" role="tab" id="tab8-1" class="tab__button" aria-controls="tabpanel8-1" aria-selected="false">tab2-1</button>
+                                    <button type="button" role="tab" id="tab8-2" class="tab__button" aria-controls="tabpanel8-2" aria-selected="false">tab2-2</button>
+                                    <button type="button" role="tab" id="tab8-3" class="tab__button" aria-controls="tabpanel8-3" aria-selected="false">tab2-3</button>
+                                </div>
+                                <div id="tabpanel8-1" class="tab__panel" role="tabpanel" aria-labelledby="tab8-1" tabindex="-1">탭 컨텐츠2-1</div>
+                                <div id="tabpanel8-2" class="tab__panel" role="tabpanel" aria-labelledby="tab8-2" tabindex="-1">탭 컨텐츠2-2</div>
+                                <div id="tabpanel8-3" class="tab__panel" role="tabpanel" aria-labelledby="tab8-3" tabindex="-1">탭 컨텐츠2-3</div>
+                            </div>
+                        </div>
+                        <div id="panel9" role="tabpanel" class="tab__panel" aria-labelledby="tab9" tabindex="-1">
+                            <div class="tab tab--type2" data-ui-tab>
+                                <div class="tab__list" role="tablist">
+                                    <button type="button" role="tab" id="tab9-1" class="tab__button" aria-controls="tabpanel9-1" aria-selected="false">tab3-1</button>
+                                    <button type="button" role="tab" id="tab9-2" class="tab__button" aria-controls="tabpanel9-2" aria-selected="false">tab3-2</button>
+                                    <button type="button" role="tab" id="tab9-3" class="tab__button" aria-controls="tabpanel9-3" aria-selected="false">tab3-3</button>
+                                </div>
+                                <div id="tabpanel9-1" class="tab__panel" role="tabpanel" aria-labelledby="tab9-1" tabindex="-1">탭 컨텐츠3-1</div>
+                                <div id="tabpanel9-2" class="tab__panel" role="tabpanel" aria-labelledby="tab9-2" tabindex="-1">탭 컨텐츠3-2</div>
+                                <div id="tabpanel9-3" class="tab__panel" role="tabpanel" aria-labelledby="tab9-3" tabindex="-1">탭 컨텐츠3-3</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //tabs -->
+                </div>
+
+                <div class="html-view">
+                    <pre>
+                    <code class="ex-code-block render-html">
+                    <div class="tab">
+                        <div class="title">
+                            <h2 class="text ft24 bold">텍스트</h2>
+                            <div class="tab__list" role="tablist">
+                                <button type="button" id="{tab_header_id}" class="button" aria-controls="{tab_panel_id}" aria-selected="false">탭1</button>
+                                <button type="button" id="{tab_header_id}" class="button" aria-controls="{tab_panel_id}" aria-selected="false">탭2</button>
+                                <button type="button" id="{tab_header_id}" class="button" aria-controls="{tab_panel_id}" aria-selected="false">탭3</button>
+                            </div>
+                        </div>
+                        <div id="{tab_panel_id}" role="tabpanel" class="tab__panel" aria-labelledby="{tab_header_id}" tabindex="-1">
+                            <div class="tab tab--type2">
+                                <div class="tab__list" role="tablist">
+                                    <button type="button" id="{tab_header_id}" class="button" aria-controls="{tab_panel_id}" aria-selected="false">탭1</button>
+                                    <button type="button" id="{tab_header_id}" class="button" aria-controls="{tab_panel_id}" aria-selected="false">탭2</button>
+                                    <button type="button" id="{tab_header_id}" class="button" aria-controls="{tab_panel_id}" aria-selected="false">탭3</button>
+                                </div>
+                                <div id="{tab_panel_id}" role="tabpanel" class="tab__panel" aria-labelledby="{tab_header_id}" tabindex="-1">
+                                    탭 컨텐츠1
+                                </div>
+                                <div id="{tab_panel_id}" role="tabpanel" class="tab__panel" aria-labelledby="{tab_header_id}" tabindex="-1">
+                                    탭 컨텐츠2
+                                </div>
+                                <div id="{tab_panel_id}" role="tabpanel" class="tab__panel" aria-labelledby="{tab_header_id}" tabindex="-1">
+                                    탭 컨텐츠3
+                                </div>
+                            </div>
+                        </div>
+                        <div id="{tab_panel_id}" role="tabpanel" class="tab__panel" aria-labelledby="{tab_header_id}" tabindex="-1">
+                            탭 컨텐츠2
+                        </div>
+                        <div id="{tab_panel_id}" role="tabpanel" class="tab__panel" aria-labelledby="{tab_header_id}" tabindex="-1">
+                            탭 컨텐츠3
+                        </div>
+                    </div>
+                    </code>
+                </pre>
+                </div>
+            </div>
+        </div>
+
         <div class="ex-content">
             <div class="ex-title">
                 <h3>public method</h3>

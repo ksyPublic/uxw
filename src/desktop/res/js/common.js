@@ -31,8 +31,8 @@ const getObjectElements = elements => {
 
 const autoScrollContent = () => {
   const lyContainer = document.querySelector('.ly-container');
-  const tabs = lyContainer.querySelectorAll('.tab');
-  const side = document.querySelector('.side');
+  const tabs = lyContainer?.querySelectorAll('.tab');
+  const side = document?.querySelector('.side');
 
   if (!tabs) {
     return;

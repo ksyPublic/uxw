@@ -6425,9 +6425,11 @@ var getObjectElements = function getObjectElements(elements) {
 };
 
 var autoScrollContent = function autoScrollContent() {
+  var _document;
+
   var lyContainer = document.querySelector('.ly-container');
-  var tabs = lyContainer.querySelectorAll('.tab');
-  var side = document.querySelector('.side');
+  var tabs = lyContainer === null || lyContainer === void 0 ? void 0 : lyContainer.querySelectorAll('.tab');
+  var side = (_document = document) === null || _document === void 0 ? void 0 : _document.querySelector('.side');
 
   if (!tabs) {
     return;

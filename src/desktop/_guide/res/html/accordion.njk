@@ -1,3 +1,4 @@
+{% set user = "logout" %}
 {% set title = "가이드 UXW 아코디언"%}
 {% extends "../templates/layout.njk" %}
 {% block content %}
@@ -5,7 +6,7 @@
         <h2 class="ex-name">Accordion</h2>
         <div class="ex-content">
             <div class="ex-title">
-                <h3>아코디언 구성 주의사항(웹 접근성 관련)</h3>
+                <h3>아코디언 구성 주의사항</h3>
                 <p class="ex-desc" style="color: #ff0000"> 아래 예시는 마크업 구성 시 반드시 포함되어야 하는 속성을 설명하는 구조입니다. 실제 아코디언 구성 시에는 css style 구조에 맞는 마크업이 필요합니다.</p>
                 <p class="ex-desc">* 아코디언 헤더의 [aria-controls] => 아코디언 컨텐츠의 [id]와 매칭
                 <br>* 아코디언 헤더의 [id] => 아코디언 컨텐츠의 [aria-labelledby]와 매칭
@@ -14,79 +15,276 @@
 
             <div class="ex-body">
                 <div class="ex-preview">
-                    <!-- accordion -->
-                    <div class="acc" data-ui-accordion>
-                        <ul class="acc__box">
-                            <li class="acc__item">
-                                <div class="acc__head">
-                                    <strong>타이틀</strong>
-                                    <button type="button" role="accordion" id="acc_header1" class="acc__button" aria-controls="acc_content1" aria-expanded="false" aria-label="버튼"></button>
+                    <div class="accordion" data-ui-accordion data-accordion-onlyOne="true">
+                        <div class="accordion__box">
+                            <div class="accordion__item">
+                                <div class="accordion__head">
+                                    <button class="accordion__button" id="acc_header1" type="button" aria-expanded="false" aria-controls="acc_panel1" aria-label="버튼"></button>
+                                    <div class="list list--type3">
+                                        <div class="list__group">
+                                            <div class="list__row">
+                                                <div class="list__item">
+                                                    <span aria-hidden="true">
+                                                        <i class="ic ic-pind" aria-hidden="true"></i>
+                                                    </span>
+                                                </div>
+                                                <div class="list__item left">
+                                                    <b aria-hidden="true">[기타] 오류가 생겨요.</b>
+                                                </div>
+                                                <div class="list__item">
+                                                    <button type="button" class="ic-button" aria-label="다운로드">
+                                                        <i class="ic ic-download" aria-hidden="true"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="list__item">
+                                                    <span aria-hidden="true">2022.08.31</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="acc__panel expand" id="acc_content1" role="accordionpanel" aria-labelledby="acc_header1">
-                                    컨텐츠
-                                    컨텐츠
-                                    컨텐츠
-                                    컨텐츠
+                                <div class="accordion__panel expand" id="acc_panel1" aria-labelledby="acc_header1">
+                                    <div class="accordion__inner">
+                                        <div class="list list--type2">
+                                            <div class="list__item">
+                                                <label class="label" aria-hidden="true"></label>
+                                                <p class="text">테기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.스트</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </li>
-                            <li class="acc__item">
-                                <div class="acc__head">
-                                    <strong>타이틀</strong>
-                                    <button type="button" role="accordion" id="acc_header2" class="acc__button" aria-controls="acc_content2" aria-expanded="false" aria-label="버튼"></button>
+                            </div>
+                            <div class="accordion__item">
+                                <div class="accordion__head">
+                                    <button class="accordion__button" id="acc_header2" type="button" aria-expanded="false" aria-controls="acc_panel2" aria-label="버튼"></button>
+                                    <div class="list list--type3">
+                                        <div class="list__group">
+                                            <div class="list__row">
+                                                <div class="list__item">
+                                                    <span>66</span>
+                                                </div>
+                                                <div class="list__item left">
+                                                    <span aria-hidden="true">[기타] 오류가 생겨요.</span>
+                                                </div>
+                                                <div class="list__item"></div>
+                                                <div class="list__item">
+                                                    <span aria-hidden="true">2022.08.31</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="acc__panel expand" id="acc_content2" role="accordionpanel" aria-labelledby="acc_header2">
-                                    컨텐츠2
-                                    컨텐츠2
-                                    컨텐츠2
-                                    컨텐츠2
+                                <div class="accordion__panel expand" id="acc_panel2" aria-labelledby="acc_header2">
+                                    <div class="accordion__inner">
+                                        <div class="list list--type2">
+                                            <div class="list__item">
+                                                <label class="label" aria-hidden="true"></label>
+                                                <p class="text">기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </li>
-                            <li class="acc__item">
-                                <div class="acc__head">
-                                    <strong>타이틀</strong>
-                                    <button type="button" role="accordion" id="acc_header3" class="acc__button" aria-controls="acc_content3" aria-expanded="false" aria-label="버튼"></button>
+                            </div>
+                            <div class="accordion__item">
+                                <div class="accordion__head">
+                                    <button class="accordion__button" id="acc_header3" type="button" aria-expanded="false" aria-controls="acc_panel3" aria-label="버튼"></button>
+                                    <div class="list list--type3">
+                                        <div class="list__group">
+                                            <div class="list__row">
+                                                <div class="list__item">
+                                                    <span>66</span>
+                                                </div>
+                                                <div class="list__item left">
+                                                    <span aria-hidden="true">[기타] 오류가 생겨요.</span>
+                                                </div>
+                                                <div class="list__item"></div>
+                                                <div class="list__item">
+                                                    <span aria-hidden="true">2022.08.31</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="acc__panel expand" id="acc_content3" role="accordionpanel" aria-labelledby="acc_header3">
-                                    컨텐츠3
-                                    컨텐츠3
-                                    컨텐츠3
-                                    컨텐츠3
+                                <div class="accordion__panel expand" id="acc_panel3" aria-labelledby="acc_header3">
+                                    <div class="accordion__inner">
+                                        <div class="list list--type2">
+                                            <div class="list__item">
+                                                <label class="label" aria-hidden="true"></label>
+                                                <p class="text">기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </li>
-                        </ul>
-                        <!-- //accordion -->
+                            </div>
+                            <div class="accordion__item">
+                                <div class="accordion__head">
+                                    <button class="accordion__button" id="acc_header4" type="button" aria-expanded="false" aria-controls="acc_panel4" aria-label="버튼"></button>
+                                    <div class="list list--type3">
+                                        <div class="list__group">
+                                            <div class="list__row">
+                                                <div class="list__item">
+                                                    <span>66</span>
+                                                </div>
+                                                <div class="list__item left">
+                                                    <span aria-hidden="true">[기타] 오류가 생겨요.</span>
+                                                </div>
+                                                <div class="list__item">
+                                                    <button type="button" class="ic-button" aria-label="다운로드">
+                                                        <i class="ic ic-download" aria-hidden="true"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="list__item">
+                                                    <span aria-hidden="true">2022.08.31</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion__panel expand" id="acc_panel4" aria-labelledby="acc_header4">
+                                    <div class="accordion__inner">
+                                        <div class="list list--type2">
+                                            <div class="list__item">
+                                                <label class="label" aria-hidden="true"></label>
+                                                <p class="text">기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion__item">
+                                <div class="accordion__head">
+                                    <button class="accordion__button" id="acc_header5" type="button" aria-expanded="false" aria-controls="acc_panel5" aria-label="버튼"></button>
+                                    <div class="list list--type3">
+                                        <div class="list__group">
+                                            <div class="list__row">
+                                                <div class="list__item">
+                                                    <span>66</span>
+                                                </div>
+                                                <div class="list__item left">
+                                                    <span aria-hidden="true">[기타] 오류가 생겨요.</span>
+                                                </div>
+                                                <div class="list__item"></div>
+                                                <div class="list__item">
+                                                    <span aria-hidden="true">2022.08.31</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion__panel expand" id="acc_panel5" aria-labelledby="acc_header5">
+                                    <div class="accordion__inner">
+                                        <div class="list list--type2">
+                                            <div class="list__item">
+                                                <label class="label" aria-hidden="true"></label>
+                                                <p class="text">기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion__item">
+                                <div class="accordion__head">
+                                    <button class="accordion__button" id="acc_header6" type="button" aria-expanded="false" aria-controls="acc_panel6" aria-label="버튼"></button>
+                                    <div class="list list--type3">
+                                        <div class="list__group">
+                                            <div class="list__row">
+                                                <div class="list__item">
+                                                    <span>66</span>
+                                                </div>
+                                                <div class="list__item left">
+                                                    <span aria-hidden="true">[기타] 오류가 생겨요.</span>
+                                                </div>
+                                                <div class="list__item"></div>
+                                                <div class="list__item">
+                                                    <span aria-hidden="true">2022.08.31</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion__panel expand" id="acc_panel6" aria-labelledby="acc_header6">
+                                    <div class="accordion__inner">
+                                        <div class="list list--type2">
+                                            <div class="list__item">
+                                                <label class="label" aria-hidden="true"></label>
+                                                <p class="text">기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion__item">
+                                <div class="accordion__head">
+                                    <button class="accordion__button" id="acc_header7" type="button" aria-expanded="false" aria-controls="acc_panel7" aria-label="버튼"></button>
+                                    <div class="list list--type3">
+                                        <div class="list__group">
+                                            <div class="list__row">
+                                                <div class="list__item">
+                                                    <span>66</span>
+                                                </div>
+                                                <div class="list__item left">
+                                                    <span aria-hidden="true">[기타] 오류가 생겨요.</span>
+                                                </div>
+                                                <div class="list__item">
+                                                    <button type="button" class="ic-button" aria-label="다운로드">
+                                                        <i class="ic ic-download" aria-hidden="true"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="list__item">
+                                                    <span aria-hidden="true">2022.08.31</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion__panel expand" id="acc_panel7" aria-labelledby="acc_header7">
+                                    <div class="accordion__inner">
+                                        <div class="list list--type2">
+                                            <div class="list__item">
+                                                <label class="label" aria-hidden="true"></label>
+                                                <p class="text">기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion__item">
+                                <div class="accordion__head">
+                                    <button class="accordion__button" id="acc_header8" type="button" aria-expanded="false" aria-controls="acc_panel8" aria-label="버튼"></button>
+                                    <div class="list list--type3">
+                                        <div class="list__group">
+                                            <div class="list__row">
+                                                <div class="list__item">
+                                                    <span>66</span>
+                                                </div>
+                                                <div class="list__item left">
+                                                    <span aria-hidden="true">[기타] 오류가 생겨요.</span>
+                                                </div>
+                                                <div class="list__item"></div>
+                                                <div class="list__item">
+                                                    <span aria-hidden="true">2022.08.31</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion__panel expand" id="acc_panel8" aria-labelledby="acc_header8">
+                                    <div class="accordion__inner">
+                                        <div class="list list--type2">
+                                            <div class="list__item">
+                                                <label class="label" aria-hidden="true"></label>
+                                                <p class="text">기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
                     <div class="html-view">
                         <pre>
                     <code class="ex-code-block render-html">
-                    <!-- accordion -->
-                    <div class="acc" data-ui-accordion>
-                        <ul class="acc__box">
-                            <li class="acc__item">
-                                <div class="acc__head">
-                                    <strong>타이틀</strong>
-                                    <button type="button" role="accordion" id="{acc_header}" class="acc__button" aria-controls="{acc_content}" aria-expanded="false" aria-label=""></button>
-                                </div>
-                                <div class="acc__panel" id="{acc_content}" role="accordionpanel" aria-labelledby="{acc_header}"></div>
-                            </li>
-                            <li class="acc__item">
-                                <div class="acc__head">
-                                    <strong>타이틀</strong>
-                                    <button type="button" role="accordion" id="{acc_header}" class="acc__button" aria-controls="{acc_content}" aria-expanded="false">아코디언1</button>
-                                </div>
-                                <div class="acc__panel" id="{acc_content}" role="accordionpanel" aria-labelledby="{acc_header}"></div>
-                            </li>
-                            <li class="acc__item">
-                                <div class="acc__head">
-                                    <strong>타이틀</strong>
-                                    <button type="button" role="accordion" id="{acc_header}" class="acc__button" aria-controls="{acc_content}" aria-expanded="false">아코디언1</button>
-                                </div>
-                                <div class="acc__panel" id="{acc_content}" role="accordionpanel" aria-labelledby="{acc_header}"></div>
-                            </li>
-                        </ul>
-                        <!-- //accordion -->
-                    </div>
+                        <!-- html view 넣을곳 -->
                     </code>
                 </pre>
                     </div>
@@ -106,53 +304,12 @@
         </div>
         <div class="ex-body">
             <div class="ex-preview">
-                <!-- accordion -->
-                <div class="acc" data-ui-accordion>
-                    <ul class="acc__box">
-                        <li class="acc__item">
-                            <div class="acc__head">
-                                <strong>타이틀</strong>
-                                <button type="button" role="accordion" id="acc_header4" class="acc__button is-active" aria-controls="acc_content4" aria-expanded="false" aria-label="버튼"></button>
-                            </div>
-                            <div class="acc__panel expand" id="acc_content4" role="accordionpanel" aria-labelledby="acc_header4">
-                                컨텐츠
-                                컨텐츠
-                                컨텐츠
-                                컨텐츠
-                            </div>
-                        </li>
-                        <li class="acc__item">
-                            <div class="acc__head">
-                                <strong>타이틀</strong>
-                                <button type="button" role="accordion" id="acc_header5" class="acc__button" aria-controls="acc_content5" aria-expanded="false" aria-label="버튼"></button>
-                            </div>
-                            <div class="acc__panel expand" id="acc_content5" role="accordionpanel" aria-labelledby="acc_header5">
-                                컨텐츠2
-                                컨텐츠2
-                                컨텐츠2
-                                컨텐츠2
-                            </div>
-                        </li>
-                        <li class="acc__item">
-                            <div class="acc__head">
-                                <strong>타이틀</strong>
-                                <button type="button" role="accordion" id="acc_header6" class="acc__button" aria-controls="acc_content6" aria-expanded="false" aria-label="버튼"></button>
-                            </div>
-                            <div class="acc__panel expand" id="acc_content6" role="accordionpanel" aria-labelledby="acc_header6">
-                                컨텐츠3
-                                컨텐츠3
-                                컨텐츠3
-                                컨텐츠3
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <!-- //accordion -->
+                <!-- html view 넣을곳 -->
             </div>
             <div class="html-view">
                 <pre>
                     <code class="ex-code-block render-html">
-                        <div class="acc" data-ui-accordion data-accordion-defaults="0,1"></div>
+                        <!-- <div class="acc" data-ui-accordion data-accordion-defaults="0,1"></div> -->
                     </code>
                 </pre>
             </div>
