@@ -31,8 +31,9 @@
       margin-bottom: 0;
     }
     .label {
-      min-width: 56px;
-      max-width: 56px;
+      flex-shrink: 0;
+      width: 56px;
+      font-size: 14px;
       color: color(grey, 500);
 
       + .text {
@@ -87,12 +88,14 @@
 
     .#{$root}__group {
       vertical-align: middle;
+      width: 100%;
     }
 
     .#{$root}__row {
       display: flex;
       align-items: center;
       flex-shrink: 1;
+      width: 100%;
       b {
         color: color(grey, 900);
       }
@@ -107,6 +110,7 @@
         margin-left: 10px;
         margin-bottom: 0;
         color: color(grey, 600);
+        flex-shrink: 0;
         &:last-child {
           margin-right: 0;
         }
@@ -114,7 +118,9 @@
           width: 56px;
         }
         &:nth-child(2) {
-          width: 580px;
+          min-width: 580px;
+          width: 100%;
+          flex-shrink: 1;
           margin-right: 74px;
         }
         &:nth-child(3) {

@@ -262,9 +262,9 @@
 
   button {
     margin-left: 16px;
-    &.is-active {
-      .ic-bookmark-y {
-        background: url('../images/ic-bookmark-g.png') no-repeat;
+    &[data-toggle='true'] {
+      .ic-bookmark-g {
+        background: url('../images/ic-bookmark-y.png') no-repeat;
       }
     }
   }
