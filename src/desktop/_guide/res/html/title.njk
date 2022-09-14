@@ -1,0 +1,147 @@
+{% set user = "logout" %}
+{% set title = "가이드 UXW 타이틀영역"%}
+{% extends "../templates/layout.njk" %}
+{% block content %}
+  <div class="guide-wrap">
+    <h2 class="ex-name">Title</h2>
+    <div class="ex-content">
+      <div class="ex-title">
+        <h3>기본</h3>
+      </div>
+      <div class="ex-body">
+        <div class="ex-preview">
+          <div class="title">
+            <h2 class="text ft24 bold">교정하기</h2>
+          </div>
+          <div class="html-view">
+            <pre>
+              <code class="ex-code-block render-html">
+                <div class="title">
+                  <h2 class="text ft24 bold">교정하기</h2>
+                </div>
+              </code>
+          </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ex-content">
+      <div class="ex-title">
+        <h3>타이틀 우측에 버튼이 있을경우</h3>
+        <p class="ex-desc">타이틀 위치에 버튼이 필요할경우 title--type2를 사용합니다.</p>
+      </div>
+      <div class="ex-body">
+        <div class="ex-preview">
+          <div class="title--type2">
+            <h4 class="text ft18 medium">내 콘텐츠</h4>
+            <a href="#none" class="text-link"> 전체보기 <i class="ic ic-text-arrow" aria-hidden="true"></i>
+            </a>
+          </div>
+          <div class="html-view">
+            <pre>
+              <code class="ex-code-block render-html">
+                <div class="title--type2">
+                  <h4 class="text ft18 medium">내 콘텐츠</h4>
+                  <a href="#none" class="text-link"> 전체보기 <i class="ic ic-text-arrow" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </code>
+          </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ex-content">
+      <div class="ex-title">
+        <h3>타이틀 좌우측에 Label + Button이 다수일 경우</h3>
+      </div>
+      <div class="ex-body">
+        <div class="ex-preview">
+          <!-- 타이틀 영역 -->
+          <div class="title">
+            <div class="title-lt">
+              <a href="#none" alt="뒤로가기">
+                <i class="ic ic-back" aria-hidden="true"></i>
+              </a>
+              <h2 class="text ft24 bold">스마트오퍼 <span class="text-sub">메인 바텀시트배너</span></h2>
+            </div>
+            <div class="title-rt">
+              <div class="label-cate">
+                <button type="button" class="ic-button" data-toggle="false" aria-label="북마크">
+                  <i class="ic ic-bookmark-g" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- //타이틀 영역 -->
+          <br/><br/>
+          <!-- 타이틀 영역 -->
+          <div class="title">
+            <div class="title-lt">
+              <a href="#none" alt="뒤로가기">
+                <i class="ic ic-back" aria-hidden="true"></i>
+              </a>
+              <h2 class="text ft24 bold">일반</h2>
+            </div>
+            <div class="title-rt">
+              <div class="label-cate">
+                <span class="ft18 medium">내 콘텐츠</span>
+                <button type="button" class="ic-button" data-toggle="true" aria-label="북마크">
+                  <i class="ic ic-bookmark-g" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- //타이틀 영역 -->
+
+          <div class="html-view">
+            <pre>
+              <code class="ex-code-block render-html">
+                <!-- 타이틀 영역 -->
+                <div class="title">
+                  <div class="title-lt">
+                    <a href="#none" alt="뒤로가기">
+                      <i class="ic ic-back" aria-hidden="true"></i>
+                    </a>
+                    <h2 class="text ft24 bold">스마트오퍼 <span class="text-sub">메인 바텀시트배너</span></h2>
+                  </div>
+                  <div class="title-rt">
+                    <div class="label-cate">
+                      <button type="button" class="ic-button" data-toggle="false" aria-label="북마크">
+                        <i class="ic ic-bookmark-g" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- //타이틀 영역 -->
+
+                <!-- 타이틀 영역 -->
+                <div class="title">
+                  <div class="title-lt">
+                    <a href="#none" alt="뒤로가기">
+                      <i class="ic ic-back" aria-hidden="true"></i>
+                    </a>
+                    <h2 class="text ft24 bold">일반</h2>
+                  </div>
+                  <div class="title-rt">
+                    <div class="label-cate">
+                      <span class="ft18 medium">내 콘텐츠</span>
+                      <button type="button" class="ic-button" data-toggle="true" aria-label="북마크">
+                        <i class="ic ic-bookmark-g" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- //타이틀 영역 -->
+              </code>
+          </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

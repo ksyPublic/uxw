@@ -1,0 +1,49 @@
+{% set user = "logout" %}
+{% set title = "가이드 UXW 텍스트"%}
+{% extends "../templates/layout.njk" %}
+{% block content %}
+    <div class="guide-wrap">
+        <h2 class="ex-name">Text</h2>
+        <div class="ex-content">
+            <div class="ex-title">
+                <h3>기본</h3>
+                <p class="ex-desc">기본 Text입니다.
+                <br/>* 텍스트의 굵기는 light, medium, bold로 조정가능합니다.
+                <br/>* 텍스트의 사이즈는 14px, 18px, 20px, 24px, 28px을 제공합니다.
+                </p>
+            </div>
+
+            <div class="ex-body">
+                <div class="ex-preview">
+                    <h2 class="text ft14">텍스트</h2>
+                    <h2 class="text ft18">텍스트</h2>
+                    <h2 class="text ft20">텍스트</h2>
+                    <h2 class="text ft24">텍스트</h2>
+                    <h2 class="text ft28">텍스트</h2>
+
+                    <h2 class="text ft28 light">텍스트</h2>
+                    <h2 class="text ft28 medium">텍스트</h2>
+                    <h2 class="text ft28 bold">텍스트</h2>
+
+                    <div class="html-view">
+                        <pre>
+                        <code class="ex-code-block render-html">
+                            <h2 class="text ft14">텍스트</h2>
+                            <h2 class="text ft18">텍스트</h2>
+                            <h2 class="text ft20">텍스트</h2>
+                            <h2 class="text ft24">텍스트</h2>
+                            <h2 class="text ft28">텍스트</h2>
+
+                            <h2 class="text ft28 light">텍스트</h2>
+                            <h2 class="text ft28 medium">텍스트</h2>
+                            <h2 class="text ft28 bold">텍스트</h2>
+                        </code>
+                    </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

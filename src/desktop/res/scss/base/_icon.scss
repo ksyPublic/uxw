@@ -279,7 +279,8 @@
     }
   }
 
-  &-button-edit {
+  &-button-edit,
+  &-button {
     &:disabled {
       cursor: no-drop;
       .ic {
@@ -299,6 +300,13 @@
           width: 24px;
           height: 24px;
           background: url('../images/ic-delete.png') no-repeat;
+        }
+
+        &-upload {
+          cursor: no-drop;
+          width: 24px;
+          height: 24px;
+          background: url('../images/ic-upload.png') no-repeat;
         }
       }
     }
@@ -364,7 +372,8 @@ input[type='file'] {
       pointer-events: none;
     }
 
-    + .ic-button-edit .ic-upload {
+    + .ic-button-edit .ic-upload,
+    + .ic-button .ic-upload {
       width: 24px;
       height: 24px;
       background: url('../images/ic-upload.png') no-repeat;

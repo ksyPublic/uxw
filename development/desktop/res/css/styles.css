@@ -712,20 +712,25 @@
       background: url("../images/ic-search-active.png") no-repeat; }
     .ic-button-nav.is-active .ic-edition {
       background: url("../images/ic-edition-active.png") no-repeat; }
-  .ic-button-edit:disabled {
+  .ic-button-edit:disabled, .ic-button:disabled {
     cursor: no-drop; }
-    .ic-button-edit:disabled .ic-download {
+    .ic-button-edit:disabled .ic-download, .ic-button:disabled .ic-download {
       width: 24px;
       height: 24px;
       background: url("../images/ic-download.png") no-repeat; }
-    .ic-button-edit:disabled .ic-copy {
+    .ic-button-edit:disabled .ic-copy, .ic-button:disabled .ic-copy {
       width: 24px;
       height: 24px;
       background: url("../images/ic-copy.png") no-repeat; }
-    .ic-button-edit:disabled .ic-delete {
+    .ic-button-edit:disabled .ic-delete, .ic-button:disabled .ic-delete {
       width: 24px;
       height: 24px;
       background: url("../images/ic-delete.png") no-repeat; }
+    .ic-button-edit:disabled .ic-upload, .ic-button:disabled .ic-upload {
+      cursor: no-drop;
+      width: 24px;
+      height: 24px;
+      background: url("../images/ic-upload.png") no-repeat; }
   .ic-button-head {
     width: 40px;
     height: 40px;
@@ -774,7 +779,8 @@ input[type='file']:disabled + label {
   cursor: no-drop;
   pointer-events: none; }
 
-input[type='file']:disabled + .ic-button-edit .ic-upload {
+input[type='file']:disabled + .ic-button-edit .ic-upload,
+input[type='file']:disabled + .ic-button .ic-upload {
   width: 24px;
   height: 24px;
   background: url("../images/ic-upload.png") no-repeat; }

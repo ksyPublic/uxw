@@ -1,3 +1,8 @@
+html,
+body {
+  min-width: 1240px;
+}
+
 .guide {
   width: 100%;
   position: relative;
@@ -183,6 +188,7 @@
   display: block;
   position: relative;
   width: 100%;
+  margin-top: 20px;
 }
 
 .ex-code-view-btn .html-view-btn,

@@ -1,0 +1,106 @@
+{% set user = "logout" %}
+{% set title = "가이드 UXW 폼"%}
+{% extends "../templates/layout.njk" %}
+{% block content %}
+  <div class="guide-wrap">
+    <h2 class="ex-name">Form</h2>
+    <div class="ex-content">
+      <div class="ex-title">
+        <h3>TextArea 입력폼 입니다</h3>
+      </div>
+
+      <div class="ex-body">
+        <div class="ex-preview">
+          <div class="form">
+            <div class="fields">
+              <div class="field">
+                <label class="dpb medium ft14">내용</label>
+                <textarea data-bytes-check="" class="textarea textarea--base" maxlength="5000" placeholder="내용 입력"></textarea>
+                <div class="textarea__lengths">
+                  <label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
+                  <div class="textarea__lengths__box">
+                    <span class="textarea__lengths--current">0</span>/ <span class="textarea__lengths--total">5,000</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form">
+            <div class="fields">
+              <div class="field">
+                <label class="dpb medium ft14">제목</label>
+                <textarea class="textarea textarea--max mxh68" maxlength="55" placeholder="제목 입력"></textarea>
+                <div class="textarea__lengths">
+                  <label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
+                  <div class="textarea__lengths__box">
+                    <span class="textarea__lengths--current">0</span>/ <span class="textarea__lengths--total">50</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="fields">
+              <div class="field">
+                <label class="dpb medium ft14">내용</label>
+                <textarea class="textarea textarea--max mxh180" maxlength="200" placeholder="내용 입력"></textarea>
+                <div class="textarea__lengths">
+                  <label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
+                  <div class="textarea__lengths__box">
+                    <span class="textarea__lengths--current">0</span>/ <span class="textarea__lengths--total">200</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="html-view">
+            <pre>
+              <code class="ex-code-block render-html">
+                <div class="form">
+            <div class="fields">
+              <div class="field">
+                <label class="dpb medium ft14">내용</label>
+                <textarea data-bytes-check="" class="textarea textarea--base" maxlength="5000" placeholder="내용 입력"></textarea>
+                <div class="textarea__lengths">
+                  <label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
+                  <div class="textarea__lengths__box">
+                    <span class="textarea__lengths--current">0</span>/ <span class="textarea__lengths--total">5,000</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form">
+            <div class="fields">
+              <div class="field">
+                <label class="dpb medium ft14">제목</label>
+                <textarea class="textarea textarea--max mxh68" maxlength="55" placeholder="제목 입력"></textarea>
+                <div class="textarea__lengths">
+                  <label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
+                  <div class="textarea__lengths__box">
+                    <span class="textarea__lengths--current">0</span>/ <span class="textarea__lengths--total">50</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="fields">
+              <div class="field">
+                <label class="dpb medium ft14">내용</label>
+                <textarea class="textarea textarea--max mxh180" maxlength="200" placeholder="내용 입력"></textarea>
+                <div class="textarea__lengths">
+                  <label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
+                  <div class="textarea__lengths__box">
+                    <span class="textarea__lengths--current">0</span>/ <span class="textarea__lengths--total">200</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+              </code>
+          </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}
