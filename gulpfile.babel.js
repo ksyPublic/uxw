@@ -98,14 +98,14 @@ const images = () => {
 //가이드 내부 resource 복사
 const _guideVendorCopy = () => {
   return gulp
-    .src(filesPath.input(`_guide/vendor/*.{css,js}`))
-    .pipe(gulp.dest(filesPath.output(`html`) + `/_guide/vendor`))
+    .src(filesPath.input(`guide/vendor/*.{css,js}`))
+    .pipe(gulp.dest(filesPath.output(`html`) + `/guide/vendor`))
     .pipe(devServer.stream());
 };
 
 const _guideResourceScssCopy = () => {
   return gulp
-    .src(filesPath.input(`_guide/res/guideStyle.scss`), { allowEmpty: true })
+    .src(filesPath.input(`guide/res/guideStyle.scss`), { allowEmpty: true })
     .pipe(gulpSourcemaps.init()) //컴파일을 위해 gulpSourcemaps.init()로 생성
     .pipe(scss.sync().on('error', scss.logError)) //Error체크를 하지않으면 watch에서 오류발생
     .pipe(autoprefixer())
@@ -116,17 +116,17 @@ const _guideResourceScssCopy = () => {
 
 const _guideResourceJsCopy = () => {
   return gulp
-    .src(filesPath.input(`_guide/res/*.js`))
-    .pipe(gulp.dest(filesPath.output(`html`) + `/_guide/res`))
+    .src(filesPath.input(`guide/res/*.js`))
+    .pipe(gulp.dest(filesPath.output(`html`) + `/guide/res`))
     .pipe(devServer.stream());
 };
 
 const _guideHtmlCopy = () => {
   return gulp
-    .src([filesPath.input(`_guide/**/*.njk`), `!${filesPath.input('_guide/res/html/templates/**')}`])
+    .src([filesPath.input(`guide/**/*.njk`), `!${filesPath.input('guide/res/html/templates/**')}`])
     .pipe(
       gulpRender({
-        path: [filesPath.input(`_guide/res/html/templates`)],
+        path: [filesPath.input(`guide/res/html/templates`)],
       }),
     )
     .pipe(
@@ -135,7 +135,7 @@ const _guideHtmlCopy = () => {
         preserve_newlines: false,
       }),
     )
-    .pipe(gulp.dest(filesPath.output(`html`) + `/_guide`))
+    .pipe(gulp.dest(filesPath.output(`html`) + `/guide`))
     .pipe(devServer.stream());
 };
 
@@ -144,7 +144,7 @@ const watch = () => {
   devServer.init({
     open: true,
     port: 5501,
-    browser: `http://localhost:5501/${process.env.DEV_SERVER === 'desktop' ? 'res/html/index' : '_guide/res/html/index'}.html`, //현재 guide_index.html은 설정하지않음
+    browser: `http://localhost:5501/${process.env.DEV_SERVER === 'desktop' ? 'res/html/index' : 'guide/res/html/index'}.html`, //현재 guide_index.html은 설정하지않음
     server: {
       baseDir: destDir,
       directory: true,
@@ -159,9 +159,9 @@ const watch = () => {
   gulp.watch(filesPath.input(`res/js/**/**`), js);
 
   //가이드페이지 작성할때만 watch 가이드 작성완료 이후 제거 예정
-  gulp.watch(filesPath.input(`_guide/**/*`), _guideHtmlCopy);
-  gulp.watch(filesPath.input(`_guide/res/*.js`), _guideResourceJsCopy);
-  gulp.watch(filesPath.input(`_guide/res/*.scss`), _guideResourceScssCopy);
+  gulp.watch(filesPath.input(`guide/**/*`), _guideHtmlCopy);
+  gulp.watch(filesPath.input(`guide/res/*.js`), _guideResourceJsCopy);
+  gulp.watch(filesPath.input(`guide/res/*.scss`), _guideResourceScssCopy);
 };
 
 const start = gulp.series([clean, js, css, html, font, images, _guideVendorCopy, _guideHtmlCopy, _guideResourceScssCopy, _guideResourceJsCopy, resourceCopy]);

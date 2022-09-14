@@ -269,6 +269,16 @@
         'memo':'',
         'url':'/res/html/layer_modal03_02.html',
         'note':''
+    }, {
+        'type':'2',
+        'id': 'layer02',
+        'category':'LAYER',
+        'username': '김세영',
+        'viewname':'라이팅 가이드',
+        'date': '22-09-13',
+        'memo':'',
+        'url':'/res/html/layer_modal02.html',
+        'note':''
     }
 ]%}
 {% block content %}
@@ -292,7 +302,7 @@
                         <tr>
                             <td>{{ loop.index }}</td>
                             <td id="{{item.id}}" class="left">
-                                <a class="text-link text-blue" href="{{item.url}}">{{item.viewname}}</a>
+                                <a class="text-link text-blue" href="{{item.url}}" target="_blank">{{item.viewname}}</a>
                             </td>
                             <td>{{item.category}}</td>
                             <td>{{item.username}}</td>

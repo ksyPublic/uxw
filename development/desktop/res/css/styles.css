@@ -1517,6 +1517,18 @@ input[type='password'] {
 
 .tab__inner {
   padding: 40px 0; }
+  .tab__inner-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start; }
+  .tab__inner .side__frame__html {
+    width: 100%; }
 
 .tab__scroll {
   overflow-y: auto; }
@@ -2795,6 +2807,22 @@ input[type='radio'] {
   outline: 0;
   overflow-x: hidden;
   overflow-y: auto; }
+  .modal.is-fixed .tab .title {
+    position: fixed;
+    width: 100%;
+    max-width: 1200px;
+    z-index: 20;
+    background-color: #fff; }
+    .modal.is-fixed .tab .title:before {
+      content: '';
+      display: block;
+      height: 40px;
+      position: absolute;
+      top: -40px;
+      background-color: #fff;
+      width: 100%; }
+  .modal.is-fixed .tab__panel {
+    padding-top: 65px; }
   .modal .textarea {
     background-color: #fff; }
   .modal--confirm .modal__content {
@@ -2984,6 +3012,10 @@ input[type='radio'] {
       padding: 0px 40px 0 40px; }
       .modal--layer__type2 .modal__content .side__inner:after {
         display: none; }
+  .modal--layer__type3 .modal__content {
+    overflow: visible;
+    max-height: none;
+    min-height: auto; }
 
 .fadeIn {
   -webkit-animation-duration: 0.4s;
@@ -3535,6 +3567,8 @@ input[type='radio'] {
   width: 360px;
   -ms-flex-negative: 0;
       flex-shrink: 0; }
+  .floating-menu-wrap--type2 {
+    width: 204px; }
 
 .ly-container {
   width: 100%;
@@ -3626,7 +3660,7 @@ input[type='radio'] {
   background-color: #f8f9fc;
   border-bottom: 1px solid #ebeff5;
   padding: 0 40px;
-  z-index: 200; }
+  z-index: 999; }
   .head__logo {
     font-size: 18px;
     font-weight: bold;

@@ -4,6 +4,7 @@
   .#{$root} {
     padding: 40px 0;
   }
+
   &--type2 {
     .#{$root}__list {
       width: 100%;
@@ -122,6 +123,15 @@
 
   &__inner {
     padding: 40px 0;
+    &-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .side__frame__html {
+      width: 100%;
+    }
   }
 
   &__scroll {

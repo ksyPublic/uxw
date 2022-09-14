@@ -12,6 +12,35 @@
   overflow-x: hidden;
   overflow-y: auto;
 
+  @at-root {
+    &.is-fixed {
+      .tab .title {
+        position: fixed;
+        width: 100%;
+        max-width: 1200px;
+        z-index: 20;
+        background-color: $white;
+        &:before {
+          content: '';
+          display: block;
+          height: 40px;
+          position: absolute;
+          top: -40px;
+          background-color: $white;
+          width: 100%;
+        }
+      }
+      // [data-layer-close] {
+      //   position: fixed;
+      //   right: 247px;
+      //   top: 100px;
+      // }
+      .tab__panel {
+        padding-top: 65px;
+      }
+    }
+  }
+
   .textarea {
     background-color: $white;
   }
@@ -215,6 +244,14 @@
           margin-top: 104px;
           padding: 0px 40px 0 40px;
         }
+      }
+    }
+
+    &__type3 {
+      .#{$root}__content {
+        overflow: visible;
+        max-height: none;
+        min-height: auto;
       }
     }
   }

@@ -7,6 +7,10 @@
 .floating-menu-wrap {
   width: 360px;
   flex-shrink: 0;
+
+  &--type2 {
+    width: 204px;
+  }
 }
 
 .ly {
