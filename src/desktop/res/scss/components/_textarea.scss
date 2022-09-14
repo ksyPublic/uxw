@@ -78,6 +78,7 @@
   }
 
   &.error {
+    border: 1px solid color(red, 700) !important;
     &:focus {
       border: 1px solid color(red, 700) !important;
     }

@@ -110,6 +110,21 @@ body {
         display: flex;
         align-items: center;
       }
+
+      > a.text-link {
+        font-size: 16px;
+        padding: 0 10px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #e3e3e3;
+        background-color: #2f71db;
+        color: white;
+
+        &:hover {
+          color: #fff !important;
+        }
+      }
     }
   }
 }

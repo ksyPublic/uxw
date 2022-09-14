@@ -1,12 +1,17 @@
 {% set navigation = [
     {
+        'id': 'accordion__content0',
+        'header': 'accordion__header0',
+        'name': '화면목록',
+        'url': 'index.html'
+    }, {
         'id': 'accordion__content1',
         'header': 'accordion__header1',
         'name': 'Layout',
         'children': [
             {
                 'name': 'Header',
-                'url': 'index.html',
+                'url': 'header.html',
                 'alt': '헤더 바로가기'
             }
         ]
@@ -22,13 +27,13 @@
                 'id': 'accordion__content2',
                 'header': 'accordion__header2'
             }, {
-                'name': 'accordion',
+                'name': 'Accordion',
                 'url': './accordion.html',
                 'alt': '아코디언 바로가기',
                 'id': 'accordion__content3',
                 'header': 'accordion__header3'
             }, {
-                'name': 'title',
+                'name': 'Title',
                 'url': './title.html',
                 'alt': '타이틀 바로가기',
                 'id': 'accordion__content4',
@@ -76,6 +81,18 @@
                 'alt': '체크박스 바로가기',
                 'id': 'accordion__content10',
                 'header': 'accordion__header10'
+            }, {
+                'name': 'TextArea',
+                'url': './textarea.html',
+                'alt': '텍스트아레아 바로가기',
+                'id': 'accordion__content10',
+                'header': 'accordion__header10'
+            }, {
+                'name': 'Icon',
+                'url': './icon.html',
+                'alt': '아이콘 바로가기',
+                'id': 'accordion__content11',
+                'header': 'accordion__header11'
             }
         ]
     }
@@ -99,7 +116,9 @@
                                     {% endfor %}
                                 </div>
                             {% else %}
-                                <a class="text-link" href="{{item.url}}" alt="{{item.alt}}">{{item.name}}</a>
+                                <div class="accordion__head">
+                                    <a class="text-link" href="{{item.url}}" alt="{{item.alt}}">{{item.name}}</a>
+                                </div>
                             {% endif %}
                         </div>
                     {% endfor %}

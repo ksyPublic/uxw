@@ -1,0 +1,78 @@
+{% set user = "logout" %}
+{% set title = "가이드 UXW 인풋 체크박스"%}
+{% extends "../templates/layout.njk" %}
+{% block content %}
+  <div class="guide-wrap">
+    <h2 class="ex-name">Checkbox</h2>
+    <div class="ex-content">
+      <div class="ex-title">
+        <h3>기본</h3>
+        <p class="ex-desc">기본 Checkbox입니다.
+         <br/> * 체크박스 버튼만 사용시 hidden을 사용합니다.
+        </p>
+      </div>
+      <div class="ex-body">
+        <div class="ex-preview">
+          <input type="checkbox" class="checkbox hidden" id="chkd01" name="chkd01">
+          <label for="chkd01"></label>
+          <input type="checkbox" class="checkbox hidden" id="chkd02" name="chkd02" checked>
+          <label for="chkd02"></label>
+          <input type="checkbox" class="checkbox hidden" id="chkd03" name="chkd03" disabled>
+          <label for="chkd03"></label>
+          <input type="checkbox" class="checkbox hidden" id="chkd04" name="chkd04" checked disabled>
+          <label for="chkd04"></label>
+          <div class="html-view">
+            <pre>
+                <code class="ex-code-block render-html">
+                  <input type="checkbox" class="checkbox hidden" id="chkd01" name="chkd01">
+                  <label for="chkd01"></label>
+                  <input type="checkbox" class="checkbox hidden" id="chkd02" name="chkd02" checked>
+                  <label for="chkd02"></label>
+                  <input type="checkbox" class="checkbox hidden" id="chkd03" name="chkd03" disabled>
+                  <label for="chkd03"></label>
+                  <input type="checkbox" class="checkbox hidden" id="chkd04" name="chkd04" checked disabled>
+                  <label for="chkd04"></label>
+                </code>
+            </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ex-content">
+      <div class="ex-title">
+        <h3>Checkbox + Label</h3>
+        <p class="ex-desc">Checkbox와 Label이 함께 사용될때
+         
+        </p>
+      </div>
+      <div class="ex-body">
+        <div class="ex-preview">
+          <input type="checkbox" class="checkbox" id="chkd05" name="chkd05">
+          <label for="chkd05">체크박스1</label>
+          <input type="checkbox" class="checkbox" id="chkd06" name="chkd06" checked>
+          <label for="chkd06">체크박스2</label>
+          <input type="checkbox" class="checkbox" id="chkd07" name="chkd07" disabled>
+          <label for="chkd07">체크박스3</label>
+          <input type="checkbox" class="checkbox" id="chkd08" name="chkd08" checked disabled>
+          <label for="chkd08">체크박스4</label>
+          <div class="html-view">
+            <pre>
+                <code class="ex-code-block render-html">
+                  <input type="checkbox" class="checkbox" id="chkd05" name="chkd05">
+                  <label for="chkd05">체크박스1</label>
+                  <input type="checkbox" class="checkbox" id="chkd06" name="chkd06" checked>
+                  <label for="chkd06">체크박스2</label>
+                  <input type="checkbox" class="checkbox" id="chkd07" name="chkd07" disabled>
+                  <label for="chkd07">체크박스3</label>
+                  <input type="checkbox" class="checkbox" id="chkd08" name="chkd08" checked disabled>
+                  <label for="chkd08">체크박스4</label>
+                </code>
+            </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

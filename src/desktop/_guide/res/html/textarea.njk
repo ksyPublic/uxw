@@ -1,0 +1,64 @@
+{% set user = "logout" %}
+{% set title = "가이드 UXW Textarea"%}
+{% extends "../templates/layout.njk" %}
+{% block content %}
+  <div class="guide-wrap">
+    <h2 class="ex-name">TextArea</h2>
+    <div class="ex-content">
+      <div class="ex-title">
+        <h3>기본</h3>
+        <p class="ex-desc">
+          기본 TextArea입니다.
+          <br/> * textarea의 line-height 는 base와 max로 조절가능합니다. 각각 24px, 40px 입니다.
+          <br/> * base는 textarea의 두줄 세줄에 대한 max값이 없을때 사용합니다.
+          <br/> * mxh0 ~ mxh200 까지 2의 배수로 textarea창의 크기를 조절가능합니다.
+          <br/> * textarea가 오류상태임을 보여줄때 textarea와 textarea__lengths 위치에 error를 넣고, label[aria-hidden="false"]로 변경합니다.
+        </p>
+      </div>
+
+      <div class="ex-body">
+        <div class="ex-preview">
+          <textarea class="textarea textarea--max mxh68" maxlength="50" placeholder="내용 입력"></textarea>
+          <div class="textarea__lengths">
+            <label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
+            <div class="textarea__lengths__box">
+              <span class="textarea__lengths--current">0</span>/ <span class="textarea__lengths--total">50</span>
+            </div>
+          </div>
+          <br/>
+          <textarea class="textarea textarea--max error mxh68" maxlength="50" placeholder="내용 입력"></textarea>
+          <div class="textarea__lengths error">
+            <label class="error" aria-hidden="false">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
+            <div class="textarea__lengths__box">
+              <span class="textarea__lengths--current">0</span>/ <span class="textarea__lengths--total">50</span>
+            </div>
+          </div>
+
+          <div class="html-view">
+            <pre>
+                <code class="ex-code-block render-html">
+                    <textarea class="textarea textarea--base" maxlength="5000" placeholder="내용 입력"></textarea>
+                    <div class="textarea__lengths">
+                      <label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
+                      <div class="textarea__lengths__box">
+                        <span class="textarea__lengths--current">0</span>/ <span class="textarea__lengths--total">5,000</span>
+                      </div>
+                    </div>
+
+                    <textarea class="textarea textarea--max error mxh68" maxlength="50" placeholder="내용 입력"></textarea>
+                    <div class="textarea__lengths error">
+                      <label class="error" aria-hidden="false">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
+                      <div class="textarea__lengths__box">
+                        <span class="textarea__lengths--current">0</span>/ <span class="textarea__lengths--total">50</span>
+                      </div>
+                    </div>
+                </code>
+            </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

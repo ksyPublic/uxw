@@ -1,83 +1,83 @@
 .dropdown {
-    $root: dropdown;
+  $root: dropdown;
 
-    pointer-events: none;
-    position: relative;
+  pointer-events: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 148px;
+  label {
+    width: 120px;
+    font-size: 16px;
+    line-height: 24px;
+    color: color(blue, 800);
+  }
+  &__button {
+    color: color(blue, 800);
+    pointer-events: auto;
+    position: absolute;
+    right: 0px;
+    top: calc(50% - 12px);
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    .ic-text-arrow--type2 {
+      transform: rotate(0deg);
+      transition: transform 0.6s cubic-bezier(0.22, 0.86, 0.62, 1.06);
+    }
+    &.is-active {
+      .ic-text-arrow--type2 {
+        transform: rotate(-180deg);
+        transition: transform 0.6s cubic-bezier(0.22, 0.86, 0.62, 1.06);
+      }
+    }
+  }
+
+  &__menu {
+    pointer-events: auto;
+    top: 0px;
+    right: 4px;
+    width: 135px;
+    position: absolute;
+    z-index: 100;
+    box-shadow: 0px 2px 6px rgba(22, 37, 66, 0.1);
+    border-radius: 2px;
+    height: auto;
+    padding: 8px 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.4s ease, opacity 0.4s ease;
+
+    background-color: $white;
+    &.is-active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__item {
+    cursor: pointer;
     display: flex;
     align-items: center;
-    width: 148px;
-    label {
-        width: 120px;
-        font-size: 16px;
-        line-height: 24px;
-        color: color(blue, 800);
-    }
-    &__button {
-        color: color(blue, 800);
-        pointer-events: auto;
-        position: absolute;
-        right: 0px;
-        top: calc(50% - 12px);
-        cursor: pointer;
-        width: 24px;
-        height: 24px;
-        .ic-text-arrow--type2 {
-            transform: rotate(0deg);
-            transition: transform 0.6s cubic-bezier(0.22, 0.86, 0.62, 1.06);
-        }
-        &.is-active {
-            .ic-text-arrow--type2 {
-                transform: rotate(-180deg);
-                transition: transform 0.6s cubic-bezier(0.22, 0.86, 0.62, 1.06);
-            }
-        }
+    min-height: 36px;
+    padding: 6px 16px;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: left;
+    transition: all 0.4s ease;
+    background-color: $white;
+
+    &:first-child {
+      pointer-events: none;
+      font-weight: 500;
+      color: color(grey, 900);
     }
 
-    &__menu {
-        pointer-events: auto;
-        top: 0px;
-        right: 4px;
-        width: 135px;
-        position: absolute;
-        z-index: 100;
-        box-shadow: 0px 2px 6px rgba(22, 37, 66, 0.1);
-        border-radius: 2px;
-        height: auto;
-        padding: 8px 0;
-        visibility: hidden;
-        opacity: 0;
-        transition: visibility 0.4s ease, opacity 0.4s ease;
-
-        background-color: $white;
-        &.is-active {
-            opacity: 1;
-            visibility: visible;
-        }
+    &:hover {
+      background-color: color(blue, 100);
+      color: color(blue, 800);
+      font-weight: 500;
     }
-
-    &__item {
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        min-height: 36px;
-        padding: 6px 16px;
-        font-weight: 300;
-        font-size: 14px;
-        line-height: 24px;
-        text-align: left;
-        transition: all 0.4s ease;
-        background-color: $white;
-
-        &:first-child {
-            pointer-events: none;
-            font-weight: 500;
-            color: color(grey, 900);
-        }
-
-        &:hover {
-            background-color: color(blue, 100);
-            color: color(blue, 800);
-            font-weight: 500;
-        }
-    }
+  }
 }

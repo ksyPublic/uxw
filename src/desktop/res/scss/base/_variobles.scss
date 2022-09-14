@@ -36,6 +36,7 @@ $input-base-fontWeight: 300 !default;
 $input-base-padding: 0 48px 0 16px !default;
 $input-base-bgColor: $white !default;
 $input-base-disabled-bgColor: color(grey, 50) !default;
+$input-base-disabled-color: color(grey, 400) !default;
 
 $input-base-border: 1px solid color(grey, 300) !default;
 $input-base-focus-border: 1px solid color(blue, 800) !default;

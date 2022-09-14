@@ -1,54 +1,57 @@
 input[type='text'],
 input[type='password'] {
-    font-family: $font-family-base;
-    letter-spacing: $font-letter-base;
+  font-family: $font-family-base;
+  letter-spacing: $font-letter-base;
 
-    &::placeholder {
-        color: color(grey, 400);
-    }
+  &::placeholder {
+    color: color(grey, 400);
+  }
 
-    &:focus {
-        outline: none !important;
-    }
+  &:focus {
+    outline: none !important;
+  }
 }
 
 .input {
-    $root: input;
-    width: 100%;
-    height: $input-base-height;
-    box-sizing: border-box;
-    font-weight: $input-base-fontWeight;
-    font-size: $input-base-fontSize;
-    padding: $input-base-padding;
-    border: $input-base-border;
-    border-radius: 6px;
-    color: $input-base-color;
-    background-color: $input-base-bgColor;
+  $root: input;
+  width: 100%;
+  height: $input-base-height;
+  box-sizing: border-box;
+  font-weight: $input-base-fontWeight;
+  font-size: $input-base-fontSize;
+  padding: $input-base-padding;
+  border: $input-base-border;
+  border-radius: 6px;
+  color: $input-base-color;
+  background-color: $input-base-bgColor;
 
-    &:focus {
-        border: $input-base-focus-border;
+  &:focus {
+    border: $input-base-focus-border;
+  }
+
+  &:read-only {
+    color: $input-base-readOnly-color;
+    background-color: $input-base-disabled-bgColor;
+  }
+
+  &:disabled {
+    cursor: no-drop;
+    border: $input-base-disabled-border;
+    background-color: $input-base-disabled-bgColor;
+    color: $input-base-disabled-color;
+  }
+
+  &-box {
+    position: relative;
+    &.error {
+      .input {
+        border: 1px solid color(red, 700);
+      }
     }
 
-    &:read-only {
-        color: $input-base-readOnly-color;
+    &__wrap {
+      position: relative;
+      height: $input-base-height;
     }
-
-    &:disabled {
-        background-color: $input-base-disabled-bgColor;
-        border: $input-base-disabled-border;
-    }
-
-    &-box {
-        position: relative;
-        &.error {
-            .input {
-                border: 1px solid color(red, 700);
-            }
-        }
-
-        &__wrap {
-            position: relative;
-            height: $input-base-height;
-        }
-    }
+  }
 }

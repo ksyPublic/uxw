@@ -11,6 +11,7 @@
                 <p class="ex-desc">* 아코디언 헤더의 [aria-controls] => 아코디언 컨텐츠의 [id]와 매칭
                 <br>* 아코디언 헤더의 [id] => 아코디언 컨텐츠의 [aria-labelledby]와 매칭
                 <br>* 아코디언의 디폴트는 닫힌 상태입니다.
+                <br>* 아코디언을 펼침 닫힘을 1개만 하고 싶을경우 data-accordion-onlyone="true"를 사용합니다 default : false
             </p>
             </div>
 
@@ -98,46 +99,47 @@
                     </div>
                     <div class="html-view">
                         <pre>
-                    <code class="ex-code-block render-html">
-                        <div class="accordion">
-                            <div class="accordion__box">
-                                <div class="accordion__item">
-                                    <div class="accordion__head">
-                                        <!-- 아코디언 헤더영역 ... -->
-                                        <button class="accordion__button" id="{{acc_header}}" type="button" aria-expanded="false" aria-controls="{{acc_panel}}" aria-label="버튼"></button>
-                                    </div>
-                                    <div class="accordion__panel expand" id="{{acc_panel}}" aria-labelledby="{{acc_header}}">
-                                        <div class="accordion__inner">
-                                            <!-- 아코디언 패널영역 ... -->
+                            <code class="ex-code-block render-html">
+                                <div class="accordion">
+                                    <div class="accordion__box">
+                                        <div class="accordion__item">
+                                            <div class="accordion__head">
+                                                <!-- 아코디언 헤더영역 ... -->
+                                                <button class="accordion__button" id="{{acc_header}}" type="button" aria-expanded="false" aria-controls="{{acc_panel}}" aria-label="버튼"></button>
+                                            </div>
+                                            <div class="accordion__panel expand" id="{{acc_panel}}" aria-labelledby="{{acc_header}}">
+                                                <div class="accordion__inner">
+                                                    <!-- 아코디언 패널영역 ... -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion__item">
+                                            <div class="accordion__head">
+                                                <!-- 아코디언 헤더영역 ... -->
+                                                <button class="accordion__button" id="{{acc_header}}" type="button" aria-expanded="false" aria-controls="{{acc_panel}}" aria-label="버튼"></button>
+                                            </div>
+                                            <div class="accordion__panel expand" id="{{acc_panel}}" aria-labelledby="{{acc_header}}">
+                                                <div class="accordion__inner">
+                                                    <!-- 아코디언 패널영역 ... -->
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="accordion__item">
-                                    <div class="accordion__head">
-                                        <!-- 아코디언 헤더영역 ... -->
-                                        <button class="accordion__button" id="{{acc_header}}" type="button" aria-expanded="false" aria-controls="{{acc_panel}}" aria-label="버튼"></button>
-                                    </div>
-                                    <div class="accordion__panel expand" id="{{acc_panel}}" aria-labelledby="{{acc_header}}">
-                                        <div class="accordion__inner">
-                                            <!-- 아코디언 패널영역 ... -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </code>
-                </pre>
+                            </code>
+                        </pre>
                     </div>
                 </div>
             </div>
         </div>
         <div class="ex-content">
             <div class="ex-title">
-                <h3>아코디언 type2</h3>
+                <h3>Accordion + List</h3>
+                <p class="ex-desc">아코디언과 리스트를 같이 사용할때</p>
             </div>
             <div class="ex-body">
                 <div class="ex-preview">
-                    <div class="accordion" data-ui-accordion>
+                    <div class="accordion" data-ui-accordion data-accordion-onlyone="true">
                         <div class="accordion__box">
                             <div class="accordion__item">
                                 <div class="accordion__head">
@@ -165,9 +167,9 @@
                                         </div>
                                     </div>
                                     <!-- 리스트형태 -->
-                                    <button class="accordion__button" id="acc_header1" type="button" aria-expanded="false" aria-controls="acc_panel1" aria-label="버튼"></button>
+                                    <button class="accordion__button" id="acc_header3" type="button" aria-expanded="false" aria-controls="acc_panel3" aria-label="버튼"></button>
                                 </div>
-                                <div class="accordion__panel expand" id="acc_panel1" aria-labelledby="acc_header1">
+                                <div class="accordion__panel expand" id="acc_panel3" aria-labelledby="acc_header3">
                                     <div class="accordion__inner">
                                         <!-- 리스트형태 -->
                                         <div class="list list--type2">
@@ -200,9 +202,9 @@
                                         </div>
                                     </div>
                                     <!-- 리스트형태 -->
-                                    <button class="accordion__button" id="acc_header2" type="button" aria-expanded="false" aria-controls="acc_panel2" aria-label="버튼"></button>
+                                    <button class="accordion__button" id="acc_header4" type="button" aria-expanded="false" aria-controls="acc_panel4" aria-label="버튼"></button>
                                 </div>
-                                <div class="accordion__panel expand" id="acc_panel2" aria-labelledby="acc_header2">
+                                <div class="accordion__panel expand" id="acc_panel4" aria-labelledby="acc_header4">
                                     <div class="accordion__inner">
                                         <!-- 리스트형태 -->
                                         <div class="list list--type2">
@@ -217,6 +219,437 @@
                             </div>
                         </div>
                     </div>
+                    <div class="html-view">
+                        <pre>
+                            <code class="ex-code-block render-html">
+                                <!-- 실제사용시 accordion 부모 영역에 data-ui-accordion을 넣어 사용합니다 -->
+                                <div class="accordion">
+                                    <div class="accordion__box">
+                                        <div class="accordion__item">
+                                            <div class="accordion__head">
+                                                <!-- 리스트형태 -->
+                                                <div class="list list--type3">
+                                                    <div class="list__group">
+                                                        <div class="list__row">
+                                                            <div class="list__item">
+                                                                <span aria-hidden="true">
+                                                                    <i class="ic ic-pind" aria-hidden="true"></i>
+                                                                </span>
+                                                            </div>
+                                                            <div class="list__item left">
+                                                                <b aria-hidden="true">기업의 ‘대고객 언어’가 달라진다.</b>
+                                                            </div>
+                                                            <div class="list__item">
+                                                                <button type="button" class="ic-button" aria-label="다운로드">
+                                                                    <i class="ic ic-download" aria-hidden="true"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="list__item">
+                                                                <span aria-hidden="true">2022.08.31</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- 리스트형태 -->
+                                                <button class="accordion__button" id="acc_header3" type="button" aria-expanded="false" aria-controls="acc_panel3" aria-label="버튼"></button>
+                                            </div>
+                                            <div class="accordion__panel expand" id="acc_panel3" aria-labelledby="acc_header3">
+                                                <div class="accordion__inner">
+                                                    <!-- 리스트형태 -->
+                                                    <div class="list list--type2">
+                                                        <div class="list__item">
+                                                            <label class="label" aria-hidden="true"></label>
+                                                            <p class="text">테기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.스트</p>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 리스트형태 -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion__item">
+                                            <div class="accordion__head">
+                                                <!-- 리스트형태 -->
+                                                <div class="list list--type3">
+                                                    <div class="list__group">
+                                                        <div class="list__row">
+                                                            <div class="list__item">
+                                                                <span>66</span>
+                                                            </div>
+                                                            <div class="list__item left">
+                                                                <span aria-hidden="true">[기타] 오류가 생겨요.</span>
+                                                            </div>
+                                                            <div class="list__item"></div>
+                                                            <div class="list__item">
+                                                                <span aria-hidden="true">2022.08.31</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- 리스트형태 -->
+                                                <button class="accordion__button" id="acc_header4" type="button" aria-expanded="false" aria-controls="acc_panel4" aria-label="버튼"></button>
+                                            </div>
+                                            <div class="accordion__panel expand" id="acc_panel4" aria-labelledby="acc_header4">
+                                                <div class="accordion__inner">
+                                                    <!-- 리스트형태 -->
+                                                    <div class="list list--type2">
+                                                        <div class="list__item">
+                                                            <label class="label" aria-hidden="true"></label>
+                                                            <p class="text">테기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.스트</p>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 리스트형태 -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ex-content">
+            <div class="ex-title">
+                <h3>Accordion + Dropdown</h3>
+                <p class="ex-desc">아코디언과 드롭다운 컴포넌트를 같이 사용시 accordion--type2를 사용합니다.</p>
+            </div>
+            <div class="ex-body">
+                <div class="ex-preview">
+                    <div class="accordion accordion--type2" data-ui-accordion data-accordion-onlyone="true">
+                        <div class="accordion__box">
+                            <div class="accordion__item" data-card="false">
+                                <div class="accordion__head" data-trans>
+                                    <div class="accordion__head__inner" data-trans>
+                                        <button class="accordion__button is-active" data-trans id="acc_header1" type="button" aria-expanded="true" aria-controls="acc_content1" aria-label="버튼"></button>
+                                        <button type="button" class="ic-button-refresh" aria-pressed="false" data-trans aria-label="이전으로 돌아가기">
+                                            <i class="ic ic-refresh" aria-hidden="true"></i>
+                                        </button>
+                                        <div class="accordion__check" data-trans>
+                                            <input class="checkbox hidden" id="chk01" type="checkbox" name="chk" checked="">
+                                            <label class="text" for="chk01" aria-label="체크버튼"></label>
+                                        </div>
+                                        <div class="expresstion-list" data-trans>
+                                            <span>세대</span>
+                                            <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                                            <!-- 드롭버튼 -->
+                                            <div class="dropdown">
+                                                <label id="dropdown_label1">가구</label>
+                                                <button class="dropdown__button" type="button" aria-haspopup="listbox" aria-label="드롭버튼">
+                                                    <i class="ic ic-text-arrow--type2 " aria-hidden="true"></i>
+                                                </button>
+                                                <ul class="dropdown__menu" tabindex="-1" role="listbox" aria-labelledby="dropdown_label1">
+                                                    <li class="dropdown__item" role="option" data-listbox-value="가구">가구</li>
+                                                    <li class="dropdown__item" role="option" data-listbox-value="가구2">가구2</li>
+                                                    <li class="dropdown__item" role="option" data-listbox-value="가구3">가구3</li>
+                                                </ul>
+                                            </div>
+                                            <!-- //드롭버튼 -->
+                                        </div>
+                                    </div>
+                                    <div class="accordion__fixed" data-trans="">
+                                        <a class="text-link--bollet purple" href="#none" alt="일본식 한자어 순화 가이드보기" role="button"> 일본식 한자어 순화<i class="ic ic-text-arrow--type2" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                    <div class="accordion__panel expand expanded" data-trans="" id="acc_content1" aria-labelledby="acc_header1" aria-hidden="false" style="">
+                                        <div class="accordion__inner">
+                                            <div class="list" role="list">
+                                                <div class="list__item" role="listitem">
+                                                    <label class="label">허용 표현</label>
+                                                    <span class="text">집, 가구</span>
+                                                </div>
+                                                <div class="list__item" role="listitem">
+                                                    <label class="label">입력 표현</label>
+                                                    <span class="text">세대</span>
+                                                </div>
+                                                <div class="list__item" role="listitem">
+                                                    <label class="label">활용 예시</label>
+                                                    <span class="text">그 동네에는 5가구가 산다.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion__item" data-card="false">
+                                <div class="accordion__head" data-trans="">
+                                    <div class="accordion__head__inner" data-trans="">
+                                        <button class="accordion__button" data-trans="" id="acc_header2" type="button" aria-expanded="false" aria-controls="acc_content2" aria-label="버튼"></button>
+                                        <button type="button" class="ic-button-refresh" aria-pressed="false" data-trans="" aria-label="이전으로 돌아가기">
+                                            <i class="ic ic-refresh" aria-hidden="true"></i>
+                                        </button>
+                                        <div class="accordion__check" data-trans="">
+                                            <input class="checkbox hidden" id="chk02" type="checkbox" name="chk" checked="">
+                                            <label class="text" for="chk02" aria-label="체크버튼"></label>
+                                        </div>
+                                        <div class="expresstion-list" data-trans="">
+                                            <span>작년</span>
+                                            <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                                            <!-- 드롭버튼 -->
+                                            <div class="dropdown">
+                                                <label id="dropdown_label2">지난해</label>
+                                                <button type="button" class="dropdown__button" aria-haspopup="listbox" aria-label="드롭버튼">
+                                                    <i class="ic ic-text-arrow--type2 " aria-hidden="true"></i>
+                                                </button>
+                                                <ul class="dropdown__menu" tabindex="-1" role="listbox" aria-labelledby="dropdown_label2">
+                                                    <li class="dropdown__item" role="option" data-listbox-value="지난해">지난해</li>
+                                                    <li class="dropdown__item" role="option" data-listbox-value="지난해2">지난해2</li>
+                                                    <li class="dropdown__item" role="option" data-listbox-value="지난해3">지난해3</li>
+                                                </ul>
+                                            </div>
+                                            <!-- //드롭버튼 -->
+                                        </div>
+                                    </div>
+                                    <div class="accordion__fixed" data-trans="">
+                                        <a class="text-link--bollet orange" href="#none" alt="한자어 순화 가이드보기" role="button">한자어 순화<i class="ic ic-text-arrow--type2" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="accordion__panel expand" data-trans="" id="acc_content2" aria-labelledby="acc_header2">
+                                    <div class="accordion__inner">
+                                        <div class="list" role="list">
+                                            <div class="list__item" role="listitem">
+                                                <label class="label">허용 표현</label>
+                                                <span class="text">지난해</span>
+                                            </div>
+                                            <div class="list__item" role="listitem">
+                                                <label class="label">입력 표현</label>
+                                                <span class="text">작년</span>
+                                            </div>
+                                            <div class="list__item" role="listitem">
+                                                <label class="label">활용 예시</label>
+                                                <span class="text">지난해 소득 대비 부재 규모</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion__item" data-card="false">
+                                <div class="accordion__head" data-trans="">
+                                    <div class="accordion__head__inner" data-trans="">
+                                        <button class="accordion__button" data-trans="" id="acc_header3" type="button" aria-expanded="false" aria-controls="acc_content3" aria-label="버튼"></button>
+                                        <button type="button" class="ic-button-refresh" aria-pressed="false" data-trans="" aria-label="이전으로 돌아가기">
+                                            <i class="ic ic-refresh" aria-hidden="true"></i>
+                                        </button>
+                                        <div class="accordion__check" data-trans="">
+                                            <input class="checkbox hidden" id="chk03" type="checkbox" name="chk" disabled="">
+                                            <label class="text" for="chk03" aria-label="체크버튼"></label>
+                                        </div>
+                                        <div class="expresstion-list" data-trans="">
+                                            <span>증대할</span>
+                                            <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                                            <!-- 드롭버튼 -->
+                                            <div class="dropdown">
+                                                <label id="dropdown_label3">커질</label>
+                                                <button type="button" class="dropdown__button" aria-haspopup="listbox" aria-label="드롭버튼">
+                                                    <i class="ic ic-text-arrow--type2 " aria-hidden="true"></i>
+                                                </button>
+                                                <ul class="dropdown__menu" tabindex="-1" role="listbox" aria-labelledby="dropdown_label3">
+                                                    <li class="dropdown__item" role="option" data-listbox-value="커질">커질</li>
+                                                    <li class="dropdown__item" role="option" data-listbox-value="커질2">커질2</li>
+                                                    <li class="dropdown__item" role="option" data-listbox-value="커질3">커질3</li>
+                                                </ul>
+                                            </div>
+                                            <!-- //드롭버튼 -->
+                                        </div>
+                                    </div>
+                                    <div class="accordion__fixed" data-trans="">
+                                        <a class="text-link--bollet orange" href="#none" alt="한자어 순화 가이드보기" role="button">한자어 순화<i class="ic ic-text-arrow--type2" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="accordion__panel expand" data-trans="" id="acc_content3" aria-labelledby="acc_header3">
+                                    <div class="accordion__inner">
+                                        <div class="list" role="list">
+                                            <div class="list__item" role="listitem">
+                                                <label class="label">허용 표현</label>
+                                                <span class="text">커질</span>
+                                            </div>
+                                            <div class="list__item" role="listitem">
+                                                <label class="label">입력 표현</label>
+                                                <span class="text">증대할</span>
+                                            </div>
+                                            <div class="list__item" role="listitem">
+                                                <label class="label">활용 예시</label>
+                                                <span class="text">부채 규모는 20배로 커질 것으로</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion__item" data-card="false">
+                                <div class="accordion__head" data-trans="">
+                                    <div class="accordion__head__inner" data-trans="">
+                                        <button class="accordion__button" data-trans="" id="acc_header4" type="button" aria-expanded="false" aria-controls="acc_content4" aria-label="버튼"></button>
+                                        <button type="button" class="ic-button-refresh" aria-pressed="false" data-trans="" aria-label="이전으로 돌아가기">
+                                            <i class="ic ic-refresh" aria-hidden="true"></i>
+                                        </button>
+                                        <div class="accordion__check" data-trans="">
+                                            <input class="checkbox hidden" id="chk04" type="checkbox" name="chk">
+                                            <label class="text" for="chk04" aria-label="체크버튼"></label>
+                                        </div>
+                                        <div class="expresstion-list" data-trans="">
+                                            <span>누중되는</span>
+                                            <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                                            <!-- 드롭버튼 -->
+                                            <div class="dropdown">
+                                                <label id="dropdown_label4">점점 늘어나는</label>
+                                                <button type="button" class="dropdown__button" aria-haspopup="listbox" aria-label="드롭버튼">
+                                                    <i class="ic ic-text-arrow--type2 " aria-hidden="true"></i>
+                                                </button>
+                                                <ul class="dropdown__menu" tabindex="-1" role="listbox" aria-labelledby="dropdown_label4">
+                                                    <li class="dropdown__item" role="option" data-listbox-value="점점 늘어나는">점점 늘어나는</li>
+                                                    <li class="dropdown__item" role="option" data-listbox-value="점점 쌓이는">점점 쌓이는</li>
+                                                    <li class="dropdown__item" role="option" data-listbox-value="계속 적으로 증가세를 보이고 있는">계속 적으로 증가세를 보이고 있는</li>
+                                                </ul>
+                                            </div>
+                                            <!-- //드롭버튼 -->
+                                        </div>
+                                    </div>
+                                    <div class="accordion__fixed" data-trans="">
+                                        <a class="text-link--bollet orange" href="#none" alt="한자어 순화 가이드보기" role="button">한자어 순화<i class="ic ic-text-arrow--type2" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="accordion__panel expand" data-trans="" id="acc_content4" aria-labelledby="acc_header4">
+                                    <div class="accordion__inner">
+                                        <div class="list" role="list">
+                                            <div class="list__item" role="listitem">
+                                                <label class="label">허용 표현</label>
+                                                <span class="text">점점 늘어나는, 점점 쌓이는, 계속 적으로 증가세를 보이고 있는</span>
+                                            </div>
+                                            <div class="list__item" role="listitem">
+                                                <label class="label">입력 표현</label>
+                                                <span class="text">점점 늘어나는</span>
+                                            </div>
+                                            <div class="list__item" role="listitem">
+                                                <label class="label">활용 예시</label>
+                                                <span class="text">점점 늘어나는 속도가 매년 빨라지면서</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="html-view">
+                        <pre>
+                            <code class="ex-code-block render-html">
+                            <!-- 실제사용시 accordion 부모 영역에 data-ui-accordion을 넣어 사용합니다 -->
+                            <div class="accordion accordion--type2">
+                                <div class="accordion__box">
+                                    <div class="accordion__item" data-card="false">
+                                        <div class="accordion__head" data-trans>
+                                            <div class="accordion__head__inner" data-trans>
+                                                <button class="accordion__button is-active" data-trans id="acc_header1" type="button" aria-expanded="true" aria-controls="acc_content1" aria-label="버튼"></button>
+                                                <button type="button" class="ic-button-refresh" aria-pressed="false" data-trans aria-label="이전으로 돌아가기">
+                                                    <i class="ic ic-refresh" aria-hidden="true"></i>
+                                                </button>
+                                                <div class="accordion__check" data-trans>
+                                                    <input class="checkbox hidden" id="chk01" type="checkbox" name="chk" checked="">
+                                                    <label class="text" for="chk01" aria-label="체크버튼"></label>
+                                                </div>
+                                                <div class="expresstion-list" data-trans>
+                                                    <span>세대</span>
+                                                    <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                                                    <!-- 드롭버튼 -->
+                                                    <div class="dropdown">
+                                                        <label id="dropdown_label1">가구</label>
+                                                        <button class="dropdown__button" type="button" aria-haspopup="listbox" aria-label="드롭버튼">
+                                                            <i class="ic ic-text-arrow--type2 " aria-hidden="true"></i>
+                                                        </button>
+                                                        <ul class="dropdown__menu" tabindex="-1" role="listbox" aria-labelledby="dropdown_label1">
+                                                            <li class="dropdown__item" role="option" data-listbox-value="가구">가구</li>
+                                                            <li class="dropdown__item" role="option" data-listbox-value="가구2">가구2</li>
+                                                            <li class="dropdown__item" role="option" data-listbox-value="가구3">가구3</li>
+                                                        </ul>
+                                                    </div>
+                                                    <!-- //드롭버튼 -->
+                                                </div>
+                                            </div>
+                                            <div class="accordion__fixed" data-trans="">
+                                                <a class="text-link--bollet purple" href="#none" alt="일본식 한자어 순화 가이드보기" role="button"> 일본식 한자어 순화<i class="ic ic-text-arrow--type2" aria-hidden="true"></i>
+                                                </a>
+                                            </div>
+                                            <div class="accordion__panel expand expanded" data-trans="" id="acc_content1" aria-labelledby="acc_header1" aria-hidden="false" style="">
+                                                <div class="accordion__inner">
+                                                    <div class="list" role="list">
+                                                        <div class="list__item" role="listitem">
+                                                            <label class="label">허용 표현</label>
+                                                            <span class="text">집, 가구</span>
+                                                        </div>
+                                                        <div class="list__item" role="listitem">
+                                                            <label class="label">입력 표현</label>
+                                                            <span class="text">세대</span>
+                                                        </div>
+                                                        <div class="list__item" role="listitem">
+                                                            <label class="label">활용 예시</label>
+                                                            <span class="text">그 동네에는 5가구가 산다.</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion__item" data-card="false">
+                                        <div class="accordion__head" data-trans="">
+                                            <div class="accordion__head__inner" data-trans="">
+                                                <button class="accordion__button" data-trans="" id="acc_header2" type="button" aria-expanded="false" aria-controls="acc_content2" aria-label="버튼"></button>
+                                                <button type="button" class="ic-button-refresh" aria-pressed="false" data-trans="" aria-label="이전으로 돌아가기">
+                                                    <i class="ic ic-refresh" aria-hidden="true"></i>
+                                                </button>
+                                                <div class="accordion__check" data-trans="">
+                                                    <input class="checkbox hidden" id="chk02" type="checkbox" name="chk" checked="">
+                                                    <label class="text" for="chk02" aria-label="체크버튼"></label>
+                                                </div>
+                                                <div class="expresstion-list" data-trans="">
+                                                    <span>작년</span>
+                                                    <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                                                    <!-- 드롭버튼 -->
+                                                    <div class="dropdown">
+                                                        <label id="dropdown_label2">지난해</label>
+                                                        <button type="button" class="dropdown__button" aria-haspopup="listbox" aria-label="드롭버튼">
+                                                            <i class="ic ic-text-arrow--type2 " aria-hidden="true"></i>
+                                                        </button>
+                                                        <ul class="dropdown__menu" tabindex="-1" role="listbox" aria-labelledby="dropdown_label2">
+                                                            <li class="dropdown__item" role="option" data-listbox-value="지난해">지난해</li>
+                                                            <li class="dropdown__item" role="option" data-listbox-value="지난해2">지난해2</li>
+                                                            <li class="dropdown__item" role="option" data-listbox-value="지난해3">지난해3</li>
+                                                        </ul>
+                                                    </div>
+                                                    <!-- //드롭버튼 -->
+                                                </div>
+                                            </div>
+                                            <div class="accordion__fixed" data-trans="">
+                                                <a class="text-link--bollet orange" href="#none" alt="한자어 순화 가이드보기" role="button">한자어 순화<i class="ic ic-text-arrow--type2" aria-hidden="true"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="accordion__panel expand" data-trans="" id="acc_content2" aria-labelledby="acc_header2">
+                                            <div class="accordion__inner">
+                                                <div class="list" role="list">
+                                                    <div class="list__item" role="listitem">
+                                                        <label class="label">허용 표현</label>
+                                                        <span class="text">지난해</span>
+                                                    </div>
+                                                    <div class="list__item" role="listitem">
+                                                        <label class="label">입력 표현</label>
+                                                        <span class="text">작년</span>
+                                                    </div>
+                                                    <div class="list__item" role="listitem">
+                                                        <label class="label">활용 예시</label>
+                                                        <span class="text">지난해 소득 대비 부재 규모</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </code>
+                        </pre>
+                    </div>
                 </div>
             </div>
         </div>
@@ -229,18 +662,6 @@
                 <p class="ex-desc" style="color: #ff0000">아코디언이 여러개 열려있는 경우는(복수) | data-ui-accordion 이 선언된 엘리먼트에 data-accordion-defaults="0,2"</p>
                 <h4 style="margin-top: 20px">각 아코디언 헤더에 클래스를 부여하여 활성화 시키는 방법</h4>
                 <p class="ex-desc" style="color: #ff0000">아코디언 헤드에(aria-expanded 속성이 선언되어 있는 곳) is-active 클래스 추가</p>
-            </div>
-        </div>
-        <div class="ex-body">
-            <div class="ex-preview">
-                <!-- html view 넣을곳 -->
-            </div>
-            <div class="html-view">
-                <pre>
-                    <code class="ex-code-block render-html">
-                        <!-- <div class="acc" data-ui-accordion data-accordion-defaults="0,1"></div> -->
-                    </code>
-                </pre>
             </div>
         </div>
     </div>

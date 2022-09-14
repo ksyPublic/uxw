@@ -5,6 +5,52 @@ input[type='radio'] {
 .radio {
   $root: radio;
 
+  &.hidden + label {
+    padding-left: 22px;
+  }
+  + label {
+    font-weight: 300;
+    font-size: 14px;
+    position: relative;
+    cursor: pointer;
+    line-height: 22px;
+    height: 22px;
+    color: #000;
+    padding-left: 30px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: url('../images/ic-radio-off.png') no-repeat;
+    }
+  }
+
+  &:checked + label:before {
+    background: url('../images/ic-radio-on.png') no-repeat;
+  }
+
+  &:disabled + label {
+    cursor: no-drop;
+    &:before {
+      background: url('../images/ic-radio-disabled.png') no-repeat;
+    }
+  }
+
+  &:checked:disabled + label {
+    cursor: no-drop;
+    &:before {
+      background: url('../images/ic-radio-on-disabled.png') no-repeat;
+    }
+  }
+
   &--sort {
     + label {
       cursor: pointer;
@@ -20,6 +66,10 @@ input[type='radio'] {
       line-height: 44px;
       &:first-child {
         margin-left: 0px;
+      }
+
+      &:before {
+        display: none;
       }
     }
 

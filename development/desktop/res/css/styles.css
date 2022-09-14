@@ -1409,12 +1409,16 @@ input[type='password'] {
   .input:focus {
     border: 1px solid #0471e9; }
   .input:-moz-read-only {
-    color: #565c63; }
+    color: #565c63;
+    background-color: #f8f9fc; }
   .input:read-only {
-    color: #565c63; }
+    color: #565c63;
+    background-color: #f8f9fc; }
   .input:disabled {
+    cursor: no-drop;
+    border: 1px solid #d6dbe1;
     background-color: #f8f9fc;
-    border: 1px solid #d6dbe1; }
+    color: #b9c1c9; }
   .input-box {
     position: relative; }
     .input-box.error .input {
@@ -1887,8 +1891,10 @@ td {
     border: 1px solid transparent !important; }
   .textarea:read-only {
     border: 1px solid transparent !important; }
-  .textarea.error:focus {
+  .textarea.error {
     border: 1px solid #c7192b !important; }
+    .textarea.error:focus {
+      border: 1px solid #c7192b !important; }
   .textarea__lengths {
     margin-top: 4px;
     display: block;
@@ -2326,6 +2332,44 @@ input[type='checkbox'] {
 input[type='radio'] {
   display: none; }
 
+.radio.hidden + label {
+  padding-left: 22px; }
+
+.radio + label {
+  font-weight: 300;
+  font-size: 14px;
+  position: relative;
+  cursor: pointer;
+  line-height: 22px;
+  height: 22px;
+  color: #000;
+  padding-left: 30px;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0px; }
+  .radio + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: url("../images/ic-radio-off.png") no-repeat; }
+
+.radio:checked + label:before {
+  background: url("../images/ic-radio-on.png") no-repeat; }
+
+.radio:disabled + label {
+  cursor: no-drop; }
+  .radio:disabled + label:before {
+    background: url("../images/ic-radio-disabled.png") no-repeat; }
+
+.radio:checked:disabled + label {
+  cursor: no-drop; }
+  .radio:checked:disabled + label:before {
+    background: url("../images/ic-radio-on-disabled.png") no-repeat; }
+
 .radio--sort + label {
   cursor: pointer;
   border: 1px solid transparent;
@@ -2340,6 +2384,8 @@ input[type='radio'] {
   line-height: 44px; }
   .radio--sort + label:first-child {
     margin-left: 0px; }
+  .radio--sort + label:before {
+    display: none; }
 
 .radio--sort:checked + label {
   border: 1px solid transparent;
@@ -2512,8 +2558,15 @@ input[type='radio'] {
   .accordion--type2 .expresstion-list .ic-expresstion-arrow--type2 {
     pointer-events: none;
     margin: 0 8px; }
+  .accordion--type2 .expresstion-list .dropdown {
+    min-width: 148px;
+    width: 50%; }
+    .accordion--type2 .expresstion-list .dropdown label {
+      min-width: 120px;
+      width: calc(100% - 28px); }
   .accordion--type2 .expresstion-list > span {
-    width: 120px;
+    min-width: 120px;
+    width: 50%;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px; }
