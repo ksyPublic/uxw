@@ -9096,6 +9096,7 @@ var Tooltip = /*#__PURE__*/function (_UI) {
     _this._timer = null;
     _this._container = null;
     _this._elementPosition = null;
+    _this._getValue = null;
     return _this;
   }
 
@@ -9160,15 +9161,15 @@ var Tooltip = /*#__PURE__*/function (_UI) {
       if (position) {
         switch (position) {
           case 'bottom':
-            this._position = 'xc yt';
+            this._position = 'xc yb';
             break;
 
           case 'left':
-            this._position = 'xc yc';
+            this._position = 'xl yc';
             break;
 
           case 'top':
-            this._position = 'xc yb';
+            this._position = 'xc yt';
             break;
 
           case 'right':
@@ -9235,12 +9236,22 @@ var Tooltip = /*#__PURE__*/function (_UI) {
 
       var resultY = this._getPosition(positionY.toUpperCase());
 
-      if (this._elementPosition === 'bottom' || this._elementPosition === 'top') {
+      if (this._elementPosition === 'bottom') {
+        Object.assign(content.style, {
+          left: "".concat(resultX, "px"),
+          top: "".concat(resultY + offset[1], "px")
+        });
+      } else if (this._elementPosition === 'top') {
         Object.assign(content.style, {
           left: "".concat(resultX, "px"),
           top: "".concat(resultY - offset[1], "px")
         });
-      } else if (this._elementPosition === 'left' || this._elementPosition === 'right') {
+      } else if (this._elementPosition === 'left') {
+        Object.assign(content.style, {
+          left: "".concat(resultX - offset[0], "px"),
+          top: "".concat(resultY, "px")
+        });
+      } else if (this._elementPosition === 'right') {
         Object.assign(content.style, {
           left: "".concat(resultX + offset[0], "px"),
           top: "".concat(resultY, "px")
@@ -9276,10 +9287,10 @@ var Tooltip = /*#__PURE__*/function (_UI) {
 
       var tw = content.offsetWidth;
       var th = content.offsetHeight;
-      var screenLeft = stage.scrollLeft;
-      var screenRight = stage.width + stage.scrollLeft;
-      var screenTop = stage.scrollTop;
-      var screenBottom = stage.height + stage.scrollTop;
+      /**
+       * window 사용시
+       */
+
       var opennerWidth = opennerRect.width;
       var opennerHeight = opennerRect.height;
       var opennerLeft = opennerRect.left + window.pageXOffset;
@@ -9288,25 +9299,33 @@ var Tooltip = /*#__PURE__*/function (_UI) {
       var opennerRight = opennerLeft + opennerWidth;
       var opennerXCenter = opennerLeft + opennerWidth / 2;
       var opennerYCenter = opennerTop + opennerHeight / 2;
+      /**
+       * container를 지정했을시 사용
+       */
+
+      var screenLeft = stage.left;
+      var screenRight = stage.width + stage.left;
+      var screenTop = stage.scrollTop;
+      var screenBottom = stage.height + stage.scrollTop;
       var calcPositionValue = 0;
 
       switch (positionName) {
         // x축 - left
         case 'XL':
-          calcPositionValue = opennerLeft - tw; // if (calcPositionValue < screenLeft) calcPositionValue = this._getPosition('XC');
+          this._getValue === 'container' ? calcPositionValue = screenLeft - tw : calcPositionValue = opennerLeft - tw; // if (calcPositionValue < screenLeft) calcPositionValue = this._getPosition('XC');
 
           break;
         // x축 - center
 
         case 'XC':
-          calcPositionValue = opennerXCenter - tw / 2; // if (calcPositionValue < screenLeft) calcPositionValue = this._getPosition('XR');
+          this._getValue === 'container' ? calcPositionValue = screenLeft - tw / 2 + stage.width / 2 : calcPositionValue = opennerXCenter - tw / 2; // if (calcPositionValue < screenLeft) calcPositionValue = this._getPosition('XR');
           // if (calcPositionValue + tw > screenRight) calcPositionValue = this._getPosition('XL');
 
           break;
         // x축 - right
 
         case 'XR':
-          calcPositionValue = opennerRight; // if (calcPositionValue + tw > screenRight) {
+          this._getValue === 'container' ? calcPositionValue = screenRight : calcPositionValue = opennerRight; // if (calcPositionValue + tw > screenRight) {
           //   calcPositionValue = this._getPosition('XC');
           // }
 
@@ -9314,20 +9333,20 @@ var Tooltip = /*#__PURE__*/function (_UI) {
         // y축 - top
 
         case 'YT':
-          calcPositionValue = opennerTop - th; // if (calcPositionValue < screenTop) calcPositionValue = this._getPosition('YC');
+          this._getValue === 'container' ? calcPositionValue = stage.height + stage.top - th - stage.height : calcPositionValue = opennerTop - th; // if (calcPositionValue < screenTop) calcPositionValue = this._getPosition('YC');
 
           break;
         // y축 - center
 
         case 'YC':
-          calcPositionValue = opennerYCenter - th / 2; // if (calcPositionValue < screenTop) calcPositionValue = this._getPosition('YB');
+          this._getValue === 'container' ? calcPositionValue = stage.top - th / 2 + stage.height / 2 : calcPositionValue = opennerYCenter - th / 2; // if (calcPositionValue < screenTop) calcPositionValue = this._getPosition('YB');
           // if (calcPositionValue + th > screenBottom) calcPositionValue = this._getPosition('YT');
 
           break;
         // y축 - bottom
 
         case 'YB':
-          calcPositionValue = opennerBottom; // if (calcPositionValue + th > screenBottom) calcPositionValue = this._getPosition('YC');
+          this._getValue === 'container' ? calcPositionValue = stage.height + stage.top : calcPositionValue = opennerBottom; // if (calcPositionValue + th > screenBottom) calcPositionValue = this._getPosition('YC');
 
           break;
       }
@@ -9349,11 +9368,13 @@ var Tooltip = /*#__PURE__*/function (_UI) {
         info.height = window.innerHeight;
         info.scrollLeft = window.pageXOffset;
         info.scrollTop = window.pageYOffset;
+        this._getValue = 'window';
       } else {
         info.width = this._container.offsetWidth;
         info.height = this._container.offsetHeight;
-        info.scrollLeft = this._container.scrollLeft;
-        info.scrollTop = this._container.scrollTop;
+        info.top = this._container.offsetTop;
+        info.left = this._container.offsetLeft;
+        this._getValue = 'container';
       }
 
       return info;
@@ -9368,7 +9389,11 @@ var Tooltip = /*#__PURE__*/function (_UI) {
       var appendContainer = getContainer === null ? window : getContainer;
 
       if (typeof appendContainer === 'string') {
-        appendContainer = document.querySelector('#' + appendContainer);
+        if (getContainer === 'this') {
+          appendContainer = this._tooltip;
+        } else {
+          appendContainer = document.querySelector('#' + appendContainer);
+        }
       }
 
       this._container = appendContainer;

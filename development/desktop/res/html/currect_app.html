@@ -98,19 +98,19 @@
             <!--// 로그인 일때 -->
           </ul>
         </nav>
-        <div class="tooltip__box">
-          <div id="tooltip1" role="tooltip" class="tooltip" data-visible data-placement="right">
-            <span class="tooltip__title">용어/표현 검색</span>
-          </div>
-          <div id="tooltip2" role="tooltip" class="tooltip" data-visible data-placement="right">
-            <span class="tooltip__title">UX라이팅 가이드</span>
-          </div>
-          <div id="tooltip3" role="tooltip" class="tooltip" data-visible data-placement="right">
-            <span class="tooltip__title">교정된 콘텐츠</span>
-          </div>
-        </div>
       </div>
       <!-- floting 네비게이션 영역 -->
+      <div class="tooltip__box">
+        <div id="tooltip1" role="tooltip" class="tooltip" data-visible data-placement="right">
+          <span class="tooltip__title">용어/표현 검색</span>
+        </div>
+        <div id="tooltip2" role="tooltip" class="tooltip" data-visible data-placement="right">
+          <span class="tooltip__title">UX라이팅 가이드</span>
+        </div>
+        <div id="tooltip3" role="tooltip" class="tooltip" data-visible data-placement="right">
+          <span class="tooltip__title">교정된 콘텐츠</span>
+        </div>
+      </div>
       <div class="ly-content">
         <div class="ly-content-box">
           <div class="tab tab--scroll" id="mainTab" data-ui-tab data-tab-active="1">
@@ -340,20 +340,22 @@
               <button type="button" id="btnsave" aria-hidden="true" class="button button--type2" data-dialog-trigger="#modal1">완료하기</button>
             </div>
           </div>
+          <!-- tooltip Guide 업데이트 이후 data-placement="top"으로 변경 -->
           <div class="tooltip__box">
-            <div id="tooltip4" role="tooltip" class="tooltip" data-placement="bottom" data-visible>
+            <div id="tooltip4" role="tooltip" class="tooltip" data-placement="top" data-visible>
               <span class="tooltip__title">MS Word(.docx) 또는 텍스트(.txt) 파일을 업로드하세요.</span>
             </div>
-            <div id="tooltip5" role="tooltip" class="tooltip" data-placement="bottom" data-visible>
+            <div id="tooltip5" role="tooltip" class="tooltip" data-placement="top" data-visible>
               <span class="tooltip__title">복사하기</span>
             </div>
-            <div id="tooltip6" role="tooltip" class="tooltip" data-placement="bottom" data-visible>
+            <div id="tooltip6" role="tooltip" class="tooltip" data-placement="top" data-visible>
               <span class="tooltip__title">텍스트(.txt) 파일로 내려받기</span>
             </div>
-            <div id="tooltip7" role="tooltip" class="tooltip" data-placement="bottom" data-visible>
+            <div id="tooltip7" role="tooltip" class="tooltip" data-placement="top" data-visible>
               <span class="tooltip__title">삭제하기</span>
             </div>
           </div>
+          <!-- //tooltip Guide 업데이트 이후 data-placement="top"으로 변경 -->
         </div>
       </div>
       <!-- 사이드 영역 220913 ID추가  -->

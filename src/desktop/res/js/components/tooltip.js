@@ -55,6 +55,7 @@ class Tooltip extends UI {
     this._timer = null;
     this._container = null;
     this._elementPosition = null;
+    this._getValue = null;
   }
 
   static GLOBAL_CONFIG = {};
@@ -124,13 +125,13 @@ class Tooltip extends UI {
     if (position) {
       switch (position) {
         case 'bottom':
-          this._position = 'xc yt';
+          this._position = 'xc yb';
           break;
         case 'left':
-          this._position = 'xc yc';
+          this._position = 'xl yc';
           break;
         case 'top':
-          this._position = 'xc yb';
+          this._position = 'xc yt';
           break;
         case 'right':
           this._position = 'xr yc';
@@ -187,12 +188,22 @@ class Tooltip extends UI {
     const resultX = this._getPosition(positionX.toUpperCase());
     const resultY = this._getPosition(positionY.toUpperCase());
 
-    if (this._elementPosition === 'bottom' || this._elementPosition === 'top') {
+    if (this._elementPosition === 'bottom') {
+      Object.assign(content.style, {
+        left: `${resultX}px`,
+        top: `${resultY + offset[1]}px`,
+      });
+    } else if (this._elementPosition === 'top') {
       Object.assign(content.style, {
         left: `${resultX}px`,
         top: `${resultY - offset[1]}px`,
       });
-    } else if (this._elementPosition === 'left' || this._elementPosition === 'right') {
+    } else if (this._elementPosition === 'left') {
+      Object.assign(content.style, {
+        left: `${resultX - offset[0]}px`,
+        top: `${resultY}px`,
+      });
+    } else if (this._elementPosition === 'right') {
       Object.assign(content.style, {
         left: `${resultX + offset[0]}px`,
         top: `${resultY}px`,
@@ -225,10 +236,10 @@ class Tooltip extends UI {
     const stage = this._getCurrentStageInfo();
     const tw = content.offsetWidth;
     const th = content.offsetHeight;
-    const screenLeft = stage.scrollLeft;
-    const screenRight = stage.width + stage.scrollLeft;
-    const screenTop = stage.scrollTop;
-    const screenBottom = stage.height + stage.scrollTop;
+
+    /**
+     * window 사용시
+     */
     const opennerWidth = opennerRect.width;
     const opennerHeight = opennerRect.height;
     const opennerLeft = opennerRect.left + window.pageXOffset;
@@ -238,22 +249,30 @@ class Tooltip extends UI {
     const opennerXCenter = opennerLeft + opennerWidth / 2;
     const opennerYCenter = opennerTop + opennerHeight / 2;
 
+    /**
+     * container를 지정했을시 사용
+     */
+    const screenLeft = stage.left;
+    const screenRight = stage.width + stage.left;
+    const screenTop = stage.scrollTop;
+    const screenBottom = stage.height + stage.scrollTop;
+
     let calcPositionValue = 0;
     switch (positionName) {
       // x축 - left
       case 'XL':
-        calcPositionValue = opennerLeft - tw;
+        this._getValue === 'container' ? (calcPositionValue = screenLeft - tw) : (calcPositionValue = opennerLeft - tw);
         // if (calcPositionValue < screenLeft) calcPositionValue = this._getPosition('XC');
         break;
       // x축 - center
       case 'XC':
-        calcPositionValue = opennerXCenter - tw / 2;
+        this._getValue === 'container' ? (calcPositionValue = screenLeft - tw / 2 + stage.width / 2) : (calcPositionValue = opennerXCenter - tw / 2);
         // if (calcPositionValue < screenLeft) calcPositionValue = this._getPosition('XR');
         // if (calcPositionValue + tw > screenRight) calcPositionValue = this._getPosition('XL');
         break;
       // x축 - right
       case 'XR':
-        calcPositionValue = opennerRight;
+        this._getValue === 'container' ? (calcPositionValue = screenRight) : (calcPositionValue = opennerRight);
         // if (calcPositionValue + tw > screenRight) {
         //   calcPositionValue = this._getPosition('XC');
         // }
@@ -261,18 +280,18 @@ class Tooltip extends UI {
         break;
       // y축 - top
       case 'YT':
-        calcPositionValue = opennerTop - th;
+        this._getValue === 'container' ? (calcPositionValue = stage.height + stage.top - th - stage.height) : (calcPositionValue = opennerTop - th);
         // if (calcPositionValue < screenTop) calcPositionValue = this._getPosition('YC');
         break;
       // y축 - center
       case 'YC':
-        calcPositionValue = opennerYCenter - th / 2;
+        this._getValue === 'container' ? (calcPositionValue = stage.top - th / 2 + stage.height / 2) : (calcPositionValue = opennerYCenter - th / 2);
         // if (calcPositionValue < screenTop) calcPositionValue = this._getPosition('YB');
         // if (calcPositionValue + th > screenBottom) calcPositionValue = this._getPosition('YT');
         break;
       // y축 - bottom
       case 'YB':
-        calcPositionValue = opennerBottom;
+        this._getValue === 'container' ? (calcPositionValue = stage.height + stage.top) : (calcPositionValue = opennerBottom);
         // if (calcPositionValue + th > screenBottom) calcPositionValue = this._getPosition('YC');
         break;
     }
@@ -291,11 +310,13 @@ class Tooltip extends UI {
       info.height = window.innerHeight;
       info.scrollLeft = window.pageXOffset;
       info.scrollTop = window.pageYOffset;
+      this._getValue = 'window';
     } else {
       info.width = this._container.offsetWidth;
       info.height = this._container.offsetHeight;
-      info.scrollLeft = this._container.scrollLeft;
-      info.scrollTop = this._container.scrollTop;
+      info.top = this._container.offsetTop;
+      info.left = this._container.offsetLeft;
+      this._getValue = 'container';
     }
 
     return info;
@@ -308,7 +329,11 @@ class Tooltip extends UI {
 
     let appendContainer = getContainer === null ? window : getContainer;
     if (typeof appendContainer === 'string') {
-      appendContainer = document.querySelector('#' + appendContainer);
+      if (getContainer === 'this') {
+        appendContainer = this._tooltip;
+      } else {
+        appendContainer = document.querySelector('#' + appendContainer);
+      }
     }
     this._container = appendContainer;
   }

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
-    <title>가이드 UXW 텍스트</title>
+    <title>가이드 UXW 그리드</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/res/css/styles.css" />
     <link rel="stylesheet" href="../../vendor/prism.css">
@@ -82,6 +82,7 @@
                                     <a class="text-link" href="./tabs.html" alt="탭 바로가기">Tabs</a>
                                     <a class="text-link" href="./accordion.html" alt="아코디언 바로가기">Accordion</a>
                                     <a class="text-link" href="./title.html" alt="타이틀 바로가기">Title</a>
+                                    <a class="text-link" href="./tooltip.html" alt="툴팁 바로가기">tooltip</a>
                                 </div>
                             </div>
                             <div class="accordion__item">
@@ -98,6 +99,7 @@
                                     <a class="text-link" href="./checkbox.html" alt="체크박스 바로가기">Checkbox</a>
                                     <a class="text-link" href="./textarea.html" alt="텍스트아레아 바로가기">TextArea</a>
                                     <a class="text-link" href="./icon.html" alt="아이콘 바로가기">Icon</a>
+                                    <a class="text-link" href="./grid.html" alt="체크박스 바로가기">Grid</a>
                                 </div>
                             </div>
                         </div>
@@ -110,14 +112,108 @@
                     <div class="ex-content">
                         <div class="ex-title">
                             <h3>기본</h3>
-                            <p class="ex-desc">기본 Grid입니다. <br />* Grid의 column 갯수는 col1 ~ 5까지 조절가능합니다. </p>
+                            <p class="ex-desc">기본 Grid입니다. <br />* Grid의 column 갯수는 col1 ~ 5까지 조절가능합니다. <br />* grid__box의 갯수와 col{number}는 같아야 합니다. <br />* 기본 grid는 row가 1개일때 사용합니다. </p>
                         </div>
                         <div class="ex-body">
                             <div class="ex-preview">
+                                <div class="grid col1">
+                                    <div class="grid__box"></div>
+                                </div>
+                                <br />
+                                <div class="grid col2">
+                                    <div class="grid__box"></div>
+                                    <div class="grid__box"></div>
+                                </div>
+                                <br />
+                                <div class="grid col3">
+                                    <div class="grid__box"></div>
+                                    <div class="grid__box"></div>
+                                    <div class="grid__box"></div>
+                                </div>
+                                <br />
+                                <div class="grid col4">
+                                    <div class="grid__box"></div>
+                                    <div class="grid__box"></div>
+                                    <div class="grid__box"></div>
+                                    <div class="grid__box"></div>
+                                </div>
+                                <br />
+                                <div class="grid col5">
+                                    <div class="grid__box"></div>
+                                    <div class="grid__box"></div>
+                                    <div class="grid__box"></div>
+                                    <div class="grid__box"></div>
+                                    <div class="grid__box"></div>
+                                </div>
                                 <div class="html-view">
                                     <pre>
                 <code class="ex-code-block render-html">
-                  
+                  <div class="grid col1">
+                    <div class="grid__box"></div>
+                  </div>
+                  <br/>
+                  <div class="grid col2">
+                    <div class="grid__box"></div>
+                    <div class="grid__box"></div>
+                  </div>
+                  <br/>
+                  <div class="grid col3">
+                    <div class="grid__box"></div>
+                    <div class="grid__box"></div>
+                    <div class="grid__box"></div>
+                  </div>
+                  <br/>
+                  <div class="grid col4">
+                    <div class="grid__box"></div>
+                    <div class="grid__box"></div>
+                    <div class="grid__box"></div>
+                    <div class="grid__box"></div>
+                  </div>
+                  <br/>
+                  <div class="grid col5">
+                    <div class="grid__box"></div>
+                    <div class="grid__box"></div>
+                    <div class="grid__box"></div>
+                    <div class="grid__box"></div>
+                    <div class="grid__box"></div>
+                  </div>
+                </code>
+            </pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ex-content">
+                        <div class="ex-title">
+                            <h3>grid--type2</h3>
+                            <p class="ex-desc"> row가 2개이상 일때 사용합니다. <br />* col{number}에 따라 column의 갯수가 지정됩니다. 1 ~ 5까지 조절가능합니다. </p>
+                        </div>
+                        <div class="ex-body">
+                            <div class="ex-preview">
+                                <div class="grid--type2 col4">
+                                    <div class="grid__box"></div>
+                                    <div class="grid__box"></div>
+                                    <div class="grid__box"></div>
+                                    <div class="grid__box"></div>
+                                    <div class="grid__box"></div>
+                                    <div class="grid__box"></div>
+                                    <div class="grid__box"></div>
+                                    <div class="grid__box"></div>
+                                </div>
+                                <br />
+                                <div class="html-view">
+                                    <pre>
+                <code class="ex-code-block render-html">
+                  <div class="grid--type2 col4">
+                    <div class="grid__box"></div>
+                    <div class="grid__box"></div>
+                    <div class="grid__box"></div>
+                    <div class="grid__box"></div>
+                    <div class="grid__box"></div>
+                    <div class="grid__box"></div>
+                    <div class="grid__box"></div>
+                    <div class="grid__box"></div>
+                  </div>
                 </code>
             </pre>
                                 </div>

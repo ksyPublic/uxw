@@ -1462,13 +1462,12 @@ input[type='password'] {
   .tab--type2 .tab__button:after {
     display: none; }
 
-.tab--scroll {
+.tab--scroll .tab__inner {
+  overflow: auto;
+  height: calc(100% - 222px); }
+
+.tab--scroll .tab__panel {
   height: 100%; }
-  .tab--scroll .tab__inner {
-    overflow: auto;
-    height: calc(100% - 222px); }
-  .tab--scroll .tab__panel {
-    height: 100%; }
 
 .tab__list {
   display: -webkit-box;
@@ -1534,6 +1533,7 @@ input[type='password'] {
   overflow-y: auto; }
 
 .tooltip {
+  z-index: 101;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1569,6 +1569,17 @@ input[type='password'] {
   .tooltip[data-placement='bottom']:before {
     content: '';
     position: absolute;
+    bottom: auto;
+    top: -8px;
+    left: calc(50% - 4px);
+    width: 8px;
+    height: 12px;
+    background: url("../images/ic-polygon-arrow.png") no-repeat;
+    -webkit-transform: rotate(-270deg);
+            transform: rotate(-270deg); }
+  .tooltip[data-placement='top']:before {
+    content: '';
+    position: absolute;
     bottom: -8px;
     top: auto;
     left: calc(50% - 4px);
@@ -1577,6 +1588,18 @@ input[type='password'] {
     background: url("../images/ic-polygon-arrow.png") no-repeat;
     -webkit-transform: rotate(-90deg);
             transform: rotate(-90deg); }
+  .tooltip[data-placement='left']:before {
+    content: '';
+    position: absolute;
+    bottom: auto;
+    top: calc(50% - 6px);
+    right: -6px;
+    left: auto;
+    width: 8px;
+    height: 12px;
+    background: url("../images/ic-polygon-arrow.png") no-repeat;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-180deg); }
   .tooltip:before {
     content: '';
     position: absolute;
@@ -2270,12 +2293,26 @@ label {
       margin-top: 16px; }
       .grid--type2 .grid__content .text {
         color: #808892; }
+    .grid--type2.col1 .grid__box {
+      width: calc((100% / 1) - 24px); }
+    .grid--type2.col2 .grid__box {
+      width: calc((100% / 2) - 24px); }
+    .grid--type2.col3 .grid__box {
+      width: calc((100% / 3) - 24px); }
     .grid--type2.col4 .grid__box {
-      width: calc(25% - 24px); }
+      width: calc((100% / 4) - 24px); }
     .grid--type2.col5 .grid__box {
-      width: calc(20% - 24px); }
+      width: calc((100% / 5) - 24px); }
+  .grid.col1 .grid__box {
+    width: calc((100% / 1) - 8px); }
+  .grid.col2 .grid__box {
+    width: calc((100% / 2) - 8px); }
   .grid.col3 .grid__box {
-    width: calc(33.33% - 8px); }
+    width: calc((100% / 3) - 8px); }
+  .grid.col4 .grid__box {
+    width: calc((100% / 4) - 8px); }
+  .grid.col5 .grid__box {
+    width: calc((100% / 5) - 8px); }
   .grid__box {
     background-color: #fff;
     border-radius: 4px;
@@ -3600,7 +3637,6 @@ input[type='radio'] {
 
 .ly-bottom-group {
   max-width: 996px;
-  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

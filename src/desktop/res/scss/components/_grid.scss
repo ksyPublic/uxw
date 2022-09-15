@@ -96,27 +96,19 @@
       }
     }
 
-    &.col4 {
-      .#{$root} {
-        &__box {
-          width: calc(25% - 24px);
-        }
-      }
-    }
-
-    &.col5 {
-      .#{$root} {
-        &__box {
-          width: calc(20% - 24px);
+    @for $i from 1 through 5 {
+      &.col#{$i} {
+        .#{$root}__box {
+          width: calc((100% / #{$i}) - 24px);
         }
       }
     }
   }
 
-  &.col3 {
-    .#{$root} {
-      &__box {
-        width: calc(33.33% - 8px);
+  @for $i from 1 through 5 {
+    &.col#{$i} {
+      .#{$root}__box {
+        width: calc((100% / #{$i}) - 8px);
       }
     }
   }

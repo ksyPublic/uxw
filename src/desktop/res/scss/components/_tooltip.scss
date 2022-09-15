@@ -1,6 +1,6 @@
 .tooltip {
   $root: tooltip;
-
+  z-index: 101;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -36,6 +36,20 @@
     &:before {
       content: '';
       position: absolute;
+      bottom: auto;
+      top: -8px;
+      left: calc(50% - 4px);
+      width: 8px;
+      height: 12px;
+      background: url('../images/ic-polygon-arrow.png') no-repeat;
+      transform: rotate(-270deg);
+    }
+  }
+
+  &[data-placement='top'] {
+    &:before {
+      content: '';
+      position: absolute;
       bottom: -8px;
       top: auto;
       left: calc(50% - 4px);
@@ -43,6 +57,22 @@
       height: 12px;
       background: url('../images/ic-polygon-arrow.png') no-repeat;
       transform: rotate(-90deg);
+    }
+  }
+
+  &[data-placement='left'] {
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: auto;
+      top: calc(50% - 6px);
+      right: -6px;
+      left: auto;
+      width: 8px;
+      height: 12px;
+      background: url('../images/ic-polygon-arrow.png') no-repeat;
+      -webkit-transform: rotate(-90deg);
+      transform: rotate(-180deg);
     }
   }
 
@@ -60,8 +90,8 @@
     position: relative;
   }
 
-  &__button {
-    //
+  &-button {
+    // display: inline-block;
   }
 
   &__title {
