@@ -97,7 +97,7 @@ body {
         -ms-flex-align: center;
             align-items: center;
     border-bottom: 1px solid #e3e3e3;
-    background-color: #2f71db;
+    background-color: #07073a;
     color: white; }
     .guide__menu__nav .accordion__head > a.text-link:hover {
       color: #fff !important; }
@@ -135,7 +135,7 @@ body {
   font-weight: bold; }
 
 .ex-preview {
-  padding: 10px 0 25px; }
+  padding: 0; }
 
 .ex-desc {
   font-size: 14px;
@@ -165,7 +165,10 @@ body {
   display: block;
   position: relative;
   width: 100%;
-  margin-top: 20px; }
+  margin-top: 10px; }
+
+.js-view {
+  margin-top: 10px; }
 
 .ex-code-view-btn .html-view-btn,
 .ex-code-view-btn .pug-view-btn {

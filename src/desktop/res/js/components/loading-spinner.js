@@ -1,4 +1,5 @@
 import { toHTML } from '../utils/dom-util';
+import EventHandler from '../vendor/EventHandler';
 
 const NAME = 'ui.loading-spinner';
 const CLASSES = {
@@ -41,6 +42,7 @@ class Spinner {
 
             this._spinner.insertBefore(this._template, this._spinner.firstChild);
             this._template.classList.add(CLASSES.activeClass);
+            this._spinner.classList.add(CLASSES.activeClass);
         }
         this._count++;
     }
@@ -50,7 +52,8 @@ class Spinner {
         if (isForceHide) {
             if (hasParent) {
                 this._template.classList.remove(CLASSES.activeClass);
-                this._spinner.removeChild(this._template);
+                this._spinner.classList.remove(CLASSES.activeClass);
+
                 this._count = 0;
             }
         } else {
@@ -58,6 +61,8 @@ class Spinner {
             if (this._count < 1) {
                 if (hasParent) {
                     this._template.classList.remove(CLASSES.activeClass);
+                    this._spinner.classList.remove(CLASSES.activeClass);
+
                     this._spinner.removeChild(this._template);
                 }
             }

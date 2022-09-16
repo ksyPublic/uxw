@@ -1,0 +1,83 @@
+{% set user = "logout" %}
+{% set title = "가이드 UXW 로딩스피너"%}
+{% extends "../templates/layout.njk" %}
+{% block content %}
+  <div class="guide-wrap">
+    <h2 class="ex-name">Spinner</h2>
+    <div class="ex-content">
+      <div class="ex-title">
+        <h3>로딩 스피너</h3>
+        <p class="ex-desc">로딩 스피너는 호출 한 만큼 hide가 호출되어야 정상적으로 화면에서 사라집니다.
+              <br/>ex) show 4번 호출 시 hide 역시 4번 호출되어야 합니다.
+              </p>
+      </div>
+
+      <div class="ex-body">
+        <div class="ex-preview">
+          <button class="button button--medium button--type4" type="button" id="example1">OPEN SPINNER</button>
+          <div class="ly-bottom-group" style="position:relative; max-width:none; left:0;">
+            <div class="button-group">
+              <div class="tooltip__list">
+                <input type="file" role="button" aria-label="File Upload" tabindex="-1" accept=".docx, .txt">
+                <label class="ic-button-edit" tabindex="0" for="btnupload" role="button" aria-label="업로드">
+                  <i class="ic ic-upload" aria-hidden="true"></i>
+                </label>
+              </div>
+              <div class="tooltip__list">
+                <button type="button" class="ic-button-edit" aria-label="복사">
+                  <i class="ic ic-copy" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div class="tooltip__list">
+                <button type="button" class="ic-button-edit" aria-label="다운로드">
+                  <i class="ic ic-download" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div class="tooltip__list">
+                <button type="button" class="ic-button-edit hide" aria-label="삭제">
+                  <i class="ic ic-delete" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+            <div class="message" id="toast"></div>
+            <div class="button-group">
+              <button type="button" data-target="currect" id="btncurrect" aria-expanded="true" class="button button--type1" disabled="">교정하기</button>
+              <button type="button" id="btnsave" aria-hidden="true" class="button button--type2" data-dialog-trigger="#modal1">완료하기</button>
+            </div>
+          </div>
+          <div class="js-view">
+            <pre>
+                      <code class="language-javascript">
+                        // 스피너 노출
+                          UXW.Spinner.show();
+
+                          setTimeout(function() {
+                            // 스피너 삭제
+                            UXW.Spinner.hide();
+
+                            // 스피너 강제로 삭제
+                            // UXW.Spinner.hide(true);
+                        }, 1500);
+                      </code>
+                      </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+{% block script %}
+  <script>
+    example1.addEventListener('click', function (e) {
+      e.preventDefault();
+      UXW
+        .Spinner
+        .show();
+      setTimeout(function () {
+        UXW
+          .Spinner
+          .hide();
+      }, 1500);
+    });
+  </script>
+{% endblock %}

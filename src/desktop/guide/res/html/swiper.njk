@@ -1,0 +1,88 @@
+{% set user = "logout" %}
+{% set title = "가이드 UXW 스와이퍼"%}
+{% extends "../templates/layout.njk" %}
+{% block content %}
+  <div class="guide-wrap">
+    <h2 class="ex-name">Swiper</h2>
+    <div class="ex-content">
+      <div class="ex-title">
+        <h3>공통 헤더가 Swiper 컨텐츠를 포함하고 있기 때문에 Swiper js는 공통으로 로드해야 합니다.</h3>
+        <p class="ex-desc">Swiper를 uxw.ui.js에서 한번 랩핑하였기 때문에 UXW.swiperA11y 함수를 통해서 사용해야 합니다.( 사용방법은 기존의 Swiper와 동일 )
+                </p>
+      </div>
+
+      <div class="ex-body">
+        <div class="ex-preview">
+          <div class="js-view">
+            <pre>
+                        <code class="language-javascript">
+                          //API 참고 (https://swiperjs.com/swiper-api)
+                          UXW.swiperA11y('#swiperElement', {
+                            ...각 페이지에 맞는 옵션
+                          });
+                        </code>
+                    </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ex-content">
+      <div class="ex-title">
+        <h3>UXW.SwiperA11y 함수 구현 부</h3>
+        <p class="ex-desc">해당 함수의 수정이 필요할 경우 res/js/uxw.ui.js 140라인 참고
+                </p>
+      </div>
+
+      <div class="ex-body">
+        <div class="ex-preview">
+          <div class="js-view">
+            <pre>
+                        <code class="language-javascript">
+                          const SwiperA11y = (el, options = {}) => {
+                            return new window.Swiper(el, {
+                              ...options,
+                              threshold: 10, // 10px 이상 움직여야 슬라이드 기능작동
+                              a11y: {
+                                nextSlideMessage: '다음 슬라이드',
+                                prevSlideMessage: '이전 슬라이드',
+                                firstSlideMessage: '첫번째 슬라이드',
+                                lastSlideMessage: '마지막 슬라이드',
+                              },
+                              on: {
+                                init: function () {
+                                  const slides = this.slides;
+                                  const swiper = this;
+                                  const wrapper = this.el;
+                                  [].forEach.call(slides, (el, i) => {
+                                    const elTarget = options.a11yTarget ? el.querySelector(options.a11yTarget) : el;
+
+                                    elTarget.setAttribute('tabindex', 0);
+                                    EventHandler.on(elTarget, 'focusin', () => {
+                                      setTimeout(() => {
+                                        wrapper.scrollLeft = 0;
+                                        swiper.slideTo(i, 100);
+                                      }, 0);
+                                    });
+                                  });
+
+                                  if (options.init) {
+                                    options.init.apply(this);
+                                  }
+                                },
+                                afterInit: function () {
+                                  if (options.afterInit) {
+                                    options.afterInit.apply(this);
+                                  }
+                                },
+                                ...options.on,
+                              },
+                            });
+                          };
+                        </code>
+                    </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

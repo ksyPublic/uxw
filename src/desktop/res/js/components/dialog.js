@@ -55,11 +55,25 @@ class Dialog extends UI {
       OPENED: `${NAME}.opened`,
       CLOSE: `${NAME}.close`,
       CLOSED: `${NAME}.closed`,
+      FIRST_OPEN: `${NAME}.firstOpen`,
+      LAST_CLOSE: `${NAME}.laseClose`,
     };
   }
 
+  
+
   static GLOBAL_CONFIG = {};
   static COUNT = 0;
+
+  static closeAll() {
+    const instances = Dialog.getInstances();
+    for (const p in instances) {
+      if (Object.prototype.hasOwnProperty.call(instances, p)) {
+        const dialog = instances[p];
+        if (dialog) dialog.close();
+      }
+    }
+  }
 
   static get NAME() {
     return NAME;
@@ -89,6 +103,12 @@ class Dialog extends UI {
     EventHandler.trigger(this._element, Dialog.EVENT.OPEN, {
       component: this,
     });
+
+    if (Dialog.COUNT === 0) {
+      EventHandler.trigger(window, Dialog.EVENT.FIRST_OPEN);
+    }
+
+    Dialog.COUNT++;
   }
 
   _showBackground() {
@@ -177,10 +197,9 @@ class Dialog extends UI {
     }
 
     Dialog.COUNT--;
-
-    // if (Dialog.COUNT <= 0) {
-    //   EventHandler.trigger(window, Dialog.EVENT.LAST_CLOSE);
-    // }
+    if (Dialog.COUNT <= 0) {
+      EventHandler.trigger(window, Dialog.EVENT.LAST_CLOSE);
+    }
   }
 
   _init() {

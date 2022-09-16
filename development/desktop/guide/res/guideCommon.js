@@ -27,7 +27,7 @@ function prismInit() {
             sourceString = Prism.highlight(sourceString, Prism.languages.html, 'html');
             block.innerHTML = sourceString;
         }
-        if (block.classList.contains('render-js')) {
+        if (block.classList.contains('language-javascript')) {
             block.classList.add('language-js');
 
             sourceString = window.js_beautify(sourceString, {

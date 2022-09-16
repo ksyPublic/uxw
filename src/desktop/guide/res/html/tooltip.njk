@@ -11,138 +11,78 @@
         <p class="ex-desc">
          * Tooltip은 mouseleave, mouseenter로만 제작되었습니다.<br/>
          * Tooltip의 data-placement의 옵션으로는 right, left, top, bottom이 있습니다.<br/>
-          {# * data-container를 지정하지 않을시 컨테이너는 window이며 data-container="this"는 현재위치, data-container=[id]는 종속될 부모의 위치입니다<br/> #}
-         * 툴팁[id] => 툴팁버튼 내부의[aria-describedby]와 매칭
+         * 툴팁생성은 class="tooltip-button", 툴팁[id] => 툴팁버튼 내부의[aria-describedby]와 매칭
         </p>
       </div>
 
       <div class="ex-body">
         <div class="ex-preview">
           <div class="tooltip-button">
-            <button type="button" class="ic-button" aria-describedby="tooltip1" aria-label="UX라이팅 가이드" data-container="this">
+            <button type="button" class="ic-button" aria-describedby="tooltip1" aria-label="UX라이팅 가이드">
               <i class="ic ic-guidebook" aria-hidden="true"></i>
             </button>
-          </div>
-
-          <div id="tooltip1" role="tooltip" class="tooltip" data-visible data-placement="right">
-            <span class="tooltip__title">툴팁입니다 툴팁입니다 툴팁입니다 툴팁입니다 툴팁입니다 툴팁입니다 툴팁입니다 툴팁입니다</span>
           </div>
 
           <div class="tooltip-button">
-            <button type="button" class="ic-button" aria-describedby="tooltip2" aria-label="UX라이팅 가이드" data-container="this">
+            <button type="button" class="ic-button" aria-describedby="tooltip2" aria-label="UX라이팅 가이드">
               <i class="ic ic-guidebook" aria-hidden="true"></i>
             </button>
-          </div>
-
-          <div id="tooltip2" role="tooltip" class="tooltip" data-visible data-placement="left">
-            <span class="tooltip__title">툴팁입니다툴팁입니다툴팁입니다툴팁입니다툴팁입니다툴팁입니다툴팁입니다툴팁입니다툴팁입니다</span>
           </div>
 
           <div class="tooltip-button">
-            <button type="button" class="ic-button" aria-describedby="tooltip3" aria-label="UX라이팅 가이드" data-container="this">
+            <button type="button" class="ic-button" aria-describedby="tooltip3" aria-label="UX라이팅 가이드">
               <i class="ic ic-guidebook" aria-hidden="true"></i>
             </button>
           </div>
 
-          <div id="tooltip3" role="tooltip" class="tooltip" data-visible data-placement="top">
-            <span class="tooltip__title">툴팁입니다툴팁입니다툴팁입니다툴팁입니다툴팁입니다툴팁입니다툴팁입니다툴팁입니다툴팁입니다</span>
-          </div>
-
+          
           <div class="tooltip-button">
-            <button type="button" class="ic-button" aria-describedby="tooltip4" aria-label="UX라이팅 가이드" data-container="this">
+            <button type="button" class="ic-button" aria-describedby="tooltip4" aria-label="UX라이팅 가이드">
               <i class="ic ic-guidebook" aria-hidden="true"></i>
             </button>
           </div>
-
-          <div id="tooltip4" role="tooltip" class="tooltip" data-visible data-placement="bottom">
-            <span class="tooltip__title">툴팁입니다툴팁입니다툴팁입니다툴팁입니다툴팁입니다툴팁입니다툴팁입니다툴팁입니다툴팁입니다</span>
-          </div>
-
-          <div class="ly-bottom-group" style="position:relative; bottom:0; z-index:100">
-            <div class="button-group">
-              <div class="tooltip__list tooltip-button">
-                <input id="btnupload" type="file" role="button" aria-label="File Upload" tabindex="-1" accept=".docx, .txt">
-                <label class="ic-button-edit" tabindex="0" for="btnupload" role="button" aria-label="업로드" aria-describedby="tooltip5" data-container="this">
-                  <i class="ic ic-upload" aria-hidden="true"></i>
-                </label>
-              </div>
-              <div id="tooltip5" role="tooltip" class="tooltip" data-placement="top" data-visible>
-                <span class="tooltip__title">MS Word(.docx) 또는 텍스트(.txt) 파일을 업로드하세요.</span>
-              </div>
-              <div class="tooltip__list tooltip-button">
-                <button id="btncopy" type="button" class="ic-button-edit" aria-label="복사" aria-describedby="tooltip6" data-container="this" onclick="UXW.Message.show('텍스트를 복사하였습니다.')">
-                  <i class="ic ic-copy" aria-hidden="true"></i>
-                </button>
-              </div>
-              <div id="tooltip6" role="tooltip" class="tooltip" data-placement="top" data-visible>
-                <span class="tooltip__title">복사하기</span>
-              </div>
-              <div class="tooltip__list tooltip-button">
-                <button id="btndownload" type="button" class="ic-button-edit" aria-label="다운로드" aria-describedby="tooltip7" data-container="this">
-                  <i class="ic ic-download" aria-hidden="true"></i>
-                </button>
-              </div>
-              <div id="tooltip7" role="tooltip" class="tooltip" data-placement="top" data-visible>
-                <span class="tooltip__title">텍스트(.txt) 파일로 내려받기</span>
-              </div>
-              <div class="tooltip__list tooltip-button">
-                <button id="btndelete" type="button" class="ic-button-edit hide" aria-label="삭제" aria-describedby="tooltip8" data-container="this">
-                  <i class="ic ic-delete" aria-hidden="true"></i>
-                </button>
-              </div>
-              <div id="tooltip8" role="tooltip" class="tooltip" data-placement="top" data-visible>
-                <span class="tooltip__title">삭제하기</span>
-              </div>
-            </div>
-            <div class="message" id="toast"></div>
-            <div class="button-group">
-              <button type="button" data-target="currect" id="btncurrect" aria-expanded="true" class="button button--type1" disabled="">교정하기</button>
-              <button type="button" id="btnsave" aria-hidden="true" class="button button--type2" data-dialog-trigger="#modal1">완료하기</button>
-            </div>
-          </div>
-
+          
           <div class="html-view">
             <pre>
                 <code class="ex-code-block render-html">
               <div class="tooltip-button">
-                <button type="button" class="ic-button" aria-describedby="tooltip1" aria-label="UX라이팅 가이드" data-container="this">
+                <button type="button" class="ic-button" aria-describedby="{tooltip_id}" aria-label="UX라이팅 가이드">
                   <i class="ic ic-guidebook" aria-hidden="true"></i>
                 </button>
-              </div>
-
-                <div id="tooltip1" role="tooltip" class="tooltip" data-visible data-placement="right">
-                  <span class="tooltip__title">UX라이팅 가이드</span>
-                </div>
-
-              <div class="tooltip-button">
-                <button type="button" class="ic-button" aria-describedby="tooltip2" aria-label="UX라이팅 가이드" data-container="this">
-                  <i class="ic ic-guidebook" aria-hidden="true"></i>
-                </button>
-              </div>
-
-              <div id="tooltip2" role="tooltip" class="tooltip" data-visible data-placement="left">
-                <span class="tooltip__title">UX라이팅 가이드</span>
               </div>
 
               <div class="tooltip-button">
-                <button type="button" class="ic-button" aria-describedby="tooltip3" aria-label="UX라이팅 가이드" data-container="this">
+                <button type="button" class="ic-button" aria-describedby="{tooltip_id}" aria-label="UX라이팅 가이드">
                   <i class="ic ic-guidebook" aria-hidden="true"></i>
                 </button>
-              </div>
-
-              <div id="tooltip3" role="tooltip" class="tooltip" data-visible data-placement="top">
-                <span class="tooltip__title">UX라이팅 가이드</span>
               </div>
 
               <div class="tooltip-button">
-                <button type="button" class="ic-button" aria-describedby="tooltip4" aria-label="UX라이팅 가이드" data-container="this">
+                <button type="button" class="ic-button" aria-describedby="{tooltip_id}" aria-label="UX라이팅 가이드">
                   <i class="ic ic-guidebook" aria-hidden="true"></i>
                 </button>
               </div>
 
-              <div id="tooltip4" role="tooltip" class="tooltip" data-visible data-placement="bottom">
+              <div class="tooltip-button">
+                <button type="button" class="ic-button" aria-describedby="{tooltip_id}" aria-label="UX라이팅 가이드">
+                  <i class="ic ic-guidebook" aria-hidden="true"></i>
+                </button>
+              </div>
+
+              <!-- 툴팁박스 -->
+              <div id="{tooltip_id}" role="tooltip" class="tooltip" data-visible data-placement="right">
                 <span class="tooltip__title">UX라이팅 가이드</span>
               </div>
+              <div id="{tooltip_id}" role="tooltip" class="tooltip" data-visible data-placement="left">
+                <span class="tooltip__title">UX라이팅 가이드</span>
+              </div>
+              <div id="{tooltip_id}" role="tooltip" class="tooltip" data-visible data-placement="top">
+                <span class="tooltip__title">UX라이팅 가이드</span>
+              </div>
+              <div id="{tooltip_id}" role="tooltip" class="tooltip" data-visible data-placement="bottom">
+                <span class="tooltip__title">UX라이팅 가이드</span>
+              </div>
+              <!-- 툴팁박스 -->
               </code>
             </pre>
           </div>
@@ -151,6 +91,20 @@
     </div>
 
   </div>
+
+
+
+<div id="tooltip1" role="tooltip" class="tooltip" data-visible data-placement="right" style="position:fixed">
+  <span class="tooltip__title">툴팁입니다</span>
+</div>
+<div id="tooltip2" role="tooltip" class="tooltip" data-visible data-placement="left" style="position:fixed">
+  <span class="tooltip__title">툴팁입니다</span>
+</div>
+<div id="tooltip3" role="tooltip" class="tooltip" data-visible data-placement="top" style="position:fixed">
+  <span class="tooltip__title">툴팁입니다</span>
+</div>
+<div id="tooltip4" role="tooltip" class="tooltip" data-visible data-placement="bottom" style="position:fixed">
+  <span class="tooltip__title">툴팁입니다</span>
 </div>
 
 {% endblock %}

@@ -1,0 +1,225 @@
+{% set user = "logout" %}
+{% set title = "가이드 UXW 박스"%}
+{% extends "../templates/layout.njk" %}
+{% block content %}
+    <div class="guide-wrap">
+        <h2 class="ex-name">Box</h2>
+        <div class="ex-content">
+            <div class="ex-title">
+                <h3>기본</h3>
+                <p class="ex-desc">컨텐츠 구성시 사용되는 Box입니다.
+                  <br/>* box는 감싸는 형태로만 사용합니다.
+                </p>
+            </div>
+
+            <div class="ex-body">
+                <div class="ex-preview">
+                  <div class="box">
+                    <span>box</span>
+                  </div>
+                  <br/>
+                  <div class="box box--type2">
+                    <span>box</span>
+                    <span>box</span>
+                  </div>
+                  <br/>
+                  <div class="box box--type3">
+                    <span>box</span>
+                  </div>
+
+                  <div class="html-view">
+                      <pre>
+                      <code class="ex-code-block render-html">
+                        <div class="box">
+                          <span>box</span>
+                        </div>
+                        <div class="box box--type2">
+                          <span>box</span>
+                          <span>box</span>
+                        </div>
+                        <div class="box box--type3">
+                          <span>box</span>
+                        </div>
+                      </code>
+                  </pre>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ex-content">
+            <div class="ex-title">
+                <h3>박스 컨텐츠 예시</h3>
+                </p>
+            </div>
+
+            <div class="ex-body">
+                <div class="ex-preview">
+                <!-- 문의내역 -->
+                <div class="box mgt30 grey50-bg">
+                    <div class="title--type2">
+                        <h4 class="text ft18 medium">내 문의내역</h4>
+                        <button class="button button--type4 button--medium" type="button" data-dialog-trigger="#modal2">문의하기</button>
+                    </div>
+                    <!-- 데이터가 없을시 오픈 -->
+                    <div class="none-data none-data--beinfo pxh128" data-none>
+                        <p>콘텐츠 목록이 비어있어요.<br/>새로운 콘텐츠를 입력해주세요.</p>
+                    </div>
+                    <!-- //데이터가 없을시 오픈 -->
+
+                    <!-- 문의내역 리스트 : 데이터가 없을시 제거  -->
+                    <div class="list list-view mgt18 mxh112">
+                        <div class="list__item">
+                            <label class="label-ct">답변대기</label>
+                            <a class="text-link ellipsis" href="#none" data-dialog-trigger="#modal4">고객언어란 무엇입니까?</a>
+                        </div>
+                        <div class="list__item">
+                            <label class="label-ct label-ct--type3">용어제안</label>
+                            <a class="text-link ellipsis" href="#none">교정중인 콘텐츠를 제안합니다 교정중인 콘텐츠를 제안합니다</a>
+                        </div>
+                        <div class="list__item">
+                            <label class="label-ct label-ct--type2">답변완료</label>
+                            <a class="text-link ellipsis" href="#none" data-dialog-trigger="#modal3">개인 계정 사용시 어떻게 적용하나요?</a>
+                        </div>
+                        <div class="list__item">
+                            <label class="label-ct label-ct--type3">용어문의</label>
+                            <a class="text-link ellipsis" href="#none" data-dialog-trigger="#modal5">문의사항 남깁니다.</a>
+                        </div>
+                    </div>
+                    <!-- //문의내역 리스트 -->
+                </div>
+                <!-- //문의내역 -->
+                <br/>
+                  <div class="box mgt20 blue100-bg">
+                  <div class="title--type2">
+                    <h4 class="text ft18 medium">내 콘텐츠</h4>
+                    <a href="#none" class="text-link"> 전체보기 <i class="ic ic-text-arrow" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                  <!-- 데이터가 없을시 오픈 220901 수정 -->
+                  <div class="none-data none-data--view pxh170" data-none="">
+                    <p>콘텐츠 목록이 비어있어요.<br>새로운 콘텐츠를 입력해주세요.</p>
+                  </div>
+                  <!-- //데이터가 없을시 오픈 220901 수정-->
+                  <!-- 목록 리스트 : 데이터가 없을시 제거  -->
+                  <div class="grid col3">
+                    <div class="grid__box">
+                      <a href="#none" class="text-link light" title="신한은행과BNP파리바카디프생명협약 관련안내">신한은행과BNP파리바카디프생명협약 관련안내</a>
+                      <span class="text-date">22.7.25</span>
+                    </div>
+                    <div class="grid__box">
+                      <a href="#none" class="text-link light" title="신한은행과BNP파리바카디프생명협약 관련안내 입니다">신한은행과BNP파리바카디프생명협약 관련안내 입니다</a>
+                      <span class="text-date">22.7.25</span>
+                    </div>
+                    <div class="grid__box">
+                      <a href="#none" class="text-link light" title="신한은행과BNP파리바카디프생명협약 관련안내">신한은행과BNP파리바카디프생명협약 관련안</a>
+                      <span class="text-date">22.7.25</span>
+                    </div>
+                  </div>
+                  <!-- //목록 리스트 -->
+                </div>                 
+                  <br/>
+                <div class="form">
+                  <div class="fields">
+                    <div class="field">
+                      <div class="textarea-box">
+                        <textarea class="textarea textarea--type2 textarea--tiny mxh150" readonly>고객언어란 무엇인가요?</textarea>
+                        <div class="divider" aria-hidden="true"></div>
+                        <span class="text-date">2022.08.31</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="fields">
+                    <div class="field">
+                      <div class="title--type2 title--qa">
+                        <strong class="medium ft14">답변</strong>
+                      </div>
+                      <div class="box box--type3">
+                        <p class="text">고객언어란 고객이 이해하기 쉬운, 고객의 눈높이에 맞는 단어, 표현. 기업에서 제공하는 브랜드, 상품과 서비스에 관련된 내용을 일반 고객이 쉽게 이해할 수 있도록 고객의 눈높이에 맞춰 쉽게 풀어쓰거나 다듬은 언어를 뜻합니다. 고객언어란 고객이 이해하기 쉬운, 고객의 눈높이에 맞는 단어, 표현. 기업에서 제공하는 브랜드, 상품과 서비스에 관련된 내용을 일반 고객이 쉽게 이해할 수 있도록 고객의 눈높이에 기업에서 제공하는 브랜드, 상품과 서비스에 관련된 내용을 일반 고객이 쉽게 이해할 수 있도록 고객의 눈높이에 맞춰 쉽게 풀어쓰거나 다듬은 언어를 뜻합니다. </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                  <div class="html-view">
+                      <pre>
+                      <code class="ex-code-block render-html">
+                         <!-- 문의내역 -->
+                          <div class="box mgt30 grey50-bg">
+                              <div class="title--type2">
+                                  <h4 class="text ft18 medium">내 문의내역</h4>
+                                  <button class="button button--type4 button--medium" type="button">문의하기</button>
+                              </div>
+
+                              <div class="list list-view mgt18 mxh112">
+                                  <div class="list__item">
+                                      <label class="label-ct">답변대기</label>
+                                      <a class="text-link ellipsis" href="#none">고객언어란 무엇입니까?</a>
+                                  </div>
+                                  <div class="list__item">
+                                      <label class="label-ct label-ct--type3">용어제안</label>
+                                      <a class="text-link ellipsis" href="#none">교정중인 콘텐츠를 제안합니다 교정중인 콘텐츠를 제안합니다</a>
+                                  </div>
+                                  <div class="list__item">
+                                      <label class="label-ct label-ct--type2">답변완료</label>
+                                      <a class="text-link ellipsis" href="#none">개인 계정 사용시 어떻게 적용하나요?</a>
+                                  </div>
+                                  <div class="list__item">
+                                      <label class="label-ct label-ct--type3">용어문의</label>
+                                      <a class="text-link ellipsis" href="#none">문의사항 남깁니다.</a>
+                                  </div>
+                              </div>
+                          </div>
+                          <!-- //문의내역 -->
+                            <div class="box mgt20 blue100-bg">
+                            <div class="title--type2">
+                              <h4 class="text ft18 medium">내 콘텐츠</h4>
+                              <a href="#none" class="text-link"> 전체보기 <i class="ic ic-text-arrow" aria-hidden="true"></i>
+                              </a>
+                            </div>
+                            <div class="none-data none-data--view pxh170" data-none="">
+                              <p>콘텐츠 목록이 비어있어요.<br>새로운 콘텐츠를 입력해주세요.</p>
+                            </div>
+                            <div class="grid col3">
+                              <div class="grid__box">
+                                <a href="#none" class="text-link light" title="신한은행과BNP파리바카디프생명협약 관련안내">신한은행과BNP파리바카디프생명협약 관련안내</a>
+                                <span class="text-date">22.7.25</span>
+                              </div>
+                              <div class="grid__box">
+                                <a href="#none" class="text-link light" title="신한은행과BNP파리바카디프생명협약 관련안내 입니다">신한은행과BNP파리바카디프생명협약 관련안내 입니다</a>
+                                <span class="text-date">22.7.25</span>
+                              </div>
+                              <div class="grid__box">
+                                <a href="#none" class="text-link light" title="신한은행과BNP파리바카디프생명협약 관련안내">신한은행과BNP파리바카디프생명협약 관련안</a>
+                                <span class="text-date">22.7.25</span>
+                              </div>
+                            </div>
+                          </div>                 
+                          <div class="form">
+                            <div class="fields">
+                              <div class="field">
+                                <div class="textarea-box">
+                                  <textarea class="textarea textarea--type2 textarea--tiny mxh150" readonly>고객언어란 무엇인가요?</textarea>
+                                  <div class="divider" aria-hidden="true"></div>
+                                  <span class="text-date">2022.08.31</span>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="fields">
+                              <div class="field">
+                                <div class="title--type2 title--qa">
+                                  <strong class="medium ft14">답변</strong>
+                                </div>
+                                <div class="box box--type3">
+                                  <p class="text">고객언어란 고객이 이해하기 쉬운, 고객의 눈높이에 맞는 단어, 표현. 기업에서 제공하는 브랜드, 상품과 서비스에 관련된 내용을 일반 고객이 쉽게 이해할 수 있도록 고객의 눈높이에 맞춰 쉽게 풀어쓰거나 다듬은 언어를 뜻합니다. 고객언어란 고객이 이해하기 쉬운, 고객의 눈높이에 맞는 단어, 표현. 기업에서 제공하는 브랜드, 상품과 서비스에 관련된 내용을 일반 고객이 쉽게 이해할 수 있도록 고객의 눈높이에 기업에서 제공하는 브랜드, 상품과 서비스에 관련된 내용을 일반 고객이 쉽게 이해할 수 있도록 고객의 눈높이에 맞춰 쉽게 풀어쓰거나 다듬은 언어를 뜻합니다. </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                      </code>
+                  </pre>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

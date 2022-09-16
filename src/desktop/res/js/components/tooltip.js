@@ -244,35 +244,37 @@ class Tooltip extends UI {
     const opennerHeight = opennerRect.height;
     const opennerLeft = opennerRect.left + window.pageXOffset;
     const opennerTop = opennerRect.top + window.pageYOffset;
+
     const opennerBottom = opennerTop + opennerHeight;
     const opennerRight = opennerLeft + opennerWidth;
     const opennerXCenter = opennerLeft + opennerWidth / 2;
     const opennerYCenter = opennerTop + opennerHeight / 2;
 
     /**
-     * container를 지정했을시 사용
+     * container를 지정했을시 사용 x | container지정시 상위 relative에 따라 값이 지속적으로 변경됨 해당부분은 개발x
      */
+    const screenTop = stage.top;
     const screenLeft = stage.left;
-    const screenRight = stage.width + stage.left;
-    const screenTop = stage.scrollTop;
-    const screenBottom = stage.height + stage.scrollTop;
+
+    const parentAbsoluteTop = window.pageYOffset + screenTop;
+    const parentAbsoluteLeft = window.pageXOffset + screenLeft;
 
     let calcPositionValue = 0;
     switch (positionName) {
       // x축 - left
       case 'XL':
-        this._getValue === 'container' ? (calcPositionValue = screenLeft - tw) : (calcPositionValue = opennerLeft - tw);
+        this._getValue === 'container' ? (calcPositionValue = parentAbsoluteLeft - opennerLeft + opennerWidth - tw) : (calcPositionValue = opennerLeft - tw);
         // if (calcPositionValue < screenLeft) calcPositionValue = this._getPosition('XC');
         break;
       // x축 - center
       case 'XC':
-        this._getValue === 'container' ? (calcPositionValue = screenLeft - tw / 2 + stage.width / 2) : (calcPositionValue = opennerXCenter - tw / 2);
+        this._getValue === 'container' ? (calcPositionValue = parentAbsoluteLeft - opennerXCenter - tw / 2) : (calcPositionValue = opennerXCenter - tw / 2);
         // if (calcPositionValue < screenLeft) calcPositionValue = this._getPosition('XR');
         // if (calcPositionValue + tw > screenRight) calcPositionValue = this._getPosition('XL');
         break;
       // x축 - right
       case 'XR':
-        this._getValue === 'container' ? (calcPositionValue = screenRight) : (calcPositionValue = opennerRight);
+        this._getValue === 'container' ? (calcPositionValue = parentAbsoluteLeft - opennerLeft + opennerWidth) : (calcPositionValue = opennerRight);
         // if (calcPositionValue + tw > screenRight) {
         //   calcPositionValue = this._getPosition('XC');
         // }
@@ -280,18 +282,18 @@ class Tooltip extends UI {
         break;
       // y축 - top
       case 'YT':
-        this._getValue === 'container' ? (calcPositionValue = stage.height + stage.top - th - stage.height) : (calcPositionValue = opennerTop - th);
+        this._getValue === 'container' ? (calcPositionValue = parentAbsoluteTop - opennerTop + opennerHeight - th) : (calcPositionValue = opennerTop - th);
         // if (calcPositionValue < screenTop) calcPositionValue = this._getPosition('YC');
         break;
       // y축 - center
       case 'YC':
-        this._getValue === 'container' ? (calcPositionValue = stage.top - th / 2 + stage.height / 2) : (calcPositionValue = opennerYCenter - th / 2);
+        this._getValue === 'container' ? (calcPositionValue = parentAbsoluteTop - opennerYCenter - th / 2) : (calcPositionValue = opennerYCenter - th / 2);
         // if (calcPositionValue < screenTop) calcPositionValue = this._getPosition('YB');
         // if (calcPositionValue + th > screenBottom) calcPositionValue = this._getPosition('YT');
         break;
       // y축 - bottom
       case 'YB':
-        this._getValue === 'container' ? (calcPositionValue = stage.height + stage.top) : (calcPositionValue = opennerBottom);
+        this._getValue === 'container' ? (calcPositionValue = parentAbsoluteTop - opennerTop + opennerHeight) : (calcPositionValue = opennerBottom);
         // if (calcPositionValue + th > screenBottom) calcPositionValue = this._getPosition('YC');
         break;
     }
@@ -314,8 +316,8 @@ class Tooltip extends UI {
     } else {
       info.width = this._container.offsetWidth;
       info.height = this._container.offsetHeight;
-      info.top = this._container.offsetTop;
-      info.left = this._container.offsetLeft;
+      info.top = this._container.getBoundingClientRect().top;
+      info.left = this._container.getBoundingClientRect().left;
       this._getValue = 'container';
     }
 

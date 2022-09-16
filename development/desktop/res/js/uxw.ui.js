@@ -6727,14 +6727,14 @@ var modalLayer = function modalLayer(UI) {
   _init();
 };
 
-var initFunc = function initFunc() {
+var initFunc = function initFunc() {};
+
+var initialize = function initialize() {
   navigation('[role="navigation"]');
   modalLayer('[role="navigation"]');
   cardRefresh();
   autoScrollContent();
 };
-
-var initialize = function initialize() {};
 
 var commonInit = {
   initFunc: initFunc,
@@ -7712,6 +7712,12 @@ var Dialog = /*#__PURE__*/function (_UI) {
       _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_16__["default"].trigger(this._element, Dialog.EVENT.OPEN, {
         component: this
       });
+
+      if (Dialog.COUNT === 0) {
+        _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_16__["default"].trigger(window, Dialog.EVENT.FIRST_OPEN);
+      }
+
+      Dialog.COUNT++;
     }
   }, {
     key: "_showBackground",
@@ -7823,9 +7829,11 @@ var Dialog = /*#__PURE__*/function (_UI) {
         _get(_getPrototypeOf(Dialog.prototype), "destroy", this).call(this);
       }
 
-      Dialog.COUNT--; // if (Dialog.COUNT <= 0) {
-      //   EventHandler.trigger(window, Dialog.EVENT.LAST_CLOSE);
-      // }
+      Dialog.COUNT--;
+
+      if (Dialog.COUNT <= 0) {
+        _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_16__["default"].trigger(window, Dialog.EVENT.LAST_CLOSE);
+      }
     }
   }, {
     key: "_init",
@@ -7839,8 +7847,22 @@ var Dialog = /*#__PURE__*/function (_UI) {
         OPEN: "".concat(NAME, ".open"),
         OPENED: "".concat(NAME, ".opened"),
         CLOSE: "".concat(NAME, ".close"),
-        CLOSED: "".concat(NAME, ".closed")
+        CLOSED: "".concat(NAME, ".closed"),
+        FIRST_OPEN: "".concat(NAME, ".firstOpen"),
+        LAST_CLOSE: "".concat(NAME, ".laseClose")
       };
+    }
+  }, {
+    key: "closeAll",
+    value: function closeAll() {
+      var instances = Dialog.getInstances();
+
+      for (var p in instances) {
+        if (Object.prototype.hasOwnProperty.call(instances, p)) {
+          var dialog = instances[p];
+          if (dialog) dialog.close();
+        }
+      }
     }
   }, {
     key: "NAME",
@@ -8276,11 +8298,13 @@ _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_20__["default"].on(document, 'clic
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_dom_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/dom-util */ "./src/desktop/res/js/utils/dom-util.js");
+/* harmony import */ var _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../vendor/EventHandler */ "./src/desktop/res/js/vendor/EventHandler.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
 
 
 var NAME = 'ui.loading-spinner';
@@ -8308,6 +8332,8 @@ var Spinner = /*#__PURE__*/function () {
         this._spinner.insertBefore(this._template, this._spinner.firstChild);
 
         this._template.classList.add(CLASSES.activeClass);
+
+        this._spinner.classList.add(CLASSES.activeClass);
       }
 
       this._count++;
@@ -8322,7 +8348,7 @@ var Spinner = /*#__PURE__*/function () {
         if (hasParent) {
           this._template.classList.remove(CLASSES.activeClass);
 
-          this._spinner.removeChild(this._template);
+          this._spinner.classList.remove(CLASSES.activeClass);
 
           this._count = 0;
         }
@@ -8332,6 +8358,8 @@ var Spinner = /*#__PURE__*/function () {
         if (this._count < 1) {
           if (hasParent) {
             this._template.classList.remove(CLASSES.activeClass);
+
+            this._spinner.classList.remove(CLASSES.activeClass);
 
             this._spinner.removeChild(this._template);
           }
@@ -9300,32 +9328,32 @@ var Tooltip = /*#__PURE__*/function (_UI) {
       var opennerXCenter = opennerLeft + opennerWidth / 2;
       var opennerYCenter = opennerTop + opennerHeight / 2;
       /**
-       * container를 지정했을시 사용
+       * container를 지정했을시 사용 x | container지정시 상위 relative에 따라 값이 지속적으로 변경됨 해당부분은 개발x
        */
 
+      var screenTop = stage.top;
       var screenLeft = stage.left;
-      var screenRight = stage.width + stage.left;
-      var screenTop = stage.scrollTop;
-      var screenBottom = stage.height + stage.scrollTop;
+      var parentAbsoluteTop = window.pageYOffset + screenTop;
+      var parentAbsoluteLeft = window.pageXOffset + screenLeft;
       var calcPositionValue = 0;
 
       switch (positionName) {
         // x축 - left
         case 'XL':
-          this._getValue === 'container' ? calcPositionValue = screenLeft - tw : calcPositionValue = opennerLeft - tw; // if (calcPositionValue < screenLeft) calcPositionValue = this._getPosition('XC');
+          this._getValue === 'container' ? calcPositionValue = parentAbsoluteLeft - opennerLeft + opennerWidth - tw : calcPositionValue = opennerLeft - tw; // if (calcPositionValue < screenLeft) calcPositionValue = this._getPosition('XC');
 
           break;
         // x축 - center
 
         case 'XC':
-          this._getValue === 'container' ? calcPositionValue = screenLeft - tw / 2 + stage.width / 2 : calcPositionValue = opennerXCenter - tw / 2; // if (calcPositionValue < screenLeft) calcPositionValue = this._getPosition('XR');
+          this._getValue === 'container' ? calcPositionValue = parentAbsoluteLeft - opennerXCenter - tw / 2 : calcPositionValue = opennerXCenter - tw / 2; // if (calcPositionValue < screenLeft) calcPositionValue = this._getPosition('XR');
           // if (calcPositionValue + tw > screenRight) calcPositionValue = this._getPosition('XL');
 
           break;
         // x축 - right
 
         case 'XR':
-          this._getValue === 'container' ? calcPositionValue = screenRight : calcPositionValue = opennerRight; // if (calcPositionValue + tw > screenRight) {
+          this._getValue === 'container' ? calcPositionValue = parentAbsoluteLeft - opennerLeft + opennerWidth : calcPositionValue = opennerRight; // if (calcPositionValue + tw > screenRight) {
           //   calcPositionValue = this._getPosition('XC');
           // }
 
@@ -9333,20 +9361,20 @@ var Tooltip = /*#__PURE__*/function (_UI) {
         // y축 - top
 
         case 'YT':
-          this._getValue === 'container' ? calcPositionValue = stage.height + stage.top - th - stage.height : calcPositionValue = opennerTop - th; // if (calcPositionValue < screenTop) calcPositionValue = this._getPosition('YC');
+          this._getValue === 'container' ? calcPositionValue = parentAbsoluteTop - opennerTop + opennerHeight - th : calcPositionValue = opennerTop - th; // if (calcPositionValue < screenTop) calcPositionValue = this._getPosition('YC');
 
           break;
         // y축 - center
 
         case 'YC':
-          this._getValue === 'container' ? calcPositionValue = stage.top - th / 2 + stage.height / 2 : calcPositionValue = opennerYCenter - th / 2; // if (calcPositionValue < screenTop) calcPositionValue = this._getPosition('YB');
+          this._getValue === 'container' ? calcPositionValue = parentAbsoluteTop - opennerYCenter - th / 2 : calcPositionValue = opennerYCenter - th / 2; // if (calcPositionValue < screenTop) calcPositionValue = this._getPosition('YB');
           // if (calcPositionValue + th > screenBottom) calcPositionValue = this._getPosition('YT');
 
           break;
         // y축 - bottom
 
         case 'YB':
-          this._getValue === 'container' ? calcPositionValue = stage.height + stage.top : calcPositionValue = opennerBottom; // if (calcPositionValue + th > screenBottom) calcPositionValue = this._getPosition('YC');
+          this._getValue === 'container' ? calcPositionValue = parentAbsoluteTop - opennerTop + opennerHeight : calcPositionValue = opennerBottom; // if (calcPositionValue + th > screenBottom) calcPositionValue = this._getPosition('YC');
 
           break;
       }
@@ -9372,8 +9400,8 @@ var Tooltip = /*#__PURE__*/function (_UI) {
       } else {
         info.width = this._container.offsetWidth;
         info.height = this._container.offsetHeight;
-        info.top = this._container.offsetTop;
-        info.left = this._container.offsetLeft;
+        info.top = this._container.getBoundingClientRect().top;
+        info.left = this._container.getBoundingClientRect().left;
         this._getValue = 'container';
       }
 

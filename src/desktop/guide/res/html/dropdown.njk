@@ -1,0 +1,74 @@
+{% set user = "logout" %}
+{% set title = "가이드 UXW 드롭다운"%}
+{% extends "../templates/layout.njk" %}
+{% block content %}
+    <div class="guide-wrap">
+        <h2 class="ex-name">Dropdown</h2>
+        <div class="ex-content">
+            <div class="ex-title">
+                <h3>드롭다운 구성 주의사항</h3>
+                <p class="ex-desc" style="color: #ff0000"> 아래 예시는 마크업 구성 시 반드시 포함되어야 하는 속성을 설명하는 구조입니다. 실제 아코디언 구성 시에는 css style 구조에 맞는 마크업이 필요합니다.</p>
+                <p class="ex-desc">* 드롭다운 라벨[id] => [aria-labelledby]와 매칭
+                <br>* 드롭다운의 디폴트는 닫힌 상태입니다.
+                <br>* 드롭다운은 버튼을 클릭하여야만 오픈이됩니다.
+            </div>
+
+            <div class="ex-body">
+                <div class="ex-preview">
+                  <div class="dropdown">
+                    <label id="dropdown_label1">가구</label>
+                    <button class="dropdown__button" type="button" aria-haspopup="listbox" aria-label="드롭버튼">
+                      <i class="ic ic-text-arrow--type2 " aria-hidden="true"></i>
+                    </button>
+                    <ul class="dropdown__menu" role="listbox" aria-labelledby="dropdown_label1">
+                      <li class="dropdown__item" role="option" data-listbox-value="가구">가구</li>
+                      <li class="dropdown__item" role="option" data-listbox-value="가구2">가구2</li>
+                      <li class="dropdown__item" role="option" data-listbox-value="가구3">가구3</li>
+                    </ul>
+                  </div>
+                  <div class="dropdown">
+                    <label id="dropdown_label2">가구</label>
+                    <button class="dropdown__button" type="button" aria-haspopup="listbox" aria-label="드롭버튼">
+                      <i class="ic ic-text-arrow--type2 " aria-hidden="true"></i>
+                    </button>
+                    <ul class="dropdown__menu" role="listbox" aria-labelledby="dropdown_label2">
+                      <li class="dropdown__item" role="option" data-listbox-value="가구">가구</li>
+                      <li class="dropdown__item" role="option" data-listbox-value="가구2">가구2</li>
+                      <li class="dropdown__item" role="option" data-listbox-value="가구3">가구3</li>
+                    </ul>
+                  </div>
+                  <div class="dropdown">
+                    <label id="dropdown_label3">가구</label>
+                    <button class="dropdown__button" type="button" aria-haspopup="listbox" aria-label="드롭버튼">
+                      <i class="ic ic-text-arrow--type2 " aria-hidden="true"></i>
+                    </button>
+                    <ul class="dropdown__menu" role="listbox" aria-labelledby="dropdown_label3">
+                      <li class="dropdown__item" role="option" data-listbox-value="가구">가구</li>
+                      <li class="dropdown__item" role="option" data-listbox-value="가구2">가구2</li>
+                      <li class="dropdown__item" role="option" data-listbox-value="가구3">가구3</li>
+                    </ul>
+                  </div>
+
+                    <div class="html-view">
+                        <pre>
+                        <code class="ex-code-block render-html">
+                          <div class="dropdown">
+                            <label id="{dropdown_id}">가구</label>
+                            <button class="dropdown__button" type="button" aria-haspopup="listbox" aria-label="드롭버튼">
+                              <i class="ic ic-text-arrow--type2 " aria-hidden="true"></i>
+                            </button>
+                            <ul class="dropdown__menu" role="listbox" aria-labelledby="{dropdown_id}">
+                              <li class="dropdown__item" role="option" data-listbox-value="가구">가구</li>
+                              <li class="dropdown__item" role="option" data-listbox-value="가구2">가구2</li>
+                              <li class="dropdown__item" role="option" data-listbox-value="가구3">가구3</li>
+                            </ul>
+                          </div>
+                        </code>
+                    </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

@@ -1,6 +1,5 @@
 .modal {
   $root: modal;
-
   position: fixed;
   top: 0;
   right: 0;
@@ -85,11 +84,6 @@
     }
   }
 
-  &--medium {
-    .#{$root}__content {
-      width: 560px;
-    }
-  }
 
   &__dialog {
     position: absolute;
@@ -135,6 +129,7 @@
   }
 
   &__content {
+    width:480px;
     position: relative;
     max-height: 90vh;
     overflow-x: hidden;
@@ -142,6 +137,13 @@
     display: flex;
     flex-direction: column;
     background-color: $white;
+  }
+
+  
+  &--medium {
+    .#{$root}__content {
+      width: 560px;
+    }
   }
 
   &__body {

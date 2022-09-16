@@ -325,13 +325,15 @@ const modalLayer = UI => {
 };
 
 const initFunc = () => {
+
+};
+
+const initialize = () => {
   navigation('[role="navigation"]');
   modalLayer('[role="navigation"]');
   cardRefresh();
   autoScrollContent();
 };
-
-const initialize = () => {};
 
 const commonInit = {
   initFunc,

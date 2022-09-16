@@ -51,10 +51,10 @@
   background-color: #f8f9fc !important; }
 
 .hide {
-  display: none; }
+  display: none !important; }
 
 .show {
-  display: block; }
+  display: block !important; }
 
 .pxh170 {
   height: 170px !important; }
@@ -1544,7 +1544,7 @@ input[type='password'] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: absolute;
+  position: fixed;
   align-items: center;
   padding: 6px 12px;
   line-height: 20px;
@@ -1610,6 +1610,8 @@ input[type='password'] {
     background: url("../images/ic-polygon-arrow.png") no-repeat; }
   .tooltip__list {
     position: relative; }
+  .tooltip-button {
+    display: inline-block; }
   .tooltip__title {
     font-size: 12px;
     font-weight: 300; }
@@ -2890,8 +2892,6 @@ input[type='radio'] {
   .modal--alert .button--type4 {
     border: 0;
     background-color: #ebeff5; }
-  .modal--medium .modal__content {
-    width: 560px; }
   .modal__dialog {
     position: absolute;
     top: 0;
@@ -2941,6 +2941,7 @@ input[type='radio'] {
     font-size: 16px;
     font-weight: 500; }
   .modal__content {
+    width: 480px;
     position: relative;
     max-height: 90vh;
     overflow-x: hidden;
@@ -2953,6 +2954,8 @@ input[type='radio'] {
         -ms-flex-direction: column;
             flex-direction: column;
     background-color: #fff; }
+  .modal--medium .modal__content {
+    width: 560px; }
   .modal__body {
     padding: 24px 20px; }
   .modal__footer {
