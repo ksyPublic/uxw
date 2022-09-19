@@ -75,6 +75,13 @@
           background-color: color(orange, 800);
         }
       }
+
+      &.green {
+        color: color(light-green, 800);
+        &.text-link--bollet:before {
+          background-color: color(light-green, 800);
+        }
+      }
     }
   }
 
@@ -93,6 +100,7 @@
     padding-top: 4px;
     display: inline-block;
     vertical-align: top;
+    color:color(grey, 600);
     &:before {
       content: '';
       height: 20px;
@@ -105,4 +113,9 @@
       margin: 0 16px;
     }
   }
+}
+
+
+label.text-link--bollet:hover {
+  text-decoration: none;
 }

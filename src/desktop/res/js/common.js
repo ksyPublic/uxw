@@ -29,6 +29,8 @@ const getObjectElements = elements => {
   return arr;
 };
 
+
+
 const autoScrollContent = () => {
   const lyContainer = document.querySelector('.ly-container');
   const tabs = lyContainer?.querySelectorAll('.tab');
@@ -324,9 +326,7 @@ const modalLayer = UI => {
   _init();
 };
 
-const initFunc = () => {
-
-};
+const initFunc = () => {};
 
 const initialize = () => {
   navigation('[role="navigation"]');

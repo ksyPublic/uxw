@@ -36,4 +36,18 @@
       color: color(grey, 600);
     }
   }
+  &--autoheight {
+    padding:0;
+    margin:0;
+    background-color:$white;
+    border-radius: 0px;
+    overflow-y:auto;
+    overflow-x:hidden;
+    &:after{
+      content:"";
+      display: block;
+      height:20px;
+    }
+  }
 }
+

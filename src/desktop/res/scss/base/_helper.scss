@@ -45,7 +45,7 @@
 }
 
 .mgt20 {
-  margin-top: 20px;
+  margin-top: 20px !important;
 }
 .mgt18 {
   margin-top: 18px;
@@ -64,6 +64,14 @@
 
 .grey50-bg {
   background-color: color(grey, 50) !important;
+}
+
+.blue700-ft {
+  color: color(blue, 700) !important;
+}
+
+.purple80-ft {
+  color: color(purple, 80) !important;
 }
 
 .hide {
@@ -119,6 +127,10 @@
 
 .highlight {
   color: #21ff7a;
+}
+
+.highlight--type2 {
+  background-color:rgba(4, 113, 233, 0.2);
 }
 
 @for $i from 1 through 200 {

@@ -69,7 +69,7 @@
       <!-- floting 네비게이션 영역 -->
       <div id="floating" class="floating-menu-wrap">
         <nav class="nav" role="navigation">
-          <ul class="nav__box" aria-expanded="false" data-navigation-defaultActive="2">
+          <ul class="nav__box" aria-expanded="false" data-navigation-defaultActive="0">
             <!-- 로그인 일때 -->
             <li class="nav__list">
               <div class="nav__item tooltip-button">
@@ -851,41 +851,8 @@
         </div>
       </div>
       <!-- //완료하기 팝업 -->
-      <!-- 제목수정 팝업 -->
-      <div class="modal modal--medium" id="modal5" role="dialog" aria-labelledby="#modal5Title">
-        <div class="modal__dialog" role="document">
-          <div class="modal__content">
-            <div class="modal__header">
-              <div class="modal__title" id="modal5Title">제목 수정</div>
-              <button type="button" class="ic-button" data-dialog-close aria-label="팝업닫기">
-                <i class="ic ic-close" aria-hidden="true"></i>
-              </button>
-            </div>
-            <div class="modal__body">
-              <div class="form">
-                <div class="fields">
-                  <div class="field">
-                    <label class="dpb medium ft14">제목</label>
-                    <textarea class="textarea textarea--tiny mxh68" maxlength="50">[2022.07.28] (1)</textarea>
-                    <div class="textarea__lengths">
-                      <label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
-                      <div class="textarea__lengths__box">
-                        <span class="textarea__lengths--current">16</span>/ <span class="textarea__lengths--total">50</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="modal__footer">
-              <button type="button" class="button pw100">저장하기</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- //제목수정 팝업 -->
-      <!-- 교정된 콘텐츠 | 일반 레이어팝업 -->
-      <div class="modal modal--layer modal--layer__type2" id="layerModal3" data-layer-opend="false">
+      <!-- 교정된 콘텐츠 레이어팝업 -->
+      <div class="modal modal--layer" id="layerModal1" data-layer-opend="false">
         <div class="modal__dialog">
           <div class="modal__content">
             <button type="button" class="ic-button" data-layer-close aria-label="팝업닫기">
@@ -893,418 +860,383 @@
             </button>
             <!-- 페이지 컨텐츠와 동일 element 사용 -->
             <div class="ly-content-box">
-              <div class="title">
+              <div class="title title--center">
                 <div class="title-lt">
-                  <a href="#none" alt="뒤로가기">
-                    <i class="ic ic-back" aria-hidden="true"></i>
-                  </a>
-                  <h2 class="text ft24 bold">일반</h2>
+                  <h2 class="text ft24 bold">용어/표현 검색<span class="text-sub">고객에게 어렵지 않을까 고민되는 표현은 검색해보세요.</span></h2>
                 </div>
                 <div class="title-rt">
-                  <div class="label-cate">
-                    <span class="ft18 medium">내 콘텐츠</span>
-                    <!-- 북마크 on/off class제공 -->
-                    <button type="button" class="ic-button" data-toggle="true" aria-label="북마크">
-                      <i class="ic ic-bookmark-g" aria-hidden="true"></i>
+                  <button type="button" class="button button--medium button--type4">직접 제안하기</button>
+                </div>
+              </div>
+              <div class="search-box search-box--small">
+                <div class="search-box__wrap">
+                  <div class="input-box">
+                    <input name="search" type="text" class="input" placeholder="검색어을 입력해주세요.">
+                    <button type="button" class="ic-button-clear" data-visible="" aria-label="클리어버튼" aria-pressed="false" onclick="Input.ClearButton(this)">
+                      <i class="ic ic-clear" aria-hidden="true"></i>
                     </button>
-                    <!-- //북마크 on/off class제공 -->
+                    <button type="button" class="ic-button-search" aria-label="검색버튼">
+                      <i class="ic ic-search--small" aria-hidden="true"></i>
+                    </button>
                   </div>
                 </div>
               </div>
-              <div class="form form-head">
-                <div class="fields">
-                  <div class="field">
-                    <label class="label ellipsis">[2022.09.02] (1)</label>
-                    <button type="button" class="ic-button" aria-label="제목수정" id="title_edit" data-dialog-trigger="#modal5">
-                      <i class="ic ic-edit" aria-hidden="true"></i>
-                    </button>
-                  </div>
-                  <div class="field">
-                    <label class="label">2022.09.13</label>
-                  </div>
+              <div class="box box--autoheight">
+                <h3 class="text ft20 medium blue700-ft">자주 찾는 표현</h3>
+                <div class="expresstion expresstion--type4">
+                  <ul class="expresstion-group">
+                    <li class="expresstion-list">
+                      <span>네비게이션</span>
+                      <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                      <label>내비게이션</label>
+                    </li>
+                    <li class="expresstion-list">
+                      <span>개인종합자산관리계좌 (ISA)</span>
+                      <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                      <label>ISA (개인종합자산관리계좌)</label>
+                    </li>
+                    <li class="expresstion-list">
+                      <span>라이센스</span>
+                      <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                      <label>라이선스</label>
+                    </li>
+                    <li class="expresstion-list">
+                      <span>추산</span>
+                      <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                      <label>어림잡다</label>
+                    </li>
+                    <li class="expresstion-list">
+                      <span>휴대폰 인증서 서비스(UBIKey)</span>
+                      <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                      <label>휴대폰 인증서 서비스(유비키)</label>
+                    </li>
+                    <li class="expresstion-list">
+                      <span>네비게이션</span>
+                      <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                      <label>내비게이션</label>
+                    </li>
+                    <li class="expresstion-list">
+                      <span>개인종합자산관리계좌 (ISA)</span>
+                      <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                      <label>ISA (개인종합자산관리계좌)</label>
+                    </li>
+                    <li class="expresstion-list">
+                      <span>라이센스</span>
+                      <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                      <label>라이선스</label>
+                    </li>
+                    <li class="expresstion-list">
+                      <span>휴대폰 인증서 서비스(UBIKey)</span>
+                      <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                      <label>휴대폰 인증서 서비스(유비키)</label>
+                    </li>
+                    <li class="expresstion-list">
+                      <span>추산</span>
+                      <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                      <label>어림잡다</label>
+                    </li>
+                  </ul>
+                </div>
+                <h3 class="text ft20 medium purple80-ft">최근 추가된 표현</h3>
+                <div class="expresstion expresstion--type4 expresstion--purple">
+                  <ul class="expresstion-group">
+                    <li class="expresstion-list">
+                      <label>ISA (개인종합자산관리계좌)</label>
+                    </li>
+                    <li class="expresstion-list">
+                      <label>라이선스</label>
+                    </li>
+                    <li class="expresstion-list">
+                      <label>휴대폰 인증서 서비스(유비키)</label>
+                    </li>
+                    <li class="expresstion-list">
+                      <label>어림잡다</label>
+                    </li>
+                    <li class="expresstion-list">
+                      <label>내비게이션</label>
+                    </li>
+                    <li class="expresstion-list">
+                      <label>ISA (개인종합자산관리계좌)</label>
+                    </li>
+                  </ul>
                 </div>
               </div>
-              <div class="form">
-                <div class="fields">
-                  <div class="field">
-                    <label class="dpb medium ft14">내용</label>
-                    <textarea data-bytes-check="" class="textarea textarea--medium" maxlength="5000" placeholder="내용 입력">
-신한은행과 BNP파리바카디프생명이 합작품인'(무)더세이프 대출안심보험'을 28일 런칭했다. BNP파리바 카디프생명은 글로벌 종합 금융그룹 BNP파리바의 보험 자회사이자 신용보험 글로벌 리더인 BNP파리바카디프 산하의 한국 생명보험법인이다. 이날 신한은행 에서 발간한 '보통사람 금융생활 보고서 2022'을 개관해 보면 지난 4년 동안 부채 보유 세대의 총 대출평균잔액은 꾸준히 증가했다. 작년 소득 대비 부채 규모는 20배로 증대할 것으로 나타났다. 연소득 증가 속도보다 부채 잔액이 점점 늘어나는 속도가 매년 빨라지면서 가구의 DTI가 낮아질 것으로 예상돼 대출 미상환 위험 대비의 필요성이 한층 가중되고 있다. '(무)더세이프 대출안심보험'의 부보조건은 대출 고객이 대출 기간 중 사망 또는 80% 이상의 고도장해, 암·뇌출혈·급성심근경색증 진단 등으로 대출금 상환이 어려울 경우 보험사가 고객 대신 남은 대출금'(무)더세이프 대출안심보험'의 부보조건은 대출 고객이 대출 기간 중 사망 또는 80% 이상의 고도장해 출안심보험'의 부
-              </textarea>
-                  </div>
-                </div>
-              </div>
-              <div class="ly-bottom-group">
-                <div class="button-group">
-                  <div class="tooltip__list">
-                    <button type="button" class="ic-button-edit" aria-label="복사" onclick="UXW.Message.show('텍스트를 복사하였습니다.', '1', '#toast2')">
-                      <i class="ic ic-copy" aria-hidden="true"></i>
-                    </button>
-                  </div>
-                  <div class="tooltip__list">
-                    <button type="button" class="ic-button-edit" aria-label="다운로드">
-                      <i class="ic ic-download" aria-hidden="true"></i>
-                    </button>
-                  </div>
-                  <div class="tooltip__list">
-                    <button type="button" class="ic-button-edit" aria-label="삭제">
-                      <i class="ic ic-delete" aria-hidden="true"></i>
-                    </button>
-                  </div>
-                </div>
-                <div class="message" id="toast2"></div>
-                <div class="button-group">
-                  <button type="button" class="button button--type2">수정하기</button>
-                </div>
-              </div>
+              <!-- //페이지 컨텐츠와 동일 element 사용 -->
             </div>
-            <div class="side" id="redacted_side">
-              <div class="side__wrap is-active">
-                <h3 class="sr-only">교정 가이드</h3>
-                <div class="side__inner">
-                  <div class="expresstion expresstion--type3">
-                    <ul class="expresstion-group">
-                      <li class="expresstion-list">
-                        <button type="button" class="expresstion-button" aria-hidden="true"></button>
-                        <span>네비게이션</span>
-                        <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
-                        <span>내비게이션</span>
-                      </li>
-                      <li class="expresstion-list">
-                        <button type="button" class="expresstion-button" aria-hidden="true"></button>
-                        <span>개인종합자산관리계좌 (ISA)</span>
-                        <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
-                        <span>ISA (개인종합자산관리계좌)</span>
-                      </li>
-                      <li class="expresstion-list">
-                        <button type="button" class="expresstion-button" aria-hidden="true"></button>
-                        <span>라이센스</span>
-                        <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
-                        <span>라이선스</span>
-                      </li>
-                      <li class="expresstion-list">
-                        <button type="button" class="expresstion-button" aria-hidden="true"></button>
-                        <span>휴대폰 인증서 서비스(UBIKey)</span>
-                        <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
-                        <span>휴대폰 인증서 서비스(유비키)</span>
-                      </li>
-                      <li class="expresstion-list">
-                        <button type="button" class="expresstion-button" aria-hidden="true"></button>
-                        <span>추산</span>
-                        <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
-                        <span>어림잡다</span>
-                      </li>
-                      <li class="expresstion-list">
-                        <button type="button" class="expresstion-button" aria-hidden="true"></button>
-                        <span>네비게이션</span>
-                        <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
-                        <span>내비게이션</span>
-                      </li>
-                      <li class="expresstion-list">
-                        <button type="button" class="expresstion-button" aria-hidden="true"></button>
-                        <span>개인종합자산관리계좌 (ISA)</span>
-                        <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
-                        <span>ISA (개인종합자산관리계좌)</span>
-                      </li>
-                      <li class="expresstion-list">
-                        <button type="button" class="expresstion-button" aria-hidden="true"></button>
-                        <span>라이센스</span>
-                        <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
-                        <span>라이선스</span>
-                      </li>
-                      <li class="expresstion-list">
-                        <button type="button" class="expresstion-button" aria-hidden="true"></button>
-                        <span>휴대폰 인증서 서비스(UBIKey)</span>
-                        <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
-                        <span>휴대폰 인증서 서비스(유비키)</span>
-                      </li>
-                      <li class="expresstion-list">
-                        <button type="button" class="expresstion-button" aria-hidden="true"></button>
-                        <span>추산</span>
-                        <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
-                        <span>어림잡다</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- 페이지 컨텐츠와 동일 element 사용 -->
           </div>
         </div>
+        <!-- //교정된 콘텐츠 레이어팝업 -->
       </div>
-      <!-- //교정된 콘텐츠 | 일반 레이어팝업 -->
     </div>
-  </div>
-  <script src="/res/js/lib/swiper.min.js"></script>
-  <script src="/res/js/uxw.ui.js"></script>
-  <script>
-    const sideSwiper = UXW.SwiperA11y('#side .swiper', {
-      observer: true,
-      observeParents: true,
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false
-      },
-      grapCursor: true,
-      loop: true,
-      speed: 600,
-      mousewheelControl: true,
-      keyboard: {
-        enabled: true,
-        onlyInViewport: false
-      },
-      spaceBetween: 40,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
-      },
-      autoHeight: true
-    });
-    const buttonSwiper = UXW.SwiperA11y('#sorting .swiper', {
-      observer: true,
-      observeParents: true,
-      slidesPerView: "auto",
-      grapCursor: true,
-      speed: 600,
-      mousewheelControl: true,
-      keyboard: {
-        enabled: true,
-        onlyInViewport: false
-      }
-    });
-    const Input = {
-      // 에러
-      Error: function(props) {
-        const ARIA_HIDDEN = 'aria-hidden';
-        const input = props.parentElement;
-        const label = input.nextElementSibling.classList.contains('error');
-        input.classList.add('error');
-        if (!label) {
-          return;
+    <script src="/res/js/lib/swiper.min.js"></script>
+    <script src="/res/js/uxw.ui.js"></script>
+    <script>
+      const sideSwiper = UXW.SwiperA11y('#side .swiper', {
+        observer: true,
+        observeParents: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false
+        },
+        grapCursor: true,
+        loop: true,
+        speed: 600,
+        mousewheelControl: true,
+        keyboard: {
+          enabled: true,
+          onlyInViewport: false
+        },
+        spaceBetween: 40,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        },
+        autoHeight: true
+      });
+      const buttonSwiper = UXW.SwiperA11y('#sorting .swiper', {
+        observer: true,
+        observeParents: true,
+        slidesPerView: "auto",
+        grapCursor: true,
+        speed: 600,
+        mousewheelControl: true,
+        keyboard: {
+          enabled: true,
+          onlyInViewport: false
         }
-        const get = input.nextElementSibling.getAttribute(ARIA_HIDDEN);
-        if (get === 'true') {
-          input.nextElementSibling.setAttribute(ARIA_HIDDEN, false);
-        }
-      },
-      // 에러 클리어
-      Clear: function(props) {
-        const ARIA_HIDDEN = 'aria-hidden';
-        const input = props.parentElement;
-        const label = input.nextElementSibling.classList.contains('error');
-        input.classList.remove('error');
-        if (!label) {
-          return;
-        }
-        const get = input.nextElementSibling.getAttribute(ARIA_HIDDEN);
-        if (get === 'false') {
-          input.nextElementSibling.setAttribute(ARIA_HIDDEN, true);
-        }
-      },
-      // value 삭제버튼
-      ClearButton: function(param) {
-        if (!param.previousElementSibling) {
-          return;
-        }
-        if (param.previousElementSibling.tagName === 'INPUT') {
-          param.previousElementSibling.value = '';
-          param.classList.remove('is-active');
-          if (param.previousElementSibling.getAttribute('name') === 'id') {
-            const target = document.querySelector('[name="password"]');
-            const passwordParent = target.closest('.input-box');
-            passwordParent.style.height = '';
-            passwordParent.style.marginTop = '0';
-            passwordParent.classList.add('expanding');
-            passwordParent.classList.remove('expand');
-            passwordParent.classList.remove('expanded');
-          }
-        }
-      },
-      // InputBox value Checker
-      Check: function() {
-        const elements = document.querySelectorAll('.input-box');
-        const onInput = function(event) {
-          const value = event.target.value;
-          const length = value.length;
-          const nextEl = event.target.nextElementSibling;
-          if (!nextEl) {
+      });
+      const Input = {
+        // 에러
+        Error: function(props) {
+          const ARIA_HIDDEN = 'aria-hidden';
+          const input = props.parentElement;
+          const label = input.nextElementSibling.classList.contains('error');
+          input.classList.add('error');
+          if (!label) {
             return;
           }
-          if (length > 0) {
-            nextEl.classList.add('is-active');
-          } else {
-            nextEl.classList.remove('is-active');
+          const get = input.nextElementSibling.getAttribute(ARIA_HIDDEN);
+          if (get === 'true') {
+            input.nextElementSibling.setAttribute(ARIA_HIDDEN, false);
           }
-        };
-        [].forEach.call(elements, item => {
-          const target = item.querySelector('.input');
-          target.addEventListener('keyup', onInput);
-          target.addEventListener('keydown', onInput);
-          target.addEventListener('change', onInput);
-        });
-      }
-    };
-    sideSwiper.el.addEventListener('mouseenter', function() {
-      sideSwiper.autoplay.stop();
-    });
-    sideSwiper.el.addEventListener('mouseleave', function() {
-      sideSwiper.autoplay.start();
-    });
-    //사이드 OPEN & CLOSE
-    const currectEvent = {
-      OPEN: function(param) {
-        const target = document.querySelector('#' + param.dataset.target);
-        target.classList.add('is-active');
-        target.classList.remove('is-deactive');
-        target.previousElementSibling.classList.add('is-deactive');
-        target.previousElementSibling.classList.remove('is-active');
-        btnupload.disabled = true;
-        btnsave.setAttribute('aria-hidden', false);
-        btndelete.classList.remove('hide');
-      },
-      CLOSE: function(param) {
-        const target = document.querySelector('#' + param.dataset.target);
-        target.classList.add('is-deactive');
-        target.classList.remove('is-active');
-        target.previousElementSibling.classList.add('is-active');
-        target.previousElementSibling.classList.remove('is-deactive');
-      },
-      BEFORE: function(param) {
-        const ARIA_EXPENDED = param.getAttribute('aria-expanded');
-        if (ARIA_EXPENDED === 'false') {
-          currectEvent.CLOSE(param);
-        } else {
-          currectEvent.OPEN(param);
+        },
+        // 에러 클리어
+        Clear: function(props) {
+          const ARIA_HIDDEN = 'aria-hidden';
+          const input = props.parentElement;
+          const label = input.nextElementSibling.classList.contains('error');
+          input.classList.remove('error');
+          if (!label) {
+            return;
+          }
+          const get = input.nextElementSibling.getAttribute(ARIA_HIDDEN);
+          if (get === 'false') {
+            input.nextElementSibling.setAttribute(ARIA_HIDDEN, true);
+          }
+        },
+        // value 삭제버튼
+        ClearButton: function(param) {
+          if (!param.previousElementSibling) {
+            return;
+          }
+          if (param.previousElementSibling.tagName === 'INPUT') {
+            param.previousElementSibling.value = '';
+            param.classList.remove('is-active');
+            if (param.previousElementSibling.getAttribute('name') === 'id') {
+              const target = document.querySelector('[name="password"]');
+              const passwordParent = target.closest('.input-box');
+              passwordParent.style.height = '';
+              passwordParent.style.marginTop = '0';
+              passwordParent.classList.add('expanding');
+              passwordParent.classList.remove('expand');
+              passwordParent.classList.remove('expanded');
+            }
+          }
+        },
+        // InputBox value Checker
+        Check: function() {
+          const elements = document.querySelectorAll('.input-box');
+          const onInput = function(event) {
+            const value = event.target.value;
+            const length = value.length;
+            const nextEl = event.target.nextElementSibling;
+            if (!nextEl) {
+              return;
+            }
+            if (length > 0) {
+              nextEl.classList.add('is-active');
+            } else {
+              nextEl.classList.remove('is-active');
+            }
+          };
+          [].forEach.call(elements, item => {
+            const target = item.querySelector('.input');
+            target.addEventListener('keyup', onInput);
+            target.addEventListener('keydown', onInput);
+            target.addEventListener('change', onInput);
+          });
         }
-      }
-    };
-    //바이트수 체크
-    function bytesCheck() {
-      const bytesCheck = document.querySelectorAll('[data-bytes-check]');
-      const ARIA_HIDDEN = 'aria-hidden';
-      Array.prototype.forEach.call(bytesCheck, function(el) {
-        // 한글 And 특수문자 2byte, 그 외 1byte
-        function getByteCheck(str) {
-          let len = 0;
-          for (var i = 0; i < str.length; i++) {
-            if (escape(str.charAt(i)).length === 6) {
+      };
+      sideSwiper.el.addEventListener('mouseenter', function() {
+        sideSwiper.autoplay.stop();
+      });
+      sideSwiper.el.addEventListener('mouseleave', function() {
+        sideSwiper.autoplay.start();
+      });
+      //사이드 OPEN & CLOSE
+      const currectEvent = {
+        OPEN: function(param) {
+          const target = document.querySelector('#' + param.dataset.target);
+          target.classList.add('is-active');
+          target.classList.remove('is-deactive');
+          target.previousElementSibling.classList.add('is-deactive');
+          target.previousElementSibling.classList.remove('is-active');
+          btnupload.disabled = true;
+          btnsave.setAttribute('aria-hidden', false);
+          btndelete.classList.remove('hide');
+        },
+        CLOSE: function(param) {
+          const target = document.querySelector('#' + param.dataset.target);
+          target.classList.add('is-deactive');
+          target.classList.remove('is-active');
+          target.previousElementSibling.classList.add('is-active');
+          target.previousElementSibling.classList.remove('is-deactive');
+        },
+        BEFORE: function(param) {
+          const ARIA_EXPENDED = param.getAttribute('aria-expanded');
+          if (ARIA_EXPENDED === 'false') {
+            currectEvent.CLOSE(param);
+          } else {
+            currectEvent.OPEN(param);
+          }
+        }
+      };
+      //바이트수 체크
+      function bytesCheck() {
+        const bytesCheck = document.querySelectorAll('[data-bytes-check]');
+        const ARIA_HIDDEN = 'aria-hidden';
+        Array.prototype.forEach.call(bytesCheck, function(el) {
+          // 한글 And 특수문자 2byte, 그 외 1byte
+          function getByteCheck(str) {
+            let len = 0;
+            for (var i = 0; i < str.length; i++) {
+              if (escape(str.charAt(i)).length === 6) {
+                len++;
+              }
               len++;
             }
-            len++;
+            return len;
           }
-          return len;
-        }
-        // 초기값 세팅
-        var bytes = el.getAttribute('maxLength') * 2;
-        // 키 입력 시 바이트 계산
-        ['keydown', 'keyup', 'change'].forEach(function(type) {
-          el.addEventListener(type, function() {
-            let leng = this.value.length;
-            const textEl = this.nextElementSibling;
-            const lableError = textEl.querySelector('label');
-            const textCurrent = textEl.querySelector('.textarea__lengths--current');
-            const labelData = lableError.getAttribute(ARIA_HIDDEN);
-            this.classList.remove('error');
-            textEl.classList.remove('error');
-            lableError.setAttribute(ARIA_HIDDEN, true);
-            if (getByteCheck(this.value) > bytes) {
-              this.classList.add('error');
-              textEl.classList.add('error');
-              if (labelData) {
-                lableError.setAttribute(ARIA_HIDDEN, false);
+          // 초기값 세팅
+          var bytes = el.getAttribute('maxLength') * 2;
+          // 키 입력 시 바이트 계산
+          ['keydown', 'keyup', 'change'].forEach(function(type) {
+            el.addEventListener(type, function() {
+              let leng = this.value.length;
+              const textEl = this.nextElementSibling;
+              const lableError = textEl.querySelector('label');
+              const textCurrent = textEl.querySelector('.textarea__lengths--current');
+              const labelData = lableError.getAttribute(ARIA_HIDDEN);
+              this.classList.remove('error');
+              textEl.classList.remove('error');
+              lableError.setAttribute(ARIA_HIDDEN, true);
+              if (getByteCheck(this.value) > bytes) {
+                this.classList.add('error');
+                textEl.classList.add('error');
+                if (labelData) {
+                  lableError.setAttribute(ARIA_HIDDEN, false);
+                }
+                leng--;
+                this.value = this.value.substr(0, leng);
+                alert('최대 5,000자까지 입력할 수 있어요. 본문내용을 확인 해주세요.');
               }
-              leng--;
-              this.value = this.value.substr(0, leng);
-              alert('최대 5,000자까지 입력할 수 있어요. 본문내용을 확인 해주세요.');
-            }
-            if (leng > 0) {
-              btncurrect.disabled = false;
-              btncopy.disabled = false;
-              btndownload.disabled = false;
-            } else {
-              btncurrect.disabled = true;
-              btnupload.disabled = false;
-              btncopy.disabled = true;
-              btndownload.disabled = true;
-              btndelete.classList.add('hide');
-            }
-            const resultFormat = function(num) {
-              return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            }
-            if (textEl.classList.contains('error')) {
-              textCurrent.innerText = resultFormat(leng + 1)
-            } else {
-              textCurrent.innerText = resultFormat(leng);
-            }
+              if (leng > 0) {
+                btncurrect.disabled = false;
+                btncopy.disabled = false;
+                btndownload.disabled = false;
+              } else {
+                btncurrect.disabled = true;
+                btnupload.disabled = false;
+                btncopy.disabled = true;
+                btndownload.disabled = true;
+                btndelete.classList.add('hide');
+              }
+              const resultFormat = function(num) {
+                return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+              }
+              if (textEl.classList.contains('error')) {
+                textCurrent.innerText = resultFormat(leng + 1)
+              } else {
+                textCurrent.innerText = resultFormat(leng);
+              }
+            });
           });
         });
-      });
-    }
+      }
 
-    function changeLangauge() {
-      const card = 'data-card';
-      const cardChecked = document.querySelectorAll('[' + card + ']');
-      if (cardChecked.length === 0) {
-        return;
-      };
-      [].forEach.call(cardChecked, function(x) {
-        const checkEl = x.querySelector('.accordion__check input[type="checkbox"]:checked');
-        if (checkEl) {
-          x.setAttribute(card, true);
+      function changeLangauge() {
+        const card = 'data-card';
+        const cardChecked = document.querySelectorAll('[' + card + ']');
+        if (cardChecked.length === 0) {
+          return;
+        };
+        [].forEach.call(cardChecked, function(x) {
+          const checkEl = x.querySelector('.accordion__check input[type="checkbox"]:checked');
+          if (checkEl) {
+            x.setAttribute(card, true);
+          }
+        })
+      }
+
+      function changeLangaugeInit() {
+        const card = 'data-card';
+        const cardChecked = document.querySelectorAll('[' + card + ']');
+        if (cardChecked.length === 0) {
+          return;
+        };
+        [].forEach.call(cardChecked, function(x) {
+          x.setAttribute(card, false);
+        })
+      }
+      document.addEventListener('DOMContentLoaded', function() {
+        bytesCheck();
+        btncurrect.onclick = function() {
+          currectEvent.OPEN(btncurrect);
+        }
+        Input.Check();
+      });
+      document.addEventListener('UILoaded', function() {
+        //삭제버튼 클릭시
+        btndelete.onclick = function() {
+          UXW.Confirm('삭제하시면 복구시킬 수 없어요.<br/> 작성하신 콘텐츠를 삭제하시겠어요?', function() {
+            this.close();
+          });
         }
       })
-    }
-
-    function changeLangaugeInit() {
-      const card = 'data-card';
-      const cardChecked = document.querySelectorAll('[' + card + ']');
-      if (cardChecked.length === 0) {
-        return;
-      };
-      [].forEach.call(cardChecked, function(x) {
-        x.setAttribute(card, false);
-      })
-    }
-    document.addEventListener('DOMContentLoaded', function() {
-      bytesCheck();
-      btncurrect.onclick = function() {
-        currectEvent.OPEN(btncurrect);
-      }
-      Input.Check();
-    });
-    document.addEventListener('UILoaded', function() {
-      //삭제버튼 클릭시
-      btndelete.onclick = function() {
-        UXW.Confirm('삭제하시면 복구시킬 수 없어요.<br/> 작성하신 콘텐츠를 삭제하시겠어요?', function() {
-          this.close();
-        });
-      }
-    })
-    const tabEl = document.querySelector('#mainTab')
-    tabEl.addEventListener(UXW.Tab.EVENT.CHANGE, function(event) {
-      var currentTab = event.current;
-      var beforeTab = event.before;
-      //변경전 페이지적용
-      if (currentTab.content.id === 'tabpanel2' || currentTab.content.id === 'tabpanel3') {
-        currectEvent.CLOSE(btncurrect);
-        btncopy.parentElement.classList.add('hide')
-        btnupload.parentElement.classList.add('hide')
-        btndelete.parentElement.classList.add('hide')
-        btndownload.disabled = true;
-      } else if (currentTab.content.id === 'tabpanel1') {
-        btncopy.parentElement.classList.remove('hide')
-        btnupload.parentElement.classList.remove('hide')
-        btndelete.parentElement.classList.remove('hide')
-        btncopy.disabled = false;
-        btndownload.disabled = false;
-      }
-    });
-  </script>
+      const tabEl = document.querySelector('#mainTab')
+      tabEl.addEventListener(UXW.Tab.EVENT.CHANGE, function(event) {
+        var currentTab = event.current;
+        var beforeTab = event.before;
+        //변경전 페이지적용
+        if (currentTab.content.id === 'tabpanel2' || currentTab.content.id === 'tabpanel3') {
+          currectEvent.CLOSE(btncurrect);
+          btncopy.parentElement.classList.add('hide')
+          btnupload.parentElement.classList.add('hide')
+          btndelete.parentElement.classList.add('hide')
+          btndownload.disabled = true;
+        } else if (currentTab.content.id === 'tabpanel1') {
+          btncopy.parentElement.classList.remove('hide')
+          btnupload.parentElement.classList.remove('hide')
+          btndelete.parentElement.classList.remove('hide')
+          btncopy.disabled = false;
+          btndownload.disabled = false;
+        }
+      });
+    </script>
 </body>
 
 </html>

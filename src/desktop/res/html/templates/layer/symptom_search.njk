@@ -2,15 +2,115 @@
   <div class="modal__dialog">
     <div class="modal__content">
       <button type="button" class="ic-button" data-layer-close aria-label="팝업닫기">
-        <i class="ic ic-close" aria-hidden="true"></i>
+        <i class="ic ic-close-large" aria-hidden="true"></i>
       </button>
       <!-- 페이지 컨텐츠와 동일 element 사용 -->
       <div class="ly-content-box">
-        <div class="title">
-          <h2 class="text ft24 bold">용어/표현 검색</h2>
+        <div class="title title--center">
+          <div class="title-lt">
+            <h2 class="text ft24 bold">용어/표현 검색<span class="text-sub">고객에게 어렵지 않을까 고민되는 표현은 검색해보세요.</span></h2>
+          </div>
+          <div class="title-rt">
+            <button type="button" class="button button--medium button--type4">직접 제안하기</button>
+          </div>
         </div>
+
+        <div class="search-box search-box--small">
+          <div class="search-box__wrap">
+            <div class="input-box">
+              <input name="search" type="text" class="input" placeholder="검색어을 입력해주세요.">
+              <button type="button" class="ic-button-clear" data-visible="" aria-label="클리어버튼" aria-pressed="false" onclick="Input.ClearButton(this)">
+                <i class="ic ic-clear" aria-hidden="true"></i>
+              </button>
+              <button type="button" class="ic-button-search" aria-label="검색버튼">
+                <i class="ic ic-search--small" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="box box--autoheight">
+          <h3 class="text ft20 medium blue700-ft">자주 찾는 표현</h3>
+          <div class="expresstion expresstion--type4">
+            <ul class="expresstion-group">
+              <li class="expresstion-list">
+                <span>네비게이션</span>
+                <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                <label>내비게이션</label>
+              </li>
+              <li class="expresstion-list">
+                <span>개인종합자산관리계좌 (ISA)</span>
+                <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                <label>ISA (개인종합자산관리계좌)</label>
+              </li>
+              <li class="expresstion-list">
+                <span>라이센스</span>
+                <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                <label>라이선스</label>
+              </li>
+              <li class="expresstion-list">
+                <span>추산</span>
+                <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                <label>어림잡다</label>
+              </li>
+              <li class="expresstion-list">
+                <span>휴대폰 인증서 서비스(UBIKey)</span>
+                <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                <label>휴대폰 인증서 서비스(유비키)</label>
+              </li>
+              <li class="expresstion-list">
+                <span>네비게이션</span>
+                <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                <label>내비게이션</label>
+              </li>
+              <li class="expresstion-list">
+                <span>개인종합자산관리계좌 (ISA)</span>
+                <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                <label>ISA (개인종합자산관리계좌)</label>
+              </li>
+              <li class="expresstion-list">
+                <span>라이센스</span>
+                <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                <label>라이선스</label>
+              </li>
+              <li class="expresstion-list">
+                <span>휴대폰 인증서 서비스(UBIKey)</span>
+                <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                <label>휴대폰 인증서 서비스(유비키)</label>
+              </li>
+              <li class="expresstion-list">
+                <span>추산</span>
+                <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                <label>어림잡다</label>
+              </li>
+            </ul>
+          </div>
+
+          <h3 class="text ft20 medium purple80-ft">최근 추가된 표현</h3>
+          <div class="expresstion expresstion--type4 expresstion--purple">
+            <ul class="expresstion-group">
+              <li class="expresstion-list">
+                <label>ISA (개인종합자산관리계좌)</label>
+              </li>
+              <li class="expresstion-list">
+                <label>라이선스</label>
+              </li>
+              <li class="expresstion-list">
+                <label>휴대폰 인증서 서비스(유비키)</label>
+              </li>
+              <li class="expresstion-list">
+                <label>어림잡다</label>
+              </li>
+              <li class="expresstion-list">
+                <label>내비게이션</label>
+              </li>
+              <li class="expresstion-list">
+                <label>ISA (개인종합자산관리계좌)</label>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- //페이지 컨텐츠와 동일 element 사용 -->
       </div>
-      <!-- 페이지 컨텐츠와 동일 element 사용 -->
     </div>
   </div>
-</div>

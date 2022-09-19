@@ -11,6 +11,7 @@ import Message from './components/message';
 import ConfirmMessage from './components/confirm';
 import AlertMessage from './components/alert';
 import Dialog from './components/dialog';
+import AutoHeightFit from './components/autoHeightFit';
 import commonInit from './common';
 import { getRandomID } from './utils/random';
 /**
@@ -32,6 +33,10 @@ const UIInitializer = (target, UI, options = {}) => {
 Tab.GLOBAL_CONFIG = {
   activeClass: 'is-active',
 };
+
+AutoHeightFit.GLOBAL_CONFIG = {
+  firstLoaded:true,
+}
 
 Accordion.GLOBAL_CONFIG = {
   activeClass: 'is-active',
@@ -177,7 +182,10 @@ const SwiperA11y = (el, options = {}) => {
   });
 };
 
-const initialize = () => {
+const initialize = () => {  
+  // 오토헤이트핏
+  UIInitializer('.box--autoheight', AutoHeightFit);
+
   // 툴팁
   UIInitializer('.tooltip-button', Tooltip);
 
@@ -211,6 +219,7 @@ const ui = {
   initialize,
   Tooltip,
   Tab,
+  AutoHeightFit,
   Accordion,
   SwiperA11y,
   Dropdown,

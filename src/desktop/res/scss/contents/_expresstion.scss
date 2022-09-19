@@ -1,4 +1,7 @@
 .expresstion {
+  +.text {
+    margin-top:60px;
+  }
   $root: expresstion;
   margin-top: 40px;
 
@@ -80,6 +83,65 @@
       &:before {
         display: none;
       }
+    }
+  }
+
+  &--type4 {
+    margin-top:0px;
+    .expresstion-group {
+      font-size:0;
+    }
+    .expresstion-group .expresstion-list {
+      width:auto;
+      height: 40px;
+      min-height: auto;
+    }
+    .expresstion-group .expresstion-list span:first-child {
+      color:color(grey, 600);
+    }
+    .ic-expresstion-arrow--type2 {
+      margin:0 10px;
+    }
+    .#{$root}-list {
+      display: inline-flex;
+      flex-shrink: 1;
+      width: auto;
+      padding:10px;
+      border-radius: 6px;
+      border:1px solid color(blue, 500);
+      margin:20px 20px 0 0;
+      span, label {
+        font-size:14px;
+        line-height:20px;
+        font-weight: 500;
+      }
+      span {
+        width:auto;
+      }
+      label {
+        cursor: pointer;
+        color:color(grey, 900);
+        &:hover {
+          text-decoration: underline;
+          color:color(blue, 800);
+        }
+      }
+      span ~ label {
+        color:color(blue, 800);
+      }
+      &:before {
+        display: none;
+      }
+      &:first-child,&:last-child {
+        padding:10px;
+        border:1px solid color(blue, 500);
+      }
+    }
+  }
+
+  &--purple {
+    .#{$root}-list {
+      border-color:color(purple, 60)!important;
     }
   }
 
