@@ -3,7 +3,7 @@
         'id': 'accordion__content0',
         'header': 'accordion__header0',
         'name': '화면목록',
-        'url': 'index.html'
+        'url': 'list.html'
     }, {
         'id': 'accordion__content-c',
         'header': 'accordion__header-c',
@@ -153,32 +153,30 @@
     }
 ] %}
 
-{% block content %}
-    <div class="guide__menu">
-        <nav class="guide__menu__nav">
-            <div class="accordion" data-ui-accordion data-accordion-onlyone="true">
-                <div class="accordion__box">
-                    {% for item in navigation %}
-                        <div class="accordion__item">
-                            {% if item.children %}
-                                <div class="accordion__head">
-                                    <button class="accordion__button" id="{{item.header}}" type="button" aria-expanded="false" aria-controls="{{item.id}}" aria-label="버튼"></button>
-                                    <strong>{{item.name}}</strong>
-                                </div>
-                                <div class="accordion__panel expand" id="{{item.id}}" aria-labelledby="{{item.header}}">
-                                    {% for child in item.children %}
-                                        <a class="text-link" href="{{child.url}}" alt="{{child.alt}}">{{child.name}}</a>
-                                    {% endfor %}
-                                </div>
-                            {% else %}
-                                <div class="accordion__head">
-                                    <a class="text-link" href="{{item.url}}" alt="{{item.alt}}">{{item.name}}</a>
-                                </div>
-                            {% endif %}
-                        </div>
-                    {% endfor %}
-                </div>
+<div class="guide__menu">
+    <nav class="guide__menu__nav">
+        <div class="accordion" data-ui-accordion data-accordion-onlyone="true">
+            <div class="accordion__box">
+                {% for item in navigation %}
+                    <div class="accordion__item">
+                        {% if item.children %}
+                            <div class="accordion__head">
+                                <button class="accordion__button" id="{{item.header}}" type="button" aria-expanded="false" aria-controls="{{item.id}}" aria-label="버튼"></button>
+                                <strong>{{item.name}}</strong>
+                            </div>
+                            <div class="accordion__panel expand" id="{{item.id}}" aria-labelledby="{{item.header}}">
+                                {% for child in item.children %}
+                                    <a class="text-link" target="content" href="{{child.url}}" alt="{{child.alt}}">{{child.name}}</a>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <div class="accordion__head">
+                                <a class="text-link" target="content" href="{{item.url}}" alt="{{item.alt}}">{{item.name}}</a>
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
             </div>
-        </nav>
-    </div>
-{% endblock %}
+        </div>
+    </nav>
+</div>

@@ -1,5 +1,3 @@
-{% set user = "logout" %}
-{% set title = "가이드 UXW 플로팅메뉴"%}
 {% extends "../templates/layout.njk" %}
 {% block content %}
     <div class="guide-wrap">
@@ -13,10 +11,69 @@
 
             <div class="ex-body">
                 <div class="ex-preview">
+                    <div id="floating" class="floating-menu-wrap">
+                        <nav class="nav" role="navigation">
+                            <ul class="nav__box" aria-expanded="false">
+                                <li class="nav__list">
+                                    <div class="nav__item tooltip-button">
+                                        <button type="button" class="ic-button-nav" aria-describedby="tooltip1" aria-label="용어/표현 검색" aria-controls="layerModal1">
+                                            <i class="ic ic-search" aria-hidden="true"></i>
+                                        </button>
+                                        <a class="text" href="#none" alt="용어사전검색 바로가기">용어/표현 검색</a>
+                                    </div>
+                                </li>
+                                <li class="nav__list">
+                                    <div class="nav__item tooltip-button">
+                                        <button type="button" class="ic-button-nav" aria-describedby="tooltip2" aria-label="UX라이팅 가이드" aria-controls="layerModal2">
+                                            <i class="ic ic-guidebook" aria-hidden="true"></i>
+                                        </button>
+                                        <a class="text" href="#none" alt="UX라이팅 가이드">UX라이팅 가이드</a>
+                                    </div>
+                                </li>
+                                <li class="nav__list">
+                                    <div class="nav__item tooltip-button">
+                                        <button type="button" class="ic-button-nav" aria-describedby="tooltip3" aria-label="교정된 콘텐츠" aria-controls="layerModal3">
+                                            <i class="ic ic-edition" aria-hidden="true"></i>
+                                        </button>
+                                        <a class="text" href="#none" alt="교정된 콘텐츠">교정된 콘텐츠</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
                     <div class="html-view">
                         <pre>
                         <code class="ex-code-block render-html">
-                        
+                         <div class="floating-menu-wrap">
+                        <nav class="nav" role="navigation">
+                        <ul class="nav__box" aria-expanded="false">
+                            <li class="nav__list">
+                            <div class="nav__item tooltip-button">
+                                <button type="button" class="ic-button-nav" aria-describedby="tooltip1" aria-label="용어/표현 검색">
+                                <i class="ic ic-search" aria-hidden="true"></i>
+                                </button>
+                                <a class="text" href="#none" alt="용어사전검색 바로가기">용어/표현 검색</a>
+                            </div>
+                            </li>
+                            <li class="nav__list">
+                            <div class="nav__item tooltip-button">
+                                <button type="button" class="ic-button-nav" aria-describedby="tooltip2" aria-label="UX라이팅 가이드">
+                                <i class="ic ic-guidebook" aria-hidden="true"></i>
+                                </button>
+                                <a class="text" href="#none" alt="UX라이팅 가이드">UX라이팅 가이드</a>
+                            </div>
+                            </li>
+                            <li class="nav__list">
+                            <div class="nav__item tooltip-button">
+                                <button type="button" class="ic-button-nav" aria-describedby="tooltip3" aria-label="교정된 콘텐츠">
+                                <i class="ic ic-edition" aria-hidden="true"></i>
+                                </button>
+                                <a class="text" href="#none" alt="교정된 콘텐츠">교정된 콘텐츠</a>
+                            </div>
+                            </li>
+                        </ul>
+                        </nav>
+                    </div>
                         </code>
                     </pre>
                     </div>

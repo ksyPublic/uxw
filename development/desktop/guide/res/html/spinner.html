@@ -5,161 +5,62 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
-    <title>가이드 UXW 로딩스피너</title>
+    <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/res/css/styles.css" />
     <link rel="stylesheet" href="../../vendor/prism.css">
     <link rel="stylesheet" href="../guideStyle.css">
 </head>
+<style>
+    body,
+    html {
+        overflow: auto;
+    }
+</style>
 
 <body>
-    <div class="wrap">
-        <!-- header 영역 -->
-        <header class="head">
-            <h1 class="head__logo">
-                <a href="#none" alt="홈 바로가기">
-                    <img src="/res/images/logo.png" alt="신한 UX라이팅 시스템" />
-                    <span>신한 UX라이팅 시스템</span>
-                </a>
-            </h1>
-            <!-- 로그인 일때 -->
-            <div class="head__nav">
-                <ul>
-                    <li>
-                        <button type="button" class="ic-button-head is-active" aria-label="글쓰기">
-                            <i class="ic ic-writing" aria-hidden="true"></i>
-                        </button>
-                    </li>
-                    <li>
-                        <button type="button" class="ic-button-head" aria-label="마이페이지">
-                            <i class="ic ic-my" aria-hidden="true"></i>
-                        </button>
-                    </li>
-                    <li>
-                        <button type="button" class="ic-button-head" aria-label="Q&A">
-                            <i class="ic ic-qa" aria-hidden="true"></i>
-                        </button>
-                    </li>
-                    <li>
-                        <button type="button" class="ic-button-head" aria-controls="nav_content" aria-label="메뉴">
-                            <i class="ic ic-menu" aria-hidden="true"></i>
-                        </button>
-                    </li>
-                </ul>
-                <div class="head__log">
-                    <a class="text-link" href="#none" alt="로그아웃">로그아웃<i class="ic ic-text-arrow" aria-hidden="true"></i>
-                    </a>
-                </div>
+    <div class="guide-wrap">
+        <h2 class="ex-name">Spinner</h2>
+        <div class="ex-content">
+            <div class="ex-title">
+                <h3>로딩 스피너</h3>
+                <p class="ex-desc">로딩 스피너는 호출 한 만큼 hide가 호출되어야 정상적으로 화면에서 사라집니다. <br />ex) show 4번 호출 시 hide 역시 4번 호출되어야 합니다. </p>
             </div>
-            <!-- //로그인 일때 -->
-        </header>
-        <!-- header 영역 -->
-        <div class="guide__wrap">
-            <div class="guide__menu">
-                <nav class="guide__menu__nav">
-                    <div class="accordion" data-ui-accordion data-accordion-onlyone="true">
-                        <div class="accordion__box">
-                            <div class="accordion__item">
-                                <div class="accordion__head">
-                                    <a class="text-link" href="index.html" alt="">화면목록</a>
-                                </div>
+            <div class="ex-body">
+                <div class="ex-preview">
+                    <button class="button button--medium button--type4" type="button" id="example1">OPEN SPINNER</button>
+                    <div class="ly-bottom-group" style="position:relative; max-width:none; left:0;">
+                        <div class="button-group">
+                            <div class="tooltip__list">
+                                <input type="file" role="button" aria-label="File Upload" tabindex="-1" accept=".docx, .txt">
+                                <label class="ic-button-edit" tabindex="0" for="btnupload" role="button" aria-label="업로드">
+                                    <i class="ic ic-upload" aria-hidden="true"></i>
+                                </label>
                             </div>
-                            <div class="accordion__item">
-                                <div class="accordion__head">
-                                    <a class="text-link" href="common-script.html" alt="">Common-Script</a>
-                                </div>
+                            <div class="tooltip__list">
+                                <button type="button" class="ic-button-edit" aria-label="복사">
+                                    <i class="ic ic-copy" aria-hidden="true"></i>
+                                </button>
                             </div>
-                            <div class="accordion__item">
-                                <div class="accordion__head">
-                                    <button class="accordion__button" id="accordion__header1" type="button" aria-expanded="false" aria-controls="accordion__content1" aria-label="버튼"></button>
-                                    <strong>Layout</strong>
-                                </div>
-                                <div class="accordion__panel expand" id="accordion__content1" aria-labelledby="accordion__header1">
-                                    <a class="text-link" href="header.html" alt="헤더 바로가기">Header</a>
-                                    <a class="text-link" href="floating-menu.html" alt="플로팅메뉴 바로가기">Floating-Menu</a>
-                                </div>
+                            <div class="tooltip__list">
+                                <button type="button" class="ic-button-edit" aria-label="다운로드">
+                                    <i class="ic ic-download" aria-hidden="true"></i>
+                                </button>
                             </div>
-                            <div class="accordion__item">
-                                <div class="accordion__head">
-                                    <button class="accordion__button" id="accordion__header2" type="button" aria-expanded="false" aria-controls="accordion__content2" aria-label="버튼"></button>
-                                    <strong>Components</strong>
-                                </div>
-                                <div class="accordion__panel expand" id="accordion__content2" aria-labelledby="accordion__header2">
-                                    <a class="text-link" href="./tabs.html" alt="탭 바로가기">Tabs</a>
-                                    <a class="text-link" href="./accordion.html" alt="아코디언 바로가기">Accordion</a>
-                                    <a class="text-link" href="./title.html" alt="타이틀 바로가기">Title</a>
-                                    <a class="text-link" href="./tooltip.html" alt="툴팁 바로가기">Tooltip</a>
-                                    <a class="text-link" href="./dialog.html" alt="팝업 바로가기">Dialog</a>
-                                    <a class="text-link" href="./spinner.html" alt="로딩스피너 바로가기">Spinner</a>
-                                    <a class="text-link" href="./swiper.html" alt="스와이퍼 바로가기">Swiper</a>
-                                    <a class="text-link" href="./dropdown.html" alt="드롭다운 바로가기">Dropdown</a>
-                                </div>
+                            <div class="tooltip__list">
+                                <button type="button" class="ic-button-edit hide" aria-label="삭제">
+                                    <i class="ic ic-delete" aria-hidden="true"></i>
+                                </button>
                             </div>
-                            <div class="accordion__item">
-                                <div class="accordion__head">
-                                    <button class="accordion__button" id="accordion__header3" type="button" aria-expanded="false" aria-controls="accordion__content3" aria-label="버튼"></button>
-                                    <strong>Elements</strong>
-                                </div>
-                                <div class="accordion__panel expand" id="accordion__content3" aria-labelledby="accordion__header3">
-                                    <a class="text-link" href="./button.html" alt="버튼 바로가기">Button</a>
-                                    <a class="text-link" href="./text.html" alt="텍스트 바로가기">Text</a>
-                                    <a class="text-link" href="./form.html" alt="폼 바로가기">Form</a>
-                                    <a class="text-link" href="./input.html" alt="인풋 바로가기">Input</a>
-                                    <a class="text-link" href="./radio.html" alt="라디오 바로가기">Radio</a>
-                                    <a class="text-link" href="./checkbox.html" alt="체크박스 바로가기">Checkbox</a>
-                                    <a class="text-link" href="./textarea.html" alt="텍스트아레아 바로가기">TextArea</a>
-                                    <a class="text-link" href="./icon.html" alt="아이콘 바로가기">Icon</a>
-                                    <a class="text-link" href="./grid.html" alt="체크박스 바로가기">Grid</a>
-                                    <a class="text-link" href="./box.html" alt="박스 바로가기">Box</a>
-                                </div>
-                            </div>
+                        </div>
+                        <div class="message" id="toast"></div>
+                        <div class="button-group">
+                            <button type="button" data-target="currect" id="btncurrect" aria-expanded="true" class="button button--type1" disabled="">교정하기</button>
+                            <button type="button" id="btnsave" aria-hidden="true" class="button button--type2" data-dialog-trigger="#modal1">완료하기</button>
                         </div>
                     </div>
-                </nav>
-            </div>
-            <div class="guide__content">
-                <div class="guide-wrap">
-                    <h2 class="ex-name">Spinner</h2>
-                    <div class="ex-content">
-                        <div class="ex-title">
-                            <h3>로딩 스피너</h3>
-                            <p class="ex-desc">로딩 스피너는 호출 한 만큼 hide가 호출되어야 정상적으로 화면에서 사라집니다. <br />ex) show 4번 호출 시 hide 역시 4번 호출되어야 합니다. </p>
-                        </div>
-                        <div class="ex-body">
-                            <div class="ex-preview">
-                                <button class="button button--medium button--type4" type="button" id="example1">OPEN SPINNER</button>
-                                <div class="ly-bottom-group" style="position:relative; max-width:none; left:0;">
-                                    <div class="button-group">
-                                        <div class="tooltip__list">
-                                            <input type="file" role="button" aria-label="File Upload" tabindex="-1" accept=".docx, .txt">
-                                            <label class="ic-button-edit" tabindex="0" for="btnupload" role="button" aria-label="업로드">
-                                                <i class="ic ic-upload" aria-hidden="true"></i>
-                                            </label>
-                                        </div>
-                                        <div class="tooltip__list">
-                                            <button type="button" class="ic-button-edit" aria-label="복사">
-                                                <i class="ic ic-copy" aria-hidden="true"></i>
-                                            </button>
-                                        </div>
-                                        <div class="tooltip__list">
-                                            <button type="button" class="ic-button-edit" aria-label="다운로드">
-                                                <i class="ic ic-download" aria-hidden="true"></i>
-                                            </button>
-                                        </div>
-                                        <div class="tooltip__list">
-                                            <button type="button" class="ic-button-edit hide" aria-label="삭제">
-                                                <i class="ic ic-delete" aria-hidden="true"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="message" id="toast"></div>
-                                    <div class="button-group">
-                                        <button type="button" data-target="currect" id="btncurrect" aria-expanded="true" class="button button--type1" disabled="">교정하기</button>
-                                        <button type="button" id="btnsave" aria-hidden="true" class="button button--type2" data-dialog-trigger="#modal1">완료하기</button>
-                                    </div>
-                                </div>
-                                <div class="js-view">
-                                    <pre>
+                    <div class="js-view">
+                        <pre>
                       <code class="language-javascript">
                         // 스피너 노출
                           UXW.Spinner.show();
@@ -173,9 +74,6 @@
                         }, 1500);
                       </code>
                       </pre>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -185,15 +83,6 @@
     <script src="/res/js/uxw.ui.js"></script>
     <script src="../../vendor/prism.js"></script>
     <script src="../guideCommon.js"></script>
-    <script>
-        example1.addEventListener('click', function(e) {
-            e.preventDefault();
-            UXW.Spinner.show();
-            setTimeout(function() {
-                UXW.Spinner.hide();
-            }, 1500);
-        });
-    </script>
 </body>
 
 </html>
