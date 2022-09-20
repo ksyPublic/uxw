@@ -6,135 +6,186 @@
       </button>
       <!-- 페이지 컨텐츠와 동일 element 사용 -->
       <div class="ly-content-box">
-        <div class="tab" data-ui-tab>
+        <div class="tab" data-ui-tab data-tab-active="2">
           <div class="title">
             <div class="tab__list" role="tablist">
               <button type="button" role="tab" id="tablist7" class="tab__button" aria-controls="tabpanel7" aria-selected="false">보이스앤톤</button>
-              <button type="button" role="tab" id="tablist8" class="tab__button" aria-controls="tabpanel8" aria-selected="false">라이팅 기본원칙</button>
-              <button type="button" role="tab" id="tablist9" class="tab__button" aria-controls="tabpanel9" aria-selected="false">콘텐츠 유형</button>
-              <button type="button" role="tab" id="tablist10" class="tab__button" aria-controls="tabpanel9" aria-selected="false">자주 틀리는 표현</button>
+              <button type="button" role="tab" id="tablist8" class="tab__button" aria-controls="tabpanel8" aria-selected="false">기본원칙</button>
+              <button type="button" role="tab" id="tablist9" class="tab__button" aria-controls="tabpanel9" aria-selected="false">유형별 가이드</button>
+              <button type="button" role="tab" id="tablist10" class="tab__button" aria-controls="tabpanel10" aria-selected="false">자주 틀리는 표현</button>
             </div>
           </div>
           <div id="tabpanel7" class="tab__panel" role="tabpanel" aria-labelledby="tablist7" tabindex="-1">
             <div class="tab__inner">
+              <div class="title--type3">
+                <h3 class="ft20 medium">Voice & Tone</h3>
+                <p class="ft16 light title-sub">‘보이스앤톤’은 브랜드와 고객이 커뮤니케이션하는 언어적 표현방식 입니다.</p>
+              </div>
+            </div>
+          </div>
+          <div id="tabpanel8" class="tab__panel" role="tabpanel" aria-labelledby="tablist8" tabindex="-1">
+            <div class="tab__inner">
+              <div class="title--type3">
+                <h3 class="ft20 medium">라이팅 기본원칙</h3>
+                <p class="ft16 light title-sub">‘국립국어원 어문규정’을 기본으로 신한은행의 업무여건, 사용자, 디지털뱅킹 특성을 고려하여 정의한 4가지 기본원칙</p>
+              </div>
+            </div>
+          </div>
+          <div id="tabpanel9" class="tab__panel" role="tabpanel" aria-labelledby="tablist9" tabindex="-1">
+            <div class="tab__inner">
+              <div class="title--type3">
+                <h3 class="ft20 medium">유형별 가이드</h3>
+                <p class="ft16 light title-sub">UI형태와 용도를 고려한 글쓰기 규칙</p>
+              </div>
+
               <div class="tab__inner-box">
-                <div class="floating-menu-wrap floating-menu-wrap--type2">
+                <div id="accFloating" class="floating-menu-wrap floating-menu-wrap--type2">
                   <!-- 아코디언 영역 -->
                   <div class="accordion accordion--type3" data-ui-accordion data-accordion-onlyOne="true">
-                      <div class="accordion__box">
-                          <div class="accordion__item">
-                              <div class="accordion__head">
-                                  <button class="accordion__button" id="acc_header1" type="button" aria-expanded="false" aria-controls="acc_panel1" aria-label="버튼"></button>
-                                  <strong>TEST</strong>
-                              </div>
-                              <div class="accordion__panel expand" id="acc_panel1" aria-labelledby="acc_header1">
-                                  <div class="accordion__inner">
-                                    패널
-                                  </div>
-                              </div>
+                    <div class="accordion__box">
+                      <div class="accordion__item">
+                        <div class="accordion__head">
+                          <button class="accordion__button" id="acc_header1" type="button" aria-expanded="false" aria-controls="acc_panel1" aria-label="버튼"></button>
+                          <strong>버튼</strong>
+                        </div>
+                        <div class="accordion__panel expand" id="acc_panel1" aria-labelledby="acc_header1">
+                          <div class="accordion__inner">
+                            <a href="#none" class="text-link">버튼(single)</a>
+                            <a href="#none" class="text-link">버튼(multiple)</a>
+                            <a href="#none" class="text-link">버튼(공통)</a>
+                            <a href="#none" class="text-link">예/아니요 버튼</a>
+                            <a href="#none" class="text-link">여부 버튼</a>
+                            <a href="#none" class="text-link">CTA 버튼</a>
+                            <a href="#none" class="text-link">링크 버튼</a>
                           </div>
-                          <div class="accordion__item">
-                              <div class="accordion__head">
-                                  <button class="accordion__button" id="acc_header2" type="button" aria-expanded="false" aria-controls="acc_panel2" aria-label="버튼"></button>
-                                  <strong>TEST</strong>
-                              </div>
-                              <div class="accordion__panel expand" id="acc_panel2" aria-labelledby="acc_header2">
-                                  <div class="accordion__inner">
-                                    패널
-                                  </div>
-                              </div>
-                          </div>
+                        </div>
                       </div>
+                      <div class="accordion__item">
+                        <div class="accordion__head">
+                          <a href="#none" class="text-link">바텀시트</a>
+                        </div>
+                      </div>
+                      <div class="accordion__item">
+                        <div class="accordion__head">
+                          <button class="accordion__button" id="acc_header2" type="button" aria-expanded="false" aria-controls="acc_panel2" aria-label="버튼"></button>
+                          <strong>레이블</strong>
+                        </div>
+                        <div class="accordion__panel expand" id="acc_panel2" aria-labelledby="acc_header2">
+                          <div class="accordion__inner">
+                            <a href="#none" class="text-link">전체 메뉴</a>
+                            <a href="#none" class="text-link">상품/서비스 메뉴</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="accordion__item">
+                        <div class="accordion__head">
+                          <a href="#none" class="text-link">툴팁</a>
+                        </div>
+                      </div>
+                      <div class="accordion__item">
+                        <div class="accordion__head">
+                          <button class="accordion__button" id="acc_header3" type="button" aria-expanded="false" aria-controls="acc_panel3" aria-label="버튼"></button>
+                          <strong>텍스트필드</strong>
+                        </div>
+                        <div class="accordion__panel expand" id="acc_panel3" aria-labelledby="acc_header3">
+                          <div class="accordion__inner">
+                            <a href="#none" class="text-link">레이블/입력창</a>
+                            <a href="#none" class="text-link">하단 도움말</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="accordion__item">
+                        <div class="accordion__head">
+                          <a href="#none" class="text-link">팝업</a>
+                        </div>
+                      </div>
+                      <div class="accordion__item">
+                        <div class="accordion__head">
+                          <a href="#none" class="text-link">토스트</a>
+                        </div>
+                      </div>
+                      <div class="accordion__item">
+                        <div class="accordion__head">
+                          <a href="#none" class="text-link">메시지</a>
+                        </div>
+                      </div>
+                      <div class="accordion__item">
+                        <div class="accordion__head">
+                          <a href="#none" class="text-link">유의사항</a>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <!-- //아코디언 영역 -->
                 </div>
                 <div class="side__frame__html">
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
-                  나는 컨텐츠양<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+                  가이드 컨텐츠 제작예정<br/>
+
                 </div>
               </div>
             </div>
           </div>
-          <div id="tabpanel8" class="tab__panel" role="tabpanel" aria-labelledby="tablist8" tabindex="-1"></div>
-          <div id="tabpanel9" class="tab__panel" role="tabpanel" aria-labelledby="tablist9" tabindex="-1"></div>
-          <div id="tabpanel10" class="tab__panel" role="tabpanel" aria-labelledby="tablist9" tabindex="-1"></div>
+          <div id="tabpanel10" class="tab__panel" role="tabpanel" aria-labelledby="tablist9" tabindex="-1">
+            <div class="tab__inner">
+              <div class="title--type3">
+                <h3 class="ft20 medium">자주 틀리는 표현</h3>
+                <p class="ft16 light title-sub">문구미정</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <!-- 페이지 컨텐츠와 동일 element 사용 -->

@@ -919,11 +919,12 @@
                 })
 
         }
+        
 
+        /* 모달에 스크롤이 있을경우 */
         const modalScrollContent = () => {
             const el = document.querySelector('.modal-scroll');
             const modalScroll = event => {
-
                 if (event.target.scrollTop > 0) {
                     el
                         .classList
@@ -933,11 +934,19 @@
                         .classList
                         .remove('is-fixed');
                 }
+
+
+                if(event.target.scrollTop > 96) {
+                    accFloating.classList.add('is-fixed');
+                } else {
+                    accFloating.classList.remove('is-fixed');
+                }
             };
 
             el.addEventListener('scroll', modalScroll)
         };
 
+        
         document.addEventListener('DOMContentLoaded', function () {
             bytesCheck();
             btncurrect.onclick = function () {
@@ -996,5 +1005,7 @@
 
             }
         });
+
+     
     </script>
 {% endblock %}

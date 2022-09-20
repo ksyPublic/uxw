@@ -9,7 +9,12 @@
   flex-shrink: 0;
 
   &--type2 {
+    position: absolute;
     width: 204px;
+    &.is-fixed {
+      position: fixed;
+      top:224px;
+    }
   }
 }
 

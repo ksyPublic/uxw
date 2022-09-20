@@ -20,6 +20,9 @@
 .ft18 {
   font-size: 18px !important; }
 
+.ft16 {
+  font-size: 16px !important; }
+
 .ft14 {
   font-size: 14px !important; }
 
@@ -1475,12 +1478,13 @@ input[type='password'] {
   .tab--type2 .tab__button:after {
     display: none; }
 
-.tab--scroll .tab__inner {
-  overflow: auto;
-  height: calc(100% - 222px); }
-
-.tab--scroll .tab__panel {
+.tab--scroll {
   height: 100%; }
+  .tab--scroll .tab__inner {
+    overflow: auto;
+    height: calc(100% - 222px); }
+  .tab--scroll .tab__panel {
+    height: 100%; }
 
 .tab__list {
   display: -webkit-box;
@@ -1530,6 +1534,7 @@ input[type='password'] {
 .tab__inner {
   padding: 40px 0; }
   .tab__inner-box {
+    margin-top: 40px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1540,7 +1545,8 @@ input[type='password'] {
         -ms-flex-align: start;
             align-items: flex-start; }
   .tab__inner .side__frame__html {
-    width: 100%; }
+    width: calc(100% - 228px);
+    padding-left: 228px; }
 
 .tab__scroll {
   overflow-y: auto; }
@@ -1987,6 +1993,9 @@ label.text-link--bollet:hover {
 
 .form .fields ~ .fields {
   margin-top: 20px; }
+
+.form .fields .radio + label {
+  margin-right: 40px; }
 
 .modal--layer .form .fields ~ .fields {
   margin-top: 40px; }
@@ -2478,8 +2487,6 @@ input[type='radio'] {
   display: inline-block;
   vertical-align: top;
   margin: 0px; }
-  .radio + label + .radio + label {
-    margin-left: 40px; }
   .radio + label:before {
     content: '';
     position: absolute;
@@ -2713,6 +2720,106 @@ input[type='radio'] {
   .accordion--type2 .list:first-child {
     margin-top: 0; }
 
+.accordion--type3 .accordion__box {
+  border-top: 0; }
+
+.accordion--type3 .accordion__head {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  overflow: hidden; }
+  .accordion--type3 .accordion__head > .text-link {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border-radius: 8px;
+    height: 44px;
+    border: 1px solid #ebeff5;
+    padding: 12px 20px;
+    font-weight: 300;
+    font-size: 16px; }
+    .accordion--type3 .accordion__head > .text-link:hover {
+      text-decoration: none;
+      color: #565c63 !important; }
+  .accordion--type3 .accordion__head strong {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border-radius: 8px;
+    height: 44px;
+    border: 1px solid #ebeff5;
+    padding: 12px 20px;
+    font-weight: 300;
+    font-size: 16px;
+    color: #565c63; }
+
+.accordion--type3 .accordion__button.is-active + strong {
+  border: 1px solid #343a3f;
+  background-color: #343a3f;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  color: #fff; }
+
+.accordion--type3 .accordion__panel .text-link {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #b9c1c9;
+  margin-top: 8px; }
+  .accordion--type3 .accordion__panel .text-link:first-child {
+    margin-top: 0px; }
+  .accordion--type3 .accordion__panel .text-link:before {
+    content: "";
+    width: 2px;
+    height: 2px;
+    background-color: #b9c1c9;
+    border-radius: 50%;
+    margin-right: 6px; }
+
+.accordion--type3 .accordion__inner {
+  padding: 0 20px 16px;
+  background-color: #343a3f;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  overflow: hidden; }
+
+.accordion--type3 .accordion__item {
+  position: relative;
+  border-radius: 8px;
+  margin-top: 4px;
+  border-top: 0; }
+  .accordion--type3 .accordion__item:after {
+    content: "";
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: top;
+    position: absolute;
+    right: -24px;
+    top: 12px; }
+  .accordion--type3 .accordion__item:first-child {
+    margin-top: 0; }
+  .accordion--type3 .accordion__item.is-focused {
+    background-color: #343a3f; }
+    .accordion--type3 .accordion__item.is-focused:after {
+      content: "";
+      width: 24px;
+      height: 24px;
+      display: inline-block;
+      vertical-align: top;
+      background: url("../images/ic-button-arrow.png") no-repeat; }
+    .accordion--type3 .accordion__item.is-focused .accordion__head strong {
+      border: 1px solid #343a3f;
+      background-color: #343a3f;
+      color: #fff; }
+  .accordion--type3 .accordion__item:last-child {
+    border: 0; }
+
 .dropdown {
   pointer-events: none;
   position: relative;
@@ -2928,6 +3035,8 @@ input[type='radio'] {
   outline: 0;
   overflow-x: hidden;
   overflow-y: auto; }
+  .modal.is-fixed .modal__content {
+    min-height: auto; }
   .modal.is-fixed .tab .title {
     position: fixed;
     width: 100%;
@@ -3123,21 +3232,25 @@ input[type='radio'] {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row; }
-    .modal--layer__type2 .modal__content .ly-content-box {
-      width: 100%;
-      padding-right: 56px;
-      overflow-y: auto;
-      height: calc(100% - 116px); }
-    .modal--layer__type2 .modal__content .side__inner {
-      height: calc(100% - 144px);
-      margin-top: 104px;
-      padding: 0px 40px 0 40px; }
-      .modal--layer__type2 .modal__content .side__inner:after {
-        display: none; }
+  .modal--layer__type2 .ly-content-box {
+    width: 100%;
+    padding-right: 56px;
+    overflow-y: auto;
+    height: calc(100% - 116px); }
+  .modal--layer__type2 .side__inner {
+    height: calc(100% - 144px);
+    margin-top: 104px;
+    padding: 0px 40px 0 40px; }
+    .modal--layer__type2 .side__inner:after {
+      display: none; }
+  .modal--layer__bescroll .ly-content-box {
+    overflow-y: hidden;
+    height: 100%; }
+  .modal--layer__bescroll .tab--scroll .tab__inner {
+    height: calc(100% - 105px); }
   .modal--layer__type3 .modal__content {
     overflow: visible;
-    max-height: none;
-    min-height: auto; }
+    max-height: none; }
 
 .fadeIn {
   -webkit-animation-duration: 0.4s;
@@ -3335,6 +3448,10 @@ input[type='radio'] {
             justify-content: space-between; }
     .title--type2 + .grid--type2 {
       margin-top: 20px; }
+  .title--type3 .title-sub {
+    display: block;
+    margin-top: 10px;
+    color: #71777C; }
   .title--qa {
     height: 20px;
     margin-bottom: 8px;
@@ -3738,7 +3855,11 @@ input[type='radio'] {
   -ms-flex-negative: 0;
       flex-shrink: 0; }
   .floating-menu-wrap--type2 {
+    position: absolute;
     width: 204px; }
+    .floating-menu-wrap--type2.is-fixed {
+      position: fixed;
+      top: 224px; }
 
 .ly-container {
   width: 100%;
