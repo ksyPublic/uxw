@@ -851,6 +851,48 @@
         </div>
       </div>
       <!-- //완료하기 팝업 -->
+      <!-- 용어문의 및 제안 팝업 -->
+      <div class="modal modal--medium" id="modal6" role="dialog" aria-labelledby="#modal6Title">
+        <div class="modal__dialog" role="document">
+          <div class="modal__content">
+            <div class="modal__header">
+              <div class="modal__title" id="modal6Title">용어 문의 및 제안</div>
+              <button type="button" class="ic-button" data-dialog-close aria-label="팝업닫기">
+                <i class="ic ic-close" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="modal__body">
+              <div class="form">
+                <div class="fields">
+                  <div class="field">
+                    <input type="radio" class="radio" name="radc01" id="radc01" checked />
+                    <label for="radc01">용어 문의</label>
+                    <input type="radio" class="radio" name="radc01" id="radc02" />
+                    <label for="radc02">용어 제안</label>
+                  </div>
+                </div>
+                <div class="divider" aria-hidden="true"></div>
+                <div class="fields">
+                  <div class="field">
+                    <label class="dpb medium ft14">문의내용</label>
+                    <textarea class="textarea textarea--tiny" maxlength="500" placeholder="검토가 필요한 요청 사항을 입력해주세요."></textarea>
+                    <div class="textarea__lengths">
+                      <label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
+                      <div class="textarea__lengths__box">
+                        <span class="textarea__lengths--current">0</span>/ <span class="textarea__lengths--total">500</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal__footer">
+              <button type="button" class="button pw100">전달하기</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- //용어문의 및 제안 팝업 -->
       <!-- 교정된 콘텐츠 레이어팝업 -->
       <div class="modal modal--layer" id="layerModal1" data-layer-opend="false">
         <div class="modal__dialog">
@@ -865,7 +907,7 @@
                   <h2 class="text ft24 bold">용어/표현 검색<span class="text-sub">고객에게 어렵지 않을까 고민되는 표현은 검색해보세요.</span></h2>
                 </div>
                 <div class="title-rt">
-                  <button type="button" class="button button--medium button--type4">직접 제안하기</button>
+                  <button type="button" class="button button--medium button--type4" data-dialog-trigger="#modal6">직접 제안하기</button>
                 </div>
               </div>
               <div class="search-box search-box--small">
@@ -1224,278 +1266,279 @@
             </div>
           </div>
         </div>
-        <!-- //교정된 콘텐츠 레이어팝업 -->
       </div>
+      <!-- //교정된 콘텐츠 레이어팝업 -->
     </div>
-    <script src="/res/js/lib/swiper.min.js"></script>
-    <script src="/res/js/uxw.ui.js"></script>
-    <script>
-      const sideSwiper = UXW.SwiperA11y('#side .swiper', {
-        observer: true,
-        observeParents: true,
-        autoplay: {
-          delay: 3000,
-          disableOnInteraction: false
-        },
-        grapCursor: true,
-        loop: true,
-        speed: 600,
-        mousewheelControl: true,
-        keyboard: {
-          enabled: true,
-          onlyInViewport: false
-        },
-        spaceBetween: 40,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true
-        },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev'
-        },
-        autoHeight: true
-      });
-      const buttonSwiper = UXW.SwiperA11y('#sorting .swiper', {
-        observer: true,
-        observeParents: true,
-        slidesPerView: "auto",
-        grapCursor: true,
-        speed: 600,
-        mousewheelControl: true,
-        keyboard: {
-          enabled: true,
-          onlyInViewport: false
-        }
-      });
-      const Input = {
-        // 에러
-        Error: function(props) {
-          const ARIA_HIDDEN = 'aria-hidden';
-          const input = props.parentElement;
-          const label = input.nextElementSibling.classList.contains('error');
-          input.classList.add('error');
-          if (!label) {
-            return;
-          }
-          const get = input.nextElementSibling.getAttribute(ARIA_HIDDEN);
-          if (get === 'true') {
-            input.nextElementSibling.setAttribute(ARIA_HIDDEN, false);
-          }
-        },
-        // 에러 클리어
-        Clear: function(props) {
-          const ARIA_HIDDEN = 'aria-hidden';
-          const input = props.parentElement;
-          const label = input.nextElementSibling.classList.contains('error');
-          input.classList.remove('error');
-          if (!label) {
-            return;
-          }
-          const get = input.nextElementSibling.getAttribute(ARIA_HIDDEN);
-          if (get === 'false') {
-            input.nextElementSibling.setAttribute(ARIA_HIDDEN, true);
-          }
-        },
-        // value 삭제버튼
-        ClearButton: function(param) {
-          if (!param.previousElementSibling) {
-            return;
-          }
-          if (param.previousElementSibling.tagName === 'INPUT') {
-            param.previousElementSibling.value = '';
-            param.classList.remove('is-active');
-            if (param.previousElementSibling.getAttribute('name') === 'id') {
-              const target = document.querySelector('[name="password"]');
-              const passwordParent = target.closest('.input-box');
-              passwordParent.style.height = '';
-              passwordParent.style.marginTop = '0';
-              passwordParent.classList.add('expanding');
-              passwordParent.classList.remove('expand');
-              passwordParent.classList.remove('expanded');
-            }
-          }
-        },
-        // InputBox value Checker
-        Check: function() {
-          const elements = document.querySelectorAll('.input-box');
-          const onInput = function(event) {
-            const value = event.target.value;
-            const length = value.length;
-            const nextEl = event.target.nextElementSibling;
-            if (!nextEl) {
-              return;
-            }
-            if (length > 0) {
-              nextEl.classList.add('is-active');
-            } else {
-              nextEl.classList.remove('is-active');
-            }
-          };
-          [].forEach.call(elements, item => {
-            const target = item.querySelector('.input');
-            target.addEventListener('keyup', onInput);
-            target.addEventListener('keydown', onInput);
-            target.addEventListener('change', onInput);
-          });
-        }
-      };
-      sideSwiper.el.addEventListener('mouseenter', function() {
-        sideSwiper.autoplay.stop();
-      });
-      sideSwiper.el.addEventListener('mouseleave', function() {
-        sideSwiper.autoplay.start();
-      });
-      //사이드 OPEN & CLOSE
-      const currectEvent = {
-        OPEN: function(param) {
-          const target = document.querySelector('#' + param.dataset.target);
-          target.classList.add('is-active');
-          target.classList.remove('is-deactive');
-          target.previousElementSibling.classList.add('is-deactive');
-          target.previousElementSibling.classList.remove('is-active');
-          btnupload.disabled = true;
-          btnsave.setAttribute('aria-hidden', false);
-          btndelete.classList.remove('hide');
-        },
-        CLOSE: function(param) {
-          const target = document.querySelector('#' + param.dataset.target);
-          target.classList.add('is-deactive');
-          target.classList.remove('is-active');
-          target.previousElementSibling.classList.add('is-active');
-          target.previousElementSibling.classList.remove('is-deactive');
-        },
-        BEFORE: function(param) {
-          const ARIA_EXPENDED = param.getAttribute('aria-expanded');
-          if (ARIA_EXPENDED === 'false') {
-            currectEvent.CLOSE(param);
-          } else {
-            currectEvent.OPEN(param);
-          }
-        }
-      };
-      //바이트수 체크
-      function bytesCheck() {
-        const bytesCheck = document.querySelectorAll('[data-bytes-check]');
+  </div>
+  <script src="/res/js/lib/swiper.min.js"></script>
+  <script src="/res/js/uxw.ui.js"></script>
+  <script>
+    const sideSwiper = UXW.SwiperA11y('#side .swiper', {
+      observer: true,
+      observeParents: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false
+      },
+      grapCursor: true,
+      loop: true,
+      speed: 600,
+      mousewheelControl: true,
+      keyboard: {
+        enabled: true,
+        onlyInViewport: false
+      },
+      spaceBetween: 40,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+      autoHeight: true
+    });
+    const buttonSwiper = UXW.SwiperA11y('#sorting .swiper', {
+      observer: true,
+      observeParents: true,
+      slidesPerView: "auto",
+      grapCursor: true,
+      speed: 600,
+      mousewheelControl: true,
+      keyboard: {
+        enabled: true,
+        onlyInViewport: false
+      }
+    });
+    const Input = {
+      // 에러
+      Error: function(props) {
         const ARIA_HIDDEN = 'aria-hidden';
-        Array.prototype.forEach.call(bytesCheck, function(el) {
-          // 한글 And 특수문자 2byte, 그 외 1byte
-          function getByteCheck(str) {
-            let len = 0;
-            for (var i = 0; i < str.length; i++) {
-              if (escape(str.charAt(i)).length === 6) {
-                len++;
-              }
-              len++;
-            }
-            return len;
+        const input = props.parentElement;
+        const label = input.nextElementSibling.classList.contains('error');
+        input.classList.add('error');
+        if (!label) {
+          return;
+        }
+        const get = input.nextElementSibling.getAttribute(ARIA_HIDDEN);
+        if (get === 'true') {
+          input.nextElementSibling.setAttribute(ARIA_HIDDEN, false);
+        }
+      },
+      // 에러 클리어
+      Clear: function(props) {
+        const ARIA_HIDDEN = 'aria-hidden';
+        const input = props.parentElement;
+        const label = input.nextElementSibling.classList.contains('error');
+        input.classList.remove('error');
+        if (!label) {
+          return;
+        }
+        const get = input.nextElementSibling.getAttribute(ARIA_HIDDEN);
+        if (get === 'false') {
+          input.nextElementSibling.setAttribute(ARIA_HIDDEN, true);
+        }
+      },
+      // value 삭제버튼
+      ClearButton: function(param) {
+        if (!param.previousElementSibling) {
+          return;
+        }
+        if (param.previousElementSibling.tagName === 'INPUT') {
+          param.previousElementSibling.value = '';
+          param.classList.remove('is-active');
+          if (param.previousElementSibling.getAttribute('name') === 'id') {
+            const target = document.querySelector('[name="password"]');
+            const passwordParent = target.closest('.input-box');
+            passwordParent.style.height = '';
+            passwordParent.style.marginTop = '0';
+            passwordParent.classList.add('expanding');
+            passwordParent.classList.remove('expand');
+            passwordParent.classList.remove('expanded');
           }
-          // 초기값 세팅
-          var bytes = el.getAttribute('maxLength') * 2;
-          // 키 입력 시 바이트 계산
-          ['keydown', 'keyup', 'change'].forEach(function(type) {
-            el.addEventListener(type, function() {
-              let leng = this.value.length;
-              const textEl = this.nextElementSibling;
-              const lableError = textEl.querySelector('label');
-              const textCurrent = textEl.querySelector('.textarea__lengths--current');
-              const labelData = lableError.getAttribute(ARIA_HIDDEN);
-              this.classList.remove('error');
-              textEl.classList.remove('error');
-              lableError.setAttribute(ARIA_HIDDEN, true);
-              if (getByteCheck(this.value) > bytes) {
-                this.classList.add('error');
-                textEl.classList.add('error');
-                if (labelData) {
-                  lableError.setAttribute(ARIA_HIDDEN, false);
-                }
-                leng--;
-                this.value = this.value.substr(0, leng);
-                alert('최대 5,000자까지 입력할 수 있어요. 본문내용을 확인 해주세요.');
-              }
-              if (leng > 0) {
-                btncurrect.disabled = false;
-                btncopy.disabled = false;
-                btndownload.disabled = false;
-              } else {
-                btncurrect.disabled = true;
-                btnupload.disabled = false;
-                btncopy.disabled = true;
-                btndownload.disabled = true;
-                btndelete.classList.add('hide');
-              }
-              const resultFormat = function(num) {
-                return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-              }
-              if (textEl.classList.contains('error')) {
-                textCurrent.innerText = resultFormat(leng + 1)
-              } else {
-                textCurrent.innerText = resultFormat(leng);
-              }
-            });
-          });
+        }
+      },
+      // InputBox value Checker
+      Check: function() {
+        const elements = document.querySelectorAll('.input-box');
+        const onInput = function(event) {
+          const value = event.target.value;
+          const length = value.length;
+          const nextEl = event.target.nextElementSibling;
+          if (!nextEl) {
+            return;
+          }
+          if (length > 0) {
+            nextEl.classList.add('is-active');
+          } else {
+            nextEl.classList.remove('is-active');
+          }
+        };
+        [].forEach.call(elements, item => {
+          const target = item.querySelector('.input');
+          target.addEventListener('keyup', onInput);
+          target.addEventListener('keydown', onInput);
+          target.addEventListener('change', onInput);
         });
       }
-
-      function changeLangauge() {
-        const card = 'data-card';
-        const cardChecked = document.querySelectorAll('[' + card + ']');
-        if (cardChecked.length === 0) {
-          return;
-        };
-        [].forEach.call(cardChecked, function(x) {
-          const checkEl = x.querySelector('.accordion__check input[type="checkbox"]:checked');
-          if (checkEl) {
-            x.setAttribute(card, true);
-          }
-        })
-      }
-
-      function changeLangaugeInit() {
-        const card = 'data-card';
-        const cardChecked = document.querySelectorAll('[' + card + ']');
-        if (cardChecked.length === 0) {
-          return;
-        };
-        [].forEach.call(cardChecked, function(x) {
-          x.setAttribute(card, false);
-        })
-      }
-      document.addEventListener('DOMContentLoaded', function() {
-        bytesCheck();
-        btncurrect.onclick = function() {
-          currectEvent.OPEN(btncurrect);
+    };
+    sideSwiper.el.addEventListener('mouseenter', function() {
+      sideSwiper.autoplay.stop();
+    });
+    sideSwiper.el.addEventListener('mouseleave', function() {
+      sideSwiper.autoplay.start();
+    });
+    //사이드 OPEN & CLOSE
+    const currectEvent = {
+      OPEN: function(param) {
+        const target = document.querySelector('#' + param.dataset.target);
+        target.classList.add('is-active');
+        target.classList.remove('is-deactive');
+        target.previousElementSibling.classList.add('is-deactive');
+        target.previousElementSibling.classList.remove('is-active');
+        btnupload.disabled = true;
+        btnsave.setAttribute('aria-hidden', false);
+        btndelete.classList.remove('hide');
+      },
+      CLOSE: function(param) {
+        const target = document.querySelector('#' + param.dataset.target);
+        target.classList.add('is-deactive');
+        target.classList.remove('is-active');
+        target.previousElementSibling.classList.add('is-active');
+        target.previousElementSibling.classList.remove('is-deactive');
+      },
+      BEFORE: function(param) {
+        const ARIA_EXPENDED = param.getAttribute('aria-expanded');
+        if (ARIA_EXPENDED === 'false') {
+          currectEvent.CLOSE(param);
+        } else {
+          currectEvent.OPEN(param);
         }
-        Input.Check();
-      });
-      document.addEventListener('UILoaded', function() {
-        //삭제버튼 클릭시
-        btndelete.onclick = function() {
-          UXW.Confirm('삭제하시면 복구시킬 수 없어요.<br/> 작성하신 콘텐츠를 삭제하시겠어요?', function() {
-            this.close();
+      }
+    };
+    //바이트수 체크
+    function bytesCheck() {
+      const bytesCheck = document.querySelectorAll('[data-bytes-check]');
+      const ARIA_HIDDEN = 'aria-hidden';
+      Array.prototype.forEach.call(bytesCheck, function(el) {
+        // 한글 And 특수문자 2byte, 그 외 1byte
+        function getByteCheck(str) {
+          let len = 0;
+          for (var i = 0; i < str.length; i++) {
+            if (escape(str.charAt(i)).length === 6) {
+              len++;
+            }
+            len++;
+          }
+          return len;
+        }
+        // 초기값 세팅
+        var bytes = el.getAttribute('maxLength') * 2;
+        // 키 입력 시 바이트 계산
+        ['keydown', 'keyup', 'change'].forEach(function(type) {
+          el.addEventListener(type, function() {
+            let leng = this.value.length;
+            const textEl = this.nextElementSibling;
+            const lableError = textEl.querySelector('label');
+            const textCurrent = textEl.querySelector('.textarea__lengths--current');
+            const labelData = lableError.getAttribute(ARIA_HIDDEN);
+            this.classList.remove('error');
+            textEl.classList.remove('error');
+            lableError.setAttribute(ARIA_HIDDEN, true);
+            if (getByteCheck(this.value) > bytes) {
+              this.classList.add('error');
+              textEl.classList.add('error');
+              if (labelData) {
+                lableError.setAttribute(ARIA_HIDDEN, false);
+              }
+              leng--;
+              this.value = this.value.substr(0, leng);
+              alert('최대 5,000자까지 입력할 수 있어요. 본문내용을 확인 해주세요.');
+            }
+            if (leng > 0) {
+              btncurrect.disabled = false;
+              btncopy.disabled = false;
+              btndownload.disabled = false;
+            } else {
+              btncurrect.disabled = true;
+              btnupload.disabled = false;
+              btncopy.disabled = true;
+              btndownload.disabled = true;
+              btndelete.classList.add('hide');
+            }
+            const resultFormat = function(num) {
+              return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
+            if (textEl.classList.contains('error')) {
+              textCurrent.innerText = resultFormat(leng + 1)
+            } else {
+              textCurrent.innerText = resultFormat(leng);
+            }
           });
+        });
+      });
+    }
+
+    function changeLangauge() {
+      const card = 'data-card';
+      const cardChecked = document.querySelectorAll('[' + card + ']');
+      if (cardChecked.length === 0) {
+        return;
+      };
+      [].forEach.call(cardChecked, function(x) {
+        const checkEl = x.querySelector('.accordion__check input[type="checkbox"]:checked');
+        if (checkEl) {
+          x.setAttribute(card, true);
         }
       })
-      const tabEl = document.querySelector('#mainTab')
-      tabEl.addEventListener(UXW.Tab.EVENT.CHANGE, function(event) {
-        var currentTab = event.current;
-        var beforeTab = event.before;
-        //변경전 페이지적용
-        if (currentTab.content.id === 'tabpanel2' || currentTab.content.id === 'tabpanel3') {
-          currectEvent.CLOSE(btncurrect);
-          btncopy.parentElement.classList.add('hide')
-          btnupload.parentElement.classList.add('hide')
-          btndelete.parentElement.classList.add('hide')
-          btndownload.disabled = true;
-        } else if (currentTab.content.id === 'tabpanel1') {
-          btncopy.parentElement.classList.remove('hide')
-          btnupload.parentElement.classList.remove('hide')
-          btndelete.parentElement.classList.remove('hide')
-          btncopy.disabled = false;
-          btndownload.disabled = false;
-        }
-      });
-    </script>
+    }
+
+    function changeLangaugeInit() {
+      const card = 'data-card';
+      const cardChecked = document.querySelectorAll('[' + card + ']');
+      if (cardChecked.length === 0) {
+        return;
+      };
+      [].forEach.call(cardChecked, function(x) {
+        x.setAttribute(card, false);
+      })
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      bytesCheck();
+      btncurrect.onclick = function() {
+        currectEvent.OPEN(btncurrect);
+      }
+      Input.Check();
+    });
+    document.addEventListener('UILoaded', function() {
+      //삭제버튼 클릭시
+      btndelete.onclick = function() {
+        UXW.Confirm('삭제하시면 복구시킬 수 없어요.<br/> 작성하신 콘텐츠를 삭제하시겠어요?', function() {
+          this.close();
+        });
+      }
+    })
+    const tabEl = document.querySelector('#mainTab')
+    tabEl.addEventListener(UXW.Tab.EVENT.CHANGE, function(event) {
+      var currentTab = event.current;
+      var beforeTab = event.before;
+      //변경전 페이지적용
+      if (currentTab.content.id === 'tabpanel2' || currentTab.content.id === 'tabpanel3') {
+        currectEvent.CLOSE(btncurrect);
+        btncopy.parentElement.classList.add('hide')
+        btnupload.parentElement.classList.add('hide')
+        btndelete.parentElement.classList.add('hide')
+        btndownload.disabled = true;
+      } else if (currentTab.content.id === 'tabpanel1') {
+        btncopy.parentElement.classList.remove('hide')
+        btnupload.parentElement.classList.remove('hide')
+        btndelete.parentElement.classList.remove('hide')
+        btncopy.disabled = false;
+        btndownload.disabled = false;
+      }
+    });
+  </script>
 </body>
 
 </html>

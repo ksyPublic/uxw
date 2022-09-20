@@ -200,6 +200,14 @@
         margin: 0px auto 8px;
         display: block;
         background: url('../images/ic-exclamation_large_disabled.png') no-repeat;
+
+        @at-root .modal--layer {
+          .none-data--info__type2 {
+            p:before {
+              background: url('../images/ic-exclamation_large_off.png') no-repeat;
+            }
+          }
+        }
       }
     }
   }

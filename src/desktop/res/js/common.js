@@ -149,14 +149,14 @@ const navigation = (UI, options) => {
     }
 
     modals.forEach(m => {
-      if (m.id === config.target[config.active].getAttribute(`${ARIA_CONTROLS}`)) {
+      if (m.id === config.target[config.active]?.getAttribute(`${ARIA_CONTROLS}`)) {
         config.target[config.active].classList.add('is-active');
         modals[0].classList.add('is-active');
         modals[0].setAttribute(`${LAYER_OPEND}`, 'true');
         createHtml.classList.add('fadeIn');
         document.body.appendChild(createHtml);
         _aria();
-      }
+      } 
     });
   };
 
@@ -239,7 +239,8 @@ const modalLayer = UI => {
   };
 
   const _zIndexOrderIncrease = layerModal => {
-    layerModal.style.zIndex = ZINDEX.CONTENT += ZINDEX.INCREASE;
+    layerModal.style.zIndex = ZINDEX.CONTENT;
+    navEl[0].style.zIndex = ZINDEX.CONTENT + 1;
   };
 
   const layerClick = event => {

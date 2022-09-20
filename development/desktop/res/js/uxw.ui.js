@@ -6548,7 +6548,9 @@ var navigation = function navigation(UI, options) {
     }
 
     modals.forEach(function (m) {
-      if (m.id === config.target[config.active].getAttribute("".concat(ARIA_CONTROLS))) {
+      var _config$target$config;
+
+      if (m.id === ((_config$target$config = config.target[config.active]) === null || _config$target$config === void 0 ? void 0 : _config$target$config.getAttribute("".concat(ARIA_CONTROLS)))) {
         config.target[config.active].classList.add('is-active');
         modals[0].classList.add('is-active');
         modals[0].setAttribute("".concat(LAYER_OPEND), 'true');
@@ -6638,7 +6640,8 @@ var modalLayer = function modalLayer(UI) {
   };
 
   var _zIndexOrderIncrease = function _zIndexOrderIncrease(layerModal) {
-    layerModal.style.zIndex = ZINDEX.CONTENT += ZINDEX.INCREASE;
+    layerModal.style.zIndex = ZINDEX.CONTENT;
+    navEl[0].style.zIndex = ZINDEX.CONTENT + 1;
   };
 
   var layerClick = function layerClick(event) {
@@ -10419,9 +10422,6 @@ var UIInitializer = function UIInitializer(target, UI) {
 
 _components_tab__WEBPACK_IMPORTED_MODULE_10__["default"].GLOBAL_CONFIG = {
   activeClass: 'is-active'
-};
-_components_autoHeightFit__WEBPACK_IMPORTED_MODULE_19__["default"].GLOBAL_CONFIG = {
-  firstLoaded: true
 };
 _components_accordion__WEBPACK_IMPORTED_MODULE_12__["default"].GLOBAL_CONFIG = {
   activeClass: 'is-active'

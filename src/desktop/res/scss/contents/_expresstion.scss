@@ -1,5 +1,5 @@
 .expresstion {
-  +.text {
+  + .text {
     margin-top:60px;
   }
   $root: expresstion;
@@ -141,7 +141,7 @@
 
   &--purple {
     .#{$root}-list {
-      border-color:color(purple, 60)!important;
+      border-color:color(purple, 60) !important;
     }
   }
 

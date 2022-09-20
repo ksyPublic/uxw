@@ -192,7 +192,8 @@ body {
 }
 
 body {
-    min-width: 1920px;
+    /* edge 브라우저 innerWidth변경으로 인해 1900px로 변경*/
+    min-width: 1900px;
     height: 100vh;
     overflow: hidden;
     margin: 0;

@@ -141,14 +141,14 @@
                     }
 
                     modals.forEach(m => {
-                      if (m.id === config.target[config.active].getAttribute(`${ARIA_CONTROLS}`)) {
+                      if (m.id === config.target[config.active]?.getAttribute(`${ARIA_CONTROLS}`)) {
                         config.target[config.active].classList.add('is-active');
                         modals[0].classList.add('is-active');
                         modals[0].setAttribute(`${LAYER_OPEND}`, 'true');
                         createHtml.classList.add('fadeIn');
                         document.body.appendChild(createHtml);
                         _aria();
-                      }
+                      } 
                     });
                   };
 

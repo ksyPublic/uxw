@@ -13,9 +13,14 @@
         margin-top: 40px;
       }
     }
+
+    
   }
 
   .field {
+    input + label {
+      margin-bottom:0;
+    }
     > label {
       margin-bottom: 8px;
 

@@ -34,9 +34,6 @@ Tab.GLOBAL_CONFIG = {
   activeClass: 'is-active',
 };
 
-AutoHeightFit.GLOBAL_CONFIG = {
-  firstLoaded:true,
-}
 
 Accordion.GLOBAL_CONFIG = {
   activeClass: 'is-active',

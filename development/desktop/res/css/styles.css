@@ -59,6 +59,9 @@
 .hide {
   display: none !important; }
 
+.mxw-792 {
+  max-width: 792px !important; }
+
 .show {
   display: block !important; }
 
@@ -1170,7 +1173,8 @@ body {
   -webkit-text-size-adjust: none; }
 
 body {
-  min-width: 1920px;
+  /* edge 브라우저 innerWidth변경으로 인해 1900px로 변경*/
+  min-width: 1900px;
   height: 100vh;
   overflow: hidden;
   margin: 0;
@@ -1987,6 +1991,9 @@ label.text-link--bollet:hover {
 .modal--layer .form .fields ~ .fields {
   margin-top: 40px; }
 
+.form .field input + label {
+  margin-bottom: 0; }
+
 .form .field > label {
   margin-bottom: 8px; }
 
@@ -2471,6 +2478,8 @@ input[type='radio'] {
   display: inline-block;
   vertical-align: top;
   margin: 0px; }
+  .radio + label + .radio + label {
+    margin-left: 40px; }
   .radio + label:before {
     content: '';
     position: absolute;
@@ -3667,6 +3676,8 @@ input[type='radio'] {
         margin: 0px auto 8px;
         display: block;
         background: url("../images/ic-exclamation_large_disabled.png") no-repeat; }
+        .modal--layer .none-data--info__type2 p:before {
+          background: url("../images/ic-exclamation_large_off.png") no-repeat; }
   .none-data--beinfo p {
     font-weight: 300;
     font-size: 14px;
@@ -3867,7 +3878,7 @@ input[type='radio'] {
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%); }
   .nav.is-open {
-    z-index: 999; }
+    z-index: 203; }
   .nav__box {
     display: -webkit-box;
     display: -ms-flexbox;

@@ -2,7 +2,6 @@
 {% set title = "신한 UX라이팅 시스템 | 검색" %}
 {% extends "../templates/layout.njk" %}
 {% set activePage = "currect" %}
-{% set floatingActive = "0" %}
 {% block content %}
     {{super()}}
     <div class="ly-content">
@@ -560,9 +559,17 @@
     {% include "../templates/popup/inquiry_popup06.njk" %}
     <!-- //용어문의 및 제안 팝업 -->
 
-    <!-- 교정된 콘텐츠 레이어팝업 -->
+    <!-- 검색 레이어팝업 -->
     {% include "../templates/layer/symptom_search.njk" %}
+    <!-- //검색 레이어팝업 -->
+
+    <!-- 교정된 콘텐츠 레이어팝업 -->
+    {% include "../templates/layer/redacted_contents.njk" %}
     <!-- //교정된 콘텐츠 레이어팝업 -->
+
+    <!-- 가이드 레이어팝업 -->
+    {% include "../templates/layer/writing_guide.njk" %}
+    <!-- //가이드 레이어팝업 -->
 
 {% endblock %}
 
