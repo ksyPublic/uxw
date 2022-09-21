@@ -153,7 +153,7 @@ const navigation = (UI, options) => {
         config.target[config.active].classList.add('is-active');
         modals[0].classList.add('is-active');
         modals[0].setAttribute(`${LAYER_OPEND}`, 'true');
-        createHtml.classList.add('fadeIn');
+        // createHtml.classList.add('fadeIn');
         document.body.appendChild(createHtml);
         _aria();
       } 
@@ -176,6 +176,7 @@ const navigation = (UI, options) => {
 };
 
 const modalLayer = UI => {
+  // 220921 수정
   const elements = document.querySelectorAll(UI);
   const navEl = getObjectElements(elements);
   const tooltipBox = document.querySelector('.tooltip__box');
@@ -272,24 +273,24 @@ const modalLayer = UI => {
       if (modal === layerModal) {
         _zIndexOrderIncrease(layerModal);
       } else {
-        modal.classList.add('is-deactive');
-        modal.classList.remove('is-active');
+        // modal.classList.add('is-deactive');
+        modal.classList.remove('is-active2');
         modal.setAttribute(`${LAYER_OPEND}`, 'false');
         EventHandler.one(modal, 'animationend', () => {
-          modal.classList.remove('is-deactive');
+          modal.classList.remove('is-deactive2');
           modal.style.zIndex = ZINDEX.INIT;
         });
       }
     });
 
     if (layerModal.getAttribute(`${LAYER_OPEND}`) === 'false') {
-      createHtml.classList.add('fadeIn');
+      // createHtml.classList.add('fadeIn');
       document.body.appendChild(createHtml);
-      layerModal.classList.add('is-active');
+      layerModal.classList.add('is-active2');
       layerModal.setAttribute(`${LAYER_OPEND}`, 'true');
 
       EventHandler.one(layerModal, 'animationend', () => {
-        layerModal.classList.remove('is-deactive');
+        layerModal.classList.remove('is-deactive2');
       });
     }
   };
@@ -297,14 +298,14 @@ const modalLayer = UI => {
   const _hide = target => {
     const modal = target.closest('.modal');
     if (modal.getAttribute(`${LAYER_OPEND}`) === 'true') {
-      createHtml.classList.remove('fadeOut');
+      // createHtml.classList.remove('fadeOut');
       document.body.removeChild(createHtml);
-      modal.classList.add('is-deactive');
+      modal.classList.add('is-deactive2');
       modal.setAttribute(`${LAYER_OPEND}`, 'false');
 
       EventHandler.one(modal, 'animationend', () => {
-        modal.classList.remove('is-active');
-        modal.classList.remove('is-deactive');
+        modal.classList.remove('is-active2');
+        modal.classList.remove('is-deactive2');
       });
     }
     _allClose();
@@ -342,6 +343,23 @@ const modalScrollContent = () => {
           });
       }
   };
+
+  const tabEl = document.querySelector('.modal--layer__bescroll .tab')
+  tabEl.addEventListener(UXW.Tab.EVENT.CHANGE, function (event) {
+      var currentTab = event.current;
+      var beforeTab = event.before;
+      //변경전 페이지적용
+      if(currentTab.content) {
+        const acc = currentTab.content.querySelector('.modal--layer__bescroll .tab--scroll .tab__inner')
+        const _floating = acc.querySelector('.floating-menu-wrap--type2 .accordion--type3');
+        if(acc.scrollTop > 0) {
+          _floating.classList.add('is-fixed');
+        } else {
+          _floating.classList.remove('is-fixed');
+        }
+      }
+
+  });
   
   [].forEach.call(el, function(item) {
       item.addEventListener('scroll', modalScroll)

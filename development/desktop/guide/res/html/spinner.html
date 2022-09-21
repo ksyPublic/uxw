@@ -137,6 +137,15 @@
         });
         Prism.highlightAll();
     </script>
+    <script>
+        example1.addEventListener('click', function(e) {
+            e.preventDefault();
+            UXW.Spinner.show();
+            setTimeout(function() {
+                UXW.Spinner.hide();
+            }, 1500);
+        });
+    </script>
 </body>
 
 </html>

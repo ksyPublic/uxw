@@ -729,6 +729,36 @@
         });
         Prism.highlightAll();
     </script>
+    <script>
+        document.addEventListener('UILoaded', function() {
+            document.querySelector('#alert_open').addEventListener('click', function(e) {
+                e.preventDefault();
+                UXW.Alert('Alert 입니다!', {
+                    open: function() {
+                        console.log('open!');
+                    },
+                    opened: function() {
+                        console.log('opened!');
+                    },
+                    close: function() {
+                        console.log('close!');
+                    },
+                    closed: function() {
+                        console.log('closed!');
+                    }
+                });
+            });
+            document.querySelector('#confirm_open').addEventListener('click', function(e) {
+                e.preventDefault();
+                UXW.Confirm('Confirm입니다!<br/><br/>확인하려면 예 버튼을<br/> 취소하려면 아니오 버튼을 클릭!', function() {
+                    // 예 버튼을 클릭했을 때 이 함수가 실행됩니다.
+                    // 필요한 프로세스 처리 후
+                    // 아래 close 함수를 실행하여 창을 닫습니다.
+                    this.close();
+                });
+            })
+        })
+    </script>
 </body>
 
 </html>

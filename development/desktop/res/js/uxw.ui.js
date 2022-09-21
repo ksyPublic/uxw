@@ -6553,8 +6553,8 @@ var navigation = function navigation(UI, options) {
       if (m.id === ((_config$target$config = config.target[config.active]) === null || _config$target$config === void 0 ? void 0 : _config$target$config.getAttribute("".concat(ARIA_CONTROLS)))) {
         config.target[config.active].classList.add('is-active');
         modals[0].classList.add('is-active');
-        modals[0].setAttribute("".concat(LAYER_OPEND), 'true');
-        createHtml.classList.add('fadeIn');
+        modals[0].setAttribute("".concat(LAYER_OPEND), 'true'); // createHtml.classList.add('fadeIn');
+
         document.body.appendChild(createHtml);
 
         _aria();
@@ -6578,6 +6578,7 @@ var navigation = function navigation(UI, options) {
 };
 
 var modalLayer = function modalLayer(UI) {
+  // 220921 수정
   var elements = document.querySelectorAll(UI);
   var navEl = getObjectElements(elements);
   var tooltipBox = document.querySelector('.tooltip__box');
@@ -6675,23 +6676,23 @@ var modalLayer = function modalLayer(UI) {
       if (modal === layerModal) {
         _zIndexOrderIncrease(layerModal);
       } else {
-        modal.classList.add('is-deactive');
-        modal.classList.remove('is-active');
+        // modal.classList.add('is-deactive');
+        modal.classList.remove('is-active2');
         modal.setAttribute("".concat(LAYER_OPEND), 'false');
         _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_6__["default"].one(modal, 'animationend', function () {
-          modal.classList.remove('is-deactive');
+          modal.classList.remove('is-deactive2');
           modal.style.zIndex = ZINDEX.INIT;
         });
       }
     });
 
     if (layerModal.getAttribute("".concat(LAYER_OPEND)) === 'false') {
-      createHtml.classList.add('fadeIn');
+      // createHtml.classList.add('fadeIn');
       document.body.appendChild(createHtml);
-      layerModal.classList.add('is-active');
+      layerModal.classList.add('is-active2');
       layerModal.setAttribute("".concat(LAYER_OPEND), 'true');
       _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_6__["default"].one(layerModal, 'animationend', function () {
-        layerModal.classList.remove('is-deactive');
+        layerModal.classList.remove('is-deactive2');
       });
     }
   };
@@ -6700,13 +6701,13 @@ var modalLayer = function modalLayer(UI) {
     var modal = target.closest('.modal');
 
     if (modal.getAttribute("".concat(LAYER_OPEND)) === 'true') {
-      createHtml.classList.remove('fadeOut');
+      // createHtml.classList.remove('fadeOut');
       document.body.removeChild(createHtml);
-      modal.classList.add('is-deactive');
+      modal.classList.add('is-deactive2');
       modal.setAttribute("".concat(LAYER_OPEND), 'false');
       _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_6__["default"].one(modal, 'animationend', function () {
-        modal.classList.remove('is-active');
-        modal.classList.remove('is-deactive');
+        modal.classList.remove('is-active2');
+        modal.classList.remove('is-deactive2');
       });
     }
 
@@ -6748,6 +6749,23 @@ var modalScrollContent = function modalScrollContent() {
     }
   };
 
+  var tabEl = document.querySelector('.modal--layer__bescroll .tab');
+  tabEl.addEventListener(UXW.Tab.EVENT.CHANGE, function (event) {
+    var currentTab = event.current;
+    var beforeTab = event.before; //변경전 페이지적용
+
+    if (currentTab.content) {
+      var acc = currentTab.content.querySelector('.modal--layer__bescroll .tab--scroll .tab__inner');
+
+      var _floating = acc.querySelector('.floating-menu-wrap--type2 .accordion--type3');
+
+      if (acc.scrollTop > 0) {
+        _floating.classList.add('is-fixed');
+      } else {
+        _floating.classList.remove('is-fixed');
+      }
+    }
+  });
   [].forEach.call(el, function (item) {
     item.addEventListener('scroll', modalScroll);
   });
