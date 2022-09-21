@@ -151,7 +151,7 @@ const navigation = (UI, options) => {
     modals.forEach(m => {
       if (m.id === config.target[config.active]?.getAttribute(`${ARIA_CONTROLS}`)) {
         config.target[config.active].classList.add('is-active');
-        modals[0].classList.add('is-active');
+        modals[0].classList.add('is-active2');
         modals[0].setAttribute(`${LAYER_OPEND}`, 'true');
         // createHtml.classList.add('fadeIn');
         document.body.appendChild(createHtml);
@@ -345,6 +345,7 @@ const modalScrollContent = () => {
   };
 
   const tabEl = document.querySelector('.modal--layer__bescroll .tab')
+  if(!tabEl) return;
   tabEl.addEventListener(UXW.Tab.EVENT.CHANGE, function (event) {
       var currentTab = event.current;
       var beforeTab = event.before;

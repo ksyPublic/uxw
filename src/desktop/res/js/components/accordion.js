@@ -141,15 +141,32 @@ class Accordion extends UI {
         }
       }
 
-      /** 타겟이 링크  */
+      /** 타겟이 pressed 링크 */
       if(targetLink) {
         this._linkActive();
+      }
+
+      /** children link */
+      if(event.target.tagName === "A" && !event.target.getAttribute(`${ARIA_PRESSED}`)) {
+        this._linkChildrenActive(event.target);
       }
     });
   }
 
   _removeEvents() {
     EventHandler.off(this._element, super._eventName('click'));
+  }
+
+  _linkChildrenActive(target) {
+    this._linkChildrenDeactive();
+    target.classList.add('is-active');
+  }
+
+  _linkChildrenDeactive() {
+    const _link = this._element.querySelectorAll('.accordion__panel .text-link');
+    _link.forEach((x) => {
+      x.classList.remove('is-active');
+    })
   }
 
   _linkActive() {

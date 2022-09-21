@@ -6552,7 +6552,7 @@ var navigation = function navigation(UI, options) {
 
       if (m.id === ((_config$target$config = config.target[config.active]) === null || _config$target$config === void 0 ? void 0 : _config$target$config.getAttribute("".concat(ARIA_CONTROLS)))) {
         config.target[config.active].classList.add('is-active');
-        modals[0].classList.add('is-active');
+        modals[0].classList.add('is-active2');
         modals[0].setAttribute("".concat(LAYER_OPEND), 'true'); // createHtml.classList.add('fadeIn');
 
         document.body.appendChild(createHtml);
@@ -6750,6 +6750,7 @@ var modalScrollContent = function modalScrollContent() {
   };
 
   var tabEl = document.querySelector('.modal--layer__bescroll .tab');
+  if (!tabEl) return;
   tabEl.addEventListener(UXW.Tab.EVENT.CHANGE, function (event) {
     var currentTab = event.current;
     var beforeTab = event.before; //변경전 페이지적용
@@ -7038,11 +7039,17 @@ var Accordion = /*#__PURE__*/function (_UI) {
             _this3._open();
           }
         }
-        /** 타겟이 링크  */
+        /** 타겟이 pressed 링크 */
 
 
         if (targetLink) {
           _this3._linkActive();
+        }
+        /** children link */
+
+
+        if (event.target.tagName === "A" && !event.target.getAttribute("".concat(ARIA_PRESSED))) {
+          _this3._linkChildrenActive(event.target);
         }
       });
     }
@@ -7050,6 +7057,22 @@ var Accordion = /*#__PURE__*/function (_UI) {
     key: "_removeEvents",
     value: function _removeEvents() {
       _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_22__["default"].off(this._element, _get(_getPrototypeOf(Accordion.prototype), "_eventName", this).call(this, 'click'));
+    }
+  }, {
+    key: "_linkChildrenActive",
+    value: function _linkChildrenActive(target) {
+      this._linkChildrenDeactive();
+
+      target.classList.add('is-active');
+    }
+  }, {
+    key: "_linkChildrenDeactive",
+    value: function _linkChildrenDeactive() {
+      var _link = this._element.querySelectorAll('.accordion__panel .text-link');
+
+      _link.forEach(function (x) {
+        x.classList.remove('is-active');
+      });
     }
   }, {
     key: "_linkActive",
