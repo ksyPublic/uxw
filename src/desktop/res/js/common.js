@@ -327,11 +327,34 @@ const modalLayer = UI => {
   _init();
 };
 
+/* 모달에 스크롤이 있을경우 */
+const modalScrollContent = () => {
+  const el = document.querySelectorAll('.modal--layer__bescroll .tab--scroll .tab__inner');
+  const floating = document.querySelectorAll('.modal--layer__bescroll .tab--scroll .floating-menu-wrap--type2 .accordion--type3');
+  const modalScroll = event => {
+      if(event.target.scrollTop > 96) {
+          [].forEach.call(floating, function(item) {
+              item.classList.add('is-fixed');
+          });
+      } else {
+          [].forEach.call(floating, function(item) {
+              item.classList.remove('is-fixed');
+          });
+      }
+  };
+  
+  [].forEach.call(el, function(item) {
+      item.addEventListener('scroll', modalScroll)
+  })
+};
+/* 모달에 스크롤이 있을경우 */
+
 const initFunc = () => {};
 
 const initialize = () => {
   navigation('[role="navigation"]');
   modalLayer('[role="navigation"]');
+  modalScrollContent();
   cardRefresh();
   autoScrollContent();
 };

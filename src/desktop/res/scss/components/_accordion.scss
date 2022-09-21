@@ -157,6 +157,21 @@
   }
 
   &--type3 {
+    @at-root .floating-menu-wrap--type2 {
+      .accordion--type3 {
+        &.is-fixed {
+          position: fixed;
+          max-width: 204px;
+          top: 224px;
+        }
+        &:after {
+          content: '';
+          display: block;
+          height: 40px;
+        }
+      }
+    }
+    width: 100%;
     .#{$root}__box {
       border-top: 0;
     }
@@ -165,7 +180,7 @@
       border-top-left-radius: 8px;
       border-top-right-radius: 8px;
       overflow: hidden;
-      
+
       > .text-link {
         display: flex;
         align-items: center;
@@ -175,9 +190,18 @@
         padding: 12px 20px;
         font-weight: 300;
         font-size: 16px;
+        transition: none;
+        &.is-active {
+          color: $white;
+          background-color: color(grey, 700);
+          border: 1px solid color(grey, 700);
+          &:hover {
+            color: $white;
+          }
+        }
         &:hover {
           text-decoration: none;
-          color:color(grey, 600)!important;
+          color: color(grey, 600);
         }
       }
       strong {
@@ -189,7 +213,7 @@
         padding: 12px 20px;
         font-weight: 300;
         font-size: 16px;
-        color:color(grey, 600);
+        color: color(grey, 600);
       }
     }
 
@@ -199,7 +223,7 @@
         background-color: color(grey, 700);
         border-top-left-radius: 8px;
         border-top-right-radius: 8px;
-        color:$white;
+        color: $white;
       }
     }
 
@@ -208,25 +232,37 @@
         font-weight: 500;
         font-size: 14px;
         line-height: 24px;
-        color:color(grey, 400);
-        margin-top:8px;
-        &:first-child {
-          margin-top:0px;
+        color: color(grey, 400);
+        margin-top: 8px;
+        &.is-active {
+          color:$white;
+          &::before {
+            background-color:$white;
+          }
         }
-  
+        &:hover {
+          color:$white;
+          &::before {
+            background-color:$white;
+          }
+        }
+        &:first-child {
+          margin-top: 0px;
+        }
+
         &:before {
-          content:"";
-          width:2px;
-          height:2px;
-          background-color:color(grey, 400);
+          content: '';
+          width: 2px;
+          height: 2px;
+          background-color: color(grey, 400);
           border-radius: 50%;
-          margin-right:6px;
+          margin-right: 6px;
         }
       }
     }
 
     .#{$root}__inner {
-      padding:0 20px 16px;
+      padding: 10px 20px 16px;
       background-color: color(grey, 700);
       border-bottom-left-radius: 8px;
       border-bottom-right-radius: 8px;
@@ -236,40 +272,39 @@
     .#{$root}__item {
       position: relative;
       border-radius: 8px;
-      margin-top:4px;
-      border-top:0;
+      margin-top: 4px;
+      border-top: 0;
 
       &:after {
-        content:"";
-        width:24px;
-        height:24px;
+        content: '';
+        width: 24px;
+        height: 24px;
         display: inline-block;
         vertical-align: top;
         position: absolute;
-        right:-24px;
-        top:12px;
+        right: -24px;
+        top: 12px;
       }
 
       &:first-child {
-        margin-top:0;
+        margin-top: 0;
       }
 
       &.is-focused {
         background-color: color(grey, 700);
         &:after {
-          content:"";
-          width:24px;
-          height:24px;
+          content: '';
+          width: 24px;
+          height: 24px;
           display: inline-block;
           vertical-align: top;
-          background:url("../images/ic-button-arrow.png") no-repeat;
+          background: url('../images/ic-button-arrow.png') no-repeat;
         }
         .#{$root}__head strong {
           border: 1px solid color(grey, 700);
           background-color: color(grey, 700);
-          color:$white;
+          color: $white;
         }
-
       }
 
       &:last-child {

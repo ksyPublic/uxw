@@ -13,9 +13,9 @@
 
   @at-root {
     &.is-fixed {
-      .modal__content {
-        min-height:auto;
-      }
+      // .modal__content {
+      //   min-height:auto;
+      // }
       .tab .title {
         position: fixed;
         width: 100%;
@@ -262,13 +262,13 @@
       }
     }
 
-    &__type3 {
-      .#{$root}__content {
-        overflow: visible;
-        max-height: none;
-        // min-height: ;
-      }
-    }
+    // &__type3 {
+    //   .#{$root}__content {
+    //     overflow: visible;
+    //     max-height: none;
+    //     // min-height: ;
+    //   }
+    // }
   }
 }
 

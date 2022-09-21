@@ -6729,12 +6729,38 @@ var modalLayer = function modalLayer(UI) {
 
   _init();
 };
+/* 모달에 스크롤이 있을경우 */
+
+
+var modalScrollContent = function modalScrollContent() {
+  var el = document.querySelectorAll('.modal--layer__bescroll .tab--scroll .tab__inner');
+  var floating = document.querySelectorAll('.modal--layer__bescroll .tab--scroll .floating-menu-wrap--type2 .accordion--type3');
+
+  var modalScroll = function modalScroll(event) {
+    if (event.target.scrollTop > 96) {
+      [].forEach.call(floating, function (item) {
+        item.classList.add('is-fixed');
+      });
+    } else {
+      [].forEach.call(floating, function (item) {
+        item.classList.remove('is-fixed');
+      });
+    }
+  };
+
+  [].forEach.call(el, function (item) {
+    item.addEventListener('scroll', modalScroll);
+  });
+};
+/* 모달에 스크롤이 있을경우 */
+
 
 var initFunc = function initFunc() {};
 
 var initialize = function initialize() {
   navigation('[role="navigation"]');
   modalLayer('[role="navigation"]');
+  modalScrollContent();
   cardRefresh();
   autoScrollContent();
 };
@@ -6849,11 +6875,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 /**
- * versiton 0.0.2
+ * versiton 0.0.3
  */
 
 var NAME = 'ui.accordion';
 var ARIA_CONTROLS = 'aria-controls';
+var ARIA_PRESSED = 'aria-pressed';
 var ONLY_ONE = 'data-accordion-onlyone';
 var dataAttrConfig = {
   default: -1,
@@ -6902,6 +6929,7 @@ var Accordion = /*#__PURE__*/function (_UI) {
     _this._options = {
       single: null
     };
+    _this._link = null;
     return _this;
   }
 
@@ -6973,6 +7001,8 @@ var Accordion = /*#__PURE__*/function (_UI) {
             toggle = _this3$_config.toggle,
             activeClass = _this3$_config.activeClass;
         var target = event.target.closest("[".concat(ARIA_CONTROLS, "]"));
+        var targetLink = event.target.closest("[".concat(ARIA_PRESSED, "]"));
+        _this3._link = targetLink;
 
         if (target) {
           _this3._current = {
@@ -6990,12 +7020,42 @@ var Accordion = /*#__PURE__*/function (_UI) {
             _this3._open();
           }
         }
+        /** 타겟이 링크  */
+
+
+        if (targetLink) {
+          _this3._linkActive();
+        }
       });
     }
   }, {
     key: "_removeEvents",
     value: function _removeEvents() {
       _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_22__["default"].off(this._element, _get(_getPrototypeOf(Accordion.prototype), "_eventName", this).call(this, 'click'));
+    }
+  }, {
+    key: "_linkActive",
+    value: function _linkActive() {
+      this._linkedeactive();
+
+      this._linkClosedAnimation();
+
+      this._link.classList.add('is-active');
+
+      var head = this._link.closest('.accordion__item');
+
+      head.classList.add('is-focused');
+    }
+  }, {
+    key: "_linkedeactive",
+    value: function _linkedeactive() {
+      var _linkAll = this._element.querySelectorAll("[".concat(ARIA_PRESSED, "]"));
+
+      _linkAll.forEach(function (item) {
+        item.classList.remove('is-active');
+        var parent = item.closest('.accordion__item');
+        parent.classList.remove('is-focused');
+      });
     }
   }, {
     key: "open",
@@ -7019,6 +7079,8 @@ var Accordion = /*#__PURE__*/function (_UI) {
       var _this$_current = this._current,
           header = _this$_current.header,
           content = _this$_current.content;
+
+      this._linkedeactive();
 
       this._removeFocused();
 
@@ -7136,6 +7198,48 @@ var Accordion = /*#__PURE__*/function (_UI) {
 
       var items = header.closest('.accordion__item');
       items.classList.add(focusClass);
+    }
+  }, {
+    key: "_linkClosedAnimation",
+    value: function _linkClosedAnimation() {
+      var _this$_before;
+
+      var _this$_config3 = this._config,
+          activeClass = _this$_config3.activeClass,
+          stateClass = _this$_config3.stateClass,
+          focusClass = _this$_config3.focusClass,
+          animation = _this$_config3.animation;
+      var possibleAnimation = (0,_utils_dom_util__WEBPACK_IMPORTED_MODULE_23__.isVisible)(this._element);
+      if (this._animating === true && animation === true) return;
+      if (!((_this$_before = this._before) !== null && _this$_before !== void 0 && _this$_before.header)) return;
+      var _this$_before2 = this._before,
+          header = _this$_before2.header,
+          content = _this$_before2.content;
+
+      this._removeFocused();
+
+      var items = header.closest('.accordion__item');
+      items.classList.remove(focusClass);
+      header.classList.remove(activeClass);
+
+      this._aria(this._before, false);
+
+      if (animation && possibleAnimation) {
+        content.style.height = "".concat(content.getBoundingClientRect().height, "px");
+        content.heightCache = content.offsetHeight;
+        content.style.height = "";
+        content.classList.add(stateClass.expanding);
+        content.classList.remove(stateClass.expand);
+        content.classList.remove(stateClass.expanded);
+        _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_22__["default"].one(content, 'transitionend', function () {
+          content.classList.remove(stateClass.expanding);
+          content.classList.add(stateClass.expand);
+        });
+        return;
+      } else {
+        content.classList.remove(stateClass.expanding);
+        content.classList.add(stateClass.expand);
+      }
     }
   }, {
     key: "destroy",

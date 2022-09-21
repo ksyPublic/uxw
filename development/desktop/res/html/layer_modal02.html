@@ -852,7 +852,7 @@
       </div>
       <!-- //완료하기 팝업 -->
       <!-- 라이팅 가이드 레이어 팝업 -->
-      <div class="modal modal--layer modal--layer__type3 modal-scroll" id="layerModal2" data-layer-opend="false">
+      <div class="modal modal--layer modal--layer__type2 modal--layer__bescroll" id="layerModal2" data-layer-opend="false">
         <div class="modal__dialog">
           <div class="modal__content">
             <button type="button" class="ic-button" data-layer-close aria-label="팝업닫기">
@@ -860,7 +860,7 @@
             </button>
             <!-- 페이지 컨텐츠와 동일 element 사용 -->
             <div class="ly-content-box">
-              <div class="tab" data-ui-tab data-tab-active="2">
+              <div class="tab tab--scroll" data-ui-tab data-tab-active="2">
                 <div class="title">
                   <div class="tab__list" role="tablist">
                     <button type="button" role="tab" id="tablist7" class="tab__button" aria-controls="tabpanel7" aria-selected="false">보이스앤톤</button>
@@ -875,6 +875,43 @@
                       <h3 class="ft20 medium">Voice & Tone</h3>
                       <p class="ft16 light title-sub">‘보이스앤톤’은 브랜드와 고객이 커뮤니케이션하는 언어적 표현방식 입니다.</p>
                     </div>
+                    <div class="tab__inner-box">
+                      <div class="floating-menu-wrap floating-menu-wrap--type2">
+                        <!-- 아코디언 영역 -->
+                        <div class="accordion accordion--type3" data-ui-accordion data-accordion-onlyOne="true">
+                          <div class="accordion__box">
+                            <div class="accordion__item is-focused">
+                              <div class="accordion__head">
+                                <a href="#none" class="text-link is-active" aria-pressed="false">보이스앤톤 이란?</a>
+                              </div>
+                            </div>
+                            <div class="accordion__item">
+                              <div class="accordion__head">
+                                <a href="#none" class="text-link" aria-pressed="false">보이스</a>
+                              </div>
+                            </div>
+                            <div class="accordion__item">
+                              <div class="accordion__head">
+                                <button class="accordion__button" id="acc_header0" type="button" aria-expanded="false" aria-controls="acc_panel0" aria-label="버튼"></button>
+                                <strong>톤</strong>
+                              </div>
+                              <div class="accordion__panel expand" id="acc_panel0" aria-labelledby="acc_header0">
+                                <div class="accordion__inner">
+                                  <a href="#none" class="text-link">친근한 톤</a>
+                                  <a href="#none" class="text-link">쉽고 간결한 톤</a>
+                                  <a href="#none" class="text-link">유익한 톤</a>
+                                  <a href="#none" class="text-link">배려하는 톤</a>
+                                  <a href="#none" class="text-link">텍스트 기능별 톤</a>
+                                  <a href="#none" class="text-link">높임법</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- //아코디언 영역 -->
+                      </div>
+                      <div class="side__frame__html">컨텐츠 영역입니다</div>
+                    </div>
                   </div>
                 </div>
                 <div id="tabpanel8" class="tab__panel" role="tabpanel" aria-labelledby="tablist8" tabindex="-1">
@@ -882,6 +919,88 @@
                     <div class="title--type3">
                       <h3 class="ft20 medium">라이팅 기본원칙</h3>
                       <p class="ft16 light title-sub">‘국립국어원 어문규정’을 기본으로 신한은행의 업무여건, 사용자, 디지털뱅킹 특성을 고려하여 정의한 4가지 기본원칙</p>
+                    </div>
+                    <div class="tab__inner-box">
+                      <div class="floating-menu-wrap floating-menu-wrap--type2">
+                        <!-- 아코디언 영역 -->
+                        <div class="accordion accordion--type3" data-ui-accordion data-accordion-onlyOne="true" data-accordion-default="0">
+                          <div class="accordion__box">
+                            <div class="accordion__item">
+                              <div class="accordion__head">
+                                <button class="accordion__button" id="acc_header1" type="button" aria-expanded="false" aria-controls="acc_panel1" aria-label="버튼"></button>
+                                <strong>명확하게</strong>
+                              </div>
+                              <div class="accordion__panel expand" id="acc_panel1" aria-labelledby="acc_header1">
+                                <div class="accordion__inner">
+                                  <a href="#none" class="text-link">한자어</a>
+                                  <a href="#none" class="text-link">한자어 접두사 ‘기,미,비,불'</a>
+                                  <a href="#none" class="text-link">전문/내부 용어</a>
+                                  <a href="#none" class="text-link">대출 용어</a>
+                                  <a href="#none" class="text-link">고유명사</a>
+                                  <a href="#none" class="text-link">영어/한자 단독 표기</a>
+                                  <a href="#none" class="text-link">외래어</a>
+                                  <a href="#none" class="text-link">줄임말, 지시어</a>
+                                  <a href="#none" class="text-link">유의어</a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion__item">
+                              <div class="accordion__head">
+                                <button class="accordion__button" id="acc_header1-1" type="button" aria-expanded="false" aria-controls="acc_panel1-1" aria-label="버튼"></button>
+                                <strong>간결하게</strong>
+                              </div>
+                              <div class="accordion__panel expand" id="acc_panel1-1" aria-labelledby="acc_header1-1">
+                                <div class="accordion__inner">
+                                  <a href="#none" class="text-link">긴 문장</a>
+                                  <a href="#none" class="text-link">높임 표현</a>
+                                  <a href="#none" class="text-link">번역 투</a>
+                                  <a href="#none" class="text-link">군더더기 표현/중복표현</a>
+                                  <a href="#none" class="text-link">당부, 사과, 양해 표현</a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion__item">
+                              <div class="accordion__head">
+                                <button class="accordion__button" id="acc_header1-2" type="button" aria-expanded="false" aria-controls="acc_panel1-2" aria-label="버튼"></button>
+                                <strong>일관되게</strong>
+                              </div>
+                              <div class="accordion__panel expand" id="acc_panel1-2" aria-labelledby="acc_header1-2">
+                                <div class="accordion__inner">
+                                  <a href="#none" class="text-link">용어통일</a>
+                                  <a href="#none" class="text-link">영업일 표현</a>
+                                  <a href="#none" class="text-link">말투/서술형태 통일</a>
+                                  <a href="#none" class="text-link">문장부호</a>
+                                  <a href="#none" class="text-link">버튼, 메뉴, 경로</a>
+                                  <a href="#none" class="text-link">날짜, 요일</a>
+                                  <a href="#none" class="text-link">시간, 기간</a>
+                                  <a href="#none" class="text-link">금액(원/외환)</a>
+                                  <a href="#none" class="text-link">이자율, 퍼센트</a>
+                                  <a href="#none" class="text-link">통화 표기</a>
+                                  <a href="#none" class="text-link">전화번호, 링크</a>
+                                  <a href="#none" class="text-link">버전명, OS</a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion__item">
+                              <div class="accordion__head">
+                                <button class="accordion__button" id="acc_header1-3" type="button" aria-expanded="false" aria-controls="acc_panel1-3" aria-label="버튼"></button>
+                                <strong>고객 관점으로</strong>
+                              </div>
+                              <div class="accordion__panel expand" id="acc_panel1-3" aria-labelledby="acc_header1-3">
+                                <div class="accordion__inner">
+                                  <a href="#none" class="text-link">기업 중심 표현</a>
+                                  <a href="#none" class="text-link">부정 표현</a>
+                                  <a href="#none" class="text-link">실패 표현</a>
+                                  <a href="#none" class="text-link">오류메시지</a>
+                                  <a href="#none" class="text-link">차별 표현</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- //아코디언 영역 -->
+                      </div>
+                      <div class="side__frame__html">컨텐츠 영역입니다</div>
                     </div>
                   </div>
                 </div>
@@ -892,16 +1011,16 @@
                       <p class="ft16 light title-sub">UI형태와 용도를 고려한 글쓰기 규칙</p>
                     </div>
                     <div class="tab__inner-box">
-                      <div id="accFloating" class="floating-menu-wrap floating-menu-wrap--type2">
+                      <div class="floating-menu-wrap floating-menu-wrap--type2">
                         <!-- 아코디언 영역 -->
-                        <div class="accordion accordion--type3" data-ui-accordion data-accordion-onlyOne="true">
+                        <div class="accordion accordion--type3" data-ui-accordion data-accordion-onlyOne="true" data-accordion-default="0">
                           <div class="accordion__box">
                             <div class="accordion__item">
                               <div class="accordion__head">
-                                <button class="accordion__button" id="acc_header1" type="button" aria-expanded="false" aria-controls="acc_panel1" aria-label="버튼"></button>
+                                <button class="accordion__button" id="acc_header2" type="button" aria-expanded="false" aria-controls="acc_panel2" aria-label="버튼"></button>
                                 <strong>버튼</strong>
                               </div>
-                              <div class="accordion__panel expand" id="acc_panel1" aria-labelledby="acc_header1">
+                              <div class="accordion__panel expand" id="acc_panel2" aria-labelledby="acc_header2">
                                 <div class="accordion__inner">
                                   <a href="#none" class="text-link">버튼(single)</a>
                                   <a href="#none" class="text-link">버튼(multiple)</a>
@@ -915,15 +1034,15 @@
                             </div>
                             <div class="accordion__item">
                               <div class="accordion__head">
-                                <a href="#none" class="text-link">바텀시트</a>
+                                <a href="#none" class="text-link" aria-pressed="false">바텀시트</a>
                               </div>
                             </div>
                             <div class="accordion__item">
                               <div class="accordion__head">
-                                <button class="accordion__button" id="acc_header2" type="button" aria-expanded="false" aria-controls="acc_panel2" aria-label="버튼"></button>
+                                <button class="accordion__button" id="acc_header2-1" type="button" aria-expanded="false" aria-controls="acc_panel2-1" aria-label="버튼"></button>
                                 <strong>레이블</strong>
                               </div>
-                              <div class="accordion__panel expand" id="acc_panel2" aria-labelledby="acc_header2">
+                              <div class="accordion__panel expand" id="acc_panel2-1" aria-labelledby="acc_header2-1">
                                 <div class="accordion__inner">
                                   <a href="#none" class="text-link">전체 메뉴</a>
                                   <a href="#none" class="text-link">상품/서비스 메뉴</a>
@@ -932,15 +1051,15 @@
                             </div>
                             <div class="accordion__item">
                               <div class="accordion__head">
-                                <a href="#none" class="text-link">툴팁</a>
+                                <a href="#none" class="text-link" aria-pressed="false">툴팁</a>
                               </div>
                             </div>
                             <div class="accordion__item">
                               <div class="accordion__head">
-                                <button class="accordion__button" id="acc_header3" type="button" aria-expanded="false" aria-controls="acc_panel3" aria-label="버튼"></button>
+                                <button class="accordion__button" id="acc_header2-3" type="button" aria-expanded="false" aria-controls="acc_panel2-3" aria-label="버튼"></button>
                                 <strong>텍스트필드</strong>
                               </div>
-                              <div class="accordion__panel expand" id="acc_panel3" aria-labelledby="acc_header3">
+                              <div class="accordion__panel expand" id="acc_panel2-3" aria-labelledby="acc_header2-3">
                                 <div class="accordion__inner">
                                   <a href="#none" class="text-link">레이블/입력창</a>
                                   <a href="#none" class="text-link">하단 도움말</a>
@@ -949,29 +1068,29 @@
                             </div>
                             <div class="accordion__item">
                               <div class="accordion__head">
-                                <a href="#none" class="text-link">팝업</a>
+                                <a href="#none" class="text-link" aria-pressed="false">팝업</a>
                               </div>
                             </div>
                             <div class="accordion__item">
                               <div class="accordion__head">
-                                <a href="#none" class="text-link">토스트</a>
+                                <a href="#none" class="text-link" aria-pressed="false">토스트</a>
                               </div>
                             </div>
                             <div class="accordion__item">
                               <div class="accordion__head">
-                                <a href="#none" class="text-link">메시지</a>
+                                <a href="#none" class="text-link" aria-pressed="false">메시지</a>
                               </div>
                             </div>
                             <div class="accordion__item">
                               <div class="accordion__head">
-                                <a href="#none" class="text-link">유의사항</a>
+                                <a href="#none" class="text-link" aria-pressed="false">유의사항</a>
                               </div>
                             </div>
                           </div>
                         </div>
                         <!-- //아코디언 영역 -->
                       </div>
-                      <div class="side__frame__html"> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br /> 가이드 컨텐츠 제작예정<br />
+                      <div class="side__frame__html"> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br /> 컨텐츠 영역입니다<br />
                       </div>
                     </div>
                   </div>
@@ -981,6 +1100,32 @@
                     <div class="title--type3">
                       <h3 class="ft20 medium">자주 틀리는 표현</h3>
                       <p class="ft16 light title-sub">문구미정</p>
+                    </div>
+                    <div class="tab__inner-box">
+                      <div class="floating-menu-wrap floating-menu-wrap--type2">
+                        <!-- 아코디언 영역 -->
+                        <div class="accordion accordion--type3" data-ui-accordion data-accordion-onlyOne="true">
+                          <div class="accordion__box">
+                            <div class="accordion__item is-focused">
+                              <div class="accordion__head">
+                                <a href="#none" class="text-link is-active" aria-pressed="false">맞춤법</a>
+                              </div>
+                            </div>
+                            <div class="accordion__item">
+                              <div class="accordion__head">
+                                <a href="#none" class="text-link" aria-pressed="false">띄어쓰기</a>
+                              </div>
+                            </div>
+                            <div class="accordion__item">
+                              <div class="accordion__head">
+                                <a href="#none" class="text-link" aria-pressed="false">붙여쓰기</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- //아코디언 영역 -->
+                      </div>
+                      <div class="side__frame__html"> 컨텐츠 영역입니다 </div>
                     </div>
                   </div>
                 </div>
@@ -1227,30 +1372,12 @@
         x.setAttribute(card, false);
       })
     }
-    /* 모달에 스크롤이 있을경우 */
-    const modalScrollContent = () => {
-      const el = document.querySelector('.modal-scroll');
-      const modalScroll = event => {
-        if (event.target.scrollTop > 0) {
-          el.classList.add('is-fixed');
-        } else {
-          el.classList.remove('is-fixed');
-        }
-        if (event.target.scrollTop > 96) {
-          accFloating.classList.add('is-fixed');
-        } else {
-          accFloating.classList.remove('is-fixed');
-        }
-      };
-      el.addEventListener('scroll', modalScroll)
-    };
     document.addEventListener('DOMContentLoaded', function() {
       bytesCheck();
       btncurrect.onclick = function() {
         currectEvent.OPEN(btncurrect);
       }
       Input.Check();
-      modalScrollContent();
     });
     document.addEventListener('UILoaded', function() {
       //삭제버튼 클릭시

@@ -9,8 +9,11 @@
   flex-shrink: 0;
 
   &--type2 {
-    position: absolute;
-    width: 204px;
+    position: relative;
+    max-width: 204px;
+    .accordion--type3 {
+      position: absolute;
+    }
     &.is-fixed {
       position: fixed;
       top:224px;
