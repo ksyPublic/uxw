@@ -1,7 +1,7 @@
 import 'element-closest-polyfill';
-import Scrollbar from 'smooth-scrollbar';
 import EventHandler from './vendor/EventHandler';
 import { toHTML } from './utils/dom-util';
+import Scrollbar from 'smooth-scrollbar';
 
 /* eslint-disable prettier/prettier */
 
@@ -335,14 +335,25 @@ const modalLayer = UI => {
 
 /* 모달에 스크롤이 있을경우 */
 const modalScrollContent = () => {
-  const el = document.querySelectorAll('.modal--layer__bescroll .tab--scroll .tab__inner');
+  const bescroll = 'modal--layer__bescroll';
+  const el = document.querySelectorAll(`.${bescroll} .tab--scroll .tab__inner`);
+  const tabEl = document.querySelector(`.${bescroll} .tab`);
 
-  const tabEl = document.querySelector('.modal--layer__bescroll .tab');
+  const modalScroll = event => {
+    const parentEl = event.target.querySelector('.floating-menu-wrap--type2 .accordion--type3');
+
+    if (event.target.scrollTop > 96) {
+      parentEl.classList.add('is-fixed');
+    } else {
+      parentEl.classList.remove('is-fixed');
+    }
+  };
+
   if (!tabEl) return;
   tabEl.addEventListener(UXW.Tab.EVENT.CHANGE, function (event) {
     var currentTab = event.current;
     var beforeTab = event.before;
-    //변경전 페이지적용
+    // 변경전 페이지적용
     if (currentTab.content) {
       const acc = currentTab.content.querySelector('.modal--layer__bescroll .tab--scroll .tab__inner');
       const _floating = acc.querySelector('.floating-menu-wrap--type2 .accordion--type3');
@@ -353,43 +364,21 @@ const modalScrollContent = () => {
       }
     }
   });
+
+  [].forEach.call(el, function (item) {
+    item.addEventListener('scroll', modalScroll);
+  });
 };
 /* 모달에 스크롤이 있을경우 */
 
 const defaultScroll = () => {
   const tabScrollEl = document.querySelectorAll('.tab--scroll .tab__inner');
-  const floating = document.querySelectorAll('.modal--layer__bescroll .tab--scroll .floating-menu-wrap--type2 .accordion--type3');
-
-  // const modalScroll = event => {
-  //   console.log('???', event.target);
-  //   if (event.target.scrollTop > 96) {
-  //     [].forEach.call(floating, function (item) {
-  //       item.classList.add('is-fixed');
-  //     });
-  //   } else {
-  //     [].forEach.call(floating, function (item) {
-  //       item.classList.remove('is-fixed');
-  //     });
-  //   }
-  // };
-
   tabScrollEl.forEach(item => {
-    const scrollbar = Scrollbar.init(item);
-    scrollbar.addListener(function (status) {
-      const fixedEl = scrollbar.contentEl.querySelector('.floating-menu-wrap--type2 .accordion--type3')
-
-      // if(floating.length > 0) {
-      //   console.log('?????', status.limit.y > status.offset.y,  status.offset.y > 96);
-
-      //   if (status.limit.y > status.offset.y && status.offset.y > 96) {
-      //     fixedEl.classList.add('is-fixed');
-      //     fixedEl.style.top = status.offset.y + 'px';
-      //   } else {
-      //     fixedEl.style.top = 0;
-      //     fixedEl.classList.remove('is-fixed');
-      //   }
-      // }
-    });
+    if (!item.closest('.modal--layer__bescroll')) {
+      const scrollbar = Scrollbar.init(item, {
+        syncCallbacks: true,
+      });
+    }
   });
 };
 

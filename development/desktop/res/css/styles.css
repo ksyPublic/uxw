@@ -3931,10 +3931,10 @@ input[type='radio'] {
     position: relative;
     max-width: 204px; }
     .floating-menu-wrap--type2 .accordion--type3 {
-      position: absolute; }
+      position: absolute;
+      top: 0px; }
     .floating-menu-wrap--type2.is-fixed {
-      position: fixed;
-      top: 224px; }
+      position: fixed; }
 
 .ly-container {
   width: 100%;

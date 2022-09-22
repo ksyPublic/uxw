@@ -13691,9 +13691,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es_regexp_exec_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es.regexp.exec.js */ "./node_modules/core-js/modules/es.regexp.exec.js");
 /* harmony import */ var core_js_modules_es_string_match_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! core-js/modules/es.string.match.js */ "./node_modules/core-js/modules/es.string.match.js");
 /* harmony import */ var element_closest_polyfill__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! element-closest-polyfill */ "./node_modules/element-closest-polyfill/index.js");
-/* harmony import */ var smooth_scrollbar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! smooth-scrollbar */ "./node_modules/smooth-scrollbar/index.js");
-/* harmony import */ var _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./vendor/EventHandler */ "./src/desktop/res/js/vendor/EventHandler.js");
-/* harmony import */ var _utils_dom_util__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./utils/dom-util */ "./src/desktop/res/js/utils/dom-util.js");
+/* harmony import */ var _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./vendor/EventHandler */ "./src/desktop/res/js/vendor/EventHandler.js");
+/* harmony import */ var _utils_dom_util__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./utils/dom-util */ "./src/desktop/res/js/utils/dom-util.js");
+/* harmony import */ var smooth_scrollbar__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! smooth-scrollbar */ "./node_modules/smooth-scrollbar/index.js");
 
 
 
@@ -13706,7 +13706,7 @@ __webpack_require__.r(__webpack_exports__);
 /* eslint-disable prettier/prettier */
 
 var bgTemplate = "\n<div style=\"\n  position: fixed; \n  width: 100%; \n  height: 100%;\n  left: 0;\n  top: 0;\n  z-index:102;\n  background-color: rgba(0,0,0,0.6);\">\n</div>";
-var createHtml = (0,_utils_dom_util__WEBPACK_IMPORTED_MODULE_8__.toHTML)(bgTemplate);
+var createHtml = (0,_utils_dom_util__WEBPACK_IMPORTED_MODULE_7__.toHTML)(bgTemplate);
 var LAYER_OPEND = 'data-layer-opend';
 
 var getObjectElements = function getObjectElements(elements) {
@@ -13758,7 +13758,7 @@ var cardRefresh = function cardRefresh() {
   elements.forEach(function (item) {
     var isCard = item.getAttribute(card);
     var refresh = item.querySelector('.ic-button-refresh');
-    _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_7__["default"].on(refresh, 'click', function (event) {
+    _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_6__["default"].on(refresh, 'click', function (event) {
       if (isCard) {
         event.currentTarget.setAttribute(ARIA_PRESSED, false);
 
@@ -13807,8 +13807,8 @@ var navigation = function navigation(UI, options) {
     }
 
     config.target.forEach(function (item, index) {
-      _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_7__["default"].on(item, 'click', navClickable);
-      _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_7__["default"].on(config.nextTarget[index], 'click', navClickable);
+      _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_6__["default"].on(item, 'click', navClickable);
+      _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_6__["default"].on(config.nextTarget[index], 'click', navClickable);
     });
   };
 
@@ -13924,18 +13924,18 @@ var modalLayer = function modalLayer(UI) {
     }
 
     config.target.forEach(function (item, index) {
-      _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_7__["default"].on(item, 'click', layerClick);
-      _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_7__["default"].on(config.nextTarget[index], 'click', layerClick);
+      _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_6__["default"].on(item, 'click', layerClick);
+      _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_6__["default"].on(config.nextTarget[index], 'click', layerClick);
     });
     config.closeButton.forEach(function (item) {
-      _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_7__["default"].on(item, 'click', layerClose);
+      _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_6__["default"].on(item, 'click', layerClose);
     });
   };
 
   var _removeEvents = function _removeEvents() {
     config.target.forEach(function (item, index) {
-      _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_7__["default"].off(item, 'click');
-      _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_7__["default"].off(config.nextTarget[index], 'click');
+      _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_6__["default"].off(item, 'click');
+      _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_6__["default"].off(config.nextTarget[index], 'click');
     });
   };
 
@@ -13978,7 +13978,7 @@ var modalLayer = function modalLayer(UI) {
         // modal.classList.add('is-deactive');
         modal.classList.remove('is-active');
         modal.setAttribute("".concat(LAYER_OPEND), 'false');
-        _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_7__["default"].one(modal, 'animationend', function () {
+        _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_6__["default"].one(modal, 'animationend', function () {
           modal.classList.remove('is-deactive');
           modal.style.zIndex = ZINDEX.INIT;
         });
@@ -13994,7 +13994,7 @@ var modalLayer = function modalLayer(UI) {
 
       layerModal.classList.add('is-active');
       layerModal.setAttribute("".concat(LAYER_OPEND), 'true');
-      _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_7__["default"].one(layerModal, 'animationend', function () {
+      _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_6__["default"].one(layerModal, 'animationend', function () {
         layerModal.classList.remove('is-deactive');
       });
     }
@@ -14038,12 +14038,24 @@ var modalLayer = function modalLayer(UI) {
 
 
 var modalScrollContent = function modalScrollContent() {
-  var el = document.querySelectorAll('.modal--layer__bescroll .tab--scroll .tab__inner');
-  var tabEl = document.querySelector('.modal--layer__bescroll .tab');
+  var bescroll = 'modal--layer__bescroll';
+  var el = document.querySelectorAll(".".concat(bescroll, " .tab--scroll .tab__inner"));
+  var tabEl = document.querySelector(".".concat(bescroll, " .tab"));
+
+  var modalScroll = function modalScroll(event) {
+    var parentEl = event.target.querySelector('.floating-menu-wrap--type2 .accordion--type3');
+
+    if (event.target.scrollTop > 96) {
+      parentEl.classList.add('is-fixed');
+    } else {
+      parentEl.classList.remove('is-fixed');
+    }
+  };
+
   if (!tabEl) return;
   tabEl.addEventListener(UXW.Tab.EVENT.CHANGE, function (event) {
     var currentTab = event.current;
-    var beforeTab = event.before; //변경전 페이지적용
+    var beforeTab = event.before; // 변경전 페이지적용
 
     if (currentTab.content) {
       var acc = currentTab.content.querySelector('.modal--layer__bescroll .tab--scroll .tab__inner');
@@ -14057,39 +14069,21 @@ var modalScrollContent = function modalScrollContent() {
       }
     }
   });
+  [].forEach.call(el, function (item) {
+    item.addEventListener('scroll', modalScroll);
+  });
 };
 /* 모달에 스크롤이 있을경우 */
 
 
 var defaultScroll = function defaultScroll() {
   var tabScrollEl = document.querySelectorAll('.tab--scroll .tab__inner');
-  var floating = document.querySelectorAll('.modal--layer__bescroll .tab--scroll .floating-menu-wrap--type2 .accordion--type3'); // const modalScroll = event => {
-  //   console.log('???', event.target);
-  //   if (event.target.scrollTop > 96) {
-  //     [].forEach.call(floating, function (item) {
-  //       item.classList.add('is-fixed');
-  //     });
-  //   } else {
-  //     [].forEach.call(floating, function (item) {
-  //       item.classList.remove('is-fixed');
-  //     });
-  //   }
-  // };
-
   tabScrollEl.forEach(function (item) {
-    var scrollbar = smooth_scrollbar__WEBPACK_IMPORTED_MODULE_6__["default"].init(item);
-    scrollbar.addListener(function (status) {
-      var fixedEl = scrollbar.contentEl.querySelector('.floating-menu-wrap--type2 .accordion--type3'); // if(floating.length > 0) {
-      //   console.log('?????', status.limit.y > status.offset.y,  status.offset.y > 96);
-      //   if (status.limit.y > status.offset.y && status.offset.y > 96) {
-      //     fixedEl.classList.add('is-fixed');
-      //     fixedEl.style.top = status.offset.y + 'px';
-      //   } else {
-      //     fixedEl.style.top = 0;
-      //     fixedEl.classList.remove('is-fixed');
-      //   }
-      // }
-    });
+    if (!item.closest('.modal--layer__bescroll')) {
+      var scrollbar = smooth_scrollbar__WEBPACK_IMPORTED_MODULE_8__["default"].init(item, {
+        syncCallbacks: true
+      });
+    }
   });
 };
 

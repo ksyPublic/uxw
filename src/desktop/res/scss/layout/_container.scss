@@ -13,10 +13,10 @@
     max-width: 204px;
     .accordion--type3 {
       position: absolute;
+      top: 0px;
     }
     &.is-fixed {
       position: fixed;
-      top:224px;
     }
   }
 }

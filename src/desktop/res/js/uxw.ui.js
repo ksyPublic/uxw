@@ -34,7 +34,6 @@ Tab.GLOBAL_CONFIG = {
   activeClass: 'is-active',
 };
 
-
 Accordion.GLOBAL_CONFIG = {
   activeClass: 'is-active',
 };
@@ -177,7 +176,7 @@ const SwiperA11y = (el, options = {}) => {
   });
 };
 
-const initialize = () => {  
+const initialize = () => {
   // 오토헤이트핏
   UIInitializer('.box--autoheight', AutoHeightFit);
 
