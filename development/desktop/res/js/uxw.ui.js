@@ -6579,6 +6579,7 @@ var navigation = function navigation(UI, options) {
 
 var modalLayer = function modalLayer(UI) {
   // 220921 수정
+  var dimmer = false;
   var elements = document.querySelectorAll(UI);
   var navEl = getObjectElements(elements);
   var tooltipBox = document.querySelector('.tooltip__box');
@@ -6677,10 +6678,10 @@ var modalLayer = function modalLayer(UI) {
         _zIndexOrderIncrease(layerModal);
       } else {
         // modal.classList.add('is-deactive');
-        modal.classList.remove('is-active2');
+        modal.classList.remove('is-active');
         modal.setAttribute("".concat(LAYER_OPEND), 'false');
         _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_6__["default"].one(modal, 'animationend', function () {
-          modal.classList.remove('is-deactive2');
+          modal.classList.remove('is-deactive');
           modal.style.zIndex = ZINDEX.INIT;
         });
       }
@@ -6688,11 +6689,15 @@ var modalLayer = function modalLayer(UI) {
 
     if (layerModal.getAttribute("".concat(LAYER_OPEND)) === 'false') {
       // createHtml.classList.add('fadeIn');
-      document.body.appendChild(createHtml);
-      layerModal.classList.add('is-active2');
+      if (!dimmer) {
+        document.body.appendChild(createHtml);
+        dimmer = true;
+      }
+
+      layerModal.classList.add('is-active');
       layerModal.setAttribute("".concat(LAYER_OPEND), 'true');
       _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_6__["default"].one(layerModal, 'animationend', function () {
-        layerModal.classList.remove('is-deactive2');
+        layerModal.classList.remove('is-deactive');
       });
     }
   };
@@ -6703,12 +6708,13 @@ var modalLayer = function modalLayer(UI) {
     if (modal.getAttribute("".concat(LAYER_OPEND)) === 'true') {
       // createHtml.classList.remove('fadeOut');
       document.body.removeChild(createHtml);
-      modal.classList.add('is-deactive2');
+      modal.classList.remove('is-active2');
+      modal.classList.remove('is-active');
       modal.setAttribute("".concat(LAYER_OPEND), 'false');
-      _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_6__["default"].one(modal, 'animationend', function () {
-        modal.classList.remove('is-active2');
-        modal.classList.remove('is-deactive2');
-      });
+      dimmer = false; // EventHandler.one(modal, 'animationend', () => {
+      //   modal.classList.remove('is-active2');
+      //   modal.classList.remove('is-deactive2');
+      // });
     }
 
     _allClose();
@@ -7506,6 +7512,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! core-js/modules/web.dom-collections.iterator.js */ "./node_modules/core-js/modules/web.dom-collections.iterator.js");
 /* harmony import */ var _base_base_ui__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./base/base-ui */ "./src/desktop/res/js/components/base/base-ui.js");
 /* harmony import */ var _utils_dom_util__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../utils/dom-util */ "./src/desktop/res/js/utils/dom-util.js");
+/* harmony import */ var _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../vendor/EventHandler */ "./src/desktop/res/js/vendor/EventHandler.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 
@@ -7551,10 +7558,30 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 var NAME = 'ui.autoheightfit';
+
+var debounce = function debounce(func, wait, immediate) {
+  var timeout;
+  return function () {
+    var context = this,
+        args = arguments;
+
+    var later = function later() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+};
+
 var dataAttrConfig = {
   cHeight: 0,
-  debounceDelay: 50 //resize시 디바운스 딜레이값
+  debounceDelay: 100 //resize시 디바운스 딜레이값
 
 };
 
@@ -7574,6 +7601,10 @@ var AutoHeightFit = /*#__PURE__*/function (_UI) {
 
     _this = _super.call(this, element, config);
 
+    _defineProperty(_assertThisInitialized(_this), "resizeHandler", debounce(function () {
+      _this._setResizeGridUpdate();
+    }, 1));
+
     _this._setupConfig(config);
 
     return _this;
@@ -7592,19 +7623,13 @@ var AutoHeightFit = /*#__PURE__*/function (_UI) {
   }, {
     key: "_addEvent",
     value: function _addEvent() {
-      var _this2 = this;
-
-      window.addEventListener('resize', function () {
-        _this2._setResizeGridUpdate();
-      });
-      window.addEventListener('DOMContentLoaded', function () {
-        _this2._setResizeGridUpdate();
-      });
+      _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_16__["default"].on(window, 'resize', this.resizeHandler);
+      _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_16__["default"].on(document, 'UILoaded', this.resizeHandler);
     }
   }, {
     key: "_removeEvent",
     value: function _removeEvent() {
-      window.removeEventListener('resize');
+      _vendor_EventHandler__WEBPACK_IMPORTED_MODULE_16__["default"].off(window, 'resize');
     }
   }, {
     key: "_destroy",
@@ -7621,7 +7646,7 @@ var AutoHeightFit = /*#__PURE__*/function (_UI) {
           var scTop = document.documentElement.scrollTop;
           yPos += el.offsetTop - scTop + el.clientTop;
         } else {
-          yPos += el.offsetTop - el.scrollTop + el.clientTop;
+          yPos += el.offsetTop + el.clientTop;
         }
 
         el = el.offsetParent;
@@ -7639,22 +7664,7 @@ var AutoHeightFit = /*#__PURE__*/function (_UI) {
       var winHeight = window.innerHeight;
       var resultHeight = winHeight - offsetTop - cHeight;
       this._element.style.height = "".concat(resultHeight, "px");
-    } // _debounce(func, wait, immediate) {
-    //   let timeout;
-    //   return function() {
-    //     let context = this,
-    //       args = arguments;
-    //     let later = function() {
-    //       timeout = null;
-    //       if (!immediate) func.apply(context, args);
-    //     };
-    //     let callNow = immediate && !timeout;
-    //     clearTimeout(timeout);
-    //     timeout = setTimeout(later, wait);
-    //     if (callNow) func.apply(context, args);
-    //   };
-    // }
-
+    }
   }], [{
     key: "NAME",
     get: function get() {

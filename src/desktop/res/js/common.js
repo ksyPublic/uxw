@@ -177,6 +177,7 @@ const navigation = (UI, options) => {
 
 const modalLayer = UI => {
   // 220921 수정
+  let dimmer = false;
   const elements = document.querySelectorAll(UI);
   const navEl = getObjectElements(elements);
   const tooltipBox = document.querySelector('.tooltip__box');
@@ -274,10 +275,10 @@ const modalLayer = UI => {
         _zIndexOrderIncrease(layerModal);
       } else {
         // modal.classList.add('is-deactive');
-        modal.classList.remove('is-active2');
+        modal.classList.remove('is-active');
         modal.setAttribute(`${LAYER_OPEND}`, 'false');
         EventHandler.one(modal, 'animationend', () => {
-          modal.classList.remove('is-deactive2');
+          modal.classList.remove('is-deactive');
           modal.style.zIndex = ZINDEX.INIT;
         });
       }
@@ -285,12 +286,15 @@ const modalLayer = UI => {
 
     if (layerModal.getAttribute(`${LAYER_OPEND}`) === 'false') {
       // createHtml.classList.add('fadeIn');
-      document.body.appendChild(createHtml);
-      layerModal.classList.add('is-active2');
+      if(!dimmer) {
+        document.body.appendChild(createHtml);
+        dimmer = true;
+      }
+      layerModal.classList.add('is-active');
       layerModal.setAttribute(`${LAYER_OPEND}`, 'true');
 
       EventHandler.one(layerModal, 'animationend', () => {
-        layerModal.classList.remove('is-deactive2');
+        layerModal.classList.remove('is-deactive');
       });
     }
   };
@@ -300,13 +304,15 @@ const modalLayer = UI => {
     if (modal.getAttribute(`${LAYER_OPEND}`) === 'true') {
       // createHtml.classList.remove('fadeOut');
       document.body.removeChild(createHtml);
-      modal.classList.add('is-deactive2');
+      modal.classList.remove('is-active2');
+      modal.classList.remove('is-active');
       modal.setAttribute(`${LAYER_OPEND}`, 'false');
+      dimmer = false;
 
-      EventHandler.one(modal, 'animationend', () => {
-        modal.classList.remove('is-active2');
-        modal.classList.remove('is-deactive2');
-      });
+      // EventHandler.one(modal, 'animationend', () => {
+      //   modal.classList.remove('is-active2');
+      //   modal.classList.remove('is-deactive2');
+      // });
     }
     _allClose();
   };

@@ -4,9 +4,9 @@
  * @return {Element}} 엘리먼트
  */
 export const toHTML = htmlString => {
-    const div = document.createElement('div');
-    div.innerHTML = htmlString.trim();
-    return div.firstChild;
+  const div = document.createElement('div');
+  div.innerHTML = htmlString.trim();
+  return div.firstChild;
 };
 
 /**
@@ -16,16 +16,16 @@ export const toHTML = htmlString => {
  * @returns
  */
 export const dataSetToObject = (element, dataAttrConfig, prefix = '') => {
-    const config = {};
-    for (const key in dataAttrConfig) {
-        if (Object.prototype.hasOwnProperty.call(dataAttrConfig, key)) {
-            const attrvalue = element.dataset[`${prefix}${key.charAt(0).toUpperCase() + key.slice(1)}`];
-            if (attrvalue) {
-                config[key] = attrvalue;
-            }
-        }
+  const config = {};
+  for (const key in dataAttrConfig) {
+    if (Object.prototype.hasOwnProperty.call(dataAttrConfig, key)) {
+      const attrvalue = element.dataset[`${prefix}${key.charAt(0).toUpperCase() + key.slice(1)}`];
+      if (attrvalue) {
+        config[key] = attrvalue;
+      }
     }
-    return config;
+  }
+  return config;
 };
 
 /**
@@ -33,7 +33,7 @@ export const dataSetToObject = (element, dataAttrConfig, prefix = '') => {
  * @param element
  */
 export const isVisible = element => {
-    return element.clientWidth !== 0 && element.clientHeight !== 0 && element.style.opacity !== '0' && element.style.visibility !== 'hidden';
+  return element.clientWidth !== 0 && element.clientHeight !== 0 && element.style.opacity !== '0' && element.style.visibility !== 'hidden';
 };
 
 /**
@@ -42,16 +42,16 @@ export const isVisible = element => {
  * @returns
  */
 export const getIndex = element => {
-    if (!element) {
-        return -1;
-    }
-    let currentElement = element;
-    let index = 0;
-    while (currentElement.previousElementSibling) {
-        index += 1;
-        currentElement = currentElement.previousElementSibling;
-    }
-    return index;
+  if (!element) {
+    return -1;
+  }
+  let currentElement = element;
+  let index = 0;
+  while (currentElement.previousElementSibling) {
+    index += 1;
+    currentElement = currentElement.previousElementSibling;
+  }
+  return index;
 };
 
 /**
@@ -60,10 +60,10 @@ export const getIndex = element => {
  * @param {*} target
  */
 export const getElement = target => {
-    if (typeof target === 'string') {
-        return document.querySelector(target);
-    }
-    if (typeof target === 'object') {
-        return target;
-    }
+  if (typeof target === 'string') {
+    return document.querySelector(target);
+  }
+  if (typeof target === 'object') {
+    return target;
+  }
 };

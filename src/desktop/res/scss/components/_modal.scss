@@ -178,14 +178,14 @@
   &--layer {
     &.is-active {
       display: block;
-      animation-duration: 0.6s;
-      animation-timing-function: cubic-bezier(0.26, 0.98, 0.53, 0.97);
+      animation-duration: 0.3s;
+      animation-timing-function: ease-out;
       animation-name: modalLayerIn;
     }
 
     &.is-active2 {
       display: block;
-      // animation-duration: 0.4s;
+      animation-duration: 0;
       animation-timing-function: cubic-bezier(0.26, 0.98, 0.53, 0.97);
       animation-name: modalLayerIn2;
     }
@@ -199,7 +199,7 @@
 
     &.is-deactive2 {
       display: block;
-      // animation-duration: 0.4s;
+      animation-duration: 0s;
       animation-timing-function: cubic-bezier(0.26, 0.98, 0.53, 0.97);
       animation-name: modalLayerOut2;
     }

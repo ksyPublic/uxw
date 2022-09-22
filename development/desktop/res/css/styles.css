@@ -855,9 +855,9 @@ input[type='file']:disabled + .ic-button .ic-upload {
 
 @-webkit-keyframes modalLayerIn {
   from {
-    -webkit-transform: translateX(-5%);
-            transform: translateX(-5%);
-    opacity: 0; }
+    -webkit-transform: translateX(-1%);
+            transform: translateX(-1%);
+    opacity: 1; }
   to {
     -webkit-transform: translateX(0%);
             transform: translateX(0%);
@@ -865,9 +865,9 @@ input[type='file']:disabled + .ic-button .ic-upload {
 
 @keyframes modalLayerIn {
   from {
-    -webkit-transform: translateX(-5%);
-            transform: translateX(-5%);
-    opacity: 0; }
+    -webkit-transform: translateX(-1%);
+            transform: translateX(-1%);
+    opacity: 1; }
   to {
     -webkit-transform: translateX(0%);
             transform: translateX(0%);
@@ -3222,14 +3222,16 @@ input[type='radio'] {
             animation-name: defaultOut; }
   .modal--layer.is-active {
     display: block;
-    -webkit-animation-duration: 0.6s;
-            animation-duration: 0.6s;
-    -webkit-animation-timing-function: cubic-bezier(0.26, 0.98, 0.53, 0.97);
-            animation-timing-function: cubic-bezier(0.26, 0.98, 0.53, 0.97);
+    -webkit-animation-duration: 0.3s;
+            animation-duration: 0.3s;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
     -webkit-animation-name: modalLayerIn;
             animation-name: modalLayerIn; }
   .modal--layer.is-active2 {
     display: block;
+    -webkit-animation-duration: 0;
+            animation-duration: 0;
     -webkit-animation-timing-function: cubic-bezier(0.26, 0.98, 0.53, 0.97);
             animation-timing-function: cubic-bezier(0.26, 0.98, 0.53, 0.97);
     -webkit-animation-name: modalLayerIn2;
@@ -3244,6 +3246,8 @@ input[type='radio'] {
             animation-name: modalLayerOut; }
   .modal--layer.is-deactive2 {
     display: block;
+    -webkit-animation-duration: 0s;
+            animation-duration: 0s;
     -webkit-animation-timing-function: cubic-bezier(0.26, 0.98, 0.53, 0.97);
             animation-timing-function: cubic-bezier(0.26, 0.98, 0.53, 0.97);
     -webkit-animation-name: modalLayerOut2;

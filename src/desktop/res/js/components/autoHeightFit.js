@@ -1,11 +1,28 @@
 import UI from './base/base-ui';
 import { dataSetToObject } from '../utils/dom-util';
+import EventHandler from '../vendor/EventHandler';
 
 const NAME = 'ui.autoheightfit';
 
+const debounce = (func, wait, immediate) => {
+  let timeout;
+  return function () {
+    let context = this,
+      args = arguments;
+    let later = function () {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    let callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+}
+
 const dataAttrConfig = {
   cHeight: 0,
-  debounceDelay: 50, //resize시 디바운스 딜레이값
+  debounceDelay: 100, //resize시 디바운스 딜레이값
 };
 
 const defaultConfig = {
@@ -36,17 +53,16 @@ class AutoHeightFit extends UI {
   }
 
   _addEvent() {
-    window.addEventListener('resize', () => {      
-      this._setResizeGridUpdate();
-    });
-
-    window.addEventListener('DOMContentLoaded', () => {
-      this._setResizeGridUpdate();
-    })
+    EventHandler.on(window, 'resize', this.resizeHandler)
+    EventHandler.on(document, 'UILoaded', this.resizeHandler)
   }
 
+  resizeHandler = debounce(() => {
+    this._setResizeGridUpdate();
+  }, 1);
+
   _removeEvent() {
-    window.removeEventListener('resize');
+    EventHandler.off(window, 'resize')
   }
 
   _destroy() {
@@ -60,11 +76,12 @@ class AutoHeightFit extends UI {
         const scTop = document.documentElement.scrollTop;
         yPos += el.offsetTop - scTop + el.clientTop;
       } else {
-        yPos += el.offsetTop - el.scrollTop + el.clientTop;
+        yPos += el.offsetTop  + el.clientTop;
       }
 
       el = el.offsetParent;
     }
+
     return yPos;
   }
 
@@ -72,28 +89,11 @@ class AutoHeightFit extends UI {
     const { cHeight } = this._config;
     const offsetTop = this._getTopPosition(this._element);
 
+
     const winHeight = window.innerHeight;
     const resultHeight = winHeight - offsetTop - cHeight;
     this._element.style.height = `${resultHeight}px`;
   }
-
-  // _debounce(func, wait, immediate) {
-  //   let timeout;
-  //   return function() {
-  //     let context = this,
-  //       args = arguments;
-  //     let later = function() {
-  //       timeout = null;
-  //       if (!immediate) func.apply(context, args);
-  //     };
-  //     let callNow = immediate && !timeout;
-  //     clearTimeout(timeout);
-  //     timeout = setTimeout(later, wait);
-  //     if (callNow) func.apply(context, args);
-  //   };
-  // }
-
-  
 }
 
 export default AutoHeightFit;
