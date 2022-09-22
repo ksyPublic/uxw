@@ -4,7 +4,7 @@
     "version": "1.0.0",
     "description": "",
     "scripts": {
-        "start": "cross-env DEV_SERVER=desktop BUILD_TYPE=desktop NODE_ENV=development gulp dev",
+        "start": "node ./build.js",
         "dev": "cross-env BUILD_TYPE=desktop NODE_ENV=development gulp dev",
         "build": "cross-env BUILD_TYPE=desktop NODE_ENV=production gulp build",
         "build:css": "cross-env BUILD_TYPE=desktop NODE_ENV=production gulp buildcss",
@@ -28,6 +28,8 @@
         "@babel/register": "^7.18.9",
         "babel-loader": "^8.2.5",
         "browser-sync": "^2.27.10",
+        "chalk": "^5.0.1",
+        "cli-select": "^1.1.2",
         "core-js": "^3.24.1",
         "cross-env": "^7.0.3",
         "del": "^7.0.0",
