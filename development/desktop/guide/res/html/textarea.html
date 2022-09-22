@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/res/css/styles.css" />
+    <link rel="stylesheet" href="../../vendor/prism.css">
+    <link rel="stylesheet" href="../guideStyle.css">
+</head>
+<style>
+    body,
+    html {
+        overflow: auto;
+    }
+</style>
+
+<body>
+    <div class="guide-wrap">
+        <h2 class="ex-name">TextArea</h2>
+        <div class="ex-content">
+            <div class="ex-title">
+                <h3>기본</h3>
+                <p class="ex-desc"> 기본 TextArea입니다. <br /> * textarea의 line-height 는 base와 max로 조절가능합니다. 각각 24px, 40px 입니다. <br /> * base는 textarea의 두줄 세줄에 대한 max값이 없을때 사용합니다. <br /> * mxh0 ~ mxh200 까지 2의 배수로 textarea창의 크기를 조절가능합니다. <br /> * textarea가 오류상태임을 보여줄때 textarea와 textarea__lengths 위치에 error를 넣고, label[aria-hidden="false"]로 변경합니다. </p>
+            </div>
+            <div class="ex-body">
+                <div class="ex-preview">
+                    <textarea class="textarea textarea--max mxh68" maxlength="50" placeholder="내용 입력"></textarea>
+                    <div class="textarea__lengths">
+                        <label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
+                        <div class="textarea__lengths__box">
+                            <span class="textarea__lengths--current">0</span>/ <span class="textarea__lengths--total">50</span>
+                        </div>
+                    </div>
+                    <br />
+                    <textarea class="textarea textarea--max error mxh68" maxlength="50" placeholder="내용 입력"></textarea>
+                    <div class="textarea__lengths error">
+                        <label class="error" aria-hidden="false">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
+                        <div class="textarea__lengths__box">
+                            <span class="textarea__lengths--current">0</span>/ <span class="textarea__lengths--total">50</span>
+                        </div>
+                    </div>
+                    <div class="html-view">
+                        <pre>
+                <code class="ex-code-block render-html">
+                    <textarea class="textarea textarea--base" maxlength="5000" placeholder="내용 입력"></textarea>
+                    <div class="textarea__lengths">
+                      <label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
+                      <div class="textarea__lengths__box">
+                        <span class="textarea__lengths--current">0</span>/ <span class="textarea__lengths--total">5,000</span>
+                      </div>
+                    </div>
+
+                    <textarea class="textarea textarea--max error mxh68" maxlength="50" placeholder="내용 입력"></textarea>
+                    <div class="textarea__lengths error">
+                      <label class="error" aria-hidden="false">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
+                      <div class="textarea__lengths__box">
+                        <span class="textarea__lengths--current">0</span>/ <span class="textarea__lengths--total">50</span>
+                      </div>
+                    </div>
+                </code>
+            </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.0/beautify.min.js"></script>
+    <script src="/res/js/uxw.ui.js"></script>
+    <script src="../../vendor/prism.js"></script>
+    <script>
+        Prism.plugins.NormalizeWhitespace.setDefaults({
+            'remove-trailing': true,
+            'remove-indent': true,
+            'left-trim': true,
+            'right-trim': true,
+            'break-lines': 0,
+        });
+        [].forEach.call(document.querySelectorAll('.ex-content'), function(el) {
+            var htmlView = el.querySelector('.html-view');
+            var htmlBtn = el.querySelector('.html-view-btn');
+            if (htmlBtn) {
+                htmlBtn.addEventListener('click', function(e) {
+                    pugBtn.classList.remove('active');
+                    htmlBtn.classList.add('active');
+                    pugView.style.display = 'none';
+                    htmlView.style.display = 'block';
+                });
+            }
+        });
+        [].forEach.call(document.querySelectorAll('.ex-code-block'), function(block) {
+            var sourceString = block.innerHTML;
+            sourceString = sourceString.replaceAll(' data-function-initialized="initialized"', '');
+            if (block.classList.contains('render-html')) {
+                block.classList.add('language-html');
+                sourceString = Prism.highlight(sourceString, Prism.languages.html, 'html');
+                block.innerHTML = sourceString;
+            }
+            if (block.classList.contains('language-javascript')) {
+                block.classList.add('language-js');
+                sourceString = window.js_beautify(sourceString, {
+                    indent_size: '2',
+                    indent_char: ' ',
+                    max_preserve_newlines: '5',
+                    preserve_newlines: true,
+                    keep_array_indentation: false,
+                    break_chained_methods: false,
+                    indent_scripts: 'normal',
+                    brace_style: 'collapse',
+                    space_before_conditional: true,
+                    unescape_strings: false,
+                    jslint_happy: false,
+                    end_with_newline: false,
+                    wrap_line_length: '0',
+                    indent_inner_html: false,
+                    comma_first: false,
+                    e4x: false,
+                    indent_empty_lines: false,
+                });
+                sourceString = Prism.highlight(sourceString, Prism.languages.js, 'javascript');
+                block.innerHTML = sourceString;
+            }
+        });
+        Prism.highlightAll();
+    </script>
+</body>
+
+</html>

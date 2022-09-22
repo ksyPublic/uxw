@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>신한 UX라이팅 시스템 | 문의사항</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="stylesheet" href="/res/css/styles.css" />
+  <link rel="stylesheet" href="/res/js/lib/swiper.css" />
+  <!--
+            기존 css : main.css, default.css, guide.css 개발측에서 필요없을시 제거 예정
+            기존 js : common.js => _common.js로 변경 필요없을시 제거예정 
+            ※ styles.css, uxw.ui.js와 필요한 vendor만 import해서 사용 uxw.ui.js의 원본파일 필요시 제공예정 
+            ※ 추후 가이드페이지 제작하여 제공예정 모든 등록된 이벤트들은 console.log('UXW', : UXW);로 확인가능합니다.
+            ※ 하단 스크립트 들은 모두 예시이며 개발시 변경해야합니다. UXW로 시작된 모든이벤트들은 사용가능합니다.
+            ※ UXW 메소드 필요시 제작예정 기획상에 변경사항 없으면 유지
+            ※ styles.css는 현재 진행중이므로 수정X : 개발측 CSS 필요시 따로 정리해서 관리,
+        -->
+</head>
+
+<body data-scrollbar>
+  <div class="wrap">
+    <!-- header 영역 -->
+    <header class="head">
+      <h1 class="head__logo">
+        <a href="#none" alt="홈 바로가기">
+          <img src="/res/images/logo.png" alt="신한 UX라이팅 시스템" />
+          <span>신한 UX라이팅 시스템</span>
+        </a>
+      </h1>
+      <!-- 로그인 일때 -->
+      <div class="head__nav">
+        <!-- 220831 헤더수정 button => a -->
+        <ul>
+          <li>
+            <a href="#none" type="button" class="ic-button-head " href="/res/html/currect_before.html" aria-label="글쓰기">
+              <i class="ic ic-writing" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#none" type="button" class="ic-button-head " href="/res/html/mypage.html" aria-label="마이페이지">
+              <i class="ic ic-my" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#none" type="button" class="ic-button-head is-active" href="/res/html/faq.html" aria-label="Q&A">
+              <i class="ic ic-qa" aria-hidden="true"></i>
+            </a>
+          </li>
+          <!-- 220901 label 명칭 수정 aria-controls 제거 -->
+          <li>
+            <a href="#none" type="button" class="ic-button-head " href="/res/html/notice.html" aria-label="공지사항">
+              <i class="ic ic-menu" aria-hidden="true"></i>
+            </a>
+          </li>
+          <!-- //220901 label 명칭 수정 aria-controls 제거 -->
+        </ul>
+        <!-- //220831 헤더수정 button => a -->
+        <div class="head__log">
+          <a class="text-link" href="#none" alt="로그아웃">로그아웃<i class="ic ic-text-arrow" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+      <!-- //로그인 일때 -->
+    </header>
+    <!-- header 영역 -->
+    <div class="ly-container">
+      <!-- floting 네비게이션 영역 -->
+      <div id="floating" class="floating-menu-wrap">
+        <nav class="nav" role="navigation">
+          <ul class="nav__box" aria-expanded="false">
+            <!-- 로그인 일때 -->
+            <li class="nav__list">
+              <div class="nav__item tooltip-button">
+                <button type="button" class="ic-button-nav" aria-describedby="tooltip1" aria-label="검색" aria-controls="layerModal1">
+                  <i class="ic ic-search" aria-hidden="true"></i>
+                </button>
+                <a class="text" href="#none" alt="용어사전검색 바로가기">검색</a>
+              </div>
+            </li>
+            <li class="nav__list">
+              <div class="nav__item tooltip-button">
+                <button type="button" class="ic-button-nav" aria-describedby="tooltip2" aria-label="가이드" aria-controls="layerModal2">
+                  <i class="ic ic-guidebook" aria-hidden="true"></i>
+                </button>
+                <a class="text" href="#none" alt="가이드">가이드</a>
+              </div>
+            </li>
+            <li class="nav__list">
+              <div class="nav__item tooltip-button">
+                <button type="button" class="ic-button-nav" aria-describedby="tooltip3" aria-label="교정된 콘텐츠" aria-controls="layerModal3">
+                  <i class="ic ic-edition" aria-hidden="true"></i>
+                </button>
+                <a class="text" href="#none" alt="교정된 콘텐츠">교정된 콘텐츠</a>
+              </div>
+            </li>
+            <!--// 로그인 일때 -->
+          </ul>
+        </nav>
+      </div>
+      <!-- floting 네비게이션 영역 -->
+      <div class="tooltip__box">
+        <div id="tooltip1" role="tooltip" class="tooltip" data-visible data-placement="right">
+          <span class="tooltip__title">검색</span>
+        </div>
+        <div id="tooltip2" role="tooltip" class="tooltip" data-visible data-placement="right">
+          <span class="tooltip__title">가이드</span>
+        </div>
+        <div id="tooltip3" role="tooltip" class="tooltip" data-visible data-placement="right">
+          <span class="tooltip__title">교정된 콘텐츠</span>
+        </div>
+      </div>
+      <div class="ly-content">
+        <div class="ly-content-box">
+          <div class="title title--center">
+            <h2 class="text ft24 bold">문의</h2>
+            <button type="button" class="button button--type4 button--medium" data-dialog-trigger="#modal2">직접 문의하기</button>
+          </div>
+          <!-- 검색박스 영역 -->
+          <div class="search-box search-box--small search-box--between">
+            <div class="search-box__wrap">
+              <div class="input-box">
+                <input name="search" type="text" class="input" placeholder="검색어을 입력해주세요." />
+                <button type="button" class="ic-button-clear" data-visible aria-label="클리어버튼" aria-pressed="false" onclick="Input.ClearButton(this)">
+                  <i class="ic ic-clear" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="ic-button-search" aria-label="검색버튼">
+                  <i class="ic ic-search--small" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div id="sorting" class="button-group">
+                <input class="radio radio--sort" id="rad01" type="radio" name="radCheck" />
+                <label for="rad01">전체</label>
+                <input class="radio radio--sort" id="rad02" type="radio" name="radCheck" />
+                <label for="rad02">교정하기</label>
+                <input class="radio radio--sort" id="rad03" type="radio" name="radCheck" />
+                <label for="rad03">가이드/용어</label>
+                <input class="radio radio--sort" id="rad04" type="radio" name="radCheck" />
+                <label for="rad04">콘텐츠</label>
+                <input class="radio radio--sort" id="rad05" type="radio" name="radCheck" checked />
+                <label for="rad05">기타</label>
+              </div>
+            </div>
+          </div>
+          <!-- //검색박스 영역 -->
+          <div class="ly-content__inner">
+            <div class="accordion" data-ui-accordion data-accordion-onlyOne="true">
+              <div class="accordion__box">
+                <div class="accordion__item">
+                  <div class="accordion__head">
+                    <button class="accordion__button" id="acc_header1" type="button" aria-expanded="false" aria-controls="acc_panel1" aria-label="버튼"></button>
+                    <div class="list list--type3">
+                      <div class="list__group">
+                        <div class="list__row">
+                          <div class="list__item">
+                            <span aria-hidden="true">
+                              <i class="ic ic-pind" aria-hidden="true"></i>
+                            </span>
+                          </div>
+                          <div class="list__item left">
+                            <b aria-hidden="true">[기타] 오류가 생겨요.</b>
+                          </div>
+                          <div class="list__item">
+                            <button type="button" class="ic-button" aria-label="다운로드">
+                              <i class="ic ic-download" aria-hidden="true"></i>
+                            </button>
+                          </div>
+                          <div class="list__item">
+                            <span aria-hidden="true">2022.08.31</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion__panel expand" id="acc_panel1" aria-labelledby="acc_header1">
+                    <div class="accordion__inner">
+                      <div class="list list--type2">
+                        <div class="list__item">
+                          <label class="label" aria-hidden="true"></label>
+                          <p class="text">테기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.스트</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion__item">
+                  <div class="accordion__head">
+                    <button class="accordion__button" id="acc_header2" type="button" aria-expanded="false" aria-controls="acc_panel2" aria-label="버튼"></button>
+                    <div class="list list--type3">
+                      <div class="list__group">
+                        <div class="list__row">
+                          <div class="list__item">
+                            <span>66</span>
+                          </div>
+                          <div class="list__item left">
+                            <span aria-hidden="true">[기타] 오류가 생겨요.</span>
+                          </div>
+                          <div class="list__item">
+                          </div>
+                          <div class="list__item">
+                            <span aria-hidden="true">2022.08.31</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion__panel expand" id="acc_panel2" aria-labelledby="acc_header2">
+                    <div class="accordion__inner">
+                      <div class="list list--type2">
+                        <div class="list__item">
+                          <label class="label" aria-hidden="true"></label>
+                          <p class="text">기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion__item">
+                  <div class="accordion__head">
+                    <button class="accordion__button" id="acc_header3" type="button" aria-expanded="false" aria-controls="acc_panel3" aria-label="버튼"></button>
+                    <div class="list list--type3">
+                      <div class="list__group">
+                        <div class="list__row">
+                          <div class="list__item">
+                            <span>66</span>
+                          </div>
+                          <div class="list__item left">
+                            <span aria-hidden="true">[기타] 오류가 생겨요.</span>
+                          </div>
+                          <div class="list__item">
+                          </div>
+                          <div class="list__item">
+                            <span aria-hidden="true">2022.08.31</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion__panel expand" id="acc_panel3" aria-labelledby="acc_header3">
+                    <div class="accordion__inner">
+                      <div class="list list--type2">
+                        <div class="list__item">
+                          <label class="label" aria-hidden="true"></label>
+                          <p class="text">기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion__item">
+                  <div class="accordion__head">
+                    <button class="accordion__button" id="acc_header4" type="button" aria-expanded="false" aria-controls="acc_panel4" aria-label="버튼"></button>
+                    <div class="list list--type3">
+                      <div class="list__group">
+                        <div class="list__row">
+                          <div class="list__item">
+                            <span>66</span>
+                          </div>
+                          <div class="list__item left">
+                            <span aria-hidden="true">[기타] 오류가 생겨요.</span>
+                          </div>
+                          <div class="list__item">
+                            <button type="button" class="ic-button" aria-label="다운로드">
+                              <i class="ic ic-download" aria-hidden="true"></i>
+                            </button>
+                          </div>
+                          <div class="list__item">
+                            <span aria-hidden="true">2022.08.31</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion__panel expand" id="acc_panel4" aria-labelledby="acc_header4">
+                    <div class="accordion__inner">
+                      <div class="list list--type2">
+                        <div class="list__item">
+                          <label class="label" aria-hidden="true"></label>
+                          <p class="text">기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion__item">
+                  <div class="accordion__head">
+                    <button class="accordion__button" id="acc_header5" type="button" aria-expanded="false" aria-controls="acc_panel5" aria-label="버튼"></button>
+                    <div class="list list--type3">
+                      <div class="list__group">
+                        <div class="list__row">
+                          <div class="list__item">
+                            <span>66</span>
+                          </div>
+                          <div class="list__item left">
+                            <span aria-hidden="true">[기타] 오류가 생겨요.</span>
+                          </div>
+                          <div class="list__item">
+                          </div>
+                          <div class="list__item">
+                            <span aria-hidden="true">2022.08.31</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion__panel expand" id="acc_panel5" aria-labelledby="acc_header5">
+                    <div class="accordion__inner">
+                      <div class="list list--type2">
+                        <div class="list__item">
+                          <label class="label" aria-hidden="true"></label>
+                          <p class="text">기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion__item">
+                  <div class="accordion__head">
+                    <button class="accordion__button" id="acc_header6" type="button" aria-expanded="false" aria-controls="acc_panel6" aria-label="버튼"></button>
+                    <div class="list list--type3">
+                      <div class="list__group">
+                        <div class="list__row">
+                          <div class="list__item">
+                            <span>66</span>
+                          </div>
+                          <div class="list__item left">
+                            <span aria-hidden="true">[기타] 오류가 생겨요.</span>
+                          </div>
+                          <div class="list__item">
+                          </div>
+                          <div class="list__item">
+                            <span aria-hidden="true">2022.08.31</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion__panel expand" id="acc_panel6" aria-labelledby="acc_header6">
+                    <div class="accordion__inner">
+                      <div class="list list--type2">
+                        <div class="list__item">
+                          <label class="label" aria-hidden="true"></label>
+                          <p class="text">기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion__item">
+                  <div class="accordion__head">
+                    <button class="accordion__button" id="acc_header7" type="button" aria-expanded="false" aria-controls="acc_panel7" aria-label="버튼"></button>
+                    <div class="list list--type3">
+                      <div class="list__group">
+                        <div class="list__row">
+                          <div class="list__item">
+                            <span>66</span>
+                          </div>
+                          <div class="list__item left">
+                            <span aria-hidden="true">[기타] 오류가 생겨요.</span>
+                          </div>
+                          <div class="list__item">
+                            <button type="button" class="ic-button" aria-label="다운로드">
+                              <i class="ic ic-download" aria-hidden="true"></i>
+                            </button>
+                          </div>
+                          <div class="list__item">
+                            <span aria-hidden="true">2022.08.31</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion__panel expand" id="acc_panel7" aria-labelledby="acc_header7">
+                    <div class="accordion__inner">
+                      <div class="list list--type2">
+                        <div class="list__item">
+                          <label class="label" aria-hidden="true"></label>
+                          <p class="text">기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion__item">
+                  <div class="accordion__head">
+                    <button class="accordion__button" id="acc_header8" type="button" aria-expanded="false" aria-controls="acc_panel8" aria-label="버튼"></button>
+                    <div class="list list--type3">
+                      <div class="list__group">
+                        <div class="list__row">
+                          <div class="list__item">
+                            <span>66</span>
+                          </div>
+                          <div class="list__item left">
+                            <span aria-hidden="true">[기타] 오류가 생겨요.</span>
+                          </div>
+                          <div class="list__item">
+                          </div>
+                          <div class="list__item">
+                            <span aria-hidden="true">2022.08.31</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion__panel expand" id="acc_panel8" aria-labelledby="acc_header8">
+                    <div class="accordion__inner">
+                      <div class="list list--type2">
+                        <div class="list__item">
+                          <label class="label" aria-hidden="true"></label>
+                          <p class="text">기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pagination">
+              <button type="button" class="ic-button pagination__button" aria-label="처음 페이지" disabled>
+                <i class="ic ic-prev-arrow--first" aria-hidden="true"></i>
+              </button>
+              <button type="button" class="ic-button pagination__button" aria-label="이전 페이지" disabled>
+                <i class="ic ic-prev-arrow" aria-hidden="true"></i>
+              </button>
+              <div class="pagination__number">
+                <ul>
+                  <li>
+                    <a class="pagination__button--num is-active" href="#none" aria-label="첫번째페이지">1</a>
+                  </li>
+                  <li>
+                    <a class="pagination__button--num" href="#none" aria-label="두번째페이지">2</a>
+                  </li>
+                  <li>
+                    <a class="pagination__button--num" href="#none" aria-label="세번째페이지">3</a>
+                  </li>
+                  <li>
+                    <a class="pagination__button--num" href="#none" aria-label="네번째페이지">4</a>
+                  </li>
+                  <li>
+                    <a class="pagination__button--num" href="#none" aria-label="다섯번째페이지">5</a>
+                  </li>
+                </ul>
+              </div>
+              <button type="button" class="ic-button pagination__button" aria-label="다음 페이지">
+                <i class="ic ic-next-arrow" aria-hidden="true"></i>
+              </button>
+              <button type="button" class="ic-button pagination__button" aria-label="마지막 페이지">
+                <i class="ic ic-next-arrow--last" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 문의하기 팝업 -->
+      <div class="modal modal--medium" id="modal2" role="dialog" aria-labelledby="#modal2Title">
+        <div class="modal__dialog" role="document">
+          <div class="modal__content">
+            <div class="modal__header">
+              <div class="modal__title" id="modal2Title">문의하기</div>
+              <button type="button" class="ic-button" data-dialog-close aria-label="팝업닫기">
+                <i class="ic ic-close" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="modal__body">
+              <div class="form">
+                <div class="fields">
+                  <div class="field">
+                    <label class="dpb medium ft14">문의내용</label>
+                    <textarea class="textarea textarea--tiny" maxlength="500" placeholder="서비스 이용 중 궁금하신 점을 말씀해주세요."></textarea>
+                    <div class="textarea__lengths">
+                      <label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
+                      <div class="textarea__lengths__box">
+                        <span class="textarea__lengths--current">0</span>/ <span class="textarea__lengths--total">500</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal__footer">
+              <button type="button" class="button pw100">문의하기</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- //문의하기 팝업 -->
+    </div>
+  </div>
+  <script src="/res/js/lib/swiper.min.js"></script>
+  <script src="/res/js/uxw.ui.js"></script>
+  <script>
+    const Input = {
+      // 에러
+      Error: function(props) {
+        const ARIA_HIDDEN = 'aria-hidden';
+        const input = props.parentElement;
+        const label = input.nextElementSibling.classList.contains('error');
+        input.classList.add('error');
+        if (!label) {
+          return;
+        }
+        const get = input.nextElementSibling.getAttribute(ARIA_HIDDEN);
+        if (get === 'true') {
+          input.nextElementSibling.setAttribute(ARIA_HIDDEN, false);
+        }
+      },
+      // 에러 클리어
+      Clear: function(props) {
+        const ARIA_HIDDEN = 'aria-hidden';
+        const input = props.parentElement;
+        const label = input.nextElementSibling.classList.contains('error');
+        input.classList.remove('error');
+        if (!label) {
+          return;
+        }
+        const get = input.nextElementSibling.getAttribute(ARIA_HIDDEN);
+        if (get === 'false') {
+          input.nextElementSibling.setAttribute(ARIA_HIDDEN, true);
+        }
+      },
+      // value 삭제버튼
+      ClearButton: function(param) {
+        if (!param.previousElementSibling) {
+          return;
+        }
+        if (param.previousElementSibling.tagName === 'INPUT') {
+          param.previousElementSibling.value = '';
+          param.classList.remove('is-active');
+          if (param.previousElementSibling.getAttribute('name') === 'id') {
+            const target = document.querySelector('[name="password"]');
+            const passwordParent = target.closest('.input-box');
+            passwordParent.style.height = '';
+            passwordParent.style.marginTop = '0';
+            passwordParent.classList.add('expanding');
+            passwordParent.classList.remove('expand');
+            passwordParent.classList.remove('expanded');
+          }
+        }
+      },
+      // InputBox value Checker
+      Check: function() {
+        const elements = document.querySelectorAll('.input-box');
+        const onInput = function(event) {
+          const value = event.target.value;
+          const length = value.length;
+          const nextEl = event.target.nextElementSibling;
+          if (!nextEl) {
+            return;
+          }
+          if (length > 0) {
+            nextEl.classList.add('is-active');
+          } else {
+            nextEl.classList.remove('is-active');
+          }
+        };
+        [].forEach.call(elements, item => {
+          const target = item.querySelector('.input');
+          target.addEventListener('keyup', onInput);
+          target.addEventListener('keydown', onInput);
+          target.addEventListener('change', onInput);
+        });
+      }
+    };
+    document.addEventListener('DOMContentLoaded', function() {
+      Input.Check();
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>신한 UX라이팅 시스템 | 마이페이지</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="stylesheet" href="/res/css/styles.css" />
+  <link rel="stylesheet" href="/res/js/lib/swiper.css" />
+  <!--
+            기존 css : main.css, default.css, guide.css 개발측에서 필요없을시 제거 예정
+            기존 js : common.js => _common.js로 변경 필요없을시 제거예정 
+            ※ styles.css, uxw.ui.js와 필요한 vendor만 import해서 사용 uxw.ui.js의 원본파일 필요시 제공예정 
+            ※ 추후 가이드페이지 제작하여 제공예정 모든 등록된 이벤트들은 console.log('UXW', : UXW);로 확인가능합니다.
+            ※ 하단 스크립트 들은 모두 예시이며 개발시 변경해야합니다. UXW로 시작된 모든이벤트들은 사용가능합니다.
+            ※ UXW 메소드 필요시 제작예정 기획상에 변경사항 없으면 유지
+            ※ styles.css는 현재 진행중이므로 수정X : 개발측 CSS 필요시 따로 정리해서 관리,
+        -->
+</head>
+
+<body data-scrollbar>
+  <div class="wrap">
+    <!-- header 영역 -->
+    <header class="head">
+      <h1 class="head__logo">
+        <a href="#none" alt="홈 바로가기">
+          <img src="/res/images/logo.png" alt="신한 UX라이팅 시스템" />
+          <span>신한 UX라이팅 시스템</span>
+        </a>
+      </h1>
+      <!-- 로그인 일때 -->
+      <div class="head__nav">
+        <!-- 220831 헤더수정 button => a -->
+        <ul>
+          <li>
+            <a href="#none" type="button" class="ic-button-head " href="/res/html/currect_before.html" aria-label="글쓰기">
+              <i class="ic ic-writing" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#none" type="button" class="ic-button-head is-active" href="/res/html/mypage.html" aria-label="마이페이지">
+              <i class="ic ic-my" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#none" type="button" class="ic-button-head " href="/res/html/faq.html" aria-label="Q&A">
+              <i class="ic ic-qa" aria-hidden="true"></i>
+            </a>
+          </li>
+          <!-- 220901 label 명칭 수정 aria-controls 제거 -->
+          <li>
+            <a href="#none" type="button" class="ic-button-head " href="/res/html/notice.html" aria-label="공지사항">
+              <i class="ic ic-menu" aria-hidden="true"></i>
+            </a>
+          </li>
+          <!-- //220901 label 명칭 수정 aria-controls 제거 -->
+        </ul>
+        <!-- //220831 헤더수정 button => a -->
+        <div class="head__log">
+          <a class="text-link" href="#none" alt="로그아웃">로그아웃<i class="ic ic-text-arrow" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+      <!-- //로그인 일때 -->
+    </header>
+    <!-- header 영역 -->
+    <div class="ly-container">
+      <!-- floting 네비게이션 영역 -->
+      <div id="floating" class="floating-menu-wrap">
+        <nav class="nav" role="navigation">
+          <ul class="nav__box" aria-expanded="false">
+            <!-- 로그인 일때 -->
+            <li class="nav__list">
+              <div class="nav__item tooltip-button">
+                <button type="button" class="ic-button-nav" aria-describedby="tooltip1" aria-label="검색" aria-controls="layerModal1">
+                  <i class="ic ic-search" aria-hidden="true"></i>
+                </button>
+                <a class="text" href="#none" alt="용어사전검색 바로가기">검색</a>
+              </div>
+            </li>
+            <li class="nav__list">
+              <div class="nav__item tooltip-button">
+                <button type="button" class="ic-button-nav" aria-describedby="tooltip2" aria-label="가이드" aria-controls="layerModal2">
+                  <i class="ic ic-guidebook" aria-hidden="true"></i>
+                </button>
+                <a class="text" href="#none" alt="가이드">가이드</a>
+              </div>
+            </li>
+            <li class="nav__list">
+              <div class="nav__item tooltip-button">
+                <button type="button" class="ic-button-nav" aria-describedby="tooltip3" aria-label="교정된 콘텐츠" aria-controls="layerModal3">
+                  <i class="ic ic-edition" aria-hidden="true"></i>
+                </button>
+                <a class="text" href="#none" alt="교정된 콘텐츠">교정된 콘텐츠</a>
+              </div>
+            </li>
+            <!--// 로그인 일때 -->
+          </ul>
+        </nav>
+      </div>
+      <!-- floting 네비게이션 영역 -->
+      <div class="tooltip__box">
+        <div id="tooltip1" role="tooltip" class="tooltip" data-visible data-placement="right">
+          <span class="tooltip__title">검색</span>
+        </div>
+        <div id="tooltip2" role="tooltip" class="tooltip" data-visible data-placement="right">
+          <span class="tooltip__title">가이드</span>
+        </div>
+        <div id="tooltip3" role="tooltip" class="tooltip" data-visible data-placement="right">
+          <span class="tooltip__title">교정된 콘텐츠</span>
+        </div>
+      </div>
+      <div class="ly-content">
+        <div class="ly-content-box">
+          <!-- 마이페이지 탭 영역 -->
+          <div class="tab tab--scroll" id="mainTab" data-ui-tab data-tab-active="0">
+            <div class="title">
+              <h2 class="text ft24 bold">마이페이지</h2>
+              <div class="tab__list" role="tablist">
+                <button type="button" role="tab" id="tablist1" class="tab__button" aria-controls="tabpanel1" aria-selected="false">내 콘텐츠</button>
+                <button type="button" role="tab" id="tablist2" class="tab__button" aria-controls="tabpanel2" aria-selected="false">북마크</button>
+              </div>
+            </div>
+            <div id="tabpanel1" class="tab__panel" role="tabpanel" aria-labelledby="tablist1" tabindex="-1">
+              <!-- 검색박스 영역 -->
+              <div class="search-box search-box--between">
+                <div class="search-box__wrap">
+                  <div class="input-box">
+                    <input name="search" type="text" class="input" placeholder="검색어을 입력해주세요." />
+                    <button type="button" class="ic-button-clear" data-visible aria-label="클리어버튼" aria-pressed="false" onclick="Input.ClearButton(this)">
+                      <i class="ic ic-clear" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="ic-button-search" aria-label="검색버튼">
+                      <i class="ic ic-search--small" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- //검색박스 영역 -->
+              <div class="title--type2">
+                <div class="total"> 총 <span class="total__count">0</span>건 </div>
+                <div class="checkbox-column">
+                  <input type="checkbox" class="checkbox" id="chkd01" name="chkd01" checked />
+                  <label for="chkd01">작성중 만 보기</label>
+                </div>
+              </div>
+              <!-- 내콘텐츠 작성중 데이터가 없을시 오픈 -->
+              <div class="none-data none-data--info__type2 pxh500">
+                <p>작성중인 글이 없습니다.</p>
+                <span>고객친화적인 글쓰기를 시작해 보세요.</span>
+                <div class="button-group">
+                  <button class="button button--type1 button--medium" type="button">작성하기</button>
+                </div>
+              </div>
+              <!-- //내콘텐츠 작성중 데이터가 없을시 오픈 -->
+            </div>
+            <div id="tabpanel2" class="tab__panel" role="tabpanel" aria-labelledby="tablist2" tabindex="-1">
+              <!-- 검색박스 영역 -->
+              <div class="search-box search-box--between">
+                <div class="search-box__wrap">
+                  <div class="input-box">
+                    <input name="search" type="text" class="input" placeholder="검색어을 입력해주세요." />
+                    <button type="button" class="ic-button-clear" data-visible aria-label="클리어버튼" aria-pressed="false" onclick="Input.ClearButton(this)">
+                      <i class="ic ic-clear" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="ic-button-search" aria-label="검색버튼">
+                      <i class="ic ic-search--small" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- //검색박스 영역 -->
+              <div class="title--type2">
+                <div class="total"> 총 <span class="total__count">0</span>건 </div>
+                <div class="checkbox-column">
+                  <input type="checkbox" class="checkbox" id="chkd02" name="chkd02" checked />
+                  <label for="chkd02">내 부서 만 보기</label>
+                </div>
+              </div>
+              <!-- 북마크 작성중인 글이 없을시 -->
+              <div class="none-data none-data--info__type2 pxh500">
+                <p>북마크한 내 부서 글이 없습니다.</p>
+                <span>다른 사람이 작성한 글을 북마크 해두고 참고해보세요.</span>
+                <div class="button-group">
+                  <button class="button button--type1 button--medium" type="button">북마크 둘러보기</button>
+                </div>
+              </div>
+              <!-- //북마크 작성중인 글이 없을시 -->
+            </div>
+          </div>
+          <!-- //마이페이지 탭 영역 -->
+        </div>
+      </div>
+      <!-- 사이드 영역 220913 ID추가  -->
+      <div class="side" id="side">
+        <div class="side__wrap is-active">
+          <h3 class="sr-only">교정 가이드</h3>
+          <div class="side__inner">
+            <div class="cumulative">
+              <p class="cumulative__list">
+                <span class="highlight">김신한</span>님은<br /> 총 <span class="cumulative__count">0</span>건 콘텐츠를<br /> 교정했어요.
+              </p>
+              <span class="cumulative__date">2022년 기준</span>
+            </div>
+            <div id="personalization" class="user-personal">
+              <h4 class="ft18 medium">김신한님을 위한 추천 표현</h4>
+              <div class="expresstion expresstion--type2">
+                <!-- 데이터가 없을시 오픈 -->
+                <div class="none-data none-data--beinfo pxh260" data-none>
+                  <p>새로운 글을 교정하고<br /> 추천표현을 확인해보세요. </p>
+                </div>
+                <!-- //데이터가 없을시 오픈 -->
+                <ul class="expresstion-group">
+                  <li class="expresstion-list">
+                    <span>네비게이션</span>
+                    <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                    <span>내비게이션</span>
+                  </li>
+                  <li class="expresstion-list">
+                    <span>개인종합자산관리계좌 (ISA)</span>
+                    <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                    <span>ISA (개인종합자산관리계좌)</span>
+                  </li>
+                  <li class="expresstion-list">
+                    <span>라이센스</span>
+                    <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                    <span>라이선스</span>
+                  </li>
+                  <li class="expresstion-list">
+                    <span>휴대폰 인증서 서비스(UBIKey)</span>
+                    <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                    <span>휴대폰 인증서 서비스(유비키)</span>
+                  </li>
+                  <li class="expresstion-list">
+                    <span>추산</span>
+                    <i class="ic ic-expresstion-arrow--type2" aria-hidden="true"></i>
+                    <span>어림잡다</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- 문의내역 -->
+            <div class="box mgt30 grey50-bg">
+              <div class="title--type2">
+                <h4 class="text ft18 medium">내 문의내역</h4>
+                <button class="button button--type4 button--medium" type="button" data-dialog-trigger="#modal2">문의하기</button>
+              </div>
+              <!-- 데이터가 없을시 오픈 -->
+              <div class="none-data none-data--beinfo pxh128" data-none>
+                <p>콘텐츠 목록이 비어있어요.<br />새로운 콘텐츠를 입력해주세요.</p>
+              </div>
+              <!-- //데이터가 없을시 오픈 -->
+              <!-- 문의내역 리스트 : 데이터가 없을시 제거  -->
+              <div class="list list-view mgt18 mxh112">
+                <div class="list__item">
+                  <label class="label-ct">답변대기</label>
+                  <a class="text-link ellipsis" href="#none" data-dialog-trigger="#modal4">고객언어란 무엇입니까?</a>
+                </div>
+                <div class="list__item">
+                  <label class="label-ct label-ct--type3">용어제안</label>
+                  <a class="text-link ellipsis" href="#none">교정중인 콘텐츠를 제안합니다 교정중인 콘텐츠를 제안합니다</a>
+                </div>
+                <div class="list__item">
+                  <label class="label-ct label-ct--type2">답변완료</label>
+                  <a class="text-link ellipsis" href="#none" data-dialog-trigger="#modal3">개인 계정 사용시 어떻게 적용하나요?</a>
+                </div>
+                <div class="list__item">
+                  <label class="label-ct label-ct--type3">용어문의</label>
+                  <a class="text-link ellipsis" href="#none" data-dialog-trigger="#modal5">문의사항 남깁니다.</a>
+                </div>
+              </div>
+              <!-- //문의내역 리스트 -->
+            </div>
+            <!-- //문의내역 -->
+          </div>
+        </div>
+      </div>
+      <!-- //사이드 영역 -->
+      <!-- 문의하기 팝업 -->
+      <div class="modal modal--medium" id="modal2" role="dialog" aria-labelledby="#modal2Title">
+        <div class="modal__dialog" role="document">
+          <div class="modal__content">
+            <div class="modal__header">
+              <div class="modal__title" id="modal2Title">문의하기</div>
+              <button type="button" class="ic-button" data-dialog-close aria-label="팝업닫기">
+                <i class="ic ic-close" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="modal__body">
+              <div class="form">
+                <div class="fields">
+                  <div class="field">
+                    <label class="dpb medium ft14">문의내용</label>
+                    <textarea class="textarea textarea--tiny" maxlength="500" placeholder="서비스 이용 중 궁금하신 점을 말씀해주세요."></textarea>
+                    <div class="textarea__lengths">
+                      <label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
+                      <div class="textarea__lengths__box">
+                        <span class="textarea__lengths--current">0</span>/ <span class="textarea__lengths--total">500</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal__footer">
+              <button type="button" class="button pw100">문의하기</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- //문의하기 팝업 -->
+      <!-- 답변완료 팝업 -->
+      <div class="modal modal--medium" id="modal3" role="dialog" aria-labelledby="#modal3Title">
+        <div class="modal__dialog modal__dialog--type2" role="document">
+          <div class="modal__content">
+            <div class="modal__header">
+              <div class="modal__title" id="modal3Title">내 문의사항</div>
+              <button type="button" class="ic-button" data-dialog-close aria-label="팝업닫기">
+                <i class="ic ic-close" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="modal__body">
+              <div class="form">
+                <div class="fields">
+                  <div class="field">
+                    <div class="textarea-box">
+                      <textarea class="textarea textarea--type2 textarea--tiny mxh150" readonly>고객언어란 무엇인가요?</textarea>
+                      <div class="divider" aria-hidden="true"></div>
+                      <span class="text-date">2022.08.31</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="fields">
+                  <div class="field">
+                    <div class="title--type2 title--qa">
+                      <strong class="medium ft14">답변</strong>
+                    </div>
+                    <div class="box box--type3">
+                      <p class="text">고객언어란 고객이 이해하기 쉬운, 고객의 눈높이에 맞는 단어, 표현. 기업에서 제공하는 브랜드, 상품과 서비스에 관련된 내용을 일반 고객이 쉽게 이해할 수 있도록 고객의 눈높이에 맞춰 쉽게 풀어쓰거나 다듬은 언어를 뜻합니다. 고객언어란 고객이 이해하기 쉬운, 고객의 눈높이에 맞는 단어, 표현. 기업에서 제공하는 브랜드, 상품과 서비스에 관련된 내용을 일반 고객이 쉽게 이해할 수 있도록 고객의 눈높이에 기업에서 제공하는 브랜드, 상품과 서비스에 관련된 내용을 일반 고객이 쉽게 이해할 수 있도록 고객의 눈높이에 맞춰 쉽게 풀어쓰거나 다듬은 언어를 뜻합니다. </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="info info--type2">
+                <p class="text">고객경험혁신센터 (02-000-0000)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- //답변완료 팝업 -->
+      <!-- 답변대기 팝업 -->
+      <div class="modal modal--medium" id="modal4" role="dialog" aria-labelledby="#modal4Title">
+        <div class="modal__dialog modal__dialog--type2" role="document">
+          <div class="modal__content">
+            <div class="modal__header">
+              <div class="modal__title" id="modal4Title">내 문의사항</div>
+              <button type="button" class="ic-button" data-dialog-close aria-label="팝업닫기">
+                <i class="ic ic-close" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="modal__body">
+              <div class="form">
+                <div class="fields">
+                  <div class="field">
+                    <div class="textarea-box">
+                      <textarea class="textarea textarea--type2 textarea--tiny mxh150" readonly>고객언어란 무엇인가요?</textarea>
+                      <div class="divider" aria-hidden="true"></div>
+                      <span class="text-date">2022.08.31</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="info info--type2">
+                <p class="text text-blue">담당자가 확인 후 곧 답변드리겠습니다.</p>
+              </div>
+              <div class="info info--type2">
+                <p class="text">고객경험혁신센터 (02-000-0000)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- //답변대기 팝업 -->
+      <!-- 용어문의 팝업 -->
+      <div class="modal modal--medium" id="modal5" role="dialog" aria-labelledby="#modal5Title">
+        <div class="modal__dialog modal__dialog--type2" role="document">
+          <div class="modal__content">
+            <div class="modal__header">
+              <div class="modal__title" id="modal5Title">내 문의사항</div>
+              <button type="button" class="ic-button" data-dialog-close aria-label="팝업닫기">
+                <i class="ic ic-close" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="modal__body">
+              <div class="form">
+                <div class="fields">
+                  <div class="field">
+                    <div class="textarea-box">
+                      <textarea class="textarea textarea--type2 textarea--tiny mxh150" readonly>문의 답변 내용이 마음에 들지 않습니다.</textarea>
+                      <div class="divider" aria-hidden="true"></div>
+                      <span class="text-date">2022.08.31</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="info info--type2">
+                <p class="text text-blue">의견주신 내용은 검토하여 추후 용어/표현 사전 개선에 참고 자료로 활용됩니다.</p>
+              </div>
+              <div class="info info--type2">
+                <p class="text">고객경험혁신센터 (02-000-0000)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- //용어문의 팝업 -->
+    </div>
+  </div>
+  <script src="/res/js/lib/swiper.min.js"></script>
+  <script src="/res/js/uxw.ui.js"></script>
+  <script>
+    function bookAdd(param) {
+      //북마크 클릭시 ui 변경
+      const dataChecker = param.getAttribute('data-toggle');
+      if (dataChecker === 'false') {
+        param.setAttribute('data-toggle', 'true')
+      }
+    }
+
+    function bookRemove(param) {
+      //북마크 클릭시 ui 변경
+      const dataChecker = param.getAttribute('data-toggle');
+      if (dataChecker === 'true') {
+        param.setAttribute('data-toggle', 'false')
+      }
+    }
+    const Input = {
+      // 에러
+      Error: function(props) {
+        const ARIA_HIDDEN = 'aria-hidden';
+        const input = props.parentElement;
+        const label = input.nextElementSibling.classList.contains('error');
+        input.classList.add('error');
+        if (!label) {
+          return;
+        }
+        const get = input.nextElementSibling.getAttribute(ARIA_HIDDEN);
+        if (get === 'true') {
+          input.nextElementSibling.setAttribute(ARIA_HIDDEN, false);
+        }
+      },
+      // 에러 클리어
+      Clear: function(props) {
+        const ARIA_HIDDEN = 'aria-hidden';
+        const input = props.parentElement;
+        const label = input.nextElementSibling.classList.contains('error');
+        input.classList.remove('error');
+        if (!label) {
+          return;
+        }
+        const get = input.nextElementSibling.getAttribute(ARIA_HIDDEN);
+        if (get === 'false') {
+          input.nextElementSibling.setAttribute(ARIA_HIDDEN, true);
+        }
+      },
+      // value 삭제버튼
+      ClearButton: function(param) {
+        if (!param.previousElementSibling) {
+          return;
+        }
+        if (param.previousElementSibling.tagName === 'INPUT') {
+          param.previousElementSibling.value = '';
+          param.classList.remove('is-active');
+          if (param.previousElementSibling.getAttribute('name') === 'id') {
+            const target = document.querySelector('[name="password"]');
+            const passwordParent = target.closest('.input-box');
+            passwordParent.style.height = '';
+            passwordParent.style.marginTop = '0';
+            passwordParent.classList.add('expanding');
+            passwordParent.classList.remove('expand');
+            passwordParent.classList.remove('expanded');
+          }
+        }
+      },
+      // InputBox value Checker
+      Check: function() {
+        const elements = document.querySelectorAll('.input-box');
+        const onInput = function(event) {
+          const value = event.target.value;
+          const length = value.length;
+          const nextEl = event.target.nextElementSibling;
+          if (!nextEl) {
+            return;
+          }
+          if (length > 0) {
+            nextEl.classList.add('is-active');
+          } else {
+            nextEl.classList.remove('is-active');
+          }
+        };
+        [].forEach.call(elements, item => {
+          const target = item.querySelector('.input');
+          target.addEventListener('keyup', onInput);
+          target.addEventListener('keydown', onInput);
+          target.addEventListener('change', onInput);
+        });
+      }
+    };
+    document.addEventListener('DOMContentLoaded', function() {
+      Input.Check();
+    })
+  </script>
+</body>
+
+</html>

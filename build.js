@@ -21,7 +21,6 @@ const selectMode = async () => {
 };
 
 const selectBuildType = async selectMode => {
-  // console.log('', chalk.yellow(`${[selectMode]} ---> pc or mobile`), '\n');
   return cliSelect({
     values: ['all', 'javascript', 'scss'],
     valueRenderer: (value, selected) => {

@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/res/css/styles.css" />
+    <link rel="stylesheet" href="../../vendor/prism.css">
+    <link rel="stylesheet" href="../guideStyle.css">
+</head>
+<style>
+    body,
+    html {
+        overflow: auto;
+    }
+</style>
+
+<body>
+    <div class="guide-wrap">
+        <h2 class="ex-name">Common-Script</h2>
+        <div class="ex-content">
+            <div class="ex-title" style="border-bottom:0;">
+                <h3>컴포넌트는 아니지만 공통기능으로 정의된 기능들입니다.</h3>
+                <p class="ex-desc"> 페이지 로드 시 기본적으로 한번 실행됩니다.<br /> 비동기 통신을 통하여 나중에 화면에 추가되는 엘리먼트에 아래 정의된 공통기능을 적용하기 위해서는<br /> UXW.initialize(); 함수를 직접 호출하면 됩니다. </p>
+            </div>
+        </div>
+        <div class="ex-content">
+            <div class="ex-title">
+                <h3>navigation()</h3>
+                <p class="ex-desc"> navigation의 click시 label이 오픈 되며, 오픈된 상태에서 다른 navigation클릭시 전환됩니다. <br /> * data-navigation-defaultactive=[number]를 사용해 처음 로드했을때 open될 modal--layer을 지정할 수 있습니다. <br /> * modal--layer[id] => aria-controls=[id] 맵핑 </p>
+            </div>
+            <div class="ex-body">
+                <div class="ex-preview">
+                    <div class="html-view">
+                        <pre>
+              <code class="ex-code-block render-html">
+                <div id="floating" class="floating-menu-wrap">
+                  <nav class="nav" role="navigation">
+                    <ul class="nav__box" aria-expanded="false" data-navigation-defaultactive="1">
+                      <li class="nav__list">
+                        <div class="nav__item">
+                          <button type="button" class="ic-button-nav" aria-label="검색" aria-controls="layerModal1">
+                            <i class="ic ic-search" aria-hidden="true"></i>
+                          </button>
+                          <a class="text" href="#none" alt="검색 바로가기">검색</a>
+                        </div>
+                      </li>
+                      <li class="nav__list">
+                        <div class="nav__item">
+                          <button type="button" class="ic-button-nav" aria-label="가이드" aria-controls="layerModal2">
+                            <i class="ic ic-guidebook" aria-hidden="true"></i>
+                          </button>
+                          <a class="text" href="#none" alt="가이드">가이드</a>
+                        </div>
+                      </li>
+                      <li class="nav__list">
+                        <div class="nav__item">
+                          <button type="button" class="ic-button-nav" aria-label="교정된 콘텐츠" aria-controls="layerModal3">
+                            <i class="ic ic-edition" aria-hidden="true"></i>
+                          </button>
+                          <a class="text" href="#none" alt="교정된 콘텐츠">교정된 콘텐츠</a>
+                        </div>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </code>
+            </pre>
+                    </div>
+                    <div class="js-view">
+                        <pre>
+              <code class="language-javascript">
+                const navigation = (UI, options) => {
+                  const ARIA_EXPANDED = 'aria-expanded';
+                  const ARIA_CONTROLS = 'aria-controls';
+                  const DEFAULT_ACTIVE = 'data-navigation-defaultActive';
+                  const elements = document.querySelectorAll(UI);
+                  const navEl = getObjectElements(elements);
+
+                  if (!elements) {
+                    return;
+                  }
+
+                  let config = {
+                    target: null,
+                    nextTarget: null,
+                    active: options ? options : null,
+                  };
+
+                  [].forEach.call(navEl, x => {
+                    const target = x.querySelectorAll('.nav__list .ic-button-nav');
+                    const toTarget = x.querySelectorAll('.nav__item a');
+                    const defaultActive = x.querySelector(`[${ARIA_EXPANDED}]`).getAttribute(`${DEFAULT_ACTIVE}`);
+                    config = {
+                      target: target,
+                      nextTarget: toTarget,
+                      active: options ? options : defaultActive,
+                    };
+                  });
+
+                  const addEvent = () => {
+                    if (!config.target) {
+                      return;
+                    }
+                    config.target.forEach((item, index) => {
+                      EventHandler.on(item, 'click', navClickable);
+                      EventHandler.on(config.nextTarget[index], 'click', navClickable);
+                    });
+                  };
+
+                  const navClickable = event => {
+                    if (!event.target.tagName.match(/^A$|AREA|INPUT|TEXTAREA|SELECT|BUTTON|LABEL/gim)) {
+                      event.preventDefault();
+                    }
+                    _aria();
+                    beforeSelection();
+                    const target = event.target.closest(`[${ARIA_CONTROLS}]`) === null ? event.target.previousElementSibling : event.target.closest(`[${ARIA_CONTROLS}]`);
+                    target.classList.add('is-active');
+                    tooltipInit();
+                  };
+
+                  const beforeSelection = () => {
+                    [].forEach.call(config.target, item => {
+                      item.classList.remove('is-active');
+                    });
+                  };
+
+                  const tooltipInit = () => {
+                    const _tooltipBox = document.querySelector('.tooltip__box');
+                    _tooltipBox.classList.add('is-beactive');
+                  };
+
+                  const defaultSelection = () => {
+                    //DEFAULT_ACTIVE가 있을시 오픈
+                    const modals = document.querySelectorAll('.modal--layer');
+                    if (modals.length === 0) {
+                      return;
+                    }
+
+                    modals.forEach(m => {
+                      if (m.id === config.target[config.active]?.getAttribute(`${ARIA_CONTROLS}`)) {
+                        config.target[config.active].classList.add('is-active');
+                        modals[0].classList.add('is-active');
+                        modals[0].setAttribute(`${LAYER_OPEND}`, 'true');
+                        createHtml.classList.add('fadeIn');
+                        document.body.appendChild(createHtml);
+                        _aria();
+                      } 
+                    });
+                  };
+
+                  const _aria = () => {
+                    const navExpaned = elements[0].querySelector(`[${ARIA_EXPANDED}]`);
+                    const getExpaned = navExpaned.getAttribute(ARIA_EXPANDED);
+                    getExpaned === 'false' ? [navExpaned.setAttribute(ARIA_EXPANDED, 'true')] : null;
+                    elements[0].classList.add('is-open');
+                  };
+
+                  function _init() {
+                    addEvent();
+                    defaultSelection();
+                  }
+
+                  _init();
+                };
+              </code>
+            </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ex-content">
+            <div class="ex-title">
+                <h3>modalLayer()</h3>
+                <p class="ex-desc"> navigation의 click시 오픈될 modalLayer입니다. </p>
+            </div>
+            <div class="ex-body">
+                <div class="ex-preview">
+                    <div class="js-view">
+                        <pre>
+              <code class="language-javascript">
+                const modalLayer = UI => {
+                  const elements = document.querySelectorAll(UI);
+                  const navEl = getObjectElements(elements);
+                  const tooltipBox = document.querySelector('.tooltip__box');
+                  const layers = document.querySelectorAll('.modal--layer');
+                  const ARIA_CONTROLS = 'aria-controls';
+                  const ARIA_EXPANDED = 'aria-expanded';
+                  const LAYER_CLOSE = 'data-layer-close';
+                  const ZINDEX = {
+                    CONTENT: 201,
+                    INCREASE: 1,
+                    INIT: 201,
+                  };
+
+                  if (!elements) {
+                    return;
+                  }
+
+                  let config = {
+                    target: null,
+                    nextTarget: null,
+                    layerContent: null,
+                    closeButton: null,
+                  };
+
+                  const varioblesUpdate = () => {
+                    [].forEach.call(navEl, x => {
+                      const navButton = x.querySelectorAll('.nav__list .ic-button-nav');
+                      const target = navButton;
+                      const layerCurrent = navButton;
+                      const toTarget = x.querySelectorAll('.nav__item a');
+                      const closebtn = document.querySelectorAll(`[${LAYER_CLOSE}]`);
+
+                      config = {
+                        target: target,
+                        nextTarget: toTarget,
+                        layerContent: layerCurrent,
+                        closeButton: closebtn,
+                      };
+                    });
+                  };
+
+                  const addEvent = () => {
+                    if (!config.target) {
+                      return;
+                    }
+                    config.target.forEach((item, index) => {
+                      EventHandler.on(item, 'click', layerClick);
+                      EventHandler.on(config.nextTarget[index], 'click', layerClick);
+                    });
+
+                    config.closeButton.forEach(item => {
+                      EventHandler.on(item, 'click', layerClose);
+                    });
+                  };
+
+                  const _removeEvents = () => {
+                    config.target.forEach((item, index) => {
+                      EventHandler.off(item, 'click');
+                      EventHandler.off(config.nextTarget[index], 'click');
+                    });
+                  };
+
+                  const _zIndexOrderIncrease = layerModal => {
+                    layerModal.style.zIndex = ZINDEX.CONTENT += ZINDEX.INCREASE;
+                  };
+
+                  const layerClick = event => {
+                    if (!event.target.tagName.match(/^A$|AREA|INPUT|TEXTAREA|SELECT|BUTTON|LABEL/gim)) {
+                      event.preventDefault();
+                    }
+
+                    const target = event.target.closest(`[${ARIA_CONTROLS}]`);
+
+                    const getAttr = target === null ? event.target.previousElementSibling.getAttribute(`${ARIA_CONTROLS}`) : target.getAttribute(`${ARIA_CONTROLS}`);
+                    const layerModal = document.querySelector(`#${getAttr}`);
+                    if (!layerModal) {
+                      return;
+                    }
+
+                    _show(layerModal);
+                  };
+
+                  const layerClose = event => {
+                    if (!event.target.tagName.match(/^A$|AREA|INPUT|TEXTAREA|SELECT|BUTTON|LABEL/gim)) {
+                      event.preventDefault();
+                    }
+                    const target = event.currentTarget;
+                    _hide(target);
+                  };
+
+                  const _show = layerModal => {
+                    layers.forEach(modal => {
+                      if (modal === layerModal) {
+                        _zIndexOrderIncrease(layerModal);
+                      } else {
+                        modal.classList.add('is-deactive');
+                        modal.classList.remove('is-active');
+                        modal.setAttribute(`${LAYER_OPEND}`, 'false');
+                        EventHandler.one(modal, 'animationend', () => {
+                          modal.classList.remove('is-deactive');
+                          modal.style.zIndex = ZINDEX.INIT;
+                        });
+                      }
+                    });
+
+                    if (layerModal.getAttribute(`${LAYER_OPEND}`) === 'false') {
+                      createHtml.classList.add('fadeIn');
+                      document.body.appendChild(createHtml);
+                      layerModal.classList.add('is-active');
+                      layerModal.setAttribute(`${LAYER_OPEND}`, 'true');
+
+                      EventHandler.one(layerModal, 'animationend', () => {
+                        layerModal.classList.remove('is-deactive');
+                      });
+                    }
+                  };
+
+                  const _hide = target => {
+                    const modal = target.closest('.modal');
+                    if (modal.getAttribute(`${LAYER_OPEND}`) === 'true') {
+                      createHtml.classList.remove('fadeOut');
+                      document.body.removeChild(createHtml);
+                      modal.classList.add('is-deactive');
+                      modal.setAttribute(`${LAYER_OPEND}`, 'false');
+
+                      EventHandler.one(modal, 'animationend', () => {
+                        modal.classList.remove('is-active');
+                        modal.classList.remove('is-deactive');
+                      });
+                    }
+                    _allClose();
+                  };
+
+                  const _allClose = () => {
+                    elements[0].classList.remove('is-open');
+                    elements[0].querySelector(`[${ARIA_EXPANDED}]`).setAttribute(`${ARIA_EXPANDED}`, false);
+                    tooltipBox.classList.remove('is-beactive');
+                    config.target.forEach(item => {
+                      item.classList.remove('is-active');
+                    });
+                  };
+
+                  const _init = () => {
+                    varioblesUpdate();
+                    addEvent();
+                  };
+
+                  _init();
+                };
+              </code>
+            </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ex-content">
+            <div class="ex-title">
+                <h3>cardRefresh()</h3>
+                <p class="ex-desc"> Accordion + dropdown 형태의 카드리스트에서 접힌상태의 카드에서 reflash 버튼 클릭시 사용됩니다. </p>
+            </div>
+            <div class="ex-body">
+                <div class="ex-preview">
+                    <div class="js-view">
+                        <pre>
+              <code class="language-javascript">
+                const cardRefresh = () => {
+                  const card = 'data-card';
+                  const ARIA_PRESSED = 'aria-pressed';
+                  const elements = document.querySelectorAll('[' + card + ']');
+
+                  if (elements.legnth === 0) {
+                    return;
+                  }
+
+                  elements.forEach(item => {
+                    const isCard = item.getAttribute(card);
+                    const refresh = item.querySelector('.ic-button-refresh');
+
+                    EventHandler.on(refresh, 'click', event => {
+                      if (isCard) {
+                        event.currentTarget.setAttribute(ARIA_PRESSED, false);
+                        _before(item);
+                      } else {
+                        return;
+                      }
+                    });
+                  });
+
+                  const _before = target => {
+                    target.setAttribute(card, false);
+                  };
+                };
+              </code>
+            </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ex-content">
+            <div class="ex-title">
+                <h3>autoScrollContent()</h3>
+                <p class="ex-desc"> 컨텐츠 로드시 현재페이지내에서 탭과 사이드 영역이 없을시 body영역에 is-beside 클래스가 붙습니다. <br />* 사이드와 탭이 없을경우에 body영역 스크롤을 사용하기위함 <br />이외 화면은 탭내부 or 사이드내부 영역에 스크롤을 사용 </p>
+            </div>
+            <div class="ex-body">
+                <div class="ex-preview">
+                    <div class="js-view">
+                        <pre>
+              <code class="language-javascript">
+                const autoScrollContent = () => {
+                  const lyContainer = document.querySelector('.ly-container');
+                  const tabs = lyContainer?.querySelectorAll('.tab');
+                  const side = document?.querySelector('.side');
+
+                  if (!tabs) {
+                    return;
+                  } else {
+                    if (tabs.length > 0 && side) {
+                      document.body.classList.remove('is-beside');
+                      Object.assign(lyContainer.style, {
+                        overflow: 'hidden',
+                      });
+                    } else {
+                      document.body.classList.add('is-beside');
+                      Object.assign(lyContainer.style, {
+                        overflow: 'auto',
+                      });
+                    }
+                  }
+                };
+              </code>
+            </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.0/beautify.min.js"></script>
+    <script src="/res/js/uxw.ui.js"></script>
+    <script src="../../vendor/prism.js"></script>
+    <script>
+        Prism.plugins.NormalizeWhitespace.setDefaults({
+            'remove-trailing': true,
+            'remove-indent': true,
+            'left-trim': true,
+            'right-trim': true,
+            'break-lines': 0,
+        });
+        [].forEach.call(document.querySelectorAll('.ex-content'), function(el) {
+            var htmlView = el.querySelector('.html-view');
+            var htmlBtn = el.querySelector('.html-view-btn');
+            if (htmlBtn) {
+                htmlBtn.addEventListener('click', function(e) {
+                    pugBtn.classList.remove('active');
+                    htmlBtn.classList.add('active');
+                    pugView.style.display = 'none';
+                    htmlView.style.display = 'block';
+                });
+            }
+        });
+        [].forEach.call(document.querySelectorAll('.ex-code-block'), function(block) {
+            var sourceString = block.innerHTML;
+            sourceString = sourceString.replaceAll(' data-function-initialized="initialized"', '');
+            if (block.classList.contains('render-html')) {
+                block.classList.add('language-html');
+                sourceString = Prism.highlight(sourceString, Prism.languages.html, 'html');
+                block.innerHTML = sourceString;
+            }
+            if (block.classList.contains('language-javascript')) {
+                block.classList.add('language-js');
+                sourceString = window.js_beautify(sourceString, {
+                    indent_size: '2',
+                    indent_char: ' ',
+                    max_preserve_newlines: '5',
+                    preserve_newlines: true,
+                    keep_array_indentation: false,
+                    break_chained_methods: false,
+                    indent_scripts: 'normal',
+                    brace_style: 'collapse',
+                    space_before_conditional: true,
+                    unescape_strings: false,
+                    jslint_happy: false,
+                    end_with_newline: false,
+                    wrap_line_length: '0',
+                    indent_inner_html: false,
+                    comma_first: false,
+                    e4x: false,
+                    indent_empty_lines: false,
+                });
+                sourceString = Prism.highlight(sourceString, Prism.languages.js, 'javascript');
+                block.innerHTML = sourceString;
+            }
+        });
+        Prism.highlightAll();
+    </script>
+</body>
+
+</html>

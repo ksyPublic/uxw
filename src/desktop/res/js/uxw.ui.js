@@ -123,7 +123,6 @@ const Confirm = (message, confirmCallback = null) => {
       '{{message}}': message,
     },
   });
-
   EventHandler.one(dialog.getElement(), Dialog.EVENT.OPEN, event => {
     const confirm = dialog.getElement().querySelector('[data-dialog-confirm]');
     if (confirm) {
@@ -134,7 +133,6 @@ const Confirm = (message, confirmCallback = null) => {
       });
     }
   });
-
   dialog._open();
 };
 

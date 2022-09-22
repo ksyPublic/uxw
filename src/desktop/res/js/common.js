@@ -1,4 +1,5 @@
 import 'element-closest-polyfill';
+import Scrollbar from 'smooth-scrollbar';
 import EventHandler from './vendor/EventHandler';
 import { toHTML } from './utils/dom-util';
 
@@ -28,8 +29,6 @@ const getObjectElements = elements => {
   }
   return arr;
 };
-
-
 
 const autoScrollContent = () => {
   const lyContainer = document.querySelector('.ly-container');
@@ -156,7 +155,7 @@ const navigation = (UI, options) => {
         // createHtml.classList.add('fadeIn');
         document.body.appendChild(createHtml);
         _aria();
-      } 
+      }
     });
   };
 
@@ -286,7 +285,7 @@ const modalLayer = UI => {
 
     if (layerModal.getAttribute(`${LAYER_OPEND}`) === 'false') {
       // createHtml.classList.add('fadeIn');
-      if(!dimmer) {
+      if (!dimmer) {
         document.body.appendChild(createHtml);
         dimmer = true;
       }
@@ -337,42 +336,62 @@ const modalLayer = UI => {
 /* 모달에 스크롤이 있을경우 */
 const modalScrollContent = () => {
   const el = document.querySelectorAll('.modal--layer__bescroll .tab--scroll .tab__inner');
-  const floating = document.querySelectorAll('.modal--layer__bescroll .tab--scroll .floating-menu-wrap--type2 .accordion--type3');
-  const modalScroll = event => {
-      if(event.target.scrollTop > 96) {
-          [].forEach.call(floating, function(item) {
-              item.classList.add('is-fixed');
-          });
-      } else {
-          [].forEach.call(floating, function(item) {
-              item.classList.remove('is-fixed');
-          });
-      }
-  };
 
-  const tabEl = document.querySelector('.modal--layer__bescroll .tab')
-  if(!tabEl) return;
+  const tabEl = document.querySelector('.modal--layer__bescroll .tab');
+  if (!tabEl) return;
   tabEl.addEventListener(UXW.Tab.EVENT.CHANGE, function (event) {
-      var currentTab = event.current;
-      var beforeTab = event.before;
-      //변경전 페이지적용
-      if(currentTab.content) {
-        const acc = currentTab.content.querySelector('.modal--layer__bescroll .tab--scroll .tab__inner')
-        const _floating = acc.querySelector('.floating-menu-wrap--type2 .accordion--type3');
-        if(acc.scrollTop > 0) {
-          _floating.classList.add('is-fixed');
-        } else {
-          _floating.classList.remove('is-fixed');
-        }
+    var currentTab = event.current;
+    var beforeTab = event.before;
+    //변경전 페이지적용
+    if (currentTab.content) {
+      const acc = currentTab.content.querySelector('.modal--layer__bescroll .tab--scroll .tab__inner');
+      const _floating = acc.querySelector('.floating-menu-wrap--type2 .accordion--type3');
+      if (acc.scrollTop > 0) {
+        _floating.classList.add('is-fixed');
+      } else {
+        _floating.classList.remove('is-fixed');
       }
-
+    }
   });
-  
-  [].forEach.call(el, function(item) {
-      item.addEventListener('scroll', modalScroll)
-  })
 };
 /* 모달에 스크롤이 있을경우 */
+
+const defaultScroll = () => {
+  const tabScrollEl = document.querySelectorAll('.tab--scroll .tab__inner');
+  const floating = document.querySelectorAll('.modal--layer__bescroll .tab--scroll .floating-menu-wrap--type2 .accordion--type3');
+
+  // const modalScroll = event => {
+  //   console.log('???', event.target);
+  //   if (event.target.scrollTop > 96) {
+  //     [].forEach.call(floating, function (item) {
+  //       item.classList.add('is-fixed');
+  //     });
+  //   } else {
+  //     [].forEach.call(floating, function (item) {
+  //       item.classList.remove('is-fixed');
+  //     });
+  //   }
+  // };
+
+  tabScrollEl.forEach(item => {
+    const scrollbar = Scrollbar.init(item);
+    scrollbar.addListener(function (status) {
+      const fixedEl = scrollbar.contentEl.querySelector('.floating-menu-wrap--type2 .accordion--type3')
+
+      // if(floating.length > 0) {
+      //   console.log('?????', status.limit.y > status.offset.y,  status.offset.y > 96);
+
+      //   if (status.limit.y > status.offset.y && status.offset.y > 96) {
+      //     fixedEl.classList.add('is-fixed');
+      //     fixedEl.style.top = status.offset.y + 'px';
+      //   } else {
+      //     fixedEl.style.top = 0;
+      //     fixedEl.classList.remove('is-fixed');
+      //   }
+      // }
+    });
+  });
+};
 
 const initFunc = () => {};
 
@@ -382,6 +401,7 @@ const initialize = () => {
   modalScrollContent();
   cardRefresh();
   autoScrollContent();
+  defaultScroll();
 };
 
 const commonInit = {

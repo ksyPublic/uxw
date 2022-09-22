@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/res/css/styles.css" />
+    <link rel="stylesheet" href="../../vendor/prism.css">
+    <link rel="stylesheet" href="../guideStyle.css">
+</head>
+<style>
+    body,
+    html {
+        overflow: auto;
+    }
+</style>
+
+<body>
+    <div class="guide-wrap">
+        <h2 class="ex-name">Swiper</h2>
+        <div class="ex-content">
+            <div class="ex-title">
+                <h3>공통 헤더가 Swiper 컨텐츠를 포함하고 있기 때문에 Swiper js는 공통으로 로드해야 합니다.</h3>
+                <p class="ex-desc">Swiper를 uxw.ui.js에서 한번 랩핑하였기 때문에 UXW.swiperA11y 함수를 통해서 사용해야 합니다.( 사용방법은 기존의 Swiper와 동일 ) </p>
+            </div>
+            <div class="ex-body">
+                <div class="ex-preview">
+                    <div class="js-view">
+                        <pre>
+                        <code class="language-javascript">
+                          //API 참고 (https://swiperjs.com/swiper-api)
+                          UXW.swiperA11y('#swiperElement', {
+                            ...각 페이지에 맞는 옵션
+                          });
+                        </code>
+                    </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ex-content">
+            <div class="ex-title">
+                <h3>UXW.SwiperA11y 함수 구현 부</h3>
+                <p class="ex-desc">해당 함수의 수정이 필요할 경우 res/js/uxw.ui.js 140라인 참고 </p>
+            </div>
+            <div class="ex-body">
+                <div class="ex-preview">
+                    <div class="js-view">
+                        <pre>
+                        <code class="language-javascript">
+                          const SwiperA11y = (el, options = {}) => {
+                            return new window.Swiper(el, {
+                              ...options,
+                              threshold: 10, // 10px 이상 움직여야 슬라이드 기능작동
+                              a11y: {
+                                nextSlideMessage: '다음 슬라이드',
+                                prevSlideMessage: '이전 슬라이드',
+                                firstSlideMessage: '첫번째 슬라이드',
+                                lastSlideMessage: '마지막 슬라이드',
+                              },
+                              on: {
+                                init: function () {
+                                  const slides = this.slides;
+                                  const swiper = this;
+                                  const wrapper = this.el;
+                                  [].forEach.call(slides, (el, i) => {
+                                    const elTarget = options.a11yTarget ? el.querySelector(options.a11yTarget) : el;
+
+                                    elTarget.setAttribute('tabindex', 0);
+                                    EventHandler.on(elTarget, 'focusin', () => {
+                                      setTimeout(() => {
+                                        wrapper.scrollLeft = 0;
+                                        swiper.slideTo(i, 100);
+                                      }, 0);
+                                    });
+                                  });
+
+                                  if (options.init) {
+                                    options.init.apply(this);
+                                  }
+                                },
+                                afterInit: function () {
+                                  if (options.afterInit) {
+                                    options.afterInit.apply(this);
+                                  }
+                                },
+                                ...options.on,
+                              },
+                            });
+                          };
+                        </code>
+                    </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.0/beautify.min.js"></script>
+    <script src="/res/js/uxw.ui.js"></script>
+    <script src="../../vendor/prism.js"></script>
+    <script>
+        Prism.plugins.NormalizeWhitespace.setDefaults({
+            'remove-trailing': true,
+            'remove-indent': true,
+            'left-trim': true,
+            'right-trim': true,
+            'break-lines': 0,
+        });
+        [].forEach.call(document.querySelectorAll('.ex-content'), function(el) {
+            var htmlView = el.querySelector('.html-view');
+            var htmlBtn = el.querySelector('.html-view-btn');
+            if (htmlBtn) {
+                htmlBtn.addEventListener('click', function(e) {
+                    pugBtn.classList.remove('active');
+                    htmlBtn.classList.add('active');
+                    pugView.style.display = 'none';
+                    htmlView.style.display = 'block';
+                });
+            }
+        });
+        [].forEach.call(document.querySelectorAll('.ex-code-block'), function(block) {
+            var sourceString = block.innerHTML;
+            sourceString = sourceString.replaceAll(' data-function-initialized="initialized"', '');
+            if (block.classList.contains('render-html')) {
+                block.classList.add('language-html');
+                sourceString = Prism.highlight(sourceString, Prism.languages.html, 'html');
+                block.innerHTML = sourceString;
+            }
+            if (block.classList.contains('language-javascript')) {
+                block.classList.add('language-js');
+                sourceString = window.js_beautify(sourceString, {
+                    indent_size: '2',
+                    indent_char: ' ',
+                    max_preserve_newlines: '5',
+                    preserve_newlines: true,
+                    keep_array_indentation: false,
+                    break_chained_methods: false,
+                    indent_scripts: 'normal',
+                    brace_style: 'collapse',
+                    space_before_conditional: true,
+                    unescape_strings: false,
+                    jslint_happy: false,
+                    end_with_newline: false,
+                    wrap_line_length: '0',
+                    indent_inner_html: false,
+                    comma_first: false,
+                    e4x: false,
+                    indent_empty_lines: false,
+                });
+                sourceString = Prism.highlight(sourceString, Prism.languages.js, 'javascript');
+                block.innerHTML = sourceString;
+            }
+        });
+        Prism.highlightAll();
+    </script>
+</body>
+
+</html>
