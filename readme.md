@@ -82,13 +82,7 @@ npm install or yarn install
 ```
 
 #### Command Line Interface
-"scripts": {
-        "start": "node ./build.js",
-        "dev": "cross-env BUILD_TYPE=desktop NODE_ENV=development gulp dev",
-        "build": "cross-env BUILD_TYPE=desktop NODE_ENV=production gulp build",
-        "build:css": "cross-env BUILD_TYPE=desktop NODE_ENV=production gulp buildcss",
-        "build:js": "cross-env BUILD_TYPE=desktop NODE_ENV=production gulp buildjs"
-    },
+
 ```javascript
   "scripts": {
     "dev": "cross-env BUILD_TYPE=desktop NODE_ENV=development gulp dev",
