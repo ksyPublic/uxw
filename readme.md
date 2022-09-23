@@ -20,8 +20,8 @@
 1. <a href="https://code.visualstudio.com" target="_blank">VisualStudioCode</a> 에디터
    - <a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint&ssr=false#review-details">Visualstudio Extension ESLint</a> JavaScript linter
    - <a href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode&ssr=false#review-details">Visualstudio Extension Prettier</a> JavaScript Code Formatter
-   - <a href="https://marketplace.visualstudio.com/items?itemName=ronnidc.nunjucks">Visualstudio Extension PUGLint</a> NunJucks
-   - <a href="https://marketplace.visualstudio.com/items?itemName=okitavera.vscode-nunjucks-formatter">Visualstudio Extension PUGLint</a> NunJucks Formatter
+   - <a href="https://marketplace.visualstudio.com/items?itemName=ronnidc.nunjucks">Visualstudio Extension Nunjucks</a> NunJucks
+   - <a href="https://marketplace.visualstudio.com/items?itemName=okitavera.vscode-nunjucks-formatter">Visualstudio Extension Nunjucks Formatter</a> NunJucks Formatter
 
 ## 📌Process
 
