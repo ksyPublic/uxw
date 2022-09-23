@@ -14073,7 +14073,7 @@ var modalScrollContent = function modalScrollContent() {
     item.addEventListener('scroll', modalScroll);
   });
 };
-/* 모달에 스크롤이 있을경우 */
+/* //모달에 스크롤이 있을경우 */
 
 
 var defaultScroll = function defaultScroll() {
