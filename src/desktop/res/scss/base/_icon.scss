@@ -325,24 +325,6 @@
     &.is-active {
       background-color: color(blue, 800);
       .ic {
-        &-my {
-          width: 24px;
-          height: 24px;
-          background: url('../images/ic-my-active.png') no-repeat;
-        }
-
-        &-qa {
-          width: 24px;
-          height: 24px;
-          background: url('../images/ic-qa-active.png') no-repeat;
-        }
-
-        &-menu {
-          width: 24px;
-          height: 24px;
-          background: url('../images/ic-menu-active.png') no-repeat;
-        }
-
         &-writing {
           width: 24px;
           height: 24px;

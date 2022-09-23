@@ -341,7 +341,6 @@ const modalScrollContent = () => {
 
   const modalScroll = event => {
     const parentEl = event.target.querySelector('.floating-menu-wrap--type2 .accordion--type3');
-
     if (event.target.scrollTop > 96) {
       parentEl.classList.add('is-fixed');
     } else {
@@ -378,6 +377,7 @@ const defaultScroll = () => {
       const scrollbar = Scrollbar.init(item, {
         syncCallbacks: true,
       });
+      window.tabscrollbar = scrollbar;
     }
   });
 };

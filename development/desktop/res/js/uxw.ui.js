@@ -14083,6 +14083,7 @@ var defaultScroll = function defaultScroll() {
       var scrollbar = smooth_scrollbar__WEBPACK_IMPORTED_MODULE_8__["default"].init(item, {
         syncCallbacks: true
       });
+      window.tabscrollbar = scrollbar;
     }
   });
 };

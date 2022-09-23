@@ -764,18 +764,6 @@
             box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1); }
     .ic-button-head.is-active {
       background-color: #0471e9; }
-      .ic-button-head.is-active .ic-my {
-        width: 24px;
-        height: 24px;
-        background: url("../images/ic-my-active.png") no-repeat; }
-      .ic-button-head.is-active .ic-qa {
-        width: 24px;
-        height: 24px;
-        background: url("../images/ic-qa-active.png") no-repeat; }
-      .ic-button-head.is-active .ic-menu {
-        width: 24px;
-        height: 24px;
-        background: url("../images/ic-menu-active.png") no-repeat; }
       .ic-button-head.is-active .ic-writing {
         width: 24px;
         height: 24px;
