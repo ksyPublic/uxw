@@ -14,15 +14,6 @@ const filesPath = {
         font: `${env}/${buildType}/res/fonts`,
         guideCss: `${env}/${buildType}/guide`,
       },
-
-      admin: {
-        image: `${env}/${buildType}/res/images`,
-        html: `${env}/${buildType}`,
-        css: `${env}/${buildType}/res/css`,
-        js: `${env}/${buildType}/res/js`,
-        font: `${env}/${buildType}/res/fonts`,
-        guideCss: `${env}/${buildType}/guide`,
-      },
     };
     return pathInfo[buildType][dir];
   },

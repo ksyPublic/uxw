@@ -1,0 +1,192 @@
+{% set title = '신한 UX라이팅 시스템 | 높임표현' %}
+{% extends '../templates/uxw_guide_layout.njk' %}
+{% block guide %}
+	<!-- 여기서 부터 복사해서 사용하세요 -->
+	<section class="guide-content" id="Exal">
+		<div class="guide-card-wrap">
+			<div class="guide-card">
+				<div class="guide-card__head">
+					<h3>높임 표현</h3>
+					<div class="divider" aria-hidden="true"></div>
+				</div>
+				<div class="guide-card__content">
+					<div class="list">
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">모든 문장은 기본적으로 높임말로 씁니다.</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">사실 기반 정보, 유의사항 등에는 격식 높임인 ‘하십시오체’로, 헤드메시지, 마케팅성 카피, 문장형 메뉴타이틀 등은 비격식 높임인 ‘해요체’로 씁니다.</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">행위의 주체가 사람일 때만 높임말을 사용하며, 사물을 높여 쓰지 않도록 주의합니다.</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">‘~시~’는 여러 번 반복해 쓰지 않고, 마지막 서술어에 한 번만 씁니다.</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">‘~오니’는 각별한 공손을 드러내는 문어체 표현이므로 ‘~하오니’, ‘~되오니’ 대신 ‘~하므로/~하니’, ‘~되므로/~되니’로 씁니다.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="table-row fixed">
+			<table class="table left">
+				<colgroup>
+					<col style="width:240px"/>
+					<col style="width:*"/>
+					<col style="width:*"/>
+				</colgroup>
+				<thead>
+					<tr>
+						<th aria-hidden="true"></th>
+						<th>
+							<span>이렇게 쓰지 마세요<i class="ic ic-x--type2" aria-hidden="true"></i>
+							</span>
+						</th>
+						<th>
+							이렇게 쓰세요<i class="ic ic-o--type2" aria-hidden="true"></i>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="center">객체 높임</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										투자성향분석 하신지 1년이
+										<span class="red">지나셨어요</span>.
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										이중납부<span class="red">되신</span>
+										경우 해당 지방자치단체로 환급신청하여 주시기 바랍니다.
+									</p>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										투자성향분석을 한지 1년이
+										<span class="blue">지났어요</span>.
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										이중납부<span class="blue">된</span>
+										경우 해당 지방자치단체로 환급을 신청해주세요.
+									</p>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="center">-시-</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										대출 신청을
+										<span class="red">완료하신</span>
+										고객님께서 신청금액을 변경하고자
+										<span class="red">하실</span>
+										경우 재신청 버튼을 선택하여
+										<span class="red">주시기</span>
+										바랍니다.
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										지로 자동이체를
+										<span class="red">신청하시면</span>
+										편리하게 공과금을
+										<span class="red">납부하실</span>
+										수 있습니다.
+									</p>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										대출을
+										<span class="blue">신청한</span>
+										고객님이 신청금액을
+										<span class="blue">변경하려면</span>
+										[재신청]을
+										<span class="blue">눌러주세요</span>.
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										지로 자동이체를
+										<span class="blue">신청하면</span>
+										편리하게 공과금을 납부하실 수 있습니다.
+									</p>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="center">-오니</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										납입한도를 감액하신 이후 다시 증액 하는 것도 불가<span class="red">하오니</span>
+										한도 변경 거래 시 유의하여 주시기 바랍니다.
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										중도해지시 중도해지이율이
+										<span class="red">적용되오니</span>
+										반드시 상품의 만기일 정보를 확인하여 주시기 바랍니다.
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										추후 푸시알림 설정 해제시 알림메시지가 누락<span class="red">되오니</span>
+										유의하시기 바랍니다.
+									</p>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										납입한도를 감액한 후에는 다시 증액할 수
+										<span class="blue">없습니다</span>. 한도변경 시 유의해주세요.
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										중도해지 시 중도해지 이자율이
+										<span class="blue">적용됩니다</span>. 반드시 상품 만기일을 확인해 주세요.
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										푸시알림 설정을 해제하면 알림메시지를
+										<span class="blue">받을 수 없으니</span>
+										유의해주세요.
+									</p>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+	<!-- //여기서 부터 복사해서 사용하세요 -->
+{% endblock %}
+{% block scripts %}{% endblock %}

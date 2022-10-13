@@ -45,24 +45,6 @@
   }
 }
 
-.guide-writing {
-  padding: 40px;
-  background-color: color(grey, 100);
-  strong {
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 32px;
-    + p {
-      margin-top: 20px;
-    }
-  }
-  p {
-    font-weight: 300;
-    font-size: 18px;
-    line-height: 28px;
-  }
-}
-
 .user-personal {
   h4 {
     line-height: 28px;
@@ -136,6 +118,13 @@
   margin: 20px 0;
   height: 1px;
   background-color: color(grey, 200);
+
+  &--type2 {
+    width: 100%;
+    margin: 14px 0;
+    height: 1px;
+    background-color: color(util, 5);
+  }
 }
 
 .none-data {
@@ -274,6 +263,68 @@
       .ic-bookmark-g {
         background: url('../images/ic-bookmark-y.png') no-repeat;
       }
+    }
+  }
+}
+
+.hash {
+  display: block;
+  margin: 16px 0 16px 0;
+  &-text {
+    padding: 0px 12px;
+    background: #ff8330;
+    border-radius: 14px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 26px;
+    color: $white;
+    margin-right: 8px;
+    height: 26px;
+    display: inline-block;
+    vertical-align: top;
+    &:last-child {
+      margin: 0;
+    }
+    &:before {
+      content: '#';
+      margin-right: 4px;
+    }
+  }
+}
+
+.legend {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  &__item {
+    margin-right: 20px;
+    &:last-child {
+      margin-right: 0;
+    }
+    .label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 28px;
+      font-weight: 700;
+      font-size: 14px;
+      color: color(blue, 900);
+      background-color: color(grey, 50);
+
+      &--blue {
+        background-color: color(blue, 800);
+        color: $white;
+      }
+    }
+
+    .text {
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 20px;
+      margin-left: 10px;
+      color: color(grey, 600);
     }
   }
 }

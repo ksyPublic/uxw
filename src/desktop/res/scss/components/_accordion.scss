@@ -109,11 +109,19 @@
       border-top: 0;
     }
     .#{$root}__inner {
-      padding: 0 20px 20px;
+      padding: 0;
       background-color: $white;
+
+      div.list {
+        padding: 0 20px 20px;
+      }
     }
 
     .expresstion-list {
+      min-height: auto;
+      width: calc(100% - 32px);
+      background-color: transparent;
+
       .ic-expresstion-arrow--type2 {
         pointer-events: none;
         margin: 0 8px;
@@ -234,19 +242,19 @@
         line-height: 24px;
         color: color(grey, 400);
         margin-top: 8px;
-        transition: none!important;
+        transition: none !important;
         &.is-active {
-          color:$white;
+          color: $white;
           font-weight: 700;
           &::before {
-            background-color:$white;
+            background-color: $white;
           }
         }
         &:hover {
-          color:$white;
+          color: $white;
           font-weight: 700;
           &::before {
-            background-color:$white;
+            background-color: $white;
           }
         }
         &:first-child {

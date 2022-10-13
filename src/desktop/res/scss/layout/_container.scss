@@ -36,6 +36,8 @@
     // position: relative;
     height: 100%;
     margin: 0 102px 0 0px;
+    max-width: 996px;
+    min-width: 996px;
     // min-width: 996px;
     // overflow: auto;
     width: 100%;
@@ -44,6 +46,7 @@
     @media all and(min-width:1921px) {
       width: 100%;
       max-width: 100%;
+      position: relative;
     }
 
     &-box {
@@ -79,7 +82,7 @@
     background-color: $body-base-color;
 
     @media all and(min-width:1921px) {
-      padding-right: 100px;
+      left: 0;
       max-width: 100%;
     }
 

@@ -10,6 +10,7 @@ const NAME = 'ui.accordion';
 const ARIA_CONTROLS = 'aria-controls';
 const ARIA_PRESSED = 'aria-pressed';
 const ONLY_ONE = 'data-accordion-onlyone';
+const INDIVIDUAL = 'data-accordion-individual';
 
 const dataAttrConfig = {
   default: -1,
@@ -47,6 +48,7 @@ class Accordion extends UI {
 
     this._options = {
       single: null,
+      individual: null,
     };
 
     this._link = null;
@@ -89,7 +91,9 @@ class Accordion extends UI {
   _defaultSettings() {
     const { onlyOne } = this._config;
     const _onlyone = this._element.getAttribute(`${ONLY_ONE}`);
+    const _individual = this._element.getAttribute(`${INDIVIDUAL}`);
     !_onlyone ? (this._options.single = onlyOne) : (this._options.single = _onlyone);
+    _individual ? (this._options.individual = true) : (this._options.individual = false);
   }
 
   _defaultActive() {
@@ -115,7 +119,6 @@ class Accordion extends UI {
 
   _addEvent() {
     EventHandler.on(this._element, super._eventName('click'), event => {
-
       if (!event.target.tagName.match(/^A$|AREA|INPUT|TEXTAREA|SELECT|BUTTON|LABEL/gim)) {
         event.preventDefault();
       }
@@ -142,12 +145,12 @@ class Accordion extends UI {
       }
 
       /** 타겟이 pressed 링크 */
-      if(targetLink) {
+      if (targetLink) {
         this._linkActive();
       }
 
       /** children link */
-      if(event.target.tagName === "A" && !event.target.getAttribute(`${ARIA_PRESSED}`)) {
+      if (event.target.tagName === 'A' && !event.target.getAttribute(`${ARIA_PRESSED}`)) {
         this._linkChildrenActive(event.target);
       }
     });
@@ -164,9 +167,9 @@ class Accordion extends UI {
 
   _linkChildrenDeactive() {
     const _link = this._element.querySelectorAll('.accordion__panel .text-link');
-    _link.forEach((x) => {
+    _link.forEach(x => {
       x.classList.remove('is-active');
-    })
+    });
   }
 
   _linkActive() {
@@ -179,11 +182,11 @@ class Accordion extends UI {
 
   _linkedeactive() {
     const _linkAll = this._element.querySelectorAll(`[${ARIA_PRESSED}]`);
-    _linkAll.forEach((item) => {
+    _linkAll.forEach(item => {
       item.classList.remove('is-active');
       const parent = item.closest('.accordion__item');
       parent.classList.remove('is-focused');
-    })
+    });
   }
 
   open(target) {
@@ -209,6 +212,14 @@ class Accordion extends UI {
       content.classList.add(stateClass.expanding);
       content.classList.remove(stateClass.expand);
       content.style.height = `${content.scrollHeight}px`;
+
+      /** scrollHeight가 0인경우 transitionEnd가 활성화 되지않음으로 강제로 false로 만듬 */
+      if (content.scrollHeight === 0) {
+        setTimeout(() => {
+          this._animating = false;
+        }, 100);
+      }
+
       EventHandler.one(content, 'transitionend', () => {
         content.classList.remove(stateClass.expanding);
         content.classList.add(stateClass.expand);
@@ -269,6 +280,7 @@ class Accordion extends UI {
       content.classList.add(stateClass.expanding);
       content.classList.remove(stateClass.expand);
       content.classList.remove(stateClass.expanded);
+
       EventHandler.one(content, 'transitionend', () => {
         content.classList.remove(stateClass.expanding);
         content.classList.add(stateClass.expand);
@@ -291,15 +303,15 @@ class Accordion extends UI {
     const { activeClass, stateClass, focusClass, animation } = this._config;
     const possibleAnimation = isVisible(this._element);
     if (this._animating === true && animation === true) return;
-    if(!this._before?.header) return;
+    if (!this._before?.header) return;
     const { header, content } = this._before;
     this._removeFocused();
     const items = header.closest('.accordion__item');
     items.classList.remove(focusClass);
     header.classList.remove(activeClass);
     this._aria(this._before, false);
-    
-    if(animation && possibleAnimation) {
+
+    if (animation && possibleAnimation) {
       content.style.height = `${content.getBoundingClientRect().height}px`;
       content.heightCache = content.offsetHeight;
       content.style.height = ``;

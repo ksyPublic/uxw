@@ -1,290 +1,278 @@
-{% set user = "login" %}
-{% set title = "신한 UX라이팅 시스템 | 로그인" %}
-{% extends "../templates/layout.njk" %}
+{% set user = 'login' %}
+{% set title = '신한 UX라이팅 시스템 | 로그인' %}
+{% extends '../templates/layout.njk' %}
 {% block content %}
-    {{ super() }}
-    <!-- 메인영역 -->
-    <div class="main">
-        <div class="main-wrap">
-            <div class="login">
-                <span class="login__title ft18 medium">UX라이팅은?</span>
-                <p class="login__text ft28 bold">사용자에게 긍정적인 <br/>경험을 줄 수 있어요.</p>
-                <p class="login__sub__text ft20 light">UX라이팅 가이드를 바로 적용하고<br/>고객과의 소통을 시작해보세요.</p>
-                <div class="login__form" role="form">
-                    <div class="input-box">
-                        <input name="id" class="input" type="text" placeholder="사번을 입력하세요."/>
-                        <button type="button" class="ic-button-clear" aria-label="클리어버튼" aria-pressed="false" data-visible onclick="Input.ClearButton(this)">
-                            <i class="ic ic-clear"></i>
-                        </button>
-                    </div>
-                    <div class="input-box expand">
-                        <input name="password" class="input" type="password" placeholder="비밀번호를 입력하세요."/>
-                        <button type="button" class="ic-button-clear" aria-label="클리어버튼" aria-pressed="false" data-visible onclick="Input.ClearButton(this)">
-                            <i class="ic ic-clear"></i>
-                        </button>
-                    </div>
-                    <button id="btnlogin"type="button" class="button pw100 mgt6" disabled>로그인</button>
-                </div>
-            </div>
-            <div class="main-visual">
-                <div class="swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="slide-inner">
-                                <img src="../images/main-visual01.png" alt="가이드1"/>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="slide-inner">
-                                <img src="../images/main-visual01.png" alt="가이드1"/>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="slide-inner">
-                                <img src="../images/main-visual01.png" alt="가이드1"/>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="slide-inner">
-                                <img src="../images/main-visual01.png" alt="가이드1"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-indicator">
-                    <div class="swiper-pagination"></div>
-                    <div class="swiper-button-group">
-                        <div class="swiper-button-prev button--arrow"></div>
-                        <div class="swiper-button-next button--arrow"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- 메인영역 -->
+	{{ super() }}
+	<!-- 메인영역 -->
+	<div class="main">
+		<div class="main-wrap">
+			<div class="login">
+				<span class="login__title ft18 medium">UX라이팅은?</span>
+				<div class="login-rolling" data-roll>
+					<p class="login__text ft28 bold" data-title>
+						사용자에게 긍정적인<br/>
+						경험을 줄 수 있어요.
+					</p>
+					<p class="login__text ft28 bold" data-title>
+						중요한 정보를 충분히<br/>
+						얻을 수 있어요.
+					</p>
+					<p class="login__text ft28 bold" data-title>
+						문제가 발생해도<br/>
+						해결방법을 알 수 있어요.
+					</p>
+					<p class="login__text ft28 bold" data-title>
+						고민 없이 의사결정을<br/>
+						할 수 있도록 도와줘요.
+					</p>
+				</div>
+
+				<div class="login__form" role="form">
+					<label class="label ft14 medium">로그인</label>
+					<div class="input-box">
+						<input name="id" class="input" type="text" placeholder="사번을 입력하세요."/>
+						<button type="button" class="ic-button-clear" aria-label="클리어버튼" aria-pressed="false" data-visible onclick="Input.ClearButton(this)">
+							<i class="ic ic-clear"></i>
+						</button>
+					</div>
+					<div class="input-box expand">
+						<input name="password" class="input" type="password" placeholder="비밀번호를 입력하세요."/>
+						<button type="button" class="ic-button-clear" aria-label="클리어버튼" aria-pressed="false" data-visible onclick="Input.ClearButton(this)">
+							<i class="ic ic-clear"></i>
+						</button>
+					</div>
+					<button id="btnlogin" type="button" class="button pw100 mgt6" disabled>로그인</button>
+				</div>
+			</div>
+			<div class="main-visual">
+				<div class="swiper">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="slide-inner">
+								<img src="../images/main-visual01.png" alt="가이드1"/>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="slide-inner">
+								<img src="../images/main-visual02.png" alt="가이드2"/>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="slide-inner">
+								<img src="../images/main-visual03.png" alt="가이드3"/>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="slide-inner">
+								<img src="../images/main-visual04.png" alt="가이드4"/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-indicator">
+					<div class="swiper-pagination"></div>
+					<div class="swiper-button-group">
+						<div class="swiper-button-prev button--arrow"></div>
+						<div class="swiper-button-next button--arrow"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 메인영역 -->
 {% endblock %}
-
 {% block scripts %}
-    <script>
-        const mainSwiper = UXW.SwiperA11y('.swiper', {
-            observer: true,
-            observeParents: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false
-            },
-            grapCursor: true,
-            loop: true,
-            speed: 600,
+	<script>
+		const mainSwiper = UXW.SwiperA11y('.swiper', {
+observer: true,
+observeParents: true,
+autoplay: {
+delay: 5000,
+disableOnInteraction: false
+},
+grapCursor: true,
+loop: true,
+speed: 600,
 
-            mousewheelControl: true,
-            keyboard: {
-                enabled: true,
-                onlyInViewport: false
-            },
-            spaceBetween: 40,
+mousewheelControl: true,
+keyboard: {
+enabled: true,
+onlyInViewport: false
+},
+spaceBetween: 40,
 
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true
-            },
+pagination: {
+el: '.swiper-pagination',
+clickable: true
+},
 
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev'
-            },
-            autoHeight: true
-        });
+navigation: {
+nextEl: '.swiper-button-next',
+prevEl: '.swiper-button-prev'
+},
+autoHeight: true,
+/* 221006 추가 */
 
-        mainSwiper
-            .el
-            .addEventListener('mouseenter', function () {
-                mainSwiper
-                    .autoplay
-                    .stop();
-            });
+on: {
+slideChangeTransitionStart: function () { // Slide captions
+const swiper = this;
+const SPAN = document.createElement('SPAN');
+const DATA_ROLL = 'data-roll';
+const DATA_TITLE = 'data-title';
+const rollText = document.querySelector('[' + DATA_ROLL + ']');
+const rollItems = rollText.querySelectorAll('[' + DATA_TITLE + ']');
+[].forEach.call(rollItems, function (item) {
+item.classList.remove('is-active');
+});
+rollItems[swiper.realIndex].classList.add('is-active');
+}
+},
+/* //221006 추가 */
+});
 
-        mainSwiper
-            .el
-            .addEventListener('mouseleave', function () {
-                mainSwiper
-                    .autoplay
-                    .start();
-            });
-        const Input = {
-            // 에러
-            Error: function (props) {
-                const ARIA_HIDDEN = 'aria-hidden';
-                const input = props.parentElement;
-                const label = input
-                    .nextElementSibling
-                    .classList
-                    .contains('error');
-                input
-                    .classList
-                    .add('error');
-                if (!label) {
-                    return;
-                }
+mainSwiper.el.addEventListener('mouseenter', function () {
+mainSwiper.autoplay.stop();
+});
 
-                const get = input
-                    .nextElementSibling
-                    .getAttribute(ARIA_HIDDEN);
-                if (get === 'true') {
-                    input
-                        .nextElementSibling
-                        .setAttribute(ARIA_HIDDEN, false);
-                }
-            },
+mainSwiper.el.addEventListener('mouseleave', function () {
+mainSwiper.autoplay.start();
+});
+const Input = { // 에러
+Error: function (props) {
+const ARIA_HIDDEN = 'aria-hidden';
+const input = props.parentElement;
+const label = input.nextElementSibling.classList.contains('error');
+input.classList.add('error');
+if (! label) {
+return;
+}
 
-            // 에러 클리어
-            Clear: function (props) {
-                const ARIA_HIDDEN = 'aria-hidden';
-                const input = props.parentElement;
-                const label = input
-                    .nextElementSibling
-                    .classList
-                    .contains('error');
-                input
-                    .classList
-                    .remove('error');
-                if (!label) {
-                    return;
-                }
+const get = input.nextElementSibling.getAttribute(ARIA_HIDDEN);
+if (get === 'true') {
+input.nextElementSibling.setAttribute(ARIA_HIDDEN, false);
+}
+},
 
-                const get = input
-                    .nextElementSibling
-                    .getAttribute(ARIA_HIDDEN);
-                if (get === 'false') {
-                    input
-                        .nextElementSibling
-                        .setAttribute(ARIA_HIDDEN, true);
-                }
-            },
+// 에러 클리어
+Clear: function (props) {
+const ARIA_HIDDEN = 'aria-hidden';
+const input = props.parentElement;
+const label = input.nextElementSibling.classList.contains('error');
+input.classList.remove('error');
+if (! label) {
+return;
+}
 
-            // value 삭제버튼
-            ClearButton: function (param) {
-                if (!param.previousElementSibling) {
-                    return;
-                }
+const get = input.nextElementSibling.getAttribute(ARIA_HIDDEN);
+if (get === 'false') {
+input.nextElementSibling.setAttribute(ARIA_HIDDEN, true);
+}
+},
 
-                if (param.previousElementSibling.tagName === 'INPUT') {
-                    param.previousElementSibling.value = '';
-                    param
-                        .classList
-                        .remove('is-active');
+// value 삭제버튼
+ClearButton: function (param) {
+if (! param.previousElementSibling) {
+return;
+}
 
-                    if (param.previousElementSibling.getAttribute('name') === 'id') {
-                        const target = document.querySelector('[name="password"]');
-                        const passwordParent = target.closest('.input-box');
-                        passwordParent.style.height = '';
-                        passwordParent.style.marginTop = '0';
+if (param.previousElementSibling.tagName === 'INPUT') {
+param.previousElementSibling.value = '';
+param.classList.remove('is-active');
 
-                        passwordParent
-                            .classList
-                            .add('expanding');
-                        passwordParent
-                            .classList
-                            .remove('expand');
-                        passwordParent
-                            .classList
-                            .remove('expanded');
+if (param.previousElementSibling.getAttribute('name') === 'id') {
+const target = document.querySelector('[name="password"]');
+const passwordParent = target.closest('.input-box');
+passwordParent.style.height = '';
+passwordParent.style.marginTop = '0';
 
-                        btnlogin.disabled = true;
+passwordParent.classList.add('expanding');
+passwordParent.classList.remove('expand');
+passwordParent.classList.remove('expanded');
 
-                    }
-                }
-            },
+btnlogin.disabled = true;
+}
+}
+},
 
-            // InputBox value Checker
-            Check: function () {
-                const elements = document.querySelectorAll('.input-box');
+// InputBox value Checker
+Check: function () {
+const elements = document.querySelectorAll('.input-box');
 
-                const onInput = function (event) {
-                    const value = event.target.value;
-                    const length = value.length;
-                    const nextEl = event.target.nextElementSibling;
-                    if (!nextEl) {
-                        return;
-                    }
-                    if (length > 0) {
-                        nextEl
-                            .classList
-                            .add('is-active');
-                    } else {
-                        nextEl
-                            .classList
-                            .remove('is-active');
-                    }
-                };
-                []
-                    .forEach
-                    .call(elements, item => {
-                        const target = item.querySelector('.input');
-                        target.addEventListener('keyup', onInput);
-                        target.addEventListener('keydown', onInput);
-                        target.addEventListener('change', onInput);
-                    });
-            }
-        };
+const onInput = function (event) {
+const value = event.target.value;
+const length = value.length;
+const nextEl = event.target.nextElementSibling;
+if (! nextEl) {
+return;
+}
+if (length > 0) {
+nextEl.classList.add('is-active');
+} else {
+nextEl.classList.remove('is-active');
+}
+};
+[].forEach.call(elements, item => {
+const target = item.querySelector('.input');
+target.addEventListener('keyup', onInput);
+target.addEventListener('keydown', onInput);
+target.addEventListener('change', onInput);
+});
+}
+};
 
-        //개발시 수정예정
-        const Login = function () {
-            //ex)
-            // 수퍼관리자 코드: uxwsys01
-            // 서브관리자 코드: uxwsys02 / uxwsys03 / uxwsys04 / uxwsys05
+// 개발시 수정예정
+const Login = function () {
+// ex)
+// 수퍼관리자 코드: uxwsys01
+// 서브관리자 코드: uxwsys02 / uxwsys03 / uxwsys04 / uxwsys05
 
-            const arr = ['uxwsys01', 'uxwsys02', 'uxwsys03', 'uxwsys04', 'uxwsys05'];
-            const loginID = document.querySelector('input[name="id"]');
-            const loginPassword = document.querySelector('input[name="password"]');
-            const loginFunc = function (e) {
-                const checkValue = arr.includes(e.target.value);
-                const passwordParent = loginPassword.closest('.input-box');
+const arr = [
+'uxwsys01',
+'uxwsys02',
+'uxwsys03',
+'uxwsys04',
+'uxwsys05'
+];
+const loginID = document.querySelector('input[name="id"]');
+const loginPassword = document.querySelector('input[name="password"]');
+const loginFunc = function (e) {
+const checkValue = arr.includes(e.target.value);
+const passwordParent = loginPassword.closest('.input-box');
 
-                if (checkValue && e.target.value.length > 0) {
-                    passwordParent
-                        .classList
-                        .add('expanding');
-                    passwordParent
-                        .classList
-                        .remove('expanded');
-                    passwordParent.style.height = passwordParent.scrollHeight + 'px';
-                    passwordParent.style.marginTop = 6 + 'px';
-                    Input.Clear(loginID);
-                } else {
-                    btnlogin.disabeld = false;
-                    passwordParent.style.height = '';
-                    passwordParent.style.margin = '';
-                    passwordParent
-                        .classList
-                        .add('expanding');
-                    passwordParent
-                        .classList
-                        .remove('expand');
-                    passwordParent
-                        .classList
-                        .remove('expanded');
-                }
-            };
-            loginID.addEventListener('keyup', function () {
-                btnlogin.disabled = false;
-            })
+if (checkValue && e.target.value.length > 0) {
+passwordParent.classList.add('expanding');
+passwordParent.classList.remove('expanded');
+passwordParent.style.height = passwordParent.scrollHeight + 'px';
+passwordParent.style.marginTop = 6 + 'px';
+Input.Clear(loginID);
+} else {
+btnlogin.disabeld = false;
+passwordParent.style.height = '';
+passwordParent.style.margin = '';
+passwordParent.classList.add('expanding');
+passwordParent.classList.remove('expand');
+passwordParent.classList.remove('expanded');
+}
+};
+loginID.addEventListener('keyup', function () {
+btnlogin.disabled = false;
+});
 
-            loginID.addEventListener('focusout', function (event) {
-                if (event.target.value.length > 0) {
-                    btnlogin.disabled = false;
-                } else {
-                    btnlogin.disabled = true;
-                }
-            })
+loginID.addEventListener('focusout', function (event) {
+if (event.target.value.length > 0) {
+btnlogin.disabled = false;
+} else {
+btnlogin.disabled = true;
+}
+});
 
-            loginID.addEventListener('keyup', loginFunc);
-            loginID.addEventListener('change', loginFunc);
-        };
+loginID.addEventListener('keyup', loginFunc);
+loginID.addEventListener('change', loginFunc);
+};
 
-        document.addEventListener('DOMContentLoaded', function () {
-            Login();
-            Input.Check();
-        });
-    </script>
+document.addEventListener('DOMContentLoaded', function () {
+Login();
+Input.Check();
+});
+	</script>
 {% endblock %}

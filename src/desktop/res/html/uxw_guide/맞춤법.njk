@@ -1,0 +1,239 @@
+{% set title = '신한 UX라이팅 시스템 | 맞춤법' %}
+{% extends '../templates/uxw_guide_layout.njk' %}
+{% block guide %}
+	<!-- 여기서 부터 복사해서 사용하세요 -->
+	<section class="guide-content" id="Grammar">
+		<div class="guide-card-wrap">
+			<div class="guide-card">
+				<div class="guide-card__head">
+					<h3>맞춤법</h3>
+					<div class="divider" aria-hidden="true"></div>
+				</div>
+				<div class="guide-card__content">
+					<div class="list">
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">
+								<span class="bold mgr4">‘아니오/아니요:</span>
+								‘NO’에 해당하는 우리말 표기는 ‘아니오’가 아니라 ‘아니요’입니다.</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">
+								<span class="bold mgr4">연도/년도:</span>
+								숫자와 함께 쓰일 때는 ‘년도’를 쓰고, 그 외 경우에는 ‘연도’를 씁니다. 단, ‘전년도’처럼 사전에 등재된 단어는 그대로 씁니다.</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">
+								<span class="bold mgr4">비율을 의미하는 접미사 ‘율/률’:</span>
+								앞말이 모음으로 끝나거나 ‘ㄴ’ 받침이 있는 경우 ‘~율’을, 이외 경우에는 ‘~률’을 씁니다.</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">
+								<span class="bold mgr4">~할께요/할게요:</span>
+								‘~하다’ 형태의 받침 없는 동사 뒤에는 ‘~께요’가 아니라 ‘~게요’를 씁니다.</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">
+								<span class="bold mgr4">~예요/에요:</span>
+								‘~예요’는 ‘~이에요’의 준말로 앞말에 받침이 없을 때 씁니다. 단, ‘아니에요’는 ‘~에요’를 씁니다.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="table-row fixed">
+			<table class="table left">
+				<colgroup>
+					<col style="width:240px"/>
+					<col style="width:*"/>
+					<col style="width:*"/>
+				</colgroup>
+				<thead>
+					<tr>
+						<th aria-hidden="true"></th>
+						<th>
+							<span>이렇게 쓰지 마세요<i class="ic ic-x--type2" aria-hidden="true"></i>
+							</span>
+						</th>
+						<th>
+							이렇게 쓰세요<i class="ic ic-o--type2" aria-hidden="true"></i>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="center">아니오/아니요</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										SMS를 받으시겠습니까?
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										<span class="red">[아니오]</span>[예]
+									</p>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										문자메시지를 받으시겠어요?
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										<span class="blue">[아니요]</span>
+										[예]
+									</p>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="center">연도/년도</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										<span class="red">기준년도</span>
+										: 2014
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										과세년도
+									</p>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										<span class="blue">기준연도</span>
+										: 2014
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										과세연도
+									</p>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="center">율/률</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										할인률, 전환률, 성공률
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										적립율, 환급율, 수익율
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										펀드 목표
+										<span class="red">수익율</span>
+										달성을 축하드려요
+									</p>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										할인율, 전환율, 성공율
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										적립률, 환급률, 수익률
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										펀드 목표<span class="blue">수익률</span>
+										달성을 축하드려요.
+									</p>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="center">~할께요/할게요</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										개인정보변경 도와
+										<span class="red">드릴께요</span>.
+									</p>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										개인정보 변경을
+										<span class="blue">도와드릴게요</span>.
+									</p>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="center">~에요/예요</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										지난 1년 동안의 자동이체
+										<span class="red">내역이예요</span>.
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										지금은 이용가능시간이
+										<span class="red">아니예요</span>.
+									</p>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										지난 1년 동안의 자동이체
+										<span class="blue">내역이에요</span>.
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										지금은 이용가능시간이
+										<span class="blue">아니에요</span>.
+									</p>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+
+	</section>
+	<!-- //여기서 부터 복사해서 사용하세요 -->
+{% endblock %}
+{% block scripts %}{% endblock %}

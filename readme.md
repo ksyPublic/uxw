@@ -1,4 +1,5 @@
 # 신한 UX라이팅 시스템
+
 ## 목차
 
 - [Setting](#setting)
@@ -18,10 +19,23 @@
 #### 선택설치
 
 1. <a href="https://code.visualstudio.com" target="_blank">VisualStudioCode</a> 에디터
+
    - <a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint&ssr=false#review-details">Visualstudio Extension ESLint</a> JavaScript linter
    - <a href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode&ssr=false#review-details">Visualstudio Extension Prettier</a> JavaScript Code Formatter
    - <a href="https://marketplace.visualstudio.com/items?itemName=ronnidc.nunjucks">Visualstudio Extension Nunjucks</a> NunJucks
    - <a href="https://marketplace.visualstudio.com/items?itemName=okitavera.vscode-nunjucks-formatter">Visualstudio Extension Nunjucks Formatter</a> NunJucks Formatter
+   - <a href="https://marketplace.visualstudio.com/items?itemName=mblode.twig-language">Visualstudio Extension twig-language</a> twig-language
+   - <a href="https://marketplace.visualstudio.com/items?itemName=whatwedo.twig">Visualstudio Extension twig</a> twig
+
+2. settings.json
+
+   - "[nunjucks]": {
+     "editor.defaultFormatter": "okitavera.vscode-nunjucks-formatter"
+     },
+
+   - "[twig]": {
+     "editor.defaultFormatter": "mblode.twig-language-2"
+     }
 
 ## 📌Process
 
@@ -96,12 +110,12 @@ npm install or yarn install
   },
 ```
 
-| 명령어                                       | 구분   | 설명                 | 파일생성 폴더                           |
-| ------------------------------------------- | ------ | -------------------- | -------------------------------------- |
-| `npm run dev` or `yarn dev`                 | pc     | 개발모드 시작         | development/res                        |
-| `npm run build:js` or `yarn build:js`       | pc     | javascript 개별 빌드  | production/res/js                      |
-| `npm run build:css` or `yarn build:css`     | pc     | css 개별 빌드         | production/res/css                     |
-| `npm run build` or `yarn build`             | pc     | 프로젝트 전체 빌드     | production/res/                        |
+| 명령어                                  | 구분 | 설명                 | 파일생성 폴더      |
+| --------------------------------------- | ---- | -------------------- | ------------------ |
+| `npm run dev` or `yarn dev`             | pc   | 개발모드 시작        | development/res    |
+| `npm run build:js` or `yarn build:js`   | pc   | javascript 개별 빌드 | production/res/js  |
+| `npm run build:css` or `yarn build:css` | pc   | css 개별 빌드        | production/res/css |
+| `npm run build` or `yarn build`         | pc   | 프로젝트 전체 빌드   | production/res/    |
 
 ## 📌File-Structure
 
@@ -121,10 +135,10 @@ src/desktop
 │         ├── html *.njk 가이드 파일 목록
 │         └── guideStyle.scss           //가이드 스타일
 └── res
-    ├── fonts  
+    ├── fonts
     ├── html                // .njk 화면
-    ├── images 
-    ├── js     
+    ├── images
+    ├── js
     │    ├── components     //컴포넌트
     │    ├── lib            //기존 개발 소스
     │    ├── utils          //유틸
@@ -134,5 +148,5 @@ src/desktop
     │    ... *.js           //개발측 .js
     │
     └── scss
-     
+
 ```

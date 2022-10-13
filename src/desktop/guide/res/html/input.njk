@@ -1,4 +1,4 @@
-{% extends "../templates/layout.njk" %}
+{% extends '../templates/layout.njk' %}
 {% block content %}
   <div class="guide-wrap">
     <h2 class="ex-name">Input</h2>
@@ -7,177 +7,77 @@
         <h3>기본</h3>
         <p class="ex-desc">
           기본 text Input 입니다.
-          <br/>* 상태가 오류 일시 input-box위치에 error를 사용합니다.
+          <br />* 상태가 오류 일시 input-box위치에 error를 사용합니다.
         </p>
       </div>
       <div class="ex-body">
         <div class="ex-preview">
           <div class="input-box">
-            <input name="id" class="input" type="text" placeholder="사번을 입력하세요.">
-            <button type="button" class="ic-button-clear" aria-label="클리어버튼" aria-pressed="false" data-visible onclick="Input.ClearButton(this)">
-              <i class="ic ic-clear" aria-label="hidden"></i>
-            </button>
+            <input name="id" class="input" type="text" placeholder="사번을 입력하세요." />
+            <button type="button" class="ic-button-clear" aria-label="클리어버튼" aria-pressed="false" data-visible onclick="Input.ClearButton(this)"><i class="ic ic-clear" aria-label="hidden"></i></button>
           </div>
-          <br/>
+          <br />
           <div class="input-box">
-            <input name="id" class="input" type="text" placeholder="사번을 입력하세요." disabled>
-            <button type="button" class="ic-button-clear" aria-label="클리어버튼" aria-pressed="false" data-visible onclick="Input.ClearButton(this)">
-              <i class="ic ic-clear" aria-label="hidden"></i>
-            </button>
+            <input name="id" class="input" type="text" placeholder="사번을 입력하세요." disabled />
+            <button type="button" class="ic-button-clear" aria-label="클리어버튼" aria-pressed="false" data-visible onclick="Input.ClearButton(this)"><i class="ic ic-clear" aria-label="hidden"></i></button>
           </div>
-          <br/>
+          <br />
           <div class="input-box">
-            <input name="id" class="input" type="text" placeholder="사번을 입력하세요." readonly>
-            <button type="button" class="ic-button-clear" aria-label="클리어버튼" aria-pressed="false" data-visible onclick="Input.ClearButton(this)">
-              <i class="ic ic-clear" aria-label="hidden"></i>
-            </button>
+            <input name="id" class="input" type="text" placeholder="사번을 입력하세요." readonly />
+            <button type="button" class="ic-button-clear" aria-label="클리어버튼" aria-pressed="false" data-visible onclick="Input.ClearButton(this)"><i class="ic ic-clear" aria-label="hidden"></i></button>
           </div>
-          <br/>
+          <br />
           <div class="input-box error">
-            <input name="id" class="input" type="text" placeholder="사번을 입력하세요.">
-            <button type="button" class="ic-button-clear" aria-label="클리어버튼" aria-pressed="false" data-visible onclick="Input.ClearButton(this)">
-              <i class="ic ic-clear" aria-label="hidden"></i>
-            </button>
+            <input name="id" class="input" type="text" placeholder="사번을 입력하세요." />
+            <button type="button" class="ic-button-clear" aria-label="클리어버튼" aria-pressed="false" data-visible onclick="Input.ClearButton(this)"><i class="ic ic-clear" aria-label="hidden"></i></button>
           </div>
           <div class="html-view">
             <pre>
-                <code class="ex-code-block render-html">
-                  <div class="input-box">
-                    <input name="id" class="input" type="text" placeholder="사번을 입력하세요.">
-                    <button type="button" class="ic-button-clear" aria-label="클리어버튼" aria-pressed="false" data-visible onclick="Input.ClearButton(this)">
-                      <i class="ic ic-clear" aria-label="hidden"></i>
-                    </button>
-                  </div>
+              <code class="ex-code-block render-html">
+                <div class="input-box">
+                  <input name="id" class="input" type="text" placeholder="사번을 입력하세요." />
+                  <button type="button" class="ic-button-clear" aria-label="클리어버튼" aria-pressed="false" data-visible onclick="Input.ClearButton(this)"><i class="ic ic-clear" aria-label="hidden"></i></button>
+                </div>
 
-                  <div class="input-box">
-                    <input name="id" class="input" type="text" placeholder="사번을 입력하세요." disabled>
-                    <button type="button" class="ic-button-clear" aria-label="클리어버튼" aria-pressed="false" data-visible onclick="Input.ClearButton(this)">
-                      <i class="ic ic-clear" aria-label="hidden"></i>
-                    </button>
-                  </div>
+                <div class="input-box">
+                  <input name="id" class="input" type="text" placeholder="사번을 입력하세요." disabled />
+                  <button type="button" class="ic-button-clear" aria-label="클리어버튼" aria-pressed="false" data-visible onclick="Input.ClearButton(this)"><i class="ic ic-clear" aria-label="hidden"></i></button>
+                </div>
 
-                  <div class="input-box">
-                    <input name="id" class="input" type="text" placeholder="사번을 입력하세요." readonly>
-                    <button type="button" class="ic-button-clear" aria-label="클리어버튼" aria-pressed="false" data-visible onclick="Input.ClearButton(this)">
-                      <i class="ic ic-clear" aria-label="hidden"></i>
-                    </button>
-                  </div>
+                <div class="input-box">
+                  <input name="id" class="input" type="text" placeholder="사번을 입력하세요." readonly />
+                  <button type="button" class="ic-button-clear" aria-label="클리어버튼" aria-pressed="false" data-visible onclick="Input.ClearButton(this)"><i class="ic ic-clear" aria-label="hidden"></i></button>
+                </div>
 
-                  <div class="input-box error">
-                    <input name="id" class="input" type="text" placeholder="사번을 입력하세요.">
-                    <button type="button" class="ic-button-clear" aria-label="클리어버튼" aria-pressed="false" data-visible onclick="Input.ClearButton(this)">
-                      <i class="ic ic-clear" aria-label="hidden"></i>
-                    </button>
-                  </div>
-                </code>
+                <div class="input-box error">
+                  <input name="id" class="input" type="text" placeholder="사번을 입력하세요." />
+                  <button type="button" class="ic-button-clear" aria-label="클리어버튼" aria-pressed="false" data-visible onclick="Input.ClearButton(this)"><i class="ic ic-clear" aria-label="hidden"></i></button>
+                </div>
+              </code>
             </pre>
           </div>
-          <br/>
-          <br/>
-          개발측에 제공된 Input 제어 JS
-          <div class="js-view">
+          <br />
+          <br />
+          개발측에 제공된 Input 제어 JS<div class="js-view">
             <pre>
               <code class="language-javascript">
-                const Input = {
-                  // 에러
-                  Error: function (props) {
-                    const ARIA_HIDDEN = 'aria-hidden';
-                    const input = props.parentElement;
-                    const label = input
-                      .nextElementSibling
-                      .classList
-                      .contains('error');
-                    input
-                      .classList
-                      .add('error');
-                    if (!label) {
-                      return;
-                    }
+                const Input = { // 에러 Error: function (props) { const ARIA_HIDDEN = 'aria-hidden'; const input = props.parentElement; const label = input .nextElementSibling .classList .contains('error'); input .classList .add('error'); if (!label) { return; }
 
-                    const get = input
-                      .nextElementSibling
-                      .getAttribute(ARIA_HIDDEN);
-                    if (get === 'true') {
-                      input
-                        .nextElementSibling
-                        .setAttribute(ARIA_HIDDEN, false);
-                    }
-                  },
+                const get = input .nextElementSibling .getAttribute(ARIA_HIDDEN); if (get === 'true') { input .nextElementSibling .setAttribute(ARIA_HIDDEN, false); } },
 
-                  // 에러 클리어
-                  Clear: function (props) {
-                    const ARIA_HIDDEN = 'aria-hidden';
-                    const input = props.parentElement;
-                    const label = input
-                      .nextElementSibling
-                      .classList
-                      .contains('error');
-                    input
-                      .classList
-                      .remove('error');
-                    if (!label) {
-                      return;
-                    }
+                // 에러 클리어 Clear: function (props) { const ARIA_HIDDEN = 'aria-hidden'; const input = props.parentElement; const label = input .nextElementSibling .classList .contains('error'); input .classList .remove('error'); if (!label) { return; }
 
-                    const get = input
-                      .nextElementSibling
-                      .getAttribute(ARIA_HIDDEN);
-                    if (get === 'false') {
-                      input
-                        .nextElementSibling
-                        .setAttribute(ARIA_HIDDEN, true);
-                    }
-                  },
+                const get = input .nextElementSibling .getAttribute(ARIA_HIDDEN); if (get === 'false') { input .nextElementSibling .setAttribute(ARIA_HIDDEN, true); } },
 
-                  // value 삭제버튼
-                  ClearButton: function (param) {
-                    if (!param.previousElementSibling) {
-                      return;
-                    }
+                // value 삭제버튼 ClearButton: function (param) { if (!param.previousElementSibling) { return; }
 
-                    if (param.previousElementSibling.tagName === 'INPUT') {
-                      param.previousElementSibling.value = '';
-                      param
-                        .classList
-                        .remove('is-active');
-                    }
-                  },
+                if (param.previousElementSibling.tagName === 'INPUT') { param.previousElementSibling.value = ''; param .classList .remove('is-active'); } },
 
-                  // InputBox value Checker
-                  Check: function () {
-                    const elements = document.querySelectorAll('.input-box');
+                // InputBox value Checker Check: function () { const elements = document.querySelectorAll('.input-box');
 
-                    const onInput = function (event) {
-                      const value = event.target.value;
-                      const length = value.length;
-                      const nextEl = event.target.nextElementSibling;
-                      if (!nextEl) {
-                        return;
-                      }
-                      if (length > 0) {
-                        nextEl
-                          .classList
-                          .add('is-active');
-                      } else {
-                        nextEl
-                          .classList
-                          .remove('is-active');
-                      }
-                    };
-                    []
-                      .forEach
-                      .call(elements, item => {
-                        const target = item.querySelector('.input');
-                        target.addEventListener('keyup', onInput);
-                        target.addEventListener('keydown', onInput);
-                        target.addEventListener('change', onInput);
-                      });
-                  }
-                };
+                const onInput = function (event) { const value = event.target.value; const length = value.length; const nextEl = event.target.nextElementSibling; if (!nextEl) { return; } if (length > 0) { nextEl .classList .add('is-active'); } else { nextEl .classList .remove('is-active'); } }; [] .forEach .call(elements, item => { const target = item.querySelector('.input'); target.addEventListener('keyup', onInput); target.addEventListener('keydown', onInput); target.addEventListener('change', onInput); }); } };
 
-                document.addEventListener('DOMContentLoaded', function () {
-                  Input.Check();
-                })
+                document.addEventListener('DOMContentLoaded', function () { Input.Check(); })
               </code>
             </pre>
           </div>
@@ -190,8 +90,8 @@
         <h3>Search</h3>
         <p class="ex-desc">
           검색용 Input 입니다.
-          <br/>* search-box 내부에 input은 검색타입으로 바뀝니다.
-          <br/>* search-box가 일정한 크기를 가지게 할 경우 search-box__wrap을 사용합니다.
+          <br />* search-box 내부에 input은 검색타입으로 바뀝니다.
+          <br />* search-box가 일정한 크기를 가지게 할 경우 search-box__wrap을 사용합니다.
         </p>
       </div>
       <div class="ex-body">
@@ -199,28 +99,20 @@
           <div class="search-box">
             <div class="search-box__wrap">
               <div class="input-box">
-                <input name="search" type="text" class="input" placeholder="검색어을 입력해주세요.">
-                <button type="button" class="ic-button-clear" data-visible="" aria-label="클리어버튼" aria-pressed="false" onclick="Input.ClearButton(this)">
-                  <i class="ic ic-clear" aria-hidden="true"></i>
-                </button>
-                <button type="button" class="ic-button-search" aria-label="검색버튼">
-                  <i class="ic ic-search--small" aria-hidden="true"></i>
-                </button>
+                <input name="search" type="text" class="input" placeholder="검색어을 입력해주세요." />
+                <button type="button" class="ic-button-clear" data-visible="" aria-label="클리어버튼" aria-pressed="false" onclick="Input.ClearButton(this)"><i class="ic ic-clear" aria-hidden="true"></i></button>
+                <button type="button" class="ic-button-search" aria-label="검색버튼"><i class="ic ic-search--small" aria-hidden="true"></i></button>
               </div>
             </div>
           </div>
-          <br/>
+          <br />
           <div class="search-box">
             <div class="input-box">
-              <input name="search" type="text" class="input" placeholder="검색어을 입력해주세요.">
-              <button type="button" class="ic-button-clear" data-visible="" aria-label="클리어버튼" aria-pressed="false" onclick="Input.ClearButton(this)">
-                <i class="ic ic-clear" aria-hidden="true"></i>
-              </button>
-              <button type="button" class="ic-button-search" aria-label="검색버튼">
-                <i class="ic ic-search--small" aria-hidden="true"></i>
-              </button>
+              <input name="search" type="text" class="input" placeholder="검색어을 입력해주세요." />
+              <button type="button" class="ic-button-clear" data-visible="" aria-label="클리어버튼" aria-pressed="false" onclick="Input.ClearButton(this)"><i class="ic ic-clear" aria-hidden="true"></i></button>
+              <button type="button" class="ic-button-search" aria-label="검색버튼"><i class="ic ic-search--small" aria-hidden="true"></i></button>
             </div>
-          </div>          
+          </div>
         </div>
       </div>
     </div>
@@ -228,106 +120,80 @@
 {% endblock %}
 
 {% block script %}
-<script>
-   const Input = {
-                  // 에러
-                  Error: function (props) {
-                    const ARIA_HIDDEN = 'aria-hidden';
-                    const input = props.parentElement;
-                    const label = input
-                      .nextElementSibling
-                      .classList
-                      .contains('error');
-                    input
-                      .classList
-                      .add('error');
-                    if (!label) {
-                      return;
-                    }
-
-                    const get = input
-                      .nextElementSibling
-                      .getAttribute(ARIA_HIDDEN);
-                    if (get === 'true') {
-                      input
-                        .nextElementSibling
-                        .setAttribute(ARIA_HIDDEN, false);
-                    }
-                  },
-
-                  // 에러 클리어
-                  Clear: function (props) {
-                    const ARIA_HIDDEN = 'aria-hidden';
-                    const input = props.parentElement;
-                    const label = input
-                      .nextElementSibling
-                      .classList
-                      .contains('error');
-                    input
-                      .classList
-                      .remove('error');
-                    if (!label) {
-                      return;
-                    }
-
-                    const get = input
-                      .nextElementSibling
-                      .getAttribute(ARIA_HIDDEN);
-                    if (get === 'false') {
-                      input
-                        .nextElementSibling
-                        .setAttribute(ARIA_HIDDEN, true);
-                    }
-                  },
-
-                  // value 삭제버튼
-                  ClearButton: function (param) {
-                    if (!param.previousElementSibling) {
-                      return;
-                    }
-
-                    if (param.previousElementSibling.tagName === 'INPUT') {
-                      param.previousElementSibling.value = '';
-                      param
-                        .classList
-                        .remove('is-active');
-                    }
-                  },
-
-                  // InputBox value Checker
-                  Check: function () {
-                    const elements = document.querySelectorAll('.input-box');
-
-                    const onInput = function (event) {
-                      const value = event.target.value;
-                      const length = value.length;
-                      const nextEl = event.target.nextElementSibling;
-                      if (!nextEl) {
-                        return;
-                      }
-                      if (length > 0) {
-                        nextEl
-                          .classList
-                          .add('is-active');
-                      } else {
-                        nextEl
-                          .classList
-                          .remove('is-active');
-                      }
-                    };
-                    []
-                      .forEach
-                      .call(elements, item => {
-                        const target = item.querySelector('.input');
-                        target.addEventListener('keyup', onInput);
-                        target.addEventListener('keydown', onInput);
-                        target.addEventListener('change', onInput);
-                      });
-                  }
-                };
-
-                document.addEventListener('DOMContentLoaded', function () {
-                  Input.Check();
-                })
-</script>
+  <script>
+    const Input = {
+      // 에러
+      Error: function (props) {
+        const ARIA_HIDDEN = 'aria-hidden';
+        const input = props.parentElement;
+        const label = input.nextElementSibling.classList.contains('error');
+        input.classList.add('error');
+        if (!label) {
+          return;
+        }
+    
+        const get = input.nextElementSibling.getAttribute(ARIA_HIDDEN);
+        if (get === 'true') {
+          input.nextElementSibling.setAttribute(ARIA_HIDDEN, false);
+        }
+      },
+    
+      // 에러 클리어
+      Clear: function (props) {
+        const ARIA_HIDDEN = 'aria-hidden';
+        const input = props.parentElement;
+        const label = input.nextElementSibling.classList.contains('error');
+        input.classList.remove('error');
+        if (!label) {
+          return;
+        }
+    
+        const get = input.nextElementSibling.getAttribute(ARIA_HIDDEN);
+        if (get === 'false') {
+          input.nextElementSibling.setAttribute(ARIA_HIDDEN, true);
+        }
+      },
+    
+      // value 삭제버튼
+      ClearButton: function (param) {
+        if (!param.previousElementSibling) {
+          return;
+        }
+    
+        if (param.previousElementSibling.tagName === 'INPUT') {
+          param.previousElementSibling.value = '';
+          param.classList.remove('is-active');
+        }
+      },
+    
+      // InputBox value Checker
+      Check: function () {
+        const elements = document.querySelectorAll('.input-box');
+    
+        const onInput = function (event) {
+          const value = event.target.value;
+          const length = value.length;
+          const nextEl = event.target.nextElementSibling;
+          if (!nextEl) {
+            return;
+          }
+          if (length > 0) {
+            nextEl.classList.add('is-active');
+          } else {
+            nextEl.classList.remove('is-active');
+          }
+        };
+        [].forEach.call(elements, item => {
+          const target = item.querySelector('.input');
+          target.addEventListener('keyup', onInput);
+          target.addEventListener('keydown', onInput);
+          target.addEventListener('change', onInput);
+        });
+      },
+    };
+    
+    document.addEventListener('DOMContentLoaded', function () {
+      Input.Check();
+    });
+  </script>
 {% endblock %}

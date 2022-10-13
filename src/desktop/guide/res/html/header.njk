@@ -1,39 +1,37 @@
-{% extends "../templates/layout.njk" %}
+{% extends '../templates/layout.njk' %}
 {% block content %}
   <div class="guide-wrap">
     <h2 class="ex-name">Header</h2>
     <div class="ex-content">
       <div class="ex-title">
         <h3>로그인</h3>
-      </p>
+      </div>
 
       <div class="ex-body">
         <div class="html-view">
           <pre>
-				<code class="ex-code-block render-html">
-					<!-- header 영역 -->
-					<header class="head">
-						<h1 class="head__logo">
-							<a href="#none" alt="홈 바로가기">
-								<img src="/res/images/logo.png" alt="신한 UX라이팅 시스템"/>
-								<span>신한 UX라이팅 시스템</span>
-							</a>
-						</h1>
-						<!-- 로그인 전 -->
-						<div class="head__nav">
-							<ul>
-								<li>
-									<button type="button" class="ic-button-head" aria-controls="nav_content" aria-label="메뉴">
-										<i class="ic ic-menu" aria-hidden="true"></i>
-									</button>
-								</li>
-							</ul>
-						</div>
-						<!-- //로그인 전 -->
-					</header>
-					<!-- header 영역 -->
-				</code>
-			</pre>
+            <code class="ex-code-block render-html">
+              <!-- header 영역 -->
+              <header class="head">
+                <h1 class="head__logo">
+                  <a href="#none" alt="홈 바로가기">
+                    <img src="/res/images/logo.png" alt="신한 UX라이팅 시스템" />
+                    <span>신한 UX라이팅 시스템</span>
+                  </a>
+                </h1>
+                <!-- 로그인 전 -->
+                <div class="head__nav">
+                  <ul>
+                    <li>
+                      <button type="button" class="ic-button-head" aria-controls="nav_content" aria-label="메뉴"><i class="ic ic-menu" aria-hidden="true"></i></button>
+                    </li>
+                  </ul>
+                </div>
+                <!-- //로그인 전 -->
+              </header>
+              <!-- header 영역 -->
+            </code>
+          </pre>
         </div>
       </div>
     </div>
@@ -41,57 +39,47 @@
       <div class="ex-title">
         <h3>로그아웃</h3>
         <p class="ex-desc">버튼클릭시 이동된 페이지 내의 상태값은 버튼의 클래스 class="ic-button-head is-active" 를 사용합니다.</p>
-      </p>
+      </div>
 
       <div class="ex-body">
         <div class="html-view">
           <pre>
-				<code class="ex-code-block render-html">
-					<!-- header 영역 -->
-					<header class="head">
-						<h1 class="head__logo">
-							<a href="#none" alt="홈 바로가기">
-								<img src="/res/images/logo.png" alt="신한 UX라이팅 시스템"/>
-								<span>신한 UX라이팅 시스템</span>
-							</a>
-						</h1>
-						<!-- 로그인 후 -->
-						<div class="head__nav">
-							<ul>
-								<li>
-									<button type="button" class="ic-button-head is-active" aria-label="글쓰기">
-										<i class="ic ic-writing" aria-hidden="true"></i>
-									</button>
-								</li>
-								<li>
-									<button type="button" class="ic-button-head" aria-label="마이페이지">
-										<i class="ic ic-my" aria-hidden="true"></i>
-									</button>
-								</li>
-								<li>
-									<button type="button" class="ic-button-head" aria-label="Q&A">
-										<i class="ic ic-qa" aria-hidden="true"></i>
-									</button>
-								</li>
-								<li>
-									<button type="button" class="ic-button-head" aria-controls="nav_content" aria-label="메뉴">
-										<i class="ic ic-menu" aria-hidden="true"></i>
-									</button>
-								</li>
-							</ul>
-							<div class="head__log">
-								<a class="text-link" href="#none" alt="로그아웃">로그아웃<i class="ic ic-text-arrow" aria-hidden="true"></i>
-								</a>
-							</div>
-						</div>
-						<!-- //로그인 후-->
-					</header>
-					<!-- header 영역 -->
-				</code>
-			</pre>
+            <code class="ex-code-block render-html">
+              <!-- header 영역 -->
+              <header class="head">
+                <h1 class="head__logo">
+                  <a href="#none" alt="홈 바로가기">
+                    <img src="/res/images/logo.png" alt="신한 UX라이팅 시스템" />
+                    <span>신한 UX라이팅 시스템</span>
+                  </a>
+                </h1>
+                <!-- 로그인 후 -->
+                <div class="head__nav">
+                  <ul>
+                    <li>
+                      <button type="button" class="ic-button-head is-active" aria-label="글쓰기"><i class="ic ic-writing" aria-hidden="true"></i></button>
+                    </li>
+                    <li>
+                      <button type="button" class="ic-button-head" aria-label="마이페이지"><i class="ic ic-my" aria-hidden="true"></i></button>
+                    </li>
+                    <li>
+                      <button type="button" class="ic-button-head" aria-label="Q&A"><i class="ic ic-qa" aria-hidden="true"></i></button>
+                    </li>
+                    <li>
+                      <button type="button" class="ic-button-head" aria-controls="nav_content" aria-label="메뉴"><i class="ic ic-menu" aria-hidden="true"></i></button>
+                    </li>
+                  </ul>
+                  <div class="head__log">
+                    <a class="text-link" href="#none" alt="로그아웃">로그아웃<i class="ic ic-text-arrow" aria-hidden="true"></i></a>
+                  </div>
+                </div>
+                <!-- //로그인 후 -->
+              </header>
+              <!-- header 영역 -->
+            </code>
+          </pre>
         </div>
       </div>
     </div>
   </div>
-
 {% endblock %}

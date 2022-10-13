@@ -1,328 +1,62 @@
-{% set user = "login" %}
-{% set title = "신한 UX라이팅 시스템 | 화면목록" %}
-<!--
+{% set user = 'login' %}
+{% set title = '신한 UX라이팅 시스템 | 화면목록' %}
+<!-- 
     type:[1,2,3,4]
     1 : '완료',
     2 : '진행중',
     3 : '수정중',
     4 : '검수중',
--->
-{% set LIST_VIEW = [
-    {
-        'type':'1',
-        'id': 'alert',
-        'category':'PAGE',
-        'username': '김세영',
-        'viewname':'공통 | alert',
-        'date': '22-09-05',
-        'memo':'',
-        'url':'./alert.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'login',
-        'category':'PAGE',
-        'username': '김세영',
-        'viewname':'로그인',
-        'date': '22-08-29',
-        'memo':'',
-        'url':'./login.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'logout',
-        'category':'PAGE',
-        'username': '김세영',
-        'viewname':'로그아웃',
-        'date': '22-08-29',
-        'memo':'',
-        'url':'./logout.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'currect-before',
-        'category':'PAGE/TAB',
-        'username': '김세영',
-        'viewname':'교정하기(메인) | 교정전',
-        'date': '22-08-29',
-        'memo':'',
-        'url':'./currect_before.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'currect-after',
-        'category':'PAGE/TAB',
-        'username': '김세영',
-        'viewname':'교정하기(메인) | 교정후',
-        'date': '22-08-29',
-        'memo':'',
-        'url':'./currect_after.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'currect_modify_completed',
-        'category':'PAGE/TAB',
-        'username': '김세영',
-        'viewname':'교정하기(메인) | 수정후',
-        'date': '22-08-29',
-        'memo':'',
-        'url':'./currect_modify_completed.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'currect_app',
-        'category':'PAGE/TAB',
-        'username': '김세영',
-        'viewname':'교정하기(메인) | 앱푸시',
-        'date': '22-08-29',
-        'memo':'',
-        'url':'./currect_app.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'currect_smartoper',
-        'category':'PAGE/TAB',
-        'username': '김세영',
-        'viewname':'교정하기(메인) | 스마트오퍼',
-        'date': '22-08-29',
-        'memo':'',
-        'url':'./currect_smartoper.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'currect_popup01',
-        'category':'POPUP',
-        'username': '김세영',
-        'viewname':'교정하기(메인) | 콘텐츠 완료하기 팝업',
-        'date': '22-08-29',
-        'memo':'',
-        'url':'./currect_popup01.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'mypage',
-        'category':'PAGE',
-        'username': '김세영',
-        'viewname':'마이페이지',
-        'date': '22-09-05',
-        'memo':'',
-        'url':'./mypage.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'mypage_all_datanone',
-        'category':'PAGE',
-        'username': '김세영',
-        'viewname':'마이페이지 | 내 콘텐츠 & 북마크 글이 없을 경우',
-        'date': '22-09-05',
-        'memo':'',
-        'url':'./mypage_all_datanone.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'mypage_all_datanone',
-        'category':'PAGE',
-        'username': '김세영',
-        'viewname':'마이페이지 | 내 콘텐츠 & 북마크 검색 결과가 없을경우',
-        'date': '22-09-05',
-        'memo':'',
-        'url':'./mypage_search_datanone.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'mypage_currect_datanone',
-        'category':'PAGE',
-        'username': '김세영',
-        'viewname':'마이페이지 | 내 콘텐츠 작성중 & 북마크 내 부서 만 보기 글이 없을 경우',
-        'date': '22-09-05',
-        'memo':'',
-        'url':'./mypage_currect_datanone.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'mypage_popup01',
-        'category':'POPUP',
-        'username': '김세영',
-        'viewname':'마이페이지 | 문의하기 팝업',
-        'date': '22-09-05',
-        'memo':'',
-        'url':'./mypage_popup01.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'mypage_popup02',
-        'category':'POPUP',
-        'username': '김세영',
-        'viewname':'마이페이지 | 답변완료 팝업',
-        'date': '22-09-05',
-        'memo':'',
-        'url':'./mypage_popup02.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'mypage_popup03',
-        'category':'POPUP',
-        'username': '김세영',
-        'viewname':'마이페이지 | 답변대기 팝업',
-        'date': '22-09-05',
-        'memo':'',
-        'url':'./mypage_popup03.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'mypage_popup04',
-        'category':'POPUP',
-        'username': '김세영',
-        'viewname':'마이페이지 | 용어문의 팝업',
-        'date': '22-09-05',
-        'memo':'',
-        'url':'./mypage_popup04.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'notice',
-        'category':'PAGE',
-        'username': '김세영',
-        'viewname':'공지사항',
-        'date': '22-09-05',
-        'memo':'',
-        'url':'./notice.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'faq',
-        'category':'PAGE',
-        'username': '김세영',
-        'viewname':'문의',
-        'date': '22-09-05',
-        'memo':'',
-        'url':'./faq.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'faq_datanone',
-        'category':'PAGE',
-        'username': '김세영',
-        'viewname':'문의검색 | 데이터가 없을경우',
-        'date': '22-09-05',
-        'memo':'',
-        'url':'./faq_datanone.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'faq_popup_sample',
-        'category':'PAGE',
-        'username': '김세영',
-        'viewname':'문의하기 | alert',
-        'date': '22-09-05',
-        'memo':'',
-        'url':'./faq_alert.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'error404',
-        'category':'PAGE',
-        'username': '김세영',
-        'viewname':'에러페이지 | 404',
-        'date': '22-09-05',
-        'memo':'',
-        'url':'./error404.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'network_error',
-        'category':'PAGE',
-        'username': '김세영',
-        'viewname':'에러페이지 | 네트워크',
-        'date': '22-09-05',
-        'memo':'',
-        'url':'./network_error.html',
-        'note':''
-    }, {
-        'type':'4',
-        'id': 'layer03',
-        'category':'LAYER',
-        'username': '김세영',
-        'viewname':'교정된 콘텐츠',
-        'date': '22-09-13',
-        'memo':'',
-        'url':'./layer_modal03.html',
-        'note':''
-    }, {
-        'type':'4',
-        'id': 'layer03_01',
-        'category':'LAYER',
-        'username': '김세영',
-        'viewname':'교정된 콘텐츠 | 일반',
-        'date': '22-09-13',
-        'memo':'',
-        'url':'./layer_modal03_01.html',
-        'note':''
-    }, {
-        'type':'4',
-        'id': 'layer03_02',
-        'category':'LAYER',
-        'username': '김세영',
-        'viewname':'교정된 콘텐츠 | 스마트오퍼',
-        'date': '22-09-13',
-        'memo':'',
-        'url':'./layer_modal03_02.html',
-        'note':''
-    }
-]%}
-{% extends "../templates/layout.njk" %}
+ -->
+{% set LIST_VIEW = [{ type: '1', id: 'alert', category: 'PAGE', username: '김세영', viewname: '공통 | alert', date: '22-09-05', memo: '', url: './alert.html', note: '' }, { type: '1', id: 'login', category: 'PAGE', username: '김세영', viewname: '로그인', date: '22-08-29', memo: '', url: './login.html', note: '' }, { type: '1', id: 'logout', category: 'PAGE', username: '김세영', viewname: '로그아웃', date: '22-08-29', memo: '', url: './logout.html', note: '' }, { type: '1', id: 'currect-before', category: 'PAGE/TAB', username: '김세영', viewname: '교정하기(메인) | 교정전', date: '22-08-29', memo: '', url: './currect_before.html', note: '' }, { type: '1', id: 'currect-after', category: 'PAGE/TAB', username: '김세영', viewname: '교정하기(메인) | 교정후', date: '22-08-29', memo: '', url: './currect_after.html', note: '' }, { type: '1', id: 'currect_modify_completed', category: 'PAGE/TAB', username: '김세영', viewname: '교정하기(메인) | 수정후', date: '22-08-29', memo: '', url: './currect_modify_completed.html', note: '' }, { type: '1', id: 'currect_app', category: 'PAGE/TAB', username: '김세영', viewname: '교정하기(메인) | 앱푸시', date: '22-08-29', memo: '', url: './currect_app.html', note: '' }, { type: '1', id: 'currect_smartoper', category: 'PAGE/TAB', username: '김세영', viewname: '교정하기(메인) | 스마트오퍼', date: '22-08-29', memo: '', url: './currect_smartoper.html', note: '' }, { type: '1', id: 'currect_popup01', category: 'POPUP', username: '김세영', viewname: '교정하기(메인) | 콘텐츠 완료하기 팝업', date: '22-08-29', memo: '', url: './currect_popup01.html', note: '' }, { type: '1', id: 'mypage', category: 'PAGE', username: '김세영', viewname: '마이페이지', date: '22-09-05', memo: '', url: './mypage.html', note: '' }, { type: '1', id: 'mypage_all_datanone', category: 'PAGE', username: '김세영', viewname: '마이페이지 | 내 콘텐츠 & 북마크 글이 없을 경우', date: '22-09-05', memo: '', url: './mypage_all_datanone.html', note: '' }, { type: '1', id: 'mypage_all_datanone', category: 'PAGE', username: '김세영', viewname: '마이페이지 | 내 콘텐츠 & 북마크 검색 결과가 없을경우', date: '22-09-05', memo: '', url: './mypage_search_datanone.html', note: '' }, { type: '1', id: 'mypage_currect_datanone', category: 'PAGE', username: '김세영', viewname: '마이페이지 | 내 콘텐츠 작성중 & 북마크 내 부서 만 보기 글이 없을 경우', date: '22-09-05', memo: '', url: './mypage_currect_datanone.html', note: '' }, { type: '1', id: 'mypage_popup01', category: 'POPUP', username: '김세영', viewname: '마이페이지 | 문의하기 팝업', date: '22-09-05', memo: '', url: './mypage_popup01.html', note: '' }, { type: '1', id: 'mypage_popup02', category: 'POPUP', username: '김세영', viewname: '마이페이지 | 답변완료 팝업', date: '22-09-05', memo: '', url: './mypage_popup02.html', note: '' }, { type: '1', id: 'mypage_popup03', category: 'POPUP', username: '김세영', viewname: '마이페이지 | 답변대기 팝업', date: '22-09-05', memo: '', url: './mypage_popup03.html', note: '' }, { type: '1', id: 'mypage_popup04', category: 'POPUP', username: '김세영', viewname: '마이페이지 | 용어문의 팝업', date: '22-09-05', memo: '', url: './mypage_popup04.html', note: '' }, { type: '1', id: 'notice', category: 'PAGE', username: '김세영', viewname: '공지사항', date: '22-09-05', memo: '', url: './notice.html', note: '' }, { type: '1', id: 'faq', category: 'PAGE', username: '김세영', viewname: '문의', date: '22-09-05', memo: '', url: './faq.html', note: '' }, { type: '1', id: 'faq_datanone', category: 'PAGE', username: '김세영', viewname: '문의검색 | 데이터가 없을경우', date: '22-09-05', memo: '', url: './faq_datanone.html', note: '' }, { type: '1', id: 'faq_popup_sample', category: 'PAGE', username: '김세영', viewname: '문의하기 | alert', date: '22-09-05', memo: '', url: './faq_alert.html', note: '' }, { type: '1', id: 'error404', category: 'PAGE', username: '김세영', viewname: '에러페이지 | 404', date: '22-09-05', memo: '', url: './error404.html', note: '' }, { type: '1', id: 'network_error', category: 'PAGE', username: '김세영', viewname: '에러페이지 | 네트워크', date: '22-09-05', memo: '', url: './network_error.html', note: '' }, { type: '4', id: 'layer03', category: 'LAYER', username: '김세영', viewname: '교정된 콘텐츠', date: '22-09-13', memo: '', url: './layer_modal03.html', note: '' }, { type: '4', id: 'layer03_01', category: 'LAYER', username: '김세영', viewname: '교정된 콘텐츠 | 일반', date: '22-09-13', memo: '', url: './layer_modal03_01.html', note: '' }, { type: '4', id: 'layer03_02', category: 'LAYER', username: '김세영', viewname: '교정된 콘텐츠 | 스마트오퍼', date: '22-09-13', memo: '', url: './layer_modal03_02.html', note: '' }] %}
+{% extends '../templates/layout.njk' %}
 {% block content %}
-    {{ super() }}
-    <!-- 컨텐츠 영역 -->
-    <div class="ly-content">
-        <div class="ly-content-box">
-            <div class="title">
-                <h2 class="text ft24 bold">화면목록</h2>
-            </div>
-            <div id="viewlist" class="table-row fixed viewer">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>번호</th>
-                            <th>화면명</th>
-                            <th>유형</th>
-                            <th>담당자</th>
-                            <th>상태</th>
-                            <th>날짜</th>
-                            <th>비고</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for item in LIST_VIEW %}
-                            <tr>
-                                <td>{{ loop.index }}</td>
-                                <td id="{{item.id}}" class="left">
-                                    <a class="text-link text-blue" href="{{item.url}}">{{item.viewname}}</a>
-                                </td>
-                                <td>{{item.category}}</td>
-                                <td>{{item.username}}</td>
-                                <td>
-                                    {% if item.type === "1" %}
-                                    완료
-                                    {% elif item.type === "2" %}
-                                    진행중
-                                    {% elif item.type === "3" %}
-                                    수정중
-                                    {% else %}
-                                    검수중
-                                    {% endif %}
-                                </td>
-                                <td>{{item.date}}</td>
-                                <td>{{item.note}}</td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        </div>
+  {{ super() }}
+  <!-- 컨텐츠 영역 -->
+  <div class="ly-content">
+    <div class="ly-content-box">
+      <div class="title">
+        <h2 class="text ft24 bold">화면목록</h2>
+      </div>
+      <div id="viewlist" class="table-row fixed viewer">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>번호</th>
+              <th>화면명</th>
+              <th>유형</th>
+              <th>담당자</th>
+              <th>상태</th>
+              <th>날짜</th>
+              <th>비고</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in LIST_VIEW %}
+              <tr>
+                <td>{{ loop.index }}</td>
+                <td id="{{ item.id }}" class="left">
+                  <a class="text-link text-blue" href="{{ item.url }}">{{ item.viewname }}</a>
+                </td>
+                <td>{{ item.category }}</td>
+                <td>{{ item.username }}</td>
+                <td>
+                  {% if item.type == '1' %}
+                    완료{% elif item.type == '2' %}진행중{% elif item.type == '3' %}수정중
+                  {% else %}
+                    검수중
+                  {% endif %}
+                </td>
+                <td>{{ item.date }}</td>
+                <td>{{ item.note }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
     </div>
-    <!-- //컨텐츠 영역 -->
-
+  </div>
+  <!-- //컨텐츠 영역 -->
 {% endblock %}
 
-{% block scripts %}{% endblock %}
+{% block scripts %}
+{% endblock %}

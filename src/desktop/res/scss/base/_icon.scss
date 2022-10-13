@@ -4,6 +4,30 @@
   vertical-align: middle;
   background-size: cover !important;
 
+  &-o {
+    width: 16px;
+    height: 16px;
+    background: url('../images/ic-o.png') no-repeat;
+
+    &--type2 {
+      width: 20px;
+      height: 20px;
+      background: url('../images/ic-o--type2.png') no-repeat;
+    }
+  }
+
+  &-x {
+    width: 16px;
+    height: 16px;
+    background: url('../images/ic-x.png') no-repeat;
+
+    &--type2 {
+      width: 20px;
+      height: 20px;
+      background: url('../images/ic-x--type2.png') no-repeat;
+    }
+  }
+
   &-edit {
     width: 24px;
     height: 24px;

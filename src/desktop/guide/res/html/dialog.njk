@@ -1,607 +1,577 @@
-{% extends "../templates/layout.njk" %}
+{% extends '../templates/layout.njk' %}
 {% block content %}
-  <div class="guide-wrap">
-    <!-- tabs -->
-    <div class="tab" data-ui-tab>
-      <div class="tab__list" role="tablist">
-        <button type="button" role="tab" id="tab1" class="tab__button" aria-controls="panel1" aria-selected="false">퍼블리싱 가이드</button>
-        <button type="button" role="tab" id="tab2" class="tab__button" aria-controls="panel2" aria-selected="false">모달 컴포넌트 API</button>
-      </div>
-      <div id="panel1" role="tabpanel" class="tab__panel" aria-labelledby="tab1" tabindex="-1">
-        <br/>
-        <br/>
-        <h2 class="ex-name">Dialog</h2>
-        <div class="ex-content">
-          <div class="ex-title">
-            <h3>Modal</h3>
-            <p class="ex-desc">
-                * aria-labelledby= 타이틀과 매칭
-                <br/>* aria-describedby= 필요에 따라 컨텐츠 또는 부연설명 히든 텍스트와 매칭
-                <br/>.modal 클래스에 modal--medium 클래스를 통해 사이즈 조절
-                </p>
-          </div>
+	<div
+		class="guide-wrap">
+		<!-- tabs -->
+		<div class="tab" data-ui-tab>
+			<div class="tab__list" role="tablist">
+				<button type="button" role="tab" id="tab1" class="tab__button" aria-controls="panel1" aria-selected="false">퍼블리싱 가이드</button>
+				<button type="button" role="tab" id="tab2" class="tab__button" aria-controls="panel2" aria-selected="false">모달 컴포넌트 API</button>
+			</div>
+			<div id="panel1" role="tabpanel" class="tab__panel" aria-labelledby="tab1" tabindex="-1">
+				<br/>
+				<br/>
+				<h2 class="ex-name">Dialog</h2>
+				<div class="ex-content">
+					<div class="ex-title">
+						<h3>Modal</h3>
+						<p class="ex-desc">
+							* aria-labelledby= 타이틀과 매칭
+							<br/>* aria-describedby= 필요에 따라 컨텐츠 또는 부연설명 히든 텍스트와 매칭
+							<br/>.modal 클래스에 modal--medium 클래스를 통해 사이즈 조절
+						</p>
+					</div>
 
-          <div class="ex-body">
-            <div class="ex-preview">
-              <button class="button button--medium button--type4" data-dialog-trigger="#modal1basic">open modal</button>
-              <button class="button button--medium button--type4" data-dialog-trigger="#modal1medium">open medium</button>
+					<div class="ex-body">
+						<div class="ex-preview">
+							<button class="button button--medium button--type4" data-dialog-trigger="#modal1basic">open modal</button>
+							<button class="button button--medium button--type4" data-dialog-trigger="#modal1medium">open medium</button>
 
-              <div class="modal" id="modal1basic" role="dialog" aria-labelledby="#modal1basicTitle">
-                <div class="modal__dialog" role="document">
-                  <div class="modal__content">
-                    <div class="modal__header">
-                      <div class="modal__title" id="modal1basicTitle">모달팝업</div>
-                      <button type="button" class="ibutton" data-dialog-close aria-label="팝업닫기">
-                        <i class="ic ic-close" aria-hidden="true"></i>
-                      </button>
-                    </div>
-                    <div class="modal__body">
-                                  모달팝업
-                              </div>
-                    <div class="modal__footer">
-                      <button type="button" class="button pw100">완료하기</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+							<div class="modal" id="modal1basic" role="dialog" aria-labelledby="#modal1basicTitle">
+								<div class="modal__dialog" role="document">
+									<div class="modal__content">
+										<div class="modal__header">
+											<div class="modal__title" id="modal1basicTitle">모달팝업</div>
+											<button type="button" class="ibutton" data-dialog-close aria-label="팝업닫기">
+												<i class="ic ic-close" aria-hidden="true"></i>
+											</button>
+										</div>
+										<div class="modal__body">모달팝업</div>
+										<div class="modal__footer">
+											<button type="button" class="button pw100">완료하기</button>
+										</div>
+									</div>
+								</div>
+							</div>
 
-              <div class="modal modal--medium" id="modal1medium" role="dialog" aria-labelledby="#modal1mediumTitle">
-                <div class="modal__dialog" role="document">
-                  <div class="modal__content">
-                    <div class="modal__header">
-                      <div class="modal__title" id="modal1mediumTitle">모달팝업</div>
-                      <button type="button" class="ibutton" data-dialog-close aria-label="팝업닫기">
-                        <i class="ic ic-close" aria-hidden="true"></i>
-                      </button>
-                    </div>
-                    <div class="modal__body">
-                                  모달팝업
-                              </div>
-                    <div class="modal__footer">
-                      <button type="button" class="button pw100">완료하기</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="html-view">
-                <pre>
-                        <code class="ex-code-block render-html">
-                          <div class="modal modal--medium" id="modal1medium" role="dialog" aria-labelledby="#modal1mediumTitle">
-                            <div class="modal__dialog" role="document">
-                                <div class="modal__content">
-                                    <div class="modal__header">
-                                        <div class="modal__title" id="modal1mediumTitle">모달팝업</div>
-                                        <button type="button" class="ibutton" data-dialog-close aria-label="팝업닫기">
-                                            <i class="ic ic-close" aria-hidden="true"></i>
-                                        </button>
-                                    </div>
-                                    <div class="modal__body">
-                                        모달팝업
-                                    </div>
-                                    <div class="modal__footer">
-                                        <button type="button" class="button pw100">완료하기</button>
-                                    </div>
-                                </div>
-                            </div>
+							<div class="modal modal--medium" id="modal1medium" role="dialog" aria-labelledby="#modal1mediumTitle">
+								<div class="modal__dialog" role="document">
+									<div class="modal__content">
+										<div class="modal__header">
+											<div class="modal__title" id="modal1mediumTitle">모달팝업</div>
+											<button type="button" class="ibutton" data-dialog-close aria-label="팝업닫기">
+												<i class="ic ic-close" aria-hidden="true"></i>
+											</button>
+										</div>
+										<div class="modal__body">모달팝업</div>
+										<div class="modal__footer">
+											<button type="button" class="button pw100">완료하기</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="html-view">
+								<pre>
+                  <code class="ex-code-block render-html">
+                    <div class="modal modal--medium" id="modal1medium" role="dialog" aria-labelledby="#modal1mediumTitle">
+                      <div class="modal__dialog" role="document">
+                        <div class="modal__content">
+                          <div class="modal__header">
+                            <div class="modal__title" id="modal1mediumTitle">모달팝업</div>
+                            <button type="button" class="ibutton" data-dialog-close aria-label="팝업닫기"><i class="ic ic-close" aria-hidden="true"></i></button>
                           </div>
-                        </code>
-                    </pre>
-              </div>
-            </div>
-          </div>
-        </div>
+                          <div class="modal__body">모달팝업</div>
+                          <div class="modal__footer">
+                            <button type="button" class="button pw100">완료하기</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </code>
+                </pre>
+							</div>
+						</div>
+					</div>
+				</div>
 
-        <div class="ex-content">
-          <div class="ex-title">
-            <h3>Alert</h3>
-            <p class="ex-desc">
-                메시지에 태그를 포함할 수 있습니다.
-                </p>
-          </div>
+				<div class="ex-content">
+					<div class="ex-title">
+						<h3>Alert</h3>
+						<p class="ex-desc">메시지에 태그를 포함할 수 있습니다.</p>
+					</div>
 
-          <div class="ex-body">
-            <div class="ex-preview">
-              <button class="button button--medium button--type4" id="alert_open">Alert</button>
+					<div class="ex-body">
+						<div class="ex-preview">
+							<button class="button button--medium button--type4" id="alert_open">Alert</button>
 
-              <div class="js-view">
-                <pre>
-                        <code class="language-javascript">
-                          UXW.Alert('Alert 입니다!', {
-                            open: function() {
-                              console.log('open!');
-                            },
-                            opened: function() {
-                              console.log('opened!');
-                            },
-                            close: function() {
-                              console.log('close!');
-                            },
-                            closed: function() {
-                              console.log('closed!');
-                            },
-                          });
-                        </code>
-                    </pre>
-              </div>
-            </div>
-          </div>
-        </div>
+							<div class="js-view">
+								<pre>
+                  <code class="language-javascript">
+                    UXW.Alert('Alert 입니다!', { 
+                      open: function() { 
+                        console.log('open!'); 
+                      }, 
+                      opened: function() { 
+                        console.log('opened!'); 
+                      }, 
+                      close: function() { 
+                        console.log('close!'); 
+                      }, 
+                      closed: function() { 
+                        console.log('closed!'); 
+                      }, 
+                    });
+                  </code>
+                </pre>
+							</div>
+						</div>
+					</div>
+				</div>
 
-        <div class="ex-content">
-          <div class="ex-title">
-            <h3>Confirm</h3>
-            <p class="ex-desc">
-                메시지에 태그를 포함할 수 있습니다.
-                </p>
-          </div>
+				<div class="ex-content">
+					<div class="ex-title">
+						<h3>Confirm</h3>
+						<p class="ex-desc">메시지에 태그를 포함할 수 있습니다.</p>
+					</div>
 
-          <div class="ex-body">
-            <div class="ex-preview">
-              <button class="button button--medium button--type4" id="confirm_open">Confirm</button>
+					<div class="ex-body">
+						<div class="ex-preview">
+							<button class="button button--medium button--type4" id="confirm_open">Confirm</button>
 
-              <div class="js-view">
-                <pre>
-                        <code class="language-javascript">
-                          UXW.Confirm('Confirm입니다!(br/)(br/)확인하려면 예 버튼을(br/) 취소하려면 아니오 버튼을 클릭!', function() {
-                            // 예 버튼을 클릭했을 때 이 함수가 실행됩니다.
-                            // 필요한 프로세스 처리 후
-                            // 아래 close 함수를 실행하여 창을 닫습니다.
-                            this.close();
-                          });
-                        </code>
-                    </pre>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="panel2" role="tabpanel" class="tab__panel" aria-labelledby="tab2" tabindex="-1">
-        <div class="ex-content">
-          <div class="ex-title">
-            <h3>Dialog Modal API</h3>
-            <p class="ex-desc">모든 Modal Popup에 대한 API 입니다.</p>
-          </div>
-          <div class="ex-body">
-            <div class="ex-preview">
-              <p class="ex-desc"> 모든 Modal 팝업은 UXW.Dialog를 통해서 처리되며 Open/Close를 자동으로 처리할 수 있지만
-                <br>상황에 따라 직접 처리를 해야 하는 경우는 public method를 통하여 직접 처리할 수 있습니다.
-                <br>상황에 따른 샘플은 아래 샘플을 통하여 확인 바랍니다.
-              </p>
-            </div>
-            <div class="js-view">
-              <pre>
-                <code class="language-javascript">// 아래 메서드는 컴포넌트 인스턴스를 통하여 호출할 수 있습니다.
-                  // var el = document.querySelector('classname' 또는 '#id');
+							<div class="js-view">
+								<pre>
+                  <code class="language-javascript">
+                    UXW.Confirm('Confirm입니다!(br/)(br/)확인하려면 예 버튼을(br/) 취소하려면 아니오 버튼을 클릭!', function() { 
+                      // 예 버튼을 클릭했을 때 이 함수가 실행됩니다. 
+                      // 필요한 프로세스 처리 후 
+                      // 아래 close 함수를 실행하여 창을 닫습니다. 
+                      this.close(); 
+                    });
+                  </code>
+                </pre>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="panel2" role="tabpanel" class="tab__panel" aria-labelledby="tab2" tabindex="-1">
+				<div class="ex-content">
+					<div class="ex-title">
+						<h3>Dialog Modal API</h3>
+						<p class="ex-desc">모든 Modal Popup에 대한 API 입니다.</p>
+					</div>
+					<div class="ex-body">
+						<div class="ex-preview">
+							<p class="ex-desc">
+								모든 Modal 팝업은 UXW.Dialog를 통해서 처리되며 Open/Close를 자동으로 처리할 수 있지만
+								<br/>상황에 따라 직접 처리를 해야 하는 경우는 public method를 통하여 직접 처리할 수 있습니다.
+								<br/>상황에 따른 샘플은 아래 샘플을 통하여 확인 바랍니다.
+							</p>
+						</div>
+						<div class="js-view">
+							<pre>
+                <code class="language-javascript">
+                  // 아래 메서드는 컴포넌트 인스턴스를 통하여 호출할 수 있습니다. 
+                  // var el = document.querySelector('classname' 또는 '#id'); 
                   // var modal = UXW.Dialog.getInstance(el); (반환값이 null이라면 초기화 되지 않은 컴포넌트 입니다.)
+                  // 사용 가능한 메서드 
+                  modal.open(); 
+                  modal.close(); 
+                  modal.getElement(); 
+                  // dialog 의 wrapper element를 반환합니다. 
 
-                  // 사용 가능한 메서드
-                  modal.open();
-                  modal.close();
-                  modal.getElement(); // dialog 의 wrapper element를 반환합니다.
-                  modal.destroy(); // dialog 객체를 삭제합니다.(직접 사용할 상황이 별로 없어보임)
-                  UXW.Dialog.closeAll(); // static method 입니다.(현재 활성화 되어있는 모든 창이 닫힙니다.)
+                  modal.destroy(); 
+                  // dialog 객체를 삭제합니다.(직접 사용할 상황이 별로 없어보임) 
 
-                  // 사용 가능한 이벤트(event.component 로 해당 인스턴스가 전달됩니다.)
-                  el.addEventListener(UXW.Dialog.EVENT.OPEN, function(event) {
-                  // 열릴 때
-                  });
-                  el.addEventListener(UXW.Dialog.EVENT.OPENED, function(event) {
-                  // 열리고 난 후(애니메이션 종료 후)
-                  });
-                  el.addEventListener(UXW.Dialog.EVENT.CLOSE, function(event) {
-                  // 닫힐 때
-                  });
-                  el.addEventListener(UXW.Dialog.EVENT.CLOSED, function(event) {
-                  // 닫히고 난 후(애니메이션 종료 후)
-                  });
-                  window.addEventListener(Dialog.EVENT.FIRST_OPEN, function() {
-                  // 첫 팝업이 열릴 때
-                  });
-                  window.addEventListener(Dialog.EVENT.LAST_CLOSE, function() {
-                  // 마지막 팝업이 닫힐 때
+                  UXW.Dialog.closeAll(); 
+
+                  // static method 입니다.(현재 활성화 되어있는 모든 창이 닫힙니다.)
+                  // 사용 가능한 이벤트(event.component 로 해당 인스턴스가 전달됩니다.) 
+                  el.addEventListener(UXW.Dialog.EVENT.OPEN, function(event) { 
+                    // 열릴 때 
+                  }); 
+
+                  el.addEventListener(UXW.Dialog.EVENT.OPENED, function(event) { 
+                    // 열리고 난 후(애니메이션 종료 후) 
+                  }); 
+
+                  el.addEventListener(UXW.Dialog.EVENT.CLOSE, function(event) { 
+                    // 닫힐 때 
+                  }); 
+
+                  el.addEventListener(UXW.Dialog.EVENT.CLOSED, function(event) { 
+                    // 닫히고 난 후(애니메이션 종료 후) 
+                  }); 
+
+                  window.addEventListener(Dialog.EVENT.FIRST_OPEN, function() { 
+                    // 첫 팝업이 열릴 때 
+                  }); 
+                  
+                  window.addEventListener(Dialog.EVENT.LAST_CLOSE, function() { 
+                    // 마지막 팝업이 닫힐 때 
                   });
                 </code>
               </pre>
-            </div>
-          </div>
-        </div>
-        <div class="ex-content">
-          <div class="ex-title">
-            <div class="c-balloon c-balloon--left" style="margin-bottom: 15px">해당 샘플은 버튼을 통해서 팝업이 열리고
-              <br>팝업이 닫힐 때 아무런 처리가 필요하지 않는 상황입니다.
-            </div>
-            <h3>
-              <i class="ic ic--guide" aria-hidden="true"></i>Dialog(초기화/열림/닫힘을 모두 자동으로 처리합니다.)
-            </h3>
-            <p class="ex-desc"> Dialog Component는 기본적으로 document상에 &nbsp;<span class="ex-class">data-dialog-trigger</span>&nbsp;버튼를 검색하여
-              <br>(해당 샘플에서는 #modal_sample1) &nbsp;<span class="ex-class">data-dialog-trigger="#modal_sample1"</span>&nbsp;에 연결 된 엘리먼트를 기준으로 초기화됩니다.
-              <br>
-              <span class="ex-class">data-dialog-trigger</span>&nbsp;에 연결되지 않은 Dialog는 직접 초기화해야 합니다.
-            </p>
-            <br>
-            <p class="ex-desc"> * 해당 샘플은 스크립트 핸들링이 필요하지 않습니다.
-              <br>1) &nbsp;<span class="ex-class">data-dialog-trigger</span>&nbsp;버튼을 클릭하면 팝업이 오픈됩니다.
-              <br>2) &nbsp;팝업에 &nbsp;<span class="ex-class">data-dialog-close</span>&nbsp;속성이 선언된 버튼이 있다면 해당 버튼을 클릭 시 자동으로 닫힙니다.
-            </p>
-          </div>
-          <div class="ex-body">
-            <div class="ex-preview">
-              <button class="button button--medium " data-dialog-trigger="#modal_sample1"> 이 버튼에 연결된 Dialog는 자동으로 초기화 되어있습니다. 클릭하면 자동으로 모달이 오픈됩니다.</button>
-              <div class="modal modal--medium" id="modal_sample1" role="dialog" aria-aria-labelledby="modal_sample1_title">
-                <div class="modal__dialog" role="document">
-                  <div class="modal__content">
-                    <div class="modal__header">
-                      <h2 class="modal__title" id="modal_sample1_title">팝업제목</h2>
-                      <button class="ic-button" aria-label="팝업닫기" data-dialog-close>
-                        <i class="ic ic-close" aria-hidden="true"></i>
-                        
-                      </button>
-                    </div>
-                    <div class="modal__body">팝업내용
-                      <br>팝업내용
-                      <br>팝업내용
-                      <br>팝업내용
-                    </div>
-                    <div class="modal__footer">
-                      <button class="button pw100 " data-dialog-close>닫기</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="html-view">
-              <pre>
+						</div>
+					</div>
+				</div>
+				<div class="ex-content">
+					<div class="ex-title">
+						<div class="c-balloon c-balloon--left" style="margin-bottom: 15px">
+							해당 샘플은 버튼을 통해서 팝업이 열리고
+							<br/>팝업이 닫힐 때 아무런 처리가 필요하지 않는 상황입니다.
+						</div>
+						<h3>
+							<i class="ic ic--guide" aria-hidden="true"></i>Dialog(초기화/열림/닫힘을 모두 자동으로 처리합니다.)</h3>
+						<p class="ex-desc">
+							Dialog Component는 기본적으로 document상에 &nbsp;<span class="ex-class">data-dialog-trigger</span>&nbsp;버튼를 검색하여
+							<br/>(해당 샘플에서는 #modal_sample1) &nbsp;<span class="ex-class">data-dialog-trigger="#modal_sample1"</span>&nbsp;에 연결 된 엘리먼트를 기준으로 초기화됩니다.
+							<br/>
+							<span class="ex-class">data-dialog-trigger</span>&nbsp;에 연결되지 않은 Dialog는 직접 초기화해야 합니다.
+						</p>
+						<br/>
+						<p class="ex-desc">
+							* 해당 샘플은 스크립트 핸들링이 필요하지 않습니다.
+							<br/>1) &nbsp;<span class="ex-class">data-dialog-trigger</span>&nbsp;버튼을 클릭하면 팝업이 오픈됩니다.
+							<br/>2) &nbsp;팝업에 &nbsp;<span class="ex-class">data-dialog-close</span>&nbsp;속성이 선언된 버튼이 있다면 해당 버튼을 클릭 시 자동으로 닫힙니다.
+						</p>
+					</div>
+					<div class="ex-body">
+						<div class="ex-preview">
+							<button class="button button--medium" data-dialog-trigger="#modal_sample1">이 버튼에 연결된 Dialog는 자동으로 초기화 되어있습니다. 클릭하면 자동으로 모달이 오픈됩니다.</button>
+							<div class="modal modal--medium" id="modal_sample1" role="dialog" aria-aria-labelledby="modal_sample1_title">
+								<div class="modal__dialog" role="document">
+									<div class="modal__content">
+										<div class="modal__header">
+											<h2 class="modal__title" id="modal_sample1_title">팝업제목</h2>
+											<button class="ic-button" aria-label="팝업닫기" data-dialog-close>
+												<i class="ic ic-close" aria-hidden="true"></i>
+											</button>
+										</div>
+										<div class="modal__body">
+											팝업내용
+											<br/>팝업내용
+											<br/>팝업내용
+											<br/>팝업내용
+										</div>
+										<div class="modal__footer">
+											<button class="button pw100" data-dialog-close>닫기</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="html-view">
+							<pre>
                 <code class="ex-code-block render-html">
-                  <!--열기 버튼-->
-                  <button class="button" data-dialog-trigger="#modal_sample1">
-                    이 버튼에 연결된 Dialog는 자동으로 초기화 되어있습니다. 클릭하면 자동으로 모달이 오픈됩니다.
-                  </button>
-                  <!--Modal-->
+                  <!-- 열기 버튼 -->
+                  <button class="button" data-dialog-trigger="#modal_sample1">이 버튼에 연결된 Dialog는 자동으로 초기화 되어있습니다. 클릭하면 자동으로 모달이 오픈됩니다.</button>
+                  <!-- Modal -->
                   <div class="modal modal--medium" id="modal_sample1" role="dialog" aria-describedby="modal_sample1_title">
                     <div class="modal__dialog" role="document">
                       <div class="modal__content">
                         <div class="modal__header">
-                          <h1 class="modal__title" id="modal_sample1_title">팝업제목.</h1><!-- -->
-                          <!-- data-dialog-close 속성이 선언된 버튼(닫기 X버튼)-->
-                          <button class="ic-button" aria-label="팝업닫기" data-dialog-close>
-                            <i class="ic ic-close" aria-hidden="true"></i>
-                            
-                          </button>
+                          <h1 class="modal__title" id="modal_sample1_title">팝업제목.</h1><!--  -->
+                          <!-- data-dialog-close 속성이 선언된 버튼(닫기 X버튼) -->
+                          <button class="ic-button" aria-label="팝업닫기" data-dialog-close><i class="ic ic-close" aria-hidden="true"></i></button>
                         </div>
                         <div class="modal__body">
-                          <br>팝업내용
-                          <br>팝업내용
-                          <br>팝업내용
+                          <br />팝업내용
+                          <br />팝업내용
+                          <br />팝업내용
                         </div>
                         <div class="modal__footer">
-                          <!-- data-dialog-close 속성이 선언된 버튼-->
-                          <button class="button pw100 " data-dialog-close>닫기</button>
+                          <!-- data-dialog-close 속성이 선언된 버튼 -->
+                          <button class="button pw100" data-dialog-close>닫기</button>
                         </div>
                       </div>
                     </div>
                   </div>
                 </code>
               </pre>
-            </div>
-          </div>
-        </div>
-        <div class="ex-content">
-          <div class="ex-title">
-            <div class="c-balloon c-balloon--left" style="margin-bottom: 15px">해당 샘플은 버튼을 통해서 팝업이 열리고
-              <br>팝업이 닫힐 때 특정 액션 후 직접 닫는 상황입니다.
-            </div>
-            <h3>
-              <i class="ic ic--guide" aria-hidden="true"></i>Dialog(초기화/열림 자동) 특정 액션 후 닫기
-            </h3>
-            <p class="ex-desc"> 1) &nbsp;<span class="ex-class">data-dialog-trigger</span>&nbsp;버튼을 클릭하면 팝업이 오픈됩니다.( data-dialog-trigger 선언 되었기 때문에 Dialog는 자동 초기화 )
-              <br>2) &nbsp;팝업에 &nbsp;<span class="ex-class">data-dialog-close</span>&nbsp;속성은 우측상단 닫기(X) 버튼에만 선언합니다.
-              <br>3) &nbsp;확인버튼 클릭 하면 특정 액션 후 팝업을 직접 닫습니다. &nbsp;
-            </p>
-          </div>
-          <div class="ex-body">
-            <div class="ex-preview">
-              <button class="button button--medium " data-dialog-trigger="#modal_sample2"> 이 버튼에 연결된 Dialog는 자동으로 초기화 되어있습니다. 클릭하면 자동으로 모달이 오픈됩니다.</button>
-              <div class="modal modal--medium" id="modal_sample2" role="dialog" aria-describedby="modal_sample2_title">
-                <div class="modal__dialog" role="document">
-                  <div class="modal__content">
-                    <div class="modal__header">
-                      <h1 class="modal__title" id="modal_sample2_title">팝업제목</h1>
-                      <button class="ic-button" aria-label="팝업닫기" data-dialog-close>
-                        <i class="ic ic-close" aria-hidden="true"></i>
-                        
-                      </button>
-                    </div>
-                    <div class="modal__body">팝업내용
-                      <br>팝업내용
-                      <br>팝업내용
-                      <br>팝업내용
-                    </div>
-                    <div class="modal__footer">
-                      <button class="button pw100 " id="confirm_and_close">확인 후 닫기</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <span class="label" style="margin-bottom: 5px">HTML</span>
-            <div class="html-view">
-              <pre>
+						</div>
+					</div>
+				</div>
+				<div class="ex-content">
+					<div class="ex-title">
+						<div class="c-balloon c-balloon--left" style="margin-bottom: 15px">
+							해당 샘플은 버튼을 통해서 팝업이 열리고
+							<br/>팝업이 닫힐 때 특정 액션 후 직접 닫는 상황입니다.
+						</div>
+						<h3>
+							<i class="ic ic--guide" aria-hidden="true"></i>Dialog(초기화/열림 자동) 특정 액션 후 닫기</h3>
+						<p class="ex-desc">
+							1) &nbsp;<span class="ex-class">data-dialog-trigger</span>&nbsp;버튼을 클릭하면 팝업이 오픈됩니다.( data-dialog-trigger 선언 되었기 때문에 Dialog는 자동 초기화 )
+							<br/>2) &nbsp;팝업에 &nbsp;<span class="ex-class">data-dialog-close</span>&nbsp;속성은 우측상단 닫기(X) 버튼에만 선언합니다.
+							<br/>3) &nbsp;확인버튼 클릭 하면 특정 액션 후 팝업을 직접 닫습니다. &nbsp;
+						</p>
+					</div>
+					<div class="ex-body">
+						<div class="ex-preview">
+							<button class="button button--medium" data-dialog-trigger="#modal_sample2">이 버튼에 연결된 Dialog는 자동으로 초기화 되어있습니다. 클릭하면 자동으로 모달이 오픈됩니다.</button>
+							<div class="modal modal--medium" id="modal_sample2" role="dialog" aria-describedby="modal_sample2_title">
+								<div class="modal__dialog" role="document">
+									<div class="modal__content">
+										<div class="modal__header">
+											<h1 class="modal__title" id="modal_sample2_title">팝업제목</h1>
+											<button class="ic-button" aria-label="팝업닫기" data-dialog-close>
+												<i class="ic ic-close" aria-hidden="true"></i>
+											</button>
+										</div>
+										<div class="modal__body">
+											팝업내용
+											<br/>팝업내용
+											<br/>팝업내용
+											<br/>팝업내용
+										</div>
+										<div class="modal__footer">
+											<button class="button pw100" id="confirm_and_close">확인 후 닫기</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<span class="label" style="margin-bottom: 5px">HTML</span>
+						<div class="html-view">
+							<pre>
                 <code class="ex-code-block render-html">
-                  <button class="button button--medium " data-dialog-trigger="#modal_sample2">
-                    이 버튼에 연결된 Dialog는 자동으로 초기화 되어있습니다. 클릭하면 자동으로 모달이 오픈됩니다.
-                  </button>
+                  <button class="button button--medium" data-dialog-trigger="#modal_sample2">이 버튼에 연결된 Dialog는 자동으로 초기화 되어있습니다. 클릭하면 자동으로 모달이 오픈됩니다.</button>
                   <div class="modal modal--medium" id="modal_sample2" role="dialog" aria-describedby="modal_sample2_title">
                     <div class="modal__dialog" role="document">
                       <div class="modal__content">
                         <div class="modal__header">
                           <h2 class="modal__title" id="modal_sample2_title">팝업제목</h2>
-                          <!--X 버튼에만 닫기 이벤트 자동 바인딩-->
-                          <button class="ic-button" aria-label="팝업닫기" data-dialog-close>
-                            <i class="ic ic-close" aria-hidden="true"></i>
-                            
-                          </button>
+                          <!-- X 버튼에만 닫기 이벤트 자동 바인딩 -->
+                          <button class="ic-button" aria-label="팝업닫기" data-dialog-close><i class="ic ic-close" aria-hidden="true"></i></button>
                         </div>
-                        <div class="modal__body">팝업내용
-                          <br>팝업내용
-                          <br>팝업내용
-                          <br>팝업내용
+                        <div class="modal__body">
+                          팝업내용
+                          <br />팝업내용
+                          <br />팝업내용
+                          <br />팝업내용
                         </div>
                         <div class="modal__footer">
-                          <button class="button pw100 " id="confirm_and_close">확인 후 닫기</button>
+                          <button class="button pw100" id="confirm_and_close">확인 후 닫기</button>
                         </div>
                       </div>
                     </div>
                   </div>
                 </code>
               </pre>
-            </div>
-            <script>
-              var button = document.querySelector('#confirm_and_close');
-              button.addEventListener('click', function() {
-                // UXW.Confirm( message, confirmCallback)
-                new UXW.Confirm('~~~~~ 처리되었습니까?', function(closeHandler) {
-                  // 열려있던 컨펌창을 닫고.
-                  this.close();
-                  // 바로 닫아도 되지만....
-                  setTimeout(function() {
-                    // 현재 팝업로 닫는다.
-                    var modal = UXW.Dialog.getInstance(document.querySelector('#modal_sample2'));
-                    modal.close();
-                  }, 300);
-                });
-              });
-            </script>
-          </div>
-          <br>
-          <span class="label" style="margin-bottom: 5px">JS</span>
-          <div class="js-view">
-            <pre>
-              <code class="language-javascript">var button = document.querySelector("#confirm_and_close");
-                button.addEventListener("click", function () {
-                // UXW.Confirm( message, confirmCallback)
-                new UXW.Confirm("~~~~~ 처리되었습니까?", function (closeHandler) {
-                // 열려있던 컨펌창을 닫고.
-                this.close();
-                // 타이머 의미없음.. 동시에 닫히는게 싫어서
-                setTimeout(function () {
-                // 현재 팝업도 닫는다.
-                var modal = UXW.Dialog.getInstance(document.querySelector("#modal_sample2"));
-                modal.close();
-                }, 300);
-                });
-                });
-              </code>
+						</div>
+						<script>
+							var button = document.querySelector('#confirm_and_close');
+button.addEventListener('click', function () { // UXW.Confirm( message, confirmCallback)
+new UXW.Confirm('~~~~~ 처리되었습니까?', function (closeHandler) { // 열려있던 컨펌창을 닫고.
+this.close();
+// 바로 닫아도 되지만....
+setTimeout(function () { // 현재 팝업로 닫는다.
+var modal = UXW.Dialog.getInstance(document.querySelector('#modal_sample2'));
+modal.close();
+}, 300);
+});
+});
+						</script>
+					</div>
+					<br/>
+					<span class="label" style="margin-bottom: 5px">JS</span>
+					<div class="js-view">
+						<pre>
+              <code class="language-javascript">var button = document.querySelector("#confirm_and_close"); button.addEventListener("click", function () { // UXW.Confirm( message, confirmCallback) new UXW.Confirm("~~~~~ 처리되었습니까?", function (closeHandler) { // 열려있던 컨펌창을 닫고. this.close(); // 타이머 의미없음.. 동시에 닫히는게 싫어서 setTimeout(function () { // 현재 팝업도 닫는다. var modal = UXW.Dialog.getInstance(document.querySelector("#modal_sample2")); modal.close(); }, 300); }); });</code>
             </pre>
-          </div>
-        </div>
-        <div class="ex-content">
-          <div class="ex-title">
-            <div class="c-balloon c-balloon--left" style="margin-bottom: 15px">팝업의 초기화, 열림, 닫힘 모두 직접 처리합니다.
-              <br>버튼을 클릭하여 열리는 상황이 아닌 특정 이벤트 후 열리는 상황입니다.
-            </div>
-            <h3>
-              <i class="ic ic--guide" aria-hidden="true"></i>Dialog를 직접 초기화하여 사용하는 방법
-            </h3>
-          </div>
-          <div class="ex-body">
-            <div class="ex-preview">
-              <button class="button button--medium " id="click_to_open">click to open</button>
-              <div class="modal modal--medium" id="modal_sample3" role="dialog" aria-describedby="modal_sample3_title">
-                <div class="modal__dialog" role="document">
-                  <div class="modal__content">
-                    <div class="modal__header">
-                      <h1 class="modal__title" id="modal_sample3_title">팝업제목</h1>
-                      <button class="ic-button" aria-label="팝업닫기">
-                        <i class="ic ic-close" aria-hidden="true"></i>
-                      </button>
-                    </div>
-                    <div class="modal__body">팝업내용
-                      <br>팝업내용
-                      <br>팝업내용
-                      <br>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <script>
-                //click to open 버튼
-                var button = document.querySelector('#click_to_open');
+					</div>
+				</div>
+				<div class="ex-content">
+					<div class="ex-title">
+						<div class="c-balloon c-balloon--left" style="margin-bottom: 15px">
+							팝업의 초기화, 열림, 닫힘 모두 직접 처리합니다.
+							<br/>버튼을 클릭하여 열리는 상황이 아닌 특정 이벤트 후 열리는 상황입니다.
+						</div>
+						<h3>
+							<i class="ic ic--guide" aria-hidden="true"></i>Dialog를 직접 초기화하여 사용하는 방법</h3>
+					</div>
+					<div class="ex-body">
+						<div class="ex-preview">
+							<button class="button button--medium" id="click_to_open">click to open</button>
+							<div class="modal modal--medium" id="modal_sample3" role="dialog" aria-describedby="modal_sample3_title">
+								<div class="modal__dialog" role="document">
+									<div class="modal__content">
+										<div class="modal__header">
+											<h1 class="modal__title" id="modal_sample3_title">팝업제목</h1>
+											<button class="ic-button" aria-label="팝업닫기">
+												<i class="ic ic-close" aria-hidden="true"></i>
+											</button>
+										</div>
+										<div class="modal__body">
+											팝업내용
+											<br/>팝업내용
+											<br/>팝업내용
+											<br/>
+										</div>
+									</div>
+								</div>
+							</div>
+							<script>
+								// click to open 버튼
+var button = document.querySelector('#click_to_open');
 
-                function dialogInit() {
-                  var el = document.querySelector('#modal_sample3');
-                  // 이미 초기화 된 Dialog를 다시 초기화 하지 않도록 주의
-                  var modal = UXW.Dialog.getInstance(el) ? UXW.Dialog.getInstance(el) : new UXW.Dialog(el);
+function dialogInit() {
+var el = document.querySelector('#modal_sample3');
+// 이미 초기화 된 Dialog를 다시 초기화 하지 않도록 주의
+var modal = UXW.Dialog.getInstance(el) ? UXW.Dialog.getInstance(el) : new UXW.Dialog(el);
 
-                  // 이벤트 리스너는 가능하면 필요할 때 등록하고 바로바로 삭제.
-                  el.addEventListener(UXW.Dialog.EVENT.OPEN, function open(event) {
-                    el.removeEventListener(event.type, open);
-                    // X버튼 클릭 이벤트 등록
-                    var closeButton = el.querySelector('.ic-button');
-                    closeButton.addEventListener('click', function close(event) {
-                      closeButton.removeEventListener(event.type, close);
-                      modal.close();
-                    });
-                  });
-                  modal.open();
-                }
+// 이벤트 리스너는 가능하면 필요할 때 등록하고 바로바로 삭제.
+el.addEventListener(UXW.Dialog.EVENT.OPEN, function open(event) {
+el.removeEventListener(event.type, open);
+// X버튼 클릭 이벤트 등록
+var closeButton = el.querySelector('.ic-button');
+closeButton.addEventListener('click', function close(event) {
+closeButton.removeEventListener(event.type, close);
+modal.close();
+});
+});
+modal.open();
+}
 
-                // click to open button
-                button.addEventListener('click', function() {
-                  dialogInit();
-                });
-              </script>
-            </div>
-            <div class="html-view">
-              <pre>
+// click to open button
+button.addEventListener('click', function () {
+dialogInit();
+});
+							</script>
+						</div>
+						<div class="html-view">
+							<pre>
                 <code class="ex-code-block render-html">
-                  <!--HTML-->
-                  <button class="button button--medium " id="click_to_open">click to open</button>
-                  <!--Modal-->
+                  <!-- HTML -->
+                  <button class="button button--medium" id="click_to_open">click to open</button>
+                  <!-- Modal -->
                   <div class="modal modal--medium" id="modal_sample3" role="dialog" aria-describedby="modal_sample3_title">
                     <div class="modal__dialog" role="document">
                       <div class="modal__content">
                         <div class="modal__header">
                           <h1 class="modal__title" id="modal_sample3_title">팝업제목</h1>
-                          <button class="ic-button" aria-label="팝업닫기">
-                            <i class="ic ic-close" aria-hidden="true"></i>
-                            
-                          </button>
+                          <button class="ic-button" aria-label="팝업닫기"><i class="ic ic-close" aria-hidden="true"></i></button>
                         </div>
-                        <div class="modal__body">팝업내용
-                          <br>팝업내용
-                          <br>팝업내용
-                          <br>
+                        <div class="modal__body">
+                          팝업내용
+                          <br />팝업내용
+                          <br />팝업내용
+                          <br />
                         </div>
                       </div>
                     </div>
                   </div>
                 </code>
               </pre>
-            </div>
-            <br>
-            <div class="js-view">
-              <pre>
-                <code class="language-javascript">//click to open 버튼
+						</div>
+						<br/>
+						<div class="js-view">
+							<pre>
+                <code class="language-javascript">
+                  //click to open 버튼 
                   var button = document.querySelector("#click_to_open");
 
-                  function dialogInit() {
-                  var el = document.querySelector("#modal_sample3");
-                  // 이미 초기화 된 Dialog를 다시 초기화 하지 않도록 주의
-                  var modal = UXW.Dialog.getInstance(el) ? UXW.Dialog.getInstance(el) : new UXW.Dialog(el);
-
-                  // 이벤트 리스너는 가능하면 필요할 때 등록하고 바로바로 삭제.
-                  el.addEventListener(UXW.Dialog.EVENT.OPEN, function open(event) {
-                  el.removeEventListener(event.type, open);
-                  // X버튼 클릭 이벤트 등록
-                  var closeButton = el.querySelector(".button");
-                  closeButton.addEventListener("click", function close(event) {
-                  closeButton.removeEventListener(event.type, close);
-                  modal.close();
-                  });
-                  });
-                  modal.open();
+                  function dialogInit() { 
+                    var el = document.querySelector("#modal_sample3"); // 이미 초기화 된 Dialog를 다시 초기화 하지 않도록 주의 
+                    var modal = UXW.Dialog.getInstance(el) ? UXW.Dialog.getInstance(el) : new UXW.Dialog(el);
+                    // 이벤트 리스너는 가능하면 필요할 때 등록하고 바로바로 삭제. 
+                    el.addEventListener(UXW.Dialog.EVENT.OPEN, function open(event) { 
+                      el.removeEventListener(event.type, open); // X버튼 클릭 이벤트 등록 
+                      var closeButton = el.querySelector(".button"); 
+                      closeButton.addEventListener("click", function close(event) { 
+                        closeButton.removeEventListener(event.type, close); 
+                        modal.close(); 
+                      }); 
+                    });
+                    
+                    modal.open(); 
                   }
 
-                  // click to open button
-                  button.addEventListener("click", function () {
-                  dialogInit();
+                  // click to open button 
+                  button.addEventListener("click", function () { 
+                    dialogInit(); 
                   });
                 </code>
               </pre>
-            </div>
-          </div>
-        </div>
-        <div class="ex-content">
-          <div class="ex-title">
-            <h3>
-              <i class="ic ic--guide" aria-hidden="true"></i>Dialog 전체 닫기 | UXW.Dialog.closeAll()
-            </h3>
-            <p class="ex-desc"> 화면에 활성화되어있는 모든 Dialog를 닫습니다.( Alert, Confirm 포함)</p>
-          </div>
-          <div class="ex-body">
-            <div class="ex-preview">
-              <button class="button button--medium " id="modal_multi_open">버튼을 누르면 여러 개의 Dialog가 순차적으로 오픈됩니다.</button>
-              <div class="modal modal--xlg" id="modal_multi1" role="dialog" aria-describedby="modal_multi1_title">
-                <div class="modal__dialog" role="document">
-                  <div class="modal__content">
-                    <div class="modal__header">
-                      <h1 class="modal__title" id="modal_multi1_title">팝업제목</h1>
-                      <button class="ic-button" aria-label="팝업닫기" data-dialog-close>
-                        <i class="ic ic-close" aria-hidden="true"></i>
-                        
-                      </button>
-                    </div>
-                    <div class="modal__body">팝업내용
-                      <br>팝업내용
-                      <br>팝업내용
-                      <br>팝업내용
-                      <br>팝업내용
-                      <br>팝업내용
-                      <br>팝업내용
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="modal modal--medium" id="modal_multi2" role="dialog" aria-describedby="modal_multi2_title">
-                <div class="modal__dialog" role="document">
-                  <div class="modal__content">
-                    <div class="modal__header">
-                      <h1 class="modal__title" id="modal_multi2_title">팝업제목</h1>
-                      <button class="ic-button" aria-label="팝업닫기" data-dialog-close>
-                        <i class="ic ic-close" aria-hidden="true"></i>
-                        
-                      </button>
-                    </div>
-                    <div class="modal__body">팝업내용
-                      <br>팝업내용
-                      <br>팝업내용
-                      <br>팝업내용
-                      <br>팝업내용
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="modal modal--medium" id="modal_multi3" role="dialog" aria-describedby="modal_multi3_title">
-                <div class="modal__dialog" role="document">
-                  <div class="modal__content">
-                    <div class="modal__header">
-                      <h1 class="modal__title" id="modal_multi3_title">팝업제목</h1>
-                      <button class="ic-button" aria-label="팝업닫기" data-dialog-close>
-                        <i class="ic ic-close" aria-hidden="true"></i>
-                        
-                      </button>
-                    </div>
-                    <div class="modal__body">팝업내용
-                      <br>팝업내용
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <span class="label" style="margin-bottom: 5px">HTML</span>
-            <div class="html-view">
-              <pre>
+						</div>
+					</div>
+				</div>
+				<div class="ex-content">
+					<div class="ex-title">
+						<h3>
+							<i class="ic ic--guide" aria-hidden="true"></i>Dialog 전체 닫기 | UXW.Dialog.closeAll()</h3>
+						<p class="ex-desc">화면에 활성화되어있는 모든 Dialog를 닫습니다.( Alert, Confirm 포함)</p>
+					</div>
+					<div class="ex-body">
+						<div class="ex-preview">
+							<button class="button button--medium" id="modal_multi_open">버튼을 누르면 여러 개의 Dialog가 순차적으로 오픈됩니다.</button>
+							<div class="modal modal--xlg" id="modal_multi1" role="dialog" aria-describedby="modal_multi1_title">
+								<div class="modal__dialog" role="document">
+									<div class="modal__content">
+										<div class="modal__header">
+											<h1 class="modal__title" id="modal_multi1_title">팝업제목</h1>
+											<button class="ic-button" aria-label="팝업닫기" data-dialog-close>
+												<i class="ic ic-close" aria-hidden="true"></i>
+											</button>
+										</div>
+										<div class="modal__body">
+											팝업내용
+											<br/>팝업내용
+											<br/>팝업내용
+											<br/>팝업내용
+											<br/>팝업내용
+											<br/>팝업내용
+											<br/>팝업내용
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal modal--medium" id="modal_multi2" role="dialog" aria-describedby="modal_multi2_title">
+								<div class="modal__dialog" role="document">
+									<div class="modal__content">
+										<div class="modal__header">
+											<h1 class="modal__title" id="modal_multi2_title">팝업제목</h1>
+											<button class="ic-button" aria-label="팝업닫기" data-dialog-close>
+												<i class="ic ic-close" aria-hidden="true"></i>
+											</button>
+										</div>
+										<div class="modal__body">
+											팝업내용
+											<br/>팝업내용
+											<br/>팝업내용
+											<br/>팝업내용
+											<br/>팝업내용
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal modal--medium" id="modal_multi3" role="dialog" aria-describedby="modal_multi3_title">
+								<div class="modal__dialog" role="document">
+									<div class="modal__content">
+										<div class="modal__header">
+											<h1 class="modal__title" id="modal_multi3_title">팝업제목</h1>
+											<button class="ic-button" aria-label="팝업닫기" data-dialog-close>
+												<i class="ic ic-close" aria-hidden="true"></i>
+											</button>
+										</div>
+										<div class="modal__body">
+											팝업내용
+											<br/>팝업내용
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<span class="label" style="margin-bottom: 5px">HTML</span>
+						<div class="html-view">
+							<pre>
                 <code class="ex-code-block render-html">
-                  <button class="button button--medium " id="modal_multi_open">
-                    버튼을 누르면 여러 개의 Dialog가 순차적으로 오픈됩니다.
-                  </button>
+                  <button class="button button--medium" id="modal_multi_open">버튼을 누르면 여러 개의 Dialog가 순차적으로 오픈됩니다.</button>
                   <div class="modal modal--xlg" id="modal_multi1" role="dialog" aria-describedby="modal_multi1_title">
                     <div class="modal__dialog" role="document">
                       <div class="modal__content">
                         <div class="modal__header">
                           <h1 class="modal__title" id="modal_multi1_title">팝업제목</h1>
-                          <button class="ic-button" aria-label="팝업닫기" data-dialog-close>
-                            <i class="ic ic-close" aria-hidden="true"></i>
-                            
-                          </button>
+                          <button class="ic-button" aria-label="팝업닫기" data-dialog-close><i class="ic ic-close" aria-hidden="true"></i></button>
                         </div>
-                        <div class="modal__body">팝업내용
-                          <br>팝업내용
-                          <br>팝업내용
-                          <br>팝업내용
-                          <br>팝업내용
-                          <br>팝업내용
-                          <br>팝업내용
+                        <div class="modal__body">
+                          팝업내용
+                          <br />팝업내용
+                          <br />팝업내용
+                          <br />팝업내용
+                          <br />팝업내용
+                          <br />팝업내용
+                          <br />팝업내용
                         </div>
                       </div>
                     </div>
@@ -611,16 +581,14 @@
                       <div class="modal__content">
                         <div class="modal__header">
                           <h1 class="modal__title" id="modal_multi2_title">팝업제목</h1>
-                          <button class="ic-button" aria-label="팝업닫기" data-dialog-close>
-                            <i class="ic ic-close" aria-hidden="true"></i>
-                            
-                          </button>
+                          <button class="ic-button" aria-label="팝업닫기" data-dialog-close><i class="ic ic-close" aria-hidden="true"></i></button>
                         </div>
-                        <div class="modal__body">팝업내용
-                          <br>팝업내용
-                          <br>팝업내용
-                          <br>팝업내용
-                          <br>팝업내용
+                        <div class="modal__body">
+                          팝업내용
+                          <br />팝업내용
+                          <br />팝업내용
+                          <br />팝업내용
+                          <br />팝업내용
                         </div>
                       </div>
                     </div>
@@ -630,134 +598,93 @@
                       <div class="modal__content">
                         <div class="modal__header">
                           <h1 class="modal__title" id="modal_multi3_title">팝업제목</h1>
-                          <button class="ic-button" aria-label="팝업닫기" data-dialog-close>
-                            <i class="ic ic-close" aria-hidden="true"></i>
-                            
-                          </button>
+                          <button class="ic-button" aria-label="팝업닫기" data-dialog-close><i class="ic ic-close" aria-hidden="true"></i></button>
                         </div>
-                        <div class="modal__body">팝업내용
-                          <br>팝업내용
+                        <div class="modal__body">
+                          팝업내용
+                          <br />팝업내용
                         </div>
                       </div>
                     </div>
                   </div>
                 </code>
               </pre>
-            </div>
-            <script>
-              setTimeout(function() {
-                function initModal(elementID) {
-                  return function() {
-                    var el = document.querySelector(elementID);
-                    var isInstance = UXW.Dialog.getInstance(el);
-                    var modal = isInstance ? isInstance : new UXW.Dialog(el);
-                    modal.open();
-                  };
-                }
-                var count = 0;
-                var sampleQueue = [
-                  initModal('#modal_multi1'),
-                  initModal('#modal_multi2'),
-                  initModal('#modal_multi3'),
-                  function() {
-                    new UXW.Confirm('확인 버튼을 누르면 전체가 일괄적으로 닫힙니다.', function() {
-                      UXW.Dialog.closeAll();
-                    });
-                  },
-                ];
-                var button = document.querySelector('#modal_multi_open');
-                button.addEventListener('click', function() {
-                  var c = setInterval(function() {
-                    sampleQueue[count]();
-                    count++;
-                    if (count >= sampleQueue.length) {
-                      clearInterval(c);
-                      count = 0;
-                    }
-                  }, 300);
-                });
-              }, 500);
-            </script>
-          </div>
-          <br>
-          <span class="label" style="margin-bottom: 5px">JS</span>
-          <div class="js-view">
-            <pre>
-              <code class="language-javascript">function initModal(elementID) {
-                return function () {
-                var el = document.querySelector(elementID);
-                var isInstance = UXW.Dialog.getInstance(el);
-                var modal = isInstance ? isInstance : new UXW.Dialog(el);
-                modal.open();
-                };
-                }
-                var count = 0;
-                var sampleQueue = [
-                initModal("#modal_multi1"),
-                initModal("#modal_multi2"),
-                initModal("#modal_multi3"),
-                function () {
-                new UXW.Confirm("확인 버튼을 누르면 전체가 일괄적으로 닫힙니다.", function () {
-                // 전체닫기
-                UXW.Dialog.closeAll();
-                });
-                },
-                ];
-                var button = document.querySelector("#modal_multi_open");
-                button.addEventListener("click", function () {
-                var c = setInterval(function () {
-                sampleQueue[count]();
-                count++;
-                if (count >= sampleQueue.length) {
-                clearInterval(c);
-                count = 0;
-                }
-                }, 300);
-                });
-              </code>
+						</div>
+						<script>
+							setTimeout(function () {
+function initModal(elementID) {
+return function () {
+var el = document.querySelector(elementID);
+var isInstance = UXW.Dialog.getInstance(el);
+var modal = isInstance ? isInstance : new UXW.Dialog(el);
+modal.open();
+};
+}
+var count = 0;
+var sampleQueue = [
+initModal('#modal_multi1'), initModal('#modal_multi2'), initModal('#modal_multi3'), function () {
+new UXW.Confirm('확인 버튼을 누르면 전체가 일괄적으로 닫힙니다.', function () {
+UXW.Dialog.closeAll();
+});
+},
+];
+var button = document.querySelector('#modal_multi_open');
+button.addEventListener('click', function () {
+var c = setInterval(function () {
+sampleQueue[count]();
+count++;
+if (count >= sampleQueue.length) {
+clearInterval(c);
+count = 0;
+}
+}, 300);
+});
+}, 500);
+						</script>
+					</div>
+					<br/>
+					<span class="label" style="margin-bottom: 5px">JS</span>
+					<div class="js-view">
+						<pre>
+              <code class="language-javascript">function initModal(elementID) { return function () { var el = document.querySelector(elementID); var isInstance = UXW.Dialog.getInstance(el); var modal = isInstance ? isInstance : new UXW.Dialog(el); modal.open(); }; } var count = 0; var sampleQueue = [ initModal("#modal_multi1"), initModal("#modal_multi2"), initModal("#modal_multi3"), function () { new UXW.Confirm("확인 버튼을 누르면 전체가 일괄적으로 닫힙니다.", function () { // 전체닫기 UXW.Dialog.closeAll(); }); }, ]; var button = document.querySelector("#modal_multi_open"); button.addEventListener("click", function () { var c = setInterval(function () { sampleQueue[count](); count++; if (count >= sampleQueue.length) { clearInterval(c); count = 0; } }, 300); });</code>
             </pre>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- //tabs -->
-
-  </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- //tabs -->
+	</div>
 {% endblock %}
 {% block script %}
-<script>
-  document.addEventListener('UILoaded', function () {
-    document
-      .querySelector('#alert_open')
-      .addEventListener('click', function (e) {
-        e.preventDefault();
-        UXW.Alert('Alert 입니다!', {
-          open: function () {
-            console.log('open!');
-          },
-          opened: function () {
-            console.log('opened!');
-          },
-          close: function () {
-            console.log('close!');
-          },
-          closed: function () {
-            console.log('closed!');
-          }
-        });
-      });
+	<script>
+		document.addEventListener('UILoaded', function () {
+document.querySelector('#alert_open').addEventListener('click', function (e) {
+e.preventDefault();
+UXW.Alert('Alert 입니다!', {
+open: function () {
+console.log('open!');
+},
+opened: function () {
+console.log('opened!');
+},
+close: function () {
+console.log('close!');
+},
+closed: function () {
+console.log('closed!');
+}
+});
+});
 
-    document
-      .querySelector('#confirm_open')
-      .addEventListener('click', function (e) {
-        e.preventDefault();
-        UXW.Confirm('Confirm입니다!<br/><br/>확인하려면 예 버튼을<br/> 취소하려면 아니오 버튼을 클릭!', function () {
-          // 예 버튼을 클릭했을 때 이 함수가 실행됩니다.
-          // 필요한 프로세스 처리 후
-          // 아래 close 함수를 실행하여 창을 닫습니다.
-          this.close();
-        });
-      })
-  })
-</script>
-{% endblock%}
+document.querySelector('#confirm_open').addEventListener('click', function (e) {
+e.preventDefault();
+UXW.Confirm('Confirm입니다!<br/><br/>확인하려면 예 버튼을<br/> 취소하려면 아니오 버튼을 클릭!', function () {
+// 예 버튼을 클릭했을 때 이 함수가 실행됩니다.
+// 필요한 프로세스 처리 후
+// 아래 close 함수를 실행하여 창을 닫습니다.
+this.close();
+});
+});
+});
+	</script>
+{% endblock %}

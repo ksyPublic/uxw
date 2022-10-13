@@ -1,182 +1,29 @@
-{% set navigation = [
-    {
-        'id': 'accordion__content0',
-        'header': 'accordion__header0',
-        'name': '화면목록',
-        'url': 'list.html'
-    }, {
-        'id': 'accordion__content-c',
-        'header': 'accordion__header-c',
-        'name': 'Common-Script',
-        'url': 'common-script.html'
-    }, {
-        'id': 'accordion__content1',
-        'header': 'accordion__header1',
-        'name': 'Layout',
-        'children': [
-            {
-                'name': 'Header',
-                'url': 'header.html',
-                'alt': '헤더 바로가기',
-                'id': 'accordion__content1-1',
-                'header': 'accordion__header1-1'
-            }, {
-                'name': 'Floating-Menu',
-                'url': 'floating-menu.html',
-                'alt': '플로팅메뉴 바로가기',
-                'id': 'accordion__content1-2',
-                'header': 'accordion__header1-2'
-            }
-        ]
-    }, {
-        'id': 'accordion__content2',
-        'header': 'accordion__header2',
-        'name': 'Components',
-        'children': [
-            {
-                'name': 'Tabs',
-                'url': './tabs.html',
-                'alt': '탭 바로가기',
-                'id': 'accordion__content2-1',
-                'header': 'accordion__header2-1'
-            }, {
-                'name': 'Accordion',
-                'url': './accordion.html',
-                'alt': '아코디언 바로가기',
-                'id': 'accordion__content2-2',
-                'header': 'accordion__header2-2'
-            }, {
-                'name': 'Title',
-                'url': './title.html',
-                'alt': '타이틀 바로가기',
-                'id': 'accordion__content2-3',
-                'header': 'accordion__header2-3'
-            }, {
-                'name': 'Tooltip',
-                'url': './tooltip.html',
-                'alt': '툴팁 바로가기',
-                'id': 'accordion__content2-4',
-                'header': 'accordion__header2-4'
-            }, {
-                'name': 'Dialog',
-                'url': './dialog.html',
-                'alt': '팝업 바로가기',
-                'id': 'accordion__content2-5',
-                'header': 'accordion__header2-5'
-            }, {
-                'name': 'Spinner',
-                'url': './spinner.html',
-                'alt': '로딩스피너 바로가기',
-                'id': 'accordion__content2-6',
-                'header': 'accordion__header2-6'
-            }, {
-                'name': 'Swiper',
-                'url': './swiper.html',
-                'alt': '스와이퍼 바로가기',
-                'id': 'accordion__content2-7',
-                'header': 'accordion__header2-7'
-            }, {
-                'name': 'Dropdown',
-                'url': './dropdown.html',
-                'alt': '드롭다운 바로가기',
-                'id': 'accordion__content2-8',
-                'header': 'accordion__header2-8'
-            }
-        ]
-    }, {
-        'id': 'accordion__content3',
-        'header': 'accordion__header3',
-        'name': 'Elements',
-        'children': [
-            {
-                'name': 'Button',
-                'url': './button.html',
-                'alt': '버튼 바로가기',
-                'id': 'accordion__content3-1',
-                'header': 'accordion__header3-1'
-            }, {
-                'name': 'Text',
-                'url': './text.html',
-                'alt': '텍스트 바로가기',
-                'id': 'accordion__content3-2',
-                'header': 'accordion__header3-2'
-            }, {
-                'name': 'Form',
-                'url': './form.html',
-                'alt': '폼 바로가기',
-                'id': 'accordion__content3-3',
-                'header': 'accordion__header3-3'
-            }, {
-                'name': 'Input',
-                'url': './input.html',
-                'alt': '인풋 바로가기',
-                'id': 'accordion__content3-4',
-                'header': 'accordion__header3-4'
-            }, {
-                'name': 'Radio',
-                'url': './radio.html',
-                'alt': '라디오 바로가기',
-                'id': 'accordion__content3-5',
-                'header': 'accordion__header3-5'
-            }, {
-                'name': 'Checkbox',
-                'url': './checkbox.html',
-                'alt': '체크박스 바로가기',
-                'id': 'accordion__content3-6',
-                'header': 'accordion__header3-6'
-            }, {
-                'name': 'TextArea',
-                'url': './textarea.html',
-                'alt': '텍스트아레아 바로가기',
-                'id': 'accordion__content3-7',
-                'header': 'accordion__header3-7'
-            }, {
-                'name': 'Icon',
-                'url': './icon.html',
-                'alt': '아이콘 바로가기',
-                'id': 'accordion__content3-8',
-                'header': 'accordion__header3-8'
-            }, {
-                'name': 'Grid',
-                'url': './grid.html',
-                'alt': '체크박스 바로가기',
-                'id': 'accordion__content3-9',
-                'header': 'accordion__header3-9'
-            }, {
-                'name': 'Box',
-                'url': './box.html',
-                'alt': '박스 바로가기',
-                'id': 'accordion__content3-10',
-                'header': 'accordion__header3-10'
-            }
-        ]
-    }
-] %}
+{% set navigation = [{ id: 'accordion__content0', header: 'accordion__header0', name: '화면목록', url: 'list.html' }, { id: 'accordion__content-c', header: 'accordion__header-c', name: 'Common-Script', url: 'common-script.html' }, { id: 'accordion__content1', header: 'accordion__header1', name: 'Layout', children: [{ name: 'Header', url: 'header.html', alt: '헤더 바로가기', id: 'accordion__content1-1', header: 'accordion__header1-1' }, { name: 'Floating-Menu', url: 'floating-menu.html', alt: '플로팅메뉴 바로가기', id: 'accordion__content1-2', header: 'accordion__header1-2' }] }, { id: 'accordion__content2', header: 'accordion__header2', name: 'Components', children: [{ name: 'Tabs', url: './tabs.html', alt: '탭 바로가기', id: 'accordion__content2-1', header: 'accordion__header2-1' }, { name: 'Accordion', url: './accordion.html', alt: '아코디언 바로가기', id: 'accordion__content2-2', header: 'accordion__header2-2' }, { name: 'Title', url: './title.html', alt: '타이틀 바로가기', id: 'accordion__content2-3', header: 'accordion__header2-3' }, { name: 'Tooltip', url: './tooltip.html', alt: '툴팁 바로가기', id: 'accordion__content2-4', header: 'accordion__header2-4' }, { name: 'Dialog', url: './dialog.html', alt: '팝업 바로가기', id: 'accordion__content2-5', header: 'accordion__header2-5' }, { name: 'Spinner', url: './spinner.html', alt: '로딩스피너 바로가기', id: 'accordion__content2-6', header: 'accordion__header2-6' }, { name: 'Swiper', url: './swiper.html', alt: '스와이퍼 바로가기', id: 'accordion__content2-7', header: 'accordion__header2-7' }, { name: 'Dropdown', url: './dropdown.html', alt: '드롭다운 바로가기', id: 'accordion__content2-8', header: 'accordion__header2-8' }, { name: 'List', url: './textlist.html', alt: '리스트 바로가기', id: 'accordion__content2-9', header: 'accordion__header2-9' }, { name: 'Expresstion', url: './expresstion.html', alt: '익스페레션 바로가기', id: 'accordion__content2-10', header: 'accordion__header2-10' }] }, { id: 'accordion__content3', header: 'accordion__header3', name: 'Elements', children: [{ name: 'Button', url: './button.html', alt: '버튼 바로가기', id: 'accordion__content3-1', header: 'accordion__header3-1' }, { name: 'Text', url: './text.html', alt: '텍스트 바로가기', id: 'accordion__content3-2', header: 'accordion__header3-2' }, { name: 'Form', url: './form.html', alt: '폼 바로가기', id: 'accordion__content3-3', header: 'accordion__header3-3' }, { name: 'Input', url: './input.html', alt: '인풋 바로가기', id: 'accordion__content3-4', header: 'accordion__header3-4' }, { name: 'Radio', url: './radio.html', alt: '라디오 바로가기', id: 'accordion__content3-5', header: 'accordion__header3-5' }, { name: 'Checkbox', url: './checkbox.html', alt: '체크박스 바로가기', id: 'accordion__content3-6', header: 'accordion__header3-6' }, { name: 'TextArea', url: './textarea.html', alt: '텍스트아레아 바로가기', id: 'accordion__content3-7', header: 'accordion__header3-7' }, { name: 'Icon', url: './icon.html', alt: '아이콘 바로가기', id: 'accordion__content3-8', header: 'accordion__header3-8' }, { name: 'Grid', url: './grid.html', alt: '체크박스 바로가기', id: 'accordion__content3-9', header: 'accordion__header3-9' }, { name: 'Box', url: './box.html', alt: '박스 바로가기', id: 'accordion__content3-10', header: 'accordion__header3-10' }] }] %}
 
 <div class="guide__menu">
-    <nav class="guide__menu__nav">
-        <div class="accordion" data-ui-accordion data-accordion-onlyone="true">
-            <div class="accordion__box">
-                {% for item in navigation %}
-                    <div class="accordion__item">
-                        {% if item.children %}
-                            <div class="accordion__head">
-                                <button class="accordion__button" id="{{item.header}}" type="button" aria-expanded="false" aria-controls="{{item.id}}" aria-label="버튼"></button>
-                                <strong>{{item.name}}</strong>
-                            </div>
-                            <div class="accordion__panel expand" id="{{item.id}}" aria-labelledby="{{item.header}}">
-                                {% for child in item.children %}
-                                    <a class="text-link" target="content" href="{{child.url}}" alt="{{child.alt}}">{{child.name}}</a>
-                                {% endfor %}
-                            </div>
-                        {% else %}
-                            <div class="accordion__head">
-                                <a class="text-link" target="content" href="{{item.url}}" alt="{{item.alt}}">{{item.name}}</a>
-                            </div>
-                        {% endif %}
-                    </div>
+  <nav class="guide__menu__nav">
+    <div class="accordion" data-ui-accordion data-accordion-onlyone="true">
+      <div class="accordion__box">
+        {% for item in navigation %}
+          <div class="accordion__item">
+            {% if item.children %}
+              <div class="accordion__head">
+                <button class="accordion__button" id="{{ item.header }}" type="button" aria-expanded="false" aria-controls="{{ item.id }}" aria-label="버튼"></button>
+                <strong>{{ item.name }}</strong>
+              </div>
+              <div class="accordion__panel expand" id="{{ item.id }}" aria-labelledby="{{ item.header }}">
+                {% for child in item.children %}
+                  <a class="text-link" target="content" href="{{ child.url }}" alt="{{ child.alt }}">{{ child.name }}</a>
                 {% endfor %}
-            </div>
-        </div>
-    </nav>
+              </div>
+            {% else %}
+              <div class="accordion__head">
+                <a class="text-link" target="content" href="{{ item.url }}" alt="{{ item.alt }}">{{ item.name }}</a>
+              </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </nav>
 </div>

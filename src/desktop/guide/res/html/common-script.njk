@@ -1,56 +1,52 @@
-{% extends "../templates/layout.njk" %}
+{% extends '../templates/layout.njk' %}
 {% block content %}
-  <div class="guide-wrap">
-    <h2 class="ex-name">Common-Script</h2>
-    <div class="ex-content">
-      <div class="ex-title" style="border-bottom:0;">
-        <h3>컴포넌트는 아니지만 공통기능으로 정의된 기능들입니다.</h3>
-        <p class="ex-desc">
-        페이지 로드 시 기본적으로 한번 실행됩니다.<br/>
-        비동기 통신을 통하여 나중에 화면에 추가되는 엘리먼트에 아래 정의된 공통기능을 적용하기 위해서는<br/>
-        UXW.initialize(); 함수를 직접 호출하면 됩니다.
-        </p>
-      </div>
-    </div>
-    <div class="ex-content">
-      <div class="ex-title">
-        <h3>navigation()</h3>
-        <p class="ex-desc">
-          navigation의 click시 label이 오픈 되며, 오픈된 상태에서 다른 navigation클릭시 전환됩니다.
-          <br/> * data-navigation-defaultactive=[number]를 사용해 처음 로드했을때 open될 modal--layer을 지정할 수 있습니다.
-          <br/> * modal--layer[id] => aria-controls=[id] 맵핑
-        </p>
-      </div>
+	<div class="guide-wrap">
+		<h2 class="ex-name">Common-Script</h2>
+		<div class="ex-content">
+			<div class="ex-title" style="border-bottom:0;">
+				<h3>컴포넌트는 아니지만 공통기능으로 정의된 기능들입니다.</h3>
+				<p class="ex-desc">
+					페이지 로드 시 기본적으로 한번 실행됩니다.<br/>
+					비동기 통신을 통하여 나중에 화면에 추가되는 엘리먼트에 아래 정의된 공통기능을 적용하기 위해서는<br/>
+					UXW.initialize(); 함수를 직접 호출하면 됩니다.
+				</p>
+			</div>
+		</div>
+		<div class="ex-content">
+			<div class="ex-title">
+				<h3>navigation()</h3>
+				<p class="ex-desc">
+					navigation의 click시 label이 오픈 되며, 오픈된 상태에서 다른 navigation클릭시 전환됩니다.
+					<br/>
+					* data-navigation-defaultactive=[number]를 사용해 처음 로드했을때 open될 modal--layer을 지정할 수 있습니다.
+					<br/>
+					* modal--layer[id] => aria-controls=[id] 맵핑
+				</p>
+			</div>
 
-      <div class="ex-body">
-        <div class="ex-preview">
-          <div class="html-view">
-            <pre>
+			<div class="ex-body">
+				<div class="ex-preview">
+					<div class="html-view">
+						<pre>
               <code class="ex-code-block render-html">
                 <div id="floating" class="floating-menu-wrap">
                   <nav class="nav" role="navigation">
                     <ul class="nav__box" aria-expanded="false" data-navigation-defaultactive="1">
                       <li class="nav__list">
                         <div class="nav__item">
-                          <button type="button" class="ic-button-nav" aria-label="검색" aria-controls="layerModal1">
-                            <i class="ic ic-search" aria-hidden="true"></i>
-                          </button>
+                          <button type="button" class="ic-button-nav" aria-label="검색" aria-controls="layerModal1"><i class="ic ic-search" aria-hidden="true"></i></button>
                           <a class="text" href="#none" alt="검색 바로가기">검색</a>
                         </div>
                       </li>
                       <li class="nav__list">
                         <div class="nav__item">
-                          <button type="button" class="ic-button-nav" aria-label="가이드" aria-controls="layerModal2">
-                            <i class="ic ic-guidebook" aria-hidden="true"></i>
-                          </button>
+                          <button type="button" class="ic-button-nav" aria-label="가이드" aria-controls="layerModal2"><i class="ic ic-guidebook" aria-hidden="true"></i></button>
                           <a class="text" href="#none" alt="가이드">가이드</a>
                         </div>
                       </li>
                       <li class="nav__list">
                         <div class="nav__item">
-                          <button type="button" class="ic-button-nav" aria-label="교정된 콘텐츠" aria-controls="layerModal3">
-                            <i class="ic ic-edition" aria-hidden="true"></i>
-                          </button>
+                          <button type="button" class="ic-button-nav" aria-label="교정된 콘텐츠" aria-controls="layerModal3"><i class="ic ic-edition" aria-hidden="true"></i></button>
                           <a class="text" href="#none" alt="교정된 콘텐츠">교정된 콘텐츠</a>
                         </div>
                       </li>
@@ -59,12 +55,12 @@
                 </div>
               </code>
             </pre>
-          </div>
+					</div>
 
-          <div class="js-view">
-            <pre>
+					<div class="js-view">
+						<pre>
               <code class="language-javascript">
-                const navigation = (UI, options) => {
+              const navigation = (UI, options) => {
                   const ARIA_EXPANDED = 'aria-expanded';
                   const ARIA_CONTROLS = 'aria-controls';
                   const DEFAULT_ACTIVE = 'data-navigation-defaultActive';
@@ -134,12 +130,12 @@
                     modals.forEach(m => {
                       if (m.id === config.target[config.active]?.getAttribute(`${ARIA_CONTROLS}`)) {
                         config.target[config.active].classList.add('is-active');
-                        modals[0].classList.add('is-active');
+                        modals[0].classList.add('is-active2');
                         modals[0].setAttribute(`${LAYER_OPEND}`, 'true');
-                        createHtml.classList.add('fadeIn');
+                        // createHtml.classList.add('fadeIn');
                         document.body.appendChild(createHtml);
                         _aria();
-                      } 
+                      }
                     });
                   };
 
@@ -157,27 +153,27 @@
 
                   _init();
                 };
+
               </code>
             </pre>
-          </div>
-        </div>
-      </div>
-    </div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-    <div class="ex-content">
-      <div class="ex-title">
-        <h3>modalLayer()</h3>
-        <p class="ex-desc">
-          navigation의 click시 오픈될 modalLayer입니다.
-        </p>
-      </div>
+		<div class="ex-content">
+			<div class="ex-title">
+				<h3>modalLayer()</h3>
+				<p class="ex-desc">navigation의 click시 오픈될 modalLayer입니다.</p>
+			</div>
 
-      <div class="ex-body">
-        <div class="ex-preview">
-          <div class="js-view">
-            <pre>
+			<div class="ex-body">
+				<div class="ex-preview">
+					<div class="js-view">
+						<pre>
               <code class="language-javascript">
                 const modalLayer = UI => {
+                  let dimmer = false;
                   const elements = document.querySelectorAll(UI);
                   const navEl = getObjectElements(elements);
                   const tooltipBox = document.querySelector('.tooltip__box');
@@ -241,7 +237,8 @@
                   };
 
                   const _zIndexOrderIncrease = layerModal => {
-                    layerModal.style.zIndex = ZINDEX.CONTENT += ZINDEX.INCREASE;
+                    layerModal.style.zIndex = ZINDEX.CONTENT;
+                    navEl[0].style.zIndex = ZINDEX.CONTENT + 1;
                   };
 
                   const layerClick = event => {
@@ -273,7 +270,7 @@
                       if (modal === layerModal) {
                         _zIndexOrderIncrease(layerModal);
                       } else {
-                        modal.classList.add('is-deactive');
+                        // modal.classList.add('is-deactive');
                         modal.classList.remove('is-active');
                         modal.setAttribute(`${LAYER_OPEND}`, 'false');
                         EventHandler.one(modal, 'animationend', () => {
@@ -284,8 +281,11 @@
                     });
 
                     if (layerModal.getAttribute(`${LAYER_OPEND}`) === 'false') {
-                      createHtml.classList.add('fadeIn');
-                      document.body.appendChild(createHtml);
+                      // createHtml.classList.add('fadeIn');
+                      if (!dimmer) {
+                        document.body.appendChild(createHtml);
+                        dimmer = true;
+                      }
                       layerModal.classList.add('is-active');
                       layerModal.setAttribute(`${LAYER_OPEND}`, 'true');
 
@@ -298,15 +298,17 @@
                   const _hide = target => {
                     const modal = target.closest('.modal');
                     if (modal.getAttribute(`${LAYER_OPEND}`) === 'true') {
-                      createHtml.classList.remove('fadeOut');
+                      // createHtml.classList.remove('fadeOut');
                       document.body.removeChild(createHtml);
-                      modal.classList.add('is-deactive');
+                      modal.classList.remove('is-active2');
+                      modal.classList.remove('is-active');
                       modal.setAttribute(`${LAYER_OPEND}`, 'false');
+                      dimmer = false;
 
-                      EventHandler.one(modal, 'animationend', () => {
-                        modal.classList.remove('is-active');
-                        modal.classList.remove('is-deactive');
-                      });
+                      // EventHandler.one(modal, 'animationend', () => {
+                      //   modal.classList.remove('is-active2');
+                      //   modal.classList.remove('is-deactive2');
+                      // });
                     }
                     _allClose();
                   };
@@ -329,23 +331,21 @@
                 };
               </code>
             </pre>
-          </div>
-        </div>
-      </div>
-    </div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-    <div class="ex-content">
-      <div class="ex-title">
-        <h3>cardRefresh()</h3>
-        <p class="ex-desc">
-          Accordion + dropdown 형태의 카드리스트에서 접힌상태의 카드에서 reflash 버튼 클릭시 사용됩니다.
-        </p>
-      </div>
+		<div class="ex-content">
+			<div class="ex-title">
+				<h3>cardRefresh()</h3>
+				<p class="ex-desc">Accordion + dropdown 형태의 카드리스트에서 접힌상태의 카드에서 reflash 버튼 클릭시 사용됩니다.</p>
+			</div>
 
-      <div class="ex-body">
-        <div class="ex-preview">
-          <div class="js-view">
-            <pre>
+			<div class="ex-body">
+				<div class="ex-preview">
+					<div class="js-view">
+						<pre>
               <code class="language-javascript">
                 const cardRefresh = () => {
                   const card = 'data-card';
@@ -376,25 +376,25 @@
                 };
               </code>
             </pre>
-          </div>
-        </div>
-      </div>
-    </div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-    <div class="ex-content">
-      <div class="ex-title">
-        <h3>autoScrollContent()</h3>
-        <p class="ex-desc">
-          컨텐츠 로드시 현재페이지내에서 탭과 사이드 영역이 없을시 body영역에 is-beside 클래스가 붙습니다.
-          <br/>* 사이드와 탭이 없을경우에 body영역 스크롤을 사용하기위함 
-          <br/>이외 화면은 탭내부 or 사이드내부 영역에 스크롤을 사용
-        </p>
-      </div>
+		<div class="ex-content">
+			<div class="ex-title">
+				<h3>autoScrollContent()</h3>
+				<p class="ex-desc">
+					컨텐츠 로드시 현재페이지내에서 탭과 사이드 영역이 없을시 body영역에 is-beside 클래스가 붙습니다.
+					<br/>* 사이드와 탭이 없을경우에 body영역 스크롤을 사용하기위함
+					<br/>이외 화면은 탭내부 or 사이드내부 영역에 스크롤을 사용
+				</p>
+			</div>
 
-      <div class="ex-body">
-        <div class="ex-preview">
-          <div class="js-view">
-            <pre>
+			<div class="ex-body">
+				<div class="ex-preview">
+					<div class="js-view">
+						<pre>
               <code class="language-javascript">
                 const autoScrollContent = () => {
                   const lyContainer = document.querySelector('.ly-container');
@@ -419,9 +419,113 @@
                 };
               </code>
             </pre>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="ex-content">
+			<div class="ex-title">
+				<h3>achorScroll()</h3>
+				<p class="ex-desc">
+					가이드페이지 내부 네비 앵커입니다.
+				</p>
+				<div class="ex-body">
+					<div class="ex-preview">
+						<div class="js-view">
+							<pre>
+              <code class="language-javascript">
+                const achorScroll = () => {
+                  const DATA_TOGGLE = 'data-toggle-section';
+                  const ARIA_PRESSED = 'aria-pressed';
+                  const toggleAll = document.querySelectorAll('[' + DATA_TOGGLE + ']');
+                  const arr = [];
+
+                  const removeNavi = function (childTarget) {
+                    childTarget.forEach(_child => {
+                      _child.classList.remove('is-active');
+                    });
+                  };
+
+                  const sectionShow = function (event) {
+                    event.preventDefault();
+                    const target = event.target;
+                    const sector = target.getAttribute(DATA_TOGGLE);
+                    const childTarget = target.closest('.accordion__item').querySelectorAll('.accordion__panel a');
+
+                    const beforeParent = target.closest('.tab__inner').querySelectorAll('[' + DATA_TOGGLE + ']');
+                    const getID = [].map.call(beforeParent, function (x) {
+                      return x.getAttribute(DATA_TOGGLE);
+                    });
+
+                    const uniqueArr = [].filter.call(getID, function (element, index) {
+                      return getID.indexOf(element) === index;
+                    });
+
+                    [].forEach.call(uniqueArr, function (g) {
+                      const x = document.querySelectorAll(g);
+                      x[0].classList.remove('is-active');
+                    });
+
+                    const _href = target.getAttribute('href');
+                    let _toHref = document.querySelector(_href);
+
+                    if (target) {
+                      removeNavi(childTarget);
+                      Object.keys(modalInnerScroll).forEach(index => {
+                        setTimeout(function () {
+                          modalInnerScroll[index].scrollIntoView(_toHref);
+                        }, 1);
+
+                        if (target.getAttribute(ARIA_PRESSED)) {
+                          modalInnerScroll[index].scrollTo(0, 0);
+                        }
+                      });
+
+                      const getSector = document.querySelector(sector);
+                      getSector.classList.add('is-active');
+                    }
+                  };
+
+                  if (toggleAll.length > 0) {
+                    [].map.call(toggleAll, function (item) {
+                      item.addEventListener('click', sectionShow);
+                      arr.push(item);
+                    });
+                  }
+
+                  window.achorItems = {
+                    selector: {
+                      ...arr,
+                    },
+                  };
+                };
+              </code>
+            </pre>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="ex-content">
+			<div class="ex-title">
+				<h3>modalScrollContent()</h3>
+				<p class="ex-desc">
+					UXW 모달내부 탭에서 내부 스크롤이 있을경우 작동됩니다.
+				</p>
+
+			</div>
+		</div>
+
+		<div class="ex-content">
+			<div class="ex-title">
+				<h3>defaultScroll()</h3>
+				<p class="ex-desc">
+					UXW 탭에서 내부 스크롤이 있을경우 작동됩니다.
+					<br/>* tab--scroll 클래스가 붙은 elements만 작동됨
+				</p>
+			</div>
+		</div>
+	</div>
 {% endblock %}

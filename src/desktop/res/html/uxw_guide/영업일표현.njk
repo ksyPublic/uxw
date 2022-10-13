@@ -1,0 +1,256 @@
+{% set title = '신한 UX라이팅 시스템 | 영업일표현' %}
+{% extends '../templates/uxw_guide_layout.njk' %}
+{% block guide %}
+	<!-- 여기서 부터 복사해서 사용하세요 -->
+	<section class="guide-content" id="Business_DayEx">
+		<div class="guide-card-wrap">
+			<div class="guide-card">
+				<div class="guide-card__head">
+					<h3>영업일 표현</h3>
+					<div class="divider" aria-hidden="true"></div>
+				</div>
+				<div class="guide-card__content">
+					<div class="list">
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">은행 영업일을 지칭하는 표현은 ‘영업일’로 통일해 사용합니다. 단, 이용시간 안내는 고객 관점의 ‘평일’ 표현을 우선해 사용합니다.</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">영업일이 아닌 날의 표현은 토/일/공휴일이라고 씁니다.</p>
+						</div>
+						<div class="list__item">
+							<p class="authorship">* 일요일은 공휴일에 포함되어 토요일/공휴일이 원칙 표기이나, 사용자 편의를 고려해 일요일도 표기합니다.</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">단, 기본형 표현을 사용하기 어려운 상황에 한해 ‘다음 영업일’ 등으로 표기하는 것을 허용합니다.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="table-row fixed">
+			<table class="table left">
+				<colgroup>
+					<col style="width:240px"/>
+					<col style="width:*"/>
+					<col style="width:*"/>
+				</colgroup>
+				<thead>
+					<tr>
+						<th aria-hidden="true"></th>
+						<th>
+							<span>이렇게 쓰지 마세요<i class="ic ic-x--type2" aria-hidden="true"></i>
+							</span>
+						</th>
+						<th>
+							이렇게 쓰세요<i class="ic ic-o--type2" aria-hidden="true"></i>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="center">용어만 표기 시</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										은행 영업일 / 은행영업일
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										전 영업일
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										익영업일
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										익익영업일
+									</p>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										영업일
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										전날(영업일 기준), 직전 영업일(* 대안 표현)
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										다음날(영업일 기준), 다음 영업일(* 대안 표현)
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										다다음날(영업일 기준), 다다음 영업일(* 대안 표현)
+									</p>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="center">숫자와 함께 표기 시</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										7영업일 후에
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										이체일 전 1영업일까지
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										신청 현재일+1영업일
+									</p>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										7일(영업일 기준) 후에, 7영업일 후(* 대안 표현)
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										이체일 전날(영업일 기준)까지
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										신청일 다음날(영업일 기준)
+									</p>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="center">이용시간 안내 시</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										평일(공휴일 제외) 09:00~16:00
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										평일/토요일/휴일 00:30~23:30
+									</p>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										평일 09:00~16:00(토/일/공휴일 제외)
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										매일 00:30~23:30(공휴일 포함)
+									</p>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="center">영업일 아닌 날 표기</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										은행휴무일, 휴일, 토요일/일요일/공휴일
+									</p>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										토/일/공휴일
+									</p>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="table-row fixed">
+			<table class="table left">
+				<colgroup>
+					<col style="width:*"/>
+					<col style="width:*"/>
+				</colgroup>
+				<thead>
+					<tr>
+						<th>
+							<span>이렇게 쓰지 마세요<i class="ic ic-x--type2" aria-hidden="true"></i>
+							</span>
+						</th>
+						<th>
+							이렇게 쓰세요<i class="ic ic-o--type2" aria-hidden="true"></i>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							이체일이 휴일인 경우
+							<span class="red">익 영업일</span>에 이체 업무가 처리 됩니다.
+						</td>
+						<td>
+							이체일이 토/일/공휴일이면
+							<span class="blue">다음날(영업일 기준)</span>
+							이체됩니다.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							자동이체 신청내용을 변경 또는 취소하고자 하실 때는 이체일
+							<span class="red">전 1영업일</span>까지 가능합니다.
+						</td>
+						<td>
+							자동이체 신청변경 또는 해지는 자동이체일
+							<span class="blue">전날(영업일 기준)</span>까지 가능합니다.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							전액해지예약 신청 시 신청일 포함
+							<span class="red">4영업일</span>
+							이후 지정하신 입출금계좌로 입금됩니다
+						</td>
+						<td>
+							전액해지예약을 신청하면 신청일 포함
+							<span class="blue">4일(영업일 기준) 후</span>
+							지정한 입출금계좌에 입금됩니다.
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+	<!-- //여기서 부터 복사해서 사용하세요 -->
+{% endblock %}
+{% block scripts %}{% endblock %}

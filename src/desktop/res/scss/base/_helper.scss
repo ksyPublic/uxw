@@ -40,6 +40,10 @@
   display: block !important;
 }
 
+.lh32 {
+  line-height: 32px !important;
+}
+
 .mgb6 {
   margin-bottom: 6px;
 }
@@ -83,7 +87,7 @@
 }
 
 .mxw-792 {
-  max-width:792px!important;
+  max-width: 792px !important;
 }
 
 .show {
@@ -110,6 +114,14 @@
   height: 550px !important;
 }
 
+.mgl4 {
+  margin-left: 4px;
+}
+
+.mgr4 {
+  margin-right: 4px;
+}
+
 .ellipsis {
   text-overflow: ellipsis;
   overflow: hidden;
@@ -134,11 +146,15 @@
 }
 
 .highlight {
-  color: #21ff7a;
+  color: color(util, 1) !important;
+}
+
+.highlight3 {
+  color: color(util, 3) !important;
 }
 
 .highlight--type2 {
-  background-color:rgba(4, 113, 233, 0.2);
+  background-color: rgba(4, 113, 233, 0.2);
 }
 
 @for $i from 1 through 200 {

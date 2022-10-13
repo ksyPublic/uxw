@@ -1,0 +1,271 @@
+{% set title = '신한 UX라이팅 시스템 | 오류메시지' %}
+{% extends '../templates/uxw_guide_layout.njk' %}
+{% block guide %}
+	<!-- 여기서 부터 복사해서 사용하세요 -->
+	<section class="guide-content" id="Negative_Ex">
+		<div class="guide-card-wrap">
+			<div class="guide-card">
+				<div class="guide-card__head">
+					<h3>오류메시지</h3>
+					<div class="divider" aria-hidden="true"></div>
+				</div>
+				<div class="guide-card__content">
+					<div class="list">
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">사용자가 서비스 이용 중 만나게 되는 오류메시지는 반드시 고객관점의 언어로 표현해야 합니다.</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">고객이 이해할 수 없는 시스템 언어나 개발자 관점의 어려운 표현 대신 고객에게 익숙한 표현으로 설명합니다.</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">다음은 신한 쏠(SOL) 고객이 자주 보는 오류메시지입니다. 오류메시지 작성 시 참고해주세요.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="table-row fixed">
+			<table class="table left">
+				<colgroup>
+					<col style="width:50%"/>
+					<col style="width:50%"/>
+				</colgroup>
+				<thead>
+					<tr>
+						<th>
+							<span>이렇게 쓰지 마세요<i class="ic ic-x--type2" aria-hidden="true"></i>
+							</span>
+						</th>
+						<th>
+							이렇게 쓰세요<i class="ic ic-o--type2" aria-hidden="true"></i>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							계좌 비밀번호 n회
+							<span class="red">오류입니다</span>.<br/>
+							계좌 비밀번호 5회
+							<span class="red">오류 시 거래가 제한되며</span>, 비밀번호 재등록 후
+							<span class="red">거래가 가능</span>합니다.
+						</td>
+						<td>
+							계좌비밀번호를
+							<span class="blue">잘못 입력</span>했습니다.(n/5)<br/>
+							5회
+							<span class="blue">잘못 입력</span>
+							시 비밀번호를
+							<span class="blue">재등록해야 합니다.</span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							고객님께서
+							<span class="red">요청하신 거래</span>는 이용시간이
+							<span class="red">제한되어 있는 거래</span>입니다. 이용시간을 확인하시고
+							<span class="red">거래하여</span>
+							주시기 바랍니다.
+							<span class="red">본 서비스</span>의 평일 이용가능시간은
+							<span class="red">hh시mm분부터 hh시mm분까지</span>
+							입니다.
+						</td>
+						<td>
+							서비스
+							<span class="blue">이용시간을 확인해주세요</span>. 이용시간: 평일
+							<span class="blue">hh:mm~hh:mm</span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							보안카드 암호
+							<span class="red">오류횟수</span>가
+							<span class="red">n회 입니다</span>.<br/>
+							보안카드 암호 5회
+							<span class="red">오류시</span>
+							서비스 이용이 중단되며,
+							<span class="red">영업점에 방문하셔야</span>
+							합니다.
+						</td>
+						<td>
+							보안카드 비밀번호를
+							<span class="blue">잘못 입력</span>했습니다.(n/5) 5회
+							<span class="blue">잘못 입력</span>
+							시 이용이 중단됩니다.<br/>
+							<span class="blue">가까운 영업점에서</span>
+							비밀번호를 변경해주세요.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							해당 계좌번호는
+							<span class="red">정당한 계좌번호</span>가 아닙니다.<br/>
+							<span class="red">타행계좌체크모듈(meta_ac_check) 오류</span>
+							[해당 계좌번호는
+							<span class="red">정당한 계좌번호</span>가 아닙니다.]
+							<span class="red">입력하신</span>
+							계좌번호를 확인해주세요.
+						</td>
+						<td>
+							<span class="blue">이용할 수 없는 계좌번호</span>입니다. 계좌번호를 다시 입력해주세요.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							비밀번호/<span class="red">거래검증키</span>가 일치하지 않습니다.
+						</td>
+						<td>
+							<span class="blue">비밀번호</span>가 일치하지 않습니다. 다시 한번 확인해주세요.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							수취인 계좌가
+							<span class="red">조회되지</span>
+							않습니다. 해당은행에 문의<span class="red">하시기 바랍니다</span>.
+						</td>
+						<td>
+							받는분 계좌를
+							<span class="blue">조회할 수</span>
+							없습니다. 해당 은행에 문의<span class="blue">해주세요</span>.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							보안카드
+							<span class="red">암호 오류횟수</span>가 5회 입니다.<br/>
+							신분증을
+							<span class="red">지참하시고</span>
+							가까운 영업점을 방문<span class="red">하여 주시기 바랍니다</span>.
+						</td>
+						<td>
+							보안카드 비밀번호를 5회
+							<span class="blue">잘못 입력</span>했습니다.<br/>
+							신분증을
+							<span class="blue">가지고</span>
+							가까운 영업점에서 비밀번호를 변경<span class="blue">해주세요</span>.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							비대면 실명 확인이
+							<span class="red">불가합니다</span>.<br/>
+							출금계좌번호, 거래금액 등 확인 후
+							<span class="red">거래해주세요</span>.
+						</td>
+						<td>
+							비대면 실명인증을
+							<span class="blue">할 수 없습니다</span>.<br/>
+							출금계좌번호와 거래금액을
+							<span class="blue">확인해주세요</span>.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span class="red">입력하신</span>
+							계좌번호에 자동이체 등록내역이 없습니다.<br/>
+							<span class="red">입력하신</span>
+							계좌번호에 대한
+							<span class="red">C/C 처리원장</span>에 내역이
+							<span class="red">존재하지 않습니다</span>.
+						</td>
+						<td>
+							<span class="blue">등록된 자동이체</span>가
+							<span class="blue">없습니다</span>.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							계좌번호를 확인해주세요.<br/>
+							<span class="red">은행구분이 1일 경우</span>
+							계좌번호는 12자리인지 확인하세요.<br/>
+							<span class="red">유동성 계좌정보 연동서비스[melbsddacinf -> ssdd0040a] 호출 오류</span>
+						</td>
+						<td>
+							계좌번호를
+							<span class="blue">정확히 입력해주세요</span>.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							비밀번호가
+							<span class="red">전화번호 연속숫자</span>로 입력되었습니다.
+							<br/>
+							<span class="red">비밀번호는 전화번호와</span>
+							다르게 입력해주세요.
+						</td>
+						<td>
+							<span class="blue">휴대폰번호</span>는 비밀번호로 사용할 수 없습니다.<br/>
+							<span class="blue">비밀번호</span>를 다시 입력해주세요.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span class="red">업무프로그램 수행 중 조작 오류</span>가 발생하였습니다.<br/>
+							<span class="red">부가 또는 추가 오류정보, 자세히 보기등을 통한 에러정보</span>를 확인하시기 바랍니다.
+						</td>
+						<td>
+							<span class="blue">진행 중 오류</span>가 발생했습니다.<br/>
+							<span class="blue">잠시 후 다시 시도</span>해주세요.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							납부세액
+							<span class="red">불일치</span>합니다.
+						</td>
+						<td>
+							납부세액이
+							<span class="blue">일치하지 않습니다</span>.<br/>
+							다시 한번 확인해주세요.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							계좌번호가
+							<span class="red">존재하지 않습니다</span>. 계좌번호를
+							<span class="red">확인후</span>
+							거래하여 주시기 바랍니다.<br/>
+							해당 계좌번호가
+							<span class="red">존재하지 않습니다</span>.
+						</td>
+						<td>
+							<span class="blue">없는 계좌번호</span>입니다.<br/>
+							계좌번호를 다시 확인해주세요.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							해당 가상계좌는 수납이
+							<span class="red">불가능한</span>상태입니다.<br/>
+							가상계좌를
+							<span class="red">부여받은</span>
+							기관에 문의<span class="red">하시기 바랍니다</span>.
+						</td>
+						<td>
+							<span class="blue">이용할 수 없는</span>
+							가상계좌입니다.<br/>
+							가상계좌번호를
+							<span class="blue">받은</span>
+							은행에
+							<span class="blue">문의해주세요</span>.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span class="red">개설은행(상대은행) 업무가 종료</span>되었습니다. 해당은행에 문의하세요
+						</td>
+						<td>
+							지금은
+							<span class="blue">서비스 이용시간이 아닙니다</span>.<br/>
+							이용시간 확인 후 다시 이용해주세요.
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+	<!-- //여기서 부터 복사해서 사용하세요 -->
+{% endblock %}
+{% block scripts %}{% endblock %}

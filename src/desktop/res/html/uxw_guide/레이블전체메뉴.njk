@@ -1,0 +1,65 @@
+{% set title = '신한 UX라이팅 시스템 | 레이블(전체메뉴)' %}
+{% extends '../templates/uxw_guide_layout.njk' %}
+{% block guide %}
+	<!-- 여기서 부터 복사해서 사용하세요 -->
+	<section class="guide-content" id="LabelAll">
+		<div class="guide-card-wrap">
+			<div class="guide-card">
+				<div class="guide-card__head">
+					<h3>레이블(전체메뉴)</h3>
+					<div class="divider" aria-hidden="true"></div>
+					<p class="guide-card__sub">'전체 메뉴’를 구성하는 상위 및 하위 메뉴의 이름은 다음을 기준으로 씁니다.</p>
+				</div>
+
+				<div class="guide-card__content">
+					<hrgroup class="guide-sub-title">공통</hrgroup>
+					<div class="list">
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">
+								<span class="bold mgr4">명사형으로 간결하게</span>
+								씁니다.
+							</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">2개 이상의 유형/기능을 포함할 경우 빗금(/)을 사용합니다.
+							</p>
+						</div>
+					</div>
+
+					<hrgroup class="guide-sub-title">상위메뉴</hrgroup>
+					<div class="list">
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">포함한 메뉴들을 대표할 수 있는 표현으로 씁니다.
+							</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">되도록
+								<span class="red bold">5글자 이내(빗금 제외 기준)</span>로 띄어쓰기 없이 씁니다.
+							</p>
+						</div>
+					</div>
+
+					<hrgroup class="guide-sub-title">하위메뉴</hrgroup>
+					<div class="list">
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">상품/서비스의 이름 또는 이체, 조회, 납부 등 고객 행동을 대표하는 표현으로 씁니다.
+							</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">
+								<span class="red bold">12글자 이내(빗금 제외 기준)</span>로 씁니다.
+							</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">4글자를 넘길 경우 의미 단위로 묶어, 한 번만 띄어 씁니다.
+							</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- 여기서 부터 복사해서 사용하세요 -->
+{% endblock %}
+{% block scripts %}{% endblock %}

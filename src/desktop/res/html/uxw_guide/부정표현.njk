@@ -1,0 +1,254 @@
+{% set title = '신한 UX라이팅 시스템 | 부정표현' %}
+{% extends '../templates/uxw_guide_layout.njk' %}
+{% block guide %}
+	<!-- 여기서 부터 복사해서 사용하세요 -->
+	<section class="guide-content" id="Negative_Ex">
+		<div class="guide-card-wrap">
+			<div class="guide-card">
+				<div class="guide-card__head">
+					<h3>부정 표현</h3>
+					<div class="divider" aria-hidden="true"></div>
+				</div>
+				<div class="guide-card__content">
+					<div class="list">
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">‘불가능’, ‘불가’ 등의 강한 부정 표현은 사용하지 않습니다.</p>
+						</div>
+						<div class="list__item">
+							<p class="authorship">* 공간제약 시 한정적으로 허용</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">‘~지 않다’, ‘~수 없다’, ‘불가하다’ 등의 부정 표현은 되도록 긍정 표현으로 바꿔 사용합니다</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">고객이 한 번에 이해하기 어려운 이중 부정 표현은 사용하지 않습니다.</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">부정 표현, 제약 사항을 안내할 때는 완곡하게 표현합니다.</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">고객에게 행동을 권유하거나 유도할 때 ‘반드시 ~해야’, ‘~하셔야’ 등의 강압적인 표현을 사용하지 않습니다.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="table-row fixed">
+			<table class="table left">
+				<colgroup>
+					<col style="width:240px"/>
+					<col style="width:*"/>
+					<col style="width:*"/>
+				</colgroup>
+				<thead>
+					<tr>
+						<th aria-hidden="true"></th>
+						<th>
+							<span>이렇게 쓰지 마세요<i class="ic ic-x--type2" aria-hidden="true"></i>
+							</span>
+						</th>
+						<th>
+							이렇게 쓰세요<i class="ic ic-o--type2" aria-hidden="true"></i>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="center">강한 부정</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										이벤트 중복 당첨은
+										<span class="red">불가</span>합니다.
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										일부 특수문자는 사용이
+										<span class="red">불가능</span>합니다.(‘ “ | \)
+									</p>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										이벤트에 중복으로
+										<span class="blue">당첨되지 않습니다</span>.
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										사용<span class="blue">할 수 없는</span>
+										특수문자입니다.(‘ “ | \)
+									</p>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="center">이중 부정</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										사고지역(국내가
+										<span class="red">아닌 경우</span>
+										재발급
+										<span class="red">불가</span>)
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										인증폰으로
+										<span class="red">등록되지 않은</span>
+										스마트폰에서는 이용하실 수
+										<span class="red">없습니다</span>.
+									</p>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										사고 지역(<span class="blue">국내에서만</span>
+										재발급 가능)
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										인증폰으로
+										<span class="blue">등록된</span>
+										스마트폰에서 이용할 수
+										<span class="blue">있습니다</span>.
+									</p>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="center">제약사항 표현</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										시스템 장애시 이용 시간은 다음과 같이
+										<span class="red">제한</span>됩니다.
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										이벤트 기간 중 서비스 해지 시 이벤트 대상에서
+										<span class="red">제외</span>됩니다.
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										자동로그인 서비스는 더이상 사용이
+										<span class="red">불가합니다</span>.
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										본인 실명확인을 위해
+										<span class="red">반드시</span>
+										비대면 실명확인 절차를
+										<span class="red">진행하셔야 합니다.</span>
+									</p>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										시스템 장애 시 이용 시간은 다음과
+										<span class="blue">같습니다</span>.
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										이벤트 기간에 서비스를 이용 중인 고객만
+										<span class="blue">참여 가능합니다</span>.
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										자동로그인 서비스는 더 이상 사용<span class="blue">할 수 없습니다</span>.
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										본인 실명확인을 위해 비대면 실명확인 절차를 진행
+										<span class="blue">해주세요</span>.
+									</p>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="table-row fixed">
+			<table class="table left">
+				<colgroup>
+					<col style="width:*"/>
+					<col style="width:*"/>
+				</colgroup>
+				<thead>
+					<tr>
+						<th>
+							<span>이렇게 쓰지 마세요<i class="ic ic-x--type2" aria-hidden="true"></i>
+							</span>
+						</th>
+						<th>
+							이렇게 쓰세요<i class="ic ic-o--type2" aria-hidden="true"></i>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							이체일이 휴일인 경우
+							<span class="red">익 영업일</span>에 이체 업무가 처리 됩니다.
+						</td>
+						<td>
+							이체일이 토/일/공휴일이면
+							<span class="blue">다음날(영업일 기준)</span>
+							이체됩니다.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							자동이체 신청내용을 변경 또는 취소하고자 하실 때는 이체일
+							<span class="red">전 1영업일</span>까지 가능합니다.
+						</td>
+						<td>
+							자동이체 신청변경 또는 해지는 자동이체일
+							<span class="blue">전날(영업일 기준)</span>까지 가능합니다.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							전액해지예약 신청 시 신청일 포함
+							<span class="red">4영업일</span>
+							이후 지정하신 입출금계좌로 입금됩니다
+						</td>
+						<td>
+							전액해지예약을 신청하면 신청일 포함
+							<span class="blue">4일(영업일 기준) 후</span>
+							지정한 입출금계좌에 입금됩니다.
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+	<!-- //여기서 부터 복사해서 사용하세요 -->
+{% endblock %}
+{% block scripts %}{% endblock %}

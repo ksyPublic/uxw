@@ -1,17 +1,19 @@
-{% set user = "error" %}
-{% set title = "신한 UX라이팅 시스템 | 네트워크 에러" %}
-{% extends "../templates/layout.njk" %}
-{% set activePage = "" %}
+{% set user = 'error' %}
+{% set title = '신한 UX라이팅 시스템 | 네트워크 에러' %}
+{% extends '../templates/layout.njk' %}
+
 {% block content %}
   <!-- 데이터가 없을시 오픈 -->
   <div class="none-data none-data--beinfo__type2">
     <p>잠시 후 다시 확인해주세요!</p>
     <span>
-        네트워크의 연결상태가 불안정하여<br/>
-        지금 이 서비스와 연결할 수 없습니다.<br/>
-        잠시 후 다시 확인해주세요.
+      네트워크의 연결상태가 불안정하여<br />
+      지금 이 서비스와 연결할 수 없습니다.<br />
+      잠시 후 다시 확인해주세요.
     </span>
   </div>
   <!-- //데이터가 없을시 오픈 -->
 {% endblock %}
-{% block scripts %}{% endblock %}
+{% block scripts %}
+
+{% endblock %}

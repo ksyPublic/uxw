@@ -1,0 +1,376 @@
+<div id="mainTab" class="tab tab--scroll" data-ui-tab data-tab-active="{{mainTabActive}}">
+	<div class="title">
+		<h2 class="text ft24 bold">작성하기</h2>
+		<div class="tab__list" role="tablist">
+			<button type="button" role="tab" id="tablist1" class="tab__button" aria-controls="tabpanel1" aria-selected="false">일반</button>
+			<button type="button" role="tab" id="tablist2" class="tab__button" aria-controls="tabpanel2" aria-selected="false">앱푸시</button>
+			<button type="button" role="tab" id="tablist3" class="tab__button" aria-controls="tabpanel3" aria-selected="false">스마트오퍼</button>
+		</div>
+	</div>
+	<div id="tabpanel1" class="tab__panel" role="tabpanel" aria-labelledby="tablist1" tabindex="-1">
+		<div class="tab__inner">
+			<div class="form">
+				<div class="fields">
+					<div class="field">
+						<label class="dpb medium ft14">내용</label>
+						<textarea data-bytes-check class="textarea textarea--base" maxlength="5000" placeholder="내용 입력"></textarea>
+						<div class="textarea__lengths">
+							<label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
+							<div class="textarea__lengths__box">
+								<span class="textarea__lengths--current">0</span>/
+								<span class="textarea__lengths--total">5,000</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="tabpanel2" class="tab__panel" role="tabpanel" aria-labelledby="tablist2" tabindex="-1">
+		<div class="tab__inner">
+			<div class="form">
+				<div class="fields">
+					<div class="field">
+						<label class="dpb medium ft14">제목</label>
+						<textarea class="textarea textarea--max mxh68" maxlength="55" placeholder="제목 입력"></textarea>
+						<div class="textarea__lengths">
+							<label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
+							<div class="textarea__lengths__box">
+								<span class="textarea__lengths--current">0</span>/
+								<span class="textarea__lengths--total">50</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="fields">
+					<div class="field">
+						<label class="dpb medium ft14">내용</label>
+						<textarea class="textarea textarea--max mxh180" maxlength="200" placeholder="내용 입력"></textarea>
+						<div class="textarea__lengths">
+							<label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
+							<div class="textarea__lengths__box">
+								<span class="textarea__lengths--current">0</span>/
+								<span class="textarea__lengths--total">200</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 220928 작성 가이드 변경 -->
+			<h3 class="text ft20 lh32 medium">작성 가이드</h3>
+
+			<div class="box--type4">
+				<div class="box__head">
+					<div class="box__title">
+						<h4>앱 푸시 예시</h4>
+					</div>
+					<div class="box__title">
+						<h4>글자수 기준</h4>
+					</div>
+				</div>
+				<div class="box__content">
+					<div class="box__row">
+						<div class="box__column">
+							<figure>
+								<img src="/res/images/guide/gd_sample01.png">
+							</figure>
+						</div>
+						<div class="box__column">
+							<figure>
+								<img src="/res/images/guide/gd_sample02.png">
+							</figure>
+							<div class="list">
+								<div class="list__item">
+									<label class="label-ct--type5">1</label>
+									<p class="text">메인 카피 : 한글 18자 (36 Byte)</p>
+								</div>
+								<div class="list__item">
+									<label class="label-ct--type5">2</label>
+									<p class="text">서브 카피 : 한글 20자 (40 Byte)</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //220928 작성 가이드 변경 -->
+		</div>
+	</div>
+	<div id="tabpanel3" class="tab__panel" role="tabpanel" aria-labelledby="tablist3" tabindex="-1">
+		<div class="tab tab--scroll tab--type2" data-ui-tab>
+			<div class="tab__list" role="tablist">
+				<button type="button" role="tab" id="tablist4" class="tab__button" aria-controls="tabpanel4" aria-selected="false">메인 상단배너</button>
+				<button type="button" role="tab" id="tablist5" class="tab__button" aria-controls="tabpanel5" aria-selected="false">메인 바텀시트배너</button>
+				<button type="button" role="tab" id="tablist6" class="tab__button" aria-controls="tabpanel6" aria-selected="false">공통배너</button>
+			</div>
+			<div id="tabpanel4" class="tab__panel" role="tabpanel" aria-labelledby="tablist4" tabindex="-1">
+				<div class="tab__inner">
+					<div class="form">
+						<div class="fields">
+							<div class="field">
+								<label class="dpb medium ft14">메인 카피</label>
+								<textarea class="textarea textarea--max mxh68" maxlength="34" placeholder="메인 카피 입력"></textarea>
+								<div class="textarea__lengths">
+									<label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
+									<div class="textarea__lengths__box">
+										<span class="textarea__lengths--current">0</span>/
+										<span class="textarea__lengths--total">34</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="fields">
+							<div class="field">
+								<label class="dpb medium ft14">서브 카피</label>
+								<textarea class="textarea textarea--max mxh180" maxlength="40" placeholder="서브 카피 입력"></textarea>
+								<div class="textarea__lengths">
+									<label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
+									<div class="textarea__lengths__box">
+										<span class="textarea__lengths--current">0</span>/
+										<span class="textarea__lengths--total">40</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- 220928 작성 가이드 변경 -->
+					<h3 class="text ft20 lh32 medium">작성 가이드</h3>
+					<div class="box--type4">
+						<div class="box__head">
+							<div class="box__title">
+								<h4>메인 상단배너 예시</h4>
+							</div>
+							<div class="box__title">
+								<h4>글자수 기준</h4>
+							</div>
+						</div>
+						<div class="box__content">
+							<div class="box__row">
+								<div class="box__column">
+									<figure>
+										<img src="/res/images/guide/gd_sample03.png">
+									</figure>
+								</div>
+								<div class="box__column">
+									<figure>
+										<img src="/res/images/guide/gd_sample04.png">
+									</figure>
+									<div class="list">
+										<div class="list__item">
+											<label class="label-ct--type5">1</label>
+											<p class="text">서브 카피 : 한글 20자 (40 Byte)</p>
+										</div>
+										<div class="list__item">
+											<label class="label-ct--type5">2</label>
+											<p class="text">메인 카피 : 한글 17자 (34 Byte)</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- //220928 작성 가이드 변경 -->
+				</div>
+			</div>
+			<div id="tabpanel5" class="tab__panel" role="tabpanel" aria-labelledby="tablist5" tabindex="-1">
+				<div class="tab__inner">
+					<div class="form">
+						<div class="fields">
+							<div class="field">
+								<label class="dpb medium ft14">메인 카피</label>
+								<textarea class="textarea textarea--max mxh96" maxlength="48" placeholder="메인 카피 최대 2줄까지 입력 (한 줄당 24 Byte)"></textarea>
+								<div class="textarea__lengths">
+									<label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
+									<div class="textarea__lengths__box">
+										<span class="textarea__lengths--current">0</span>/
+										<span class="textarea__lengths--total">48</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="fields">
+							<div class="field">
+								<label class="dpb medium ft14">서브 카피</label>
+								<textarea class="textarea textarea--max mxh180" maxlength="120" placeholder="서브 카피 최대 3줄까지 입력 (한 줄당 40 Byte)"></textarea>
+								<div class="textarea__lengths">
+									<label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
+									<div class="textarea__lengths__box">
+										<span class="textarea__lengths--current">0</span>/
+										<span class="textarea__lengths--total">120</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- 220928 작성 가이드 변경 -->
+					<h3 class="text ft20 lh32 medium">작성 가이드</h3>
+					<div class="box--type4">
+						<div class="box__head">
+							<div class="box__title">
+								<h4>메인 바텀시트배너 예시</h4>
+							</div>
+							<div class="box__title">
+								<h4>글자수 기준</h4>
+							</div>
+						</div>
+						<div class="box__content">
+							<div class="box__row">
+								<div class="box__column">
+									<figure>
+										<img src="/res/images/guide/gd_sample05.png">
+									</figure>
+									<div class="list center">
+										<div class="list__item">
+											<p class="text bullet medium">간략형</p>
+										</div>
+									</div>
+								</div>
+								<div class="box__column">
+									<figure>
+										<img src="/res/images/guide/gd_sample06.png">
+									</figure>
+									<div class="list">
+										<div class="list__item">
+											<label class="label-ct--type5">1</label>
+											<p class="text">서브 카피 : 최대 1줄, 한글 20자 (40 Byte)</p>
+										</div>
+										<div class="list__item">
+											<label class="label-ct--type5">2</label>
+											<p class="text">메인 카피 : 최대 2줄, 한 줄당 한글 12자 (24 Byte)</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="box__row">
+								<div class="box__column">
+									<figure>
+										<img src="/res/images/guide/gd_sample07.png">
+									</figure>
+									<div class="list center">
+										<div class="list__item">
+											<p class="text bullet medium">상세형</p>
+										</div>
+									</div>
+								</div>
+								<div class="box__column">
+									<figure>
+										<img src="/res/images/guide/gd_sample08.png">
+									</figure>
+									<div class="list">
+										<div class="list__item">
+											<label class="label-ct--type5">1</label>
+											<p class="text">메인 카피 : 최대 2줄, 한 줄당 한글 12자 (24 Byte)</p>
+										</div>
+										<div class="list__item">
+											<label class="label-ct--type5">2</label>
+											<p class="text">서브 카피 : 최대 1줄, 한글 20자 (40 Byte)</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- //220928 작성 가이드 변경 -->
+				</div>
+			</div>
+			<div id="tabpanel6" class="tab__panel" role="tabpanel" aria-labelledby="tablist6" tabindex="-1">
+				<div class="tab__inner">
+					<div class="form">
+						<div class="fields">
+							<div class="field">
+								<label class="dpb medium ft14">메인 카피</label>
+								<textarea class="textarea textarea--max mxh68" maxlength="36" placeholder="메인 카피 입력"></textarea>
+								<div class="textarea__lengths">
+									<label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
+									<div class="textarea__lengths__box">
+										<span class="textarea__lengths--current">0</span>/
+										<span class="textarea__lengths--total">36</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="fields">
+							<div class="field">
+								<label class="dpb medium ft14">서브 카피</label>
+								<textarea class="textarea textarea--max mxh180" maxlength="40" placeholder="서브 카피 입력"></textarea>
+								<div class="textarea__lengths">
+									<label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
+									<div class="textarea__lengths__box">
+										<span class="textarea__lengths--current">0</span>/
+										<span class="textarea__lengths--total">40</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- 220928 작성 가이드 변경 -->
+					<h3 class="text ft20 lh32 medium">작성 가이드</h3>
+					<div class="box--type4">
+						<div class="box__head">
+							<div class="box__title">
+								<h4>공통배너 예시</h4>
+							</div>
+							<div class="box__title">
+								<h4>글자수 기준</h4>
+							</div>
+						</div>
+						<div class="box__content">
+							<div class="box__row">
+								<div class="box__column">
+									<figure>
+										<img src="/res/images/guide/gd_sample03.png">
+									</figure>
+									<div class="list center">
+										<div class="list__item">
+											<p class="text bullet medium">Type 1 (텍스트 + 이미지)</p>
+										</div>
+									</div>
+								</div>
+								<div class="box__column">
+									<figure>
+										<img src="/res/images/guide/gd_sample04.png">
+									</figure>
+									<div class="list">
+										<div class="list__item">
+											<label class="label-ct--type5">1</label>
+											<p class="text">메인 카피 : 한글 18자 (36 Byte)</p>
+										</div>
+										<div class="list__item">
+											<label class="label-ct--type5">2</label>
+											<p class="text">서브 카피 : 한글 20자 (40 Byte)</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="box__row">
+								<div class="box__column">
+									<figure>
+										<img src="/res/images/guide/gd_sample03.png">
+									</figure>
+									<div class="list center">
+										<div class="list__item">
+											<p class="text bullet medium">Type 2 (텍스트 + 버튼 + 이미지)</p>
+										</div>
+									</div>
+								</div>
+								<div class="box__column">
+									<figure>
+										<img src="/res/images/guide/gd_sample04.png">
+									</figure>
+									<div class="list">
+										<div class="list__item">
+											<label class="label-ct--type5">1</label>
+											<p class="text">메인 카피 : 한글 18자 (36 Byte)</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- //220928 작성 가이드 변경 -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

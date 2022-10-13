@@ -1,0 +1,309 @@
+{% extends "../templates/layout.njk" %}
+{% block content %}
+  <div class="guide-wrap">
+    <h2 class="ex-name">List</h2>
+    <div class="ex-content">
+      <div class="ex-title">
+        <h3>기본</h3>
+        <p class="ex-desc">기본 List입니다.</p>
+      </div>
+
+      <div class="ex-body">
+        <div class="ex-preview">
+          <div class="list" role="list">
+            <div class="list__item" role="listitem">
+              <label class="label">허용 표현</label>
+              <span class="text">집, 가구</span>
+            </div>
+            <div class="list__item" role="listitem">
+              <label class="label">입력 표현</label>
+              <span class="text">세대</span>
+            </div>
+            <div class="list__item" role="listitem">
+              <label class="label">활용 예시</label>
+              <span class="text">그 동네에는 5가구가 산다.</span>
+            </div>
+          </div>
+          <div class="html-view">
+            <pre>
+                <code class="ex-code-block render-html">
+                    <div class="list" role="list">
+                      <div class="list__item" role="listitem">
+                        <label class="label">허용 표현</label>
+                        <span class="text">집, 가구</span>
+                      </div>
+                      <div class="list__item" role="listitem">
+                        <label class="label">입력 표현</label>
+                        <span class="text">세대</span>
+                      </div>
+                      <div class="list__item" role="listitem">
+                        <label class="label">활용 예시</label>
+                        <span class="text">그 동네에는 5가구가 산다.</span>
+                      </div>
+                    </div>
+                </code>
+            </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ex-content">
+      <div class="ex-title">
+        <h3>list-view</h3>
+        <p class="ex-desc">목록 view 형태의 List입니다
+          <br/> * class에 .list-view를 함께사용합니다.
+        </p>
+      </div>
+
+      <div class="ex-body">
+        <div class="ex-preview">
+          <div class="list list-view">
+            <div class="list__item">
+              <label class="label-ct">답변대기</label>
+              <a class="text-link ellipsis" href="#none">고객언어란 무엇입니까?</a>
+            </div>
+            <div class="list__item">
+              <label class="label-ct label-ct--type3">용어제안</label>
+              <a class="text-link ellipsis" href="#none">교정중인 콘텐츠를 제안합니다 교정중인 콘텐츠를 제안합니다</a>
+            </div>
+            <div class="list__item">
+              <label class="label-ct label-ct--type2">답변완료</label>
+              <a class="text-link ellipsis" href="#none">개인 계정 사용시 어떻게 적용하나요?</a>
+            </div>
+            <div class="list__item">
+              <label class="label-ct label-ct--type3">용어문의</label>
+              <a class="text-link ellipsis" href="#none">문의사항 남깁니다.</a>
+            </div>
+          </div>
+          <div class="html-view">
+            <pre>
+                <code class="ex-code-block render-html">
+                    <div class="list list-view">
+                      <div class="list__item">
+                        <label class="label-ct">답변대기</label>
+                        <a class="text-link ellipsis" href="#none">고객언어란 무엇입니까?</a>
+                      </div>
+                      <div class="list__item">
+                        <label class="label-ct label-ct--type3">용어제안</label>
+                        <a class="text-link ellipsis" href="#none">교정중인 콘텐츠를 제안합니다 교정중인 콘텐츠를 제안합니다</a>
+                      </div>
+                      <div class="list__item">
+                        <label class="label-ct label-ct--type2">답변완료</label>
+                        <a class="text-link ellipsis" href="#none">개인 계정 사용시 어떻게 적용하나요?</a>
+                      </div>
+                      <div class="list__item">
+                        <label class="label-ct label-ct--type3">용어문의</label>
+                        <a class="text-link ellipsis" href="#none">문의사항 남깁니다.</a>
+                      </div>
+                    </div>
+                </code>
+            </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ex-content">
+      <div class="ex-title">
+        <h3>list type2</h3>
+        <p class="ex-desc">list type2 입니다.
+          <br/> * class에 .list--type2를 함께 사용합니다. 
+        </p>
+      </div>
+
+      <div class="ex-body">
+        <div class="ex-preview">
+          <div class="list list--type2">
+            <div class="list__item">
+              <label class="label" aria-hidden="true"></label>
+              <p class="text">테기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.스트</p>
+            </div>
+          </div>
+          <br/><br/>
+          <div class="list list--type2">
+            <div class="list__item">
+              <label class="label">라벨</label>
+              <p class="text">테기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.스트</p>
+            </div>
+          </div>
+          <div class="html-view">
+            <pre>
+                <code class="ex-code-block render-html">
+                  <div class="list list--type2">
+                    <div class="list__item">
+                      <label class="label" aria-hidden="true"></label>
+                      <p class="text">테기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.스트</p>
+                    </div>
+                  </div>
+
+                  <div class="list list--type2">
+                    <div class="list__item">
+                      <label class="label">라벨</label>
+                      <p class="text">테기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 기업의 언어를 고객의 언어로 바꾸는 기업들이 늘고 있다. 관행적으로 사용하던 전문용어와 상품 설명을 고객 눈높이에서 이해하기 쉬운 단어들로 대체하고 친근하게 소통하는 움직임이다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다. 일상생활과 밀접한 서비스를 제공하지만 업 특성상 전문용어가 많은 금융 및 이동통신 분야를 중심으로 언어 전환 작업이 이뤄지고 있다.스트</p>
+                    </div>
+                  </div>
+              </code>
+            </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ex-content">
+      <div class="ex-title">
+        <h3>list type3</h3>
+        <p class="ex-desc">list type3 입니다.
+          <br/> * class에 .list--type3를 사용하며 type3 내부에 group을 함께 사용합니다.
+        </p>
+      </div>
+
+      <div class="ex-body">
+        <div class="ex-preview">
+          <div class="list list--type3">
+            <div class="list__group">
+              <div class="list__row">
+                <div class="list__item">
+                  <span aria-hidden="true">
+                    <i class="ic ic-pind" aria-hidden="true"></i>
+                  </span>
+                </div>
+                <div class="list__item left">
+                  <b aria-hidden="true">[기타] 오류가 생겨요.</b>
+                </div>
+                <div class="list__item">
+                  <button type="button" class="ic-button" aria-label="다운로드">
+                    <i class="ic ic-download" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <div class="list__item">
+                  <span aria-hidden="true">2022.08.31</span>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          <div class="list list--type3">
+            <div class="list__group">
+              <div class="list__row">
+                <div class="list__item">
+                  <span aria-hidden="true">
+                    <i class="ic ic-pind" aria-hidden="true"></i>
+                  </span>
+                </div>
+                <div class="list__item left">
+                  <b aria-hidden="true">[기타] 오류가 생겨요.</b>
+                </div>
+                <div class="list__item">
+                  <button type="button" class="ic-button" aria-label="다운로드">
+                    <i class="ic ic-download" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <div class="list__item">
+                  <span aria-hidden="true">2022.08.31</span>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          <div class="list list--type3">
+            <div class="list__group">
+              <div class="list__row">
+                <div class="list__item">
+                  <span aria-hidden="true">
+                    <i class="ic ic-pind" aria-hidden="true"></i>
+                  </span>
+                </div>
+                <div class="list__item left">
+                  <b aria-hidden="true">[기타] 오류가 생겨요.</b>
+                </div>
+                <div class="list__item">
+                  <button type="button" class="ic-button" aria-label="다운로드">
+                    <i class="ic ic-download" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <div class="list__item">
+                  <span aria-hidden="true">2022.08.31</span>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          <div class="html-view">
+            <pre>
+                <code class="ex-code-block render-html">
+                    <div class="list list--type3">
+                      <div class="list__group">
+                        <div class="list__row">
+                          <div class="list__item">
+                            <span aria-hidden="true">
+                              <i class="ic ic-pind" aria-hidden="true"></i>
+                            </span>
+                          </div>
+                          <div class="list__item left">
+                            <b aria-hidden="true">[기타] 오류가 생겨요.</b>
+                          </div>
+                          <div class="list__item">
+                            <button type="button" class="ic-button" aria-label="다운로드">
+                              <i class="ic ic-download" aria-hidden="true"></i>
+                            </button>
+                          </div>
+                          <div class="list__item">
+                            <span aria-hidden="true">2022.08.31</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="list list--type3">
+                      <div class="list__group">
+                        <div class="list__row">
+                          <div class="list__item">
+                            <span aria-hidden="true">
+                              <i class="ic ic-pind" aria-hidden="true"></i>
+                            </span>
+                          </div>
+                          <div class="list__item left">
+                            <b aria-hidden="true">[기타] 오류가 생겨요.</b>
+                          </div>
+                          <div class="list__item">
+                            <button type="button" class="ic-button" aria-label="다운로드">
+                              <i class="ic ic-download" aria-hidden="true"></i>
+                            </button>
+                          </div>
+                          <div class="list__item">
+                            <span aria-hidden="true">2022.08.31</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="list list--type3">
+                      <div class="list__group">
+                        <div class="list__row">
+                          <div class="list__item">
+                            <span aria-hidden="true">
+                              <i class="ic ic-pind" aria-hidden="true"></i>
+                            </span>
+                          </div>
+                          <div class="list__item left">
+                            <b aria-hidden="true">[기타] 오류가 생겨요.</b>
+                          </div>
+                          <div class="list__item">
+                            <button type="button" class="ic-button" aria-label="다운로드">
+                              <i class="ic ic-download" aria-hidden="true"></i>
+                            </button>
+                          </div>
+                          <div class="list__item">
+                            <span aria-hidden="true">2022.08.31</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </code>
+            </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+{% endblock %}

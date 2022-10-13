@@ -1,36 +1,37 @@
-{% extends "../templates/layout.njk" %}
+{% extends '../templates/layout.njk' %}
 {% block content %}
   <div class="guide-wrap">
     <h2 class="ex-name">Radio</h2>
     <div class="ex-content">
       <div class="ex-title">
         <h3>기본</h3>
-        <p class="ex-desc">기본 Radio입니다. 
-        <br/> * 라디오 버튼만 사용시 hidden을 사용합니다.
+        <p class="ex-desc">
+          기본 Radio입니다.
+          <br /> * 라디오 버튼만 사용시 hidden을 사용합니다.
         </p>
       </div>
       <div class="ex-body">
         <div class="ex-preview">
-          <input type="radio" class="radio hidden" id="rad01">
+          <input type="radio" class="radio hidden" id="rad01" />
           <label for="rad01"></label>
-          <input type="radio" class="radio hidden" id="rad02" checked>
+          <input type="radio" class="radio hidden" id="rad02" checked />
           <label for="rad02"></label>
-          <input type="radio" class="radio hidden" id="rad03" disabled>
+          <input type="radio" class="radio hidden" id="rad03" disabled />
           <label for="rad03"></label>
-          <input type="radio" class="radio hidden" id="rad04" checked disabled>
+          <input type="radio" class="radio hidden" id="rad04" checked disabled />
           <label for="rad04"></label>
           <div class="html-view">
             <pre>
-                <code class="ex-code-block render-html">
-                  <input type="radio" class="radio hidden" id="rad01" name="rad01">
-                  <label for="rad01"></label>
-                  <input type="radio" class="radio hidden" id="rad02" name="rad02" checked>
-                  <label for="rad02"></label>
-                  <input type="radio" class="radio hidden" id="rad03" name="rad03" disabled>
-                  <label for="rad03"></label>
-                  <input type="radio" class="radio hidden" id="rad04" name="rad04" checked disabled>
-                  <label for="rad04"></label>
-                </code>
+              <code class="ex-code-block render-html">
+                <input type="radio" class="radio hidden" id="rad01" name="rad01" />
+                <label for="rad01"></label>
+                <input type="radio" class="radio hidden" id="rad02" name="rad02" checked />
+                <label for="rad02"></label>
+                <input type="radio" class="radio hidden" id="rad03" name="rad03" disabled />
+                <label for="rad03"></label>
+                <input type="radio" class="radio hidden" id="rad04" name="rad04" checked disabled />
+                <label for="rad04"></label>
+              </code>
             </pre>
           </div>
         </div>
@@ -40,32 +41,30 @@
     <div class="ex-content">
       <div class="ex-title">
         <h3>Radio + Label</h3>
-        <p class="ex-desc">Radio와 Label이 함께 사용될때
-         
-        </p>
+        <p class="ex-desc">Radio와 Label이 함께 사용될때</p>
       </div>
       <div class="ex-body">
         <div class="ex-preview">
-          <input type="radio" class="radio" id="rad05">
+          <input type="radio" class="radio" id="rad05" />
           <label for="rad05">라디오1</label>
-          <input type="radio" class="radio" id="rad06" checked>
+          <input type="radio" class="radio" id="rad06" checked />
           <label for="rad06">라디오2</label>
-          <input type="radio" class="radio" id="rad07" disabled>
+          <input type="radio" class="radio" id="rad07" disabled />
           <label for="rad07">라디오3</label>
-          <input type="radio" class="radio" id="rad08" checked disabled>
+          <input type="radio" class="radio" id="rad08" checked disabled />
           <label for="rad08">라디오4</label>
           <div class="html-view">
             <pre>
-                <code class="ex-code-block render-html">
-                  <input type="radio" class="radio" id="rad05">
-                  <label for="rad05">라디오1</label>
-                  <input type="radio" class="radio" id="rad06" checked>
-                  <label for="rad06">라디오2</label>
-                  <input type="radio" class="radio" id="rad07" disabled>
-                  <label for="rad07">라디오3</label>
-                  <input type="radio" class="radio" id="rad08" checked disabled>
-                  <label for="rad08">라디오4</label>
-                </code>
+              <code class="ex-code-block render-html">
+                <input type="radio" class="radio" id="rad05" />
+                <label for="rad05">라디오1</label>
+                <input type="radio" class="radio" id="rad06" checked />
+                <label for="rad06">라디오2</label>
+                <input type="radio" class="radio" id="rad07" disabled />
+                <label for="rad07">라디오3</label>
+                <input type="radio" class="radio" id="rad08" checked disabled />
+                <label for="rad08">라디오4</label>
+              </code>
             </pre>
           </div>
         </div>
@@ -75,36 +74,34 @@
     <div class="ex-content">
       <div class="ex-title">
         <h3>Radio Sort</h3>
-        <p class="ex-desc">하나의 Sorting에 사용됩니다.
-         
-        </p>
+        <p class="ex-desc">하나의 Sorting에 사용됩니다.</p>
       </div>
       <div class="ex-body">
         <div class="ex-preview">
-          <input class="radio radio--sort" id="rad09" type="radio" name="radCheck" checked>
+          <input class="radio radio--sort" id="rad09" type="radio" name="radCheck" checked />
           <label for="rad09">전체</label>
-          <input class="radio radio--sort" id="rad10" type="radio" name="radCheck">
+          <input class="radio radio--sort" id="rad10" type="radio" name="radCheck" />
           <label for="rad10">교정하기</label>
-          <input class="radio radio--sort" id="rad11" type="radio" name="radCheck">
+          <input class="radio radio--sort" id="rad11" type="radio" name="radCheck" />
           <label for="rad11">가이드/용어</label>
-          <input class="radio radio--sort" id="rad12" type="radio" name="radCheck">
+          <input class="radio radio--sort" id="rad12" type="radio" name="radCheck" />
           <label for="rad12">콘텐츠</label>
-          <input class="radio radio--sort" id="rad13" type="radio" name="radCheck">
+          <input class="radio radio--sort" id="rad13" type="radio" name="radCheck" />
           <label for="rad13">기타</label>
           <div class="html-view">
             <pre>
-                <code class="ex-code-block render-html">
-                  <input class="radio radio--sort" id="rad09" type="radio" name="radCheck">
-                  <label for="rad09">전체</label>
-                  <input class="radio radio--sort" id="rad10" type="radio" name="radCheck">
-                  <label for="rad10">교정하기</label>
-                  <input class="radio radio--sort" id="rad11" type="radio" name="radCheck">
-                  <label for="rad11">가이드/용어</label>
-                  <input class="radio radio--sort" id="rad12" type="radio" name="radCheck">
-                  <label for="rad12">콘텐츠</label>
-                  <input class="radio radio--sort" id="rad13" type="radio" name="radCheck">
-                  <label for="rad13">기타</label>
-                </code>
+              <code class="ex-code-block render-html">
+                <input class="radio radio--sort" id="rad09" type="radio" name="radCheck" />
+                <label for="rad09">전체</label>
+                <input class="radio radio--sort" id="rad10" type="radio" name="radCheck" />
+                <label for="rad10">교정하기</label>
+                <input class="radio radio--sort" id="rad11" type="radio" name="radCheck" />
+                <label for="rad11">가이드/용어</label>
+                <input class="radio radio--sort" id="rad12" type="radio" name="radCheck" />
+                <label for="rad12">콘텐츠</label>
+                <input class="radio radio--sort" id="rad13" type="radio" name="radCheck" />
+                <label for="rad13">기타</label>
+              </code>
             </pre>
           </div>
         </div>

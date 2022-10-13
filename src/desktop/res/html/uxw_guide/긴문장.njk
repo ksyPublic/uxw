@@ -1,0 +1,124 @@
+{% set title = '신한 UX라이팅 시스템 | 긴문장' %}
+{% extends '../templates/uxw_guide_layout.njk' %}
+{% block guide %}
+	<!-- 여기서 부터 복사해서 사용하세요 -->
+	<section class="guide-content" id="Long_Sentence">
+		<div class="guide-card-wrap">
+			<div class="guide-card">
+				<div class="guide-card__head">
+					<h3>긴 문장</h3>
+					<div class="divider" aria-hidden="true"></div>
+				</div>
+				<div class="guide-card__content">
+					<div class="list">
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">문장은 의미 전달에 불필요한 표현을 제거해 간결하게 작성합니다</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">문장 길이가 너무 길고 복잡해지면 이해가 어려우므로, 한 문장엔 하나의 메시지만 담도록 합니다.</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">여러 개 문장이 연결된 복문은 단문으로 끊어서 씁니다.</p>
+						</div>
+					</div>
+					<p class="authorship">* 한눈에 파악할 수 있는 문장당 글자 수는 30~40글자(공백 제외, 7~10어절) 이내입니다.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="table-row fixed">
+			<table class="table left">
+				<thead>
+					<tr>
+						<th>
+							<span>이렇게 쓰지 마세요<i class="ic ic-x--type2" aria-hidden="true"></i>
+							</span>
+						</th>
+						<th>
+							이렇게 쓰세요<i class="ic ic-o--type2" aria-hidden="true"></i>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							만기전 해지할 경우 약정한 이자율보다 낮은 중도해지 이자율이
+							<span class="red">적용되며</span>, 우대이자율은 만기해지계좌에 한해
+							<span class="red">지급하오니 유의하시기 바랍니다</span>.(61자)
+						</td>
+						<td>
+							만기 전 해지하면 약정한 이자율보다 낮은 중도해지 이자율이
+							<span class="blue">적용됩니다</span>.(31자)/ 우대이자율은 만기해지계좌만 적용<span class="blue">됩니다</span>.(19자)
+						</td>
+					</tr>
+					<tr>
+						<td>
+							부스터 점수 적용을 위해서는 신한플러스 전체 동의 및 응모를
+							<span class="red">하셔야 하며</span>
+							세부 내용은 응모페이지를
+							<span class="red">확인 부탁드립니다</span>.(50자)
+						</td>
+						<td>
+							부스터 점수를 적용하려면 신한플러스 전체 동의 후 응모
+							<span class="blue">해야 합니다</span>.(29자) / 자세한 내용은 응모페이지를
+							<span class="blue">확인해주세요</span>.(19자)
+						</td>
+					</tr>
+					<tr>
+						<td>
+							금융수수료 면제는 소득이 입금된 월의 다음달 16일 부터 익익월 15일까지
+							<span class="red">적용되며</span>
+							소득이체 조건
+							<span class="red">충족시마다 매월</span>
+							갱신됩니다.(54자)
+						</td>
+						<td>
+							금융수수료 면제는 소득이 입금된 달의 다음달 16일부터 다다음달 15일까지
+							<span class="blue">적용됩니다</span>.(40자) / 소득이체 조건
+							<span class="blue">충족 시 매달</span>
+							갱신됩니다.(17자)
+						</td>
+					</tr>
+					<tr>
+						<td>
+							금리인하 가능여부를
+							<span class="red">심사하였으나</span>, 내부 신용등급의 개선이
+							<span class="red">확인되지 않아</span>
+							금리인하가
+							<span class="red">승인되지 않았습니다</span>.(45자)
+						</td>
+						<td>
+							고객님 신용점수 개선을
+							<span class="blue">확인할 수 없어</span>
+							금리인하가
+							<span class="blue">승인되지 않았습니다</span>.(31자)
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span class="red">모든 일회성 쿠폰의 사용여부를 신한은행에서 관리하지 않으므로, 번거로우시겠지만</span>
+							쿠폰을 사용하시면 사용완료 버튼을 눌러
+							<span class="red">사용완료 처리해주세요.(61자)</span>
+						</td>
+						<td>
+							<span class="blue">쿠폰 사용 후에는</span>[사용완료]를 눌러 사용한 쿠폰임을
+							<span class="blue">확인해주세요</span>.(28자) (불필요한 표현 제거)</td>
+					</tr>
+					<tr>
+						<td>
+							<span class="red">대출심사</span>
+							완료 후 3영업일 이내
+							<span class="red">대출심사</span>
+							결과를 안내해 드리겠습니다.(29자)
+						</td>
+						<td>
+							<span class="blue">대출심사가</span>완료되면, 3일(영업일 기준) 안에 알려 드립니다.(26자) (중복표현 제거)
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+	<!-- //여기서 부터 복사해서 사용하세요 -->
+{% endblock %}
+{% block scripts %}{% endblock %}

@@ -5,8 +5,6 @@
     padding: 40px 0;
   }
 
-  
-
   &--type2 {
     .#{$root}__list {
       width: 100%;
@@ -126,14 +124,20 @@
   &__inner {
     padding: 40px 0;
     &-box {
-      margin-top:40px;
+      margin-top: 40px;
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
     }
 
     .side__frame__html {
+      display: none;
       width: calc(100% - 228px);
+      overflow: visible;
+
+      &.is-active {
+        display: block;
+      }
     }
   }
 

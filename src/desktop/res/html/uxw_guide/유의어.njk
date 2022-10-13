@@ -1,0 +1,168 @@
+{% set title = '신한 UX라이팅 시스템 | 유의어' %}
+{% extends '../templates/uxw_guide_layout.njk' %}
+{% block guide %}
+	<!-- 여기서 부터 복사해서 사용하세요 -->
+	<section class="guide-content" id="Synonym">
+		<div class="guide-card-wrap">
+			<div class="guide-card">
+				<div class="guide-card__head">
+					<h3>유의어</h3>
+					<div class="divider" aria-hidden="true"></div>
+				</div>
+				<div class="guide-card__content">
+					<div class="list">
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">비슷한 단어 사용에 주의합니다.</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">비슷해 보이지만 의미가 다르므로, 국어사전에서 뜻을 확인하고 적합한 표현으로 사용합니다.</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">아래의 유의어 목록은 금융서비스에서 자주 등장하는 유의어이므로 꼭 알아두세요.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="table-row fixed">
+			<table class="table left">
+				<colgroup>
+					<col style="width:140px"/>
+					<col style="width:300px"/>
+					<col style="width:*"/>
+					<col style="width:*"/>
+				</colgroup>
+				<thead>
+					<tr>
+						<th aria-hidden="true"></th>
+						<th aria-hidden="true"></th>
+						<th>
+							<span>이렇게 쓰지 마세요<i class="ic ic-x--type2" aria-hidden="true"></i>
+							</span>
+						</th>
+						<th>
+							이렇게 쓰세요<i class="ic ic-o--type2" aria-hidden="true"></i>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="center">해제/해지</td>
+						<td class="left">
+							‘해제(解除)’는 설정한 것을 풀 때,<br/>
+							‘해지(解止)’는 설정한 것을 아주 없애버릴 때 씁니다.
+						</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										기존 SMS통보 신청되어 있는 고객님께서는 변경을 원하실 경우
+										<span class="red">해제</span>
+										후 등록을 하셔야 합니다.
+									</p>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										변경을 원하시면, 이전에 신청한 문자메시지 알림을
+										<span class="blue">해지</span>
+										후 등록해주세요.
+									</p>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="center">소지/보유</td>
+						<td class="left">
+							‘소지(所持)’는 (몸에) 지니고 있는 것,<br/>
+							‘보유(保有)’는 소유하고 있거나 간직하고 있는 것입니다.
+						</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										서비스 지원 단말기
+										<span class="red">소지</span>
+										개인 고객
+									</p>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										서비스 지원 단말기를
+										<span class="blue">보유</span>한 개인 고객
+									</p>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="center">유의/주의</td>
+						<td class="left">
+							‘유의(留意)’는 마음에 두고 조심하면 이로운 것,<br/>
+							‘주의(注意)’는 조심하지 않으면 위험할 수도 있는 것입니다.
+						</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										만기전 해지할 경우 약정한 이자율보다 낮은 중도해지 이자율이 적용되오니
+										<span class="red">유의</span>하여 주시기 바랍니다.
+									</p>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										만기 전 해지할 경우 약정한 이자율보다 낮은 중도해지 이자율이 적용되오니
+										<span class="blue">주의</span>하여 주시기 바랍니다.
+									</p>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="center">참고/참조</td>
+						<td class="left">
+							‘참고(參考)’는 살펴서 생각하거나 도움될 재료로 삼는 것,<br/>
+							‘참조(參照)’는 참고로 비교하고 대조해 보는 것입니다.
+						</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										자세한 사항은 신용조회회사 홈페이지를
+										<span class="red">참조</span>하시기 바랍니다.
+									</p>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										자세한 사항은 신용조회회사 홈페이지를
+										<span class="blue">참고</span>해주세요.
+									</p>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</section>
+	<!-- //여기서 부터 복사해서 사용하세요 -->
+{% endblock %}
+{% block scripts %}{% endblock %}

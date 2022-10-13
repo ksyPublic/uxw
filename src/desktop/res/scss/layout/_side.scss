@@ -59,13 +59,18 @@
 
   &__frame__html {
     overflow: hidden;
+    .swiper {
+      background-color: color(blue, 800);
+      border-radius: 8px;
+
+      .side__frame__wrap {
+        min-height:460px;
+      }
+    }
   }
 
   &__frame__wrap {
-    background-color: color(blue, 800);
-    border-radius: 8px;
-
-    padding: 40px 24px;
+    padding: 40px 24px 30px;
     color: $white;
 
     h4 {

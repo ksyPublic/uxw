@@ -90,7 +90,7 @@ const font = () => {
 
 const images = () => {
   return gulp
-    .src([filesPath.input('res/images/*.{png,jpg,svg}')], { allowEmpty: true })
+    .src([filesPath.input('res/images/**/*.{png,jpg,svg}')], { allowEmpty: true })
     .pipe(gulp.dest(filesPath.output('image')))
     .pipe(devServer.stream());
 };
@@ -154,7 +154,7 @@ const watch = () => {
   //변경감지를 위한 소스를 앞쪽에, 뒤에는 실행할 파일
   gulp.watch(filesPath.input('res/html/**/*'), gulp.series([html]));
   gulp.watch(filesPath.input(`res/fonts/*`), font);
-  gulp.watch(filesPath.input(`res/images/*`), images);
+  gulp.watch(filesPath.input(`res/images/**/*`), images);
   gulp.watch(filesPath.input(`res/scss/**/*.scss`), css);
   gulp.watch(filesPath.input(`res/js/**/**`), js);
 

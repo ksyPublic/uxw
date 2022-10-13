@@ -1,105 +1,92 @@
-{% extends "../templates/layout.njk" %}
+{% extends '../templates/layout.njk' %}
 {% block content %}
-    <div class="guide-wrap">
-        <h2 class="ex-name">Floating-Menu</h2>
-        <div class="ex-content">
-            <div class="ex-title">
-                <h3>좌측사이드의 floating</h3>
-                <p class="ex-desc">관련 script는 common-script에 있습니다.
-                </p>
+  <div class="guide-wrap">
+    <h2 class="ex-name">Floating-Menu</h2>
+    <div class="ex-content">
+      <div class="ex-title">
+        <h3>좌측사이드의 floating</h3>
+        <p class="ex-desc">관련 script는 common-script에 있습니다.</p>
+      </div>
+      <div class="ex-body">
+        <div class="ex-preview">
+          <div id="floating" class="floating-menu-wrap">
+            <nav class="nav" role="navigation">
+              <ul class="nav__box" aria-expanded="false">
+                <li class="nav__list">
+                  <div class="nav__item tooltip-button">
+                    <button type="button" class="ic-button-nav" aria-describedby="tooltip1" aria-label="가이드" aria-controls="layerModal1"><i class="ic ic-guidebook" aria-hidden="true"></i></button>
+                    <a class="text" href="#none" alt="가이드">가이드</a>
+                  </div>
+                </li>
+                <li class="nav__list">
+                  <div class="nav__item tooltip-button">
+                    <button type="button" class="ic-button-nav" aria-describedby="tooltip2" aria-label="검색" aria-controls="layerModal2"><i class="ic ic-search" aria-hidden="true"></i></button>
+                    <a class="text" href="#none" alt="검색">검색</a>
+                  </div>
+                </li>
+                <li class="nav__list">
+                  <div class="nav__item tooltip-button">
+                    <button type="button" class="ic-button-nav" aria-describedby="tooltip3" aria-label="교정된 콘텐츠" aria-controls="layerModal3"><i class="ic ic-edition" aria-hidden="true"></i></button>
+                    <a class="text" href="#none" alt="교정된 콘텐츠">교정된 콘텐츠</a>
+                  </div>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="tooltip__box">
+            <div id="tooltip1" role="tooltip" class="tooltip" data-visible="" data-placement="right">
+              <span class="tooltip__title">가이드</span>
             </div>
-            <div class="ex-body">
-                <div class="ex-preview">
-                    <div id="floating" class="floating-menu-wrap">
-                        <nav class="nav" role="navigation">
-                            <ul class="nav__box" aria-expanded="false">
-                                <li class="nav__list">
-                                    <div class="nav__item tooltip-button">
-                                        <button type="button" class="ic-button-nav" aria-describedby="tooltip1" aria-label="검색" aria-controls="layerModal1">
-                                            <i class="ic ic-search" aria-hidden="true"></i>
-                                        </button>
-                                        <a class="text" href="#none" alt="용어사전검색 바로가기">검색</a>
-                                    </div>
-                                </li>
-                                <li class="nav__list">
-                                    <div class="nav__item tooltip-button">
-                                        <button type="button" class="ic-button-nav" aria-describedby="tooltip2" aria-label="가이드" aria-controls="layerModal2">
-                                            <i class="ic ic-guidebook" aria-hidden="true"></i>
-                                        </button>
-                                        <a class="text" href="#none" alt="가이드">가이드</a>
-                                    </div>
-                                </li>
-                                <li class="nav__list">
-                                    <div class="nav__item tooltip-button">
-                                        <button type="button" class="ic-button-nav" aria-describedby="tooltip3" aria-label="교정된 콘텐츠" aria-controls="layerModal3">
-                                            <i class="ic ic-edition" aria-hidden="true"></i>
-                                        </button>
-                                        <a class="text" href="#none" alt="교정된 콘텐츠">교정된 콘텐츠</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="tooltip__box">
-                        <div id="tooltip1" role="tooltip" class="tooltip" data-visible="" data-placement="right">
-                        <span class="tooltip__title">검색</span>
+            <div id="tooltip2" role="tooltip" class="tooltip" data-visible="" data-placement="right">
+              <span class="tooltip__title">검색</span>
+            </div>
+            <div id="tooltip3" role="tooltip" class="tooltip" data-visible="" data-placement="right">
+              <span class="tooltip__title">교정된 콘텐츠</span>
+            </div>
+          </div>
+          <div class="html-view" style="padding-left:300px;">
+            <pre>
+              <code class="ex-code-block render-html">
+                <div class="floating-menu-wrap">
+                  <nav class="nav" role="navigation">
+                    <ul class="nav__box" aria-expanded="false">
+                      <li class="nav__list">
+                        <div class="nav__item tooltip-button">
+                          <button type="button" class="ic-button-nav" aria-describedby="tooltip1" aria-label="검색"><i class="ic ic-search" aria-hidden="true"></i></button>
+                          <a class="text" href="#none" alt="용어사전검색 바로가기">검색</a>
                         </div>
-                        <div id="tooltip2" role="tooltip" class="tooltip" data-visible="" data-placement="right">
-                        <span class="tooltip__title">가이드</span>
+                      </li>
+                      <li class="nav__list">
+                        <div class="nav__item tooltip-button">
+                          <button type="button" class="ic-button-nav" aria-describedby="tooltip2" aria-label="가이드"><i class="ic ic-guidebook" aria-hidden="true"></i></button>
+                          <a class="text" href="#none" alt="가이드">가이드</a>
                         </div>
-                        <div id="tooltip3" role="tooltip" class="tooltip" data-visible="" data-placement="right">
-                        <span class="tooltip__title">교정된 콘텐츠</span>
+                      </li>
+                      <li class="nav__list">
+                        <div class="nav__item tooltip-button">
+                          <button type="button" class="ic-button-nav" aria-describedby="tooltip3" aria-label="교정된 콘텐츠"><i class="ic ic-edition" aria-hidden="true"></i></button>
+                          <a class="text" href="#none" alt="교정된 콘텐츠">교정된 콘텐츠</a>
                         </div>
-                    </div>
-                    <div class="html-view" style="padding-left:300px;">
-                        <pre>
-                        <code class="ex-code-block render-html">
-                            <div class="floating-menu-wrap">
-                                <nav class="nav" role="navigation">
-                                <ul class="nav__box" aria-expanded="false">
-                                    <li class="nav__list">
-                                    <div class="nav__item tooltip-button">
-                                        <button type="button" class="ic-button-nav" aria-describedby="tooltip1" aria-label="검색">
-                                        <i class="ic ic-search" aria-hidden="true"></i>
-                                        </button>
-                                        <a class="text" href="#none" alt="용어사전검색 바로가기">검색</a>
-                                    </div>
-                                    </li>
-                                    <li class="nav__list">
-                                    <div class="nav__item tooltip-button">
-                                        <button type="button" class="ic-button-nav" aria-describedby="tooltip2" aria-label="가이드">
-                                        <i class="ic ic-guidebook" aria-hidden="true"></i>
-                                        </button>
-                                        <a class="text" href="#none" alt="가이드">가이드</a>
-                                    </div>
-                                    </li>
-                                    <li class="nav__list">
-                                    <div class="nav__item tooltip-button">
-                                        <button type="button" class="ic-button-nav" aria-describedby="tooltip3" aria-label="교정된 콘텐츠">
-                                        <i class="ic ic-edition" aria-hidden="true"></i>
-                                        </button>
-                                        <a class="text" href="#none" alt="교정된 콘텐츠">교정된 콘텐츠</a>
-                                    </div>
-                                    </li>
-                                </ul>
-                                </nav>
-                            </div>
-                            <div class="tooltip__box">
-                                <div id="tooltip1" role="tooltip" class="tooltip" data-visible="" data-placement="right">
-                                <span class="tooltip__title">검색</span>
-                                </div>
-                                <div id="tooltip2" role="tooltip" class="tooltip" data-visible="" data-placement="right">
-                                <span class="tooltip__title">가이드</span>
-                                </div>
-                                <div id="tooltip3" role="tooltip" class="tooltip" data-visible="" data-placement="right">
-                                <span class="tooltip__title">교정된 콘텐츠</span>
-                                </div>
-                            </div>
-                        </code>
-                    </pre>
-                    </div>
+                      </li>
+                    </ul>
+                  </nav>
                 </div>
-            </div>
+                <div class="tooltip__box">
+                  <div id="tooltip1" role="tooltip" class="tooltip" data-visible="" data-placement="right">
+                    <span class="tooltip__title">검색</span>
+                  </div>
+                  <div id="tooltip2" role="tooltip" class="tooltip" data-visible="" data-placement="right">
+                    <span class="tooltip__title">가이드</span>
+                  </div>
+                  <div id="tooltip3" role="tooltip" class="tooltip" data-visible="" data-placement="right">
+                    <span class="tooltip__title">교정된 콘텐츠</span>
+                  </div>
+                </div>
+              </code>
+            </pre>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 {% endblock %}

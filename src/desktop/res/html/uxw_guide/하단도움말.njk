@@ -1,0 +1,69 @@
+{% set title = '신한 UX라이팅 시스템 | 텍스트필드(하단 도움말)' %}
+{% extends '../templates/uxw_guide_layout.njk' %}
+{% block guide %}
+	<!-- 여기서 부터 복사해서 사용하세요 -->
+	<section class="guide-content" id="BottomHelp">
+		<div class="guide-card-wrap">
+			<div class="guide-card">
+				<div class="guide-card__head">
+					<h3>텍스트필드(하단 도움말)</h3>
+					<div class="divider" aria-hidden="true"></div>
+					<p class="guide-card__sub">입력창 아래 나타나는 도움메시지 또는 알럿메시지는 다음을 기준으로 씁니다.</p>
+				</div>
+
+				<div class="guide-card__content">
+					<div class="list">
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">1줄로 핵심만 간단히 씁니다.
+							</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">입력 오류를 정정할 수 있는 방법을 안내합니다.
+							</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">정중한
+								<span class="bold mgl4">‘하십시오체’ 서술형</span>으로 씁니다.
+							</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">단, 행동 요청은 ‘~해주세요’ 형태로 간결하게 씁니다.
+							</p>
+						</div>
+					</div>
+					<div class="guide-example">
+						<div class="guide-example-list">
+							<label class="label-ct--type6">예시</label>
+							<p class="mgl-none">
+								<span>입력해주세요<i class="ic ic-o--type2" aria-hidden="true"></i>
+								</span>
+								<span>입력하시기 바랍니다. 입력하세요<i class="ic ic-x--type2" aria-hidden="true"></i>
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<div class="list">
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">되도록 긍정형 문장으로 씁니다.
+							</p>
+						</div>
+					</div>
+					<div class="guide-example">
+						<div class="guide-example-list">
+							<label class="label-ct--type6">예시</label>
+							<p class="mgl-none">
+								<span>특수문자 없이 입력해 주세요.<i class="ic ic-o--type2" aria-hidden="true"></i>
+								</span>
+								<span>특수문자는 사용하실 수 없습니다.<i class="ic ic-x--type2" aria-hidden="true"></i>
+								</span>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- 여기서 부터 복사해서 사용하세요 -->
+{% endblock %}
+{% block scripts %}{% endblock %}

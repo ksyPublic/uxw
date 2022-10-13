@@ -1,0 +1,287 @@
+{% set title = '신한 UX라이팅 시스템 | 전문내부용어' %}
+{% extends '../templates/uxw_guide_layout.njk' %}
+{% block guide %}
+	<!-- 여기서 부터 복사해서 사용하세요 -->
+	<section class="guide-content" id="Terminology">
+		<div class="guide-card-wrap">
+			<div class="guide-card">
+				<div class="guide-card__head">
+					<h3>전문/내부 용어</h3>
+					<div class="divider" aria-hidden="true"></div>
+				</div>
+				<div class="guide-card__content">
+					<div class="list">
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">모든 사용자를 고려하여 전문용어나 업계 내부용어는 최대한 지양하고, 원래의 의미가 훼손되지 않는 선에서 쉬운 표현으로 바꿔 씁니다.</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">영어 약어로 표기된 전문용어는 우리말 표현을 우선 사용하고 괄호 안에 영어를 씁니다.</p>
+						</div>
+					</div>
+					<p class="authorship">* 증권, 보험 등 특정 분야에서 이미 전문용어로 자리잡은 경우, 법적 이슈가 있는 약관 용어 등은 그대로 사용합니다.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="table-row fixed">
+			<table class="table left">
+				<thead>
+					<tr>
+						<th>개선대상 용어</th>
+						<th class="blue">순화어</th>
+						<th>개선대상 용어</th>
+						<th class="blue">순화어</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td rowspan="2">신규, 신규일</td>
+						<td rowspan="2" class="blue">
+							가입일, 신청일, 발급일 등
+							<span class="authorship">(* ‘신규’의 의미를 명확히 밝혀서 씀)</span>
+
+						</td>
+						<td>감면금리</td>
+						<td class="blue">대출우대금리</td>
+					</tr>
+					<tr>
+						<td>유동성계좌</td>
+						<td class="blue">입출금계좌</td>
+					</tr>
+					<tr>
+						<td>실명증표, 실명확인증표</td>
+						<td class="blue">신분증</td>
+						<td>평잔</td>
+						<td class="blue">평균잔액</td>
+					</tr>
+					<tr>
+						<td>적요</td>
+						<td class="blue">통장 메모</td>
+						<td>이율</td>
+						<td class="blue">이자율, 금리</td>
+					</tr>
+					<tr>
+						<td>징구</td>
+						<td class="blue">청구</td>
+						<td>퇴결</td>
+						<td class="blue">송금취소(퇴결)</td>
+					</tr>
+					<tr>
+						<td>계약응당일</td>
+						<td class="blue">계약해당일<sub>1)</sub>
+						</td>
+						<td>잡좌 계좌</td>
+						<td class="blue">휴면계좌</td>
+					</tr>
+					<tr>
+						<td>계류 중</td>
+						<td class="blue">검토 중</td>
+						<td>개인형IRP</td>
+						<td class="blue">퇴직연금(개인형IRP)</td>
+					</tr>
+					<tr>
+						<td>계상하다</td>
+						<td class="blue">계산하여 넣다</td>
+						<td>LT시간</td>
+						<td class="blue">마감시간(LT시간)</td>
+					</tr>
+					<tr>
+						<td>산출하다</td>
+						<td class="blue">계산하다</td>
+						<td>CD기</td>
+						<td class="blue">자동화기기(CD)</td>
+					</tr>
+					<tr>
+						<td>부기하다</td>
+						<td class="blue">덧붙여 적다</td>
+						<td>DSR</td>
+						<td class="blue">총부채원리금상환비율(DSR)</td>
+					</tr>
+					<tr>
+						<td>체신보</td>
+						<td class="blue">우체국보험</td>
+						<td>R, PR여권</td>
+						<td class="blue">거주여권(R/PR)</td>
+					</tr>
+					<tr>
+						<td>환출</td>
+						<td class="blue">환급</td>
+						<td>REF-NO</td>
+						<td class="blue">REF-NO(송금계좌번호)</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<p class="authorship authorship--type4">
+			금융감독원의 &#60;금융소비자들이 이해하기 어려운 금융용어 114개(2013)&#62;에서 ‘계약응당일'을 ‘계약일에 해당하는 날'로 개선 권장함.<br/>
+			이를 간결하게 적용한 형태가 ‘계약해당일'로 현재 관련 업계에서 널리 사용 중임
+		</p>
+
+		<h2 class="guide-title">전문/내부 용어(문장예시)</h2>
+
+		<div class="table-row fixed">
+			<table class="table left">
+				<colgroup>
+					<col style="width:*"/>
+					<col style="width:*"/>
+				</colgroup>
+				<thead>
+					<tr>
+						<th>
+							<span>이렇게 쓰지 마세요<i class="ic ic-x--type2" aria-hidden="true"></i>
+							</span>
+						</th>
+						<th>
+							이렇게 쓰세요<i class="ic ic-o--type2" aria-hidden="true"></i>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<span class="red">신규</span>
+							일을 입력해주세요.
+						</td>
+						<td>
+							<span class="blue">가입일</span>
+							을 입력해주세요. (* 예적금, 펀드 등 상품일 때)
+						</td>
+					</tr>
+					<tr>
+						<td>
+							사업자등록증 및
+							<span class="red">실명확인증표를</span>
+							지참하시기 바랍니다.
+						</td>
+						<td>
+							사업자등록증 및
+							<span class="blue">신분증</span>
+							을 가지고 방문해주세요.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							매년
+							<span class="red">계약응당일</span>
+							에 후취로
+							<span class="red">징구</span>함
+						</td>
+						<td>
+							매년
+							<span class="blue">계약일과 같은 날</span>
+							에 후취로
+							<span class="blue">청구</span>함
+						</td>
+					</tr>
+					<tr>
+						<td>
+							중도해지 시 납입액의 6%를 해지가산세로
+							<span class="red">추징</span>될 수 있습니다.
+						</td>
+						<td>
+							중도해지 시 납입액의 6%를 해지가산세로
+							<span class="blue">추가 납부</span>할 수 있습니다.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							연소득 등을 바탕으로
+							<span class="red">산출</span>된 결과입니다.
+						</td>
+						<td>
+							연소득 등을 바탕으로
+							<span class="blue">계산</span>한 결과입니다.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							최초 3개월 동안은 최대
+							<span class="red">감면금리</span>가 제공됩니다.
+						</td>
+						<td>
+							최초 3개월 동안은 최대
+							<span class="blue">대출우대금리</span>가 적용됩니다.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							입금예정일에 지정하신
+							<span class="red">유동성계좌</span>로 입금됩니다.
+						</td>
+						<td>
+							입금예정일에 지정한
+							<span class="blue">입출금계좌</span>로 입금됩니다.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							적용
+							<span class="red">이율</span>은 친구소개우대가 이미 반영되어 있습니다.
+						</td>
+						<td>
+							적용
+							<span class="blue">이자율에</span>
+							친구추천으로 받은 우대금리가 반영되었습니다.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							수수료가 추가 청구 되거나
+							<span class="red">퇴결</span>될 수 있으므로 주의하시기 바랍니다.
+						</td>
+						<td>
+							수수료가 추가 청구되거나,
+							<span class="blue">송금취소(퇴결)</span>될 수 있으니 주의해주세요.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span class="red">잡좌 계좌</span>입니다.해당은행에 문의하세요
+						</td>
+						<td>
+							<span class="blue">휴면계좌</span>입니다. 해당은행에 문의해주세요.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							환매신청일의 상품별
+							<span class="red">LT시간</span>이내에만 가능합니다.
+						</td>
+						<td>
+							환매신청일의 상품별
+							<span class="blue">마감시간(LT시간)</span>
+							이내에만 가능합니다.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							나의
+							<span class="red">만기예상수령액</span>은?
+						</td>
+						<td>
+							내
+							<span class="blue">적금 만기예상금액</span>
+							알아보기
+						</td>
+					</tr>
+					<tr>
+						<td>
+							공과금: 아파트관리비, 전기요금, 전화요금, 도시가스요금, 상하수도요금, 건강보험료, 국민연금,
+							<span class="red">정보통신요금, 무선호출요금, 핸드폰요금,</span>유선방송사용료, 보험료,
+							<span class="red">체신보</span>
+						</td>
+						<td>
+							공과금: 아파트관리비, 전기요금, 전화요금, 도시가스요금, 상하수도요금, 건강보험료, 국민연금,
+							<span class="blue">통신요금,</span>
+							유선방송이용요금,
+							<span class="blue">우체국보험</span>
+							등
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</p>
+</section>
+<!-- //여기서 부터 복사해서 사용하세요 -->{% endblock %}{% block scripts %}{% endblock %}

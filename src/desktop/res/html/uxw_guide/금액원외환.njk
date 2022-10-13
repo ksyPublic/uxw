@@ -1,0 +1,143 @@
+{% set title = '신한 UX라이팅 시스템 | 금액(원)' %}
+{% extends '../templates/uxw_guide_layout.njk' %}
+{% block guide %}
+	<!-- 여기서 부터 복사해서 사용하세요 -->
+	<section class="guide-content" id="Punctuation">
+		<div class="guide-card-wrap">
+			<div class="guide-card">
+				<div class="guide-card__head">
+					<h3>금액(원)</h3>
+					<div class="divider" aria-hidden="true"></div>
+				</div>
+				<div class="guide-card__content">
+					<div class="list">
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">단순 금액정보를 안내할 경우에는 아라비아 숫자로 금액을 표기합니다.</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">금액 세자리마다 쉼표(,)를 찍고, 금액 숫자 다음에 ‘원’을 씁니다.</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">천 원, 만 원 등 한글 금액 단위는 띄어 쓰는 것이 원칙이지만, 금액표기가 많은 금융 콘텐츠에서는 가독성을 고려해 천원, 만원 등으로 붙여서 씁니다.
+							</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">문장에서 큰 금액을 빠르게 인지할 수 있도록 천 단위까지 숫자로, 만 단위부터 한글로 표기합니다. (단, 공간제약 시 천 단위 이내도 한글표기 허용)
+							</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">공간제약이 있는 표나 그래프 위주의 부동산 정보에서만 금액의 소수점 표기를 한정적으로 사용합니다.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="table-row fixed align-top">
+			<table class="table left">
+				<colgroup>
+					<col style="width:50%"/>
+					<col style="width:50%"/>
+				</colgroup>
+				<thead>
+					<tr>
+						<th>
+							이렇게 쓰지 마세요<i class="ic ic-x--type2" aria-hidden="true"></i>
+						</th>
+						<th>
+							이렇게 쓰세요<i class="ic ic-o--type2" aria-hidden="true"></i>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							10000 원
+						</td>
+						<td>
+							10,000원
+						</td>
+					</tr>
+					<tr>
+						<td>
+							500 만원
+						</td>
+						<td>
+							500만원
+						</td>
+					</tr>
+					<tr>
+						<td>
+							2천억 원 , 2천 5백만 원
+						</td>
+						<td>
+							2,000억원, 2,500만원
+							<span class="authorship">* 5백만원, 1천만원: 공간제약 시 허용</span>
+							<span class="authorship">* 1.5억: 부동산 정보일 때만 허용</span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="guide-card-wrap">
+			<div class="guide-card">
+				<div class="guide-card__head">
+					<h3>금액(외환)</h3>
+					<div class="divider" aria-hidden="true"></div>
+				</div>
+				<div class="guide-card__content">
+					<div class="list">
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">외환 표기는 통화코드+금액(한글 통화단위)로 씁니다.</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">단, 공간제약 시 통화코드+금액만 간략하게 씁니다.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="table-row fixed">
+			<table class="table left">
+				<colgroup>
+					<col style="width:50%"/>
+					<col style="width:50%"/>
+				</colgroup>
+				<thead>
+					<tr>
+						<th>
+							이렇게 쓰지 마세요<i class="ic ic-x--type2" aria-hidden="true"></i>
+						</th>
+						<th>
+							이렇게 쓰세요<i class="ic ic-o--type2" aria-hidden="true"></i>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							$500, 500 USD, 미화 5백불, 미화 500달러,
+						</td>
+						<td>
+							USD 500(미국 달러), EUR 100(유럽 유로), GBP 300(영국 파운드)
+						</td>
+					</tr>
+					<tr>
+						<td>
+							미화 500 달러, 100파운드(GBP)
+						</td>
+						<td>
+							USD 500, EUR 100, GBP 100(공간제약 시)
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+	<!-- //여기서 부터 복사해서 사용하세요 -->
+{% endblock %}
+{% block scripts %}{% endblock %}

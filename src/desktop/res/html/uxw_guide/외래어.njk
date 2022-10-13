@@ -1,0 +1,165 @@
+{% set title = '신한 UX라이팅 시스템 | 외래어' %}
+{% extends '../templates/uxw_guide_layout.njk' %}
+{% block guide %}
+	<!-- 여기서 부터 복사해서 사용하세요 -->
+	<section class="guide-content" id="Foreign_Words">
+		<div class="guide-card-wrap">
+			<div class="guide-card">
+				<div class="guide-card__head">
+					<h3>외래어</h3>
+					<div class="divider" aria-hidden="true"></div>
+				</div>
+				<div class="guide-card__content">
+					<div class="list">
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">외래어는 되도록 우리말로 대체합니다.</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">대체할 우리말이 없거나 이미 널리 쓰이는 외래어는 외래어 표기법에 따라 한글로 표기합니다.</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">단, ‘설루션’과 같이 원칙 표기가 사용자에게 익숙하지 않은 경우 틀린 표기도 허용합니다.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="table-row fixed">
+			<table class="table left">
+				<thead>
+					<tr>
+						<th>기존 표현</th>
+						<th class="blue">권장 표기/표현</th>
+						<th>기존 표현</th>
+						<th class="blue">권장 표기/표현</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>어플리케이션</td>
+						<td class="blue">어플리케이션, 앱</td>
+						<td>패스워드</td>
+						<td class="blue">비밀번호</td>
+					</tr>
+					<tr>
+						<td>프로세스</td>
+						<td class="blue">절차</td>
+						<td>리스트</td>
+						<td class="blue">목록</td>
+					</tr>
+					<tr>
+						<td>메세지</td>
+						<td class="blue">메시지</td>
+						<td>에러</td>
+						<td class="blue">오류</td>
+					</tr>
+					<tr>
+						<td>캐쉬백</td>
+						<td class="blue">캐시백</td>
+						<td>런칭(올바른 표기법은 '론칭'임)</td>
+						<td class="blue">출시</td>
+					</tr>
+					<tr>
+						<td>설루션(원칙 표기)</td>
+						<td class="blue">솔루션(허용 표기)</td>
+						<td>네비게이션</td>
+						<td class="blue">내비게이션</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="table-row fixed">
+			<table class="table left">
+				<colgroup>
+					<col style="width:*"/>
+					<col style="width:*"/>
+				</colgroup>
+				<thead>
+					<tr>
+						<th>
+							<span>이렇게 쓰지 마세요<i class="ic ic-x--type2" aria-hidden="true"></i>
+							</span>
+						</th>
+						<th>
+							이렇게 쓰세요<i class="ic ic-o--type2" aria-hidden="true"></i>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							송금인
+							<span class="red">메세지</span>란에 반드시 학생ID 또는 학생No.를 입력하셔야 합니다.
+						</td>
+						<td>
+							송금인
+							<span class="blue">메시지</span>란에 학생아이디 또는 학생번호를 입력해주세요.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							SOL APP에서 온라인 결제 시, 사용 금액의 0.5% 즉시
+							<span class="red">캐쉬백</span>
+						</td>
+						<td>
+							쏠(SOL)에서 온라인 결제 시 사용금액의 0.5% 즉시
+							<span class="blue">캐시백</span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							유학생 연장서류 제출
+							<span class="red">프로세스</span>
+							안내
+						</td>
+						<td>
+							유학생 연장서류 제출
+							<span class="blue">절차</span>안내
+						</td>
+					</tr>
+					<tr>
+						<td>
+							아이디/
+							<span class="red">패스워드</span>를 입력하세요.
+						</td>
+						<td>
+							아이디와
+							<span class="blue">비밀번호</span>를 입력해주세요.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							펀드상품
+							<span class="red">리스트</span>를 선택해서 서비스를 신청하시기 바랍니다.
+						</td>
+						<td>
+							펀드상품을
+							<span class="blue">목록</span>에서 선택 후 서비스를 신청해주세요.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							간편한 인증서를 새롭게
+							<span class="red">런칭</span>하게 되었습니다.
+						</td>
+						<td>
+							간편한 인증서를 새롭게
+							<span class="blue">출시</span>했습니다.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span class="red">에러</span>가 발생하는 경우 영업점 창구에서 발급해주세요.
+						</td>
+						<td>
+							<span class="blue">오류</span>가 발생하는 경우 영업점 창구에서 발급해주세요.
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+	<!-- //여기서 부터 복사해서 사용하세요 -->
+{% endblock %}
+{% block scripts %}{% endblock %}

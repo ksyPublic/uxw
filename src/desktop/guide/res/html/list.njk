@@ -1,5 +1,5 @@
-{% extends "../templates/layout.njk" %}
-<!--
+{% extends '../templates/layout.njk' %}
+<!--  
     type:[1,2,3,4]
     1 : '완료',
     2 : '진행중',
@@ -7,1112 +7,216 @@
     4 : '검수중',
 -->
 {% set LIST_VIEW2 = [
-    {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth1':'교정하기',
-        'depth2':'서브 콘텐츠 영역',
-        'depth3':'통계데이터',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth3':'유의해야 할 맞춤법',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth3':'유의해야 할 맞춤법',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth3':'유의해야 할 띄어쓰기',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth2':'스마트 오퍼',
-        'depth3':'메인 상단배너',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth3':'메인 바텀시트배너',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth3':'공통배너',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth1':'UX라이팅 가이드',
-        'depth2':'보이스앤톤',
-        'depth3':'보이스앤톤 이란?',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth3':'보이스',
-        'depth4':'',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth3':'톤',
-        'depth4':'친근한 톤',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'쉽고 간결한 톤',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'유익한 톤',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'배려하는 톤',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'텍스트 기능별 톤',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'높임법',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth2':'라이팅 기본원칙',
-        'depth3':'명확하게',
-        'depth4':'한자어',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'한자어 접두사 `기, 미, 비, 불`',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'전문/내부 용어',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'대출 용어',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'고유명사',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'영어/한자 단독 표기',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'외래어',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'줄임말, 지시어',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'유의어',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth3':'간결하게',
-        'depth4':'긴 문장',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'높임 표현',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'번역 투',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'군더더기 표현/중복표현',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'당부, 사과, 양해 표현',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth3':'일관되게',
-        'depth4':'용어통일',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'영업일 표현',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'말투/서술형태 통일',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'문장부호',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'버튼, 메뉴, 경로',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'날짜, 요일',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'시간, 기간',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'금액(원/외환)',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'이자율, 퍼센트',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'통화 표기',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'전화번호, 링크',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'버전명, OS',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth3':'고객 관점으로',
-        'depth4':'기업 중심 표현',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'부정 표현',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'실패 표현',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'오류 메시지',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'차별 표현',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth2':'콘텐츠 유형',
-        'depth3':'버튼',
-        'depth4':'버튼(single)',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'버튼(multiple)',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'버튼(공통)',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'예/아니요 버튼',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'여부 버튼',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'CTA 버튼',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'링크 버튼',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth3':'바텀시트',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth3':'레이블',
-        'depth4':'전체 메뉴',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth3':'레이블',
-        'depth4':'상품/서비스 메뉴',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth3':'툴팁',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth3':'텍스트필드',
-        'depth4':'레이블/입력창',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth4':'하단 도움말',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth3':'팝업',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth3':'토스트',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth3':'메시지',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth3':'유의사항',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth2':'자주 틀리는 표현',
-        'depth3':'맞춤법',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth3':'띄어쓰기',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }, {
-        'type':'2',
-        'id': '',
-        'category':'PAGE',
-        'username': '김세영',
-        'depth3':'붙여쓰기',
-        'date': '-',
-        'memo':'',
-        'url':'',
-        'note':''
-    }
+  { type: '1', id: '', category: 'PAGE', username: '김세영', depth1: '교정하기', depth2: '서브 콘텐츠 영역', depth3: '통계데이터', date: '22-09-26', memo: '', url: '/res/html/uxw_guide/통계데이터.html', note: '' },
+  { type: '1', id: '', category: 'PAGE', username: '김세영', depth3: '유의해야 할 맞춤법', date: '22-09-26', memo: '', url: '/res/html/uxw_guide/유의해야할맞춤법.html', note: '' },
+  { type: '1', id: '', category: 'PAGE', username: '김세영', depth3: '유의해야 할 띄어쓰기', date: '22-09-26', memo: '', url: '/res/html/uxw_guide/유의해야할띄어쓰기.html', note: '' },
+  { type: '1', id: '', category: 'PAGE', username: '김세영', depth3: '유의해야 할 붙여쓰기', date: '22-09-26', memo: '', url: '/res/html/uxw_guide/유의해야할붙여쓰기.html', note: '' },
+  { type: '1', id: '', category: 'PAGE', username: '김세영', depth2: '앱푸시', date: '22-09-28', memo: '', url: '/res/html/uxw_guide/앱푸시.html', note: '' },
+  { type: '1', id: '', category: 'PAGE', username: '김세영', depth2: '스마트 오퍼', depth3: '메인 상단배너', date: '22-09-28', memo: '', url: '/res/html/uxw_guide/메인상단배너.html', note: '' },
+  { type: '1', id: '', category: 'PAGE', username: '김세영', depth3: '메인 바텀시트배너', date: '22-09-28', memo: '', url: '/res/html/uxw_guide/메인바텀시트배너.html', note: '' },
+  { type: '1', id: '', category: 'PAGE', username: '김세영', depth3: '공통배너', date: '22-09-28', memo: '', url: '/res/html/uxw_guide/공통배너.html', note: '' },
+  { type: '1', id: '', category: 'PAGE', username: '김세영', depth1: 'UX라이팅 가이드', depth2: '보이스앤톤', depth3: '보이스앤톤 이란?', date: '22-09-28', memo: '', url: '/res/html/uxw_guide/보이스앤톤이란.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth3: '보이스', date: '22-09-30', memo: '', url: '/res/html/uxw_guide/보이스.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth3: '톤', depth4: '*공통', date: '22-09-30', memo: '', url: '/res/html/uxw_guide/톤.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '친근한 톤', date: '22-09-30', memo: '', url: '/res/html/uxw_guide/친근한톤.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '쉽고 간결한 톤', date: '22-09-30', memo: '', url: '/res/html/uxw_guide/쉽고간결한톤.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '유익한 톤', date: '22-09-30', memo: '', url: '/res/html/uxw_guide/유익한톤.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '배려하는 톤', date: '22-09-30', memo: '', url: '/res/html/uxw_guide/배려하는톤.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '텍스트 기능별 톤', date: '22-09-30', memo: '', url: '/res/html/uxw_guide/텍스트기능별톤.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '높임법', date: '22-10-04', memo: '', url: '/res/html/uxw_guide/높임법.html', note: '' },
+  { type: '1', id: '', category: 'PAGE', username: '김세영', depth2: '라이팅 기본원칙', depth3: '명확하게', depth4: '*공통', date: '22-09-28', memo: '', url: '/res/html/uxw_guide/명확하게.html', note: '' },
+  { type: '1', id: '', category: 'PAGE', username: '김세영', depth4: '한자어', date: '22-09-28', memo: '', url: '/res/html/uxw_guide/한자어.html', note: '' },
+  { type: '1', id: '', category: 'PAGE', username: '김세영', depth4: '한자어 접두사 `기, 미, 비, 불`', date: '22-09-28', memo: '', url: '/res/html/uxw_guide/한자어접두사.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '전문/내부 용어', date: '22-10-04', memo: '', url: '/res/html/uxw_guide/전문내부용어.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '대출 용어', date: '22-10-04', memo: '', url: '/res/html/uxw_guide/대출용어.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '고유명사', date: '22-10-04', memo: '', url: '/res/html/uxw_guide/고유명사.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '영어/한자 단독 표기', date: '22-10-04', memo: '', url: '/res/html/uxw_guide/영어한자단독표기.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '외래어', date: '22-10-04', memo: '', url: '/res/html/uxw_guide/외래어.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '줄임말, 지시어', date: '22-10-04', memo: '', url: '/res/html/uxw_guide/줄임말지시어.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '유의어', date: '22-10-04', memo: '', url: '/res/html/uxw_guide/유의어.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth3: '간결하게', depth4: '*공통', date: '22-10-04', memo: '', url: '/res/html/uxw_guide/간결하게.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '긴 문장', date: '22-10-04', memo: '', url: '/res/html/uxw_guide/긴문장.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '높임 표현', date: '22-10-04', memo: '', url: '/res/html/uxw_guide/높임표현.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '번역 투', date: '22-10-07', memo: '', url: '/res/html/uxw_guide/번역투.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '군더더기 표현/중복표현', date: '22-10-07', memo: '', url: '/res/html/uxw_guide/군더더기표현중복표현.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '당부, 사과, 양해 표현', date: '22-10-07', memo: '', url: '/res/html/uxw_guide/당부사과양해표현.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth3: '일관되게', depth4: '*공통', date: '22-10-04', memo: '', url: '/res/html/uxw_guide/일관되게.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '용어통일', date: '22-10-04', memo: '', url: '/res/html/uxw_guide/용어통일.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '영업일 표현', date: '22-10-04', memo: '', url: '/res/html/uxw_guide/영업일표현.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '말투/서술형태 통일', date: '22-10-04', memo: '', url: '/res/html/uxw_guide/말투서술형태통일.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '문장부호', date: '22-10-07', memo: '', url: '/res/html/uxw_guide/문장부호.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '버튼, 메뉴, 경로', date: '22-10-07', memo: '', url: '/res/html/uxw_guide/버튼메뉴경로.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '날짜, 요일', date: '22-10-07', memo: '', url: '/res/html/uxw_guide/날짜요일.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '시간, 기간', date: '22-10-07', memo: '', url: '/res/html/uxw_guide/시간기간.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '금액(원/외환)', date: '22-10-07', memo: '', url: '/res/html/uxw_guide/금액원외환.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '이자율, 퍼센트', date: '22-10-07', memo: '', url: '/res/html/uxw_guide/이자율퍼센트.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '통화 표기', date: '22-10-07', memo: '', url: '/res/html/uxw_guide/통화표기.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '전화번호, 링크', date: '22-10-07', memo: '', url: '/res/html/uxw_guide/전화번호링크.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '버전명, OS', date: '22-10-07', memo: '', url: '/res/html/uxw_guide/버전명OS.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth3: '고객 관점으로', depth4: '*공통', date: '22-10-04', memo: '', url: '/res/html/uxw_guide/고객관점으로.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '기업 중심 표현', date: '22-10-04', memo: '', url: '/res/html/uxw_guide/기업중심표현.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '부정 표현', date: '22-10-04', memo: '', url: '/res/html/uxw_guide/부정표현.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '실패 표현', date: '22-10-11', memo: '', url: '/res/html/uxw_guide/실패표현.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '오류 메시지', date: '22-10-11', memo: '', url: '/res/html/uxw_guide/오류메시지.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '차별 표현', date: '22-10-11', memo: '', url: '/res/html/uxw_guide/차별표현.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth2: '콘텐츠 유형', depth3: '버튼', depth4: '버튼(single)', date: '22-10-06', memo: '', url: '/res/html/uxw_guide/버튼싱글.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '버튼(multiple)', date: '22-10-06', memo: '', url: '/res/html/uxw_guide/버튼멀티플.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '버튼(공통)', date: '22-10-06', memo: '', url: '/res/html/uxw_guide/버튼공통.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '예/아니요 버튼', date: '22-10-06', memo: '', url: '/res/html/uxw_guide/예아니요버튼.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '여부 버튼', date: '22-10-06', memo: '', url: '/res/html/uxw_guide/여부버튼.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: 'CTA 버튼', date: '22-10-06', memo: '', url: '/res/html/uxw_guide/CTA버튼.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '링크 버튼', date: '22-10-06', memo: '', url: '/res/html/uxw_guide/링크버튼.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth3: '바텀시트', date: '22-10-06', memo: '', url: '/res/html/uxw_guide/바텀시트.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth3: '레이블', depth4: '전체 메뉴', date: '22-10-06', memo: '', url: '/res/html/uxw_guide/레이블전체메뉴.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth3: '레이블', depth4: '상품/서비스 메뉴', date: '22-10-06', memo: '', url: '/res/html/uxw_guide/레이블상품서비스메뉴.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth3: '툴팁', date: '22-10-06', memo: '', url: '/res/html/uxw_guide/툴팁.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth3: '텍스트필드', depth4: '레이블/입력창', date: '22-10-06', memo: '', url: '/res/html/uxw_guide/텍스트필드레이블입력창.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth4: '하단 도움말', date: '22-10-06', memo: '', url: '/res/html/uxw_guide/하단도움말.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth3: '팝업', date: '22-10-06', memo: '', url: '/res/html/uxw_guide/팝업.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth3: '토스트', date: '22-10-06', memo: '', url: '/res/html/uxw_guide/토스트.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth3: '메시지', date: '22-10-06', memo: '', url: '/res/html/uxw_guide/메시지.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth3: '유의사항', date: '22-10-06', memo: '', url: '/res/html/uxw_guide/유의사항.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth2: '자주 틀리는 표현', depth3: '맞춤법', date: '22-10-04', memo: '', url: '/res/html/uxw_guide/맞춤법.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth3: '띄어쓰기', date: '22-10-07', memo: '', url: '/res/html/uxw_guide/띄어쓰기.html', note: '' },
+  { type: '4', id: '', category: 'PAGE', username: '김세영', depth3: '붙여쓰기', date: '22-10-07', memo: '', url: '/res/html/uxw_guide/붙여쓰기.html', note: '' }
 ] %}
 {% set LIST_VIEW = [
-    {
-        'type':'1',
-        'id': 'alert',
-        'category':'PAGE',
-        'username': '김세영',
-        'viewname':'공통 | alert',
-        'date': '22-09-05',
-        'memo':'',
-        'url':'/res/html/alert.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'login',
-        'category':'PAGE',
-        'username': '김세영',
-        'viewname':'로그인',
-        'date': '22-08-29',
-        'memo':'',
-        'url':'/res/html/login.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'logout',
-        'category':'PAGE',
-        'username': '김세영',
-        'viewname':'로그아웃',
-        'date': '22-08-29',
-        'memo':'',
-        'url':'/res/html/logout.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'currect-before',
-        'category':'PAGE/TAB',
-        'username': '김세영',
-        'viewname':'교정하기(메인) | 교정전',
-        'date': '22-08-29',
-        'memo':'',
-        'url':'/res/html/currect_before.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'currect-after',
-        'category':'PAGE/TAB',
-        'username': '김세영',
-        'viewname':'교정하기(메인) | 교정후',
-        'date': '22-08-29',
-        'memo':'',
-        'url':'/res/html/currect_after.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'currect_modify_completed',
-        'category':'PAGE/TAB',
-        'username': '김세영',
-        'viewname':'교정하기(메인) | 수정후',
-        'date': '22-08-29',
-        'memo':'',
-        'url':'/res/html/currect_modify_completed.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'currect_app',
-        'category':'PAGE/TAB',
-        'username': '김세영',
-        'viewname':'교정하기(메인) | 앱푸시',
-        'date': '22-08-29',
-        'memo':'',
-        'url':'/res/html/currect_app.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'currect_smartoper',
-        'category':'PAGE/TAB',
-        'username': '김세영',
-        'viewname':'교정하기(메인) | 스마트오퍼',
-        'date': '22-08-29',
-        'memo':'',
-        'url':'/res/html/currect_smartoper.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'currect_popup01',
-        'category':'POPUP',
-        'username': '김세영',
-        'viewname':'교정하기(메인) | 콘텐츠 완료하기 팝업',
-        'date': '22-08-29',
-        'memo':'',
-        'url':'/res/html/currect_popup01.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'mypage',
-        'category':'PAGE',
-        'username': '김세영',
-        'viewname':'마이페이지',
-        'date': '22-09-05',
-        'memo':'',
-        'url':'/res/html/mypage.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'mypage_all_datanone',
-        'category':'PAGE',
-        'username': '김세영',
-        'viewname':'마이페이지 | 내 콘텐츠 & 북마크 글이 없을 경우',
-        'date': '22-09-05',
-        'memo':'',
-        'url':'/res/html/mypage_all_datanone.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'mypage_all_datanone',
-        'category':'PAGE',
-        'username': '김세영',
-        'viewname':'마이페이지 | 내 콘텐츠 & 북마크 검색 결과가 없을경우',
-        'date': '22-09-05',
-        'memo':'',
-        'url':'/res/html/mypage_search_datanone.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'mypage_currect_datanone',
-        'category':'PAGE',
-        'username': '김세영',
-        'viewname':'마이페이지 | 내 콘텐츠 작성중 & 북마크 내 부서 만 보기 글이 없을 경우',
-        'date': '22-09-05',
-        'memo':'',
-        'url':'/res/html/mypage_currect_datanone.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'mypage_popup01',
-        'category':'POPUP',
-        'username': '김세영',
-        'viewname':'마이페이지 | 문의하기 팝업',
-        'date': '22-09-05',
-        'memo':'',
-        'url':'/res/html/mypage_popup01.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'mypage_popup02',
-        'category':'POPUP',
-        'username': '김세영',
-        'viewname':'마이페이지 | 답변완료 팝업',
-        'date': '22-09-05',
-        'memo':'',
-        'url':'/res/html/mypage_popup02.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'mypage_popup03',
-        'category':'POPUP',
-        'username': '김세영',
-        'viewname':'마이페이지 | 답변대기 팝업',
-        'date': '22-09-05',
-        'memo':'',
-        'url':'/res/html/mypage_popup03.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'mypage_popup04',
-        'category':'POPUP',
-        'username': '김세영',
-        'viewname':'마이페이지 | 용어문의 팝업',
-        'date': '22-09-05',
-        'memo':'',
-        'url':'/res/html/mypage_popup04.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'notice',
-        'category':'PAGE',
-        'username': '김세영',
-        'viewname':'공지사항',
-        'date': '22-09-05',
-        'memo':'',
-        'url':'/res/html/notice.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'faq',
-        'category':'PAGE',
-        'username': '김세영',
-        'viewname':'문의',
-        'date': '22-09-05',
-        'memo':'',
-        'url':'/res/html/faq.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'faq_datanone',
-        'category':'PAGE',
-        'username': '김세영',
-        'viewname':'문의검색 | 데이터가 없을경우',
-        'date': '22-09-05',
-        'memo':'',
-        'url':'/res/html/faq_datanone.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'faq_popup_sample',
-        'category':'PAGE',
-        'username': '김세영',
-        'viewname':'문의하기 | alert',
-        'date': '22-09-05',
-        'memo':'',
-        'url':'/res/html/faq_alert.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'error404',
-        'category':'PAGE',
-        'username': '김세영',
-        'viewname':'에러페이지 | 404',
-        'date': '22-09-05',
-        'memo':'',
-        'url':'/res/html/error404.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'network_error',
-        'category':'PAGE',
-        'username': '김세영',
-        'viewname':'에러페이지 | 네트워크',
-        'date': '22-09-05',
-        'memo':'',
-        'url':'/res/html/network_error.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'layer03',
-        'category':'LAYER',
-        'username': '김세영',
-        'viewname':'교정된 콘텐츠',
-        'date': '22-09-13',
-        'memo':'',
-        'url':'/res/html/layer_modal03.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'layer03_01',
-        'category':'LAYER',
-        'username': '김세영',
-        'viewname':'교정된 콘텐츠 | 일반',
-        'date': '22-09-13',
-        'memo':'',
-        'url':'/res/html/layer_modal03_01.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'layer03_02',
-        'category':'LAYER',
-        'username': '김세영',
-        'viewname':'교정된 콘텐츠 | 스마트오퍼',
-        'date': '22-09-13',
-        'memo':'',
-        'url':'/res/html/layer_modal03_02.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'layer01',
-        'category':'LAYER',
-        'username': '김세영',
-        'viewname':'검색',
-        'date': '22-09-20',
-        'memo':'',
-        'url':'/res/html/layer_modal01.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'layer01_02',
-        'category':'LAYER',
-        'username': '김세영',
-        'viewname':'검색 | 검색입력시',
-        'date': '22-09-20',
-        'memo':'',
-        'url':'/res/html/layer_modal01_02.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'layer01_03',
-        'category':'LAYER',
-        'username': '김세영',
-        'viewname':'검색 | 데이터없을시',
-        'date': '22-09-20',
-        'memo':'',
-        'url':'/res/html/layer_modal01_03.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'layer02',
-        'category':'LAYER',
-        'username': '김세영',
-        'viewname':'가이드',
-        'date': '22-09-21',
-        'memo':'',
-        'url':'/res/html/layer_modal02.html',
-        'note':''
-    }, {
-        'type':'1',
-        'id': 'all_layerd',
-        'category':'LAYER',
-        'username': '김세영',
-        'viewname':'통합 레이어',
-        'date': '22-09-21',
-        'memo':'',
-        'url':'/res/html/all_layerd.html',
-        'note':''
-    }
-]%}
+  { type: '1', id: 'alert', category: 'PAGE', username: '김세영', viewname: '공통 | alert', date: '22-09-05', memo: '', url: '/res/html/alert.html', note: '' },
+  { type: '1', id: 'login', category: 'PAGE', username: '김세영', viewname: '로그인', date: '22-08-29', memo: '', url: '/res/html/login.html', note: '' },
+  { type: '1', id: 'logout', category: 'PAGE', username: '김세영', viewname: '로그아웃', date: '22-08-29', memo: '', url: '/res/html/logout.html', note: '' },
+  { type: '1', id: 'currect-before', category: 'PAGE/TAB', username: '김세영', viewname: '교정하기(메인) | 작성전', date: '22-08-29', memo: '', url: '/res/html/currect_before.html', note: '' },
+  { type: '1', id: 'currect-after', category: 'PAGE/TAB', username: '김세영', viewname: '교정하기(메인) | 작성후', date: '22-08-29', memo: '', url: '/res/html/currect_after.html', note: '' },
+  { type: '1', id: 'currect_modify_completed', category: 'PAGE/TAB', username: '김세영', viewname: '교정하기(메인) | 수정후', date: '22-08-29', memo: '', url: '/res/html/currect_modify_completed.html', note: '' },
+  { type: '1', id: 'currect_app', category: 'PAGE/TAB', username: '김세영', viewname: '교정하기(메인) | 앱푸시', date: '22-08-29', memo: '', url: '/res/html/currect_app.html', note: '' },
+  { type: '1', id: 'currect_smartoper', category: 'PAGE/TAB', username: '김세영', viewname: '교정하기(메인) | 스마트오퍼', date: '22-08-29', memo: '', url: '/res/html/currect_smartoper.html', note: '' },
+  { type: '1', id: 'currect_popup01', category: 'POPUP', username: '김세영', viewname: '교정하기(메인) | 콘텐츠 완료하기 팝업', date: '22-08-29', memo: '', url: '/res/html/currect_popup01.html', note: '' },
+  { type: '1', id: 'mypage', category: 'PAGE', username: '김세영', viewname: '마이페이지', date: '22-09-05', memo: '', url: '/res/html/mypage.html', note: '' },
+  { type: '1', id: 'mypage_all_datanone', category: 'PAGE', username: '김세영', viewname: '마이페이지 | 내 콘텐츠 & 북마크 글이 없을 경우', date: '22-09-05', memo: '', url: '/res/html/mypage_all_datanone.html', note: '' },
+  { type: '1', id: 'mypage_all_datanone', category: 'PAGE', username: '김세영', viewname: '마이페이지 | 내 콘텐츠 & 북마크 검색 결과가 없을경우', date: '22-09-05', memo: '', url: '/res/html/mypage_search_datanone.html', note: '' },
+  { type: '1', id: 'mypage_currect_datanone', category: 'PAGE', username: '김세영', viewname: '마이페이지 | 내 콘텐츠 작성중 & 북마크 내 부서 만 보기 글이 없을 경우', date: '22-09-05', memo: '', url: '/res/html/mypage_currect_datanone.html', note: '' },
+  { type: '1', id: 'mypage_popup01', category: 'POPUP', username: '김세영', viewname: '마이페이지 | 문의하기 팝업', date: '22-09-05', memo: '', url: '/res/html/mypage_popup01.html', note: '' },
+  { type: '1', id: 'mypage_popup02', category: 'POPUP', username: '김세영', viewname: '마이페이지 | 답변완료 팝업', date: '22-09-05', memo: '', url: '/res/html/mypage_popup02.html', note: '' },
+  { type: '1', id: 'mypage_popup03', category: 'POPUP', username: '김세영', viewname: '마이페이지 | 답변대기 팝업', date: '22-09-05', memo: '', url: '/res/html/mypage_popup03.html', note: '' },
+  { type: '1', id: 'mypage_popup04', category: 'POPUP', username: '김세영', viewname: '마이페이지 | 용어문의 팝업', date: '22-09-05', memo: '', url: '/res/html/mypage_popup04.html', note: '' },
+  { type: '1', id: 'notice', category: 'PAGE', username: '김세영', viewname: '공지사항', date: '22-09-05', memo: '', url: '/res/html/notice.html', note: '' },
+  { type: '1', id: 'faq', category: 'PAGE', username: '김세영', viewname: '문의', date: '22-09-05', memo: '', url: '/res/html/faq.html', note: '' },
+  { type: '1', id: 'faq_datanone', category: 'PAGE', username: '김세영', viewname: '문의검색 | 데이터가 없을경우', date: '22-09-05', memo: '', url: '/res/html/faq_datanone.html', note: '' },
+  { type: '1', id: 'faq_popup_sample', category: 'PAGE', username: '김세영', viewname: '문의하기 | alert', date: '22-09-05', memo: '', url: '/res/html/faq_alert.html', note: '' },
+  { type: '1', id: 'error404', category: 'PAGE', username: '김세영', viewname: '에러페이지 | 404', date: '22-09-05', memo: '', url: '/res/html/error404.html', note: '' },
+  { type: '1', id: 'network_error', category: 'PAGE', username: '김세영', viewname: '에러페이지 | 네트워크', date: '22-09-05', memo: '', url: '/res/html/network_error.html', note: '' },
+  { type: '1', id: 'layer03', category: 'LAYER', username: '김세영', viewname: '교정된 콘텐츠', date: '22-09-13', memo: '', url: '/res/html/layer_modal03.html', note: '' },
+  { type: '1', id: 'layer03_01', category: 'LAYER', username: '김세영', viewname: '교정된 콘텐츠 | 일반', date: '22-09-13', memo: '', url: '/res/html/layer_modal03_01.html', note: '' },
+  { type: '1', id: 'layer03_02', category: 'LAYER', username: '김세영', viewname: '교정된 콘텐츠 | 스마트오퍼', date: '22-09-13', memo: '', url: '/res/html/layer_modal03_02.html', note: '' },
+  { type: '1', id: 'layer01', category: 'LAYER', username: '김세영', viewname: '검색', date: '22-09-20', memo: '', url: '/res/html/layer_modal01.html', note: '' },
+  { type: '1', id: 'layer01_02', category: 'LAYER', username: '김세영', viewname: '검색 | 검색입력시', date: '22-09-20', memo: '', url: '/res/html/layer_modal01_02.html', note: '' },
+  { type: '1', id: 'layer01_03', category: 'LAYER', username: '김세영', viewname: '검색 | 데이터없을시', date: '22-09-20', memo: '', url: '/res/html/layer_modal01_03.html', note: '' },
+  { type: '1', id: 'layer02', category: 'LAYER', username: '김세영', viewname: '가이드', date: '22-09-21', memo: '', url: '/res/html/layer_modal02.html', note: '' },
+  { type: '1', id: 'all_layerd', category: 'LAYER', username: '김세영', viewname: '통합 레이어', date: '22-09-21', memo: '', url: '/res/html/all_layerd.html', note: '' }
+] %}
 {% block content %}
-    <div class="guide-wrap">
-        <h2 class="ex-name">화면목록</h2>
-        <div class="tab" data-ui-tab data-tab-active="1">
-            <div class="tab__list" role="tablist">
-                <button type="button" id="tab_header01" role="tab" class="tab__button" aria-controls="tab_panel01" aria-selected="false">페이지</button>
-                <button type="button" id="tab_header02" role="tab" class="tab__button" aria-controls="tab_panel02" aria-selected="false">가이드 페이지</button>
-            </div>
-            <div id="tab_panel01" role="tabpanel" class="tab__panel" aria-labelledby="tab_header01" tabindex="-1">
-                <div id="viewlist" class="table-row fixed viewer">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>번호</th>
-                                <th>화면명</th>
-                                <th>유형</th>
-                                <th>담당자</th>
-                                <th>상태</th>
-                                <th>날짜</th>
-                                <th>비고</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for item in LIST_VIEW %}
-                                <tr>
-                                    <td>{{ loop.index }}</td>
-                                    <td id="{{item.id}}" class="left">
-                                        <a class="text-link text-blue" href="{{item.url}}" target="_blank">{{item.viewname}}</a>
-                                    </td>
-                                    <td>{{item.category}}</td>
-                                    <td>{{item.username}}</td>
-                                    <td>
-                                        {% if item.type === "1" %}
-								완료
-								{% elif item.type === "2" %}
-								진행중
-								{% elif item.type === "3" %}
-								수정중
-								{% else %}
-								검수중
-							{% endif %}
-                                    </td>
-                                    <td>{{item.date}}</td>
-                                    <td>{{item.note}}</td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div id="tab_panel02" role="tabpanel" class="tab__panel" aria-labelledby="tab_header02" tabindex="-1">
-                <div id="viewlist2" class="table-row fixed viewer">
-                    <table class="table">
-                        <colgroup>
-                            <col style="width:60px;"/>
-                            <col style="width:160px;"/>
-                            <col style="width:160px;"/>
-                            <col style="width:160px;"/>
-                            <col style="width:200px;"/>
-                            <col style="width:120px;"/>
-                            <col style="width:80px;"/>
-                            <col style="width:80px;"/>
-                            <col style="width:80px;"/>
-                            <col style="width:120px;"/>
-                        </colgroup>
-                        <thead>
-                            <tr>
-                                <th>번호</th>
-                                <th>depth1</th>
-                                <th>depth2</th>
-                                <th>depth3</th>
-                                <th>depth4</th>
-                                <th>URL</th>
-                                <th>유형</th>
-                                <th>담당자</th>
-                                <th>상태</th>
-                                <th>날짜</th>
-                                <th>비고</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for item in LIST_VIEW2 %}
-                                <tr>
-                                    <td>{{ loop.index }}</td>
-                                    <td class="left">{{item.depth1}}</td>
-                                    <td class="left">{{item.depth2}}</td>
-                                    <td class="left">{{item.depth3}}</td>
-                                    <td class="left">{{item.depth4}}</td>
-                                    <td id="{{item.id}}">
-                                        <a class="button button--medium" href="{{item.url}}" target="_blank">바로가기</a>
-                                    </td>
-                                    <td>{{item.category}}</td>
-                                    <td>{{item.username}}</td>
-                                    <td>
-                                        {% if item.type === "1" %}
-								완료
-								{% elif item.type === "2" %}
-								진행중
-								{% elif item.type === "3" %}
-								수정중
-								{% else %}
-								검수중
-							{% endif %}
-                                    </td>
-                                    <td>{{item.date}}</td>
-                                    <td>{{item.note}}</td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-    </div>
+	<div class="guide-wrap">
+		<h2 class="ex-name">화면목록</h2>
+		<div class="tab" data-ui-tab data-tab-active="1">
+			<div class="tab__list" role="tablist">
+				<button type="button" id="tab_header01" role="tab" class="tab__button" aria-controls="tab_panel01" aria-selected="false">페이지</button>
+				<button type="button" id="tab_header02" role="tab" class="tab__button" aria-controls="tab_panel02" aria-selected="false">가이드 페이지</button>
+			</div>
+			<div id="tab_panel01" role="tabpanel" class="tab__panel" aria-labelledby="tab_header01" tabindex="-1">
+				<div id="viewlist" class="table-row fixed viewer">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>번호</th>
+								<th>화면명</th>
+								<th>유형</th>
+								<th>담당자</th>
+								<th>상태</th>
+								<th>날짜</th>
+								<th>비고</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for item in LIST_VIEW %}
+								<tr>
+									<td>{{ loop.index }}</td>
+									<td id="{{ item.id }}" class="left">
+										<a class="text-link text-blue" href="{{ item.url }}" target="_blank">{{ item.viewname }}</a>
+									</td>
+									<td>{{ item.category }}</td>
+									<td>{{ item.username }}</td>
+									<td>
+										{% if item.type == '1' %}
+											완료{% elif item.type == '2' %}진행중{% elif item.type == '3' %}수정중
+										{% else %}
+											검수중
+										{% endif %}
+									</td>
+									<td>{{ item.date }}</td>
+									<td>{{ item.note }}</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div id="tab_panel02" role="tabpanel" class="tab__panel" aria-labelledby="tab_header02" tabindex="-1">
+				<div id="viewlist2" class="table-row fixed viewer">
+					<table class="table">
+						<colgroup>
+							<col style="width:60px;"/>
+							<col style="width:160px;"/>
+							<col style="width:160px;"/>
+							<col style="width:160px;"/>
+							<col style="width:200px;"/>
+							<col style="width:120px;"/>
+							<col style="width:80px;"/>
+							<col style="width:80px;"/>
+							<col style="width:80px;"/>
+							<col style="width:120px;"/>
+						</colgroup>
+						<thead>
+							<tr>
+								<th>번호</th>
+								<th>depth1</th>
+								<th>depth2</th>
+								<th>depth3</th>
+								<th>depth4</th>
+								<th>URL</th>
+								<th>유형</th>
+								<th>담당자</th>
+								<th>상태</th>
+								<th>날짜</th>
+								<th>비고</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for item in LIST_VIEW2 %}
+								<tr>
+									<td>{{ loop.index }}</td>
+									<td class="left">{{ item.depth1 }}</td>
+									<td class="left">{{ item.depth2 }}</td>
+									<td class="left">{{ item.depth3 }}</td>
+									<td class="left">{{ item.depth4 }}</td>
+									<td id="{{ item.id }}">
+										<a class="button button--medium" href="{{ item.url }}" target="_blank">바로가기</a>
+									</td>
+									<td>{{ item.category }}</td>
+									<td>{{ item.username }}</td>
+									<td>
+										{% if item.type == '1' %}
+											완료{% elif item.type == '2' %}진행중{% elif item.type == '3' %}수정중
+										{% else %}
+											검수중
+										{% endif %}
+									</td>
+									<td>{{ item.date }}</td>
+									<td>{{ item.note }}</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
 {% endblock %}

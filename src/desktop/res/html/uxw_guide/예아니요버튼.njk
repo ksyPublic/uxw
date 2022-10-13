@@ -1,0 +1,93 @@
+{% set title = '신한 UX라이팅 시스템 | 예/아니요버튼' %}
+{% extends '../templates/uxw_guide_layout.njk' %}
+{% block guide %}
+	<!-- 여기서 부터 복사해서 사용하세요 -->
+	<section class="guide-content" id="YN">
+		<div class="guide-card-wrap">
+			<div class="guide-card">
+				<div class="guide-card__head">
+					<h3>예/아니요 버튼</h3>
+					<div class="divider" aria-hidden="true"></div>
+					<p class="guide-card__sub">버튼에
+						<span class="bold mgl4 mgr4">‘예/아니요’를 사용할 경우</span>
+						다음 기준을 따릅니다.</p>
+				</div>
+				<div class="guide-card__content">
+					<div class="list">
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">취소 의사를 묻는 상황에서 사용합니다.</p>
+						</div>
+					</div>
+					<div class="guide-example">
+						<div class="guide-example-list">
+							<label class="label-ct--type6">예시</label>
+							<p>결제를 취소하시겠어요?<br/>
+								<span>[아니요/예]<i class="ic ic-o--type2" aria-hidden="true"></i>
+								</span>
+								<span>[취소/확인]<i class="ic ic-x--type2" aria-hidden="true"></i>
+								</span>
+							</p>
+						</div>
+					</div>
+					<div class="list">
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">해지, 중단과 같은 불편한 상황을 묻는 상황에서 사용합니다.</p>
+						</div>
+					</div>
+					<div class="guide-example">
+						<div class="guide-example-list">
+							<label class="label-ct--type6">예시</label>
+							<p>이체를 중단하시겠어요?<br/>
+								<span>[아니요/예]<i class="ic ic-o--type2" aria-hidden="true"></i>
+								</span>
+								<span>[취소/중단]<i class="ic ic-x--type2" aria-hidden="true"></i>
+								</span>
+							</p>
+						</div>
+						<br/>
+						<div class="guide-example-list">
+							<label class="label-ct--type6">예시</label>
+							<p>서비스를 해지하시겠어요?<br/>
+								<span>[아니요/예]<i class="ic ic-o--type2" aria-hidden="true"></i>
+								</span>
+								<span>[취소/해지]<i class="ic ic-x--type2" aria-hidden="true"></i>
+								</span>
+							</p>
+						</div>
+					</div>
+					<div class="list">
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">YES와 NO로 답하는 것이 더 직관적인 단순 질문일 때 사용합니다.</p>
+						</div>
+					</div>
+					<div class="guide-example">
+						<div class="guide-example-list">
+							<label class="label-ct--type6">예시</label>
+							<p>홈으로 이동하시겠어요?<br/>
+								<span>[아니요/예]<i class="ic ic-o--type2" aria-hidden="true"></i>
+								</span>
+								<span>[취소/이동]<i class="ic ic-x--type2" aria-hidden="true"></i>
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<div class="guide-description">부정버튼을 ‘아니오’로 틀리게 쓰지 않도록 주의합니다.</div>
+					<div class="guide-example">
+						<div class="guide-example-list">
+							<label class="label-ct--type6">예시</label>
+							<p class="mgl-none">
+								<span>[아니요]<i class="ic ic-o--type2" aria-hidden="true"></i>
+								</span>
+								<span>[아니오]<i class="ic ic-x--type2" aria-hidden="true"></i>
+								</span>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- 여기서 부터 복사해서 사용하세요 -->
+{% endblock %}
+{% block scripts %}{% endblock %}

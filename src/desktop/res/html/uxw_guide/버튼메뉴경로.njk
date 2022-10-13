@@ -1,0 +1,179 @@
+{% set title = '신한 UX라이팅 시스템 | 버튼, 메뉴, 경로' %}
+{% extends '../templates/uxw_guide_layout.njk' %}
+{% block guide %}
+	<!-- 여기서 부터 복사해서 사용하세요 -->
+	<section class="guide-content" id="Punctuation">
+		<div class="guide-card-wrap">
+			<div class="guide-card">
+				<div class="guide-card__head">
+					<h3>버튼, 메뉴, 경로</h3>
+					<div class="divider" aria-hidden="true"></div>
+				</div>
+				<div class="guide-card__content">
+					<div class="list">
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">문장에 나오는 버튼명, 메뉴명, 메뉴 이동 경로는 대괄호([ ])로 묶어서 구분합니다.</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">대괄호([ ]) 대신 큰따옴표나 작은따옴표를 쓰지 않습니다.</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">메뉴 이동 경로는 전체를 대괄호로 묶고, 닫는 홑화살괄호(>)로 단계를 구분합니다.</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">닫는 홑화살괄호는 앞뒤로 한 칸씩 띄어 표기합니다.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="table-row fixed">
+			<table class="table left">
+				<colgroup>
+					<col style="min-width:234px"/>
+					<col style="width:50%"/>
+					<col style="width:50%"/>
+				</colgroup>
+				<thead>
+					<tr>
+						<th aria-hidden="true"></th>
+						<th>
+							이렇게 쓰지 마세요<i class="ic ic-x--type2" aria-hidden="true"></i>
+						</th>
+						<th>
+							이렇게 쓰세요<i class="ic ic-o--type2" aria-hidden="true"></i>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="center">버튼명</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										<span class="red">‘해지’ 버튼</span>을 클릭하시면, 등록하신 평생계좌번호가 해지됩니다.
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										본인명의가 아니거나 휴대폰 인증이 불가능한 경우에는
+										<span class="red">“다음에 하기” 버튼</span>
+										선택
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										<span class="red">&#60;확인&#62;</span>을 누르시면 SOL은 종료됩니다.
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										아래의
+										<span class="red">“재시도 하기”</span>를 눌러 다시시도 해주세요.
+									</p>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										<span class="blue">[해지]</span>를 누르면, 등록한 평생계좌번호가 해지됩니다.
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										본인명의가 아니거나 휴대폰 인증이 불가능한 경우
+										<span class="blue">[다음에]</span>를 눌러주세요.
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										<span class="blue">[확인]</span>을 누르면 쏠(SOL)은 종료됩니다.
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										아래
+										<span class="blue">[재시도하기]</span>를 눌러주세요.
+									</p>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="center">메뉴명</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										타행계좌를 이용해 출금한 경우
+										<span class="red">타행계좌 출금결과조회 메뉴</span>에서 조회하실 수 있습니다.
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										<span class="red">‘다른 기관 계좌등록’</span>
+										으로 한번에 등록가능!
+									</p>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										다른은행 계좌로 출금한 경우
+										<span class="blue">[타행계좌 출금결과조회]</span>에서 조회할 수 있습니다.
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										<span class="blue">[다른 기관 계좌등록]</span>으로 한 번에 등록 가능!
+									</p>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="center">경로</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										해지/정정거래 시에는
+										<span class="red">펀드조회->계좌조회->해지 대상거래->상세조회 메뉴</span>에서 가능합니다.
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										<span class="red">‘설정 > 개인정보보호 > 카메라’ 메뉴</span>에서 앱에 대한 접근을 허용해야 촬영이 가능합니다.
+									</p>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="list list--type4">
+								<div class="list__item">
+									<p class="text light">
+										해지 및 정정거래는
+										<span class="blue">[펀드조회 > 계좌조회 > 해지 대상거래 > 상세조회]</span>에서 가능합니다.
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										<span class="blue">[설정  > 개인정보보호 > 카메라]</span>에서 앱에 대한 접근을 허용해야 촬영할 수 있습니다.
+									</p>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+	<!-- //여기서 부터 복사해서 사용하세요 -->
+{% endblock %}
+{% block scripts %}{% endblock %}

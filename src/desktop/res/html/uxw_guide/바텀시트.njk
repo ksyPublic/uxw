@@ -1,0 +1,98 @@
+{% set title = '신한 UX라이팅 시스템 | 바텀시트' %}
+{% extends '../templates/uxw_guide_layout.njk' %}
+{% block guide %}
+	<!-- 여기서 부터 복사해서 사용하세요 -->
+	<section class="guide-content" id="BottomSheet">
+		<div class="guide-card-wrap">
+			<div class="guide-card">
+				<div class="guide-card__head">
+					<h3>바텀시트</h3>
+					<div class="divider" aria-hidden="true"></div>
+					<p class="guide-card__sub">바텀시트 타이틀과 본문의 내용은 다음을 기준으로 씁니다.</p>
+				</div>
+
+				<div class="guide-card__content">
+					<hrgroup class="guide-sub-title">타이틀</hrgroup>
+					<div class="list">
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">무슨 내용인지 한눈에 알 수 있도록 핵심만 씁니다.
+							</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">콘텐츠 성격에 따라 다음을 기준으로 명확하게 씁니다.
+							</p>
+						</div>
+					</div>
+					<div class="guide-example">
+						<div class="guide-example-list">
+							<label class="label-ct--type6">예시</label>
+							<p>서비스 이용 안내 및 내역 확인:
+								<b>~ 안내</b>
+							</p>
+						</div>
+						<div class="guide-example-list">
+							<label class="label-ct--type6">예시</label>
+							<p>요청 및 마케팅성 안내:
+								<b>서술형 종결</b>
+								<span class="authorship">* 서술형 타이틀에는 마침표 생략</span>
+							</p>
+						</div>
+						<div class="guide-example-list">
+							<label class="label-ct--type6">예시</label>
+							<p>옵션 선택:
+								<b>액션 명사형 종결</b>
+								<span class="authorship">
+									<span>* ~ 선택, ~ 추가<i class="ic ic-o--type2" aria-hidden="true"></i>
+									</span>
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<hrgroup class="guide-sub-title">본문</hrgroup>
+					<div class="list">
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">콘텐츠 성격에 따라 다음을 기준으로 간략하게 씁니다.
+							</p>
+						</div>
+					</div>
+
+					<div class="guide-example">
+						<div class="guide-example-list">
+							<label class="label-ct--type6">예시</label>
+							<p>서비스 이용 안내 및 내역 확인:
+								<b>‘해요체’ 서술형, 명사형</ㅠ>
+							</p>
+						</div>
+						<div class="guide-example-list">
+							<label class="label-ct--type6">예시</label>
+							<p>요청 및 마케팅성 안내:
+								<b>‘해요체’ 서술형</b>
+							</p>
+						</div>
+						<div class="guide-example-list">
+							<label class="label-ct--type6">예시</label>
+							<p>옵션 선택:
+								<b>명사형</b>
+							</p>
+						</div>
+					</div>
+
+					<div class="list">
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">단, 유의사항 등 민감한 안내는
+								<span class="bold">‘하십시오체’ 서술형</span>으로 씁니다.
+							</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">내용이 길면 불릿(・)으로 단락을 나눠 씁니다.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- 여기서 부터 복사해서 사용하세요 -->
+{% endblock %}
+{% block scripts %}{% endblock %}

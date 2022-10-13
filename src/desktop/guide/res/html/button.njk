@@ -1,248 +1,170 @@
-{% extends "../templates/layout.njk" %}
+{% extends '../templates/layout.njk' %}
 {% block content %}
-    <div class="guide-wrap">
-        <h2 class="ex-name">Button</h2>
-        <div class="ex-content">
-            <div class="ex-title">
-                <h3>기본</h3>
-                <p class="ex-desc">기본버튼 입니다.
-                    <br/>* 기본버튼이 large이며 작은사이즈는 medium을 사용합니다.
-                    <br/>* full size 버튼은 pw100을 사용합니다.
-                </p>
-            </div>
+  <div class="guide-wrap">
+    <h2 class="ex-name">Button</h2>
+    <div class="ex-content">
+      <div class="ex-title">
+        <h3>기본</h3>
+        <p class="ex-desc">
+          기본버튼 입니다.
+          <br />* 기본버튼이 large이며 작은사이즈는 medium을 사용합니다.
+          <br />* full size 버튼은 pw100을 사용합니다.
+        </p>
+      </div>
 
-            <div class="ex-body">
-                <div class="ex-preview">
-                    <button type="button" class="button">버튼</button>
-                    <button type="button" class="button button--type2">버튼</button>
-                    <button type="button" class="button button--type3">버튼</button>
-                    <button type="button" class="button button--type4">버튼</button>
-                    <button type="button" class="button button--type5">버튼</button>
-                    <br/><br/>
-                    <button type="button" class="button button--medium">버튼</button>
-                    <button type="button" class="button button--type2 button--medium">버튼</button>
-                    <button type="button" class="button button--type3 button--medium">버튼</button>
-                    <button type="button" class="button button--type4 button--medium">버튼</button>
-                    <button type="button" class="button button--type5 button--medium">버튼</button>
-                    <br/><br/>
-                    <button type="button" class="button pw100">버튼</button>
-                    <div class="html-view">
-                        <pre>
-                        <code class="ex-code-block render-html">
-                            <button type="button" class="button">버튼</button>
-                            <button type="button" class="button button--type2">버튼</button>
-                            <button type="button" class="button button--type3">버튼</button>
-                            <button type="button" class="button button--type4">버튼</button>
-                            <button type="button" class="button button--type5">버튼</button>
+      <div class="ex-body">
+        <div class="ex-preview">
+          <button type="button" class="button">버튼</button>
+          <button type="button" class="button button--type2">버튼</button>
+          <button type="button" class="button button--type3">버튼</button>
+          <button type="button" class="button button--type4">버튼</button>
+          <button type="button" class="button button--type5">버튼</button>
+          <br /><br />
+          <button type="button" class="button button--medium">버튼</button>
+          <button type="button" class="button button--type2 button--medium">버튼</button>
+          <button type="button" class="button button--type3 button--medium">버튼</button>
+          <button type="button" class="button button--type4 button--medium">버튼</button>
+          <button type="button" class="button button--type5 button--medium">버튼</button>
+          <br /><br />
+          <button type="button" class="button pw100">버튼</button>
+          <div class="html-view">
+            <pre>
+              <code class="ex-code-block render-html">
+                <button type="button" class="button">버튼</button>
+                <button type="button" class="button button--type2">버튼</button>
+                <button type="button" class="button button--type3">버튼</button>
+                <button type="button" class="button button--type4">버튼</button>
+                <button type="button" class="button button--type5">버튼</button>
 
-                            <button type="button" class="button button--medium">버튼</button>
-                            <button type="button" class="button button--type2 button--medium">버튼</button>
-                            <button type="button" class="button button--type3 button--medium">버튼</button>
-                            <button type="button" class="button button--type4 button--medium">버튼</button>
-                            <button type="button" class="button button--type5 button--medium">버튼</button>
+                <button type="button" class="button button--medium">버튼</button>
+                <button type="button" class="button button--type2 button--medium">버튼</button>
+                <button type="button" class="button button--type3 button--medium">버튼</button>
+                <button type="button" class="button button--type4 button--medium">버튼</button>
+                <button type="button" class="button button--type5 button--medium">버튼</button>
 
-                            <button type="button" class="button pw100">버튼</button>
-                        </code>
-                    </pre>
-                    </div>
-                </div>
-            </div>
+                <button type="button" class="button pw100">버튼</button>
+              </code>
+            </pre>
+          </div>
         </div>
-
-        <div class="ex-content">
-            <div class="ex-title">
-                <h3>Link</h3>
-                <p class="ex-desc">Text 링크 버튼입니다.</p>
-            </div>
-
-            <div class="ex-body">
-                <div class="ex-preview">
-                    <a href="#none" class="text-link">전체보기<i class="ic ic-text-arrow" aria-hidden="true"></i>
-                    </a>
-                    <div class="html-view">
-                        <pre>
-                        <code class="ex-code-block render-html">
-                            <a href="#none" class="text-link">전체보기<i class="ic ic-text-arrow" aria-hidden="true"></i></a>
-                        </code>
-                    </pre>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="ex-content">
-            <div class="ex-title">
-                <h3>Disabled</h3>
-                <p class="ex-desc">Disabled 버튼 입니다.</p>
-            </div>
-
-            <div class="ex-body">
-                <div class="ex-preview">
-                    <button type="button" class="button" disabled>버튼</button>
-                    <button type="button" class="button button--type2" disabled>버튼</button>
-                    <button type="button" class="button button--type3" disabled>버튼</button>
-                    <button type="button" class="button button--type4" disabled>버튼</button>
-                    <button type="button" class="button button--type5" disabled>버튼</button>
-                    <br/><br/>
-                    <button type="button" class="button button--medium" disabled>버튼</button>
-                    <button type="button" class="button button--type2 button--medium" disabled>버튼</button>
-                    <button type="button" class="button button--type3 button--medium" disabled>버튼</button>
-                    <button type="button" class="button button--type4 button--medium" disabled>버튼</button>
-                    <button type="button" class="button button--type5 button--medium" disabled>버튼</button>
-                    <div class="html-view">
-                        <pre>
-                        <code class="ex-code-block render-html">
-                            <button type="button" class="button" disabled>버튼</button>
-                            <button type="button" class="button button--type2" disabled>버튼</button>
-                            <button type="button" class="button button--type3" disabled>버튼</button>
-                            <button type="button" class="button button--type4" disabled>버튼</button>
-                            <button type="button" class="button button--type5" disabled>버튼</button>
-
-                            <button type="button" class="button button--medium" disabled>버튼</button>
-                            <button type="button" class="button button--type2 button--medium" disabled>버튼</button>
-                            <button type="button" class="button button--type3 button--medium" disabled>버튼</button>
-                            <button type="button" class="button button--type4 button--medium" disabled>버튼</button>
-                            <button type="button" class="button button--type5 button--medium" disabled>버튼</button>
-                            {# <a class="button" href="#">버튼</a> #}
-                        </code>
-                    </pre>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="ex-content">
-            <div class="ex-title">
-                <h3>Icon + Button</h3>
-                <p class="ex-desc">버튼 내부에 Icon이 들어가는 형태입니다.</p>
-            </div>
-
-            <div class="ex-body">
-                <div class="ex-preview">
-                    <button type="button" class="ic-button" aria-label="업로드">
-                        <i class="ic ic-upload" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" class="ic-button" aria-label="다운로드">
-                        <i class="ic ic-download" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" class="ic-button" aria-label="복사">
-                        <i class="ic ic-copy" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" class="ic-button" aria-label="삭제">
-                        <i class="ic ic-delete" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" class="ic-button" aria-label="처음 페이지">
-                        <i class="ic ic-prev-arrow--first" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" class="ic-button" aria-label="이전 페이지">
-                        <i class="ic ic-prev-arrow" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" class="ic-button" aria-label="다음 페이지">
-                        <i class="ic ic-next-arrow" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" class="ic-button" aria-label="처음 페이지">
-                        <i class="ic ic-next-arrow--last" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" class="ic-button" aria-label="검색">
-                        <i class="ic ic-search" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" class="ic-button" aria-label="라이팅 가이드">
-                        <i class="ic ic-guidebook" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" class="ic-button" aria-label="교정된 콘텐츠">
-                        <i class="ic ic-edition" aria-hidden="true"></i>
-                    </button>
-                    <br/><br/>
-                    <button type="button" class="ic-button" aria-label="업로드" disabled>
-                        <i class="ic ic-upload" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" class="ic-button" aria-label="다운로드" disabled>
-                        <i class="ic ic-download" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" class="ic-button" aria-label="복사" disabled>
-                        <i class="ic ic-copy" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" class="ic-button" aria-label="삭제" disabled>
-                        <i class="ic ic-delete" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" class="ic-button" aria-label="처음 페이지" disabled>
-                        <i class="ic ic-prev-arrow--first" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" class="ic-button" aria-label="이전 페이지" disabled>
-                        <i class="ic ic-prev-arrow" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" class="ic-button" aria-label="다음 페이지" disabled>
-                        <i class="ic ic-next-arrow" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" class="ic-button" aria-label="처음 페이지" disabled>
-                        <i class="ic ic-next-arrow--last" aria-hidden="true"></i>
-                    </button>
-                    <div class="html-view">
-                        <pre>
-                        <code class="ex-code-block render-html">
-                            <button type="button" class="ic-button" aria-label="업로드">
-                                <i class="ic ic-upload" aria-hidden="true"></i>
-                            </button>
-                            <button type="button" class="ic-button" aria-label="다운로드">
-                                <i class="ic ic-download" aria-hidden="true"></i>
-                            </button>
-                            <button type="button" class="ic-button" aria-label="복사">
-                                <i class="ic ic-copy" aria-hidden="true"></i>
-                            </button>
-                            <button type="button" class="ic-button" aria-label="삭제">
-                                <i class="ic ic-delete" aria-hidden="true"></i>
-                            </button>
-                            <button type="button" class="ic-button" aria-label="처음 페이지">
-                                <i class="ic ic-prev-arrow--first" aria-hidden="true"></i>
-                            </button>
-                            <button type="button" class="ic-button" aria-label="이전 페이지">
-                                <i class="ic ic-prev-arrow" aria-hidden="true"></i>
-                            </button>
-                            <button type="button" class="ic-button" aria-label="다음 페이지">
-                                <i class="ic ic-next-arrow" aria-hidden="true"></i>
-                            </button>
-                            <button type="button" class="ic-button" aria-label="처음 페이지">
-                                <i class="ic ic-next-arrow--last" aria-hidden="true"></i>
-                            </button>
-                            <button type="button" class="ic-button" aria-label="검색">
-                                <i class="ic ic-search" aria-hidden="true"></i>
-                            </button>
-                            <button type="button" class="ic-button" aria-label="라이팅 가이드">
-                                <i class="ic ic-guidebook" aria-hidden="true"></i>
-                            </button>
-                            <button type="button" class="ic-button" aria-label="교정된 콘텐츠">
-                                <i class="ic ic-edition" aria-hidden="true"></i>
-                            </button>
-
-                            <button type="button" class="ic-button" aria-label="업로드" disabled>
-                                <i class="ic ic-upload" aria-hidden="true"></i>
-                            </button>
-                            <button type="button" class="ic-button" aria-label="다운로드" disabled>
-                                <i class="ic ic-download" aria-hidden="true"></i>
-                            </button>
-                            <button type="button" class="ic-button" aria-label="복사" disabled>
-                                <i class="ic ic-copy" aria-hidden="true"></i>
-                            </button>
-                            <button type="button" class="ic-button" aria-label="삭제" disabled>
-                                <i class="ic ic-delete" aria-hidden="true"></i>
-                            </button>
-                            <button type="button" class="ic-button" aria-label="처음 페이지" disabled>
-                                <i class="ic ic-prev-arrow--first" aria-hidden="true"></i>
-                            </button>
-                            <button type="button" class="ic-button" aria-label="이전 페이지" disabled>
-                                <i class="ic ic-prev-arrow" aria-hidden="true"></i>
-                            </button>
-                            <button type="button" class="ic-button" aria-label="다음 페이지" disabled>
-                                <i class="ic ic-next-arrow" aria-hidden="true"></i>
-                            </button>
-                            <button type="button" class="ic-button" aria-label="처음 페이지" disabled>
-                                <i class="ic ic-next-arrow--last" aria-hidden="true"></i>
-                            </button>
-                        </code>
-                    </pre>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+
+    <div class="ex-content">
+      <div class="ex-title">
+        <h3>Link</h3>
+        <p class="ex-desc">Text 링크 버튼입니다.</p>
+      </div>
+
+      <div class="ex-body">
+        <div class="ex-preview">
+          <a href="#none" class="text-link">전체보기<i class="ic ic-text-arrow" aria-hidden="true"></i></a>
+          <div class="html-view">
+            <pre>
+              <code class="ex-code-block render-html"><a href="#none" class="text-link">전체보기<i class="ic ic-text-arrow" aria-hidden="true"></i></a></code>
+            </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ex-content">
+      <div class="ex-title">
+        <h3>Disabled</h3>
+        <p class="ex-desc">Disabled 버튼 입니다.</p>
+      </div>
+
+      <div class="ex-body">
+        <div class="ex-preview">
+          <button type="button" class="button" disabled>버튼</button>
+          <button type="button" class="button button--type2" disabled>버튼</button>
+          <button type="button" class="button button--type3" disabled>버튼</button>
+          <button type="button" class="button button--type4" disabled>버튼</button>
+          <button type="button" class="button button--type5" disabled>버튼</button>
+          <br /><br />
+          <button type="button" class="button button--medium" disabled>버튼</button>
+          <button type="button" class="button button--type2 button--medium" disabled>버튼</button>
+          <button type="button" class="button button--type3 button--medium" disabled>버튼</button>
+          <button type="button" class="button button--type4 button--medium" disabled>버튼</button>
+          <button type="button" class="button button--type5 button--medium" disabled>버튼</button>
+          <div class="html-view">
+            <pre>
+              <code class="ex-code-block render-html">
+                <button type="button" class="button" disabled>버튼</button>
+                <button type="button" class="button button--type2" disabled>버튼</button>
+                <button type="button" class="button button--type3" disabled>버튼</button>
+                <button type="button" class="button button--type4" disabled>버튼</button>
+                <button type="button" class="button button--type5" disabled>버튼</button>
+
+                <button type="button" class="button button--medium" disabled>버튼</button>
+                <button type="button" class="button button--type2 button--medium" disabled>버튼</button>
+                <button type="button" class="button button--type3 button--medium" disabled>버튼</button>
+                <button type="button" class="button button--type4 button--medium" disabled>버튼</button>
+                <button type="button" class="button button--type5 button--medium" disabled>버튼</button>
+                {# <a class="button" href="#">버튼</a> #}
+              </code>
+            </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ex-content">
+      <div class="ex-title">
+        <h3>Icon + Button</h3>
+        <p class="ex-desc">버튼 내부에 Icon이 들어가는 형태입니다.</p>
+      </div>
+
+      <div class="ex-body">
+        <div class="ex-preview">
+          <button type="button" class="ic-button" aria-label="업로드"><i class="ic ic-upload" aria-hidden="true"></i></button>
+          <button type="button" class="ic-button" aria-label="다운로드"><i class="ic ic-download" aria-hidden="true"></i></button>
+          <button type="button" class="ic-button" aria-label="복사"><i class="ic ic-copy" aria-hidden="true"></i></button>
+          <button type="button" class="ic-button" aria-label="삭제"><i class="ic ic-delete" aria-hidden="true"></i></button>
+          <button type="button" class="ic-button" aria-label="처음 페이지"><i class="ic ic-prev-arrow--first" aria-hidden="true"></i></button>
+          <button type="button" class="ic-button" aria-label="이전 페이지"><i class="ic ic-prev-arrow" aria-hidden="true"></i></button>
+          <button type="button" class="ic-button" aria-label="다음 페이지"><i class="ic ic-next-arrow" aria-hidden="true"></i></button>
+          <button type="button" class="ic-button" aria-label="처음 페이지"><i class="ic ic-next-arrow--last" aria-hidden="true"></i></button>
+          <button type="button" class="ic-button" aria-label="검색"><i class="ic ic-search" aria-hidden="true"></i></button>
+          <button type="button" class="ic-button" aria-label="라이팅 가이드"><i class="ic ic-guidebook" aria-hidden="true"></i></button>
+          <button type="button" class="ic-button" aria-label="교정된 콘텐츠"><i class="ic ic-edition" aria-hidden="true"></i></button>
+          <br /><br />
+          <button type="button" class="ic-button" aria-label="업로드" disabled><i class="ic ic-upload" aria-hidden="true"></i></button>
+          <button type="button" class="ic-button" aria-label="다운로드" disabled><i class="ic ic-download" aria-hidden="true"></i></button>
+          <button type="button" class="ic-button" aria-label="복사" disabled><i class="ic ic-copy" aria-hidden="true"></i></button>
+          <button type="button" class="ic-button" aria-label="삭제" disabled><i class="ic ic-delete" aria-hidden="true"></i></button>
+          <button type="button" class="ic-button" aria-label="처음 페이지" disabled><i class="ic ic-prev-arrow--first" aria-hidden="true"></i></button>
+          <button type="button" class="ic-button" aria-label="이전 페이지" disabled><i class="ic ic-prev-arrow" aria-hidden="true"></i></button>
+          <button type="button" class="ic-button" aria-label="다음 페이지" disabled><i class="ic ic-next-arrow" aria-hidden="true"></i></button>
+          <button type="button" class="ic-button" aria-label="처음 페이지" disabled><i class="ic ic-next-arrow--last" aria-hidden="true"></i></button>
+          <div class="html-view">
+            <pre>
+              <code class="ex-code-block render-html">
+                <button type="button" class="ic-button" aria-label="업로드"><i class="ic ic-upload" aria-hidden="true"></i></button>
+                <button type="button" class="ic-button" aria-label="다운로드"><i class="ic ic-download" aria-hidden="true"></i></button>
+                <button type="button" class="ic-button" aria-label="복사"><i class="ic ic-copy" aria-hidden="true"></i></button>
+                <button type="button" class="ic-button" aria-label="삭제"><i class="ic ic-delete" aria-hidden="true"></i></button>
+                <button type="button" class="ic-button" aria-label="처음 페이지"><i class="ic ic-prev-arrow--first" aria-hidden="true"></i></button>
+                <button type="button" class="ic-button" aria-label="이전 페이지"><i class="ic ic-prev-arrow" aria-hidden="true"></i></button>
+                <button type="button" class="ic-button" aria-label="다음 페이지"><i class="ic ic-next-arrow" aria-hidden="true"></i></button>
+                <button type="button" class="ic-button" aria-label="처음 페이지"><i class="ic ic-next-arrow--last" aria-hidden="true"></i></button>
+                <button type="button" class="ic-button" aria-label="검색"><i class="ic ic-search" aria-hidden="true"></i></button>
+                <button type="button" class="ic-button" aria-label="라이팅 가이드"><i class="ic ic-guidebook" aria-hidden="true"></i></button>
+                <button type="button" class="ic-button" aria-label="교정된 콘텐츠"><i class="ic ic-edition" aria-hidden="true"></i></button>
+
+                <button type="button" class="ic-button" aria-label="업로드" disabled><i class="ic ic-upload" aria-hidden="true"></i></button>
+                <button type="button" class="ic-button" aria-label="다운로드" disabled><i class="ic ic-download" aria-hidden="true"></i></button>
+                <button type="button" class="ic-button" aria-label="복사" disabled><i class="ic ic-copy" aria-hidden="true"></i></button>
+                <button type="button" class="ic-button" aria-label="삭제" disabled><i class="ic ic-delete" aria-hidden="true"></i></button>
+                <button type="button" class="ic-button" aria-label="처음 페이지" disabled><i class="ic ic-prev-arrow--first" aria-hidden="true"></i></button>
+                <button type="button" class="ic-button" aria-label="이전 페이지" disabled><i class="ic ic-prev-arrow" aria-hidden="true"></i></button>
+                <button type="button" class="ic-button" aria-label="다음 페이지" disabled><i class="ic ic-next-arrow" aria-hidden="true"></i></button>
+                <button type="button" class="ic-button" aria-label="처음 페이지" disabled><i class="ic ic-next-arrow--last" aria-hidden="true"></i></button>
+              </code>
+            </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}

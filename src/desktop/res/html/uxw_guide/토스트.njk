@@ -1,0 +1,106 @@
+{% set title = '신한 UX라이팅 시스템 | 토스트' %}
+{% extends '../templates/uxw_guide_layout.njk' %}
+{% block guide %}
+	<!-- 여기서 부터 복사해서 사용하세요 -->
+	<section class="guide-content" id="Toas">
+		<div class="guide-card-wrap">
+			<div class="guide-card">
+				<div class="guide-card__head">
+					<h3>토스트</h3>
+					<div class="divider" aria-hidden="true"></div>
+					<p class="guide-card__sub">토스트 메시지는 짧게 나타났다 사라지는 메시지 특성과 토스트 유형을 고려해 다음을 기준으로 씁니다.</p>
+				</div>
+
+				<div class="guide-card__content">
+					<div class="list">
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">‘노출 시간 안에 읽을 수 있도록 간결한 내용만 담습니다.
+							</p>
+						</div>
+					</div>
+					<hrgroup class="guide-sub-title">컨펌형 – 능동/피동</hrgroup>
+
+					<div class="list">
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">
+								<span class="red bold">17자 이내</span>
+								<span class="bold mgl4">‘하십시오체’</span>로 씁니다.
+							</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">‘~를 ~했습니다’ 형태의 능동태 서술형 문장으로 씁니다.
+							</p>
+						</div>
+					</div>
+
+					<div class="guide-example">
+						<div class="guide-example-list">
+							<label class="label-ct--type6">예시</label>
+							<p class="mgl-none">
+								<span>~하였습니다, ~했어요, ~ 완료<i class="ic ic-x--type2" aria-hidden="true"></i>
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<div class="list">
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">단, 행위 주체가 시스템인 경우에는 피동형으로 씁니다.
+							</p>
+						</div>
+					</div>
+					<div class="guide-example">
+						<div class="guide-example-list">
+							<label class="label-ct--type6">예시</label>
+							<p class="mgl-none">
+								<span>업데이트되었습니다<i class="ic ic-o--type2" aria-hidden="true"></i>
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<div class="list">
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">기계적/불필요/부정적 표현은 사용하지 않습니다.
+							</p>
+						</div>
+					</div>
+					<div class="guide-example">
+						<div class="guide-example-list">
+							<label class="label-ct--type6">예시</label>
+							<p class="mgl-none">
+								<span>‘처리’, ‘완료’, ‘성공적으로’, ‘정상적으로’, ‘실패’ 등</span>
+							</p>
+						</span>
+					</div>
+
+					<hrgroup class="guide-sub-title">요청형</hrgroup>
+					<div class="list">
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">
+								<span class="red bold">31자 이내</span>
+								<span class="bold mgl4">‘하십시오체’</span>로 씁니다.
+							</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">‘~해주세요’ 형태로 간결하게 씁니다.
+							</p>
+						</div>
+					</div>
+
+					<hrgroup class="guide-sub-title">말풍선</hrgroup>
+					<div class="list">
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">
+								<span class="red bold">17자 이내</span>
+								<span class="bold mgl4">‘해요체’</span>로 씁니다.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- 여기서 부터 복사해서 사용하세요 -->
+{% endblock %}
+{% block scripts %}{% endblock %}

@@ -1,0 +1,205 @@
+{% set title = '신한 UX라이팅 시스템 | 시간, 기간' %}
+{% extends '../templates/uxw_guide_layout.njk' %}
+{% block guide %}
+	<!-- 여기서 부터 복사해서 사용하세요 -->
+	<section class="guide-content" id="Punctuation">
+		<div class="guide-card-wrap">
+			<div class="guide-card">
+				<div class="guide-card__head">
+					<h3>시간, 기간</h3>
+					<div class="divider" aria-hidden="true"></div>
+				</div>
+				<div class="guide-card__content">
+					<div class="list">
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">시간은 24시간 표기법을 적용합니다.</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">‘오전’, ‘오후’, ‘아침’, ‘저녁’ 등을 붙여 12시간 표기법에 사용하는 표현으로 쓰지 않습니다.</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">단, 문장에서 분/초 표기 없이 시간만 간단히 안내할 경우 12시간 표기법을 사용할 수 있습니다.
+							</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">24시간 표기법에서는 숫자 뒤에 ‘시’, ‘부터’, ‘까지’를 함께 쓰지 않습니다.</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">같은 연도일 때 뒷부분은 월, 일만 표기합니다.
+							</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">기간 표기 시  물결표(~) 앞뒤로 띄어쓰기 없이 표기합니다.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="table-row fixed align-top">
+			<table class="table left">
+				<colgroup>
+					<col style="min-width:140px"/>
+					<col style="width:50%"/>
+					<col style="width:50%"/>
+				</colgroup>
+				<thead>
+					<tr>
+						<th aria-hidden="true"></th>
+						<th class="blue-bg">
+							표기 원칙
+						</th>
+						<th>
+							이렇게 쓰세요<i class="ic ic-o--type2" aria-hidden="true"></i>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="left">시간</td>
+						<td>
+							<div class="list list--type4 list--type4__smb">
+								<div class="list__item">
+									<p class="text light">
+										시간은 24시간 노출
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										HH:MM~HH:MM
+									</p>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="list list--type4 list--type4__smb">
+								<div class="list__item">
+									<p class="text light">
+										09:00~18:00
+									</p>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="left">요일</td>
+						<td>
+							<div class="list list--type4 list--type4__smb">
+								<div class="list__item">
+									<p class="text light">
+										YY.MM.DD~MM.DD(같은 연도)
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										YY.MM.DD~YY.MM.DD(다른 연도)
+									</p>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="list list--type4 list--type4__smb">
+								<div class="list__item">
+									<p class="text light">
+										22.04.15~05.14
+									</p>
+								</div>
+								<div class="list__item">
+									<p class="text light">
+										22.04.15~23.05.14
+									</p>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="left">년/월/일/시/분</td>
+						<td>
+							<div class="list list--type4 list--type4__smb">
+								<div class="list__item">
+									<p class="text light">
+										YY.MM.DD HH:MM
+									</p>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="list list--type4 list--type4__smb">
+								<div class="list__item">
+									<p class="text light">
+										22.04.15 12:38
+									</p>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="left">년/월/일/시/분/초</td>
+						<td>
+							<div class="list list--type4 list--type4__smb">
+								<div class="list__item">
+									<p class="text light">
+										YY.MM.DD HH:MM:SS
+									</p>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div class="list list--type4 list--type4__smb">
+								<div class="list__item">
+									<p class="text light">
+										22.04.15 12:38:05
+									</p>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="table-row fixed">
+			<table class="table left">
+				<colgroup>
+					<col style="width:50%"/>
+					<col style="width:50%"/>
+				</colgroup>
+				<thead>
+					<tr>
+						<th>
+							이렇게 쓰지 마세요<i class="ic ic-x--type2" aria-hidden="true"></i>
+						</th>
+						<th>
+							이렇게 쓰세요<i class="ic ic-o--type2" aria-hidden="true"></i>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							상담가능시간은 09시부터~18시까지입니다.
+						</td>
+						<td>
+							상담시간은 09:00~18:00입니다.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							자동이체지정일
+							<span class="red">정오(12시)까지</span>
+							지급가능금액이 미달하는 경우
+						</td>
+						<td>
+							자동이체일
+							<span class="blue">오후 12시까지</span>
+							지급가능금액이 부족한 경우
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+	<!-- //여기서 부터 복사해서 사용하세요 -->
+{% endblock %}
+{% block scripts %}{% endblock %}

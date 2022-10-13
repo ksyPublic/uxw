@@ -2,7 +2,6 @@ import 'element-closest-polyfill';
 import EventHandler from './vendor/EventHandler';
 import { toHTML } from './utils/dom-util';
 import Scrollbar from 'smooth-scrollbar';
-
 /* eslint-disable prettier/prettier */
 
 const bgTemplate = `
@@ -175,7 +174,6 @@ const navigation = (UI, options) => {
 };
 
 const modalLayer = UI => {
-  // 220921 수정
   let dimmer = false;
   const elements = document.querySelectorAll(UI);
   const navEl = getObjectElements(elements);
@@ -354,8 +352,13 @@ const modalScrollContent = () => {
     var beforeTab = event.before;
     // 변경전 페이지적용
     if (currentTab.content) {
-      const acc = currentTab.content.querySelector('.modal--layer__bescroll .tab--scroll .tab__inner');
+      const acc = currentTab.content.querySelector(`.${bescroll} .tab--scroll .tab__inner`);
       const _floating = acc.querySelector('.floating-menu-wrap--type2 .accordion--type3');
+      const allNavi = _floating.querySelectorAll('.accordion__panel a');
+
+      allNavi.forEach(item => {
+        item.classList.remove('is-active');
+      });
       if (acc.scrollTop > 0) {
         _floating.classList.add('is-fixed');
       } else {
@@ -370,16 +373,139 @@ const modalScrollContent = () => {
 };
 /* //모달에 스크롤이 있을경우 */
 
+const achorScroll = () => {
+  const DATA_TOGGLE = 'data-toggle-section';
+  const ARIA_PRESSED = 'aria-pressed';
+  const toggleAll = document.querySelectorAll('[' + DATA_TOGGLE + ']');
+  const arr = [];
+
+  const removeNavi = function (childTarget) {
+    childTarget.forEach(_child => {
+      _child.classList.remove('is-active');
+    });
+  };
+
+  const sectionShow = function (event) {
+    event.preventDefault();
+    const target = event.target;
+    const sector = target.getAttribute(DATA_TOGGLE);
+    const childTarget = target.closest('.accordion__item').querySelectorAll('.accordion__panel a');
+
+    const beforeParent = target.closest('.tab__inner').querySelectorAll('[' + DATA_TOGGLE + ']');
+    const getID = [].map.call(beforeParent, function (x) {
+      return x.getAttribute(DATA_TOGGLE);
+    });
+
+    const uniqueArr = [].filter.call(getID, function (element, index) {
+      return getID.indexOf(element) === index;
+    });
+
+    [].forEach.call(uniqueArr, function (g) {
+      const x = document.querySelectorAll(g);
+      x[0].classList.remove('is-active');
+    });
+
+    const _href = target.getAttribute('href');
+    let _toHref = document.querySelector(_href);
+
+    if (target) {
+      removeNavi(childTarget);
+      Object.keys(modalInnerScroll).forEach(index => {
+        setTimeout(function () {
+          modalInnerScroll[index].scrollIntoView(_toHref);
+        }, 1);
+
+        if (target.getAttribute(ARIA_PRESSED) || target.tagName === 'BUTTON') {
+          modalInnerScroll[index].scrollTo(0, 0);
+        }
+      });
+
+      const getSector = document.querySelector(sector);
+      getSector.classList.add('is-active');
+    }
+  };
+
+  if (toggleAll.length > 0) {
+    [].map.call(toggleAll, function (item) {
+      item.addEventListener('click', sectionShow);
+      arr.push(item);
+    });
+  }
+
+  window.achorItems = {
+    selector: {
+      ...arr,
+    },
+  };
+};
+
 const defaultScroll = () => {
   const tabScrollEl = document.querySelectorAll('.tab--scroll .tab__inner');
-  tabScrollEl.forEach(item => {
+  const arr = [];
+
+  const achorScrollDeactiveNavi = function (section) {
+    section.forEach(item => {
+      const _id = item.id;
+      const _targetAll = document.querySelectorAll(`[href='#${_id}']`);
+      if (!_targetAll[0]) {
+        return;
+      }
+      _targetAll[0].classList.remove('is-active');
+    });
+  };
+
+  const achorScrollActiveNavi = function (status, el) {
+    const section = el.querySelectorAll('section');
+
+    section.forEach(sec => {
+      let top = status.y;
+      let offset = sec.offsetTop;
+      let height = sec.offsetHeight;
+      let id = sec.getAttribute('id');
+
+      if (top >= offset && top < offset + height) {
+        achorScrollDeactiveNavi(section);
+        const target = document.querySelector(`[href='#${id}']`);
+        target ? target.classList.add('is-active') : false;
+      }
+    });
+  };
+  [].map.call(tabScrollEl, item => {
     if (!item.closest('.modal--layer__bescroll')) {
-      const scrollbar = Scrollbar.init(item, {
+      const tabInnerScroll = Scrollbar.init(item, {
         syncCallbacks: true,
       });
-      window.tabscrollbar = scrollbar;
+    }
+
+    if (item.closest('.modal--layer__bescroll')) {
+      const modalInnerScroll = Scrollbar.init(item, {
+        syncCallbacks: true,
+      });
+
+      arr.push(modalInnerScroll);
+
+      const getAcc = modalInnerScroll.containerEl.querySelector('.accordion--type3');
+
+      modalInnerScroll.addListener(status => {
+        const offset = status.offset;
+        achorScrollActiveNavi(offset, modalInnerScroll.containerEl);
+
+        if (offset.y > 112) {
+          getAcc.classList.add('is-fixed');
+          getAcc.style.top = offset.y + 'px';
+        } else {
+          getAcc.classList.remove('is-fixed');
+          getAcc.style.top = 0 + 'px';
+        }
+      });
     }
   });
+
+  window.modalInnerScroll = {
+    ...arr,
+  };
+
+  Scrollbar.initAll();
 };
 
 const initFunc = () => {};
@@ -391,6 +517,7 @@ const initialize = () => {
   cardRefresh();
   autoScrollContent();
   defaultScroll();
+  achorScroll();
 };
 
 const commonInit = {

@@ -1,5 +1,8 @@
 .text {
   $root: text;
+  + .box--type4 {
+    margin-top: 20px;
+  }
   &-link {
     display: flex;
     align-items: center;
@@ -60,6 +63,7 @@
         width: 4px;
         height: 4px;
         border-radius: 50%;
+        background-color: color(grey, 600);
       }
 
       &.purple {
@@ -73,6 +77,13 @@
         color: color(orange, 800);
         &.text-link--bollet:before {
           background-color: color(orange, 800);
+        }
+      }
+
+      &.blue {
+        color: color(blue, 800);
+        &.text-link--bollet:before {
+          background-color: color(blue, 800);
         }
       }
 
@@ -100,7 +111,7 @@
     padding-top: 4px;
     display: inline-block;
     vertical-align: top;
-    color:color(grey, 600);
+    color: color(grey, 600);
     &:before {
       content: '';
       height: 20px;
@@ -114,7 +125,6 @@
     }
   }
 }
-
 
 label.text-link--bollet:hover {
   text-decoration: none;

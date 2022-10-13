@@ -25,26 +25,117 @@ td {
   position: relative;
   text-align: center;
 
+  .blue {
+    color: color(blue, 800);
+  }
+
+  .red {
+    color: color(red, 700);
+  }
+  &.left {
+    tbody {
+      tr th,
+      tr td {
+        text-align: left;
+      }
+    }
+  }
+
+  &.center {
+    tbody {
+      tr th,
+      tr td {
+        text-align: center;
+      }
+    }
+  }
+
+  &-columns {
+    display: flex;
+    align-items: flex-start;
+
+    .#{$root}-row {
+      width: 100%;
+      &:first-child {
+        margin-right: 20px;
+      }
+
+      + .#{$root}-row {
+        margin-top: 0;
+      }
+    }
+  }
+
   &-row {
     table-layout: fixed;
+    border-top: 1px solid color(grey, 500);
+    + .#{$root}-row {
+      margin-top: 40px;
+    }
+    &.align-top {
+      tr th,
+      tr td {
+        vertical-align: top;
+      }
+    }
   }
 
   tr {
+    td {
+      background-color: $white;
+    }
     th,
     td {
       font-size: 14px;
-      font-weight: 500;
-      height: 46px;
-      padding: 0 16px;
-      color: color(grey, 500);
+      font-weight: 300;
+      height: 44px;
+      padding: 12px 12px;
+      color: color(grey, 900);
       border: 1px solid color(grey, 200);
+      &:first-child {
+        border-left: 0;
+      }
+
+      &:last-child {
+        border-right: 0;
+      }
+      b {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        display: block;
+      }
+
+      &.center {
+        text-align: center !important;
+      }
+
+      &.left {
+        text-align: left !important;
+      }
+
+      &.right {
+        text-align: right !important;
+      }
     }
   }
 
   thead {
     th {
-      background-color: $white;
+      font-weight: 500;
+      background-color: color(grey, 50);
       color: $black;
+      text-align: center;
+
+      &.blue-bg {
+        background-color: #f1f8ff;
+      }
+
+      .ic-x--type2,
+      .ic-o--type2 {
+        top: -2px;
+        margin-left: 4px;
+      }
     }
   }
 }

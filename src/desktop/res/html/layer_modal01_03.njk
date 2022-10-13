@@ -1,986 +1,449 @@
-{% set user = "logout" %}
-{% set title = "신한 UX라이팅 시스템 | 검색" %}
-{% extends "../templates/layout.njk" %}
- 
-{% set floatingActive = "0" %}
+{% set user = 'logout' %}
+{% set title = '신한 UX라이팅 시스템 | 검색' %}
+{% extends '../templates/layout.njk' %}
+{% set floatingActive = '1' %}
 {% block content %}
-    {{super()}}
-    <div class="ly-content">
-        <div class="ly-content-box">
-            <div class="tab tab--scroll" data-ui-tab id="mainTab">
-                <div class="title">
-                    <h2 class="text ft24 bold">교정하기</h2>
-                    <div class="tab__list" role="tablist">
-                        <button type="button" role="tab" id="tablist1" class="tab__button" aria-controls="tabpanel1" aria-selected="false">일반</button>
-                        <button type="button" role="tab" id="tablist2" class="tab__button" aria-controls="tabpanel2" aria-selected="false">앱푸시</button>
-                        <button type="button" role="tab" id="tablist3" class="tab__button" aria-controls="tabpanel3" aria-selected="false">스마트오퍼</button>
-                    </div>
-                </div>
-                <div id="tabpanel1" class="tab__panel" role="tabpanel" aria-labelledby="tablist1" tabindex="-1">
-                    <div class="tab__inner">
-                        <div class="form">
-                            <div class="fields">
-                                <div class="field">
-                                    <label class="dpb medium ft14">내용</label>
-                                    <textarea data-bytes-check class="textarea textarea--base" maxlength="5000" placeholder="내용 입력"></textarea>
-                                    <div class="textarea__lengths">
-                                        <label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
-                                        <div class="textarea__lengths__box">
-                                            <span class="textarea__lengths--current">0</span>/ <span class="textarea__lengths--total">5,000</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="tabpanel2" class="tab__panel" role="tabpanel" aria-labelledby="tablist2" tabindex="-1">
-                    <div class="tab__inner">
-                        <div class="form">
-                            <div class="fields">
-                                <div class="field">
-                                    <label class="dpb medium ft14">제목</label>
-                                    <textarea class="textarea textarea--max mxh68" maxlength="55" placeholder="제목 입력"></textarea>
-                                    <div class="textarea__lengths">
-                                        <label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
-                                        <div class="textarea__lengths__box">
-                                            <span class="textarea__lengths--current">0</span>/ <span class="textarea__lengths--total">50</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="fields">
-                                <div class="field">
-                                    <label class="dpb medium ft14">내용</label>
-                                    <textarea class="textarea textarea--max mxh180" maxlength="200" placeholder="내용 입력"></textarea>
-                                    <div class="textarea__lengths">
-                                        <label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
-                                        <div class="textarea__lengths__box">
-                                            <span class="textarea__lengths--current">0</span>/ <span class="textarea__lengths--total">200</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="fields">
-                                <div class="field">
-                                    <div class="guide-writing">
-                                        <strong>작성가이드</strong>
-                                        <p>
-                                            버튼<br/>
-                                            <br/>
-                                            Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                            Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                             Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                            Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                             Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                            Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                             Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                            Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                             Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                            Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="tabpanel3" class="tab__panel" role="tabpanel" aria-labelledby="tablist3" tabindex="-1">
-                    <div class="tab tab--scroll tab--type2" data-ui-tab>
-                        <div class="tab__list" role="tablist">
-                            <button type="button" role="tab" id="tablist4" class="tab__button" aria-controls="tabpanel4" aria-selected="false">메인 상단배너</button>
-                            <button type="button" role="tab" id="tablist5" class="tab__button" aria-controls="tabpanel5" aria-selected="false">메인 바텀시트배너</button>
-                            <button type="button" role="tab" id="tablist6" class="tab__button" aria-controls="tabpanel6" aria-selected="false">공통배너</button>
-                        </div>
-                        <div id="tabpanel4" class="tab__panel" role="tabpanel" aria-labelledby="tablist4" tabindex="-1">
-                            <div class="tab__inner">
-                                <div class="form">
-                                    <div class="fields">
-                                        <div class="field">
-                                            <label class="dpb medium ft14">메인 카피</label>
-                                            <textarea class="textarea textarea--max mxh68" maxlength="34" placeholder="메인 카피 입력"></textarea>
-                                            <div class="textarea__lengths">
-                                                <label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
-                                                <div class="textarea__lengths__box">
-                                                    <span class="textarea__lengths--current">0</span>/ <span class="textarea__lengths--total">34</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="fields">
-                                        <div class="field">
-                                            <label class="dpb medium ft14">서브 카피</label>
-                                            <textarea class="textarea textarea--max mxh180" maxlength="40" placeholder="서브 카피 입력"></textarea>
-                                            <div class="textarea__lengths">
-                                                <label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
-                                                <div class="textarea__lengths__box">
-                                                    <span class="textarea__lengths--current">0</span>/ <span class="textarea__lengths--total">40</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="fields">
-                                        <div class="field">
-                                            <div class="guide-writing">
-                                                <strong>작성가이드</strong>
-                                                <p>
-                                            버튼<br/>
-                                                    <br/>
-                                            Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                            Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                             Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                            Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                             Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                            Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                             Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                            Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                             Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                            Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="tabpanel5" class="tab__panel" role="tabpanel" aria-labelledby="tablist5" tabindex="-1">
-                            <div class="tab__inner">
-                                <div class="form">
-                                    <div class="fields">
-                                        <div class="field">
-                                            <label class="dpb medium ft14">메인 카피</label>
-                                            <textarea class="textarea textarea--max mxh96" maxlength="48" placeholder="메인 카피 최대 2줄까지 입력 (한 줄당 24 Byte)"></textarea>
-                                            <div class="textarea__lengths">
-                                                <label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
-                                                <div class="textarea__lengths__box">
-                                                    <span class="textarea__lengths--current">0</span>/ <span class="textarea__lengths--total">48</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="fields">
-                                        <div class="field">
-                                            <label class="dpb medium ft14">서브 카피</label>
-                                            <textarea class="textarea textarea--max mxh180" maxlength="120" placeholder="서브 카피 최대 3줄까지 입력 (한 줄당 40 Byte)"></textarea>
-                                            <div class="textarea__lengths">
-                                                <label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
-                                                <div class="textarea__lengths__box">
-                                                    <span class="textarea__lengths--current">0</span>/ <span class="textarea__lengths--total">120</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="fields">
-                                        <div class="field">
-                                            <div class="guide-writing">
-                                                <strong>작성가이드</strong>
-                                                <p>
-                                            버튼<br/>
-                                                    <br/>
-                                            Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                            Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                             Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                            Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                             Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                            Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                             Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                            Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                             Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                            Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="tabpanel6" class="tab__panel" role="tabpanel" aria-labelledby="tablist6" tabindex="-1">
-                            <div class="tab__inner">
-                                <div class="form">
-                                    <div class="fields">
-                                        <div class="field">
-                                            <label class="dpb medium ft14">메인 카피</label>
-                                            <textarea class="textarea textarea--max mxh68" maxlength="36" placeholder="메인 카피 입력"></textarea>
-                                            <div class="textarea__lengths">
-                                                <label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
-                                                <div class="textarea__lengths__box">
-                                                    <span class="textarea__lengths--current">0</span>/ <span class="textarea__lengths--total">36</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="fields">
-                                        <div class="field">
-                                            <label class="dpb medium ft14">서브 카피</label>
-                                            <textarea class="textarea textarea--max mxh180" maxlength="40" placeholder="서브 카피 입력"></textarea>
-                                            <div class="textarea__lengths">
-                                                <label class="error" aria-hidden="true">입력 가능한 글자수를 초과했어요. 안정적인 교정을 위해 글자수를 조정해주세요.</label>
-                                                <div class="textarea__lengths__box">
-                                                    <span class="textarea__lengths--current">0</span>/ <span class="textarea__lengths--total">40</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="fields">
-                                        <div class="field">
-                                            <div class="guide-writing">
-                                                <strong>작성가이드</strong>
-                                                <p>
-                                            버튼<br/>
-                                                    <br/>
-                                            Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                            Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                             Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                            Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                             Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                            Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                             Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                            Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                             Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                            Single 버튼: 4글자 이내의 한 단어로 작성, 구체적 정보를 담을 경우 12글자 이내로 작성<br/>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+	{{ super() }}
+	<div class="ly-content">
+		<div class="ly-content-box">
+			{% include '../templates/contents/main_tab.njk' %}
 
-            <div class="ly-bottom-group">
-                <div class="button-group">
-                    <div class="tooltip__list tooltip-button">
-                        <input id="btnupload" type="file" role="button" aria-label="File Upload" tabindex="-1" accept=".docx, .txt"/>
-                        <label class="ic-button-edit" tabindex="0" for="btnupload" role="button" aria-label="업로드" aria-describedby="tooltip4">
-                            <i class="ic ic-upload" aria-hidden="true"></i>
-                        </label>
-                    </div>
-                    <div class="tooltip__list tooltip-button">
-                        <button id="btncopy" type="button" class="ic-button-edit" aria-label="복사" aria-describedby="tooltip5" disabled onclick="UXW.Message.show('텍스트를 복사하였습니다.')">
-                            <i class="ic ic-copy" aria-hidden="true"></i>
-                        </button>
-                    </div>
-                    <div class="tooltip__list tooltip-button">
-                        <button id="btndownload" type="button" class="ic-button-edit" aria-label="다운로드" aria-describedby="tooltip6" disabled  >
-                            <i class="ic ic-download" aria-hidden="true"></i>
-                        </button>
-                    </div>
-                    <div class="tooltip__list tooltip-button">
-                        <button id="btndelete" type="button" class="ic-button-edit hide" aria-label="삭제" aria-describedby="tooltip7">
-                            <i class="ic ic-delete" aria-hidden="true"></i>
-                        </button>
-                    </div>
-                </div>
+			<div class="ly-bottom-group">
+				<div class="button-group">
+					<div class="tooltip__list tooltip-button">
+						<input id="btnupload" type="file" role="button" aria-label="File Upload" tabindex="-1" accept=".docx, .txt"/>
+						<label class="ic-button-edit" tabindex="0" for="btnupload" role="button" aria-label="업로드" aria-describedby="tooltip4">
+							<i class="ic ic-upload" aria-hidden="true"></i>
+						</label>
+					</div>
+					<div class="tooltip__list tooltip-button">
+						<button id="btncopy" type="button" class="ic-button-edit" aria-label="복사" aria-describedby="tooltip5" disabled onclick="UXW.Message.show('텍스트를 복사하였습니다.')">
+							<i class="ic ic-copy" aria-hidden="true"></i>
+						</button>
+					</div>
+					<div class="tooltip__list tooltip-button">
+						<button id="btndownload" type="button" class="ic-button-edit" aria-label="다운로드" aria-describedby="tooltip6" disabled>
+							<i class="ic ic-download" aria-hidden="true"></i>
+						</button>
+					</div>
+					<div class="tooltip__list tooltip-button">
+						<button id="btndelete" type="button" class="ic-button-edit hide" aria-label="삭제" aria-describedby="tooltip7">
+							<i class="ic ic-delete" aria-hidden="true"></i>
+						</button>
+					</div>
+				</div>
 
-                <div class="message" id="toast"></div>
+				<div class="message" id="toast"></div>
 
-                <div class="button-group">
-                    <button type="button" data-target="currect" id="btncurrect" aria-expanded="true" class="button button--type1" disabled>교정하기</button>
-                    <button type="button" id="btnsave" aria-hidden="true" class="button button--type2" data-dialog-trigger="#modal1">완료하기</button>
-                </div>
-            </div>
+				<div class="button-group">
+					<button type="button" data-target="currect" id="btncurrect" aria-expanded="true" class="button button--type1" disabled>교정하기</button>
+					<button type="button" id="btnsave" aria-hidden="true" class="button button--type2" data-dialog-trigger="#modal1">완료하기</button>
+				</div>
+			</div>
 
-            <!-- tooltip Guide 업데이트 이후 data-placement="top"으로 변경 -->
-            <div class="tooltip__box">
-                <div id="tooltip4" role="tooltip" class="tooltip" data-placement="top" data-visible>
-                    <span class="tooltip__title">MS Word(.docx) 또는 텍스트(.txt) 파일을 업로드하세요.</span>
-                </div>
-                <div id="tooltip5" role="tooltip" class="tooltip" data-placement="top" data-visible>
-                    <span class="tooltip__title">복사하기</span>
-                </div>
-                <div id="tooltip6" role="tooltip" class="tooltip" data-placement="top" data-visible>
-                    <span class="tooltip__title">텍스트(.txt) 파일로 내려받기</span>
-                </div>
-                <div id="tooltip7" role="tooltip" class="tooltip" data-placement="top" data-visible>
-                    <span class="tooltip__title">삭제하기</span>
-                </div>
-            </div>
-            <!-- //tooltip Guide 업데이트 이후 data-placement="top"으로 변경 -->
-        </div>
-    </div>
+			<!-- tooltip Guide 업데이트 이후 data-placement="top"으로 변경 -->
+			<div class="tooltip__box">
+				<div id="tooltip4" role="tooltip" class="tooltip" data-placement="top" data-visible>
+					<span class="tooltip__title">MS Word(.docx) 또는 텍스트(.txt) 파일을 업로드하세요.</span>
+				</div>
+				<div id="tooltip5" role="tooltip" class="tooltip" data-placement="top" data-visible>
+					<span class="tooltip__title">복사하기</span>
+				</div>
+				<div id="tooltip6" role="tooltip" class="tooltip" data-placement="top" data-visible>
+					<span class="tooltip__title">텍스트(.txt) 파일로 내려받기</span>
+				</div>
+				<div id="tooltip7" role="tooltip" class="tooltip" data-placement="top" data-visible>
+					<span class="tooltip__title">삭제하기</span>
+				</div>
+			</div>
+			<!-- //tooltip Guide 업데이트 이후 data-placement="top"으로 변경 -->
+		</div>
+	</div>
 
-    <!-- 사이드 영역 220913 ID추가  -->
-    <div class="side" id="side">
-        <div class="side__wrap is-active">
-            <h3 class="sr-only">교정 가이드</h3>
-            <div class="side__inner">
-                <!-- html이 들어갈 영역 -->
-                <div class="side__frame__html">
-                    <div class="swiper swiper--autoheight">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="side__frame__wrap">
-                                    <h4 class="ft18 medium">김픽스님, 이런 표현들을 조심하세요!</h4>
-                                    <div class="expresstion">
-                                        <ul class="expresstion-group">
-                                            <li class="expresstion-list">
-                                                <span>네비게이션</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>내비게이션</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>개인종합자산관리계좌 (ISA)</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>ISA (개인종합자산관리계좌)</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>라이센스</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>라이선스</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>휴대폰 인증서 서비스(UBIKey)</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>휴대폰 인증서 서비스(유비키)</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>추산</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>어림잡다</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="side__frame__wrap">
-                                    <h4 class="ft18 medium">김픽스님, 이런 표현들을 조심하세요!</h4>
-                                    <div class="expresstion">
-                                        <ul class="expresstion-group">
-                                            <li class="expresstion-list">
-                                                <span>네비게이션</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>내비게이션</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>개인종합자산관리계좌 (ISA)</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>ISA (개인종합자산관리계좌)</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>라이센스</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>라이선스</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>휴대폰 인증서 서비스(UBIKey)</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>휴대폰 인증서 서비스(유비키)</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>추산</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>어림잡다</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="side__frame__wrap">
-                                    <h4 class="ft18 medium">김픽스님, 이런 표현들을 조심하세요!</h4>
-                                    <div class="expresstion">
-                                        <ul class="expresstion-group">
-                                            <li class="expresstion-list">
-                                                <span>네비게이션</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>내비게이션</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>개인종합자산관리계좌 (ISA)</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>ISA (개인종합자산관리계좌)</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>라이센스</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>라이선스</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>휴대폰 인증서 서비스(UBIKey)</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>휴대폰 인증서 서비스(유비키)</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>추산</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>어림잡다</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="side__frame__wrap">
-                                    <h4 class="ft18 medium">김픽스님, 이런 표현들을 조심하세요!</h4>
-                                    <div class="expresstion">
-                                        <ul class="expresstion-group">
-                                            <li class="expresstion-list">
-                                                <span>네비게이션</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>내비게이션</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>개인종합자산관리계좌 (ISA)</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>ISA (개인종합자산관리계좌)</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>라이센스</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>라이선스</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>휴대폰 인증서 서비스(UBIKey)</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>휴대폰 인증서 서비스(유비키)</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>추산</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>어림잡다</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="side__frame__wrap">
-                                    <h4 class="ft18 medium">김픽스님, 이런 표현들을 조심하세요!</h4>
-                                    <div class="expresstion">
-                                        <ul class="expresstion-group">
-                                            <li class="expresstion-list">
-                                                <span>네비게이션</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>내비게이션</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>개인종합자산관리계좌 (ISA)</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>ISA (개인종합자산관리계좌)</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>라이센스</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>라이선스</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>휴대폰 인증서 서비스(UBIKey)</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>휴대폰 인증서 서비스(유비키)</span>
-                                            </li>
-                                            <li class="expresstion-list">
-                                                <span>추산</span>
-                                                <i class="ic ic-expresstion-arrow" aria-hidden="true"></i>
-                                                <span>어림잡다</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-indicator center">
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-pagination"></div>
-                            <div class="swiper-button-next"></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- html이 들어갈 영역 -->
+	<!-- 사이드 영역 220913 ID추가 -->
+	<div class="side" id="side">
+		<div class="side__wrap is-active">
+			<h3 class="sr-only">교정 가이드</h3>
+			<div
+				class="side__inner">
+				<!-- 220926 수정 -->
+				{% include '../templates/contents/side_frame.njk' %}
+				<!-- //220926 수정 -->
 
-                <!-- 목록 -->
-                <div class="box mgt20 blue100-bg">
-                    <div class="title--type2">
-                        <h4 class="text ft18 medium">내 콘텐츠</h4>
-                        <a href="#none" class="text-link">
-                            전체보기
-                            <i class="ic ic-text-arrow" aria-hidden="true"></i>
-                        </a>
+				<!-- 목록 -->
+					<div class="box mgt20 blue100-bg"> <div class="title--type2">
+						<h4 class="text ft18 medium">내 콘텐츠</h4>
+						<a href="#none" class="text-link">
+							전체보기
+							<i class="ic ic-text-arrow" aria-hidden="true"></i>
+						</a>
+					</div>
+					<!-- 데이터가 없을시 오픈 220901 수정 -->
+					<div class="none-data none-data--view pxh170" data-none>
+						<p>
+							콘텐츠 목록이 비어있어요.<br/>새로운 콘텐츠를 작성해주세요.
+						</p>
+					</div>
+					<!-- //데이터가 없을시 오픈 220901 수정 -->
 
-                    </div>
-                    <!-- 데이터가 없을시 오픈 220901 수정 -->
-                    <div class="none-data none-data--view pxh170" data-none>
-                        <p>콘텐츠 목록이 비어있어요.<br/>새로운 콘텐츠를 입력해주세요.</p>
-                    </div>
-                    <!-- //데이터가 없을시 오픈 220901 수정-->
+					<!-- 목록 리스트 : 데이터가 없을시 제거 -->
+					<div class="grid col3">
+						<div class="grid__box">
+							<a href="#none" class="text-link light" title="신한은행과BNP파리바카디프생명협약 관련안내">신한은행과BNP파리바카디프생명협약 관련안내</a>
+							<span class="text-date">22.7.25</span>
+						</div>
+						<div class="grid__box">
+							<a href="#none" class="text-link light" title="신한은행과BNP파리바카디프생명협약 관련안내 입니다">신한은행과BNP파리바카디프생명협약 관련안내 입니다</a>
+							<span class="text-date">22.7.25</span>
+						</div>
+						<div class="grid__box">
+							<a href="#none" class="text-link light" title="신한은행과BNP파리바카디프생명협약 관련안내">신한은행과BNP파리바카디프생명협약 관련안</a>
+							<span class="text-date">22.7.25</span>
+						</div>
+					</div>
+					<!-- //목록 리스트 -->
+				</div>
+				<!-- //목록 -->
+			</div>
+		</div>
 
-                    <!-- 목록 리스트 : 데이터가 없을시 제거  -->
-                    <div class="grid col3">
-                        <div class="grid__box">
-                            <a href="#none" class="text-link light" title="신한은행과BNP파리바카디프생명협약 관련안내">신한은행과BNP파리바카디프생명협약 관련안내</a>
-                            <span class="text-date">22.7.25</span>
-                        </div>
-                        <div class="grid__box">
-                            <a href="#none" class="text-link light" title="신한은행과BNP파리바카디프생명협약 관련안내 입니다">신한은행과BNP파리바카디프생명협약 관련안내 입니다</a>
-                            <span class="text-date">22.7.25</span>
-                        </div>
-                        <div class="grid__box">
-                            <a href="#none" class="text-link light" title="신한은행과BNP파리바카디프생명협약 관련안내">신한은행과BNP파리바카디프생명협약 관련안</a>
-                            <span class="text-date">22.7.25</span>
-                        </div>
-                    </div>
-                    <!-- //목록 리스트 -->
-                </div>
-                <!-- //목록 -->
-            </div>
-        </div>
+		<div class="side__wrap is-deactive" id="currect" aria-labelledby="currect">
+			<div class="side__head">
+				<h3 class="sr-only">버튼 영역</h3>
 
-        <div class="side__wrap is-deactive" id="currect" aria-labelledby="currect">
-            <div class="side__head">
-                <h3 class="sr-only">버튼 영역</h3>
+				<div class="box--type2">
+					<div class="checkbox-column">
+						<input class="checkbox" id="chkallD1" type="checkbox" name="chkAll"/>
+						<label class="label" for="chkallD1">전체 선택</label>
+					</div>
 
-                <div class="box--type2">
-                    <div class="checkbox-column">
-                        <input class="checkbox" id="chkallD1" type="checkbox" name="chkAll"/>
-                        <label class="label" for="chkallD1">전체 선택</label>
-                    </div>
+					<div class="button-group">
+						<button type="button" role="button" class="button button--medium button--type3" onclick="changeLangauge()">적용하기</button>
+						<button type="button" role="button" class="button button--medium button--type4" onclick="changeLangaugeInit()">초기화</button>
+					</div>
+				</div>
+			</div>
 
-                    <div class="button-group">
-                        <button type="button" role="button" class="button button--medium button--type3" onclick="changeLangauge()">적용하기</button>
-                        <button type="button" role="button" class="button button--medium button--type4" onclick="changeLangaugeInit()">초기화</button>
-                    </div>
-                </div>
-            </div>
+			<div class="side__inner">
+				<h3 class="sr-only">교정결과 영역</h3>
+				{% include '../templates/contents/side_accordion_card.njk' %}
+			</div>
+		</div>
+	</div>
+	<!-- //사이드 영역 -->
 
-            <div class="side__inner">
-                <h3 class="sr-only">교정결과 영역</h3>
-                {% include "../templates/contents/side_accordion_card.njk" %}
-            </div>
-        </div>
-    </div>
-    <!-- //사이드 영역 -->
+	<!-- 완료하기 팝업 -->
+	{% include '../templates/popup/contents_success_popup01.njk' %}
+	<!-- //완료하기 팝업 -->
 
-    <!-- 완료하기 팝업 -->
-    {% include "../templates/popup/contents_success_popup01.njk" %}
-    <!-- //완료하기 팝업 -->
+	<!-- 용어문의 및 제안 팝업 -->
+	{% include '../templates/popup/inquiry_popup06.njk' %}
+	<!-- //용어문의 및 제안 팝업 -->
 
-    <!-- 용어문의 및 제안 팝업 -->
-    {% include "../templates/popup/inquiry_popup06.njk" %}
-    <!-- //용어문의 및 제안 팝업 -->
-
-    <!-- 교정된 콘텐츠 레이어팝업 -->
-    {% include "../templates/layer/symptom_search03.njk" %}
-    <!-- //교정된 콘텐츠 레이어팝업 -->
-
+	<!-- 교정된 콘텐츠 레이어팝업 -->
+{% include '../templates/layer/symptom_search03.njk' %}
+	<!-- //교정된 콘텐츠 레이어팝업 -->
 {% endblock %}
 
 {% block scripts %}
-    <script>
-        const sideSwiper = UXW.SwiperA11y('#side .swiper', {
-            observer: true,
-            observeParents: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false
-            },
-            grapCursor: true,
-            loop: true,
-            speed: 600,
+	<script>
+		const sideSwiper = UXW.SwiperA11y('#side .swiper', {
+observer: true,
+observeParents: true,
+autoplay: {
+delay: 3000,
+disableOnInteraction: false
+},
+grapCursor: true,
+loop: true,
+speed: 600,
 
-            mousewheelControl: true,
-            keyboard: {
-                enabled: true,
-                onlyInViewport: false
-            },
-            spaceBetween: 40,
+mousewheelControl: true,
+keyboard: {
+enabled: true,
+onlyInViewport: false
+},
+spaceBetween: 40,
 
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true
-            },
+pagination: {
+el: '.swiper-pagination',
+clickable: true
+},
 
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev'
-            },
-            autoHeight: true
-        });
+navigation: {
+nextEl: '.swiper-button-next',
+prevEl: '.swiper-button-prev'
+},
+autoHeight: true
+});
 
-        const buttonSwiper = UXW.SwiperA11y('#sorting .swiper', {
-            observer: true,
-            observeParents: true,
-            slidesPerView: "auto",
-            grapCursor: true,
-            speed: 600,
+const buttonSwiper = UXW.SwiperA11y('#sorting .swiper', {
+observer: true,
+observeParents: true,
+slidesPerView: 'auto',
+grapCursor: true,
+speed: 600,
 
-            mousewheelControl: true,
-            keyboard: {
-                enabled: true,
-                onlyInViewport: false
-            }
-        });
+mousewheelControl: true,
+keyboard: {
+enabled: true,
+onlyInViewport: false
+}
+});
 
-        const Input = {
-            // 에러
-            Error: function (props) {
-                const ARIA_HIDDEN = 'aria-hidden';
-                const input = props.parentElement;
-                const label = input
-                    .nextElementSibling
-                    .classList
-                    .contains('error');
-                input
-                    .classList
-                    .add('error');
-                if (!label) {
-                    return;
-                }
+const Input = { // 에러
+Error: function (props) {
+const ARIA_HIDDEN = 'aria-hidden';
+const input = props.parentElement;
+const label = input.nextElementSibling.classList.contains('error');
+input.classList.add('error');
+if (! label) {
+return;
+}
 
-                const get = input
-                    .nextElementSibling
-                    .getAttribute(ARIA_HIDDEN);
-                if (get === 'true') {
-                    input
-                        .nextElementSibling
-                        .setAttribute(ARIA_HIDDEN, false);
-                }
-            },
+const get = input.nextElementSibling.getAttribute(ARIA_HIDDEN);
+if (get === 'true') {
+input.nextElementSibling.setAttribute(ARIA_HIDDEN, false);
+}
+},
 
-            // 에러 클리어
-            Clear: function (props) {
-                const ARIA_HIDDEN = 'aria-hidden';
-                const input = props.parentElement;
-                const label = input
-                    .nextElementSibling
-                    .classList
-                    .contains('error');
-                input
-                    .classList
-                    .remove('error');
-                if (!label) {
-                    return;
-                }
+// 에러 클리어
+Clear: function (props) {
+const ARIA_HIDDEN = 'aria-hidden';
+const input = props.parentElement;
+const label = input.nextElementSibling.classList.contains('error');
+input.classList.remove('error');
+if (! label) {
+return;
+}
 
-                const get = input
-                    .nextElementSibling
-                    .getAttribute(ARIA_HIDDEN);
-                if (get === 'false') {
-                    input
-                        .nextElementSibling
-                        .setAttribute(ARIA_HIDDEN, true);
-                }
-            },
+const get = input.nextElementSibling.getAttribute(ARIA_HIDDEN);
+if (get === 'false') {
+input.nextElementSibling.setAttribute(ARIA_HIDDEN, true);
+}
+},
 
-            // value 삭제버튼
-            ClearButton: function (param) {
-                if (!param.previousElementSibling) {
-                    return;
-                }
+// value 삭제버튼
+ClearButton: function (param) {
+if (! param.previousElementSibling) {
+return;
+}
 
-                if (param.previousElementSibling.tagName === 'INPUT') {
-                    param.previousElementSibling.value = '';
-                    param
-                        .classList
-                        .remove('is-active');
+if (param.previousElementSibling.tagName === 'INPUT') {
+param.previousElementSibling.value = '';
+param.classList.remove('is-active');
 
-                    if (param.previousElementSibling.getAttribute('name') === 'id') {
-                        const target = document.querySelector('[name="password"]');
-                        const passwordParent = target.closest('.input-box');
-                        passwordParent.style.height = '';
-                        passwordParent.style.marginTop = '0';
+if (param.previousElementSibling.getAttribute('name') === 'id') {
+const target = document.querySelector('[name="password"]');
+const passwordParent = target.closest('.input-box');
+passwordParent.style.height = '';
+passwordParent.style.marginTop = '0';
 
-                        passwordParent
-                            .classList
-                            .add('expanding');
-                        passwordParent
-                            .classList
-                            .remove('expand');
-                        passwordParent
-                            .classList
-                            .remove('expanded');
-                    }
-                }
-            },
+passwordParent.classList.add('expanding');
+passwordParent.classList.remove('expand');
+passwordParent.classList.remove('expanded');
+}
+}
+},
 
-            // InputBox value Checker
-            Check: function () {
-                const elements = document.querySelectorAll('.input-box');
+// InputBox value Checker
+Check: function () {
+const elements = document.querySelectorAll('.input-box');
 
-                const onInput = function (event) {
-                    const value = event.target.value;
-                    const length = value.length;
-                    const nextEl = event.target.nextElementSibling;
-                    if (!nextEl) {
-                        return;
-                    }
-                    if (length > 0) {
-                        nextEl
-                            .classList
-                            .add('is-active');
-                    } else {
-                        nextEl
-                            .classList
-                            .remove('is-active');
-                    }
-                };
-                []
-                    .forEach
-                    .call(elements, item => {
-                        const target = item.querySelector('.input');
-                        target.addEventListener('keyup', onInput);
-                        target.addEventListener('keydown', onInput);
-                        target.addEventListener('change', onInput);
-                    });
-            }
-        };
+const onInput = function (event) {
+const value = event.target.value;
+const length = value.length;
+const nextEl = event.target.nextElementSibling;
+if (! nextEl) {
+return;
+}
+if (length > 0) {
+nextEl.classList.add('is-active');
+} else {
+nextEl.classList.remove('is-active');
+}
+};
+[].forEach.call(elements, item => {
+const target = item.querySelector('.input');
+target.addEventListener('keyup', onInput);
+target.addEventListener('keydown', onInput);
+target.addEventListener('change', onInput);
+});
+}
+};
 
-        sideSwiper
-            .el
-            .addEventListener('mouseenter', function () {
-                sideSwiper
-                    .autoplay
-                    .stop();
-            });
+sideSwiper.el.addEventListener('mouseenter', function () {
+sideSwiper.autoplay.stop();
+});
 
-        sideSwiper
-            .el
-            .addEventListener('mouseleave', function () {
-                sideSwiper
-                    .autoplay
-                    .start();
-            });
+sideSwiper.el.addEventListener('mouseleave', function () {
+sideSwiper.autoplay.start();
+});
 
-        //사이드 OPEN & CLOSE
-        const currectEvent = {
-            OPEN: function (param) {
-                const target = document.querySelector('#' + param.dataset.target);
-                target
-                    .classList
-                    .add('is-active');
-                target
-                    .classList
-                    .remove('is-deactive');
-                target
-                    .previousElementSibling
-                    .classList
-                    .add('is-deactive');
-                target
-                    .previousElementSibling
-                    .classList
-                    .remove('is-active');
-                btnupload.disabled = true;
-                btnsave.setAttribute('aria-hidden', false);
-                btndelete
-                    .classList
-                    .remove('hide');
+// 사이드 OPEN & CLOSE
+const currectEvent = {
+OPEN: function (param) {
+const target = document.querySelector('#' + param.dataset.target);
+target.classList.add('is-active');
+target.classList.remove('is-deactive');
+target.previousElementSibling.classList.add('is-deactive');
+target.previousElementSibling.classList.remove('is-active');
+btnupload.disabled = true;
+btnsave.setAttribute('aria-hidden', false);
+btndelete.classList.remove('hide');
+},
 
-            },
+CLOSE: function (param) {
+const target = document.querySelector('#' + param.dataset.target);
+target.classList.add('is-deactive');
+target.classList.remove('is-active');
+target.previousElementSibling.classList.add('is-active');
+target.previousElementSibling.classList.remove('is-deactive');
+},
 
-            CLOSE: function (param) {
-                const target = document.querySelector('#' + param.dataset.target);
-                target
-                    .classList
-                    .add('is-deactive');
-                target
-                    .classList
-                    .remove('is-active');
-                target
-                    .previousElementSibling
-                    .classList
-                    .add('is-active');
-                target
-                    .previousElementSibling
-                    .classList
-                    .remove('is-deactive');
-            },
+BEFORE: function (param) {
+const ARIA_EXPENDED = param.getAttribute('aria-expanded');
 
-            BEFORE: function (param) {
-                const ARIA_EXPENDED = param.getAttribute('aria-expanded');
+if (ARIA_EXPENDED === 'false') {
+currectEvent.CLOSE(param);
+} else {
+currectEvent.OPEN(param);
+}
+}
+};
 
-                if (ARIA_EXPENDED === 'false') {
-                    currectEvent.CLOSE(param);
-                } else {
-                    currectEvent.OPEN(param);
-                }
-            }
-        };
+// 바이트수 체크
+function bytesCheck() {
+const bytesCheck = document.querySelectorAll('[data-bytes-check]');
+const ARIA_HIDDEN = 'aria-hidden';
 
-        //바이트수 체크
-        function bytesCheck() {
-            const bytesCheck = document.querySelectorAll('[data-bytes-check]');
-            const ARIA_HIDDEN = 'aria-hidden';
+Array.prototype.forEach.call(bytesCheck, function (el) { // 한글 And 특수문자 2byte, 그 외 1byte
+function getByteCheck(str) {
+let len = 0;
+for (var i = 0; i < str.length; i++) {
+if (escape(str.charAt(i)).length === 6) {
+len++;
+}
+len++;
+}
+return len;
+}
 
-            Array
-                .prototype
-                .forEach
-                .call(bytesCheck, function (el) {
-                    // 한글 And 특수문자 2byte, 그 외 1byte
-                    function getByteCheck(str) {
-                        let len = 0;
-                        for (var i = 0; i < str.length; i++) {
-                            if (escape(str.charAt(i)).length === 6) {
-                                len++;
-                            }
-                            len++;
-                        }
-                        return len;
-                    }
+// 초기값 세팅
+var bytes = el.getAttribute('maxLength') * 2;
 
-                    // 초기값 세팅
-                    var bytes = el.getAttribute('maxLength') * 2;
+// 키 입력 시 바이트 계산
+['keydown', 'keyup', 'change'].forEach(function (type) {
+el.addEventListener(type, function () {
+let leng = this.value.length;
+const textEl = this.nextElementSibling;
+const lableError = textEl.querySelector('label');
+const textCurrent = textEl.querySelector('.textarea__lengths--current');
+const labelData = lableError.getAttribute(ARIA_HIDDEN);
 
-                    // 키 입력 시 바이트 계산
-                    ['keydown', 'keyup', 'change'].forEach(function (type) {
-                        el.addEventListener(type, function () {
-                            let leng = this.value.length;
-                            const textEl = this.nextElementSibling;
-                            const lableError = textEl.querySelector('label');
-                            const textCurrent = textEl.querySelector('.textarea__lengths--current');
-                            const labelData = lableError.getAttribute(ARIA_HIDDEN);
+this.classList.remove('error');
+textEl.classList.remove('error');
+lableError.setAttribute(ARIA_HIDDEN, true);
 
-                            this
-                                .classList
-                                .remove('error');
-                            textEl
-                                .classList
-                                .remove('error');
-                            lableError.setAttribute(ARIA_HIDDEN, true);
+if (getByteCheck(this.value) > bytes) {
+this.classList.add('error');
+textEl.classList.add('error');
+if (labelData) {
+lableError.setAttribute(ARIA_HIDDEN, false);
+}
 
-                            if (getByteCheck(this.value) > bytes) {
-                                this
-                                    .classList
-                                    .add('error');
-                                textEl
-                                    .classList
-                                    .add('error');
-                                if (labelData) {
-                                    lableError.setAttribute(ARIA_HIDDEN, false);
-                                }
+leng--;
+this.value = this.value.substr(0, leng);
 
-                                leng--;
-                                this.value = this
-                                    .value
-                                    .substr(0, leng);
+alert('최대 5,000자까지 입력할 수 있어요. 본문내용을 확인 해주세요.');
+}
 
-                                alert('최대 5,000자까지 입력할 수 있어요. 본문내용을 확인 해주세요.');
-                            }
+if (leng > 0) {
+btncurrect.disabled = false;
+btncopy.disabled = false;
+btndownload.disabled = false;
+} else {
+btncurrect.disabled = true;
+btnupload.disabled = false;
+btncopy.disabled = true;
+btndownload.disabled = true;
+btndelete.classList.add('hide');
+}
 
-                            if (leng > 0) {
-                                btncurrect.disabled = false;
-                                btncopy.disabled = false;
-                                btndownload.disabled = false;
+const resultFormat = function (num) {
+return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+};
 
-                            } else {
-                                btncurrect.disabled = true;
-                                btnupload.disabled = false;
-                                btncopy.disabled = true;
-                                btndownload.disabled = true;
-                                btndelete
-                                    .classList
-                                    .add('hide');
-                            }
+if (textEl.classList.contains('error')) {
+textCurrent.innerText = resultFormat(leng + 1);
+} else {
+textCurrent.innerText = resultFormat(leng);
+}
+});
+});
+});
+}
 
-                            const resultFormat = function (num) {
-                                return num
-                                    .toString()
-                                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                            }
+function changeLangauge() {
+const card = 'data-card';
+const cardChecked = document.querySelectorAll('[' + card + ']');
 
-                            if (textEl.classList.contains('error')) {
-                                textCurrent.innerText = resultFormat(leng + 1)
-                            } else {
-                                textCurrent.innerText = resultFormat(leng);
-                            }
-                        });
-                    });
-                });
-        }
+if (cardChecked.length === 0) {
+return;
+}[].forEach.call(cardChecked, function (x) {
+const checkEl = x.querySelector('.accordion__check input[type="checkbox"]:checked');
+if (checkEl) {
+x.setAttribute(card, true);
+}
+});
+}
 
-        function changeLangauge() {
-            const card = 'data-card';
-            const cardChecked = document.querySelectorAll('[' + card + ']');
+function changeLangaugeInit() {
+const card = 'data-card';
+const cardChecked = document.querySelectorAll('[' + card + ']');
 
-            if (cardChecked.length === 0) {
-                return;
-            };
+if (cardChecked.length === 0) {
+return;
+}[].forEach.call(cardChecked, function (x) {
+x.setAttribute(card, false);
+});
+}
 
-            []
-                .forEach
-                .call(cardChecked, function (x) {
-                    const checkEl = x.querySelector('.accordion__check input[type="checkbox"]:checked');
-                    if (checkEl) {
-                        x.setAttribute(card, true);
-                    }
+document.addEventListener('DOMContentLoaded', function () {
+bytesCheck();
+btncurrect.onclick = function () {
+currectEvent.OPEN(btncurrect);
+};
 
-                })
+Input.Check();
+});
 
-        }
+document.addEventListener('UILoaded', function () { // 삭제버튼 클릭시
+btndelete.onclick = function () {
+UXW.Confirm('삭제하시면 복구시킬 수 없어요.<br/> 작성하신 콘텐츠를 삭제하시겠어요?', function () {
+this.close();
+});
+};
+});
 
-        function changeLangaugeInit() {
-            const card = 'data-card';
-            const cardChecked = document.querySelectorAll('[' + card + ']');
-
-            if (cardChecked.length === 0) {
-                return;
-            };
-
-            []
-                .forEach
-                .call(cardChecked, function (x) {
-                    x.setAttribute(card, false);
-                })
-
-        }
-
-        document.addEventListener('DOMContentLoaded', function () {
-            bytesCheck();
-            btncurrect.onclick = function () {
-                currectEvent.OPEN(btncurrect);
-            }
-
-            Input.Check();
-        });
-
-        document.addEventListener('UILoaded', function () {
-            //삭제버튼 클릭시
-            btndelete.onclick = function () {
-                UXW.Confirm('삭제하시면 복구시킬 수 없어요.<br/> 작성하신 콘텐츠를 삭제하시겠어요?', function () {
-                    this.close();
-                });
-            }
-
-        })
-
-        const tabEl = document.querySelector('#mainTab')
-        tabEl.addEventListener(UXW.Tab.EVENT.CHANGE, function (event) {
-            var currentTab = event.current;
-            var beforeTab = event.before;
-            //변경전 페이지적용
-            if (currentTab.content.id === 'tabpanel2' || currentTab.content.id === 'tabpanel3') {
-                currectEvent.CLOSE(btncurrect);
-                btncopy
-                    .parentElement
-                    .classList
-                    .add('hide')
-                btnupload
-                    .parentElement
-                    .classList
-                    .add('hide')
-                btndelete
-                    .parentElement
-                    .classList
-                    .add('hide')
-                btndownload.disabled = true;
-
-            } else if (currentTab.content.id === 'tabpanel1') {
-                btncopy
-                    .parentElement
-                    .classList
-                    .remove('hide')
-                btnupload
-                    .parentElement
-                    .classList
-                    .remove('hide')
-                btndelete
-                    .parentElement
-                    .classList
-                    .remove('hide')
-                btncopy.disabled = false;
-                btndownload.disabled = false;
-
-            }
-        });
-    </script>
+const tabEl = document.querySelector('#mainTab');
+tabEl.addEventListener(UXW.Tab.EVENT.CHANGE, function (event) {
+var currentTab = event.current;
+var beforeTab = event.before;
+// 변경전 페이지적용
+if (currentTab.content.id === 'tabpanel2' || currentTab.content.id === 'tabpanel3') {
+currectEvent.CLOSE(btncurrect);
+btncopy.parentElement.classList.add('hide');
+btnupload.parentElement.classList.add('hide');
+btndelete.parentElement.classList.add('hide');
+btndownload.disabled = true;
+} else if (currentTab.content.id === 'tabpanel1') {
+btncopy.parentElement.classList.remove('hide');
+btnupload.parentElement.classList.remove('hide');
+btndelete.parentElement.classList.remove('hide');
+btncopy.disabled = false;
+btndownload.disabled = false;
+}
+});
+	</script>
 {% endblock %}

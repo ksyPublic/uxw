@@ -1,0 +1,99 @@
+{% set title = '신한 UX라이팅 시스템 | 여부버튼' %}
+{% extends '../templates/uxw_guide_layout.njk' %}
+{% block guide %}
+	<!-- 여기서 부터 복사해서 사용하세요 -->
+	<section class="guide-content" id="Button_Whether">
+		<div class="guide-card-wrap">
+			<div class="guide-card">
+				<div class="guide-card__head">
+					<h3>여부버튼</h3>
+					<div class="divider" aria-hidden="true"></div>
+					<p class="guide-card__sub">프로세스 진행을 위해 사용자 의사결정을 확인하기 위한 목적으로 여부 버튼을 사용할 경우 다음 기준을 따릅니다.</p>
+				</div>
+				<div class="guide-card__content">
+					<div class="list">
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">버튼의 배치는 [부정][긍정] 순서로 합니다.</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">버튼의 이름은 [액션안함][액션] 형태로 씁니다.</p>
+						</div>
+					</div>
+					<p class="authorship authorship--type2">* 이때 [액션안함]은 모두 붙여 씁니다.</p>
+
+					<div class="list">
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">‘부정’ 의미의 버튼에 한자 접두사 ‘미(未)-’, ‘비(非)-’, ‘불(不)-’, ‘부(否)-’를 붙여 쓰지 않습니다.</p>
+						</div>
+					</div>
+
+					<div class="guide-example">
+						<div class="guide-example-list">
+							<label class="label-ct--type6">예시</label>
+							<p class="mgl-none">
+								<span>신청안함, 동의안함, 포함안함<i class="ic ic-o--type2" aria-hidden="true"></i>
+								</span>
+								<span>비신청, 미동의, 미포함
+									<i class="ic ic-x--type2" aria-hidden="true"></i>
+								</span>
+							</p>
+						</div>
+					</div>
+
+					<div class="list">
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">긍정과 부정 버튼에 상응하는 어구를 나란히 적용할 때는 두 버튼에 일관된 표현을 사용합니다.</p>
+						</div>
+					</div>
+					<div class="guide-example">
+						<div class="guide-example-list">
+							<label class="label-ct--type6">예시</label>
+							<p class="mgl-none">
+								<span>[신청안함] [신청] / [등록안함] [등록]
+									<i class="ic ic-o--type2" aria-hidden="true"></i>
+								</span>
+								<span>[등록안함] [신청]<i class="ic ic-x--type2" aria-hidden="true"></i>
+								</span>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="guide-card__head">
+					<div class="divider" aria-hidden="true"></div>
+					<p class="guide-card__sub">설문 등 동일 레벨에서 단순 선택을 확인하기 위한 목적으로 여부 버튼을 사용할 경우 다음 기준을 따릅니다.</p>
+				</div>
+				<div class="guide-card__content">
+					<div class="list">
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">버튼의 배치는 [긍정][부정] 순서로 합니다.</p>
+						</div>
+						<div class="list__item">
+							<p class="text bullet bullet--type2 light">이때 버튼명은 상응하는 표현으로 짝을 맞춰 씁니다.</p>
+						</div>
+					</div>
+					<div class="guide-example">
+						<div class="guide-example-list">
+							<label class="label-ct--type6">예시</label>
+							<p class="mgl-none">
+								<span>[액션] [액션안함]
+									<i class="ic ic-o--type2" aria-hidden="true"></i>
+								</span>
+								<span>[예] [아니요]
+									<i class="ic ic-o--type2" aria-hidden="true"></i>
+								</span>
+								<span>[있음] [없음]
+									<i class="ic ic-o--type2" aria-hidden="true"></i>
+								</span>
+								<span>[받음] [받지않음]
+									<i class="ic ic-o--type2" aria-hidden="true"></i>
+								</span>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- 여기서 부터 복사해서 사용하세요 -->
+{% endblock %}
+{% block scripts %}{% endblock %}
