@@ -2,7 +2,7 @@
 {% extends '../templates/uxw_guide_layout.njk' %}
 {% block guide %}
 	<!-- 여기서 부터 복사해서 사용하세요 -->
-	<section class="guide-content" id="Mes">
+	<div class="guide-content">
 		<div class="guide-card-wrap">
 			<div class="guide-card">
 				<div class="guide-card__head">
@@ -22,7 +22,7 @@
 						<div class="list__item">
 							<p class="text bullet bullet--type2 light">
 								<span class="red bold">2줄 31글자 이내</span>로 씁니다. 내용에 따라 아래
-								<span class="bold mgl4 mgr4">보조 설명카피를 2줄까지</span>
+								<span class="red bold mgl4 mgr4">보조 설명카피를 2줄까지</span>
 								추가할 수 있습니다.
 							</p>
 						</div>
@@ -346,12 +346,13 @@
 				<div class="guide-card__content">
 					<div class="list">
 						<div class="list__item">
-							<p class="text bullet bullet--type2 light">정중한 ‘하십시오체’로 씁니다.
+							<p class="text bullet bullet--type2 light">정중한
+								<span class="bold mgl4">‘하십시오체’</span>로 씁니다.
 							</p>
 						</div>
 					</div>
 
-					<div class="guide-description">해지/탈퇴로 인한 불이익을 먼저 늘어놓지 않습니다.
+					<div class="guide-description bold">해지/탈퇴로 인한 불이익을 먼저 늘어놓지 않습니다.
 					</div>
 
 					<div class="list">
@@ -384,7 +385,7 @@
 			</div>
 		</div>
 
-	</section>
+	</div>
 	<!-- 여기서 부터 복사해서 사용하세요 -->
 {% endblock %}
 {% block scripts %}{% endblock %}

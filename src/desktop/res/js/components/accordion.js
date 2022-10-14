@@ -10,7 +10,6 @@ const NAME = 'ui.accordion';
 const ARIA_CONTROLS = 'aria-controls';
 const ARIA_PRESSED = 'aria-pressed';
 const ONLY_ONE = 'data-accordion-onlyone';
-const INDIVIDUAL = 'data-accordion-individual';
 
 const dataAttrConfig = {
   default: -1,
@@ -91,9 +90,7 @@ class Accordion extends UI {
   _defaultSettings() {
     const { onlyOne } = this._config;
     const _onlyone = this._element.getAttribute(`${ONLY_ONE}`);
-    const _individual = this._element.getAttribute(`${INDIVIDUAL}`);
     !_onlyone ? (this._options.single = onlyOne) : (this._options.single = _onlyone);
-    _individual ? (this._options.individual = true) : (this._options.individual = false);
   }
 
   _defaultActive() {
@@ -274,12 +271,19 @@ class Accordion extends UI {
     this._aria(closeTarget, false);
     if (animation) {
       this._animating = true;
+
       content.style.height = `${content.getBoundingClientRect().height}px`;
       content.heightCache = content.offsetHeight;
       content.style.height = ``;
       content.classList.add(stateClass.expanding);
       content.classList.remove(stateClass.expand);
       content.classList.remove(stateClass.expanded);
+
+      if (content.scrollHeight === 0) {
+        setTimeout(() => {
+          this._animating = false;
+        }, 100);
+      }
 
       EventHandler.one(content, 'transitionend', () => {
         content.classList.remove(stateClass.expanding);
@@ -294,11 +298,13 @@ class Accordion extends UI {
       content.classList.remove(stateClass.expanding);
       content.classList.add(stateClass.expand);
     }
+
     this._removeFocused();
     const items = header.closest('.accordion__item');
     items.classList.add(focusClass);
   }
 
+  //target === a tag
   _linkClosedAnimation() {
     const { activeClass, stateClass, focusClass, animation } = this._config;
     const possibleAnimation = isVisible(this._element);
@@ -325,6 +331,7 @@ class Accordion extends UI {
       return;
     } else {
       content.classList.remove(stateClass.expanding);
+      content.classList.remove(stateClass.expanded);
       content.classList.add(stateClass.expand);
     }
   }

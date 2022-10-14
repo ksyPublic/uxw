@@ -138,6 +138,13 @@
       &.is-active {
         display: block;
       }
+
+      .side__frame__section {
+        margin-top: 100px;
+        &:first-child {
+          margin-top: 0;
+        }
+      }
     }
   }
 

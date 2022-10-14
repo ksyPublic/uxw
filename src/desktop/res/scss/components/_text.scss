@@ -43,8 +43,7 @@
       align-items: center;
       font-size: 14px;
       font-weight: 500;
-      color: color(grey, 600);
-
+      color: var(--data-color);
       &:hover {
         text-decoration: underline;
       }
@@ -63,7 +62,7 @@
         width: 4px;
         height: 4px;
         border-radius: 50%;
-        background-color: color(grey, 600);
+        background-color: var(--data-color);
       }
 
       &.purple {

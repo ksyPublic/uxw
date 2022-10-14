@@ -1,242 +1,284 @@
 {% set title = '신한 UX라이팅 시스템 | 한자어' %}
 {% extends '../templates/uxw_guide_layout.njk' %}
 {% block guide %}
-  <!-- 여기서 부터 복사해서 사용하세요 -->
-  <section class="guide-content" id="Chinese">
-    <div class="guide-card-wrap">
-      <div class="guide-card">
-        <div class="guide-card__head">
-          <h3>한자어</h3>
-          <div class="divider" aria-hidden="true"></div>
-        </div>
-        <div class="guide-card__content">
-          <div class="list">
-            <div class="list__item">
-              <p class="text bullet bullet--type2 light">한자어만으로 문장이 구성되면 내용이 어렵고 딱딱하게 느껴집니다.</p>
-            </div>
-            <div class="list__item">
-              <p class="text bullet bullet--type2 light">특히 오래된 행정용어에는 한자어가 많고, 일본어에서 차용된 한자어도 흔합니다. 모든 연령층의 고객이 이해할 수 있는 쉬운 표현으로 개선합니다.</p>
-            </div>
-            <div class="list__item">
-              <p class="text bullet bullet--type2 light">대체할 우리말이 없거나 풀이가 길어질 경우 보편적으로 더 많이 쓰는 한자어를 사용합니다.</p>
-            </div>
-          </div>
-          <p class="authorship">* 단, 약관 등 법적 이슈가 있는 한자 용어는 그대로 유지합니다.</p>
-        </div>
-      </div>
-    </div>
+	<!-- 여기서 부터 복사해서 사용하세요 -->
+	<div class="guide">
+		<div class="guide-visual" aria-hidden="true"></div>
+		<div class="guide-head">
+			<h1>명확하게</h1>
+			<p>
+				금융용어, 내부용어는 누구나 이해할 수 있도록 쉽게 표현합니다.<br/>
+				어려운 한자어는 우리말이나 더 쉬운 한자어로 씁니다.<br/>
+				한자, 영어를 우리말 없이 단독으로 표기하지 않습니다.<br/>
+				의미가 분명하지 않은 줄임말과 지시대명사를 사용하지 않습니다.
+			</p>
+		</div>
 
-    <div class="table-row fixed">
-      <table class="table left">
-        <thead>
-          <tr>
-            <th>한자어</th>
-            <th class="blue">순화어</th>
-            <th>한자어</th>
-            <th class="blue">순화어</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>성명</td>
-            <td class="blue">이름</td>
-            <td>금주, 내주/차주</td>
-            <td class="blue">이번주, 다음주</td>
-          </tr>
-          <tr>
-            <td>자택</td>
-            <td class="blue">집</td>
-            <td>당월, 전월</td>
-            <td class="blue">이번달, 지난달</td>
-          </tr>
-          <tr>
-            <td>연령</td>
-            <td class="blue">나이</td>
-            <td>익일, 익월, 익년도</td>
-            <td class="blue">다음날, 다음달, 다음해</td>
-          </tr>
-          <tr>
-            <td>산출</td>
-            <td class="blue">계산</td>
-            <td>구좌</td>
-            <td class="blue">계좌</td>
-          </tr>
-          <tr>
-            <td>수취인</td>
-            <td class="blue">받는분</td>
-            <td>고지, 통보, 통지</td>
-            <td class="blue">안내, 알림</td>
-          </tr>
-          <tr>
-            <td>잔여</td>
-            <td class="blue">남은</td>
-            <td>내점, 내방</td>
-            <td class="blue">방문</td>
-          </tr>
-          <tr>
-            <td>상이하다</td>
-            <td class="blue">다르다</td>
-            <td>존재하다</td>
-            <td class="blue">있다</td>
-          </tr>
-          <tr>
-            <td>차기</td>
-            <td class="blue">다음</td>
-            <td>불입</td>
-            <td class="blue">납입, 납부</td>
-          </tr>
-          <tr>
-            <td>향후</td>
-            <td class="blue">앞으로</td>
-            <td>의거</td>
-            <td class="blue">~에 따라</td>
-          </tr>
-          <tr>
-            <td>숙지하다</td>
-            <td class="blue">충분히 이해하다</td>
-            <td>일괄</td>
-            <td class="blue">한 번에, 한꺼번에</td>
-          </tr>
-          <tr>
-            <td>인자</td>
-            <td class="blue">표기, 인쇄, 출력</td>
-            <td>용이하다</td>
-            <td class="blue">매우 쉽다</td>
-          </tr>
-          <tr>
-            <td>도래</td>
-            <td class="blue">되다, 이르다, 다가오다</td>
-            <td>송달</td>
-            <td class="blue">발송, 보냄</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+		<div class="guide-content">
+			<div class="guide-card-wrap">
+				<div class="guide-card">
+					<div class="guide-card__head">
+						<h3>한자어</h3>
+						<div class="divider" aria-hidden="true"></div>
+					</div>
+					<div class="guide-card__content">
+						<div class="list">
+							<div class="list__item">
+								<p class="text bullet bullet--type2 light">한자어만으로 문장이 구성되면 내용이 어렵고 딱딱하게 느껴집니다.</p>
+							</div>
+							<div class="list__item">
+								<p class="text bullet bullet--type2 light">특히 오래된 행정용어에는 한자어가 많고, 일본어에서 차용된 한자어도 흔합니다. 모든 연령층의 고객이 이해할 수 있는 쉬운 표현으로 개선합니다.</p>
+							</div>
+							<div class="list__item">
+								<p class="text bullet bullet--type2 light">대체할 우리말이 없거나 풀이가 길어질 경우 보편적으로 더 많이 쓰는 한자어를 사용합니다.</p>
+							</div>
+						</div>
+						<p class="authorship">* 단, 약관 등 법적 이슈가 있는 한자 용어는 그대로 유지합니다.</p>
+					</div>
+				</div>
+			</div>
 
-    <h2 class="guide-title">한자어 (문장예시)</h2>
+			<div class="table-row fixed">
+				<table class="table left">
+					<thead>
+						<tr>
+							<th>한자어</th>
+							<th class="blue">순화어</th>
+							<th>한자어</th>
+							<th class="blue">순화어</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>성명</td>
+							<td class="blue">이름</td>
+							<td>금주, 내주/차주</td>
+							<td class="blue">이번주, 다음주</td>
+						</tr>
+						<tr>
+							<td>자택</td>
+							<td class="blue">집</td>
+							<td>당월, 전월</td>
+							<td class="blue">이번달, 지난달</td>
+						</tr>
+						<tr>
+							<td>연령</td>
+							<td class="blue">나이</td>
+							<td>익일, 익월, 익년도</td>
+							<td class="blue">다음날, 다음달, 다음해</td>
+						</tr>
+						<tr>
+							<td>산출</td>
+							<td class="blue">계산</td>
+							<td>구좌</td>
+							<td class="blue">계좌</td>
+						</tr>
+						<tr>
+							<td>수취인</td>
+							<td class="blue">받는분</td>
+							<td>고지, 통보, 통지</td>
+							<td class="blue">안내, 알림</td>
+						</tr>
+						<tr>
+							<td>잔여</td>
+							<td class="blue">남은</td>
+							<td>내점, 내방</td>
+							<td class="blue">방문</td>
+						</tr>
+						<tr>
+							<td>상이하다</td>
+							<td class="blue">다르다</td>
+							<td>존재하다</td>
+							<td class="blue">있다</td>
+						</tr>
+						<tr>
+							<td>차기</td>
+							<td class="blue">다음</td>
+							<td>불입</td>
+							<td class="blue">납입, 납부</td>
+						</tr>
+						<tr>
+							<td>향후</td>
+							<td class="blue">앞으로</td>
+							<td>의거</td>
+							<td class="blue">~에 따라</td>
+						</tr>
+						<tr>
+							<td>숙지하다</td>
+							<td class="blue">충분히 이해하다</td>
+							<td>일괄</td>
+							<td class="blue">한 번에, 한꺼번에</td>
+						</tr>
+						<tr>
+							<td>인자</td>
+							<td class="blue">표기, 인쇄, 출력</td>
+							<td>용이하다</td>
+							<td class="blue">매우 쉽다</td>
+						</tr>
+						<tr>
+							<td>도래</td>
+							<td class="blue">되다, 이르다, 다가오다</td>
+							<td>송달</td>
+							<td class="blue">발송, 보냄</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 
-    <div class="table-row fixed">
-      <table class="table left">
-        <thead>
-          <tr>
-            <th>
-              <span>이렇게 쓰지 마세요<i class="ic ic-x--type2" aria-hidden="true"></i></span>
-            </th>
-            <th>
-              이렇게 쓰세요<i class="ic ic-o--type2" aria-hidden="true"></i>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <span class="red">자택</span>주소를 입력해주세요.
-            </td>
-            <td>
-              <span class="blue">집</span>주소를 입력해주세요.
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <span class="red">수취인</span> 계좌 입금 한도가 초과되었습니다.
-            </td>
-            <td>
-              <span class="blue">받는분</span> 계좌 입금 한도를 초과했습니다.
-            </td>
-          </tr>
-          <tr>
-            <td>
-              연락처가 <span class="red">상이한</span> 경우 진행이 <span class="red">불가합니다.</span>
-            </td>
-            <td>
-              휴대폰번호가 등록된 번호와 <span class="blue">다른</span> 경우 <span>이용할 수 없습니다.</span>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <span class="red">잔여</span>횟수를 확인해주세요.
-            </td>
-            <td>
-              <span class="blue">남은</span> 횟수를 확인해주세요.
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <span class="red">향후</span> 추가불입이 불가할 수 있습니다.
-            </td>
-            <td>
-              <span class="blue">앞으로</span> 추가납입이 안될 수 있습니다.
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <span class="red">당월</span> 결제금액을 확인하시기 바랍니다.
-            </td>
-            <td>
-              <span class="blue">이번달</span> 결제금액을 확인해주세요.
-            </td>
-          </tr>
-          <tr>
-            <td>
-              한도를 초과한 경우에는 <span class="red">익일</span> 출금처리 됩니다.
-            </td>
-            <td>
-              한도를 초과한 경우에는 <span class="blue">다음달</span> 출금됩니다.
-            </td>
-          </tr>
-          <tr>
-            <td>
-              이메일로 <span class="red">통지</span>해 드립니다.
-            </td>
-            <td>
-              이메일로 <span class="blue">안내</span>해 드립니다.
-            </td>
-          </tr>
-          <tr>
-            <td>
-              영업점 <span class="red">내방</span> 후 상담하시기 바랍니다.
-            </td>
-            <td>
-              영업점에 <span class="blue">방문</span>해 상담해주세요.
-            </td>
-          </tr>
-          <tr>
-            <td>
-              이미 대출신청 진행 중인 건이 <span class="red">존재합니다.</span>
-            </td>
-            <td>
-              이미 대출신청 진행 중인 건이 <span class="blue">있습니다.</span>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              다음달 첫 영업일에 편도로 <span class="red">일괄</span> 투자됩니다.
-            </td>
-            <td>
-              다음달 첫날(영업일 기준)편도로 <span class="blue">한꺼번에</span> 투자됩니다.
-            </td>
-          </tr>
-          <tr>
-            <td>
-              사용<span class="red">가능</span>한 포인트가 없습니다.
-            </td>
-            <td>
-              사용<span class="blue">할 수 있는</span> 포인트가 없습니다.
-            </td>
-          </tr>
-          <tr>
-            <td>
-              만기<span class="red">경과</span>
-            </td>
-            <td>
-              만기<span class="blue">지남</span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-  <!-- //여기서 부터 복사해서 사용하세요 -->
+			<h2 class="guide-title">한자어 (문장예시)</h2>
+
+			<div class="table-row fixed">
+				<table class="table left">
+					<thead>
+						<tr>
+							<th>
+								<span>이렇게 쓰지 마세요<i class="ic ic-x--type2" aria-hidden="true"></i>
+								</span>
+							</th>
+							<th>
+								이렇게 쓰세요<i class="ic ic-o--type2" aria-hidden="true"></i>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<span class="red">자택</span>주소를 입력해주세요.
+							</td>
+							<td>
+								<span class="blue">집</span>주소를 입력해주세요.
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="red">수취인</span>
+								계좌 입금 한도가 초과되었습니다.
+							</td>
+							<td>
+								<span class="blue">받는분</span>
+								계좌 입금 한도를 초과했습니다.
+							</td>
+						</tr>
+						<tr>
+							<td>
+								연락처가
+								<span class="red">상이한</span>
+								경우 진행이
+								<span class="red">불가합니다.</span>
+							</td>
+							<td>
+								휴대폰번호가 등록된 번호와
+								<span class="blue">다른</span>
+								경우
+								<span>이용할 수 없습니다.</span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="red">잔여</span>횟수를 확인해주세요.
+							</td>
+							<td>
+								<span class="blue">남은</span>
+								횟수를 확인해주세요.
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="red">향후</span>
+								추가불입이 불가할 수 있습니다.
+							</td>
+							<td>
+								<span class="blue">앞으로</span>
+								추가납입이 안될 수 있습니다.
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="red">당월</span>
+								결제금액을 확인하시기 바랍니다.
+							</td>
+							<td>
+								<span class="blue">이번달</span>
+								결제금액을 확인해주세요.
+							</td>
+						</tr>
+						<tr>
+							<td>
+								한도를 초과한 경우에는
+								<span class="red">익일</span>
+								출금처리 됩니다.
+							</td>
+							<td>
+								한도를 초과한 경우에는
+								<span class="blue">다음달</span>
+								출금됩니다.
+							</td>
+						</tr>
+						<tr>
+							<td>
+								이메일로
+								<span class="red">통지</span>해 드립니다.
+							</td>
+							<td>
+								이메일로
+								<span class="blue">안내</span>해 드립니다.
+							</td>
+						</tr>
+						<tr>
+							<td>
+								영업점
+								<span class="red">내방</span>
+								후 상담하시기 바랍니다.
+							</td>
+							<td>
+								영업점에
+								<span class="blue">방문</span>해 상담해주세요.
+							</td>
+						</tr>
+						<tr>
+							<td>
+								이미 대출신청 진행 중인 건이
+								<span class="red">존재합니다.</span>
+							</td>
+							<td>
+								이미 대출신청 진행 중인 건이
+								<span class="blue">있습니다.</span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								다음달 첫 영업일에 편도로
+								<span class="red">일괄</span>
+								투자됩니다.
+							</td>
+							<td>
+								다음달 첫날(영업일 기준)편도로
+								<span class="blue">한꺼번에</span>
+								투자됩니다.
+							</td>
+						</tr>
+						<tr>
+							<td>
+								사용<span class="red">가능</span>한 포인트가 없습니다.
+							</td>
+							<td>
+								사용<span class="blue">할 수 있는</span>
+								포인트가 없습니다.
+							</td>
+						</tr>
+						<tr>
+							<td>
+								만기<span class="red">경과</span>
+							</td>
+							<td>
+								만기<span class="blue">지남</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<!-- //여기서 부터 복사해서 사용하세요 -->
 {% endblock %}
-{% block scripts %}
-{% endblock %}
+{% block scripts %}{% endblock %}

@@ -2,7 +2,7 @@
 {% extends '../templates/uxw_guide_layout.njk' %}
 {% block guide %}
 	<!-- 여기서 부터 복사해서 사용하세요 -->
-	<section class="guide-content" id="Loan_Term">
+	<div class="guide-content">
 		<div class="guide-card-wrap">
 			<div class="guide-card">
 				<div class="guide-card__head">
@@ -121,6 +121,10 @@
 				</tbody>
 			</table>
 		</div>
+
+		<p class="authorship authorship--type4">
+			’대출실행’ 단독 용어인 경우만 해당. 대출실행과 다른 용어가 합쳐진 경우 ‘대출실행’ 유지 예) 대출실행일, 대출실행 가능시간 (O) / 대출금 받는날, 대출금받기 가능시간 (X)
+		</p>
 
 		<h2 class="guide-title">대출 용어(문장예시)</h2>
 
@@ -264,11 +268,8 @@
 			</table>
 		</div>
 
-		<p class="authorship authorship--type4">
-			’대출실행’ 단독 용어인 경우만 해당. 대출실행과 다른 용어가 합쳐진 경우 ‘대출실행’ 유지 예) 대출실행일, 대출실행 가능시간 (O) / 대출금 받는날, 대출금받기 가능시간 (X)
-		</p>
 
-	</section>
+	</div>
 	<!-- //여기서 부터 복사해서 사용하세요 -->
 {% endblock %}
 {% block scripts %}{% endblock %}

@@ -29,6 +29,7 @@ const getObjectElements = elements => {
   return arr;
 };
 
+//페이지 내부 스크롤 필요한 페이지에 자동적으로 body class 적용
 const autoScrollContent = () => {
   const lyContainer = document.querySelector('.ly-container');
   const tabs = lyContainer?.querySelectorAll('.tab');
@@ -51,6 +52,7 @@ const autoScrollContent = () => {
   }
 };
 
+//아코디언 카드 초기화 버튼 클릭시
 const cardRefresh = () => {
   const card = 'data-card';
   const ARIA_PRESSED = 'aria-pressed';
@@ -79,6 +81,7 @@ const cardRefresh = () => {
   };
 };
 
+//네비게이션
 const navigation = (UI, options) => {
   const ARIA_EXPANDED = 'aria-expanded';
   const ARIA_CONTROLS = 'aria-controls';
@@ -151,7 +154,6 @@ const navigation = (UI, options) => {
         config.target[config.active].classList.add('is-active');
         modals[0].classList.add('is-active2');
         modals[0].setAttribute(`${LAYER_OPEND}`, 'true');
-        // createHtml.classList.add('fadeIn');
         document.body.appendChild(createHtml);
         _aria();
       }
@@ -173,6 +175,7 @@ const navigation = (UI, options) => {
   _init();
 };
 
+//레이어 모달
 const modalLayer = UI => {
   let dimmer = false;
   const elements = document.querySelectorAll(UI);
@@ -271,7 +274,6 @@ const modalLayer = UI => {
       if (modal === layerModal) {
         _zIndexOrderIncrease(layerModal);
       } else {
-        // modal.classList.add('is-deactive');
         modal.classList.remove('is-active');
         modal.setAttribute(`${LAYER_OPEND}`, 'false');
         EventHandler.one(modal, 'animationend', () => {
@@ -282,7 +284,6 @@ const modalLayer = UI => {
     });
 
     if (layerModal.getAttribute(`${LAYER_OPEND}`) === 'false') {
-      // createHtml.classList.add('fadeIn');
       if (!dimmer) {
         document.body.appendChild(createHtml);
         dimmer = true;
@@ -299,17 +300,11 @@ const modalLayer = UI => {
   const _hide = target => {
     const modal = target.closest('.modal');
     if (modal.getAttribute(`${LAYER_OPEND}`) === 'true') {
-      // createHtml.classList.remove('fadeOut');
       document.body.removeChild(createHtml);
       modal.classList.remove('is-active2');
       modal.classList.remove('is-active');
       modal.setAttribute(`${LAYER_OPEND}`, 'false');
       dimmer = false;
-
-      // EventHandler.one(modal, 'animationend', () => {
-      //   modal.classList.remove('is-active2');
-      //   modal.classList.remove('is-deactive2');
-      // });
     }
     _allClose();
   };
@@ -373,6 +368,23 @@ const modalScrollContent = () => {
 };
 /* //모달에 스크롤이 있을경우 */
 
+//네비 클릭시 achor발생 스크롤이 멈추는 시점에 적용
+const scrollStop = (callback, refresh = 300) => {
+  if (!callback || typeof callback !== 'function') return;
+
+  let isScrolling;
+
+  function stop() {
+    window.clearTimeout(isScrolling);
+    isScrolling = setTimeout(callback, refresh);
+  }
+  Object.keys(modalInnerScroll).forEach(index => {
+    modalInnerScroll[index].removeListener(stop);
+    modalInnerScroll[index].addListener(stop);
+  });
+};
+
+//스크롤 앵커 기능
 const achorScroll = () => {
   const DATA_TOGGLE = 'data-toggle-section';
   const ARIA_PRESSED = 'aria-pressed';
@@ -387,6 +399,7 @@ const achorScroll = () => {
 
   const sectionShow = function (event) {
     event.preventDefault();
+
     const target = event.target;
     const sector = target.getAttribute(DATA_TOGGLE);
     const childTarget = target.closest('.accordion__item').querySelectorAll('.accordion__panel a');
@@ -410,6 +423,9 @@ const achorScroll = () => {
 
     if (target) {
       removeNavi(childTarget);
+      const getSector = document.querySelector(sector);
+      getSector.classList.add('is-active');
+
       Object.keys(modalInnerScroll).forEach(index => {
         setTimeout(function () {
           modalInnerScroll[index].scrollIntoView(_toHref);
@@ -417,11 +433,14 @@ const achorScroll = () => {
 
         if (target.getAttribute(ARIA_PRESSED) || target.tagName === 'BUTTON') {
           modalInnerScroll[index].scrollTo(0, 0);
+        } else {
+          modalInnerScroll[index].removeListener(achorChanged);
         }
-      });
 
-      const getSector = document.querySelector(sector);
-      getSector.classList.add('is-active');
+        scrollStop(function () {
+          modalInnerScroll[index].addListener(achorChanged);
+        });
+      });
     }
   };
 
@@ -439,37 +458,49 @@ const achorScroll = () => {
   };
 };
 
+//앵커가 변경될때 초기화
+const achorChanged = function (status) {
+  const offset = status.offset;
+  achorScrollActiveNavi(offset, this.containerEl);
+};
+
+//앵커 클릭시 스크롤
+const achorScrollActiveNavi = function (status, el) {
+  const section = el.querySelectorAll('section');
+
+  section.forEach(sec => {
+    let top = status.y;
+    let offset = sec.offsetTop;
+    let height = sec.offsetHeight;
+    let id = sec.getAttribute('id');
+    let mg = 500;
+    const target = document.querySelector(`[href='#${id}']`);
+
+    if (top >= offset - mg && top < offset + height) {
+      achorScrollDeactiveNavi(section);
+      if (!target) return;
+      target.classList.add('is-active');
+    }
+  });
+};
+
+//앵커 클릭시 전체 초기화
+const achorScrollDeactiveNavi = function (section) {
+  section.forEach(item => {
+    const _id = item.id;
+    const _targetAll = document.querySelectorAll(`[href='#${_id}']`);
+    if (!_targetAll[0]) {
+      return;
+    }
+    _targetAll[0].classList.remove('is-active');
+  });
+};
+
+//기본 스크롤적용
 const defaultScroll = () => {
   const tabScrollEl = document.querySelectorAll('.tab--scroll .tab__inner');
   const arr = [];
 
-  const achorScrollDeactiveNavi = function (section) {
-    section.forEach(item => {
-      const _id = item.id;
-      const _targetAll = document.querySelectorAll(`[href='#${_id}']`);
-      if (!_targetAll[0]) {
-        return;
-      }
-      _targetAll[0].classList.remove('is-active');
-    });
-  };
-
-  const achorScrollActiveNavi = function (status, el) {
-    const section = el.querySelectorAll('section');
-
-    section.forEach(sec => {
-      let top = status.y;
-      let offset = sec.offsetTop;
-      let height = sec.offsetHeight;
-      let id = sec.getAttribute('id');
-
-      if (top >= offset && top < offset + height) {
-        achorScrollDeactiveNavi(section);
-        const target = document.querySelector(`[href='#${id}']`);
-        target ? target.classList.add('is-active') : false;
-      }
-    });
-  };
   [].map.call(tabScrollEl, item => {
     if (!item.closest('.modal--layer__bescroll')) {
       const tabInnerScroll = Scrollbar.init(item, {
@@ -486,10 +517,9 @@ const defaultScroll = () => {
 
       const getAcc = modalInnerScroll.containerEl.querySelector('.accordion--type3');
 
+      //
       modalInnerScroll.addListener(status => {
         const offset = status.offset;
-        achorScrollActiveNavi(offset, modalInnerScroll.containerEl);
-
         if (offset.y > 112) {
           getAcc.classList.add('is-fixed');
           getAcc.style.top = offset.y + 'px';
@@ -498,6 +528,8 @@ const defaultScroll = () => {
           getAcc.style.top = 0 + 'px';
         }
       });
+
+      modalInnerScroll.addListener(achorChanged);
     }
   });
 
